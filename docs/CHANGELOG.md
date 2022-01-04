@@ -12,6 +12,7 @@
 ### 11.3.0 Features
 
 - `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
+- `[Linechart]` Updated example page for linechart to render with empty data. ([#1172](https://github.com/infor-design/enterprise-ng/issues/1172))
 
 ## v10.11.4
 
