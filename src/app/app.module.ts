@@ -61,6 +61,7 @@ import { CodeBlockComponent } from './code-block/code-block.component';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
+import { ContextMenuNestedDemoComponent } from './context-menu/context-menu-nested.demo';
 import { ContextMenuSharedDemoComponent } from './context-menu/context-menu-shared.demo';
 import { ContextMenuToggleDemoComponent } from './context-menu/context-menu-toggle.demo';
 import { ContextMenuLazyLoadDemoComponent } from './context-menu/context-menu-lazy-load.demo';
@@ -324,6 +325,7 @@ import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
         CodeBlockEditorComponent,
         CompletionChartDemoComponent,
         ContextMenuDemoComponent,
+        ContextMenuNestedDemoComponent,
         ContextMenuSharedDemoComponent,
         ContextMenuToggleDemoComponent,
         ContextMenuLazyLoadDemoComponent,
