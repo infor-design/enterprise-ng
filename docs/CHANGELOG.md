@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.12.0
+
+### 10.11.0 Fixes
+
+- `[General]` Added 4.59.0 for users that want to stay on NG 12.
+
 ## v10.11.4
 
 ### 10.11.4 Fixes
