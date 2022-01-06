@@ -32,7 +32,7 @@ jobs:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: 1007
+        key: 1008
 
     - name: Clean
       run: rm -rf node_modules
