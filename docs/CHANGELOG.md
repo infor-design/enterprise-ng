@@ -20,6 +20,12 @@
 - `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
 - `[Linechart]` Updated example page for linechart to render with empty data. ([#1172](https://github.com/infor-design/enterprise-ng/issues/1172))
 
+## v10.12.0
+
+### 10.12.0 Fixes
+
+- `[General]` Added 4.59.0 for users that want to stay on NG 12.
+
 ## v10.11.4
 
 ### 10.11.4 Fixes

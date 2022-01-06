@@ -82,7 +82,7 @@ module.exports = function (config) {
     },
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
     autoWatch: true,
     browsers: ['ChromeHeadlessNoSandbox'],
     captureTimeout: 21000,
