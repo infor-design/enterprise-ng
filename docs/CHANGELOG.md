@@ -2,7 +2,7 @@
 
 ## v10.12.0
 
-### 10.11.0 Fixes
+### 10.12.0 Fixes
 
 - `[General]` Added 4.59.0 for users that want to stay on NG 12.
 
