@@ -6,16 +6,16 @@
 
 - `[General]` Placeholder for next version. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
 
-## v13.0.0
+## v13.0.1
 
-### 13.0.0 Fixes
+### 13.0.1 Fixes
 
 - `[General]` Updated to NG 13. Changed the linters and made small lint fixes. See the `UPGRADING.md` guide for details. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
 - `[Datagrid]` Added missing maskOption function options to the types. ([#1175](https://github.com/infor-design/enterprise-ng/issues/1175))
 - `[Notification]` Update Method Names for better readability. ([#1201](https://github.com/infor-design/enterprise/issues/1201))
 - `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
 
-### 13.0.0 Features
+### 13.0.1 Features
 
 - `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
 - `[Linechart]` Updated example page for linechart to render with empty data. ([#1172](https://github.com/infor-design/enterprise-ng/issues/1172))
