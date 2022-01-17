@@ -22,7 +22,7 @@ export class DataGridVerticalScrollDemoComponent {
   constructor(private toastService: SohoToastService) {}
 
   onVerticalScroll(_args: any) {
-    if (_args.percent  >= 95 && _args.percent < 100) {
+    if (_args.percent  >= 90 && _args.percent < 100) {
       console.log( `${_args.percent}% scrolled, Almost there!`);
     } else if (_args.percent < 100) {
       console.log( `${_args.percent}% scrolled`);
