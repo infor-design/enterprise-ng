@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SohoDataGridComponent, SohoToastService } from 'ids-enterprise-ng';
 import { CODE_BLOCK_DATA } from '../demodata/code-block-data';
 
 @Component({
@@ -7,22 +8,26 @@ import { CODE_BLOCK_DATA } from '../demodata/code-block-data';
     styleUrls: ['../code-block/code-block.formatter.css']
 })
 export class DataGridVerticalScrollDemoComponent {
-public columns: SohoDataGridColumn[] = [
+  @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;
+
+  private position: SohoToastPosition = SohoToastService.TOP_RIGHT;
+
+  public columns: SohoDataGridColumn[] = [
     { id: 'companyId', name: 'Company', field: 'companyId', width: 200},
     { id: 'companyName', name: 'Name', field: 'companyName', width: 200}
   ];
 
   public data = CODE_BLOCK_DATA;
 
-  constructor() {}
+  constructor(private toastService: SohoToastService) {}
 
   onVerticalScroll(_args: any) {
-    if (_args.percent  >= 90 && _args.percent < 100) {
+    if (_args.percent  >= 95 && _args.percent < 100) {
       console.log( `${_args.percent}% scrolled, Almost there!`);
-    } else if (_args.percent === 100){
-      console.log( `${_args.percent}% scrolled. Hooray! You reached the bottom of the list!`);
-    } else {
+    } else if (_args.percent < 100) {
       console.log( `${_args.percent}% scrolled`);
+    } else if (this.datagrid && this.datagrid.isVerticalScrollToEnd) {
+      this.toastService.show({ title: 'Vertical Scroll End', message: 'Hooray! You reached the bottom of the list!' });
     }
   }
 

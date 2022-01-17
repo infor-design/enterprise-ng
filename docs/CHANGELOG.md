@@ -2,6 +2,10 @@
 
 ## v13.1.0
 
+### 13.1.0 Features
+
+- `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
+
 ### 13.1.0 Fixes
 
 - `[General]` Placeholder for next version. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
