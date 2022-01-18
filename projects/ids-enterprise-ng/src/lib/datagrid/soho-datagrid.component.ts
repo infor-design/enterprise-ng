@@ -267,6 +267,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.cellNavigation;
   }
 
+  get isVerticalScrollToEnd(): boolean | undefined {
+    if (this.datagrid) {
+      return (this.datagrid as any).isVerticalScrollToEnd;
+    }
+
+    return false;
+  }
+
   /**
    * Changes the row navigation setting of the data grid. If rowNavigation
    * is "false” then a border is not displayed around the row.
