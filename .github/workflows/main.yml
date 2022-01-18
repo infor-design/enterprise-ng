@@ -26,12 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: ReBuild
-      run: npm rebuild
-
-    - name: webdriver
-      run: npm run webdriver:update
-
     - name: Cache multiple paths
       uses: actions/cache@v2
       with:
@@ -42,6 +36,12 @@ jobs:
 
     - name: Install Dependencies
       run: npm i --force
+
+    - name: ReBuild
+      run: npm rebuild
+
+    - name: webdriver
+      run: npm run webdriver:update
 
     - name: Build
       run: npm run build
