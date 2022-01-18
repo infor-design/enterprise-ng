@@ -6,7 +6,7 @@
 
 - `[General]` Placeholder for next version. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
 
-### 13.0.0 Features
+### 13.1.0 Features
 
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 
