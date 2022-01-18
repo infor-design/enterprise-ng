@@ -32,16 +32,13 @@ jobs:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: 1010
+        key: 1011
 
     - name: Install Dependencies
       run: npm i --force
 
     - name: ReBuild
       run: npm rebuild
-
-    - name: webdriver
-      run: npm run webdriver:update
 
     - name: Build
       run: npm run build

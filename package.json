@@ -26,7 +26,6 @@
     "e2e:cy-debug": "npx cypress open --browser chrome",
     "update-enterprise": "node ./scripts/update-ids-enterprise.js",
     "version-bump:dev": "node ./scripts/version-append-date",
-    "webdriver:update": "npx webdriver-manager update --standalone false --quiet --gecko=false",
     "release:dev": "npm run update-enterprise && npm run version-bump:dev && node scripts/release-dev.js && npm run release:typings",
     "release:alpha": "cd projects/ids-enterprise-ng && release-it minor --preRelease=alpha --no-github.release && cd ../../ && npm run release:typings",
     "release:beta": "cd projects/ids-enterprise-ng && release-it minor --preRelease=beta --no-github.release && cd ../../ && npm run release:typings",
