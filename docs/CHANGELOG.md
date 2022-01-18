@@ -6,6 +6,12 @@
 
 - `[General]` Placeholder for next version. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
 
+## v13.0.2
+
+### 13.0.2 Fixes
+
+- `[General]` Added 4.59.1 with fixes for disabled inputs on tabs.
+
 ## v13.0.1
 
 ### 13.0.1 Fixes
