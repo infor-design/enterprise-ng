@@ -2,10 +2,6 @@
 
 ## v13.1.0
 
-### 13.1.0 Fixes
-
-- `[General]` Placeholder for next version. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
-
 ### 13.1.0 Features
 
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
