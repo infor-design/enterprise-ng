@@ -5,9 +5,6 @@
 ### 13.1.0 Features
 
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
-
-### 13.1.0 Fixes
-
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 
 ## v13.0.0
