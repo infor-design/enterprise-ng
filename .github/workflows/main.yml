@@ -26,16 +26,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Clean
-      run: rm -rf node_modules
-
     - name: Cache multiple paths
       uses: actions/cache@v2
       with:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: 1009
+        key: 1010
 
     - name: Install Dependencies
       run: npm i --force
