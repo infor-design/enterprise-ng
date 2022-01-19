@@ -12,7 +12,9 @@ import {
   Optional,
   AfterViewChecked,
   ChangeDetectionStrategy,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  SimpleChange,
+  OnChanges
 } from '@angular/core';
 
 import {
@@ -28,7 +30,7 @@ import {
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
+export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, OnDestroy, OnChanges {
   /**
    * Used to provide unnamed controls with a unique id.
    */
@@ -492,12 +494,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // extract the api
       this.dropdown = this.jQueryElement.data('dropdown');
 
-      if (this.readonly) {
-        this.dropdown?.readonly();
-      } else {
-        this.dropdown?.enable();
-      }
-
       // @todo - add event binding control so we don't bind if not required.
       this.jQueryElement
         .on('change', (event: JQuery.TriggeredEvent) => this.onChanged(event))
@@ -520,6 +516,18 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         setTimeout(() => this.updated());
         this.runUpdatedOnCheck = false;
       });
+    }
+  }
+
+  ngOnChanges(changes: any) {
+    if (changes['readonly']) {
+      this.ngZone.runOutsideAngular(() => {
+        if (this.readonly) {
+          this.dropdown?.readonly();
+        } else {
+          this.dropdown?.enable();
+        }
+      })
     }
   }
 
