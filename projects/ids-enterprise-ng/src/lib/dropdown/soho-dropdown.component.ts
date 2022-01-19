@@ -448,6 +448,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     return this.options.multiple;
   }
 
+  @HostBinding('attr.readonly') @Input()
+  readonly: boolean | undefined;
+
   /**
    * Creates an instance of SohoDropDownComponent.
    *
@@ -488,6 +491,12 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
       // extract the api
       this.dropdown = this.jQueryElement.data('dropdown');
+
+      if (this.readonly) {
+        this.dropdown?.readonly();
+      } else {
+        this.dropdown?.enable();
+      }
 
       // @todo - add event binding control so we don't bind if not required.
       this.jQueryElement
@@ -625,16 +634,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     if (this.dropdown) {
       if (value) {
         this.ngZone.runOutsideAngular(() => this.dropdown?.disable());
-      } else {
-        this.ngZone.runOutsideAngular(() => this.dropdown?.enable());
-      }
-    }
-  }
-
-  @Input() set readonly(value: boolean) {
-    if (this.dropdown) {
-      if (value) {
-        this.ngZone.runOutsideAngular(() => this.dropdown?.readonly());
       } else {
         this.ngZone.runOutsideAngular(() => this.dropdown?.enable());
       }
