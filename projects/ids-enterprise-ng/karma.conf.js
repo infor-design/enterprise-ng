@@ -26,12 +26,6 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     mochaReporter: {
-      colors: {
-        success: 'white',
-        info: 'orange',
-        warning: 'cyan',
-        error: 'bgRed',
-      },
       output: 'autowatch',
     },
     files: [
@@ -73,22 +67,19 @@ module.exports = function (config) {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
         flags: [
-          '--disable-setuid-sandbox',
-          '--no-sandbox', // required to run without privileges in docker
-          '--no-proxy-server',
-          '--enable-logging'
+          '--no-sandbox',
+          '--headless'
         ]
       }
     },
     port: 9876,
-    colors: true,
     logLevel: config.LOG_DEBUG,
     autoWatch: true,
     browsers: ['ChromeHeadlessNoSandbox'],
-    captureTimeout: 21000,
-    browserDisconnectTolerance: 10, //this one helps
-    browserDisconnectTimeout : 21000,
-    browserNoActivityTimeout : 21000,
+    captureTimeout: 23000,
+    browserDisconnectTolerance: 12, //this one helps
+    browserDisconnectTimeout : 23000,
+    browserNoActivityTimeout : 23000,
     singleRun: true,
     restartOnFileChange: true
   });
