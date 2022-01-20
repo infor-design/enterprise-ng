@@ -14,7 +14,7 @@ import {
 })
 export class SohoNotificationBadgeComponent implements OnInit {
   private jQueryElement!: JQuery;
-  private notificationBadge?: SohoNotificationBadge;
+  private notificationBadge?: SohoNotificationBadge | null;
   private options?: SohoNotificationBadgeOptions = {};
 
   constructor(
@@ -34,20 +34,6 @@ export class SohoNotificationBadgeComponent implements OnInit {
     }
 
     return (this.options as any).position;
-  }
-
-  @Input() set icon(icon: string | undefined) {
-    (this.options as any).icon = icon;
-    if (this.notificationBadge) {
-      this.notificationBadge.settings.icon = icon;
-    }
-  }
-  get icon(): string | undefined {
-    if (this.notificationBadge) {
-      return this.notificationBadge.settings.icon;
-    }
-
-    return (this.options as any).icon;
   }
 
   @Input() set color(color: string | undefined) {
@@ -81,17 +67,20 @@ export class SohoNotificationBadgeComponent implements OnInit {
   /**
    * Show the NotificationBadge
    */
-  show() {
-    this.ngZone.runOutsideAngular(() => this.notificationBadge?.show());
+  show(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement.find('.notification-dot').removeClass('is-disabled');
+    });
   }
 
   /**
    * Hide the NotificationBadge
    */
-  hide() {
-    this.ngZone.runOutsideAngular(() => this.notificationBadge?.hide());
+  hide(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement.find('.notification-dot').addClass('is-disabled');
+    });
   }
-
 
   ngOnInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -99,14 +88,12 @@ export class SohoNotificationBadgeComponent implements OnInit {
 
       const options: SohoNotificationBadgeOptions = {
         position: this.position,
-        icon: this.icon,
         color: this.color,
         attributes: this.attributes
       };
 
       // Initialize the notification badge component.
       this.jQueryElement.notificationbadge(options);
-
     });
   }
 }

@@ -1,5 +1,14 @@
 # What's New with Enterprise-NG
 
+## v10.12.1
+
+### 10.12.1 Fixes
+
+- `[Datagrid]` Added missing maskOption function options to the types. ([#1175](https://github.com/infor-design/enterprise-ng/issues/1175))
+- `[General]` Added 4.59.2 with two patches for toolbar and calendar.
+- `[Notification]` Update Method Names for better readability. ([#1201](https://github.com/infor-design/enterprise/issues/1201))
+- `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
+
 ## v10.12.0
 
 ### 10.12.0 Fixes
