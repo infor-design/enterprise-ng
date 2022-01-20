@@ -7,6 +7,12 @@
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 
+## v13.0.3
+
+### 13.0.3 Fixes
+
+- `[General]` Added 4.59.2 with fixes for toolbar and calendar in homepages.
+
 ## v13.0.2
 
 ### 13.0.2 Fixes
