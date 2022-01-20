@@ -59,6 +59,10 @@ are copied into src/app/icon.
 
 1. Create a PR to be merged or, if releasing, go ahead and commit/push to the version branch.
 
+### Notes
+
+- For 10.13 i was on PR#1213: Chore: Update some dependencies for tests
+
 ### Release
 
 1. Make sure you ran `npm run update-enterprise` to update the version if it needs it (see previous section).
