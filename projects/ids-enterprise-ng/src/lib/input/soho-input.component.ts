@@ -50,6 +50,12 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   isDisabled: boolean | undefined = undefined;
 
   /**
+   * Clearable attribute. Adds a clear icon in input if true.
+   */
+  @HostBinding('attr.data-clearable') @Input()
+  clearable: boolean | undefined = false;
+
+  /**
    * Local variables
    */
   private jQueryElement?: JQuery;
@@ -82,6 +88,10 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
       .on('change', (_e: any, args: any[]) => this.onChange(args));
 
     // There is no SoHoXi control initializer for input
+
+    if (this.clearable) {
+      (this.jQueryElement as any).clearable();
+    }
 
     // Make sure the value of the control is set appropriately.
     if (this.internalValue) {

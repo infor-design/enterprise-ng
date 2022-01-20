@@ -61,6 +61,7 @@ are copied into src/app/icon.
 
 ### Release
 
+1. Left off on `Chore: Update some dependencies for tests #1213`
 1. Make sure you ran `npm run update-enterprise` to update the version if it needs it (see previous section).
 1. Check if the angular dependencies need a minor update to latest. This is done by:
     - `ng update @angular/cli @angular/core`

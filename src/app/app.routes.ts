@@ -216,6 +216,7 @@ import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-e
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo';
 import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
+import { InputClearableDemoComponent } from './input/input-clearable.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -349,6 +350,7 @@ export const routes: Routes = [
   { path: 'homepage-scenario-c', component: HomePageScenarioCDemoComponent },
   { path: 'hyperlink', component: HyperlinkDemoComponent },
   { path: 'icon', component: IconDemoComponent },
+  { path: 'input-clearable', component: InputClearableDemoComponent },
   { path: 'label', component: LabelDemoComponent },
   { path: 'line', component: LineDemoComponent },
   { path: 'listview', component: ListViewDemoComponent },

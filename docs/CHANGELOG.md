@@ -1,5 +1,10 @@
 # What's New with Enterprise-NG
 
+### 10.13.0 Features
+
+- `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
+- `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
+
 ## v10.12.1
 
 ### 10.12.1 Fixes
