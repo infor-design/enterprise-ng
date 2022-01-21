@@ -5,10 +5,15 @@
 ### 13.1.0 Features
 
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise-ng/issues/1208))
+- `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
+- `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 
-### 13.1.0 Fixes
+## v13.0.3
 
 - `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
+### 13.0.3 Fixes
+
+- `[General]` Added 4.59.2 with fixes for toolbar and calendar in homepages.
 
 ## v13.0.2
 
@@ -29,6 +34,15 @@
 
 - `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
 - `[Linechart]` Updated example page for linechart to render with empty data. ([#1172](https://github.com/infor-design/enterprise-ng/issues/1172))
+
+## v10.12.1
+
+### 10.12.1 Fixes
+
+- `[Datagrid]` Added missing maskOption function options to the types. ([#1175](https://github.com/infor-design/enterprise-ng/issues/1175))
+- `[General]` Added 4.59.2 with two patches for toolbar and calendar.
+- `[Notification]` Update Method Names for better readability. ([#1201](https://github.com/infor-design/enterprise/issues/1201))
+- `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
 
 ## v10.12.0
 
