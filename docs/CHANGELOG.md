@@ -2,15 +2,17 @@
 
 ## v13.1.0
 
+### 13.1.0 Fixes
+
+- `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
+
 ### 13.1.0 Features
 
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise-ng/issues/1208))
-- `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 
 ## v13.0.3
 
-- `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
 ### 13.0.3 Fixes
 
 - `[General]` Added 4.59.2 with fixes for toolbar and calendar in homepages.
