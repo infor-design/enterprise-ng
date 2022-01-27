@@ -5,6 +5,7 @@
 /// <reference path="lib/soho.d.ts" />
 /// <reference path='lib/about/soho-about.d.ts' />
 /// <reference path='lib/accordion/soho-accordion.d.ts' />
+/// <reference path='lib/actionsheet/soho-actionsheet.d.ts' />
 /// <reference path='lib/alert/soho-alert.d.ts' />
 /// <reference path='lib/application-menu/soho-application-menu.d.ts' />
 /// <reference path='lib/autocomplete/soho-autocomplete.d.ts' />
