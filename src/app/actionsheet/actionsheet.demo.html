@@ -8,7 +8,15 @@
 <div class="row top-padding">
   <div class="twelve columns">
     <div class="field">
-      <button soho-actionsheet id="actionsheet-trigger"></button>
+      <div soho-actionsheet
+        [actions]="actions"
+        [breakpoint]="breakpoint"
+        [attributes]="attributes">
+        <button soho-button="tertiary"
+          icon="more"
+          data-init="false">
+        </button>
+      </div>
     </div>
   </div>
 </div>
