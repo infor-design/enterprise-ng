@@ -8,6 +8,7 @@
 
 ### 13.1.0 Features
 
+- `[Actionsheet]` Implemented Actionsheet Wrapper Component. ([#1188](https://github.com/infor-design/enterprise-ng/issues/1188))
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise-ng/issues/1208))
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 
