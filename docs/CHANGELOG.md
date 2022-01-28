@@ -8,6 +8,8 @@
 
 ### 13.1.0 Features
 
+- `[Card]` Added actionable button card feature. ([#5768](https://github.com/infor-design/enterprise/issues/5768)) `EA`
+- `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise-ng/issues/1208))
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 

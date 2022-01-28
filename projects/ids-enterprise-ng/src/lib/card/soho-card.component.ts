@@ -85,6 +85,19 @@ export class SohoCardsComponent implements AfterViewInit {
 }
 
 @Component({
+  selector: 'soho-card-actionable',
+  template: `
+    <ng-content></ng-content>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoCardActionableComponent {
+  @HostBinding('class.card-actionable') get isCardActionable() {
+    return true;
+  }
+}
+
+@Component({
   selector: 'soho-card-header',
   template: `
     <ng-content></ng-content>
