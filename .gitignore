@@ -44,7 +44,6 @@ publish/**
 npm-debug.log
 yarn-error.log
 testem.log
-package-lock.json
 yarn.lock
 
 # e2e
