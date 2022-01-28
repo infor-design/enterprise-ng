@@ -29,18 +29,8 @@ jobs:
     - name: Clear
       run: rm -rf node_modules
 
-    - uses: nanasess/setup-chromedriver@v1
-    - run: |
-        export DISPLAY=:99
-        chromedriver --url-base=/wd/hub &
-        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
-
     - name: Install Dependencies
       run: npm i
-
-    - name: ReBuild
-      run: npm rebuild
-
     - name: Build
       run: npm run build
 
