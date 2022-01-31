@@ -16,6 +16,7 @@ import { SohoComponentsModule } from 'ids-enterprise-ng';
 import { AboutDemoComponent } from './about/about.demo';
 import { AboutNestedDemoComponent } from './about/nested-about.demo';
 import { ActionsheetDemoComponent } from './actionsheet/actionsheet.demo';
+import { ActionsheetWithTrayDemoComponent } from './actionsheet/actionsheet-with-tray.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -278,6 +279,7 @@ import { InputClearableDemoComponent } from './input/input-clearable.demo';
         AboutDemoComponent,
         AboutNestedDemoComponent,
         ActionsheetDemoComponent,
+        ActionsheetWithTrayDemoComponent,
         AlertDemoComponent,
         ApplicationMenuDemoComponent,
         ApplicationMenuLazyDemoComponent,

@@ -30,7 +30,7 @@ interface SohoActionsheetOptions {
 interface SohoActionsheetTrayOptions {
   text?: string;
   icon?: string;
-  backGroundColor?: SohoActionsheetTrayBackgroundColors;
+  backgroundColor?: SohoActionsheetTrayBackgroundColors;
 }
 
 interface SohoActionsheetActions {
