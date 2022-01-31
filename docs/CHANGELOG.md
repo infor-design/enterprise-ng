@@ -8,7 +8,7 @@
 
 ### 13.1.0 Features
 
-- `[Actionsheet]` Implemented Actionsheet Wrapper Component. ([#1188](https://github.com/infor-design/enterprise-ng/issues/1188))
+- `[Actionsheet]` Implemented Actionsheet Wrapper Component. ([#1188](https://github.com/infor-design/enterprise-ng/issues/1188)) `EA`
 - `[Card]` Added actionable button card feature. ([#5768](https://github.com/infor-design/enterprise/issues/5768)) `EA`
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise-ng/issues/1208))

@@ -7,7 +7,6 @@ import {
   Input,
   NgZone,
   OnDestroy,
-  OnInit,
 } from '@angular/core';
 
 @Component({
