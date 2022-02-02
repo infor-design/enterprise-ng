@@ -24,8 +24,8 @@ export class ActionsheetWithTrayDemoComponent implements AfterViewInit {
   }
 
   attributes: Array<Object> | Object = [
-    { name: 'id', value: 'my-actions' },
-    { name: 'data-automation-id', value: 'my-actions' }
+    { name: 'id', value: 'my-actions-tray' },
+    { name: 'data-automation-id', value: 'my-actions-tray' }
   ];
 
   breakpoint = 'phone-to-tablet';

@@ -17,17 +17,34 @@ import {
 export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
   @HostBinding('style.display') display = 'inline-block';
 
+  /**
+   * Constructor
+   * 
+   * @param elementRef - the element matching the component's selector.
+   * @param ngZone - the angular zone for this component.
+   */
   constructor(
     private element: ElementRef,
     private ngZone: NgZone,
   ) {}
 
-  private _options: SohoActionsheetOptions = {};
+  private _options: SohoActionsheetOptions = {
+    breakpoint: 'phone-to-tablet',
+    displayAsActionSheet: 'responsive',
+    autoFocus: true,
+    overlayOpacity: 0.7,
+    tray: false,
+    trayOpts: {
+      backgroundColor: 'slate'
+    },
+    showCancelButton: true
+  };
   private actionsheet?: SohoActionsheetStatic | null;
   private jQueryElement!: JQuery;
 
   @Input() set actions(actions: SohoActionsheetActions | undefined) {
     this._options.actions = actions;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.actions = actions;
@@ -42,6 +59,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set showCancelButton(showCancelButton: boolean | undefined) {
     this._options.showCancelButton = showCancelButton;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.showCancelButton = showCancelButton;
@@ -56,6 +74,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set autoFocus(autoFocus: boolean | undefined) {
     this._options.autoFocus = autoFocus;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.autoFocus = autoFocus;
@@ -70,6 +89,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set breakpoint(breakpoint: string | undefined) {
     this._options.breakpoint = breakpoint;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.breakpoint = breakpoint;
@@ -84,6 +104,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set displayAsActionSheet(displayAsActionSheet: SohoActionsheetDisplay | undefined) {
     this._options.displayAsActionSheet = displayAsActionSheet;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.displayAsActionSheet = displayAsActionSheet;
@@ -98,6 +119,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set overlayOpacity(overlayOpacity: number | undefined) {
     this._options.overlayOpacity = overlayOpacity;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.overlayOpacity = overlayOpacity;
@@ -112,6 +134,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set onSelect(onSelect: Function | undefined) {
     this._options.onSelect = onSelect;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.onSelect = onSelect;
@@ -126,6 +149,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set onCancel(onCancel: Function | undefined) {
     this._options.onCancel = onCancel;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.onCancel = onCancel;
@@ -140,6 +164,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set tray(tray: boolean | undefined) {
     this._options.tray = tray;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.tray = tray;
@@ -154,6 +179,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set trayOpts(trayOpts: SohoActionsheetTrayOptions | undefined) {
     this._options.trayOpts = trayOpts;
+    this.updated();
 
     if (this.actionsheet) {
       this.actionsheet.settings.trayOpts = trayOpts;
@@ -168,6 +194,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   @Input() set attributes(attributes: Array<Object> | Object | undefined) {
     this._options.attributes = attributes;
+    this.updated();
 
     if (this.actionsheet) {
       (this.actionsheet as any).settings.attributes = attributes;
@@ -203,6 +230,36 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
         this.actionsheet.destroy();
         this.actionsheet = null;
       }
+    });
+  }
+
+  /**
+   * Triggers a UI Resync.
+   */
+  updated(settings?: SohoActionsheetOptions) {
+    if (settings) {
+      this._options = settings;
+    }
+
+    if (!this.actionsheet) {
+      return;
+    }
+
+    this.ngZone.runOutsideAngular(() => {
+      this.actionsheet?.updated(this._options);
+    });
+  }
+
+  /**
+   * Tears down and removes any added markup and events.
+   */
+  destroy() {
+    if (!this.actionsheet) {
+      return;
+    }
+
+    this.ngZone.runOutsideAngular(() => {
+      this.actionsheet?.destroy();
     });
   }
 }
