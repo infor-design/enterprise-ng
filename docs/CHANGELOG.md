@@ -5,6 +5,7 @@
 ### 13.1.0 Fixes
 
 - `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
+- `[About]` Added handlers for about events. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
 
 ### 13.1.0 Features
 
