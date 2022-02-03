@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SohoAboutModule } from './about/soho-about.module';
 import { SohoAccordionModule } from './accordion/soho-accordion.module';
+import { SohoActionsheetModule } from './actionsheet/soho-actionsheet.module';
 import { SohoAlertModule } from './alert/soho-alert.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoAutoCompleteModule } from './autocomplete/soho-autocomplete.module';
@@ -91,6 +92,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
   imports: [
     SohoAboutModule,
     SohoAccordionModule,
+    SohoActionsheetModule,
     SohoAlertModule,
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
@@ -180,6 +182,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
   exports: [
     SohoAboutModule,
     SohoAccordionModule,
+    SohoActionsheetModule,
     SohoAlertModule,
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,

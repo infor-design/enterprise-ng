@@ -1,0 +1,22 @@
+<div class="row top-padding">
+  <div class="six columns">
+    <p>On mobile devices, this menu opens an "Action Sheet" that appears at the bottom of your device.  On desktop devices,
+      the menu simply opens a popupmenu with the same elements.</p>
+  </div>
+</div>
+
+<div class="row top-padding">
+  <div class="twelve columns">
+    <div class="field">
+      <div soho-actionsheet
+        [actions]="actions"
+        [breakpoint]="breakpoint"
+        [attributes]="attributes">
+        <button soho-button="tertiary"
+          icon="more"
+          data-init="false">
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
