@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
 import { AboutNestedDemoComponent } from './about/nested-about.demo';
+import { ActionsheetDemoComponent } from './actionsheet/actionsheet.demo';
+import { ActionsheetWithTrayDemoComponent } from './actionsheet/actionsheet-with-tray.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AreaDemoComponent } from './area/area.demo';
@@ -226,6 +228,8 @@ export const routes: Routes = [
   { path: 'about', component: AboutDemoComponent },
   { path: 'about-nested', component: AboutNestedDemoComponent },
   { path: 'accordion', loadChildren: () => import('./accordion/accordion-demo.module').then(m => m.AccordionDemoModule) },
+  { path: 'actionsheet', component: ActionsheetDemoComponent },
+  { path: 'actionsheet-with-tray', component: ActionsheetWithTrayDemoComponent },
   { path: 'alert', component: AlertDemoComponent },
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent },
   { path: 'application-menu-roleswitcher', component: ApplicationMenuRoleSwitcherDemoComponent },

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { SohoAboutRef } from './soho-about.ref';
 
 /**
@@ -9,7 +9,7 @@ export class SohoAboutService {
   /**
    * Constructor.
    */
-  constructor() {
+  constructor(private readonly ngZone: NgZone) {
   }
 
   /**
@@ -24,6 +24,6 @@ export class SohoAboutService {
    * @return the about reference.
    */
   about(options?: SohoAboutOptions): SohoAboutRef {
-    return new SohoAboutRef().options(options);
+    return new SohoAboutRef(this.ngZone).options(options);
   }
 }

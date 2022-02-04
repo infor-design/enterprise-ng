@@ -4,11 +4,13 @@
 
 ### 13.1.0 Fixes
 
+- `[About]` Added handlers for about events. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
 - `[Datepicker]` Bug fix on initial range values in datepicker. ([#1200](https://github.com/infor-design/enterprise-ng/issues/1200))
 - `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
 
 ### 13.1.0 Features
 
+- `[Actionsheet]` Implemented Actionsheet Wrapper Component. ([#1188](https://github.com/infor-design/enterprise-ng/issues/1188)) `EA`
 - `[Card]` Added actionable button card feature. ([#5768](https://github.com/infor-design/enterprise/issues/5768)) `EA`
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise-ng/issues/1208))
