@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.12.2
+
+### 10.12.2 Fixes
+
+- `[General]` Added 4.59.3 with patch.
+
 ## v10.12.1
 
 ### 10.12.1 Fixes
