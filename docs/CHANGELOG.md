@@ -2,6 +2,7 @@
 
 ### 10.13.0 Features
 
+- `[About]` Added handlers for about events. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
 - `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))

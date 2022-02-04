@@ -31,6 +31,18 @@ export class AboutDemoComponent {
       .productName('Enterprise Angular Components')
       .version(`ver. ${version}`)
       .content('<p>Fashionable components for fashionable applications.</p>')
+      .beforeOpen((ref?: SohoAboutRef) => {
+        console.log('beforeopen', ref);
+        return true;
+      })
+      .closed((ref?: SohoAboutRef) => {
+        console.log('closed', ref);
+        return true;
+      })
+      .afterClose((ref?: SohoAboutRef) => {
+        console.log('afterclose', ref);
+        return true;
+      })
       .open();
   }
 
