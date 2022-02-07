@@ -5,6 +5,7 @@
 ### 13.1.0 Fixes
 
 - `[About]` Added handlers for about events. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
+- `[Button]` Button class should update when changing soho-button type html on runtime. ([#1123](https://github.com/infor-design/enterprise-ng/issues/1123))
 - `[Datepicker]` Bug fix on initial range values in datepicker. ([#1200](https://github.com/infor-design/enterprise-ng/issues/1200))
 - `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
 
@@ -41,6 +42,10 @@
 
 - `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
 - `[Linechart]` Updated example page for linechart to render with empty data. ([#1172](https://github.com/infor-design/enterprise-ng/issues/1172))
+
+### 10.12.2 Fixes
+
+- `[General]` Added 4.59.3 with patch.
 
 ## v10.12.1
 
