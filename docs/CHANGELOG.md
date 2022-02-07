@@ -5,6 +5,7 @@
 ### 13.1.0 Fixes
 
 - `[About]` Added handlers for about events. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
+- `[Button]` Button class should update when changing soho-button type html on runtime. ([#1123](https://github.com/infor-design/enterprise-ng/issues/1123))
 - `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
 
 ### 13.1.0 Features
