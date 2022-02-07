@@ -96,7 +96,7 @@ For a final release, finish with:
 1. I have seen sometimes the latest tag in NPM gets set to the wrong thing (like an rc or beta). If that happens run commands like
 
     ```sh
-    npm dist-tags add ids-enterprise-ng@7.1.4 latest
+    npm dist-tags add ids-enterprise-ng@13.0.3 latest
     npm dist-tags add ids-enterprise-ng@7.2.0-rc.2 rc
     ```
 
