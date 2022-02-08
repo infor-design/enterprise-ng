@@ -3,7 +3,9 @@
 ### 10.13.0 Features
 
 - `[About]` Added handlers for about events. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
+- `[Button]` Button class should update when changing soho-button type html on runtime. ([#1123](https://github.com/infor-design/enterprise-ng/issues/1123))
 - `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
+- `[Datepicker]` Bug fix on initial range values in datepicker. ([#1200](https://github.com/infor-design/enterprise-ng/issues/1200))
 - `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
 - `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 
