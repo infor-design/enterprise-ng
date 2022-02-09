@@ -73,7 +73,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     ArgumentHelper.checkNotNull('buttonOptions', buttonOptions);
 
     this._buttonOptions = buttonOptions;
-    if (this.jQueryElement) {
+    if (this.button) {
       // todo: how to update the button when options change?
     }
   }
@@ -322,9 +322,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   ngAfterViewInit() {
 
     this.ngZone.runOutsideAngular(() => {
+      const self = this;
       // Wrap the element in a jQuery selector.
       this.jQueryElement = jQuery(this.element.nativeElement);
-
       // Initialise the Soho control.
       this.jQueryElement.button(this._buttonOptions);
 
@@ -354,9 +354,78 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
           this.jQueryElement.removeAttr('aria-pressed');
         }
       }
-    });
 
-    // There are no 'extra' event handlers for button.
+      // There are no 'extra' event handlers for button.
+
+      // Add observer for button changes in html
+      const observer = new MutationObserver(function(mutations) {
+        if (mutations[0].attributeName === 'soho-button' && self.jQueryElement) {
+          const buttonStyles = [
+            'btn',
+            'btn-primary',
+            'btn-secondary',
+            'btn-tertiary',
+            'btn-icon',
+            'icon-favorite',
+            'default'
+          ];
+          const removeClassStyles = () => {
+            if (self.jQueryElement) {
+              buttonStyles.forEach(style => {
+                if (self.jQueryElement?.hasClass(style)) {
+                  self.jQueryElement.removeClass(style);
+                }
+              })
+            }
+          }
+          const type = self.jQueryElement.attr('soho-button');
+          const buttonOptions: SohoButtonOptions = { style: self._buttonOptions.style, type: self._buttonOptions.type };
+          
+           switch (type) {
+            case 'btn':
+              removeClassStyles();
+              self.buttonType = SohoButtonComponent.BTN;
+              buttonOptions.style = 'btn';
+              break;
+            case 'primary':
+              removeClassStyles();
+              self.buttonType = SohoButtonComponent.PRIMARY;
+              buttonOptions.style = 'btn-primary';
+              break;
+            case 'secondary':
+              removeClassStyles();
+              self.buttonType = SohoButtonComponent.SECONDARY;
+              buttonOptions.style = 'btn-secondary';
+              break;
+            case 'tertiary':
+              removeClassStyles();
+              self.buttonType = SohoButtonComponent.TERTIARY;
+              buttonOptions.style = 'btn-tertiary';
+              break;
+            case 'icon':
+              removeClassStyles();
+              self.buttonType = SohoButtonComponent.ICON;
+              buttonOptions.type = 'btn-icon';
+              break;
+            case 'favorite':
+              removeClassStyles();
+              self.buttonType = SohoButtonComponent.FAVORITE;
+              buttonOptions.type = 'icon-favorite';
+              break;
+            case 'default':
+              removeClassStyles();
+              buttonOptions.style = 'default';
+              buttonOptions.type = 'default';
+              break;
+           }
+           self.updated(buttonOptions);
+        }
+      });
+      observer.observe(this.element.nativeElement, { 
+        attributes: true, 
+        attributeFilter: ['soho-button'] }
+      );
+    });
   }
 
   /**
@@ -398,6 +467,18 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       const pressed = this.element.nativeElement.getAttribute('aria-pressed');
       this._isPressed = (pressed === true || pressed === 'true');
       return this._isPressed;
+    });
+  }
+
+  updated(settings?: SohoButtonOptions) {
+    if (settings) {
+      this._buttonOptions = Soho.utils.mergeSettings((this.element as any)[0], settings, this._buttonOptions);
+    }
+    
+    this.ngZone.runOutsideAngular(() => {
+      if (this.button) {
+        this.button.updated(this._buttonOptions);
+      }
     });
   }
 }

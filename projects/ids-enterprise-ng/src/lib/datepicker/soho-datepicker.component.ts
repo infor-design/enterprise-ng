@@ -524,14 +524,12 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
       // The processing is required to ensure we use the correct format
       // in the control.
       if (typeof value === 'string' && this._options.range?.useRange) {
-        let startValue = this._options.range?.start;
+        const dates = value.split('-');
+        const startValue = new Date(dates[0]);
+        const endValue = new Date(dates[1]);
         
-        if (startValue && typeof startValue === 'string') {
-          startValue = new Date(startValue)
-        } else {
-          startValue = new Date(value.split('-')[0]);
-        }
-
+        (this.datepicker as any).settings.range.start = startValue;
+        (this.datepicker as any).settings.range.end = endValue;
         this.datepicker.setValue(startValue, false);
       } else {
         this.datepicker.setValue(value, false);
