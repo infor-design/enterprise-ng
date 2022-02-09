@@ -18,6 +18,11 @@
  */
 type SohoModalTriggerType = 'click' | 'immediate';
 
+type SohoModalFocusChangeFunction = (
+  modal: HTMLElement,
+  el: HTMLElement
+) => void;
+
 /**
  * Soho Modal Dialog configuration options
  *
@@ -208,6 +213,9 @@ interface SohoModalStatic {
    * Releases all resources managed by the modal.
    */
   destroy(): void;
+
+  /** Fires when an element gets focus on the modal */
+  onFocusChange?: SohoModalFocusChangeFunction;
 }
 
 /**
