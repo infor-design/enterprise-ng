@@ -43,9 +43,9 @@
 - `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
 - `[Linechart]` Updated example page for linechart to render with empty data. ([#1172](https://github.com/infor-design/enterprise-ng/issues/1172))
 
-## v10.12.2
+## v10.12.3
 
-### 10.12.2 Fixes
+### 10.12.3 Fixes
 
 - `[General]` Added 4.59.4 with patch and new types for onFocusChange.
 
