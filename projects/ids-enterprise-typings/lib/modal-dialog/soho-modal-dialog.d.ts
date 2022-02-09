@@ -18,6 +18,11 @@
  */
 type SohoModalTriggerType = 'click' | 'immediate';
 
+type SohoModalFocusChangeFunction = (
+  modal: HTMLElement,
+  el: HTMLElement
+) => void;
+
 /**
  * Soho Modal Dialog configuration options
  *
@@ -97,6 +102,9 @@ interface SohoModalOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Fires when an element gets focus on the modal */
+  onFocusChange?: SohoModalFocusChangeFunction;
 }
 
 type SohoModalFullSize = false | 'responsive' | 'always';
