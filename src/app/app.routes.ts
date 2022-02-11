@@ -222,6 +222,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
 import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
 import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
+import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -364,6 +365,7 @@ export const routes: Routes = [
   { path: 'line', component: LineDemoComponent },
   { path: 'listview', component: ListViewDemoComponent },
   { path: 'listview-custom', component: ListViewCustomContentDemoComponent },
+  { path: 'listview-context', component: ListViewContextDemoComponent },
   { path: 'locale-pipe', loadChildren: () => import('./locale/locale-demo.module').then(m => m.LocaleDemoModule) },
   { path: 'lookup', component: LookupDemoComponent },
   { path: 'lookup-landmark', component: LookupLandmarkDemoComponent },
