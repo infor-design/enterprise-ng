@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v13.2.0
+
+### 13.2.0 Fixes
+
+- `[General]` Placeholder. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
+
 ## v13.1.0
 
 ### 13.1.0 Fixes
