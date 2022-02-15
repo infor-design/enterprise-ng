@@ -6,6 +6,12 @@
 
 - `[General]` Placeholder. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
 
+## v13.1.1
+
+### 13.1.1 Fixes
+
+- `[General]` Fixed incorrect types version.
+
 ## v13.1.0
 
 ### 13.1.0 Fixes
