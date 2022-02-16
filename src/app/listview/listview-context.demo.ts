@@ -13,16 +13,15 @@ import { SohoListViewComponent } from 'ids-enterprise-ng';
   export class ListViewContextDemoComponent implements OnInit {
   
     @ViewChild(SohoListViewComponent, { static: true }) sohoListViewComponent?: SohoListViewComponent;
+
+    listOffset = { x: 100, y: 30 }
+
     data1 = ['ONE', 'TWO', 'THREE'];
     data2 = ['Four', 'FIVE', 'SIX', 'SEVEN'];
     data = this.data1;
   
     ngOnInit() {
-      this.makeSingleSelection();
-    }
-
-    onContextMenu() {
-      console.log('hewwo?')
+      (this.sohoListViewComponent as any).selectable = 'single';
     }
 
     changeToDataSet1() {
@@ -30,15 +29,6 @@ import { SohoListViewComponent } from 'ids-enterprise-ng';
     }
     changeToDataSet2() {
       this.data = this.data2;
-    }
-    makeMultipleSelection() {
-      (this.sohoListViewComponent as any).selectable = 'multiple';
-    }
-    makeSingleSelection() {
-      (this.sohoListViewComponent as any).selectable = 'single';
-    }
-    makeMixedSelection() {
-      (this.sohoListViewComponent as any).selectable = 'mixed';
     }
   }
   
