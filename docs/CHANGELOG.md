@@ -1,5 +1,17 @@
 # What's New with Enterprise-NG
 
+## v13.2.0
+
+### 13.2.0 Fixes
+
+- `[General]` Placeholder. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
+
+## v13.1.1
+
+### 13.1.1 Fixes
+
+- `[General]` Fixed incorrect types version.
+
 ## v13.1.0
 
 ### 13.1.0 Fixes
@@ -43,6 +55,18 @@
 
 - `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
 - `[Linechart]` Updated example page for linechart to render with empty data. ([#1172](https://github.com/infor-design/enterprise-ng/issues/1172))
+
+## v10.13.0
+
+### 10.13.0 Features
+
+- `[General]` Added 4.60.0 with patch and new types for onFocusChange.
+- `[About]` Added handlers for about events. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
+- `[Button]` Button class should update when changing soho-button type html on runtime. ([#1123](https://github.com/infor-design/enterprise-ng/issues/1123))
+- `[Datagrid]` Added isVerticalScrollToEnd property in datagrid. ([#1208](https://github.com/infor-design/enterprise/issues/1208))
+- `[Datepicker]` Bug fix on initial range values in datepicker. ([#1200](https://github.com/infor-design/enterprise-ng/issues/1200))
+- `[Dropdown]` Updated readonly property to include readonly attr. ([#1189](https://github.com/infor-design/enterprise-ng/issues/1189))
+- `[Input]` Added clearable option in input. ([#1195](https://github.com/infor-design/enterprise-ng/issues/1195))
 
 ## v10.12.3
 
