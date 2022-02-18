@@ -4,7 +4,7 @@
 
 ### 13.2.0 Fixes
 
-- `[General]` Placeholder. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
+- `[Context Menu]` Context menu should appear even when dataset is updated in listview. ([#1119](https://github.com/infor-design/enterprise-ng/issues/1119))
 
 ## v13.1.1
 
