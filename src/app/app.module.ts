@@ -268,6 +268,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo'
 import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
+import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 
 @NgModule({
   declarations: [
@@ -419,6 +420,7 @@ import { InputClearableDemoComponent } from './input/input-clearable.demo';
     LineDemoComponent,
     ListViewCustomContentDemoComponent,
     ListViewDemoComponent,
+    ListViewContextDemoComponent,
     LookupDemoComponent,
     LookupDialogDemoComponent,
     LookupLandmarkDemoComponent,

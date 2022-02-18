@@ -214,6 +214,8 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     return (this.options as any).offset;
   }
 
+  @Input() listOffset: SohoPopupmenuOffset = { x: 0, y: 0 };
+
   @Input() set removeOnDestroy(removeOnDestroy: boolean) {
     this.options.removeOnDestroy = removeOnDestroy;
     if (this.contextMenu) {
@@ -272,7 +274,23 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
 
       this.jQueryElement.on('open', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.open.emit({ e, args })));
+
+      this.jQueryElement.on('contextmenu', (e: JQuery.TriggeredEvent, api: any) => this.onContextMenu(e, api));
     });
+  }
+
+  onContextMenu(e: JQuery.TriggeredEvent, api: any) {
+    if (api && api.elem) {
+      this.ngZone.runOutsideAngular(() => {
+        const elem = api.elem[0];
+        const rect = elem.getBoundingClientRect();
+        this.offset = { x: rect.x + this.listOffset.x, y: rect.y + this.listOffset.y };
+        if (this.contextMenu) {
+          this.contextMenu.updated();
+          (this.contextMenu as any).position(e)
+        }
+      });
+    }
   }
 
   updated() {
