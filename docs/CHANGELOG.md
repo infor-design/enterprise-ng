@@ -56,6 +56,10 @@
 - `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
 - `[Linechart]` Updated example page for linechart to render with empty data. ([#1172](https://github.com/infor-design/enterprise-ng/issues/1172))
 
+### 10.13.1 Features
+
+- `[Datagrid]` Added missing type for `doNotEmptyCellWhenEditing`. ([#5849](https://github.com/infor-design/enterprise/issues/5849))
+
 ## v10.13.0
 
 ### 10.13.0 Features
