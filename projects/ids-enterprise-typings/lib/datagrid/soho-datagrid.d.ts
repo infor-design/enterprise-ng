@@ -821,6 +821,9 @@ interface SohoDataGridColumn {
   /** Name of the editor to instantiate (using new), or a SohoDataGridColumnEditorFunction. */
   editor?: SohoDataGridColumnEditorFunction | string;
 
+  // Do not blank out the cell when editing
+  doNotEmptyCellWhenEditing?: boolean;
+
   /** Options associated with the associated editor type, e.g. SohoDropDownOptions. */
   editorOptions?: any;
 
