@@ -824,6 +824,9 @@ interface SohoDataGridColumn {
   /** Options associated with the associated editor type, e.g. SohoDropDownOptions. */
   editorOptions?: any;
 
+  // Do not blank out the cell when editing
+  doNotEmptyCellWhenEditing?: boolean;
+
   // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.
   filterType?: SohoDataGridColumnFilterType | string;
 

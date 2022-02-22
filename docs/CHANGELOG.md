@@ -4,6 +4,10 @@
 
 - `[Context Menu]` Context menu should appear even when dataset is updated in listview. ([#1119](https://github.com/infor-design/enterprise-ng/issues/1119))
 
+### 10.13.1 Features
+
+- `[Datagrid]` Added missing type for `doNotEmptyCellWhenEditing`. ([#5849](https://github.com/infor-design/enterprise/issues/5849))
+
 ### 10.13.0 Features
 
 - `[About]` Added handlers for about events. ([#1124](https://github.com/infor-design/enterprise-ng/issues/1124))
