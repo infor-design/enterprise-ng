@@ -1513,13 +1513,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Removes a row matching the data passed in from the data and grid.
+   * Removes a row matching the rowIndex passed in from the data and grid.
    *
-   * @param data the row of data to remove
+   * @param rowIndex the index of the row to remove.
    */
-  removeRow(data: any, noSync?: boolean, noTrigger?: boolean) {
+  removeRow(rowIndex: number, noSync?: boolean, noTrigger?: boolean) {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid?.removeRow(data, noSync, noTrigger);
+      this.datagrid?.removeRow(rowIndex, noSync, noTrigger);
     });
   }
 
@@ -2476,7 +2476,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Event fired after vertical scroll
    */
-   private onFilterOperatorChanged(args: SohoDataGridFilterOperatorChangedEvent) {
+  private onFilterOperatorChanged(args: SohoDataGridFilterOperatorChangedEvent) {
     this.ngZone.run(() => {
       this.filteroperatorchanged.next(args);
     })
