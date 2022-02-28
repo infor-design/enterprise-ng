@@ -111,6 +111,23 @@ export class ContextualActionPanelDemoComponent {
     }).open();
   }
 
+  openPanelCSS() {
+    if (!this.panelService || !this.placeholder) {
+      return;
+    }
+
+    this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+      .modalSettings({ title: this.title, useFlexToolbar: true })
+      .cssClass('my-custom-panel-test')
+      .open()
+      .initializeContent(true);
+
+    this.panelRef?.apply((ref: any) => {
+      ref.panelRef = this.panelRef;
+    }).open();
+  }
+
+
   openPanel2() {
     const buttons = [
       {
