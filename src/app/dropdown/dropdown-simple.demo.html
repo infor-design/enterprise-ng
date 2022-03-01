@@ -40,7 +40,7 @@
           <option value="WY">Wyoming</option>
         </select>
 
-        <label for="states-readonly1" class="label">States - ReadOnly 1</label>
+        <label for="states-readonly1" class="label">Totally Readonly</label>
         <select soho-dropdown name="states-readonly" readonly>
           <option value="AL">Alabama</option>
           <option value="CA">California</option>
@@ -49,7 +49,7 @@
           <option value="WY">Wyoming</option>
         </select>
 
-        <label for="states-readonly2" class="label">States - ReadOnly 2</label>
+        <label for="states-readonly2" class="label">Totally Not Readonly</label>
         <select soho-dropdown name="states-readonly">
           <option value="AL">Alabama</option>
           <option value="CA">California</option>
@@ -58,7 +58,7 @@
           <option value="WY">Wyoming</option>
         </select>
 
-        <label for="states-readonly3" class="label">States - ReadOnly 3</label>
+        <label for="states-readonly3" class="label">Not Readonly by Value</label>
         <select soho-dropdown name="states-readonly" [attr.readonly]="false ? 'true' : ''">
           <option value="AL">Alabama</option>
           <option value="CA">California</option>
@@ -67,8 +67,8 @@
           <option value="WY">Wyoming</option>
         </select>
 
-        <label for="states-readonly3" class="label">States - ReadOnly 3</label>
-        <select soho-dropdown name="states-readonly" [readonly]="true ? 'true' : ''">
+        <label for="states-readonly3" class="label">Readonly by Value</label>
+        <select soho-dropdown name="states-readonly" [attr.readonly]="true ? 'true' : ''">
           <option value="AL">Alabama</option>
           <option value="CA">California</option>
           <option value="DE">Delaware</option>
