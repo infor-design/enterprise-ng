@@ -26,6 +26,33 @@
             <option value="NY">New York</option>
             <option value="WY">Wyoming</option>
           </select>
+
+          <label for="states-readonly1" class="label">States - ReadOnly 1</label>
+          <select soho-dropdown name="states-readonly" readonly [(ngModel)]="model.readOnly">
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE">Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
+
+          <label for="states-readonly2" class="label">States - ReadOnly 2</label>
+          <select soho-dropdown name="states-readonly" [(ngModel)]="model.readOnly">
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE">Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
+
+          <label for="states-readonly3" class="label">States - ReadOnly 3</label>
+          <select soho-dropdown name="states-readonly" [attr.readonly]="false ? '' : null" [(ngModel)]="model.readOnly">
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE">Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
         </div>
         <div class="field">
           <label for="states-source" class="label">States - From Source</label>
