@@ -32,6 +32,8 @@ interface SohoContextualActionPanelOptions {
   /** The string used as the title for the panel - not defaulted. */
   title?: string;
 
+  cssClass?: string;
+
   /** Settings to pass through to the modal */
   modalSettings?: SohoModalOptions;
 
