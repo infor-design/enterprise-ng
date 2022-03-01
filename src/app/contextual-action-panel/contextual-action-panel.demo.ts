@@ -118,8 +118,8 @@ export class ContextualActionPanelDemoComponent {
 
     this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ title: this.title, useFlexToolbar: true })
-      .cssClass('my-custom-panel-test')
       .open()
+      .cssClass('my-custom-panel-test')
       .initializeContent(true);
 
     this.panelRef?.apply((ref: any) => {
