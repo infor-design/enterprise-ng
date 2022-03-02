@@ -223,6 +223,7 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
 import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
+import { SearchFieldHeaderDemoComponent } from './searchfield/searchfield-header.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -393,6 +394,7 @@ export const routes: Routes = [
   { path: 'searchfield', component: SearchFieldDemoComponent },
   { path: 'searchfield-category', component: SearchFieldCategoryDemoComponent },
   { path: 'searchfield-clear', component: SearchFieldClearDemoComponent },
+  { path: 'searchfield-header', component: SearchFieldHeaderDemoComponent },
   { path: 'slider', component: SliderDemoComponent },
   { path: 'sparkline', component: SparklineDemoComponent },
   { path: 'splitter-horizontal', component: SplitterHorizontalDemoComponent },
