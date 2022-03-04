@@ -5,7 +5,13 @@
       <button soho-button (click)="openPanel()" data-modal="contextual-action-modal-1">Panel</button>
     </div>
     <div class="field">
-      <button soho-button (click)="openPanelCSS()" data-modal="contextual-action-modal-1">Panel CSS</button>
+      <button soho-button (click)="openPanelCSSBeforeOpen()" data-modal="contextual-action-modal-1">Panel CSS Before Open</button>
+    </div>
+    <div class="field">
+      <button soho-button (click)="openPanelCSSAfterOpen()" data-modal="contextual-action-modal-1">Panel CSS After Open</button>
+    </div>
+    <div class="field">
+      <button soho-button (click)="openPanelCSSModalSettings()" data-modal="contextual-action-modal-1">Panel CSS with Modal Settings</button>
     </div>
     <div class="field">
       <button soho-button (click)="tabsVertical()"  data-modal="contextual-action-modal-1">CAP - Tabs Vertical</button>

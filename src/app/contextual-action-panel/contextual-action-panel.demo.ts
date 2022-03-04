@@ -111,15 +111,46 @@ export class ContextualActionPanelDemoComponent {
     }).open();
   }
 
-  openPanelCSS() {
+  openPanelCSSBeforeOpen() {
     if (!this.panelService || !this.placeholder) {
       return;
     }
 
     this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
-      .modalSettings({ title: this.title, useFlexToolbar: true })
+      .modalSettings({ title: 'Open Panel CSS Before Open', useFlexToolbar: true })
+      .cssClass('my-custom-panel-before-open')
       .open()
-      .cssClass('my-custom-panel-test')
+      .initializeContent(true);
+
+    this.panelRef?.apply((ref: any) => {
+      ref.panelRef = this.panelRef;
+    }).open();
+  }
+
+  openPanelCSSAfterOpen() {
+    if (!this.panelService || !this.placeholder) {
+      return;
+    }
+
+    this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+      .modalSettings({ title: 'Open Panel CSS After Open', useFlexToolbar: true })
+      .open()
+      .cssClass('my-custom-panel-after-open')
+      .initializeContent(true);
+
+    this.panelRef?.apply((ref: any) => {
+      ref.panelRef = this.panelRef;
+    }).open();
+  }
+
+  openPanelCSSModalSettings() {
+    if (!this.panelService || !this.placeholder) {
+      return;
+    }
+
+    this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+      .modalSettings({ title: this.title, useFlexToolbar: true, cssClass: 'my-custom-panel-modal-settings' })
+      .open()
       .initializeContent(true);
 
     this.panelRef?.apply((ref: any) => {
