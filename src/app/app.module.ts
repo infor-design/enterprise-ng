@@ -275,6 +275,7 @@ import { InputClearableDemoComponent } from './input/input-clearable.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 import { HeaderSearchfieldDemoComponent } from './header/header-searchfield.demo';
 import { HeaderSearchfieldFlexDemoComponent } from './header/header-searchfield-flex-demo';
+import { HeaderSearchfieldCategoryDemoComponent } from './header/header-searchfield-category.demo';
 
 @NgModule({
     declarations: [
@@ -417,6 +418,7 @@ import { HeaderSearchfieldFlexDemoComponent } from './header/header-searchfield-
         HeaderToolbarDemoComponent,
         HeaderSearchfieldDemoComponent,
         HeaderSearchfieldFlexDemoComponent,
+        HeaderSearchfieldCategoryDemoComponent,
         HierarchyDemoComponent,
         HierarchyPagingDemoComponent,
         HomePageDemoComponent,

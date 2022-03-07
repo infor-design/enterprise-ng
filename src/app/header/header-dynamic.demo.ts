@@ -137,6 +137,7 @@ export class SohoHeaderDynamicDemoComponent {
     switch(this.router.url) {
       case '/header-searchfield': return 'search';
       case '/header-searchfield-flex': return 'search-flex';
+      case '/header-searchfield-category': return 'search-category';
     }
     return 'default';
   }

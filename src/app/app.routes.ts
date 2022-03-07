@@ -354,6 +354,7 @@ export const routes: Routes = [
   { path: 'header-toolbar-tabs', component: HeaderToolbarAndTabsDemoComponent },
   { path: 'header-searchfield', component: HeaderDefaultContentDemoComponent },
   { path: 'header-searchfield-flex', component: HeaderDefaultContentDemoComponent },
+  { path: 'header-searchfield-category', component: HeaderDefaultContentDemoComponent },
   { path: 'hierarchy', component: HierarchyDemoComponent },
   { path: 'hierarchy-paging', component: HierarchyPagingDemoComponent },
   { path: 'homepage', component: HomePageDemoComponent },

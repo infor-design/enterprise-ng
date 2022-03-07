@@ -13,10 +13,13 @@ export class HeaderDefaultContentDemoComponent implements OnInit {
     ngOnInit(): void {
         switch(this.router.url) {
             case '/header-searchfield': 
-                this.description = 'This page is an example of a collapsible searchfield inside the header toolbar.';
+                this.description = 'This page is an example of a collapsible searchfield inside the header.';
                 break;
             case '/header-searchfield-flex':
-                this.description = 'This page is an example of a flex searchfield.'
+                this.description = 'This page is an example of a flex searchfield inside the header.';
+                break;
+            case '/header-searchfield-category':
+                this.description = 'This page is an example of a searchfield with categories inside the header';
                 break;
             default:
                 this.description = 'This is an example page'
