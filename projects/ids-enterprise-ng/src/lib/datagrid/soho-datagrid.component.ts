@@ -2238,6 +2238,22 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.onCollapseChildren;
   }
 
+  /* Icon name for fallbacks if the image does not load */
+  @Input() set fallbackImage(fallbackImage: string | undefined) {
+    this._gridOptions.fallbackImage = fallbackImage;
+    if (this.datagrid) {
+      this.datagrid.settings.fallbackImage = fallbackImage;
+      this.markForRefresh('fallbackImage', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get fallbackImage(): string | undefined {
+    if (this.datagrid) {
+      return (this.datagrid as any).settings.fallbackImage;
+    }
+    return this._gridOptions.fallbackImage;
+  }
+
   /**
    * Event fired after edit mode is activated on an editor.
    *
