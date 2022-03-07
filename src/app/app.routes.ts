@@ -223,7 +223,8 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
 import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
-import { SearchFieldHeaderDemoComponent } from './searchfield/searchfield-header.demo';
+import { HeaderSearchfieldDemoComponent } from './header/header-searchfield.demo';
+import { HeaderDefaultContentDemoComponent } from './header/header-default-content.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -352,6 +353,7 @@ export const routes: Routes = [
   { path: 'header-toggle-buttons', component: HeaderToggleButtonsDemoComponent },
   { path: 'header-toolbar', component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs', component: HeaderToolbarAndTabsDemoComponent },
+  { path: 'header-searchfield', component: HeaderDefaultContentDemoComponent },
   { path: 'hierarchy', component: HierarchyDemoComponent },
   { path: 'hierarchy-paging', component: HierarchyPagingDemoComponent },
   { path: 'homepage', component: HomePageDemoComponent },
@@ -394,7 +396,6 @@ export const routes: Routes = [
   { path: 'searchfield', component: SearchFieldDemoComponent },
   { path: 'searchfield-category', component: SearchFieldCategoryDemoComponent },
   { path: 'searchfield-clear', component: SearchFieldClearDemoComponent },
-  { path: 'searchfield-header', component: SearchFieldHeaderDemoComponent },
   { path: 'slider', component: SliderDemoComponent },
   { path: 'sparkline', component: SparklineDemoComponent },
   { path: 'splitter-horizontal', component: SplitterHorizontalDemoComponent },

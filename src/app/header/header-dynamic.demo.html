@@ -1,58 +1,63 @@
-<soho-header [hasTabs]="hasHeaderTabs" [hasToolbar]="hasHeaderToolbar">
-
-  <soho-toolbar-flex #appDynamicHeaderToolbar maxVisibleButtons="5" hasMoreButton="!currentToolbarOptions">
-
-    <button soho-toolbar-flex-nav-button>Show Navigation</button>
-
-    <soho-toolbar-flex-section [isTitle]="true">
-      <h1>
-        <span soho-toolbar-flex-page-title>IDS Enterprise Angular Components</span>
-        <span soho-toolbar-flex-section-title *ngIf="sectionTitle">{{sectionTitle}}</span>
-      </h1>
-    </soho-toolbar-flex-section>
-
-    <!-- If the currentToolbarOptions are NOT null/undefined then display the toolbar buttons
-         using the toolbarOptions input. -->
-    <!-- todo ppatton - for some reason if I put the ngIf='false' in the soho-toolbar-button-set
-         then some div seems to be automatically created for me or something. Something in soho perhaps? -->
-    <soho-toolbar-flex-section [isButtonSet]="true">
-
-      <ng-template [ngIf]="currentToolbarOptions">
-        <ng-template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
-          <button *ngIf="!button.menu" soho-button="{{button?.type}}" isToggle="{{button?.istoggle}}" icon="{{button?.icon}}" id="{{button?.id}}" attr.data-button="{{button?.data}}" toggleOnIcon="{{button?.toggleOnIcon}}" toggleOffIcon="{{button?.toggleOffIcon}}">{{button?.text}}</button>
-
-          <ng-template [ngIf]="button.menu">
-            <button soho-menu-button id="{{button?.id}}" menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}" >
-              {{button?.text}}</button>
-            <div class="popupmenu-wrapper bottom" role="application" aria-hidden="true">
-              <ul soho-popupmenu id="buttonPopupMenu">
-                <li soho-popupmenu-item *ngFor="let item of button.menu" id="{{item?.id}}">
-                  <a soho-popupmenu-label attr.data="{{item?.data}}">{{item?.text}}</a>
-                </li>
-              </ul>
-            </div>
+<ng-template [ngIf]="getRoute() === 'search'">
+  <app-searchfield-header-demo></app-searchfield-header-demo>
+</ng-template>
+<ng-template [ngIf]="getRoute() === 'default'">
+  <soho-header [hasTabs]="hasHeaderTabs" [hasToolbar]="hasHeaderToolbar">
+  
+    <soho-toolbar-flex #appDynamicHeaderToolbar maxVisibleButtons="5" hasMoreButton="!currentToolbarOptions">
+  
+      <button soho-toolbar-flex-nav-button>Show Navigation</button>
+  
+      <soho-toolbar-flex-section [isTitle]="true">
+        <h1>
+          <span soho-toolbar-flex-page-title>IDS Enterprise Angular Components</span>
+          <span soho-toolbar-flex-section-title *ngIf="sectionTitle">{{sectionTitle}}</span>
+        </h1>
+      </soho-toolbar-flex-section>
+  
+      <!-- If the currentToolbarOptions are NOT null/undefined then display the toolbar buttons
+           using the toolbarOptions input. -->
+      <!-- todo ppatton - for some reason if I put the ngIf='false' in the soho-toolbar-button-set
+           then some div seems to be automatically created for me or something. Something in soho perhaps? -->
+      <soho-toolbar-flex-section [isButtonSet]="true">
+  
+        <ng-template [ngIf]="currentToolbarOptions">
+          <ng-template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
+            <button *ngIf="!button.menu" soho-button="{{button?.type}}" isToggle="{{button?.istoggle}}" icon="{{button?.icon}}" id="{{button?.id}}" attr.data-button="{{button?.data}}" toggleOnIcon="{{button?.toggleOnIcon}}" toggleOffIcon="{{button?.toggleOffIcon}}">{{button?.text}}</button>
+  
+            <ng-template [ngIf]="button.menu">
+              <button soho-menu-button id="{{button?.id}}" menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}" >
+                {{button?.text}}</button>
+              <div class="popupmenu-wrapper bottom" role="application" aria-hidden="true">
+                <ul soho-popupmenu id="buttonPopupMenu">
+                  <li soho-popupmenu-item *ngFor="let item of button.menu" id="{{item?.id}}">
+                    <a soho-popupmenu-label attr.data="{{item?.data}}">{{item?.text}}</a>
+                  </li>
+                </ul>
+              </div>
+            </ng-template>
           </ng-template>
         </ng-template>
-      </ng-template>
-
-    </soho-toolbar-flex-section>
-
-    <!-- If the currentToolbarOptions are null/undefined then display the "default" toolbar buttons
-         and more menu. -->
-    <soho-toolbar-flex-more-button [isPageChanger]="true">
-      <app-personalize-menu ></app-personalize-menu>
-    </soho-toolbar-flex-more-button>
-
-  </soho-toolbar-flex>
-
-  <div soho-tabs *ngIf="currentTabsOptions" #appDynamicHeaderTabs [containerElement]="currentTabsOptions.containerElementSelector">
-    <div soho-tab-list-container>
-      <ul soho-tab-list>
-        <li soho-tab *ngFor="let tab of currentTabsOptions.tabs">
-          <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
-        </li>
-      </ul>
+  
+      </soho-toolbar-flex-section>
+  
+      <!-- If the currentToolbarOptions are null/undefined then display the "default" toolbar buttons
+           and more menu. -->
+      <soho-toolbar-flex-more-button [isPageChanger]="true">
+        <app-personalize-menu ></app-personalize-menu>
+      </soho-toolbar-flex-more-button>
+  
+    </soho-toolbar-flex>
+  
+    <div soho-tabs *ngIf="currentTabsOptions" #appDynamicHeaderTabs [containerElement]="currentTabsOptions.containerElementSelector">
+      <div soho-tab-list-container>
+        <ul soho-tab-list>
+          <li soho-tab *ngFor="let tab of currentTabsOptions.tabs">
+            <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-
-</soho-header>
+  
+  </soho-header>
+</ng-template>

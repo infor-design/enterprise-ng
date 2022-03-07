@@ -13,6 +13,7 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 import { SohoToolbarComponent } from 'ids-enterprise-ng';
 // @ts-ignore
 import { SohoTabsComponent } from 'ids-enterprise-ng';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-dynamic-demo',
@@ -104,7 +105,7 @@ export class SohoHeaderDynamicDemoComponent {
   public defaultPersonalizeColor?: string | null;
   public defaultPersonalizeTheme?: string | null;
 
-  constructor(private headerRef: HeaderDynamicDemoRefService) {
+  constructor(private headerRef: HeaderDynamicDemoRefService, public router: Router) {
     this.headerRef.instance = this;
     this.defaultPersonalizeColor = this.getDefaultColor();
     this.defaultPersonalizeTheme = this.getDefaultTheme();
@@ -130,5 +131,12 @@ export class SohoHeaderDynamicDemoComponent {
 
   fireClearSearchEvent(_event: any) {
     alert('search value cleared');
+  }
+
+  getRoute() {
+    switch(this.router.url) {
+      case '/header-searchfield': return 'search';
+    }
+    return 'default';
   }
 }
