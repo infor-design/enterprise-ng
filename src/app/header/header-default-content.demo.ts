@@ -11,8 +11,16 @@ export class HeaderDefaultContentDemoComponent implements OnInit {
     constructor(private router: Router) {}
 
     ngOnInit(): void {
-        if (this.router.url === '/header-searchfield') {
-            this.description = 'This page is an example of a collapsible searchfield inside the header toolbar.'
+        switch(this.router.url) {
+            case '/header-searchfield': 
+                this.description = 'This page is an example of a collapsible searchfield inside the header toolbar.';
+                break;
+            case '/header-searchfield-flex':
+                this.description = 'This page is an example of a flex searchfield.'
+                break;
+            default:
+                this.description = 'This is an example page'
+                break;
         }
     }
 }
