@@ -132,9 +132,9 @@ export class SohoContextualActionPanelRef<T> {
         cap.addClass(`${cssClass}`);
       });
     } else {
-      this._options = $.extend(true, this._options, { cssClass: cssClass });
+      this._options.modalSettings = $.extend(true, this._options.modalSettings, { cssClass: cssClass });
       if (this.contextualactionpanel) {
-        this.contextualactionpanel.settings = this._options;
+        this.contextualactionpanel.settings.modalSettings = this._options.modalSettings;
       }
     }
 
