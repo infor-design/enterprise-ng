@@ -374,6 +374,8 @@ interface SohoDataGridOptions {
   /* summary row columns settings*/
   summaryRowColumns?: SohoDataGridSummaryRowColumnSettings[];
 
+  /* Icon name for fallbacks if the image does not load */
+  fallbackImage?: string;
 }
 
 interface SohoDataGridModifiedRows {
