@@ -9,6 +9,10 @@
 - `[Datagrid]` Added missing type for `doNotEmptyCellWhenEditing`. ([#5849](https://github.com/infor-design/enterprise/issues/5849))
 - `[Datagrid]` Fixed removeRow typing ([#1238](https://github.com/infor-design/enterprise-ng/issues/1238))
 
+### 13.2.0 Features
+
+- `[Header]` Added example pages for searchfield in header. ([#1225](https://github.com/infor-design/enterprise-ng/issues/1225))
+
 ## v13.1.1
 
 ### 13.1.1 Fixes

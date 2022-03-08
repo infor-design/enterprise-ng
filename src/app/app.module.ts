@@ -273,6 +273,9 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
 import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
+import { HeaderSearchfieldDemoComponent } from './header/header-searchfield.demo';
+import { HeaderSearchfieldFlexDemoComponent } from './header/header-searchfield-flex-demo';
+import { HeaderSearchfieldCategoryDemoComponent } from './header/header-searchfield-category.demo';
 
 @NgModule({
     declarations: [
@@ -413,6 +416,9 @@ import { ListViewContextDemoComponent } from './listview/listview-context.demo';
         HeaderToggleButtonsDemoComponent,
         HeaderToolbarAndTabsDemoComponent,
         HeaderToolbarDemoComponent,
+        HeaderSearchfieldDemoComponent,
+        HeaderSearchfieldFlexDemoComponent,
+        HeaderSearchfieldCategoryDemoComponent,
         HierarchyDemoComponent,
         HierarchyPagingDemoComponent,
         HomePageDemoComponent,
