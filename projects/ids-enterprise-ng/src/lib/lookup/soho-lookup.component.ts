@@ -511,6 +511,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
         this.jQueryElement.autocomplete(acSettings);
 
         this.autocomplete = this.jQueryElement.data('autocomplete');
+
+        this.jQueryElement
+          .on('selected.autocomplete', (...args) => this.onAutocompleteSelected(args))
+          .on('change.autocomplete', (_e: any, args: any[]) => this.onAutocompleteChange(args))
+          .on('beforeopen.autocomplete', (_e: any, args: SohoAutoCompleteEvent) => this.onAutocompleteBeforeOpen(args));
       }
 
       /**
@@ -519,7 +524,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.on('afteropen', (...args: any[]) => this.modalOpened(args));
       this.jQueryElement.on('beforeopen', () => this.ngZone.run(() => this.beforeopen.emit(undefined)));
       this.jQueryElement.on('open', () => this.ngZone.run(() => this.open.emit(undefined)));
-      this.jQueryElement.on('change', (_e: any, args: SohoLookupChangeEvent[]) => this.onChange(args));
+      this.jQueryElement.on('change.lookup', (_e: any, args: SohoLookupChangeEvent[]) => this.onChange(args));
       this.jQueryElement.on('blur', (_e: any) => this.ngZone.run(() => this.touched()));
       this.jQueryElement.on('start', () => this.ngZone.run(() => this.start.emit(undefined)));
       this.jQueryElement.on('complete', () => this.ngZone.run(() => this.complete.emit(undefined)));
@@ -691,6 +696,24 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       event.values = this.internalValue;
       this.change.emit(event);
     });
+  }
+
+  onAutocompleteChange(event: any) {
+    if (this.autoCompleteSettings && this.autoCompleteSettings.change) {
+      this.autoCompleteSettings?.change(event);
+    }
+  }
+
+  onAutocompleteSelected(event: any) {
+    if (this.autoCompleteSettings && this.autoCompleteSettings.selected) {
+      this.autoCompleteSettings?.selected(event);
+    }
+  }
+
+  onAutocompleteBeforeOpen(event: any) {
+    if (this.autoCompleteSettings && this.autoCompleteSettings.beforeopen) {
+      this.autoCompleteSettings?.beforeopen(event);
+    }
   }
 
   setDisabledState(isDisabled: boolean | undefined): void {

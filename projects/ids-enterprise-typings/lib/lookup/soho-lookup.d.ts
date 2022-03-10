@@ -97,6 +97,12 @@ interface SohoLookupAutoComplete {
 
   /** Menu template, appropriate markup is expected. */
   template?: string;
+
+  change?(event: any): void;
+
+  selected?(selected: any[]): void;
+
+  beforeopen?(event: SohoAutoCompleteEvent): void;
 }
 
 /** Selection criteria. */
