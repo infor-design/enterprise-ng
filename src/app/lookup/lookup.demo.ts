@@ -58,6 +58,7 @@ export class LookupDemoComponent implements OnInit {
     { text: 'Submit', click: () => this.sohoLookupRef?.modal?.close(), isDefault: true }
   ];
   public model: any = {
+    autocomplete: null,
     single: null,
     singleR: null,
     singleexists: '1212121',

@@ -12,7 +12,7 @@
 ### 13.2.0 Features
 
 - `[Header]` Added example pages for searchfield in header. ([#1225](https://github.com/infor-design/enterprise-ng/issues/1225))
-- `[Autocomplete]` Added callback functions in lookup autocomplete. ([#647x](https://github.com/infor-design/enterprise-ng/issues/647x))
+- `[Autocomplete]` Added callback functions in lookup autocomplete. ([#647](https://github.com/infor-design/enterprise-ng/issues/647))
 
 ## v13.1.1
 

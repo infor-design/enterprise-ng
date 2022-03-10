@@ -219,7 +219,7 @@
           <label soho-label for="autocomplete">Products (with autocomplete)</label>
           <input soho-lookup
                  multiselect
-                 [(ngModel)]="model.single"
+                 [(ngModel)]="model.autocomplete"
                  [columns]="columns_product"
                  [dataset]="data_product"
                  (change)="onChange($event)"
