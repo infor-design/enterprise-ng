@@ -19,6 +19,12 @@ interface SohoSwapListItem {
   disabled?: boolean;
 }
 
+interface SohoSwapSections {
+  available?: boolean;
+  selected?: boolean;
+  additional?: boolean;
+}
+
 /**
  * Swap List Options
  */
@@ -37,6 +43,12 @@ interface SohoSwapListOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Disable dragging (all true by default) **/
+  draggable?: SohoSwapSections | undefined;
+
+  /** Keep items in the section when moving (all false by default) **/
+  keepInList?: SohoSwapSections | undefined;
 }
 
 /**
