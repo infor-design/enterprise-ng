@@ -58,6 +58,7 @@ export class LookupDemoComponent implements OnInit {
     { text: 'Submit', click: () => this.sohoLookupRef?.modal?.close(), isDefault: true }
   ];
   public model: any = {
+    autocomplete: null,
     single: null,
     singleR: null,
     singleexists: '1212121',
@@ -113,7 +114,16 @@ export class LookupDemoComponent implements OnInit {
         <span style="display: none;" class="display-value">{{{value}}}</span>
       </a>
       </li>
-    </script>`
+    </script>`,
+    change: (e) => {
+      console.log('Autocomplete change', e)
+    },
+    selected: (e) => {
+      console.log('Autocomplete selected', e)
+    },
+    beforeopen: (e) => {
+      console.log('Autocomplete beforeopen', e)
+    }
   };
   
   public showModel = false;
