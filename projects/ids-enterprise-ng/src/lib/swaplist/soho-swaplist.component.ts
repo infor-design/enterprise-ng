@@ -225,7 +225,6 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Set available card items.
-   *
    * @param value item data.
    */
   @Input()
@@ -238,6 +237,34 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
   public get availableItems(): SohoSwapListItem[] | undefined {
     return this.ConvertToModel((this.swaplist as any).getAvailable());
+  }
+
+  /** Disable dragging (all true by default) **/
+  @Input()
+  public set draggable(value: SohoSwapSections | undefined) {
+    this._options.draggable = value;
+    if (this.swaplist) {
+      this.swaplist.settings.draggable = value;
+      this.swaplist.updated();
+    }
+  }
+
+  public get draggable(): SohoSwapSections | undefined {
+    return this.draggable;
+  }
+
+  /** Keep items in the section when moving (all false by default) **/
+  @Input()
+  public set keepInList(value: SohoSwapSections | undefined) {
+    this._options.keepInList = value;
+    if (this.swaplist) {
+      this.swaplist.settings.keepInList = value;
+      this.swaplist.updated();
+    }
+  }
+
+  public get keepInList(): SohoSwapSections | undefined {
+    return this.keepInList;
   }
 
   /**

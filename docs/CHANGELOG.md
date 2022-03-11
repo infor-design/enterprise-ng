@@ -8,6 +8,7 @@
 - `[Context Menu]` Context menu should appear even when dataset is updated in listview. ([#1119](https://github.com/infor-design/enterprise-ng/issues/1119))
 - `[Datagrid]` Added missing type for `doNotEmptyCellWhenEditing`. ([#5849](https://github.com/infor-design/enterprise/issues/5849))
 - `[Datagrid]` Fixed removeRow typing ([#1238](https://github.com/infor-design/enterprise-ng/issues/1238))
+- `[Swaplist]` Added missing keepInList options
 
 ### 13.2.0 Features
 
