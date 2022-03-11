@@ -21,6 +21,16 @@
 - `[Header]` Added example pages for searchfield in header. ([#1225](https://github.com/infor-design/enterprise-ng/issues/1225))
 - `[Autocomplete]` Added callback functions in lookup autocomplete. ([#647](https://github.com/infor-design/enterprise-ng/issues/647))
 
+## v10.14.0
+
+- `[Autocomplete]` Added callback functions in lookup autocomplete. ([#647](https://github.com/infor-design/enterprise-ng/issues/647))
+- `[ContextualActionPanel]` Added setting for cssClass in CAP. ([#1215](https://github.com/infor-design/enterprise-ng/issues/1215))
+- `[Datagrid]` Added missing type for `doNotEmptyCellWhenEditing`. ([#5849](https://github.com/infor-design/enterprise/issues/5849))
+- `[Context Menu]` Context menu should appear even when dataset is updated in listview. ([#1119](https://github.com/infor-design/enterprise-ng/issues/1119))
+- `[Datagrid]` Fixed removeRow typing ([#1238](https://github.com/infor-design/enterprise-ng/issues/1238))
+- `[Datagrid]` Added missing type for `doNotEmptyCellWhenEditing`. ([#5849](https://github.com/infor-design/enterprise/issues/5849))
+- `[Swaplist]` Added missing keepInList options
+
 ## v13.1.1
 
 ### 13.1.1 Fixes

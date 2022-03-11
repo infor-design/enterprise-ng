@@ -117,7 +117,7 @@ Alternatively, you can call the `setDialogResult` method on the dialog reference
 also takes a dialog result as an argument.  This allow the closing of the dialog to be
 decoupled from the result.
 
-The `dialogResult` could be the _model_ used by the underlying component, or a simple status
+The `dialogResult` could be the `model` used by the underlying component, or a simple status
 indicator, such as `OK` or `CANCELLED`.
 
 Here is an example for a simple message returning a status as a result:
