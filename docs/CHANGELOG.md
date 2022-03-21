@@ -6,6 +6,10 @@
 
 - `[Placeholder]` Update Me. ([#1215](https://github.com/infor-design/enterprise-ng/issues/1215))
 
+### 13.3.0 Features
+
+- `[Homepage]` Added example page for testing widget with subcomponents. ([#1216](https://github.com/infor-design/enterprise-ng/issues/1216))
+
 ## v13.2.0
 
 ### 13.2.0 Fixes

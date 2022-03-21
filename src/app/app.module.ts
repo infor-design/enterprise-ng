@@ -276,6 +276,7 @@ import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 import { HeaderSearchfieldDemoComponent } from './header/header-searchfield.demo';
 import { HeaderSearchfieldFlexDemoComponent } from './header/header-searchfield-flex-demo';
 import { HeaderSearchfieldCategoryDemoComponent } from './header/header-searchfield-category.demo';
+import { HomePageEditableFilledComponent } from './homepage/homepage-editable-filled.demo';
 
 @NgModule({
     declarations: [
@@ -426,6 +427,7 @@ import { HeaderSearchfieldCategoryDemoComponent } from './header/header-searchfi
         HomePageScenarioADemoComponent,
         HomePageScenarioBDemoComponent,
         HomePageScenarioCDemoComponent,
+        HomePageEditableFilledComponent,
         HyperlinkDemoComponent,
         IconDemoComponent,
         InputClearableDemoComponent,
