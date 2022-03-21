@@ -224,6 +224,7 @@ import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 import { HeaderDefaultContentDemoComponent } from './header/header-default-content.demo';
+import { HomePageEditableFilledComponent } from './homepage/homepage-editable-filled.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -359,6 +360,7 @@ export const routes: Routes = [
   { path: 'hierarchy-paging', component: HierarchyPagingDemoComponent },
   { path: 'homepage', component: HomePageDemoComponent },
   { path: 'homepage-editable', component: HomePageEditableDemoComponent },
+  { path: 'homepage-editable-filled', component: HomePageEditableFilledComponent },
   { path: 'homepage-scenario-a', component: HomePageScenarioADemoComponent },
   { path: 'homepage-scenario-b', component: HomePageScenarioBDemoComponent },
   { path: 'homepage-scenario-c', component: HomePageScenarioCDemoComponent },
