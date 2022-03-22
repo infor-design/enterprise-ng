@@ -13,6 +13,8 @@ import {
   OnDestroy,
 } from '@angular/core';
 
+import { ArgumentHelper } from '../utils/argument.helper';
+
 @Component({
   selector: 'input[soho-toolbar-flex-searchfield]', // eslint-disable-line
   template: '<div #toolbarFlexSearchField><ng-content></ng-content></div>',
@@ -268,10 +270,43 @@ export class SohoToolbarFlexSectionComponent {
             `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoToolbarFlexNavButtonComponent {
+export class SohoToolbarFlexNavButtonComponent implements AfterViewInit {
   @HostBinding('class.btn-icon') isIconButton = true;
   @HostBinding('class.application-menu-trigger') isAppMenuTrigger = true;
   @HostBinding('attr.type') typeAttr = 'button';
+
+  /** Reference to the Soho control api. */
+  private button?: SohoButtonStatic | null;
+
+  private _buttonOptions: SohoButtonOptions = {};
+
+  /** Reference to the jQuery control. */
+  private jQueryElement?: JQuery;
+
+  constructor(private element: ElementRef, private ngZone: NgZone) {
+  }
+
+  @Input() set buttonOptions(buttonOptions: SohoButtonOptions) {
+    ArgumentHelper.checkNotNull('buttonOptions', buttonOptions);
+
+    this._buttonOptions = buttonOptions;
+    if (this.button) {
+      // todo: how to update the button when options change?
+    }
+  }
+
+  get buttonOptions(): SohoButtonOptions {
+    return this._buttonOptions;
+  }
+
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      const self = this;
+
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.button(this._buttonOptions);
+    });
+  }
 }
 
 /**
@@ -293,9 +328,9 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
   @Input() set moreMenuBeforeOpenFunction(beforeOpen: AjaxBeforeMoreMenuOpenFunction) {
     if (!this._options.moreMenuSettings) {
       this._options.moreMenuSettings = {};
-    }  
+    }
     this._options.moreMenuSettings.beforeOpen = beforeOpen;
-    
+
     if (this.toolbarFlex) {
       this.toolbarFlex.settings.beforeMoreMenuOpen = beforeOpen;
       this.markForRefresh();
@@ -325,7 +360,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     private changeDetector: ChangeDetectorRef,
     private element: ElementRef,
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
