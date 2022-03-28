@@ -9,6 +9,7 @@
 ### 13.3.0 Features
 
 - `[Homepage]` Added example page for testing widget with subcomponents. ([#1216](https://github.com/infor-design/enterprise-ng/issues/1216))
+- `[ToolbarFlex]` Allow buttons in toolbar flex to have notification badge. ([#1235](https://github.com/infor-design/enterprise-ng/issues/1235))
 
 ## v13.2.0
 
