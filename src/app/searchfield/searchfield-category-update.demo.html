@@ -1,0 +1,13 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+    <span soho-searchfield-wrapper>
+        <input soho-searchfield class="searchfield" [(ngModel)]="query" [showCategoryText]="showCategoryText"
+            [categoryMultiselect]="categoryMultiselect" [categories]="categories" />
+    </span>
+  </div>
+  <div class="twelve columns">
+    <button soho-button="secondary" (click)="updateSearchfield()">
+        <span>Update</span>
+    </button>
+  </div>
+</div>
