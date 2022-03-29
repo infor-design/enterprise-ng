@@ -358,7 +358,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       // There are no 'extra' event handlers for button.
 
       // Add observer for button changes in html
-      const observer = new MutationObserver(function(mutations) {
+      const observer = new MutationObserver(function (mutations) {
         if (mutations[0].attributeName === 'soho-button' && self.jQueryElement) {
           const buttonStyles = [
             'btn',
@@ -380,8 +380,8 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
           }
           const type = self.jQueryElement.attr('soho-button');
           const buttonOptions: SohoButtonOptions = { style: self._buttonOptions.style, type: self._buttonOptions.type };
-          
-           switch (type) {
+
+          switch (type) {
             case 'btn':
               removeClassStyles();
               self.buttonType = SohoButtonComponent.BTN;
@@ -417,13 +417,14 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
               buttonOptions.style = 'default';
               buttonOptions.type = 'default';
               break;
-           }
-           self.updated(buttonOptions);
+          }
+          self.updated(buttonOptions);
         }
       });
-      observer.observe(this.element.nativeElement, { 
-        attributes: true, 
-        attributeFilter: ['soho-button'] }
+      observer.observe(this.element.nativeElement, {
+        attributes: true,
+        attributeFilter: ['soho-button']
+      }
       );
     });
   }
@@ -474,7 +475,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     if (settings) {
       this._buttonOptions = Soho.utils.mergeSettings((this.element as any)[0], settings, this._buttonOptions);
     }
-    
+
     this.ngZone.runOutsideAngular(() => {
       if (this.button) {
         this.button.updated(this._buttonOptions);

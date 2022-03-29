@@ -11,7 +11,7 @@ import {
 })
 export class ButtonDemoComponent implements OnInit {
   public shouldSayHi = false;
-  
+
   public badgeOption1: SohoButtonOptions = {
     notificationBadge: true,
     notificationBadgeOptions: {
@@ -35,9 +35,17 @@ export class ButtonDemoComponent implements OnInit {
       color: 'complete'
     }
   }
-  
-  constructor() {}
-  ngOnInit() {}
+
+  public badgeOption4: SohoButtonOptions = {
+    notificationBadge: true,
+    notificationBadgeOptions: {
+      position: 'upper-right',
+      color: 'complete'
+    }
+  }
+
+  constructor() { }
+  ngOnInit() { }
   toggleHello() {
     this.shouldSayHi = !this.shouldSayHi;
   }
