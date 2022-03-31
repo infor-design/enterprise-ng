@@ -366,6 +366,17 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   /**
+   * If defined, it will display the position of counts.
+   */
+  @Input() set countsPosition(countsPosition: undefined | 'top' | 'bottom') {
+    this._tabsOptions.countsPosition = countsPosition;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.countsPosition = countsPosition;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
    * If defined, will serve as a way of pulling in external content to fill tabs.
    */
   @Input() set source(source: Function) {

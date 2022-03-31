@@ -73,6 +73,11 @@ interface SohoTabsOptions {
   multiTabsTooltips?: boolean;
 
   /**
+   * If true, will display a tooltip on Multi Tabs with cut-off text content.
+   */
+  countsPosition?: undefined | 'top' | 'bottom';
+
+  /**
    * If defined, will serve as a way of pulling in external content to fill tabs.
    */
   source?: Function;

@@ -4,7 +4,7 @@
 
 ### 13.3.0 Fixes
 
-- `[Placeholder]` Update Me. ([#1215](https://github.com/infor-design/enterprise-ng/issues/1215))
+- `[Tabs]` Added missing countsPosition setting. ([#6242](https://github.com/infor-design/enterprise-ng/issues/6242))
 
 ### 13.3.0 Features
 
