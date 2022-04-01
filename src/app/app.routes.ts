@@ -225,6 +225,7 @@ import { InputClearableDemoComponent } from './input/input-clearable.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 import { HeaderDefaultContentDemoComponent } from './header/header-default-content.demo';
 import { HomePageEditableFilledComponent } from './homepage/homepage-editable-filled.demo';
+import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfield-category-update.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -398,6 +399,7 @@ export const routes: Routes = [
   { path: 'rating', component: RatingDemoComponent },
   { path: 'searchfield', component: SearchFieldDemoComponent },
   { path: 'searchfield-category', component: SearchFieldCategoryDemoComponent },
+  { path: 'searchfield-category-update', component: SearchFieldCategoryUpdateDemoComponent },
   { path: 'searchfield-clear', component: SearchFieldClearDemoComponent },
   { path: 'slider', component: SliderDemoComponent },
   { path: 'sparkline', component: SparklineDemoComponent },
