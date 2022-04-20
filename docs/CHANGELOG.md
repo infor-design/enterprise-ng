@@ -6,6 +6,12 @@
 
 - `[Placeholder]` Fill me in. ([#6242](https://github.com/infor-design/enterprise-ng/issues/6242))
 
+## v13.3.1
+
+### 13.3.1 Fixes
+
+- `[General]` Added 4.62.1 with fixes for toolbar and calendar in homepages.
+
 ## v13.3.0
 
 ### 13.3.0 Fixes
