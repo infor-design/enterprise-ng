@@ -82,7 +82,7 @@ export class DatepickerDemoComponent implements OnInit {
   }
 
   clear() {
-    this.model.standard = new Date(0);
+    this.datepicker?.setValue('', true, true);
   }
 
   onChange(event: SohoDatePickerEvent) {

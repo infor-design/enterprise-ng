@@ -5,6 +5,10 @@
         <label for="statechange" class="label">State Change</label>
         <input soho-datepicker name="statechange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
       </div>
+      <div class="field">
+        <label for="statechange" class="label">State Change</label>
+        <input soho-datepicker name="range2" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [range]="rangeOptions" [(ngModel)]="model.range2" (change)="onChange($event)" class="input-mm"/>
+      </div>
       <div>
         <button soho-button [disabled]="datepickerReadOnly" (click)="setReadonly()">Read Only</button>
         <button soho-button [disabled]="datepickerDisabled" (click)="setDisable()">Disable</button>
