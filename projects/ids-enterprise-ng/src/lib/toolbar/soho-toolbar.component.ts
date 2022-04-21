@@ -142,6 +142,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
       if (this.jQueryElement) {
         // clean up attached events.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.toolbarsearchfield) {
         // destroy the soho component.
