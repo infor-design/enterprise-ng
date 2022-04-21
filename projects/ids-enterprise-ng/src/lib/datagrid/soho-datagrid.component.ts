@@ -2254,6 +2254,22 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.fallbackImage;
   }
 
+  /* Tooltip to show if it the fallback appears */
+  @Input() set fallbackTooltip(fallbackTooltip: SohoFallbackTooltipOptions | undefined) {
+    this._gridOptions.fallbackTooltip = fallbackTooltip;
+    if (this.datagrid) {
+      this.datagrid.settings.fallbackTooltip = fallbackTooltip;
+      this.markForRefresh('fallbackTooltip', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get fallbackTooltip(): SohoFallbackTooltipOptions | undefined {
+    if (this.datagrid) {
+      return (this.datagrid as any).settings.fallbackTooltip;
+    }
+    return this._gridOptions.fallbackTooltip;
+  }
+
   /**
    * Event fired after edit mode is activated on an editor.
    *

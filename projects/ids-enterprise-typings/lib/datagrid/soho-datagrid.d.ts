@@ -11,6 +11,10 @@
 type SohoDataGridRowHeight = 'extra-small' | 'small' | 'medium' | 'large' | 'short' | 'medium' | 'normal';
 type SohoDataGridTextAlign = 'left' | 'center' | 'right';
 type SohoDataGridResizeMode = 'flex' | 'fit';
+type SohoFallbackTooltipOptions = {
+  content: string;
+  delay: number;
+}
 
 /**
  * Selection options.
@@ -376,6 +380,9 @@ interface SohoDataGridOptions {
 
   /* Icon name for fallbacks if the image does not load */
   fallbackImage?: string;
+
+  /* Tooltip to show if it the fallback appears */
+  fallbackTooltip?: SohoFallbackTooltipOptions;
 }
 
 interface SohoDataGridModifiedRows {
