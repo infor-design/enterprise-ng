@@ -208,7 +208,7 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
 
   // Expose methods in case Angular needs to control the DOM
   // using Observable
-  // @Input() toggle?: Observable<boolean>;
+  @Input() toggle?: Observable<boolean>;
 
   // Add events for Angular elements to listen to
   @Output() beforeexpand: EventEmitter<Object> = new EventEmitter<Object>();
@@ -232,9 +232,9 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
 
-      // if (this.toggle) {
-      //   this.toggle.subscribe(value => this.toggleOpen(value));
-      //  }
+      if (this.toggle) {
+        this.toggle.subscribe(value => this.toggleOpen(value));
+      }
 
       // Add listeners to emit events
       this.jQueryElement.on('beforeexpand', (event: SohoCardEvent) => this.onBeforeExpand(event));
