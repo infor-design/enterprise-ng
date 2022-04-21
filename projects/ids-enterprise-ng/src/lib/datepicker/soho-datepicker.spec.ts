@@ -412,7 +412,7 @@ describe('Soho Datepicker Unit Tests', () => {
     const dateWithoutTime = getDateWithoutTime(date);
 
     expect(Soho.Locale.currentLocale.name).toEqual('en-US');
-    comp.datepicker?.setValue(date);
+    comp.datepicker?.setValue(date, true, false);
 
     fixture.detectChanges();
 
