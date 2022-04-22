@@ -2,8 +2,12 @@
   <div class="row top-padding">
     <div class="eight columns">
       <div class="field">
-        <label for="statechange" class="label">State Change</label>
+        <label for="statechange" class="label">State Change - No Range</label>
         <input soho-datepicker name="statechange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
+      </div>
+      <div class="field">
+        <label for="statechange" class="label">State Change - Range</label>
+        <input soho-datepicker name="statechangerange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [range]="rangeOptions" [(ngModel)]="model.range2" (change)="onChange($event)" class="input-mm" #rangedate/>
       </div>
       <div>
         <button soho-button [disabled]="datepickerReadOnly" (click)="setReadonly()">Read Only</button>
@@ -19,6 +23,12 @@
   </div>
   <div class="row top-padding"></div>
   <div class="row">
+    <div class="twelve columns">
+      <div class="field">
+        <h2 class="fieldset-title">Datepicker Presentation</h2>
+        <h3>Note: This are not affected by the buttons above this example page.</h3>
+      </div>
+    </div>
     <div class="four columns">
       <div class="field">
         <label for="standard" class="label">Standard Date</label>

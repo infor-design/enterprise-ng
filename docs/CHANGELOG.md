@@ -4,7 +4,7 @@
 
 ### 13.4.0 Fixes
 
-- `[Placeholder]` Fill me in. ([#6242](https://github.com/infor-design/enterprise-ng/issues/6242))
+- `[Datepicker]` Fixed datepicker presentation and clearing datepicker with range dates using the clear button. ([#1256](https://github.com/infor-design/enterprise-ng/issues/1256))
 
 ## v13.3.1
 
