@@ -396,8 +396,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
    * Public API
    */
 
-  public setValue(value: string | Date | number | string[]) {
-    this.datepicker?.setValue(value, true);
+  public setValue(value: string | Date | number | string[], trigger: boolean, isTime: boolean) {
+    this.datepicker?.setValue(value, trigger, isTime);
   }
 
   public getValue(asDate: boolean = false): string | Date | number | string[] {
@@ -527,7 +527,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
         const dates = value.split('-');
         const startValue = new Date(dates[0]);
         const endValue = new Date(dates[1]);
-        
+
         (this.datepicker as any).settings.range.start = startValue;
         (this.datepicker as any).settings.range.end = endValue;
         this.datepicker.setValue(startValue, false);

@@ -13,6 +13,7 @@ import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 export class DatepickerDemoComponent implements OnInit {
 
   @ViewChild(SohoDatePickerComponent, { static: true }) datepicker?: SohoDatePickerComponent;
+  @ViewChild('rangedate', { static: true }) rdatepicker?: SohoDatePickerComponent;
 
   public model = {
     standard: new Date(),
@@ -82,7 +83,8 @@ export class DatepickerDemoComponent implements OnInit {
   }
 
   clear() {
-    this.model.standard = new Date(0);
+    this.datepicker?.setValue('', true, true);
+    this.rdatepicker?.setValue('', true, true);
   }
 
   onChange(event: SohoDatePickerEvent) {
@@ -91,17 +93,20 @@ export class DatepickerDemoComponent implements OnInit {
 
   setEnable() {
     (this.datepicker as any).disabled = false;
+    (this.rdatepicker as any).disabled = false;
     this.datepickerDisabled = (this.datepicker as any).disabled;
     this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
 
   setDisable() {
     (this.datepicker as any).disabled = true;
+    (this.rdatepicker as any).disabled = true;
     this.datepickerDisabled = (this.datepicker as any).disabled;
   }
 
   setReadonly() {
     (this.datepicker as any).readonly = true;
+    (this.rdatepicker as any).readonly = true;
     this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
 

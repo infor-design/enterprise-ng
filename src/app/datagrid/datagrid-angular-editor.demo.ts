@@ -226,7 +226,7 @@ export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor
 
   val(value?: any) {
     if (value) {
-      this.datePicker?.setValue(value);
+      this.datePicker?.setValue(value, true, false);
     }
     return this.datePicker?.getValue();
   }
