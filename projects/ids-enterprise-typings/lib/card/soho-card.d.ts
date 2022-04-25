@@ -1,6 +1,6 @@
 /**
  * Soho Card.
- * 
+ *
  * This file contains the TypeScript mappings for the public
  * interface of the Soho Card control.
  */
@@ -55,6 +55,11 @@ interface SohoCardStatic {
    * Closes the expandable card.
    */
   close(): void;
+
+  /**
+   * destroy the card.
+   */
+  destroy(): void;
 
   /** Updates tha card with any new settings. */
   updated(settings?: SohoCardOptions): void;

@@ -8,10 +8,10 @@ import {
   Input,
   NgZone,
   OnInit,
+  OnDestroy,
   Output,
 } from '@angular/core';
 
-// tslin:disable-next-line:no-unused-variable
 import { Observable } from 'rxjs';
 
 @Component({
@@ -19,10 +19,13 @@ import { Observable } from 'rxjs';
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoCardsComponent implements AfterViewInit {
+export class SohoCardsComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.cards') get isCards() {
     return true;
   }
+
+  /** Reference to the Soho control api. */
+  private cards?: SohoCardStatic | null;
 
   constructor(
     private element: ElementRef,
@@ -37,6 +40,20 @@ export class SohoCardsComponent implements AfterViewInit {
         selectable: this.selectable,
       });
 
+      this.cards = this.jQueryElement.data('cards');
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+        this.jQueryElement = undefined;
+      }
+      if (this.cards) {
+        this.cards?.destroy();
+        this.cards = undefined;
+      }
     });
   }
 
@@ -132,7 +149,7 @@ export class SohoCardPaneComponent {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoCardComponent implements AfterViewInit {
+export class SohoCardComponent implements AfterViewInit, OnDestroy {
   @Input('soho-card') id: string | undefined; // eslint-disable-line
   @Input() expandableHeader: boolean | undefined; // eslint-disable-line
   @Input() verticalButtonAction: boolean | undefined; // eslint-disable-line
@@ -165,9 +182,9 @@ export class SohoCardComponent implements AfterViewInit {
   @Input()
   public set attributes(value: Array<Object> | Object | undefined) {
     (this.options as any).attributes = value;
-    if (this.card) {
+    if (this.cards) {
       this.options.attributes = value;
-      this.updated(this.card.settings);
+      this.updated(this.cards.settings);
     }
   }
 
@@ -178,14 +195,14 @@ export class SohoCardComponent implements AfterViewInit {
   /** Html template string */
   @Input() set template(template: string) {
     this.options.template = template;
-    if (this.jQueryElement && this.card) {
-      this.card.settings.template = template;
-      this.updated(this.card.settings);
+    if (this.jQueryElement && this.cards) {
+      this.cards.settings.template = template;
+      this.updated(this.cards.settings);
     }
   }
 
   public updated(settings: any): SohoCardComponent {
-    this.ngZone.runOutsideAngular(() => this.card?.updated(settings));
+    this.ngZone.runOutsideAngular(() => this.cards?.updated(settings));
     return this;
   }
 
@@ -203,7 +220,7 @@ export class SohoCardComponent implements AfterViewInit {
 
   private jQueryElement?: JQuery;
   private options: SohoCardOptions = {};
-  private card?: SohoCardStatic | null;
+  private cards?: SohoCardStatic | null;
   private _closed?: boolean;
 
   constructor(
@@ -237,12 +254,27 @@ export class SohoCardComponent implements AfterViewInit {
         attributes: this.options.attributes
       });
 
-      this.card = this.jQueryElement.data('cards');
+      this.cards = this.jQueryElement.data('cards');
 
       if (this.closed) {
         this.toggleOpen(false);
       } else if (typeof this.closed !== 'undefined') {
         this.toggleOpen(true);
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.ngZone.runOutsideAngular(() => {
+      // this.toggle = undefined;
+      this.element.nativeElement = undefined;
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+        this.jQueryElement = undefined;
+      }
+      if (this.cards) {
+        this.cards?.destroy();
+        this.cards = undefined;
       }
     });
   }
@@ -254,19 +286,19 @@ export class SohoCardComponent implements AfterViewInit {
     this.ngZone.runOutsideAngular(() => {
       this._closed = !open;
       if (open) {
-        this.card?.open();
+        this.cards?.open();
       } else {
-        this.card?.close();
+        this.cards?.close();
       }
     });
   }
 
   close(): void {
-    this.ngZone.runOutsideAngular(() => this.card?.close());
+    this.ngZone.runOutsideAngular(() => this.cards?.close());
   }
 
   open(): void {
-    this.ngZone.runOutsideAngular(() => this.card?.open());
+    this.ngZone.runOutsideAngular(() => this.cards?.open());
   }
 
   private onBeforeExpand(event: SohoCardEvent) {
