@@ -1,6 +1,6 @@
 import {
   AfterViewInit, Attribute, Directive, ElementRef,
-  EventEmitter, HostBinding, Input, NgZone, Output
+  EventEmitter, HostBinding, Input, NgZone, Output, OnDestroy
 } from '@angular/core';
 
 /**
@@ -12,7 +12,7 @@ import {
 @Directive({
   selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate], select[data-validate]' // eslint-disable-line
 })
-export class SohoInputValidateDirective implements AfterViewInit {
+export class SohoInputValidateDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Local variables
@@ -89,6 +89,18 @@ export class SohoInputValidateDirective implements AfterViewInit {
       }));
 
       this.validator = this.jQueryElement.data('validate');
+    });
+  }
+
+  ngOnDestroy() {
+    // Necessary clean up step (add additional here)
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        // clean up attached events.
+        this.jQueryElement.off();
+      }
+      this.validator!.destroy();
+      this.validator = undefined;
     });
   }
 
