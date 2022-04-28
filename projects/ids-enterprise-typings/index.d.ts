@@ -46,6 +46,7 @@
 /// <reference path='lib/input-validate/soho-input-validate.d.ts' />
 /// <reference path='lib/line/soho-line.d.ts' />
 /// <reference path='lib/listview/soho-listview.d.ts' />
+/// <reference path='lib/listbuilder/soho-listbuilder.d.ts' />
 /// <reference path='lib/locale/soho-locale.d.ts' />
 /// <reference path='lib/lookup/soho-lookup.d.ts' />
 /// <reference path='lib/mask/soho-mask.d.ts' />
