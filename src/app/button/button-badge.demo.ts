@@ -1,8 +1,10 @@
 import {
   Component,
   OnInit,
+  ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
+import { SohoButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-button-badge-demo',
@@ -10,7 +12,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonBadgeDemoComponent implements OnInit {
-  public shouldSayHi = false;
+
+  @ViewChild('togglebutton', { static: true }) buttonDemo?: SohoButtonComponent;
+  public buttonToggle = true;
 
   public badgeOption1: SohoButtonOptions = {
     notificationBadge: true,
@@ -40,13 +44,30 @@ export class ButtonBadgeDemoComponent implements OnInit {
     notificationBadge: true,
     notificationBadgeOptions: {
       position: 'upper-right',
-      color: 'complete'
+      color: 'warning'
+    }
+  }
+
+  public badgeOption5: SohoButtonOptions = {
+    notificationBadge: true,
+    notificationBadgeOptions: {
+      position: 'upper-left',
+      color: 'warning'
     }
   }
 
   constructor() { }
   ngOnInit() { }
-  toggleHello() {
-    this.shouldSayHi = !this.shouldSayHi;
+
+  toggleOn() {
+    this.buttonToggle = true;
+    this.badgeOption5.notificationBadge = this.buttonToggle;
+    this.buttonDemo?.updated(this.badgeOption5);
+  }
+
+  toggleOff() {
+    this.buttonToggle = false;
+    this.badgeOption5.notificationBadge = this.buttonToggle;
+    this.buttonDemo?.updated(this.badgeOption5);
   }
 }
