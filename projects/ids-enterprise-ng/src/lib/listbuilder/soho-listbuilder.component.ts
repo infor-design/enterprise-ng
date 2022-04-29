@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, ContentChildren, ElementRef, HostBinding, Input, NgZone, OnDestroy, QueryList, ViewChild } from "@angular/core";
+import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, ContentChildren, ElementRef, EventEmitter, HostBinding, Input, NgZone, OnDestroy, Output, QueryList, ViewChild } from "@angular/core";
 import { SohoListViewItemComponent } from "../listview";
 
 @Component({
@@ -33,8 +33,6 @@ export class SohoListBuilderComponent implements AfterViewInit, OnDestroy, After
 
     // Used to locate the listBuilderReference in the HTML to init the component through jQuery
     @ViewChild('listbuilder', { static: true }) listBuilderRef: ElementRef | undefined;
-
-    @ContentChildren(SohoListViewItemComponent) items?: QueryList<SohoListViewItemComponent>;
 
     @Input() sohoListBuilderElementId?: string;
 
@@ -156,6 +154,34 @@ export class SohoListBuilderComponent implements AfterViewInit, OnDestroy, After
         }
     }
 
+    /** Calls events after a top button action */
+    @Output() afteradd: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    @Output() aftergoup: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    @Output() aftergodown: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    @Output() afterdelete: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    /** Calls events before a top button action */
+    @Output() beforeedit: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    @Output() beforeadd: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    @Output() beforegoup: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    @Output() beforegodown: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    @Output() beforedelete: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+    
+    /** Update event on arranging items (drag and drop item) */
+    @Output() arrangeupdate: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+    
+    /** Calls events for edit item */
+    @Output() entereditmode: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+    @Output() exiteditmode: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
     ngAfterViewInit(): void {
         if (!this.listBuilderRef) {
             throw Error('Unable to find listbuilder reference...');
@@ -165,6 +191,18 @@ export class SohoListBuilderComponent implements AfterViewInit, OnDestroy, After
             this.jQueryElement = jQuery(this.listBuilderRef?.nativeElement);
             this.jQueryElement.listbuilder(this.options);
             this.listbuilder = this.jQueryElement.data('listbuilder');
+
+            this.jQueryElement.on('afteradd', (...args) => this.ngZone.run(() => this.afteradd.emit(args)));
+            this.jQueryElement.on('aftergoup', (...args) => this.ngZone.run(() => this.aftergoup.emit(args)));
+            this.jQueryElement.on('aftergodown', (...args) => this.ngZone.run(() => this.aftergodown.emit(args)));
+            this.jQueryElement.on('afterdelete', (...args) => this.ngZone.run(() => this.afterdelete.emit(args)));
+            this.jQueryElement.on('beforeadd', (...args) => this.ngZone.run(() => this.beforeadd.emit(args)));
+            this.jQueryElement.on('beforegoup', (...args) => this.ngZone.run(() => this.beforegoup.emit(args)));
+            this.jQueryElement.on('beforegodown', (...args) => this.ngZone.run(() => this.beforegodown.emit(args)));
+            this.jQueryElement.on('beforedelete', (...args) => this.ngZone.run(() => this.beforedelete.emit(args)));
+            this.jQueryElement.on('entereditmode', (...args) => this.ngZone.run(() => this.entereditmode.emit(args)));
+            this.jQueryElement.on('exiteditmode', (...args) => this.ngZone.run(() => this.exiteditmode.emit(args)));
+            this.jQueryElement.on('arrangeupdate', (...args) => this.ngZone.run(() => this.arrangeupdate.emit(args)));
         });
     }
 
@@ -173,10 +211,6 @@ export class SohoListBuilderComponent implements AfterViewInit, OnDestroy, After
           this.ngZone.runOutsideAngular(() => this.listbuilder?.updated());
           this.updateRequired = false;
         }
-
-        this.items?.changes.subscribe(() => {
-            this.updateRequired = true;
-        });
     }
     
     ngOnDestroy() {

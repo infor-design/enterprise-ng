@@ -2,6 +2,10 @@
 
 ## v13.4.0
 
+### 13.4.0 Features
+
+- `[Listbuilder]` Added listbuilder component wrapper. ([#1264](https://github.com/infor-design/enterprise-ng/issues/1264))
+
 ### 13.4.0 Fixes
 
 - `[Datepicker]` Fixed datepicker presentation and clearing datepicker with range dates using the clear button. ([#1256](https://github.com/infor-design/enterprise-ng/issues/1256))

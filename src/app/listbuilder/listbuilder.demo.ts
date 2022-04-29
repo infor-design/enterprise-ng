@@ -18,4 +18,8 @@ export class ListBuilderDemoComponent {
         {id: 11, value: 'opt-11', text: 'Kuwait'},
         {id: 12, value: 'opt-12', text: 'Libya'}
     ]
+
+    print(e: any) {
+        console.log(e[0].type.toUpperCase(), e[1]);    
+    }
 }

@@ -1,11 +1,25 @@
 <div class="row top-padding">
     <div class="columns six">
-        <div class="card">
+        <div class="card" style="height: 317px; min-height: 317px">
             <div class="card-header">
                 <h2 class="card-title">List Builder</h2>
             </div>
             <div class="card-content">
-                <div soho-listbuilder [dataset]="dataset"></div>
+                <div soho-listbuilder 
+                    [dataset]="dataset"
+                    (afteradd)="print($event)"
+                    (aftergoup)="print($event)"
+                    (aftergodown)="print($event)"
+                    (afterdelete)="print($event)"
+                    (beforeadd)="print($event)"
+                    (beforeedit)="print($event)"
+                    (beforegodown)="print($event)"
+                    (beforegoup)="print($event)"
+                    (beforedelete)="print($event)"
+                    (entereditmode)="print($event)"
+                    (exiteditmode)="print($event)"
+                    (arrangeupdate)="print($event)"
+                ></div>
             </div>
         </div>
     </div>
