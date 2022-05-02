@@ -1,0 +1,21 @@
+<div #listbuilder [class]="listClass" [attr.id]="sohoListBuilderElementId" >
+    <soho-toolbar class="formatter-toolbar">
+        <soho-toolbar-button-set>
+            <button soho-button="secondary" icon="add" data-action="add" title="Add New">Add</button>
+            <div class="separator"></div>
+            <button soho-button="secondary" icon="up-arrow" data-action="goup" title="Go Up">Go Up</button>
+            <button soho-button="secondary" icon="down-arrow" data-action="godown" title="Go Down">Go Down</button>
+            <div class="separator"></div>
+            <button soho-button="secondary" icon="edit" data-action="edit" title="Edit">Edit</button>
+            <button soho-button="secondary" icon="delete" data-action="delete" title="Delete">Delete</button>
+        </soho-toolbar-button-set>
+    </soho-toolbar>
+    <div class="listbuilder-content">
+        <div class="listview">
+            <ul>
+                <ng-content select="li[soho-listview-item]"></ng-content>
+            </ul>
+            <ng-content select="[soho-emptymessage]"></ng-content>
+        </div>
+    </div>
+</div>

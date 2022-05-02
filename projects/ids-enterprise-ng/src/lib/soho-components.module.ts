@@ -87,6 +87,7 @@ import { SohoTreemapModule } from './treemap/soho-treemap.module';
 import { SohoVersionInitializerModule } from './version/version-initializer.module';
 import { SohoWeekViewModule } from './week-view/soho-week-view.module';
 import { SohoWizardModule } from './wizard/soho-wizard.module';
+import { SohoListBuilderModule } from './listbuilder';
 
 @NgModule({
   imports: [
@@ -135,6 +136,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoLabelModule,
     SohoLineModule,
     SohoListViewModule,
+    SohoListBuilderModule,
     SohoLocaleModule,
     SohoLookupModule,
     SohoMaskModule,
@@ -225,6 +227,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoLabelModule,
     SohoLineModule,
     SohoListViewModule,
+    SohoListBuilderModule,
     SohoLocaleModule,
     SohoLookupModule,
     SohoMaskModule,

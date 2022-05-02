@@ -279,6 +279,7 @@ import { HeaderSearchfieldFlexDemoComponent } from './header/header-searchfield-
 import { HeaderSearchfieldCategoryDemoComponent } from './header/header-searchfield-category.demo';
 import { HomePageEditableFilledComponent } from './homepage/homepage-editable-filled.demo';
 import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfield-category-update.demo';
+import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 
 @NgModule({
   declarations: [
@@ -439,6 +440,7 @@ import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfiel
     ListViewCustomContentDemoComponent,
     ListViewDemoComponent,
     ListViewContextDemoComponent,
+    ListBuilderDemoComponent,
     LookupDemoComponent,
     LookupDialogDemoComponent,
     LookupLandmarkDemoComponent,

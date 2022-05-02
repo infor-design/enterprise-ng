@@ -43,6 +43,7 @@ export * from './input-validate/index';
 export * from './label/index';
 export * from './line/index';
 export * from './listview/index';
+export * from './listbuilder/index';
 export * from './locale/index';
 export * from './lookup/index';
 export * from './mask/index';
