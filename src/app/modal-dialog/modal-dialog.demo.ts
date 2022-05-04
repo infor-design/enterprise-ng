@@ -41,6 +41,7 @@ export class ModalDialogDemoComponent {
   openFullSize() {
     const dialogRef = this.modalService
       .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder, { fullsize: 'responsive' })
+      .showCloseBtn(true)
       .title(this.title)
       .buttons(
         [

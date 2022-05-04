@@ -11,6 +11,7 @@
 - `[Datepicker]` Fixed datepicker presentation and clearing datepicker with range dates using the clear button. ([#1256](https://github.com/infor-design/enterprise-ng/issues/1256))
 - `[Datepicker]` Fixed notification badges in buttons not properly destroyed when updating button settings. ([#1241](https://github.com/infor-design/enterprise-ng/issues/1241))
 - `[General]` Fixed memory leaks in listview, toolbar, datagrid, cards and header. ([NG#1275](https://github.com/infor-design/enterprise-ng/issues/1275))
+- `[Modal]` Added close button in full on tablet example modal. ([#1240](https://github.com/infor-design/enterprise-ng/issues/1240))
 
 ## v13.3.1
 
