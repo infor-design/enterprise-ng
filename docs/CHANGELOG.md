@@ -1,12 +1,12 @@
 # What's New with Enterprise-NG
 
-## v13.4.0
+## v
 
-### 13.4.0 Features
+###  Features
 
 - `[Listbuilder]` Added listbuilder component wrapper. ([#1264](https://github.com/infor-design/enterprise-ng/issues/1264))
 
-### 13.4.0 Fixes
+###  Fixes
 
 - `[Datepicker]` Fixed datepicker presentation and clearing datepicker with range dates using the clear button. ([#1256](https://github.com/infor-design/enterprise-ng/issues/1256))
 - `[Datepicker]` Fixed notification badges in buttons not properly destroyed when updating button settings. ([#1241](https://github.com/infor-design/enterprise-ng/issues/1241))
