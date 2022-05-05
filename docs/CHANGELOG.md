@@ -2,7 +2,7 @@
 
 ## v13.5.0
 
-### 13.54.0 Fixes
+### 13.5.0 Fixes
 
 - `[Placeholder]` Add notes here. ([#1264](https://github.com/infor-design/enterprise-ng/issues/1264))
 
