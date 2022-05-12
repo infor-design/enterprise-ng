@@ -550,6 +550,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
 
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
 
       if (this.datepicker) {

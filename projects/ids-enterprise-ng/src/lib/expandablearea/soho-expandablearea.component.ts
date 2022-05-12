@@ -200,6 +200,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.expandablearea) {
         this.expandablearea.destroy();

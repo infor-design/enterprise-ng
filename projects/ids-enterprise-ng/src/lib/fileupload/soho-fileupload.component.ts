@@ -143,6 +143,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     // call outside the angular zone so change detection isn't triggered by the soho component.
     if (this.jQueryElement) {
       this.jQueryElement.off();
+      this.jQueryElement = undefined;
     }
     if (this.fileUpload) {
       this.fileUpload.destroy();

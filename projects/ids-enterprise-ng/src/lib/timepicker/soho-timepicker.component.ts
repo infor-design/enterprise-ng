@@ -305,6 +305,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
       if (this.jQueryElement) {
         // remove the event listeners on this element.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
 
       if (this.timepicker) {

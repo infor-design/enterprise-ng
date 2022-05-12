@@ -284,7 +284,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
       this.ngZone.runOutsideAngular(() => {
         const elem = api.elem[0];
         const rect = elem.getBoundingClientRect();
-        this.offset  = { x: rect.x + this.listOffset.x , y: rect.y + this.listOffset.y };
+        this.offset = { x: rect.x + this.listOffset.x, y: rect.y + this.listOffset.y };
         if (this.contextMenu) {
           this.contextMenu.updated();
           (this.contextMenu as any).position(e)
@@ -318,6 +318,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.contextMenu) {
         // @todo raise an issue on this failing on removeData!

@@ -57,7 +57,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   // -------------------------------------------
 
   /** Reference to the jQuery selector. */
-  private jQueryElement!: JQuery;
+  private jQueryElement!: JQuery | undefined;
 
   /**
    * References to the Soho control api.
@@ -454,6 +454,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.accordion) {
         this.accordion?.destroy();

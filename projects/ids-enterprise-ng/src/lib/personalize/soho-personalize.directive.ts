@@ -146,6 +146,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
 
       if (this.personalize) {

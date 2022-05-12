@@ -116,6 +116,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
       if (this.jQueryElement) {
         // clean up attached events.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.searchfield) {
         this.searchfield.destroy();
@@ -141,7 +142,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
       return this.searchfield?.getCategoryData(onlySelected);
     });
   }
-  
+
   /**  Gets a complete list of categories in jQuery-collection form. */
   getSelectedCategories(): any {
     return this.ngZone.runOutsideAngular(() => {

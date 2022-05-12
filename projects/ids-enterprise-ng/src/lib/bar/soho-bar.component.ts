@@ -286,6 +286,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.bar) {
         this.bar.destroy();

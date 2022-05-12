@@ -1,14 +1,14 @@
 /* eslint-disable @angular-eslint/no-input-rename */
-import { 
+import {
     AfterViewChecked,
-    AfterViewInit, 
-    ChangeDetectionStrategy, 
-    Component, 
-    ElementRef, 
-    HostBinding, 
-    Input, 
-    NgZone, 
-    OnDestroy 
+    AfterViewInit,
+    ChangeDetectionStrategy,
+    Component,
+    ElementRef,
+    HostBinding,
+    Input,
+    NgZone,
+    OnDestroy
 } from "@angular/core";
 
 @Component({
@@ -116,10 +116,10 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
      */
     @Input() set attributes(attributes: Array<Object> | Object) {
         this.options.attributes = attributes;
-    
+
         if (this.stepchart) {
-          this.stepchart.settings.attributes = attributes;
-          this.updateRequired = true;
+            this.stepchart.settings.attributes = attributes;
+            this.updateRequired = true;
         }
     }
 
@@ -131,15 +131,15 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         private element: ElementRef,
         private ngZone: NgZone,
     ) { }
-    
+
     ngAfterViewInit() {
         this.ngZone.runOutsideAngular(() => {
             // assign element to local variable
             this.jQueryElement = jQuery(this.element.nativeElement);
-    
+
             // initialise the tag control
             this.jQueryElement.stepchart(this.options);
-    
+
             // extract the api
             this.stepchart = this.jQueryElement.data('stepchart');
         });
@@ -147,16 +147,17 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
 
     ngAfterViewChecked() {
         if (this.stepchart && this.updateRequired) {
-          this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.stepchart.settings));
-          this.updateRequired = false;
+            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.stepchart.settings));
+            this.updateRequired = false;
         }
     }
-    
+
     ngOnDestroy() {
         this.ngZone.runOutsideAngular(() => {
             if (this.jQueryElement) {
                 // remove the event listeners on this element.
                 this.jQueryElement.off();
+                this.jQueryElement = undefined;
             }
 
             // Destroy any widget resources.

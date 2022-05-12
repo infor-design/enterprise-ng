@@ -266,6 +266,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.column) {
         this.column.destroy();

@@ -339,6 +339,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
       if (this.jQueryElement) {
         // remove the event listeners on this element.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
 
       // Destroy any widget resources.

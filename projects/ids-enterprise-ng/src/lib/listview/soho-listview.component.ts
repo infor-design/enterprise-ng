@@ -420,6 +420,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.listview) {
         this.listview.destroy();

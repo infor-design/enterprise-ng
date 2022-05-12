@@ -121,7 +121,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       this.updated(this.blockgrid.settings);
     }
   }
-  public get attributes():  Array<Object> | Object | undefined {
+  public get attributes(): Array<Object> | Object | undefined {
     if (!this.blockgrid) {
       return this.options.attributes;
     }
@@ -166,6 +166,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.blockgrid) {
         this.blockgrid.destroy();

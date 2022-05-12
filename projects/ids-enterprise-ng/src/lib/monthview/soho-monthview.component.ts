@@ -629,6 +629,7 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.monthview) {
         this.monthview.destroy();

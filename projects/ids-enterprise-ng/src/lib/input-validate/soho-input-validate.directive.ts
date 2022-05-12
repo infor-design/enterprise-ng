@@ -98,6 +98,7 @@ export class SohoInputValidateDirective implements AfterViewInit, OnDestroy {
       if (this.jQueryElement) {
         // clean up attached events.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       this.validator!.destroy();
       this.validator = undefined;

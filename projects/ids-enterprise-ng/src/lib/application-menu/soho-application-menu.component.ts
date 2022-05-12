@@ -367,6 +367,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.applicationmenu) {
         this.applicationmenu.destroy();

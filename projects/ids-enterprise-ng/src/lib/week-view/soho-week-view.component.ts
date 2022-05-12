@@ -551,6 +551,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.weekView) {
         this.weekView.destroy();

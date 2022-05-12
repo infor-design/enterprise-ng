@@ -26,7 +26,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
   constructor(
     private element: ElementRef,
     private ngZone: NgZone,
-  ) {}
+  ) { }
 
   private _options: SohoActionsheetOptions = {
     breakpoint: 'phone-to-tablet',
@@ -40,7 +40,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
     showCancelButton: true
   };
   private actionsheet?: SohoActionsheetStatic | null;
-  private jQueryElement!: JQuery;
+  private jQueryElement!: JQuery | undefined;
 
   @Input() set actions(actions: SohoActionsheetActions | undefined) {
     this._options.actions = actions;
@@ -51,7 +51,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
     }
   }
   public get actions(): SohoActionsheetActions | undefined {
-    if(!this.actionsheet) {
+    if (!this.actionsheet) {
       return this._options.actions;
     }
     return this.actionsheet.settings.actions;
@@ -225,6 +225,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.actionsheet) {
         this.actionsheet.destroy();
