@@ -264,6 +264,7 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.pie) {
         this.pie.destroy();

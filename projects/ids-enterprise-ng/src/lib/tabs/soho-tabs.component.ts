@@ -648,6 +648,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.tabs) {
         this.tabs.destroy();

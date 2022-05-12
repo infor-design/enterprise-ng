@@ -677,6 +677,7 @@ export class SohoModalDialogRef<T> {
       // Remove all events.
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
 
       this.ngZone.run(() => {

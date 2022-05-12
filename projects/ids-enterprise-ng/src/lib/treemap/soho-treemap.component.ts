@@ -156,6 +156,7 @@ export class SohoTreemapComponent implements AfterViewInit, AfterViewChecked, On
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.treemap) {
         this.treemap.destroy();

@@ -264,6 +264,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.homepage) {
         this.homepage.destroy();

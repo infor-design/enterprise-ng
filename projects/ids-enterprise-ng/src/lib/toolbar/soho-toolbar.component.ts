@@ -504,6 +504,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
       if (this.jQueryElement) {
         this.jQueryElement.find('.more').off();
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.toolbar) {
         this.toolbar.destroy();

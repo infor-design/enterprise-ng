@@ -536,6 +536,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       if (this.jQueryElement) {
         // remove the event listeners on this element.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
 
       // Destroy any widget resources.

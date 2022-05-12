@@ -146,7 +146,7 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
   constructor(
     private elementRef: ElementRef,
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -156,7 +156,7 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
       // Workaround for pagesizeevent not being fired unless the onPageSizeChange property
       // is set. Once that is fixed in soho/ep then this can be removed.
       // -----------------------------------------------------------------------------------
-      (this.options as any).onPageSizeChange = () => {};
+      (this.options as any).onPageSizeChange = () => { };
       // -----------------------------------------------------------------------------------
 
       this.options.type = 'standalone';
@@ -164,11 +164,11 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
       this.pager = this.jQueryElement.data('pager');
 
       // Setup the events
-      this.jQueryElement.on('firstpage', (... args) => this.ngZone.run(() => this.firstPage.emit(args)));
-      this.jQueryElement.on('lastpage', (... args) => this.ngZone.run(() => this.lastPage.emit(args)));
-      this.jQueryElement.on('previouspage', (... args) => this.ngZone.run(() => this.previousPage.emit(args)));
-      this.jQueryElement.on('nextpage', (... args) => this.ngZone.run(() => this.nextPage.emit(args)));
-      this.jQueryElement.on('pagesizechange', (... args) => this.ngZone.run(() => this.pageSizeChange.emit(args)));
+      this.jQueryElement.on('firstpage', (...args) => this.ngZone.run(() => this.firstPage.emit(args)));
+      this.jQueryElement.on('lastpage', (...args) => this.ngZone.run(() => this.lastPage.emit(args)));
+      this.jQueryElement.on('previouspage', (...args) => this.ngZone.run(() => this.previousPage.emit(args)));
+      this.jQueryElement.on('nextpage', (...args) => this.ngZone.run(() => this.nextPage.emit(args)));
+      this.jQueryElement.on('pagesizechange', (...args) => this.ngZone.run(() => this.pageSizeChange.emit(args)));
     });
   }
 
@@ -185,6 +185,7 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.pager) {
         this.pager.destroy();

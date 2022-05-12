@@ -55,6 +55,7 @@ export class SohoFormCompactComponent implements AfterViewInit, AfterViewChecked
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.formcompact) {
         this.formcompact.destroy();

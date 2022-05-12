@@ -116,6 +116,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
     });
   }

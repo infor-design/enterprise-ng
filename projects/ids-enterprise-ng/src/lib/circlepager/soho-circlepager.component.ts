@@ -96,6 +96,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.circlepager) {
         try {

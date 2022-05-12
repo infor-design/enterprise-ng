@@ -306,6 +306,7 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.radar) {
         this.radar.destroy();

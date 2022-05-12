@@ -271,6 +271,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
         tooltipApi?.destroy?.();
         const popupmenuApi = this.jQueryElement.data('popupmenu');
         popupmenuApi?.destroy?.();
+        this.jQueryElement = undefined;
       }
 
       // Destroy any widget resources.

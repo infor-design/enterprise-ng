@@ -146,6 +146,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
       if (this.jQueryElement) {
         // clean up attached events.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.toolbarFlexSearchField) {
         // destroy the soho component.
@@ -389,6 +390,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.toolbarFlex) {
         this.toolbarFlex.destroy();

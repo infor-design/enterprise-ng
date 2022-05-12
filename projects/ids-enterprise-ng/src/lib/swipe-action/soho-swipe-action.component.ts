@@ -18,7 +18,7 @@ export class SohoSwipeActionComponent implements AfterViewInit, OnDestroy {
 
   /** Options */
   private swipeaction?: SohoSwipeActionStatic | null;
-  private jQueryElement!: JQuery;
+  private jQueryElement!: JQuery | undefined;
 
   @HostBinding('class.swipe-action') get isSwipeAction() {
     return true;
@@ -42,6 +42,7 @@ export class SohoSwipeActionComponent implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.swipeaction) {
         this.swipeaction.destroy();

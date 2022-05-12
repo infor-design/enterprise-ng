@@ -112,6 +112,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.hierarchy) {
         this.hierarchy.destroy();

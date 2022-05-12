@@ -118,6 +118,7 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.bullet) {
         this.bullet.destroy();

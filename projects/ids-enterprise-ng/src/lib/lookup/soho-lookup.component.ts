@@ -638,6 +638,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
 
       if (this.lookup) {

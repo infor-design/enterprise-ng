@@ -671,6 +671,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
       if (this.calendar) {
         this.calendar.destroy();

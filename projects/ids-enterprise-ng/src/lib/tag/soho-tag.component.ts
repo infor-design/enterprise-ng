@@ -96,6 +96,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
       if (this.jQueryElement) {
         // remove the event listeners on this element.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
     });
   }
@@ -229,7 +230,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
       this.jQueryElement
         .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
-      
+
       if (parent) {
         parent.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
       }
@@ -267,6 +268,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
       if (this.jQueryElement) {
         // remove the event listeners on this element.
         this.jQueryElement.off();
+        this.jQueryElement = undefined;
       }
 
       // Destroy any widget resources.
