@@ -155,13 +155,13 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * This event is fired when a node is expanded, the SohoTreeNode
    * expanded is passed in the argument passed to the handler.
    */
-  @Output() expand = new EventEmitter<SohoTreeEvent>();
+  @Output() expanded = new EventEmitter<SohoTreeEvent>();
 
   /**
    * This event is fired when a node is collapsed, the SohoTreeNode
    * collapsed is passed in the argument passed to the handler.
    */
-  @Output() collapse = new EventEmitter<SohoTreeEvent>();
+  @Output() collapsed = new EventEmitter<SohoTreeEvent>();
 
   /**
    * This event is fired when a node is selected, the SohoTreeNode
@@ -489,8 +489,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
       .on('contextmenu', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.contextmenu?.next(args))
       .on('selected', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.selected.next(args))
       .on('unselected', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.unselected.next(args))
-      .on('expand', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expand.next(args))
-      .on('collapse', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapse.next(args))
+      .on('expanded', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expanded.next(args))
+      .on('collapsed', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapsed.next(args))
       .on('sortstart', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortstart.next(args))
       .on('sortend', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortend.next(args))
       .on('menuselect', (_e: JQuery.Event, args: SohoTreeEvent) => this.menuselect.next(args))

@@ -67,14 +67,14 @@ export class TreeSourceDemoComponent implements AfterViewInit {
   }
 
   onSelected(treeEvent: SohoTreeEvent) {
-    console.log(`Tree Event: ${treeEvent.data}`);
+    console.log(`Tree Event Selected: ${treeEvent.data}`);
   }
 
-  onCollapse(treeEvent: SohoTreeEvent) {
-    console.log(`Tree Event: ${treeEvent.data}`);
+  onCollapsed(treeEvent: SohoTreeEvent) {
+    console.log(`Tree Event Collapsed: ${treeEvent.data}`);
   }
 
-  onExpand(treeEvent: SohoTreeEvent) {
-    console.log(`Tree Event: ${treeEvent.data}`);
+  onExpanded(treeEvent: SohoTreeEvent) {
+    console.log(`Tree Event Expanded: ${treeEvent.data}`);
   }
 }

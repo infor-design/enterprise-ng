@@ -18,8 +18,8 @@
     <section soho-busyindicator class="scrollable">
       <ul soho-tree
           (selected)="onSelected($event)"
-          (expand)="onExpand($event)"
-          (collapse)="onCollapse($event)"
+          (expanded)="onExpanded($event)"
+          (collapsed)="onCollapsed($event)"
           [source]="source.bind(this)">
       </ul>
     </section>
