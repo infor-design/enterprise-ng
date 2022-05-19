@@ -4,7 +4,7 @@
 
 ### 13.5.0 Fixes
 
-- `[Placeholder]` Add notes here. ([#1264](https://github.com/infor-design/enterprise-ng/issues/1264))
+- `[Tree]` The expanded and collapsed events were not working. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
 
 ## v13.4.0
 
