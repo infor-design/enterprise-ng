@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v13.3.3
+
+### 13.3.3 Fixes
+
+- `[General]` Added 4.62.2 with fixes for toolbar and calendar in homepages.
+
 ## v13.3.1
 
 ### 13.3.1 Fixes
