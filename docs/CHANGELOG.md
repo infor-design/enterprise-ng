@@ -8,7 +8,7 @@
 
 ## v13.4.1
 
-### 13.3.1 Fixes
+### 13.4.1 Fixes
 
 - `[General]` Added 4.63.2 with fixes for locale and personalization.
 
