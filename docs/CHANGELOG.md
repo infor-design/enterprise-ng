@@ -6,6 +6,12 @@
 
 - `[Tree]` The expanded and collapsed events were not working. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
 
+## v13.4.1
+
+### 13.3.1 Fixes
+
+- `[General]` Added 4.63.2 with fixes for locale and personalization.
+
 ## v13.4.0
 
 ### 13.4.0 Features
@@ -18,6 +24,12 @@
 - `[Datepicker]` Fixed notification badges in buttons not properly destroyed when updating button settings. ([#1241](https://github.com/infor-design/enterprise-ng/issues/1241))
 - `[General]` Fixed memory leaks in listview, toolbar, datagrid, cards and header. ([NG#1275](https://github.com/infor-design/enterprise-ng/issues/1275))
 - `[Modal]` Added close button in full on tablet example modal. ([#1240](https://github.com/infor-design/enterprise-ng/issues/1240))
+
+## v13.3.4
+
+### 13.3.4 Fixes
+
+- `[General]` Added 4.62.3 with fixes for personalization and locale.
 
 ## v13.3.3
 
