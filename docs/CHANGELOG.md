@@ -1,10 +1,10 @@
 # What's New with Enterprise-NG
 
-## v
+## v13.4.1
 
-###  Features
+### 13.3.1 Fixes
 
-- `[Listbuilder]` Added listbuilder component wrapper. ([#1264](https://github.com/infor-design/enterprise-ng/issues/1264))
+- `[General]` Added 4.63.2 with fixes for locale and personalization.
 
 ###  Fixes
 
