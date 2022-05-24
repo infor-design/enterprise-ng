@@ -19,6 +19,12 @@
 - `[General]` Fixed memory leaks in listview, toolbar, datagrid, cards and header. ([NG#1275](https://github.com/infor-design/enterprise-ng/issues/1275))
 - `[Modal]` Added close button in full on tablet example modal. ([#1240](https://github.com/infor-design/enterprise-ng/issues/1240))
 
+## v13.3.3
+
+### 13.3.3 Fixes
+
+- `[General]` Added 4.62.2 with fixes for toolbar and calendar in homepages.
+
 ## v13.3.1
 
 ### 13.3.1 Fixes
