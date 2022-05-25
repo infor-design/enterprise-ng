@@ -245,6 +245,11 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   }
 
   ngOnDestroy() {
+    if (this.jQueryElement) {
+      this.jQueryElement.off();
+      this.jQueryElement = undefined;
+      this.element.nativeElement = undefined;
+    }
     if (this.tooltip) {
       this.tooltip.destroy();
       this.tooltip = null;

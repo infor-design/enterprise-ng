@@ -396,6 +396,10 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
 
   /** Destructor. */
   ngOnDestroy() {
+    if (this.jQueryElement) {
+      this.jQueryElement.off();
+      this.jQueryElement = undefined;
+    }
     if (this.mask) {
       this.mask.destroy();
       this.mask = null;

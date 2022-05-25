@@ -102,6 +102,7 @@ export class SohoInputValidateDirective implements AfterViewInit, OnDestroy {
       }
       this.validator!.destroy();
       this.validator = undefined;
+      this.el.nativeElement = undefined;
     });
   }
 

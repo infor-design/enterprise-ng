@@ -6,6 +6,7 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  OnDestroy,
   Output,
 } from '@angular/core';
 
@@ -14,7 +15,7 @@ import {
   templateUrl: 'soho-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoHeaderComponent implements AfterViewInit {
+export class SohoHeaderComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.header') isHeader = true;
   @HostBinding('class.is-personalizable') isPersonalizable = true;
   @HostBinding('class.has-toolbar') @Input() hasToolbar: any;
@@ -58,5 +59,16 @@ export class SohoHeaderComponent implements AfterViewInit {
     this.jQueryElement.on('updated', (_e: JQuery.TriggeredEvent, args: any) => {
       this.updated.emit(args);
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.jQueryElement) {
+      this.jQueryElement.off();
+      this.jQueryElement = undefined;
+    }
+    if (this.header) {
+      this.header.destroy();
+      this.header = undefined;
+    }
   }
 }
