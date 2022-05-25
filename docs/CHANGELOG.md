@@ -4,6 +4,7 @@
 
 ### 13.5.0 Fixes
 
+- `[Text Area]` Parameters can be updated dynamically. ([#1193](https://github.com/infor-design/enterprise-ng/issues/1193))
 - `[Tree]` The expanded and collapsed events were not working. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
 
 ## v13.4.1
