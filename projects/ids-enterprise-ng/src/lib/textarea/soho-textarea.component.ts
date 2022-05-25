@@ -262,13 +262,6 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
 
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
-      if (this.isDisabled !== null && this.isDisabled !== undefined) {
-        this.disabled = this.isDisabled;
-      }
-      if (this.isReadOnly !== null && this.isReadOnly !== undefined) {
-        this.readonly = this.isReadOnly;
-      }
-
       this.ngZone.runOutsideAngular(() => {
         if (this.textarea) {
           this.textarea?.updated(this.options);
