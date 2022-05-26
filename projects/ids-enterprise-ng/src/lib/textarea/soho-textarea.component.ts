@@ -8,7 +8,10 @@ import {
   Input,
   OnDestroy,
   Output,
-  HostListener
+  HostListener,
+  AfterViewChecked,
+  ChangeDetectorRef,
+  NgZone
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
@@ -21,7 +24,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoTextAreaComponent)]
 })
-export class SohoTextAreaComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
+export class SohoTextAreaComponent extends BaseControlValueAccessor<string> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   // -------------------------------------------
   // Options Block
@@ -35,6 +38,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
    */
   private isDisabled?: boolean;
   private isReadOnly?: boolean;
+  private runUpdatedOnCheck?: boolean;
 
   // -------------------------------------------
   // Component Input
@@ -52,6 +56,8 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
         this.isDisabled = false;
         this.isReadOnly = false;
       }
+
+      this.markForRefresh();
     }
   }
 
@@ -71,6 +77,8 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
         this.isDisabled = false;
         this.isReadOnly = false;
       }
+
+      this.markForRefresh();
     }
   }
 
@@ -86,6 +94,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     if (this.textStatic) {
       this.textStatic.settings.maxLength = maxLength;
     }
+
+    if (this.textarea) {
+      this.markForRefresh();
+    }
   }
 
   get maxLength(): number | undefined {
@@ -96,6 +108,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     this.options.autoGrow = autoGrow;
     if (this.textStatic) {
       this.textStatic.settings.autoGrow = autoGrow;
+    }
+
+    if (this.textarea) {
+      this.markForRefresh();
     }
   }
 
@@ -108,6 +124,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     if (this.textStatic) {
       this.textStatic.settings.autoGrowMaxHeight = autoGrowMaxHeight;
     }
+
+    if (this.textarea) {
+      this.markForRefresh();
+    }
   }
 
   get autoGrowMaxHeight(): number | undefined {
@@ -119,6 +139,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     if (this.textStatic) {
       this.textStatic.settings.attributes = attributes;
     }
+
+    if (this.textarea) {
+      this.markForRefresh();
+    }
   }
   get attributes() {
     return this.options.attributes;
@@ -126,18 +150,34 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
 
   @Input() set characterCounter(characterCounter: boolean) {
     this.options.characterCounter = characterCounter;
+
+    if (this.textarea) {
+      this.markForRefresh();
+    }
   }
 
   @Input() set printable(printable: boolean) {
     this.options.printable = printable;
+
+    if (this.textarea) {
+      this.markForRefresh();
+    }
   }
 
   @Input() set charRemainingText(charRemainingText: string) {
     this.options.charRemainingText = charRemainingText;
+
+    if (this.textarea) {
+      this.markForRefresh();
+    }
   }
 
   @Input() set charMaxText(charMaxText: string) {
     this.options.charMaxText = charMaxText;
+
+    if (this.textarea) {
+      this.markForRefresh();
+    }
   }
 
   // -------------------------------------------
@@ -181,7 +221,11 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     this.change.emit([event]);
   }
 
-  constructor(private element: ElementRef) {
+  constructor(
+    private element: ElementRef,
+    public ref: ChangeDetectorRef,
+    private ngZone: NgZone,
+  ) {
     super();
   }
 
@@ -212,6 +256,19 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     this.jQueryElement
       .on('change', (_e: any, args: any[]) => this.onChange(args))
       .on('updated', (_e: any, args: SohoTextAreaEvent) => this.updated.next(args));
+    
+    this.runUpdatedOnCheck = true;
+  }
+
+  ngAfterViewChecked() {
+    if (this.runUpdatedOnCheck) {
+      this.ngZone.runOutsideAngular(() => {
+        if (this.textarea) {
+          this.textarea?.updated(this.options);
+        }
+        this.runUpdatedOnCheck = false;
+      });
+    }
   }
 
   /**
@@ -251,6 +308,14 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
    */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  /**
+   * Marks the components as requiring a rebuild after the next update.
+   */
+   markForRefresh() {
+    this.runUpdatedOnCheck = true;
+    this.ref.markForCheck();
   }
 
   ngOnDestroy() {

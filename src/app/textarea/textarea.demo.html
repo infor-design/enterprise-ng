@@ -18,6 +18,10 @@
           <label for="resizable" class="label">Resizable</label>
           <textarea soho-textarea name="resizable" [resizable]="true" [(ngModel)]="model.resizableText"></textarea>
         </div>
+        <div class="field">
+          <textarea soho-textarea maxlength="90" name="counter"
+            (ngModelChange)="onTextChange()" [(ngModel)]="model.counterText"></textarea>
+        </div>
         <!--
         <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
         <div *ngIf="showModel">
@@ -38,8 +42,20 @@
         </div>
 
         <div class="field">
-          <textarea soho-textarea maxlength="90" name="counter"
-            (ngModelChange)="onTextChange()" [(ngModel)]="model.counterText"></textarea>
+          <label for="updateParams" class="label">Update Parameters</label>
+          <textarea
+            name="updateParams"
+            soho-textarea
+            [(ngModel)]="model.editableText"
+            (ngModelChange)="onTextChange()" 
+            [maxLength]="maxLength"
+            [characterCounter]="characterCounter"
+            [charRemainingText]="charRemainingText"
+            [charMaxText]="charMaxText"
+          ></textarea>
+          <button soho-button (click)="changeText()">Text</button>
+          <button soho-button (click)="changeLength()">Length</button>
+          <button soho-button (click)="toggleCounter()">Counter</button>
         </div>
       </div>
     </div>

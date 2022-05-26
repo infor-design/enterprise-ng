@@ -57,6 +57,8 @@ interface SohoTextAreaStatic {
 
   destroy(): void;
 
+  updated(settings: SohoTextAreaOptions): void;
+
   updateCounter(): void;
 
   autoGrow(): void;
