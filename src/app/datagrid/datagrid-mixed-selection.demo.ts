@@ -56,14 +56,18 @@ export class DataGridMixedSelectionDemoComponent implements OnInit {
   }
 
   onBeforeRowActivated(event: any) {
-    console.log('onBeforeRowActivated: ' + event);
+    console.log('onBeforeRowActivated:', event);
   }
 
   onRowActivated(event: any) {
-    console.log('onRowActivated: ' + event);
+    console.log('onRowActivated:', event);
   }
 
   onRowDeactivated(event: any) {
-    console.log('onRowDeactivated: ' + event);
+    console.log('onRowDeactivated:', event);
+  }
+
+  onRowSelected(event: any) {
+    console.log('onRowSelected:', event);
   }
 }
