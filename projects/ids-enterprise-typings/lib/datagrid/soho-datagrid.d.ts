@@ -1345,9 +1345,8 @@ type SohoDataGridSelectedEventType = 'deselectall' | 'selectall' | 'select' | 'd
 interface SohoDataGridSelectedEvent {
   e: JQuery.TriggeredEvent;
   rows: SohoDataGridSelectedRow[];
-
-  /** What was the action that caused the event? */
   type: SohoDataGridSelectedEventType;
+  rowData?: SohoDataGridSelectedRow[] | SohoDataGridSelectedRow;
 }
 
 interface SohoDataGridCellChangeEvent {

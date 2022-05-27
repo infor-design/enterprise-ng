@@ -2758,8 +2758,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('rowdeactivated', (_e: any, args: SohoDataGridRowDeactivatedEvent) => this.onRowDeactivated(args))
         .on('rowreorder', (_e: any, args: SohoDataGridRowReorderedEvent) => this.onRowReordered(args))
         .on('selected',
-          (e: any, args: SohoDataGridSelectedRow[], type?: SohoDataGridSelectedEventType) =>
-            this.onSelected({ e, rows: args, type }))
+          (e: any, args: SohoDataGridSelectedRow[], type?: SohoDataGridSelectedEventType, rowData?: SohoDataGridSelectedRow[] | SohoDataGridSelectedRow) =>
+            this.onSelected({ e, rows: args, type, rowData }))
         .on('settingschanged', (_e: any, args: SohoDataGridSettingsChangedEvent) => this.onSettingsChanged(args))
         .on('sorted', (_e: any, args: SohoDataGridSortedEvent) => this.onSorted(args))
         .on('beforepaging', (_e: any, args: SohoPagerPagingInfo) => this.onBeforePaging(args))
