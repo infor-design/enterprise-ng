@@ -1203,7 +1203,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('soho-datagrid') set sohoDatagrid(datagridType: SohoDataGridType) {
-    this.datagridType = datagridType ? datagridType : SohoDataGridComponent.AUTO;
+    this.datagridType = datagridType && datagridType != '' ? datagridType : SohoDataGridComponent.AUTO;
   }
 
   // -------------------------------------------
