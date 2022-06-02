@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v13.4.2
+
+### 13.4.2 Fixes
+
+- `[Datagrid]` Add missing rowData for deselection in the selected event. ([#1299](https://github.com/infor-design/enterprise-ng/issues/1299))
+
 ## v13.4.1
 
 ### 13.3.1 Fixes
