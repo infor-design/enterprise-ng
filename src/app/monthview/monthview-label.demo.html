@@ -1,0 +1,13 @@
+<div style="margin-top:25px;">
+    <div style="margin:15px;">
+      <button soho-button="primary" (click)="updateLegend()">
+        Update Legend
+      </button>
+    </div>
+    <div
+      soho-monthview
+      data-init="false"
+      [monthviewOptions]="monthViewOptions"
+      [legend]="legendData$ | async"
+    ></div>
+</div>
