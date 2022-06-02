@@ -333,8 +333,8 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   @Input() set legend(legend: SohoMonthViewLegend[] | undefined) {
     (this._monthviewOptions as any).legend = legend;
     if (this.monthview) {
-      this.monthview.settings.legend = legend
-      this.markForRefresh();
+      this.monthview.loadLegend(legend);
+      this.monthview.showMonth(this.month, this.year);
     }
   }
   get legend(): SohoMonthViewLegend[] | undefined {
