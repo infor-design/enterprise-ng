@@ -1296,6 +1296,12 @@ interface SohoDataGridStatic {
   cellNode(row: number, cell: number, includeGroups: boolean): any;
 
   /**
+   * Expand Detail Row Or Tree Row
+   * @param {number} dataRowIndex The row to toggle
+   */
+  toggleRowDetail(dataRowIndex: number): void;
+
+  /**
    * Destructor,
    */
   destroy(): void;

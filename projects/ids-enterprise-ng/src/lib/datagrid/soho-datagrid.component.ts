@@ -2541,6 +2541,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  /**
+   * Expand Detail Row Or Tree Row
+   * @param {number} dataRowIndex The row to toggle
+   */
+  toggleRowDetail(dataRowIndex: number): void {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.datagrid?.toggleRowDetail(dataRowIndex);
+    });
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
