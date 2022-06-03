@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v13.4.3
+
+### 13.4.3 Fixes
+
+- `[Datagrid]` Types were missed on the last patch. ([#1299](https://github.com/infor-design/enterprise-ng/issues/1299))
+
 ## v13.4.2
 
 ### 13.4.2 Fixes
