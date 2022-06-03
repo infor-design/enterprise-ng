@@ -9,5 +9,6 @@
       data-init="false"
       [monthviewOptions]="monthViewOptions"
       [legend]="legendData$ | async"
+      (monthRendered)="onRenderMonth($event)"
     ></div>
 </div>
