@@ -9,6 +9,12 @@
 - `[Text Area]` Parameters can be updated dynamically. ([#1193](https://github.com/infor-design/enterprise-ng/issues/1193))
 - `[Tree]` The expanded and collapsed events were not working. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
 
+## v13.4.3
+
+### 13.4.3 Fixes
+
+- `[Datagrid]` Add missing type from previous patch. ([#1299](https://github.com/infor-design/enterprise-ng/issues/1299))
+
 ## v13.4.2
 
 ### 13.4.2 Fixes
