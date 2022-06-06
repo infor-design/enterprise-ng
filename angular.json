@@ -201,7 +201,6 @@
       }
     }
   },
-  "defaultProject": "ids-enterprise-ng-app",
   "cli": {
     "analytics": "deda5b6f-0536-400b-81ca-445018af21f9",
     "cache": {

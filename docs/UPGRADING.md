@@ -24,6 +24,24 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
+#### Angular 14
+
+When updating from angular 13 to 14 we were able to do this with the command:
+
+```sh
+ng update @angular/core@14 @angular/cli@14
+```
+
+In addition the compiler picked up a few bugs (? on the left hand side) that i had too fix. Also cleaned out the core-js imports from the polyfills since we no longer support IE.
+
+See <https://blog.angular.io/angular-v14-is-now-available-391a6db736af> for more information.
+
+As before we need a bit more memory:
+
+```sh
+export NODE_OPTIONS="--max-old-space-size=8192"
+```
+
 #### Angular 13
 
 When updating from angular 12 to 13 we were able to do this with the command:

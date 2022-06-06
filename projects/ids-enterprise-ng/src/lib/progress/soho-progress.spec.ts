@@ -25,19 +25,6 @@ class SohoProgressTestComponent {
   @ViewChild(SohoProgressComponent) progress?: SohoProgressComponent;
 }
 
-describe('Soho Progress Unit Tests', () => {
-  let fixture: ComponentFixture<SohoProgressTestComponent>;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [SohoProgressTestComponent]
-    });
-
-    fixture = TestBed.createComponent(SohoProgressTestComponent);
-    fixture.detectChanges();
-  });
-});
-
 // progress works, el does not
 describe('Soho Progress Unit Tests', () => {
   let progress: SohoProgressComponent;
@@ -68,5 +55,4 @@ describe('Soho Progress Unit Tests', () => {
     expect(el.getAttribute('data-value')).toEqual('90');
     expect(progress.progressValue).toEqual(90);
   });
-
 });

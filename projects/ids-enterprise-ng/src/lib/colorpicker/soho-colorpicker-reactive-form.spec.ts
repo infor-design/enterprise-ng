@@ -13,8 +13,8 @@ import {
 
 import {
   FormsModule,
-  FormGroup,
-  FormBuilder
+  UntypedFormGroup,
+  UntypedFormBuilder
 } from '@angular/forms';
 
 import { SohoColorPickerModule } from './soho-colorpicker.module';
@@ -33,9 +33,9 @@ class SohoColorPickerReactiveFormTestComponent {
 
   @ViewChild(SohoColorPickerComponent) dropdown?: SohoColorPickerComponent;
 
-  public formGroup: FormGroup;
+  public formGroup: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.formGroup = this.createForm();
 
     // By default the form group is disabled.

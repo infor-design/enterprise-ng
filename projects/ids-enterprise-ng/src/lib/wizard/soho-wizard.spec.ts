@@ -41,11 +41,10 @@ describe('Soho Wizard Unit Tests', () => {
     expect(comp).toBeDefined();
   });
 
-  it('Check Empty Content', async (done) => {
+  it('Check Empty Content', async () => {
     fixture.detectChanges();
     expect(el.nodeName).toEqual('DIV');
     expect(el.classList).toContain('wizard');
-    done();
   });
 });
 

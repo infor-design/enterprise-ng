@@ -13,8 +13,8 @@ import {
 
 import {
   FormsModule,
-  FormGroup,
-  FormBuilder
+  UntypedFormGroup,
+  UntypedFormBuilder
 } from '@angular/forms';
 
 import { SohoInputModule } from './soho-input.module';
@@ -30,9 +30,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 class SohoInputReactiveFormTestComponent {
   @ViewChild(SohoInputComponent, { static: true }) dropdown?: SohoInputComponent;
 
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.formGroup = this.createForm();
 
     // By default the form group is disabled.

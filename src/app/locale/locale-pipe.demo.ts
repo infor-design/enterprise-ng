@@ -6,8 +6,8 @@ import {
  } from '@angular/core';
 
 import {
-  FormGroup,
-  FormBuilder
+  UntypedFormGroup,
+  UntypedFormBuilder
 } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ import {
 })
 export class LocalePipeDemoComponent {
 
-  demoForm: FormGroup;
+  demoForm: UntypedFormGroup;
 
   public locales = [
     { value: 'en-US', label: 'English (American)' },
@@ -36,7 +36,7 @@ export class LocalePipeDemoComponent {
   };
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private ref: ChangeDetectorRef,
     private ngZone: NgZone) {
 

@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 // @ts-ignore
 import { SohoDropDownComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { Subject } from 'rxjs';
@@ -14,7 +14,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
   @ViewChildren(SohoBusyIndicatorDirective) busyIndicators?: QueryList<SohoBusyIndicatorDirective>;
 
   public showModel = true;
-  public form?: FormGroup;
+  public form?: UntypedFormGroup;
   public itemsAvailable = false;
   public states = [
       { value: 'AK', label: 'Alaska' },
@@ -38,9 +38,9 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     const group: {[key: string]: any} = [];
-    group['testControl'] = new FormControl(this.model.value, null);
-    group['testControl2'] = new FormControl(this.model2.value, null);
-    this.form = new FormGroup(group);
+    group['testControl'] = new UntypedFormControl(this.model.value, null);
+    group['testControl2'] = new UntypedFormControl(this.model2.value, null);
+    this.form = new UntypedFormGroup(group);
   }
 
   ngAfterViewInit() {
