@@ -4,7 +4,7 @@
 
 ### 13.4.0 Features
 
-- `[General]` Updated to NG 14. Changed the polyfills and made small fixes. See the `UPGRADING.md` guide for details. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
+- `[General]` Updated to NG 14. Changed the polyfills and made small fixes. See the `UPGRADING.md` guide for details. ([#1316](https://github.com/infor-design/enterprise-ng/issues/1316))
 
 ### 14.0.0 Fixes
 
