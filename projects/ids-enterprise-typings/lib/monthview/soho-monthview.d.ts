@@ -75,9 +75,6 @@ interface SohoMonthView {
   /** Loads legend list to the monthview settings. */
   loadLegend(legend: SohoMonthViewLegend[] | undefined): void;
 
-  /** Update the calendar to show the given month and year */
-  showMonth(month?: number, year?: number): void;
-
   /** Tear down the markup for the control */
   teardown(): void;
 

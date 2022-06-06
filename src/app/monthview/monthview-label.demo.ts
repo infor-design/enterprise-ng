@@ -13,10 +13,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class MonthViewLabelDemoComponent {
   @ViewChild(SohoMonthViewComponent) sohoMonthViewComponent?: SohoMonthViewComponent;
 
-  private _legendDataSubject = new BehaviorSubject<SohoMonthViewLegend[]>([
-    { name: 'Warnings', color: 'amber07', dates: [], dayOfWeek: [] },
-    { name: 'Scheduled', color: 'azure03', dates: ['1/7/2017'], dayOfWeek: [] },
-  ]);
+  private cnt = 0;
+
+  private _legendDataSubject = new BehaviorSubject<SohoMonthViewLegend[]>([]);
 
   public readonly legendData$: Observable<SohoMonthViewLegend[]> = this._legendDataSubject.asObservable();
 
@@ -30,25 +29,26 @@ export class MonthViewLabelDemoComponent {
     showLegend: true,
   };
 
-  public cnt = 0;
-
   onRenderMonth(event: SohoMonthViewRenderEvent) {
+    console.log('onRenderMonth', event);
     // Fake Ajax Call
     setTimeout(() => {
-      this.updateLegend();
+      console.log('Fake ajax call')
+      this._legendDataSubject.next([
+        { name: `Warnings ${this.cnt}`, color: 'amber07', dates: [], dayOfWeek: [] },
+        { name: `Scheduled ${this.cnt}`, color: 'azure03', dates: ['1/7/2017'], dayOfWeek: [] },
+      ]);
     }, 250);
-    console.log('onRenderMonth', event);
   }
 
   public updateLegend(): void {
     this.cnt++;
-    console.log('updateLegend', event);
     this._legendDataSubject.next([
-      { name: 'Warnings ' + this.cnt, color: 'amber07', dates: ['1/10/2017'], dayOfWeek: [] },
-      { name: 'Scheduled', color: 'azure03', dates: [], dayOfWeek: [] },
-      { name: 'Public Holiday', color: 'emerald06', dates: ['1/1/2017', '1/2/2017', '1/12/2017'], dayOfWeek: [] },
-      { name: 'Other', color: 'ruby03', dates: ['1/8/2017', '1/9/2017', '1/23/2017'], dayOfWeek: [] },
-      { name: 'Half Days', color: 'amethyst06', dates: ['1/21/2017', '1/22/2017'], dayOfWeek: [] },
+      { name: `Warnings ${this.cnt}`, color: 'amber07', dates: ['1/10/2017'], dayOfWeek: [] },
+      { name: `Scheduled ${this.cnt}`, color: 'azure03', dates: [], dayOfWeek: [3, 5] },
+      { name: `Public Holiday ${this.cnt}`, color: 'emerald06', dates: ['1/1/2017', '1/2/2017', '1/12/2017'], dayOfWeek: [] },
+      { name: `Other ${this.cnt}`, color: 'ruby03', dates: ['1/8/2017', '1/9/2017', '1/23/2017'], dayOfWeek: [] },
+      { name: `Half Days ${this.cnt}`, color: 'amethyst06', dates: ['1/21/2017', '1/22/2017'], dayOfWeek: [] },
     ]);
   }
 }
