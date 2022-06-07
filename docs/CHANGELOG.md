@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 14.1.0
+
+### 14.1.0 Fixes
+
+- `[Placeholder]` Update over me. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
+
 ## 14.0.0
 
 ### 14.0.0 Features
