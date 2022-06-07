@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { appInstanceColumns, appInstanceData } from './mock.data';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { SohoLookupComponent } from 'ids-enterprise-ng';
 
 export interface FakeResponse {
@@ -20,14 +20,14 @@ export class LookupDescDemoComponent implements AfterViewInit {
   public data_appInstance?: any[];
   public model: any = { desc: null };
   public context = this;
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   private formGroup: { [key: string]: any } = {};
   public selectedRows: any[] = [];
   private fieldNameAppInstance = 'applicationInstanceName';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.form = this.formBuilder.group(this.formGroup);
-    this.form.addControl('appInstance_desc', new FormControl([]));
+    this.form.addControl('appInstance_desc', new UntypedFormControl([]));
     this.setupAppInstance();
   }
 

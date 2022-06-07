@@ -2648,7 +2648,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Copy into it any column level Inputs, these are optional but allow
     // column specific overrides to be defined.
-    Object.assign(component.instance, args.col.componentInputs);
+    Object.assign((component as any).instance, args.col.componentInputs);
 
     // ... attach to the app ...
     this.app.attachView(component.hostView);

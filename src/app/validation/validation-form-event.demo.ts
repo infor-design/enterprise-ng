@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 import { SohoTrackDirtyDirective, SohoErrorDirective } from 'ids-enterprise-ng';
 
@@ -35,7 +35,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
   public model: any = {};
   public showModel = true;
-  public form!: FormGroup;
+  public form!: UntypedFormGroup;
 
   public events: any = {};
 
@@ -88,10 +88,10 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
         required
       };
 
-      group[item] = new FormControl('');
+      group[item] = new UntypedFormControl('');
     });
 
-    this.form = new FormGroup(group);
+    this.form = new UntypedFormGroup(group);
     this.changeDetector.detectChanges();
   }
 

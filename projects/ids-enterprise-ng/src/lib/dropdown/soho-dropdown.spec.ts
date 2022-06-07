@@ -34,26 +34,6 @@ class SohoDropDownTestComponent {
   }
 }
 
-describe('Soho Dropdown Unit Tests', () => {
-  let comp: SohoDropDownComponent;
-  let fixture: ComponentFixture<SohoDropDownComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [SohoDropDownComponent]
-    });
-
-    fixture = TestBed.createComponent(SohoDropDownComponent);
-    comp = fixture.componentInstance;
-    fixture.detectChanges();
-
-    de = fixture.debugElement;
-    el = de.nativeElement;
-  });
-});
-
 describe('Soho Dropdown Render', () => {
   let dropdown: SohoDropDownComponent;
   let component: SohoDropDownTestComponent;

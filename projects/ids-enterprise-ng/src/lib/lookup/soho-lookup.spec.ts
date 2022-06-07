@@ -15,8 +15,8 @@ import {
 
 import {
   FormsModule,
-  FormGroup,
-  FormBuilder
+  UntypedFormGroup,
+  UntypedFormBuilder
 } from '@angular/forms';
 
 import { SohoLookupModule } from './soho-lookup.module';
@@ -172,13 +172,13 @@ export const checkboxColumn = {
 class SohoLookupReactiveFormTestComponent {
   @ViewChild(SohoLookupComponent) lookup?: SohoLookupComponent;
 
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
   public lookupColumns = productsColumns;
 
   @Input() public lookupData = productsData;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.formGroup = this.createForm();
 
     // By default the form group is disabled.

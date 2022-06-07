@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
-import { FormsModule, FormGroup, FormBuilder } from '@angular/forms';
+import { FormsModule, UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 
 import { SohoDropDownModule } from './soho-dropdown.module';
 import { SohoDropDownComponent } from './soho-dropdown.component';
@@ -30,9 +30,9 @@ class SohoDropDownReactiveFormTestComponent {
     { value: 'WY', label: 'Wyoming' }
   ];
 
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.formGroup = this.createForm();
 
     // By default the form group is disabled.

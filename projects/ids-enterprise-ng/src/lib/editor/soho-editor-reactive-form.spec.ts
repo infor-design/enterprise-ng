@@ -13,8 +13,8 @@ import {
 
 import {
   FormsModule,
-  FormGroup,
-  FormBuilder
+  UntypedFormGroup,
+  UntypedFormBuilder
 } from '@angular/forms';
 
 import { SohoEditorModule } from './soho-editor.module';
@@ -39,9 +39,9 @@ class SohoEditorReactiveFormTestComponent {
 
   @ViewChild(SohoEditorComponent) editor?: SohoEditorComponent;
 
-  public formGroup: FormGroup;
+  public formGroup: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.formGroup = this.createForm();
 
     // By default the form group is disabled.

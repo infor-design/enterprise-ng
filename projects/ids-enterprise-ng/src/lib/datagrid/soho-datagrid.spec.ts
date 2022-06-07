@@ -652,11 +652,10 @@ describe('Soho DataGrid Render', () => {
     fixture.detectChanges();
   });
 
-  it('check afterrender', done => {
+  it('check afterrender', () => {
     (component as any).datagrid.afterRender.subscribe(
       (afterRenderEvent: SohoDataGridAfterRenderEvent) => {
         expect(afterRenderEvent).not.toBeNull();
-        done();
       }
     );
 

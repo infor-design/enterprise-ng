@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 // @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
@@ -45,8 +45,8 @@ export class DropdownReactiveDemoComponent {
     {label: 'Pennsylvania', value: 'PA'},
   ];
 
-  form = new FormGroup({
-    state: new FormControl(this.states[3]),
+  form = new UntypedFormGroup({
+    state: new UntypedFormControl(this.states[3]),
   });
 
   showModel?: boolean;

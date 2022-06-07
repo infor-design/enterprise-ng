@@ -4,8 +4,8 @@ import {
 } from '@angular/core';
 
 import {
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
 } from '@angular/forms';
 
 @Component({
@@ -41,9 +41,9 @@ export class FormCompactDemoComponent implements AfterViewInit {
     checkbox3: true,
     checkbox4: true
   };
-  demoForm?: FormGroup;
+  demoForm?: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.createForm();
   }
 

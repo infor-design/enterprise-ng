@@ -40,7 +40,7 @@ class SohoTextAreaTestComponent {
   }
 }
 
-describe('Soho Rating Chart Render', () => {
+describe('Soho Text Area Render', () => {
   let component: SohoTextAreaTestComponent;
   let fixture: ComponentFixture<SohoTextAreaTestComponent>;
   let de: DebugElement;
@@ -63,7 +63,7 @@ describe('Soho Rating Chart Render', () => {
     expect(el.hasAttribute('soho-textarea')).toBeTruthy('soho-textarea');
   });
 
-  it('set model on input event', waitForAsync(() => {
+  it('set model on input event', (done) => {
     const spy = spyOn(component, 'onTextChange');
 
     fixture.detectChanges();
@@ -74,7 +74,8 @@ describe('Soho Rating Chart Render', () => {
     fixture.whenStable().then(() => {
       expect(component.model).toBe('New Value!');
       expect(spy).toHaveBeenCalled();
+      done();
     });
-  }));
+  });
 
 });

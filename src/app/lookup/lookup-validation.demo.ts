@@ -5,7 +5,7 @@ import {
   productsColumns,
   productsData
 } from './mock.data';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { SohoLookupComponent } from 'ids-enterprise-ng';
 
 export interface FakeResponse {
@@ -35,14 +35,14 @@ export class LookupValidationDemoComponent implements AfterViewInit {
   // So we can bind 'this' to the source function passed to the lookup control
   public context = this;
 
-  public form: FormGroup;
+  public form: UntypedFormGroup;
   private formGroup: { [key: string]: any } = {};
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.form = this.formBuilder.group(this.formGroup);
-    this.form.addControl('product_single', new FormControl(''));
-    this.form.addControl('product_multi', new FormControl([]));
-    this.form.addControl('product_async', new FormControl(''));
+    this.form.addControl('product_single', new UntypedFormControl(''));
+    this.form.addControl('product_multi', new UntypedFormControl([]));
+    this.form.addControl('product_async', new UntypedFormControl(''));
     this.setupProducts();
   }
 

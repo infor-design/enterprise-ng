@@ -4,7 +4,7 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 // @ts-ignore
 import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 
@@ -22,13 +22,13 @@ export class BreadcrumbGauntletDemoComponent {
   @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb?: SohoBreadcrumbComponent;
 
   public breadcrumbIdCount = 0;
-  public demoForm: FormGroup;
+  public demoForm: UntypedFormGroup;
 
   public lastClickedAPI?: SohoBreadcrumbItemStatic;
   public lastClickedContents: string | undefined = '';
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private ref: ChangeDetectorRef
   ) {
     this.demoForm = this.formBuilder.group({

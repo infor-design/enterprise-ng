@@ -1,8 +1,18 @@
 # What's New with Enterprise-NG
 
-## v13.5.0
+## 14.1.0
 
-### 13.5.0 Fixes
+### 14.1.0 Fixes
+
+- `[Placeholder]` Update over me. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
+
+## 14.0.0
+
+### 14.0.0 Features
+
+- `[General]` Updated to NG 14. Changed the polyfills and made small fixes. See the `UPGRADING.md` guide for details. ([#1316](https://github.com/infor-design/enterprise-ng/issues/1316))
+
+### 14.0.0 Fixes
 
 - `[Datagrid]` Add missing rowData for deselection in the selected event. ([#1299](https://github.com/infor-design/enterprise-ng/issues/1299))
 - `[Monthview]` Fix on bug where updating labels duplicates monthview. ([#1305](https://github.com/infor-design/enterprise-ng/issues/1305))

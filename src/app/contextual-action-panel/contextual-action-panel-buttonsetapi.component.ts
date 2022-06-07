@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 
 
 @Component({
@@ -7,9 +7,9 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 
 export class ContextualActionPanelButtonsetAPIComponent {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor(private readonly fb: UntypedFormBuilder) {
     this.form = this.fb.group({
       id: ['', Validators.required],
       name: [''],
