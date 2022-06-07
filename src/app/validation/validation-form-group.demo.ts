@@ -3,7 +3,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-validation-form-group-demo',
@@ -11,13 +11,13 @@ import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from
 })
 export class ValidationFormGroupDemoComponent implements AfterViewInit {
 
-  demoForm!: FormGroup;
+  demoForm!: UntypedFormGroup;
 
   public maskedValue = '111.1';
   public notmaskedValue = '111.1';
   public datevalue = '';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.createForm();
   }
 

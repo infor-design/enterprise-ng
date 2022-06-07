@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-radiobutton-demo',
@@ -55,7 +55,7 @@ export class RadioButtonDemoComponent implements OnInit {
 
   public model: any = {};
   public showModel = true;
-  public form?: FormGroup;
+  public form?: UntypedFormGroup;
   public codeValue = 'test1';
 
   constructor() {
@@ -67,10 +67,10 @@ export class RadioButtonDemoComponent implements OnInit {
 
     Object.keys(this.fieldSpec).map( (item: any, _index: any, _ary: any) => {
       this.model[item] = {value: this.dataView[item].value};
-      group[item] = new FormControl();
+      group[item] = new UntypedFormControl();
     });
 
-    this.form = new FormGroup(group);
+    this.form = new UntypedFormGroup(group);
   }
 
   get isDisabled(): boolean {

@@ -3,7 +3,7 @@ import {
   QueryList,
   ViewChildren
 } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 
 import { SohoInputValidateDirective } from 'ids-enterprise-ng';
 
@@ -14,7 +14,7 @@ import { SohoInputValidateDirective } from 'ids-enterprise-ng';
 export class ValidationFormDemoComponent {
   @ViewChildren(SohoInputValidateDirective) validateDirectives!: QueryList<SohoInputValidateDirective>;
 
-  demoForm!: FormGroup;
+  demoForm!: UntypedFormGroup;
   email_addr!: string;
   credit_card!: string;
   credit_code1!: number;
@@ -23,7 +23,7 @@ export class ValidationFormDemoComponent {
   states!: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
   ) {
     this.createForm();
   }

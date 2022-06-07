@@ -4,7 +4,7 @@ import {
   ViewChild,
   AfterViewInit
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 // @ts-ignore
 import { SohoButtonsetComponent } from 'ids-enterprise-ng';
 
@@ -61,9 +61,9 @@ export class ButtonsetDemoComponent implements AfterViewInit {
     }
   }
 
-  public demoForm: FormGroup;
+  public demoForm: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
     this.demoForm = this.formBuilder.group({
       bthCount: [0],
       buttonsetStyle: ['default'],

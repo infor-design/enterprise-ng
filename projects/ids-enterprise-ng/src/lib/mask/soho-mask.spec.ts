@@ -6,8 +6,8 @@ import { Component, DebugElement, ViewChild } from '@angular/core';
 
 import {
   FormsModule,
-  FormBuilder,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormGroup,
   Validators,
   ReactiveFormsModule
 } from '@angular/forms';
@@ -54,9 +54,9 @@ class SohoMaskTestComponent {
 
   public value?: string;
 
-  public demoForm?: FormGroup;
+  public demoForm?: UntypedFormGroup;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: UntypedFormBuilder) {
     this.createForm();
   }
 

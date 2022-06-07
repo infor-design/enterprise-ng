@@ -6,7 +6,7 @@ import {
   Input,
   NgZone
 } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
 /**
  * This example:
@@ -16,8 +16,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   selector: 'app-mask-demo',
   templateUrl: 'mask.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles:      [
-      `
+  styles: [
+    `
       .alignRight {
         text-align: right;
       }
@@ -27,7 +27,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class MaskDemoComponent {
   @HostBinding('class.alignRight') @Input() alignRight = false;
 
-  demoForm: FormGroup;
+  demoForm: UntypedFormGroup;
 
   public locales = [
     { value: 'en-US', label: 'English (American)' },
@@ -39,18 +39,18 @@ export class MaskDemoComponent {
   ];
 
   public model = {
-    locale:               'en-US',
-    nomask:               '123456',
-    number:               '123',
-    decimal:              '123456.78',
-    percent:              '85.23',
-    currency:             '876543.21',
-    signednumber:         '-123',
-    signeddecimal:        '-1234567.89',
-    signedpercent:        '-85.23',
-    signedcurrency:       '-9876543.21',
-    alphamask:            'abc12',
-    custommask:           'ZZZ'
+    locale: 'en-US',
+    nomask: '123456',
+    number: '123',
+    decimal: '123456.78',
+    percent: '85.23',
+    currency: '876543.21',
+    signednumber: '-123',
+    signeddecimal: '-1234567.89',
+    signedpercent: '-85.23',
+    signedcurrency: '-9876543.21',
+    alphamask: 'abc12',
+    custommask: 'ZZZ'
   };
   private _symbols: SohoMaskPatternSymbols = {
     currency: Soho?.Locale?.currentLocale?.data?.currencySign,
@@ -65,7 +65,7 @@ export class MaskDemoComponent {
     integerLimit: 9,
     decimalLimit: 2,
     symbols: this._symbols,
-    locale: 'en-US'
+    locale: 'en-US'
   };
   private _options: SohoMaskOptions = {
     process: 'number',
@@ -82,14 +82,14 @@ export class MaskDemoComponent {
   public definitions = { 'U': /[A-Z]/ };
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private ref: ChangeDetectorRef,
     private ngZone: NgZone
   ) {
     this.model.locale = Soho.Locale.currentLocale.name;
 
     this.demoForm = this.formBuilder.group({
-      locale: [ this.model.locale ]
+      locale: [this.model.locale]
     });
 
     // The locale selector requires the locale to be updated on the
@@ -112,7 +112,8 @@ export class MaskDemoComponent {
 
               // todo: updating the options object causes the MaskAPI to be lost.
               // mast-input.js init() adds the MastAPI but calling updated(settings) does not.
-              (this._options?.patternOptions as any).locale = value;
+              if (this._options.patternOptions)
+                (this._options.patternOptions as any).locale = value;
               this._options = Object.assign({}, this._options);
 
               this.ref.markForCheck();

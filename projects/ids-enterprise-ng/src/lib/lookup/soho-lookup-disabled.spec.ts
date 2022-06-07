@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 import {
-  FormBuilder
+  UntypedFormBuilder
 } from '@angular/forms';
 
 import { SohoLookupModule } from './soho-lookup.module';
@@ -34,7 +34,7 @@ class DisabledTestComponent {
   reactiveControl = this.formBuilder.control("");
   disabled?: boolean;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: UntypedFormBuilder) { }
 
   disableAll() {
     this.disabled = true;
