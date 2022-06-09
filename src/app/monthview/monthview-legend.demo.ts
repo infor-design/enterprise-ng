@@ -8,10 +8,10 @@ import { SohoMonthViewComponent } from 'ids-enterprise-ng';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-monthview-label-demo',
-  templateUrl: 'monthview-label.demo.html',
+  selector: 'app-monthview-legend-demo',
+  templateUrl: 'monthview-legend.demo.html',
 })
-export class MonthViewLabelDemoComponent {
+export class MonthViewLegendDemoComponent {
   @ViewChild(SohoMonthViewComponent) sohoMonthViewComponent?: SohoMonthViewComponent;
 
   private cnt = 0;

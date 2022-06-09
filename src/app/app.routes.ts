@@ -228,7 +228,7 @@ import { HeaderDefaultContentDemoComponent } from './header/header-default-conte
 import { HomePageEditableFilledComponent } from './homepage/homepage-editable-filled.demo';
 import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfield-category-update.demo';
 import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
-import { MonthViewLabelDemoComponent } from './monthview/monthview-label.demo';
+import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -390,7 +390,7 @@ export const routes: Routes = [
   { path: 'modal-dialog', component: ModalDialogDemoComponent },
   { path: 'monthview', component: MonthViewDemoComponent },
   { path: 'monthview-inpage', component: MonthViewDemoInPageComponent },
-  { path: 'monthview-label', component: MonthViewLabelDemoComponent },
+  { path: 'monthview-legend', component: MonthViewLegendDemoComponent },
   { path: 'notification', component: NotificationDemoComponent },
   { path: 'notification-badge-placement', component: NotificationBadgePlacementDemoComponent },
   { path: 'notification-badge-show-hide', component: NotificationBadgeShowHideDemoComponent },

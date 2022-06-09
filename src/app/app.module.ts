@@ -280,7 +280,7 @@ import { HeaderSearchfieldCategoryDemoComponent } from './header/header-searchfi
 import { HomePageEditableFilledComponent } from './homepage/homepage-editable-filled.demo';
 import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfield-category-update.demo';
 import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
-import { MonthViewLabelDemoComponent } from './monthview/monthview-label.demo';
+import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 
 @NgModule({
   declarations: [
@@ -453,7 +453,7 @@ import { MonthViewLabelDemoComponent } from './monthview/monthview-label.demo';
     MessageDemoComponent,
     MonthViewDemoComponent,
     MonthViewDemoInPageComponent,
-    MonthViewLabelDemoComponent,
+    MonthViewLegendDemoComponent,
     NotificationDemoComponent,
     NotificationBadgePlacementDemoComponent,
     NotificationBadgeShowHideDemoComponent,
