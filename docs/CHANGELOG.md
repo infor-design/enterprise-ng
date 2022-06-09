@@ -4,7 +4,7 @@
 
 ### 14.1.0 Fixes
 
-- `[Placeholder]` Update over me. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
+- `Button` Rearrange button layout to fix notificationBadge alignment. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
 
 ## 14.0.0
 
