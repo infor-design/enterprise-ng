@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ViewChild
 } from '@angular/core';
@@ -29,6 +30,10 @@ export class MonthViewLabelDemoComponent {
     showLegend: true,
   };
 
+  constructor(
+    public ref: ChangeDetectorRef
+  ) { }
+
   onRenderMonth(event: SohoMonthViewRenderEvent) {
     console.log('onRenderMonth', event);
     this.loadLegend([
@@ -51,6 +56,7 @@ export class MonthViewLabelDemoComponent {
   private loadLegend(legendList: SohoMonthViewLegend[]) {
     setTimeout(() => {
       this._legendDataSubject.next(legendList);
+      this.ref.detectChanges();
       console.log('Fake ajax call', this._legendDataSubject.value);
     }, 250);
   }
