@@ -1,15 +1,18 @@
 import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ViewChild
 } from '@angular/core';
 
 import { SohoMonthViewComponent } from 'ids-enterprise-ng';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, delay, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-monthview-legend-demo',
   templateUrl: 'monthview-legend.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonthViewLegendDemoComponent {
   @ViewChild(SohoMonthViewComponent) sohoMonthViewComponent?: SohoMonthViewComponent;
@@ -18,7 +21,7 @@ export class MonthViewLegendDemoComponent {
 
   private _legendDataSubject = new BehaviorSubject<SohoMonthViewLegend[]>([]);
 
-  public readonly legendData$: Observable<SohoMonthViewLegend[]> = this._legendDataSubject.asObservable();
+  public legendData$: Observable<SohoMonthViewLegend[]> = this._legendDataSubject.asObservable().pipe(delay(250));
 
   public readonly monthViewOptions: SohoMonthViewOptions = {
     day: 5,
@@ -32,7 +35,7 @@ export class MonthViewLegendDemoComponent {
 
   constructor(
     public ref: ChangeDetectorRef
-  ) { }
+  ) {}
 
   onRenderMonth(event: SohoMonthViewRenderEvent) {
     console.log('onRenderMonth', event);
@@ -54,10 +57,7 @@ export class MonthViewLegendDemoComponent {
   }
 
   private loadLegend(legendList: SohoMonthViewLegend[]) {
-    setTimeout(() => {
-      this._legendDataSubject.next(legendList);
-      this.ref.detectChanges();
-      console.log('Fake ajax call', this._legendDataSubject.value);
-    }, 250);
+    this.legendData$.subscribe(() => this.ref.detectChanges());
+    this._legendDataSubject.next(legendList);
   }
 }
