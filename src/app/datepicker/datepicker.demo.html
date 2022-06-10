@@ -21,7 +21,6 @@
       </div>
     </div>
   </div>
-  <div class="row top-padding"></div>
   <div class="row">
     <div class="twelve columns">
       <div class="field">
@@ -168,6 +167,12 @@
       <div class="field">
         <label for="customValidation" class="label">Custom Validation</label>
         <input soho-datepicker name="customValidation" id="customValidation" data-validate="customRule date"/>
+      </div>
+    </div>
+    <div class="four columns">
+      <div class="field">
+        <label for="statechange" class="label">French Format</label>
+        <input soho-datepicker name="frenchFormat" dateFormat="dd/MM/yyyy" mode="standard" placeholder="dd/MM/yyyy" [range]="rangeOptions2" [(ngModel)]="model.range3" (change)="onChange($event)" class="input-mm" />
       </div>
     </div>
   </div>
