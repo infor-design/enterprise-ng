@@ -21,7 +21,7 @@ export class MonthViewLegendDemoComponent {
 
   private _legendDataSubject = new BehaviorSubject<SohoMonthViewLegend[]>([]);
 
-  public legendData$: Observable<SohoMonthViewLegend[]> = this._legendDataSubject.asObservable().pipe(delay(250));
+  public legendData$: Observable<SohoMonthViewLegend[]> = this._legendDataSubject.asObservable().pipe(delay(500));
 
   public readonly monthViewOptions: SohoMonthViewOptions = {
     day: 5,
@@ -40,13 +40,12 @@ export class MonthViewLegendDemoComponent {
   onRenderMonth(event: SohoMonthViewRenderEvent) {
     console.log('onRenderMonth', event);
     this.loadLegend([
-      { name: `Warnings ${this.cnt}`, color: 'amber07', dates: [], dayOfWeek: [] },
+      { name: `Warnings ${this.cnt}`, color: 'slate07', dates: [], dayOfWeek: [1] },
       { name: `Scheduled ${this.cnt}`, color: 'azure03', dates: ['1/7/2017'], dayOfWeek: [] },
     ]);
   }
 
   public updateLegend(): void {
-    this.cnt++;
     this.loadLegend([
       { name: `Warnings ${this.cnt}`, color: 'amber07', dates: ['1/10/2017'], dayOfWeek: [] },
       { name: `Scheduled ${this.cnt}`, color: 'azure03', dates: [], dayOfWeek: [3, 5] },
@@ -57,7 +56,12 @@ export class MonthViewLegendDemoComponent {
   }
 
   private loadLegend(legendList: SohoMonthViewLegend[]) {
+    this.cnt++;
     this.legendData$.subscribe(() => this.ref.detectChanges());
     this._legendDataSubject.next(legendList);
+  }
+
+  public getLegend(): SohoMonthViewLegend[] | undefined {
+    return this.sohoMonthViewComponent?.legend;
   }
 }

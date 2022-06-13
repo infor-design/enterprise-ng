@@ -11,4 +11,12 @@
       [legend]="legendData$ | async"
       (monthRendered)="onRenderMonth($event)"
     ></div>
+    <div style="margin:20px;">
+      <p *ngFor="let legend of getLegend()">
+        Name: {{legend.name}}<br/>
+        Color: {{legend.color}}<br/>
+        {{legend.dates.length > 0 ? 'Dates: ' + legend.dates : ''}}
+        {{legend.dayOfWeek.length > 0 ? 'Week: ' + legend.dayOfWeek : ''}}
+      </p>
+    </div>
 </div>
