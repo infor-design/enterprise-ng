@@ -524,7 +524,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
       // The processing is required to ensure we use the correct format
       // in the control.
       if (typeof value === 'string' && this._options.range?.useRange) {
-        debugger;
         const dates = value.split('-');
         const startValue = Soho.Locale.parseDate(dates[0].trim()) || Soho.Locale.parseDate(dates[0].trim(), { pattern: this._options?.dateFormat });
         const endValue = Soho.Locale.parseDate(dates[1].trim()) || Soho.Locale.parseDate(dates[1].trim(), { pattern: this._options?.dateFormat });
