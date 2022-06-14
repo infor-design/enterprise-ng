@@ -15,6 +15,7 @@
 ### 14.0.0 Fixes
 
 - `[Datagrid]` Add missing rowData for deselection in the selected event. ([#1299](https://github.com/infor-design/enterprise-ng/issues/1299))
+- `[Monthview]` Fix on bug where updating labels duplicates monthview. ([#1305](https://github.com/infor-design/enterprise-ng/issues/1305))
 - `[Datagrid]` Add missing toggleRowDetail function. ([#1312](https://github.com/infor-design/enterprise-ng/issues/1312))
 - `[Text Area]` Parameters can be updated dynamically. ([#1193](https://github.com/infor-design/enterprise-ng/issues/1193))
 - `[Tree]` The expanded and collapsed events were not working. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))

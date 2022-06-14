@@ -72,6 +72,9 @@ interface SohoMonthView {
   /** Set disable Date */
   setDisabled(): void;
 
+  /** Loads legend list to the monthview settings. */
+  loadLegend(legend: SohoMonthViewLegend[] | undefined): void;
+
   /** Tear down the markup for the control */
   teardown(): void;
 
