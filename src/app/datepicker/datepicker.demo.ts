@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 // @ts-ignore
 import { SohoDatePickerComponent } from 'ids-enterprise-ng';
+import { delay, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-datepicker-demo',
@@ -12,8 +13,11 @@ import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 })
 export class DatepickerDemoComponent implements OnInit {
 
+  private legendSubject = new Subject<SohoDatePickerLegend[]>();
+
   @ViewChild(SohoDatePickerComponent, { static: true }) datepicker?: SohoDatePickerComponent;
   @ViewChild('rangedate', { static: true }) rdatepicker?: SohoDatePickerComponent;
+  @ViewChild('dynamicLegend', { static: true }) dynamicLegendDatePicker?: SohoDatePickerComponent;
 
   public model = {
     standard: new Date(),
@@ -73,6 +77,10 @@ export class DatepickerDemoComponent implements OnInit {
     locale: 'ar-SA'
   };
 
+  public legend$ = this.legendSubject.asObservable().pipe(
+    delay(250)
+  );
+
   constructor() { }
   ngOnInit() {
     this.registerCustomValidator();
@@ -89,6 +97,22 @@ export class DatepickerDemoComponent implements OnInit {
 
   onChange(event: SohoDatePickerEvent) {
     console.log('DatePickerDemoComponent.onChange: type=' + event.type, 'Has originalEvent: ' + (event.originalEvent !== undefined));
+  }
+
+  public onListOpened(): void {
+    console.log(`DatePickerDemoComponent.listopened`);
+  }
+
+  public onListClosed(): void {
+    console.log(`DatePickerDemoComponent.listclosed`);
+  }
+
+  public onBeforeMonthRendered(): void {
+    console.log(`DatePickerDemoComponent.beforemonthrendered`);
+  }
+
+  public onMonthRendered(): void {
+    console.log(`DatePickerDemoComponent.monthrendered`);
   }
 
   setEnable() {
@@ -123,5 +147,29 @@ export class DatepickerDemoComponent implements OnInit {
 
     // @ts-ignore
     Soho.Validation.rules['customRule'] = customRule;
+  }
+
+  public openCalendar(): void {
+    (this.datepicker as any).openCalendar();
+  }
+
+  public onDynamicMonthRendered(e: SohoDatePickerMonthRenderedEvent): void {
+    this.legendSubject.next([{
+      color: 'azure07',
+      name: 'Shifts',
+      dates: [new Date(e.year, e.month, 1), new Date(e.year, e.month, 2)]
+    }]);
+  }
+
+  public onDynamicListOpened(): void {
+    const currentDate = this.dynamicLegendDatePicker?.getValue(true) as Date;
+    this.legendSubject.next([{
+      color: 'azure07',
+      name: 'Shifts',
+      dates: [
+        new Date(currentDate.getFullYear(), currentDate.getMonth(), 3),
+        new Date(currentDate.getFullYear(), currentDate.getMonth(), 4)
+      ]
+    }]);
   }
 }

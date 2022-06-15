@@ -44,6 +44,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
 
   private _options: SohoDatePickerOptions = {};
 
+  private updateLegend: boolean = false;
+
   /**
    * Indicates to display the timepicker; defaults to false.
    */
@@ -264,7 +266,9 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
   @Input() set legend(legend: Array<SohoDatePickerLegend>) {
     this._options.legend = legend;
     if (this.datepicker) {
-      this.markForRefresh();
+      (this.datepicker as any).settings.legend = legend;
+      this.updateLegend = true;
+      this.ref.markForCheck();
     }
   }
 
@@ -393,6 +397,26 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
   @Output() change = new EventEmitter<SohoDatePickerEvent>();
 
   /**
+   * Called when the datepicker is closed.
+   */
+  @Output() listclosed = new EventEmitter();
+
+  /**
+   * Called when the datepicker is opened.
+   */
+  @Output() listopened = new EventEmitter();
+
+  /**
+   * Called before a month will be rendered in the datepicker
+   */
+  @Output() beforemonthrendered = new EventEmitter();
+
+  /**
+   * Called after a month has been rendered in the datepicker
+   */
+  @Output() monthrendered = new EventEmitter<SohoDatePickerMonthRenderedEvent>();
+
+  /**
    * Public API
    */
 
@@ -420,6 +444,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     if (this.datepicker) {
       this.datepicker.element.trigger('focus');
     }
+  }
+
+  public openCalendar(): void {
+    this.datepicker?.openCalendar();
   }
 
   /**
@@ -463,7 +491,11 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
        * Bind to jQueryElement's events
        */
       this.jQueryElement
-        .on('change', (args: any) => this.onChange(args));
+        .on('change', (args: any) => this.onChange(args))
+        .on('listclosed', () => this.onListClosed())
+        .on('listopened', () => this.onListOpened())
+        .on('beforemonthrendered', () => this.onBeforeMonthRendered())
+        .on('monthrendered', (e, args) => this.onMonthRendered(args))
 
       if (this.internalValue) {
         this.datepicker?.setValue(this.internalValue, false);
@@ -473,6 +505,12 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
   }
 
   ngAfterViewChecked() {
+
+    if (this.updateLegend && this.datepicker) {
+      this.datepicker.loadLegend(this._options.legend);
+      this.updateLegend = false;
+    }
+
     if (this.runUpdatedOnCheck) {
       // Ensure the enabled/disabled flags are set.
       if (this.isDisabled !== null && this.isDisabled !== undefined) {
@@ -571,5 +609,29 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     // were change programmatially the component may not be eligible for
     // updating.
     this.ref.markForCheck();
+  }
+
+  private onListClosed(): void {
+    this.ngZone.run(() => {
+      this.listclosed.emit();
+    });
+  }
+
+  private onListOpened(): void {
+    this.ngZone.run(() => {
+      this.listopened.emit();
+    });
+  }
+
+  private onBeforeMonthRendered(): void {
+    this.ngZone.run(() => {
+      this.beforemonthrendered.emit();
+    });
+  }
+
+  private onMonthRendered(args: any): void {
+    this.ngZone.run(() => {
+      this.monthrendered.emit(args);
+    });
   }
 }
