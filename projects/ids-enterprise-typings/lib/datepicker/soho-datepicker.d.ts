@@ -214,7 +214,6 @@ interface SohoDatePickerEvent extends JQuery.TriggeredEvent {
 
 interface SohoDatePickerMonthRenderedEvent extends JQuery.TriggeredEvent {
   elem: HTMLElement[];
-  data: any;
   month: number;
   year: number;
 }
