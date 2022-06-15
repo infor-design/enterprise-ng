@@ -333,8 +333,9 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   @Input() set legend(legend: SohoMonthViewLegend[] | undefined) {
     (this._monthviewOptions as any).legend = legend;
     if (this.monthview) {
-      this.monthview.settings.legend = legend
-      this.markForRefresh();
+      this.monthview.settings.legend = legend;
+      this.updateLegend = true;
+      this.ref.markForCheck();
     }
   }
   get legend(): SohoMonthViewLegend[] | undefined {
@@ -554,6 +555,7 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   private monthview?: SohoMonthView | null;
   private _monthviewOptions?: SohoMonthViewOptions = {};
   private updateRequired?: boolean;
+  private updateLegend?: boolean;
 
   constructor(
     private element: ElementRef,
@@ -581,6 +583,11 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   ngAfterViewChecked() {
     if (!this.monthview || !this.jQueryElement) {
       return;
+    }
+
+    if (this.updateLegend) {
+      this.monthview.loadLegend(this.legend);
+      this.updateLegend = false;
     }
 
     if (this.updateRequired) {
