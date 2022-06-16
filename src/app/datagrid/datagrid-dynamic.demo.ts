@@ -76,6 +76,12 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     this.dataGrid?.toggleFilterRow();
   }
 
+  toggleSelectAll() {
+    if (this.dataGrid) {
+      this.dataGrid.showSelectAllCheckBox = this.dataGrid.showSelectAllCheckBox === undefined ? false : !this.dataGrid.showSelectAllCheckBox;
+    }
+  }
+
   resetFilter() {
     this.dataGrid?.clearFilter();
   }
