@@ -4,7 +4,8 @@
 
 ### 14.1.0 Fixes
 
-- `Button` Rearrange button layout to fix notificationBadge alignment. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
+- `[Button]` Rearrange button layout to fix notificationBadge alignment. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
+- `[Datagrid]` Updated example page to test if select all checkbox is updated. ([EP#6476](https://github.com/infor-design/enterprise/issues/6476))
 
 ## 14.0.0
 
@@ -15,8 +16,8 @@
 ### 14.0.0 Fixes
 
 - `[Datagrid]` Add missing rowData for deselection in the selected event. ([#1299](https://github.com/infor-design/enterprise-ng/issues/1299))
-- `[Monthview]` Fix on bug where updating labels duplicates monthview. ([#1305](https://github.com/infor-design/enterprise-ng/issues/1305))
 - `[Datagrid]` Add missing toggleRowDetail function. ([#1312](https://github.com/infor-design/enterprise-ng/issues/1312))
+- `[Monthview]` Fix on bug where updating labels duplicates monthview. ([#1305](https://github.com/infor-design/enterprise-ng/issues/1305))
 - `[Text Area]` Parameters can be updated dynamically. ([#1193](https://github.com/infor-design/enterprise-ng/issues/1193))
 - `[Tree]` The expanded and collapsed events were not working. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
 
