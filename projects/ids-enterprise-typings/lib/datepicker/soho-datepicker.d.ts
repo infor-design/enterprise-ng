@@ -198,6 +198,10 @@ interface SohoDatePickerStatic {
   updated(settings?: SohoDatePickerOptions): void;
 
   destroy(): void;
+
+  openCalendar(): void;
+
+  loadLegend(legend: Array<SohoDatePickerLegend> | undefined): void;
 }
 
 /**
@@ -206,6 +210,12 @@ interface SohoDatePickerStatic {
 interface SohoDatePickerEvent extends JQuery.TriggeredEvent {
   data: any;
   elem: HTMLElement[];
+}
+
+interface SohoDatePickerMonthRenderedEvent extends JQuery.TriggeredEvent {
+  elem: HTMLElement[];
+  month: number;
+  year: number;
 }
 
 /**

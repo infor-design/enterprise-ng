@@ -5,6 +5,7 @@
 ### 14.1.0 Fixes
 
 - `[Button]` Rearrange button layout to fix notificationBadge alignment. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
+- `[Datepicker]` Add missing events: listopened, listclosed, beforemonthrendered, monthrendered. ([#1324](https://github.com/infor-design/enterprise-ng/issues/1324))
 - `[Datagrid]` Updated example page to test if select all checkbox is updated. ([EP#6476](https://github.com/infor-design/enterprise/issues/6476))
 
 ## 14.0.0
