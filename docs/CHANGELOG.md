@@ -6,6 +6,9 @@
 
 - `Button` Rearrange button layout to fix notificationBadge alignment. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
 - `Datepicker` Fix a bug where datepicker is displaying NaN in french format. ([#1273](https://github.com/infor-design/enterprise-ng/issues/1273))
+- `[Button]` Rearrange button layout to fix notificationBadge alignment. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
+- `[Datepicker]` Add missing events: listopened, listclosed, beforemonthrendered, monthrendered. ([#1324](https://github.com/infor-design/enterprise-ng/issues/1324))
+- `[Datagrid]` Updated example page to test if select all checkbox is updated. ([EP#6476](https://github.com/infor-design/enterprise/issues/6476))
 
 ## 14.0.0
 
@@ -16,8 +19,8 @@
 ### 14.0.0 Fixes
 
 - `[Datagrid]` Add missing rowData for deselection in the selected event. ([#1299](https://github.com/infor-design/enterprise-ng/issues/1299))
-- `[Monthview]` Fix on bug where updating labels duplicates monthview. ([#1305](https://github.com/infor-design/enterprise-ng/issues/1305))
 - `[Datagrid]` Add missing toggleRowDetail function. ([#1312](https://github.com/infor-design/enterprise-ng/issues/1312))
+- `[Monthview]` Fix on bug where updating labels duplicates monthview. ([#1305](https://github.com/infor-design/enterprise-ng/issues/1305))
 - `[Text Area]` Parameters can be updated dynamically. ([#1193](https://github.com/infor-design/enterprise-ng/issues/1193))
 - `[Tree]` The expanded and collapsed events were not working. ([#1294](https://github.com/infor-design/enterprise-ng/issues/1294))
 

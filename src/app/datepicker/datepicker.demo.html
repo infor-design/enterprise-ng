@@ -3,7 +3,7 @@
     <div class="eight columns">
       <div class="field">
         <label for="statechange" class="label">State Change - No Range</label>
-        <input soho-datepicker name="statechange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
+        <input soho-datepicker name="statechange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)" (listopened)="onListOpened()" (listclosed)="onListClosed()" (beforemonthrendered)="onBeforeMonthRendered()" (monthrendered)="onMonthRendered()" />
       </div>
       <div class="field">
         <label for="statechange" class="label">State Change - Range</label>
@@ -15,9 +15,18 @@
         <button soho-button [disabled]="!datepickerDisabled && !datepickerReadOnly" (click)="setEnable()">Enable</button>
         <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
         <button soho-button (click)="clear()">Clear</button>
+        <button soho-button (click)="openCalendar()">Open Calendar</button>
         <div *ngIf="showModel" class="row top-padding">
           <span>{{ model | json }}</span>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="four columns">
+      <div class="field">
+        <label for="dynamicLegend" class="label">Dynamic Legend</label>
+        <input soho-datepicker #dynamicLegend id="dynamicLegend" name="dynamicLegend" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)" (listopened)="onDynamicListOpened()" (monthrendered)="onDynamicMonthRendered($event)" [showLegend]="true" [legend]="legend$ | async"/>
       </div>
     </div>
   </div>
