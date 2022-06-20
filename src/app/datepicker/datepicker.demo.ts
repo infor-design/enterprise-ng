@@ -29,6 +29,7 @@ export class DatepickerDemoComponent implements OnInit {
     datetime2: '05.04.2018 16:15',
     range: '12/12/2016 - 12/26/2016',
     range2: '1/12/2017 - 1/16/2017',
+    range3: '28/01/2017 - 30/01/2017',
     umalqura: ''
   };
   public showModel = false;
@@ -53,6 +54,12 @@ export class DatepickerDemoComponent implements OnInit {
     start: new Date(2016, 12, 12),
     end: new Date(2016, 12, 16),
     useRange: true
+  };
+
+  public rangeOptions2: SohoDatePickerRange = {
+    start: new Date(2021, 1, 1),
+    end: new Date(2021, 1, 31),
+    useRange: true,
   };
 
   public datePickerOptions: SohoDatePickerOptions = {

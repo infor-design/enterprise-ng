@@ -563,8 +563,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
       // in the control.
       if (typeof value === 'string' && this._options.range?.useRange) {
         const dates = value.split('-');
-        const startValue = new Date(dates[0]);
-        const endValue = new Date(dates[1]);
+        const startValue = Soho.Locale.parseDate(dates[0].trim()) || Soho.Locale.parseDate(dates[0].trim(), { pattern: this._options?.dateFormat });
+        const endValue = Soho.Locale.parseDate(dates[1].trim()) || Soho.Locale.parseDate(dates[1].trim(), { pattern: this._options?.dateFormat });
 
         (this.datepicker as any).settings.range.start = startValue;
         (this.datepicker as any).settings.range.end = endValue;
