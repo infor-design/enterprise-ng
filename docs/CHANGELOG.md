@@ -9,6 +9,12 @@
 - `[Datepicker]` Fix a bug where datepicker is displaying NaN in french format. ([#1273](https://github.com/infor-design/enterprise-ng/issues/1273))
 - `[Datepicker]` Add missing events: listopened, listclosed, beforemonthrendered, monthrendered. ([#1324](https://github.com/infor-design/enterprise-ng/issues/1324))
 
+## 14.0.3
+
+### 14.0.3 Fixes
+
+- `[General]` Added 4.64.1 with fixes for flex toolbar.
+
 ## 14.0.0
 
 ### 14.0.0 Features
