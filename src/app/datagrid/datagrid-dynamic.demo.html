@@ -3,6 +3,7 @@
     <h2 class="fieldset-title">Soho Data Grid - Dynamic</h2>
     <div class="field">
       <button soho-button (click)="addRow()">Add Row</button>
+      <button soho-button (click)="addFive()">Add Five</button>
       <button soho-button (click)="busy()">Busy</button>
       <button soho-button (click)="toggleFilterRow()">Toggle Filter Row</button>
       <button soho-button (click)="toggleSelectAll()">Toggle Select All</button>
@@ -27,6 +28,8 @@
         displayDelay="0"
         selectable="multiple"
         filterable="true"
+        paging="true"
+        pagesize="10"
       ></div>
       <!--
         This will work if you pass a response back from onBeforeContextMenuOpen

@@ -1504,11 +1504,22 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * Adds a row of data to the datagrid at the given optional location.
    *
    * @param data the row of data to add.
-   * @param location the optional localtion, 'top' or 'bottom' or a number.
+   * @param location the optional location, 'top' or 'bottom' or a number.
    */
   addRow(data: any, location?: 'top' | 'bottom' | number) {
     this.ngZone.runOutsideAngular(() => {
       (this.datagrid as any).addRow(data, location);
+    });
+  }
+
+  /**
+   * Adds multiple rows of data to the datagrid at the given optional location.
+   * @param data Array of data to add.
+   * @param location the optional location, 'top' or 'bottom' or a number.
+   */
+  addRows(data: any[], location?: 'top' | 'bottom' | number) {
+    this.ngZone.runOutsideAngular(() => {
+      (this.datagrid as any).addRows(data, location);
     });
   }
 

@@ -65,6 +65,14 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     });
   }
 
+  addFive() {
+    this.service.getData((null) as any).subscribe((d: any[]) => {
+      const newData = d.slice(0, 5);
+      newData.forEach((r) => r.orderDate = new Date());
+      this.dataGrid?.addRows(newData, 'top');
+    });
+  }
+
   busy() {
     if (this.busyIndicator) {
       (this.busyIndicator as any).activated = true;
