@@ -1,5 +1,14 @@
 # What's New with Enterprise-NG
 
+## v13.5.2
+
+### 13.5.2 Fixes
+
+- `[Datepicker]` Add missing events: listopened, listclosed, beforemonthrendered, monthrendered. ([#1324](https://github.com/infor-design/enterprise-ng/issues/1324))
+- `[Datepicker]` Added listener for calendar monthrendered event and pass along. ([NG#1324](https://github.com/infor-design/enterprise-ng/issues/1324))
+- `Button` Rearrange button layout to fix notificationBadge alignment. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
+- `[Monthview]` Fix on bug where updating labels duplicates monthview. ([#1305](https://github.com/infor-design/enterprise-ng/issues/1305))
+
 ## v13.5.0
 
 ### 13.5.0 Fixes
