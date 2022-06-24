@@ -1192,6 +1192,22 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.enableTooltips;
   }
 
+  @Input() set selectChildren(selectChildren: boolean | undefined) {
+    this._gridOptions.selectChildren = selectChildren;
+    if (this.jQueryElement) {
+      (this.datagrid as any).settings.selectChildren = selectChildren;
+      this.markForRefresh('selectChildren', RefreshHintFlags.RenderRows);
+    }
+  }
+
+  get selectChildren(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.selectChildren;
+    }
+
+    return this._gridOptions.selectChildren;
+  }
+
   /**
    * Defines the source type of the grid, either:
    *

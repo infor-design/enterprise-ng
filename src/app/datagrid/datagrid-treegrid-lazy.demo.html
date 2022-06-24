@@ -10,6 +10,7 @@
              (expandrow)="onExpandRow($event)"
              (collapserow)="onCollapseRow($event)"
              selectable="multiple"
+             [selectChildren]="false"
              [onExpandChildren]="onExpandChildren"
              [treeGrid]="true"
              [columns]="columns"
