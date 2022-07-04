@@ -80,6 +80,7 @@ import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-s
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DatagridStandalonePagerDemoComponent } from './datagrid/datagrid-standalone-pager.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
+import { DatagridPopupMenuToolbarComponent } from './datagrid/datagrid-popupmenu-toolbar.demo';
 import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-user-settings.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
@@ -303,6 +304,7 @@ export const routes: Routes = [
   { path: 'datagrid-mixed-selection', component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate', component: DataGridPagingIndeterminateDemoComponent },
   { path: 'datagrid-paging-service', component: DataGridPagingServiceDemoComponent },
+  { path: 'datagrid-popupmenu-toolbar', component: DatagridPopupMenuToolbarComponent },
   { path: 'datagrid-save-user-settings', component: DataGridSaveUserSettingsDemoComponent },
   { path: 'datagrid-test-settings', component: DataGridTestSettingsDemoComponent },
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },

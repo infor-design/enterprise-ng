@@ -118,6 +118,7 @@ import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridExpandableRowDemoComponent } from './datagrid/datagrid-expandable-row.demo';
+import { DatagridPopupMenuToolbarComponent } from './datagrid/datagrid-popupmenu-toolbar.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
 import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
@@ -369,6 +370,7 @@ import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo'
     DataGridPagingIndeterminateDemoComponent,
     DatagridStandalonePagerDemoComponent,
     DataGridPagingServiceDemoComponent,
+    DatagridPopupMenuToolbarComponent,
     DataGridRowReorderDemoComponent,
     DataGridSaveUserSettingsDemoComponent,
     DataGridServiceDemoComponent,

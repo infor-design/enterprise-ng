@@ -1302,6 +1302,14 @@ interface SohoDataGridStatic {
   toggleRowDetail(dataRowIndex: number): void;
 
   /**
+   * Update the component with new settings.
+   *
+   * @param settings The settings you would like to modify.
+   * @returns This component's API.
+   */
+   updated(settings: SohoDataGridOptions): SohoDataGridStatic;
+
+  /**
    * Destructor,
    */
   destroy(): void;
