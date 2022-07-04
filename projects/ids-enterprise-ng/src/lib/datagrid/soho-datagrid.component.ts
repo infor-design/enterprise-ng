@@ -2880,6 +2880,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         this.datagrid?.renderRows();
       }
     }
+
+    // Reset the flags.
+    this.refreshHint = RefreshHintFlags.None;
+    this.changedOptions = [];
   }
 
   /**
