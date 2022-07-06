@@ -10,7 +10,7 @@
             <br>
             3. Click the "Toggle Indeterminate" button
             <br>
-            4. Click the "Menu" button again. Notice that the popupmenu no longer opens.
+            4. Click the "Menu" button again. Notice that the popupmenu still opens.
         </p>
     </div>
 </div>
@@ -23,7 +23,7 @@
                 </p>
             </soho-toolbar-flex-section>
             <soho-toolbar-flex-section [isButtonSet]="true">
-                <button soho-button="primary" (click)="grid.indeterminate = !grid.indeterminate">Toggle Indeterminate</button>
+                <button soho-button="tertiary" (click)="grid.indeterminate = !grid.indeterminate">Toggle Indeterminate</button>
             </soho-toolbar-flex-section>
         </soho-toolbar-flex>
         <soho-toolbar class="contextual-toolbar is-hidden">
