@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="twelve columns">
+        <p>
+            The contextual-toolbar "Menu" button stops working when changing a property on the datagrid (e.g "indeterminate").
+
+            <br>
+            1. Select any item
+            <br>
+            2. Click the "Menu" button, and notice that a popupmenu opens correctly.
+            <br>
+            3. Click the "Toggle Indeterminate" button
+            <br>
+            4. Click the "Menu" button again. Notice that the popupmenu still opens.
+        </p>
+    </div>
+</div>
+<div class="row top-padding">
+    <div class="twelve columns demo" role="main">
+        <soho-toolbar-flex>
+            <soho-toolbar-flex-section [isTitle]="true">
+                <p soho-toolbar-flex-section-title>
+                    <!-- Toolbar Title -->
+                </p>
+            </soho-toolbar-flex-section>
+            <soho-toolbar-flex-section [isButtonSet]="true">
+                <button soho-button="tertiary" (click)="grid.indeterminate = !grid.indeterminate">Toggle Indeterminate</button>
+            </soho-toolbar-flex-section>
+        </soho-toolbar-flex>
+        <soho-toolbar class="contextual-toolbar is-hidden">
+            <soho-toolbar-title>
+                Contextual Toolbar Title
+            </soho-toolbar-title>
+            <soho-toolbar-button-set>
+                <button soho-menu-button menu="pizza">
+                    Menu
+                </button>
+            <ul soho-popupmenu id="pizza">
+                    <li soho-popupmenu-item>
+                        <a soho-popupmenu-label>Item A</a>
+                    </li>
+                    <li soho-popupmenu-item>
+                        <a soho-popupmenu-label>Item B</a>
+                    </li>
+                    <li soho-popupmenu-item>
+                        <a soho-popupmenu-label>Item C</a>
+                    </li>
+                </ul>
+            </soho-toolbar-button-set>
+        </soho-toolbar>
+        <div soho-datagrid="auto" [gridOptions]="gridOptions" #grid></div>
+    </div>
+</div>

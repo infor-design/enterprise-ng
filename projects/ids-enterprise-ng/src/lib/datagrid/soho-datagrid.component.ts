@@ -2602,7 +2602,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   ngAfterViewChecked() {
     if (this.refreshHint !== RefreshHintFlags.None) {
-      this.updateControl();
+      this.updated(this._gridOptions)
     }
   }
 
@@ -2861,29 +2861,29 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * This is required whilst there is no method found that can update the view
    * for a particular input.
    */
-  private updateControl(): void {
+   public updated(settings?: SohoDataGridOptions) {
+    if (settings) {
+      this._gridOptions = Soho.utils.mergeSettings((this.elementRef as any)[0], settings, this._gridOptions);
+    }
 
-    // Prevent nasty refreshes by running outside angular.
-    this.ngZone.runOutsideAngular(() => {
-      if (this.refreshHint & RefreshHintFlags.Rebuild) { // eslint-disable-line
-        this.destroyDataGrid();
-        this.buildDataGrid();
-
-        // Assume a rebuild trumps all other candidates ...
-      } else {
-        // @todo verify if calling these separately makes sense.
-        if (this.refreshHint & RefreshHintFlags.RenderHeader) { // eslint-disable-line
-          this.datagrid?.renderHeader();
-        }
-        if (this.refreshHint & RefreshHintFlags.RenderRows) { // eslint-disable-line
-          this.datagrid?.renderRows();
-        }
+    if (this.refreshHint & RefreshHintFlags.Rebuild) {
+        this.ngZone.runOutsideAngular(() => {
+          if (this.datagrid) {
+            this.datagrid.updated(this._gridOptions);
+          }
+        });
+    } else {
+      if (this.refreshHint & RefreshHintFlags.RenderHeader) { // eslint-disable-line
+        this.datagrid?.renderHeader();
       }
+      if (this.refreshHint & RefreshHintFlags.RenderRows) { // eslint-disable-line
+        this.datagrid?.renderRows();
+      }
+    }
 
-      // Reset the flags.
-      this.refreshHint = RefreshHintFlags.None;
-      this.changedOptions = [];
-    });
+    // Reset the flags.
+    this.refreshHint = RefreshHintFlags.None;
+    this.changedOptions = [];
   }
 
   /**
