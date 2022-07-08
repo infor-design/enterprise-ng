@@ -1,8 +1,14 @@
 # What's New with Enterprise-NG
 
-## 14.1.0
+## 14.2.0
 
-### 14.1.0 Fixes
+### 14.2.0 Fixes
+
+- `[General]` Placeholder for updating. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
+
+## 14.1.1
+
+### 14.1.1 Fixes
 
 - `[Button]` Rearrange button layout to fix notificationBadge alignment. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
 - `[Datagrid]` Updated example page to test if select all checkbox is updated. ([EP#6476](https://github.com/infor-design/enterprise/issues/6476))
