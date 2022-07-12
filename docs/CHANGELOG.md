@@ -4,7 +4,13 @@
 
 ### 14.2.0 Fixes
 
-- `[General]` Placeholder for updating. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
+- `[Button]` Added setting `iconAlign` for right side icon buttons. Fixed a regression where all buttons changed the icons to the right side instead of the left. ([#1340](https://github.com/infor-design/enterprise-ng/issues/1340))
+
+## 14.1.2
+
+### 14.1.2 Fixes
+
+- `[Button]` Added setting `iconAlign` for right side icon buttons. Fixed a regression where all buttons changed the icons to the right side instead of the left. ([#1340](https://github.com/infor-design/enterprise-ng/issues/1340))
 
 ## 14.1.1
 

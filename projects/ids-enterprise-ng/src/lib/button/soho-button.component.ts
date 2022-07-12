@@ -54,6 +54,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   private _buttonOptions: SohoButtonOptions = {};
   private _isToggle = false;
   private _isTogglePressed = false;
+  private _iconAlign = 'start';
   private _isPressed = false;
 
   /**
@@ -190,6 +191,17 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    */
   @Input() icon?: string;
 
+  /**
+   * The icon placement
+   */
+  @Input() set iconAlign(iconAlign: string) {
+    this._iconAlign = iconAlign;
+  }
+
+  get iconAlign(): string {
+    return this._iconAlign;
+  }
+
   /** Sets the button type to 'submit' when true. */
   @Input() isSubmit = false;
 
@@ -317,6 +329,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
         this.icon = 'star-filled';
       }
     }
+    if (this.notificationBadge && this.notificationBadgeOptions?.position === 'upper-right') {
+      this.iconAlign = 'end';
+    }
   }
 
   ngAfterViewInit() {
@@ -325,6 +340,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       const self = this;
       // Wrap the element in a jQuery selector.
       this.jQueryElement = jQuery(this.element.nativeElement);
+
       // Initialise the Soho control.
       this.jQueryElement.button(this._buttonOptions);
 
@@ -446,7 +462,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   get hasIcon() {
-    return (this.icon || (this.buttonOptions.toggleOnIcon && this.buttonOptions.toggleOffIcon));
+    return (this.icon || (this.buttonOptions.toggleOnIcon && this.buttonOptions.toggleOffIcon)) && (this.iconAlign !== 'end');
+  }
+
+  get hasIconEnd() {
+    return (this.icon || (this.buttonOptions.toggleOnIcon && this.buttonOptions.toggleOffIcon)) && (this.iconAlign === 'end');
   }
 
   get currentIcon() {
