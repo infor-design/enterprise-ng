@@ -61,6 +61,9 @@ interface SohoButtonOptions {
   /** Associated icon. */
   icon?: string;
 
+  /** Icon placement */
+  iconAlign?: 'start' | 'end';
+
   /** Disabled? */
   disabled?: boolean;
 
