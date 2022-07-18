@@ -17,6 +17,7 @@ export const EDITORS_DATA: any[] = [
     price: 210.99,
     orderDate: '2015-01-01T06:00:00.000Z',
     action: 'Action',
+    time: '1:30:45 AM',
     favorite: true
   },
   {
@@ -26,6 +27,7 @@ export const EDITORS_DATA: any[] = [
     price: 209.99,
     orderDate: '2015-01-02T06:00:00.000Z',
     action: 'Action',
+    time: '2:00 AM',
     favorite: false
   },
   {
@@ -38,6 +40,7 @@ export const EDITORS_DATA: any[] = [
     status: 'Active',
     orderDate: '2015-01-03T06:00:00.000Z',
     action: 'Action',
+    time: '1:40:00 AM',
     favorite: true
   },
   {
@@ -49,6 +52,7 @@ export const EDITORS_DATA: any[] = [
     status: 'Inactive',
     orderDate: '2015-01-04T06:00:00.000Z',
     action: 'Action',
+    time: '5:00:45 PM',
     favorite: true
   },
   {
@@ -61,6 +65,7 @@ export const EDITORS_DATA: any[] = [
     status: 'Inactive',
     orderDate: '2015-01-05T06:00:00.000Z',
     action: 'Action',
+    time: '5:30 PM',
     favorite: false
   },
   {
@@ -73,6 +78,7 @@ export const EDITORS_DATA: any[] = [
     status: 'Inactive',
     orderDate: '2015-01-06T06:00:00.000Z',
     action: 'Action',
+    time: '1:30:45 AM',
     favorite: false
   },
   {
@@ -85,6 +91,7 @@ export const EDITORS_DATA: any[] = [
     status: 'On Hold',
     orderDate: '2015-01-07T06:00:00.000Z',
     action: 'Action',
+    time: '11:59:59 PM',
     favorite: true
   },
   {
@@ -97,6 +104,7 @@ export const EDITORS_DATA: any[] = [
     status: 'On Hold',
     orderDate: '2015-01-08T06:00:00.000Z',
     action: 'Action',
+    time: '1:31 PM',
     favorite: true
   },
   {
@@ -109,6 +117,7 @@ export const EDITORS_DATA: any[] = [
     status: 'On Hold',
     orderDate: '2015-01-09T06:00:00.000Z',
     action: 'Action',
+    time: '4:30 PM',
     favorite: false
   },
   {
@@ -121,6 +130,7 @@ export const EDITORS_DATA: any[] = [
     status: 'On Hold',
     orderDate: '2015-01-10T06:00:00.000Z',
     action: 'Action',
+    time: '10:28 PM',
     favorite: false
   }
 ];
@@ -231,6 +241,21 @@ export const EDITORS_COLUMNS: any[] = [
     filterType: 'number',
     width: 105,
     editor: Soho.Editors.Input,
+    required: true,
+    validate: 'required'
+  },
+
+  {
+    id: 'time',
+    name: 'Time',
+    field: 'time',
+    sortable: false,
+    // filterType: 'number',
+    width: 105,
+    formatter: Soho.Formatters.Time,
+    editor: Soho.Editors.Time,
+    editorOptions: { 'timeFormat': 'HH:mm:ss' },
+    timeFormat: 'HH:mm:ss',
     required: true,
     validate: 'required'
   },
