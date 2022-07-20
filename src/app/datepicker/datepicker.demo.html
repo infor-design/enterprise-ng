@@ -184,5 +184,11 @@
         <input soho-datepicker name="frenchFormat" dateFormat="dd/MM/yyyy" mode="standard" placeholder="dd/MM/yyyy" [range]="rangeOptions2" [(ngModel)]="model.range3" (change)="onChange($event)" class="input-mm" />
       </div>
     </div>
+    <div class="four columns">
+      <div class="field">
+        <label for="statechange" class="label">Increment/Decrement and Today</label>
+        <input soho-datepicker id="keyboardDatepicker" name="keyboardDatepicker" [todayWithKeyboard]="true" [incrementWithKeyboard]="false" dateFormat="MM/dd/yyyy" mode="standard" [(ngModel)]="model.standard2" (change)="onChange($event)"/>
+      </div>
+    </div>
   </div>
 </form>

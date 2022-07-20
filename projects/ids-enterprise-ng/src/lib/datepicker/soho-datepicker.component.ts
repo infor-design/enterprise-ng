@@ -313,6 +313,28 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
   }
 
   /**
+   * Set the input to allow increment/decrement using keyboard
+   */
+  @Input() set incrementWithKeyboard(incrementWithKeyboard: boolean) {
+    this._options.incrementWithKeyboard = incrementWithKeyboard;
+    if (this.datepicker) {
+      (this.datepicker as any).settings.incrementWithKeyboard = incrementWithKeyboard;
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Set the input to allow today using keyboard
+   */
+  @Input() set todayWithKeyboard(todayWithKeyboard: boolean) {
+    this._options.todayWithKeyboard = todayWithKeyboard;
+    if (this.datepicker) {
+      (this.datepicker as any).settings.todayWithKeyboard = todayWithKeyboard;
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Sets the options for the date picker
    */
   @Input() set options(options: SohoDatePickerOptions) {
