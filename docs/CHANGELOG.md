@@ -4,7 +4,7 @@
 
 ### 14.2.0 Fixes
 
-- `[General]` Placeholder for updating. ([#1319](https://github.com/infor-design/enterprise-ng/issues/1319))
+- `[Datepicker]` Fixes error when legend is set before the calendar is opened. ([#1345](https://github.com/infor-design/enterprise-ng/issues/1345))
 
 ## 14.1.1
 
