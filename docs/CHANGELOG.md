@@ -7,6 +7,12 @@
 - `[Button]` Added setting `iconAlign` for right side icon buttons. Fixed a regression where all buttons changed the icons to the right side instead of the left. ([#1340](https://github.com/infor-design/enterprise-ng/issues/1340))
 - `[Datagrid]` Added setting `timeFormat` for datagrid column model. ([#1333](https://github.com/infor-design/enterprise-ng/issues/1333))
 
+## 14.1.3
+
+### 14.1.3 Fixes
+
+- `[General]` Added 4.65.2 with fixes for datagrid icons.
+s
 ## 14.1.2
 
 ### 14.1.2 Fixes
