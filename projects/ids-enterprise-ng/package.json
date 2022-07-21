@@ -1,7 +1,7 @@
 {
   "name": "ids-enterprise-ng",
   "slug": "ids-enterprise-ng",
-  "version": "13.5.3",
+  "version": "13.5.4",
   "dependencies": {
     "@types/jquery": "3.3.29",
     "@types/d3": "4.13.0",
