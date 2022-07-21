@@ -907,6 +907,9 @@ interface SohoDataGridColumn {
   /** special display formatting for a numeric column */
   numberFormat?: SohoDataGridColumnNumberFormat;
 
+  /** specified time format for a time column */
+  timeFormat?: string;
+
   /** false = prevent user drag/drop this column order i.e. a drilldown column */
   reorderable?: boolean;
 
@@ -1307,7 +1310,7 @@ interface SohoDataGridStatic {
    * @param settings The settings you would like to modify.
    * @returns This component's API.
    */
-   updated(settings: SohoDataGridOptions): SohoDataGridStatic;
+  updated(settings: SohoDataGridOptions): SohoDataGridStatic;
 
   /**
    * Destructor,
