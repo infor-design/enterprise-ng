@@ -12,7 +12,7 @@
 ### 14.1.3 Fixes
 
 - `[General]` Added 4.65.2 with fixes for datagrid icons.
-s
+
 ## 14.1.2
 
 ### 14.1.2 Fixes
