@@ -1,5 +1,13 @@
 # What's New with Enterprise-NG
 
+## v13.5.3
+
+### 13.5.3 Fixes
+
+- `[Button]` Added setting `iconAlign` for right side icon buttons. Fixed a regression where all buttons changed the icons to the right side instead of the left. ([#1340](https://github.com/infor-design/enterprise-ng/issues/1340))
+- `[Datepicker]` Fixes error when legend is set before the calendar is opened. ([#1345](https://github.com/infor-design/enterprise-ng/issues/1345))
+- `[Datepicker]` Fixed missing monthrendered event on initial calendar open. ([NG#1345](https://github.com/infor-design/enterprise-ng/issues/1345))
+
 ## v13.5.2
 
 ### 13.5.2 Fixes

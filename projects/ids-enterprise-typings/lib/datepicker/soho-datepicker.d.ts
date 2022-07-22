@@ -202,6 +202,8 @@ interface SohoDatePickerStatic {
   openCalendar(): void;
 
   loadLegend(legend: Array<SohoDatePickerLegend> | undefined): void;
+
+  isOpen(): boolean;
 }
 
 /**
