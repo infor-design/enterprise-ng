@@ -506,7 +506,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
 
   ngAfterViewChecked() {
 
-    if (this.updateLegend && this.datepicker) {
+    if (this.updateLegend && this.datepicker?.isOpen()) {
       this.datepicker.loadLegend(this._options.legend);
       this.updateLegend = false;
     }
