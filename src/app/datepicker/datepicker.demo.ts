@@ -21,6 +21,7 @@ export class DatepickerDemoComponent implements OnInit {
 
   public model = {
     standard: new Date(),
+    standard2: new Date(),
     validrange: '12/12/2016',
     anniversary: new Date(),
     birthday: '',

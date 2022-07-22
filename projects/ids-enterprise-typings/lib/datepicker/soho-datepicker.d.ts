@@ -90,6 +90,12 @@ interface SohoDatePickerOptions {
 
   /** Set the input to tabbale or not. */
   tabbable?: boolean;
+
+  /** Set the input to allow increment/decrement of days or not using keyboard. */
+  incrementWithKeyboard?: boolean;
+
+  /** Set the input to allow today shortcut or not using keyboard. */
+  todayWithKeyboard?: boolean;
 }
 
 /* Options for the legend */
