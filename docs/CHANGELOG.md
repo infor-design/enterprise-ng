@@ -7,6 +7,7 @@
 - `[Button]` Added setting `iconAlign` for right side icon buttons. Fixed a regression where all buttons changed the icons to the right side instead of the left. ([#1340](https://github.com/infor-design/enterprise-ng/issues/1340))
 - `[Datagrid]` Added setting `timeFormat` for datagrid column model. ([#1333](https://github.com/infor-design/enterprise-ng/issues/1333))
 - `[Datepicker]` Fixes error when legend is set before the calendar is opened. ([#1345](https://github.com/infor-design/enterprise-ng/issues/1345))
+- `[Popdown]` Updated example page to test click outside event. ([#1304](https://github.com/infor-design/enterprise-ng/issues/1304))
 
 ## 14.1.3
 
