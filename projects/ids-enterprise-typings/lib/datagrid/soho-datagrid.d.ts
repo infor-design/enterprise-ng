@@ -949,6 +949,12 @@ interface SohoDataGridColumn {
   /** Sets the css text overflow on the cell. Specifically to add 'ellipsis' text */
   textOverflow?: string;
 
+  /** Sets the name of the icon to show in the header */
+  headerIcon?: string;
+
+  /** Adds an extra class to the header for formatting */
+  headerCssClass?: string;
+
   /** Content visible function*/
   contentVisible?: SohoDataGridColumnContentVisibleFunction;
 

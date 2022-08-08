@@ -27,6 +27,8 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   /* *Has an X to clear? */
   clearable?: boolean;
 
+  button?: SohoSearchFieldExtraButton;
+
   /* Is able to be collapsed */
   collapsible?: boolean;
 
@@ -35,6 +37,17 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
 
   /* Set the trigger inputs to tabbable */
   tabbable?: boolean;
+}
+
+interface SohoSearchFieldExtraButton {
+  /* Icon to Show */
+  icon?: string;
+
+  /* Click Function */
+  click?: ((e: JQuery.ClickEvent, value: any) => void);
+
+  /* Id to use*/
+  id?: string;
 }
 
 /**
@@ -76,10 +89,10 @@ interface SohoSearchFieldStatic {
  * Search field category.
  */
 interface SohoSearchFieldCategory {
-    checked: boolean;
-    name: string;
-    id?: string | number;
-    value?: string | number;
+  checked: boolean;
+  name: string;
+  id?: string | number;
+  value?: string | number;
 }
 
 /** Search field category type */
