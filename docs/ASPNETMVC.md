@@ -42,6 +42,4 @@ ng update
 
 ## Adding the IDS Enterprise Controls
 
-Following the instruction in the quickstart guide, from [Step 2](#Step2).  Note the root of the angular project is the *ClientApp* folder.
-
-[#Step2]:QUICKSTART.md#Step-2-:-Install-Packages
+Following the instruction in the quickstart guide, from Step 2.  Note the root of the angular project is the *ClientApp* folder.
