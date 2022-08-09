@@ -35,6 +35,8 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
 
   /* Set the trigger inputs to tabbable */
   tabbable?: boolean;
+
+  button?: SohoSearchFieldCustomButton;
 }
 
 /**
@@ -76,10 +78,10 @@ interface SohoSearchFieldStatic {
  * Search field category.
  */
 interface SohoSearchFieldCategory {
-    checked: boolean;
-    name: string;
-    id?: string | number;
-    value?: string | number;
+  checked: boolean;
+  name: string;
+  id?: string | number;
+  value?: string | number;
 }
 
 /** Search field category type */
@@ -90,6 +92,11 @@ type SohoSearchFieldCategoryType = SohoSearchFieldCategory | string;
  */
 interface SohoSearchFieldEvent extends JQuery.TriggeredEvent {
   data: any;
+}
+
+interface SohoSearchFieldCustomButton {
+  icon: string;
+  click: any;
 }
 
 /**

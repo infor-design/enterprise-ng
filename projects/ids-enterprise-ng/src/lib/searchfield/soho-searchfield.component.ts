@@ -75,6 +75,10 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.options.tabbable = value;
   }
 
+  @Input() set button(value: SohoSearchFieldCustomButton) {
+    this.options.button = value;
+  }
+
   // ------------------------------------------------------------
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
