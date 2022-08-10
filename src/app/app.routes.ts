@@ -31,6 +31,7 @@ import { ButtonBadgeDemoComponent } from './button/button-badge.demo';
 import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
+import { CalendarHideLegendDemoComponent } from './calendar/calendar-hide-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
 import { CalendarRangeDemoComponent } from './calendar/calendar-range.demo';
 import { CardsActionableDemoComponent } from './cards/cards-actionable.demo';
@@ -267,6 +268,7 @@ export const routes: Routes = [
   { path: 'busyindicatorbody', component: BusyIndicatorDemoBodyComponent },
   { path: 'calendar-monthview', component: CalendarDemoComponent },
   { path: 'calendar-monthview-legend', component: CalendarLegendDemoComponent },
+  { path: 'calendar-monthview-hide-legend', component: CalendarHideLegendDemoComponent },
   { path: 'calendar-updated', component: CalendarUpdatedDemoComponent },
   { path: 'calendar-range', component: CalendarRangeDemoComponent },
   { path: 'cards-actionable', component: CardsActionableDemoComponent },

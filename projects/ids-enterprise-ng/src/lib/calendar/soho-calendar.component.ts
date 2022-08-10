@@ -242,6 +242,24 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
 
   /**
+   * If false the legend will not show below.
+   */
+  @Input() set showEventLegend(showEventLegend: boolean | undefined) {
+    (this._calendarOptions as any).showEventLegend = showEventLegend;
+    if (this.calendar) {
+      this.calendar.settings.showEventLegend = showEventLegend;
+      this.markForRefresh();
+    }
+  }
+  get showEventLegend(): boolean | undefined {
+    if (this.calendar) {
+      return this.calendar.settings.showEventLegend;
+    }
+
+    return (this._calendarOptions as any).showEventLegend;
+  }
+
+  /**
    * If false the mouseover text or day event will not be shown.
    */
   @Input() set eventTooltip(eventTooltip: string | SohoCalendarTooltipFunction) {
