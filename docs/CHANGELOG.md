@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v13.5.4
+
+### 13.5.4 Fixes
+
+- `[General]` Added 4.46.5 release with patched for datagrid 6705 and 6697. ([#6705](https://github.com/infor-design/enterprise-ng/issues/6705))
+
 ## v13.5.3
 
 ### 13.5.3 Fixes
