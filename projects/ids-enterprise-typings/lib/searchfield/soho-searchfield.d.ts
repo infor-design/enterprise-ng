@@ -27,6 +27,9 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   /* *Has an X to clear? */
   clearable?: boolean;
 
+  /* Add extra button in searchfield */
+  button?: SohoSearchFieldExtraButton;
+
   /* Is able to be collapsed */
   collapsible?: boolean;
 
@@ -35,8 +38,6 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
 
   /* Set the trigger inputs to tabbable */
   tabbable?: boolean;
-
-  button?: SohoSearchFieldExtraButton;
 }
 
 interface SohoSearchFieldExtraButton {
