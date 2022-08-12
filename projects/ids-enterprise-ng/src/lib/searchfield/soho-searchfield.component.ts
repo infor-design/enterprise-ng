@@ -55,6 +55,11 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.options.showCategoryText = value;
   }
 
+  /** Extra button available to show. */
+  @Input() set button(value: SohoSearchFieldExtraButton) {
+    this.options.button = value;
+  }
+
   /** AutoComplete : Source Function/Data/Url/Array */
   @Input() set source(value: SohoAutoCompleteSource) {
     this.options.source = value;

@@ -27,6 +27,8 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   /* *Has an X to clear? */
   clearable?: boolean;
 
+  button?: SohoSearchFieldExtraButton;
+
   /* Is able to be collapsed */
   collapsible?: boolean;
 
@@ -37,6 +39,17 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   tabbable?: boolean;
 
   button?: SohoSearchFieldCustomButton;
+}
+
+interface SohoSearchFieldExtraButton {
+  /* Icon to Show */
+  icon?: string;
+
+  /* Click Function */
+  click?: ((e: JQuery.ClickEvent, value: any) => void);
+
+  /* Id to use*/
+  id?: string;
 }
 
 /**
