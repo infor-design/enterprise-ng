@@ -2,6 +2,10 @@
 
 ## 14.3.0
 
+### 14.3.0 Features
+
+- `[Calendar]` Add a setting for calendar to show and hide the legend. ([EP#6533](https://github.com/infor-design/enterprise/issues/6533))
+
 ### 14.3.0 Fixes
 
 ## 14.2.0
