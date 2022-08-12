@@ -27,8 +27,6 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   /* *Has an X to clear? */
   clearable?: boolean;
 
-  button?: SohoSearchFieldExtraButton;
-
   /* Is able to be collapsed */
   collapsible?: boolean;
 
@@ -38,7 +36,7 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   /* Set the trigger inputs to tabbable */
   tabbable?: boolean;
 
-  button?: SohoSearchFieldCustomButton;
+  button?: SohoSearchFieldExtraButton;
 }
 
 interface SohoSearchFieldExtraButton {
@@ -105,11 +103,6 @@ type SohoSearchFieldCategoryType = SohoSearchFieldCategory | string;
  */
 interface SohoSearchFieldEvent extends JQuery.TriggeredEvent {
   data: any;
-}
-
-interface SohoSearchFieldCustomButton {
-  icon: string;
-  click: any;
 }
 
 /**
