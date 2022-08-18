@@ -45,6 +45,7 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { ButtonBadgeDemoComponent } from './button/button-badge.demo';
 import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
+import { CalendarHideLegendDemoComponent } from './calendar/calendar-hide-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
 import { CalendarRangeDemoComponent } from './calendar/calendar-range.demo';
 import { CardsActionableDemoComponent } from './cards/cards-actionable.demo';
@@ -322,6 +323,7 @@ import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo'
     CardFormatterComponent,
     CalendarDemoComponent,
     CalendarLegendDemoComponent,
+    CalendarHideLegendDemoComponent,
     CalendarUpdatedDemoComponent,
     CalendarRangeDemoComponent,
     CardsActionableDemoComponent,
