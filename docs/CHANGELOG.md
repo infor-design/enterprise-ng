@@ -8,6 +8,8 @@
 
 ### 14.3.0 Fixes
 
+- `[Button]` Added notification badges for buttons with labels. ([#1347](https://github.com/infor-design/enterprise-ng/issues/1347))
+
 ## 14.2.0
 
 ### 14.2.0 Fixes
