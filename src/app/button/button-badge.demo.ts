@@ -20,23 +20,23 @@ export class ButtonBadgeDemoComponent implements OnInit {
     notificationBadge: true,
     notificationBadgeOptions: {
       position: 'upper-left',
-      color: 'alert'
+      color: 'complete'
     }
   }
 
   public badgeOption2: SohoButtonOptions = {
     notificationBadge: true,
     notificationBadgeOptions: {
-      position: 'lower-left',
-      color: 'yield'
+      position: 'upper-right',
+      color: 'alert'
     }
   }
 
   public badgeOption3: SohoButtonOptions = {
     notificationBadge: true,
     notificationBadgeOptions: {
-      position: 'lower-right',
-      color: 'complete'
+      position: 'lower-left',
+      color: 'progress'
     }
   }
 
