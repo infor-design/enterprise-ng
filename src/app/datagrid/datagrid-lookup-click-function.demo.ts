@@ -48,8 +48,14 @@ export class DataGridLookupClickDemoComponent implements OnInit {
   }
 
   public listLookupClick(sohoLookup: SohoLookupStatic, sourceField: string) {
+    const sohoModalOptions: SohoModalOptions = {
+      fullsize: 'responsive',
+      noRefocus: true
+    };
+
     const dialogRef = this.modalService
       .modal(DataGridLookupDialogDemoComponent, this.modalPlaceholder)
+      .options(sohoModalOptions)
       .buttons([
         {
           text: 'Cancel',
