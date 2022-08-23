@@ -1,8 +1,14 @@
 # What's New with Enterprise-NG
 
+## 14.1.7
+
+### 14.1.7 Fixes
+
+- `[General]` Added 4.65.6 with fixes for datagrid icons.
+
 ## 14.1.6
 
-### 14.16 Fixes
+### 14.1.6 Fixes
 
 - `[General]` Added 4.65.4 with fixes for datagrid icons.
 
