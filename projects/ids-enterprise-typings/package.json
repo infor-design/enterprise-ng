@@ -1,7 +1,7 @@
 {
   "name": "ids-enterprise-typings",
   "slug": "ids-enterprise-typings",
-  "version": "14.1.8",
+  "version": "14.1.9",
   "declaration": true,
   "types": "index.d.ts",
   "dependencies": {
