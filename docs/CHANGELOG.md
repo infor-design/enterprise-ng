@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 14.1.9
+
+### 14.1.9 Fixes
+
+- `[General]` Release 4.65.5 with fixes for datagrid widths.
+
 ## 14.1.8
 
 ### 14.1.8 Fixes
