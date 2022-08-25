@@ -20,6 +20,30 @@
 - `[Datepicker]` Fixes error when legend is set before the calendar is opened. ([#1345](https://github.com/infor-design/enterprise-ng/issues/1345))
 - `[Popdown]` Updated example page to test click outside event. ([#1304](https://github.com/infor-design/enterprise-ng/issues/1304))
 
+## 14.1.10
+
+### 14.1.10 Fixes
+
+- `[General]` Release 4.65.5 with fixes for datagrid widths.
+
+## 14.1.8
+
+### 14.1.8 Fixes
+
+- `[General]` Re-release 4.65.4 to fix a mistake
+
+## 14.1.6
+
+### 14.1.6 Fixes
+
+- `[General]` Added 4.65.4 with fixes for datagrid icons.
+
+## 14.1.4
+
+### 14.1.4 Fixes
+
+- `[General]` Added 4.65.3 with fixes for datagrid icons.
+
 ## 14.1.3
 
 ### 14.1.3 Fixes
