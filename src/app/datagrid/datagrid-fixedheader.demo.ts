@@ -13,7 +13,7 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
 @Component({
   selector: 'app-datagrid-fixed-header-demo',
   templateUrl: 'datagrid-fixedheader.demo.html',
-  providers: [ DataGridPagingIndeterminateDemoService ],
+  providers: [DataGridPagingIndeterminateDemoService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnInit {
@@ -23,7 +23,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
     private changeDetectorRef: ChangeDetectorRef,
     private ngZone: NgZone,
     private datagridPagingService: DataGridPagingIndeterminateDemoService
-  ) {}
+  ) { }
 
   gridOptions?: SohoDataGridOptions = undefined;
   selectedRow = 0;
@@ -33,12 +33,14 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
     this.gridOptions = this.buildGridOptions();
   }
 
+  onChangeRowHeight() {
+    const opts = this.gridOptions!
+    opts.rowHeight = opts.rowHeight === 'small' ? 'normal' : 'normal';
+    // this.sohoDataGridComponent?.updated();
+  }
+
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked');
-    /*if (this.sohoDataGridComponent && this.updateSelectedRow) {
-      this.sohoDataGridComponent.selectRows([this.selectedRow]);
-      this.updateSelectedRow = false;
-    } */
   }
 
   onSelected(args: SohoDataGridSelectedEvent) {
@@ -51,7 +53,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
       selectable: 'multiple',
       paging: true,
       pagesize: 100,
-      pagesizes: [ 5, 10, 25, 100 ],
+      pagesizes: [5, 10, 25, 100],
       indeterminate: true,
       rowHeight: 'small',
       filterable: true,
