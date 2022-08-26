@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v13.6.0
+
+### 13.6.0 Fixes
+
+- `[General]` Added an ng 13 release with 4.66.0 for older compatibility.
+
 ## v13.5.4
 
 ### 13.5.4 Fixes
