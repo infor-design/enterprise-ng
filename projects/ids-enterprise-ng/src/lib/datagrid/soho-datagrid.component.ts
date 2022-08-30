@@ -2861,26 +2861,24 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * This is required whilst there is no method found that can update the view
    * for a particular input.
    */
-   public updated(settings?: SohoDataGridOptions) {
+  public updated(settings?: SohoDataGridOptions) {
     if (settings) {
       this._gridOptions = Soho.utils.mergeSettings((this.elementRef as any)[0], settings, this._gridOptions);
     }
 
-    if (this.refreshHint & RefreshHintFlags.Rebuild) {
-        this.ngZone.runOutsideAngular(() => {
-          if (this.datagrid) {
-            this.datagrid.updated(this._gridOptions);
-          }
-        });
-    } else {
-      if (this.refreshHint & RefreshHintFlags.RenderHeader) { // eslint-disable-line
-        this.datagrid?.renderHeader();
+    this.ngZone.runOutsideAngular(() => {
+      if (!this.refreshHint) {
+        this.datagrid?.updated(this._gridOptions);
       }
-      if (this.refreshHint & RefreshHintFlags.RenderRows) { // eslint-disable-line
+      if (this.refreshHint & RefreshHintFlags.Rebuild) {
+        this.datagrid?.renderHeader();
+        this.datagrid?.renderRows();
+      } else if (this.refreshHint & RefreshHintFlags.RenderHeader) { // eslint-disable-line
+        this.datagrid?.renderHeader();
+      } else if (this.refreshHint & RefreshHintFlags.RenderRows) { // eslint-disable-line
         this.datagrid?.renderRows();
       }
-    }
-
+    });
     // Reset the flags.
     this.refreshHint = RefreshHintFlags.None;
     this.changedOptions = [];
