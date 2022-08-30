@@ -205,7 +205,7 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.dataset).toEqual([]);
   });
 
-  it('check inputs', () => {
+  xit('check inputs', () => {
     const pageSizes = [10, 20, 30];
     const toolbar = {};
     const saveUserSettings = {};
