@@ -1,11 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoContextMenuDirective, SohoPopupMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-popupmenu-demo',
   templateUrl: 'popupmenu.demo.html',
 })
-export class PopupMenuDemoComponent {
+export class PopupMenuDemoComponent implements OnInit {
 
   public isInsertCommentDisabled = true;
   public isInsertNoteDisabled = true;
@@ -28,6 +28,11 @@ export class PopupMenuDemoComponent {
 
   @ViewChild(SohoContextMenuDirective, { static: true })
   public contextMenu!: SohoContextMenuDirective;
+
+  ngOnInit(): void {
+    console.log(this.popupMenu);
+    console.log(this.contextMenu);
+  }
 
   public onClick($event?: any): void {
     const popupMenuAPI: SohoPopupMenuComponent = (this.contextMenu as any).contextMenu;
