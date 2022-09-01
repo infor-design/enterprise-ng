@@ -1,14 +1,14 @@
 # What's New with Enterprise-NG
 
-## 14.1.12
+## 14.1.13
 
-### 14.1.12 Fixes
+### 14.1.13 Fixes
 
 - `[Datagrid]` Fixed a bug in datagrid where setting gridOptions no longer worked. ([#6783](https://github.com/infor-design/enterprise/issues/6783))
 
-## 14.1.11
+## 14.1.12
 
-### 14.1.11 Fixes
+### 14.1.12 Fixes
 
 - `[General]` Release 4.65.6 with fixes for datagrid modals.
 - `[Datagrid]` Fixed a bug in datagrid where calling `updated` no longer worked. ([#6783](https://github.com/infor-design/enterprise/issues/6783))
