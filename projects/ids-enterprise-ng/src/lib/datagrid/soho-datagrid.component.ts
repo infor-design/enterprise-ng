@@ -2869,8 +2869,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.ngZone.runOutsideAngular(() => {
       if (!this.refreshHint) {
         this.datagrid?.updated(this._gridOptions);
-      }
-      if (this.refreshHint & RefreshHintFlags.Rebuild) {
+      } else if (settings && this.refreshHint & RefreshHintFlags.Rebuild) {
+        this.datagrid?.updated(this._gridOptions);
+      } else if (this.refreshHint & RefreshHintFlags.Rebuild) {
         this.datagrid?.renderHeader();
         this.datagrid?.renderRows();
       } else if (this.refreshHint & RefreshHintFlags.RenderHeader) { // eslint-disable-line

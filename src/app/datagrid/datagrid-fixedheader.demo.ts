@@ -42,9 +42,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
   }
 
   onClick() {
-    if (!this.sohoDataGridComponent) return;
-    this.sohoDataGridComponent.rowHeight = "large";
-    this.sohoDataGridComponent.updated();
+    this.gridOptions = { ...this.gridOptions, rowHeight: 'large' };
   }
 
   private buildGridOptions(): SohoDataGridOptions {
