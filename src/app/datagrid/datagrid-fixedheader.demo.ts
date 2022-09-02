@@ -42,9 +42,13 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
   }
 
   onClick() {
-    if (!this.sohoDataGridComponent) return;
-    this.sohoDataGridComponent.rowHeight = "large";
-    this.sohoDataGridComponent.updated();
+    // One Way
+    // if (!this.sohoDataGridComponent) return;
+    // this.sohoDataGridComponent.rowHeight =large';
+    // this.sohoDataGridComponent.updated();
+
+    // Another Way
+    this.gridOptions = { ...this.gridOptions, rowHeight: 'large' }
   }
 
   private buildGridOptions(): SohoDataGridOptions {
@@ -55,7 +59,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
       pagesize: 100,
       pagesizes: [5, 10, 25, 100],
       indeterminate: true,
-      rowHeight: 'small',
+      rowHeight: 'short',
       filterable: true,
       source: this.dataGridOptions
     } as SohoDataGridOptions;
@@ -67,9 +71,9 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
       request.lastPage = result.lastPage;
 
       const selectedRows = this.sohoDataGridComponent ? this.sohoDataGridComponent.selectedRows() : undefined;
-      this.selectedRow = selectedRows !== undefined ? selectedRows[0].idx : 0;
-
-      this.ngZone.runOutsideAngular(() => response(result.data, request));
+      this.selectedRow = selectedRows !== undefined && selectedRows.length > 0 ? selectedRows[0].idx : 0;
+      if (result.data.length > 0)
+        this.ngZone.runOutsideAngular(() => response(result.data, request));
 
       this.updateSelectedRow = true;
       this.changeDetectorRef.markForCheck();
