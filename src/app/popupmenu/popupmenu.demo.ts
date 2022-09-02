@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SohoContextMenuDirective, SohoPopupMenuComponent } from 'ids-enterprise-ng';
+import { SohoPopupMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-popupmenu-demo',
@@ -23,20 +23,12 @@ export class PopupMenuDemoComponent implements OnInit {
 
   public suiteOptions: string[] = ['Hello', 'World', 'Team'];
 
-  @ViewChild(SohoPopupMenuComponent, { static: true })
+  @ViewChild('popmenutrigger', { static: true })
   public popupMenu!: SohoPopupMenuComponent;
 
-  @ViewChild(SohoContextMenuDirective, { static: true })
-  public contextMenu!: SohoContextMenuDirective;
-
-  ngOnInit(): void {
-    console.log(this.popupMenu);
-    console.log(this.contextMenu);
-  }
+  ngOnInit(): void { }
 
   public onClick($event?: any): void {
-    const popupMenuAPI: SohoPopupMenuComponent = (this.contextMenu as any).contextMenu;
-    console.log(`popupMenuAPI selected items`, popupMenuAPI.getSelected().length);
     console.log(`Popupmenu isMultiSelectable: ${this.popupMenu.isMultiselectable}`);
     console.log(`Popupmenu Selected: ${this.popupMenu.getSelected().length}`);
     console.log(`event: ${$event}`);

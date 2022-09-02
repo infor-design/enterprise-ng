@@ -102,7 +102,7 @@
       <span>Words</span>
       <svg soho-icon icon="dropdown"></svg>
     </button>
-    <ul soho-popupmenu [isMultiselectable]="true" id="filter-options">
+    <ul soho-popupmenu [isMultiselectable]="true" id="filter-options" #popmenutrigger>
       <li
         soho-popupmenu-item
         *ngFor="let option of suiteOptions; let i = index"
