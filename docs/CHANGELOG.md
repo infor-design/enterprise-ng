@@ -10,6 +10,7 @@
 ### 14.3.0 Fixes
 
 - `[Button]` Added notification badges for buttons with labels. ([#1347](https://github.com/infor-design/enterprise-ng/issues/1347))
+- `[Popupmenu]` Updated popupmenu demo for getSelected() example. ([#1349](https://github.com/infor-design/enterprise-ng/issues/1349))
 
 ## 14.2.0
 
