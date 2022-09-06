@@ -87,3 +87,35 @@
     </div>
   </div>
 </div>
+
+<div class="row top-padding">
+  <div class="twelve columns">
+    <span class="label">Popup Menu Get Selected</span>
+    <button
+      class="btn-menu"
+      soho-context-menu
+      menu="filter-options"
+      trigger="click"
+      (selected)="onClick($event)"
+    >
+      <svg class="project-sort-filter-icon" soho-icon icon="filter"></svg>
+      <span>Words</span>
+      <svg soho-icon icon="dropdown"></svg>
+    </button>
+    <ul soho-popupmenu [isMultiselectable]="true" id="filter-options" #popmenutrigger>
+      <li
+        soho-popupmenu-item
+        *ngFor="let option of suiteOptions; let i = index"
+      >
+        <a [id]="'suiteValue' + i" soho-popupmenu-label>
+          {{ option }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="twelve columns">
+    <button soho-button="primary" (click)="onClick()">Selected Items</button>
+  </div>
+</div>

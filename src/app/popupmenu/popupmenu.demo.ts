@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SohoPopupMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-popupmenu-demo',
   templateUrl: 'popupmenu.demo.html',
 })
-export class PopupMenuDemoComponent {
+export class PopupMenuDemoComponent implements OnInit {
 
   public isInsertCommentDisabled = true;
   public isInsertNoteDisabled = true;
@@ -19,6 +20,19 @@ export class PopupMenuDemoComponent {
     showAxis: false,
     autoScale: false,
   };
+
+  public suiteOptions: string[] = ['Hello', 'World', 'Team'];
+
+  @ViewChild('popmenutrigger', { static: true })
+  public popupMenu!: SohoPopupMenuComponent;
+
+  ngOnInit(): void { }
+
+  public onClick($event?: any): void {
+    console.log(`Popupmenu isMultiSelectable: ${this.popupMenu.isMultiselectable}`);
+    console.log(`Popupmenu Selected: ${this.popupMenu.getSelected().length}`);
+    console.log(`event: ${$event}`);
+  }
 
   onMenu(item: number) {
     if (item === 3) {
