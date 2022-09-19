@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 14.1.14
+
+### 14.1.14 Fixes
+
+- `[General]` Release 4.65.7 with fixes for datagrid editing.
+
 ## 14.1.13
 
 ### 14.1.13 Fixes
