@@ -116,7 +116,8 @@ export class DataGridTabDemoComponent {
       formatter: Soho.Formatters.Tree,
       expanded: 'expanded',
       width: 150,
-      filterType: 'text'
+      filterType: 'text',
+      ariaDescribedBy: (row, cell) => `id-row-${row}-header-${cell}`
     },
     {
       id: 'status', name: 'Status', field: 'status', width: 60,
