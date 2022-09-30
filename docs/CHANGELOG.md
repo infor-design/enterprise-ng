@@ -17,6 +17,7 @@
 
 - `[Button]` Added notification badges for buttons with labels. ([#1347](https://github.com/infor-design/enterprise-ng/issues/1347))
 - `[Popupmenu]` Updated popupmenu demo for getSelected() example. ([#1349](https://github.com/infor-design/enterprise-ng/issues/1349))
+- `[Textarea]` Updated textarea demo for enabling disabling example. ([EP#6773](https://github.com/infor-design/enterprise/issues/6773))
 
 ## 14.2.0
 
