@@ -580,6 +580,11 @@ interface SohoDataGridCellEditor {
   focus(): void;
 }
 
+type SohoDataGridAriaDescribedByFunction = (
+  row?: any,
+  cell?: any
+) => string;
+
 type SohoDataGridColumnEditorFunction = (
   row?: any,
   cell?: any,
@@ -954,6 +959,9 @@ interface SohoDataGridColumn {
 
   /** Adds an extra class to the header for formatting */
   headerCssClass?: string;
+
+  /** Adds the ability to set/override the aria-describedby attribute on the cells. */
+  ariaDescribedBy?: SohoDataGridAriaDescribedByFunction;
 
   /** Content visible function*/
   contentVisible?: SohoDataGridColumnContentVisibleFunction;
