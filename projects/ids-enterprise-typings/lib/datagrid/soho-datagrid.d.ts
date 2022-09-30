@@ -1014,6 +1014,9 @@ interface SohoDataGridColumn {
   /* Array of objects with a value and label to be used as options in the filter row dropdown. */
   filterRowEditorOptions?: SohoGridCellOption[];
 
+  /* Add row span or not */
+  rowspan?: boolean;
+
   /* formatter summary */
   summaryRowFormatter?: SohoDataGridColumnFormatterFunction | string;
 

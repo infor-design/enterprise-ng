@@ -11,6 +11,7 @@
 - `[Calendar]` Add a setting for calendar to show and hide the legend. ([EP#6533](https://github.com/infor-design/enterprise/issues/6533))
 - `[Datagrid]` Fixed a bug in datagrid where calling `updated` no longer worked. ([#6783](https://github.com/infor-design/enterprise/issues/6783))
 - `[Datagrid]` Fixed a bug in datagrid where setting gridOptions no longer worked. ([#6783](https://github.com/infor-design/enterprise/issues/6783))
+- `[Datagrid]` Added rowspan in datagrid column setting. ([#1353](https://github.com/infor-design/enterprise-ng/issues/1353))
 - `[Modal]` Update example page to test fullsize. ([#1358](https://github.com/infor-design/enterprise-ng/issues/1358))
 
 ### 14.3.0 Fixes

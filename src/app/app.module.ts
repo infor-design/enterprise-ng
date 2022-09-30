@@ -283,6 +283,7 @@ import { HomePageEditableFilledComponent } from './homepage/homepage-editable-fi
 import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfield-category-update.demo';
 import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
+import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 
 @NgModule({
   declarations: [
@@ -393,6 +394,7 @@ import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo'
     DataGridExpandableRowNestedDemoComponent,
     DataGridExpandableRowDynamicDemoComponent,
     DataGridSummaryRowDemoComponent,
+    DataGridRowSpanDemoComponent,
     DatepickerDemoComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
