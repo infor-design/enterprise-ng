@@ -231,6 +231,7 @@ import { HomePageEditableFilledComponent } from './homepage/homepage-editable-fi
 import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfield-category-update.demo';
 import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
+import { DatagridCustomEditorComponent } from './datagrid/datagrid-custom-editor.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -329,6 +330,7 @@ export const routes: Routes = [
   { path: 'datagrid-code-block-editor', component: DataGridCodeBlockEditorDemoComponent },
   { path: 'datagrid-custom-formatter', component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },
+  { path: 'datagrid-custom-editor', component: DatagridCustomEditorComponent },
   { path: 'datagrid-lookup-click-function', component: DataGridLookupClickDemoComponent },
   { path: 'datagrid-lookup-dialog', component: DataGridLookupDialogDemoComponent },
   { path: 'datagrid-rowreorder', component: DataGridRowReorderDemoComponent },

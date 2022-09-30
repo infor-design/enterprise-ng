@@ -578,6 +578,7 @@ interface SohoDataGridCellEditor {
   className?: string;
   val(value?: any): any;
   focus(): void;
+  initEditor?: (input: any) => void;
 }
 
 type SohoDataGridColumnEditorFunction = (

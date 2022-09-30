@@ -283,6 +283,8 @@ import { HomePageEditableFilledComponent } from './homepage/homepage-editable-fi
 import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfield-category-update.demo';
 import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
+import { CustomEditorComponent } from './datagrid/custom-editor.component';
+import { DatagridCustomEditorComponent } from './datagrid/datagrid-custom-editor.demo';
 
 @NgModule({
   declarations: [
@@ -359,6 +361,8 @@ import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo'
     DataGridCustomFormatterDemoComponent,
     DataGridCustomFormatterServiceDemoComponent,
     DemoCellDatePickerEditorComponent,
+    DatagridCustomEditorComponent,
+    CustomEditorComponent,
     DataGridDirtyIndicationDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,

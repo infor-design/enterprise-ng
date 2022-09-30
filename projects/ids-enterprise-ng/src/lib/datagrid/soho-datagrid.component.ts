@@ -67,6 +67,8 @@ export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor 
   // The parent class of the inner editor. Used to determine if open or not.
   className?: string;
 
+  editor?: any;
+
   constructor(
     public component: Type<SohoDataGridCellEditor>,
     public args: SohoDataGridEditCellFunctionArgs) {
