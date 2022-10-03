@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## 14.3.1
+
+### 14.3.1 Fixes
+
+- `[Datagrid]` Added `ariaDescribedBy` setting in the datagrid column. ([#6530](https://github.com/infor-design/enterprise/issues/6530))
+- `[General]` Release 4.67.2 with patches.
+
 ## 14.3.0
 
 ### 14.3.0 Features
