@@ -18,7 +18,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-01T06:00:00.000Z',
     action: 'Action',
     time: '1:30:45 AM',
-    favorite: true
+    favorite: true,
+    file: 'file.png'
   },
   {
     id: 1,
@@ -28,7 +29,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-02T06:00:00.000Z',
     action: 'Action',
     time: '2:00 AM',
-    favorite: false
+    favorite: false,
+    file: 'file.png'
   },
   {
     id: 2,
@@ -41,7 +43,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-03T06:00:00.000Z',
     action: 'Action',
     time: '1:40:00 AM',
-    favorite: true
+    favorite: true,
+    file: 'file.png'
   },
   {
     id: 3,
@@ -53,7 +56,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-04T06:00:00.000Z',
     action: 'Action',
     time: '5:00:45 PM',
-    favorite: true
+    favorite: true,
+    file: 'file.png'
   },
   {
     id: 4,
@@ -66,7 +70,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-05T06:00:00.000Z',
     action: 'Action',
     time: '5:30 PM',
-    favorite: false
+    favorite: false,
+    file: 'file.png'
   },
   {
     id: 5,
@@ -79,7 +84,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-06T06:00:00.000Z',
     action: 'Action',
     time: '1:30:45 AM',
-    favorite: false
+    favorite: false,
+    file: 'file.png'
   },
   {
     id: 6,
@@ -92,7 +98,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-07T06:00:00.000Z',
     action: 'Action',
     time: '11:59:59 PM',
-    favorite: true
+    favorite: true,
+    file: 'file.png'
   },
   {
     id: 7,
@@ -105,7 +112,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-08T06:00:00.000Z',
     action: 'Action',
     time: '1:31 PM',
-    favorite: true
+    favorite: true,
+    file: 'file.png'
   },
   {
     id: 8,
@@ -118,7 +126,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-09T06:00:00.000Z',
     action: 'Action',
     time: '4:30 PM',
-    favorite: false
+    favorite: false,
+    file: 'file.png'
   },
   {
     id: 9,
@@ -131,7 +140,8 @@ export const EDITORS_DATA: any[] = [
     orderDate: '2015-01-10T06:00:00.000Z',
     action: 'Action',
     time: '10:28 PM',
-    favorite: false
+    favorite: false,
+    file: 'file.png'
   }
 ];
 
@@ -258,6 +268,16 @@ export const EDITORS_COLUMNS: any[] = [
     timeFormat: 'HH:mm:ss',
     required: true,
     validate: 'required'
+  },
+
+  {
+    id: 'file',
+    name: 'File',
+    field: 'file',
+    sortable: false,
+    width: 105,
+    formatter: Soho.Formatters.Fileupload,
+    editor: Soho.Editors.Fileupload
   },
 
   {

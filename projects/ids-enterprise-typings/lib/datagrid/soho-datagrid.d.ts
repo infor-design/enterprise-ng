@@ -639,6 +639,7 @@ interface SohoStatic {
     Favorite: SohoDataGridColumnFormatterFunction;
     Status: SohoDataGridColumnFormatterFunction;
     TargetedAchievement: SohoDataGridColumnFormatterFunction;
+    Fileupload: SohoDataGridColumnFormatterFunction;
   };
   Editors: {
     // Supports, Text, Numeric, Integer via mask
@@ -718,6 +719,7 @@ declare var Formatters: {
   Favorite: SohoDataGridColumnFormatterFunction;
   Status: SohoDataGridColumnFormatterFunction;
   TargetedAchievement: SohoDataGridColumnFormatterFunction;
+  Fileupload: SohoDataGridColumnFormatterFunction;
 };
 
 type SohoDataGridColumnHrefFunction = (
