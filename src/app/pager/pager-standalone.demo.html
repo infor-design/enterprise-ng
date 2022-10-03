@@ -17,6 +17,8 @@
         [nextPageTooltip]="model.nextPageTooltip"
         [lastPageTooltip]="model.lastPageTooltip"
 
+        [showPageSelectorInput]="!model.hidePageSelectorInput"
+
         [showPageSizeSelector]="!model.hidePageSizeSelector"
         [smallPageSizeSelector]="model.useSmallPageSizeSelector"
         [pageSizeMenuSettings]="model.pageSizeMenuSettings"
@@ -66,6 +68,11 @@
         <div class="field">
           <input soho-checkbox type="checkbox" id="disable-last-button" [(ngModel)]="model.disableLastButton" [ngModelOptions]="{standalone: true}">
           <label soho-label for="disable-last-button" [forCheckBox]="true">Disable Last Button</label>
+        </div>
+
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="hide-pageselectorinput" [(ngModel)]="model.hidePageSelectorInput" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="hide-pageselectorinput" [forCheckBox]="true">Hide Page Selector Input</label>
         </div>
 
         <div class="field">
