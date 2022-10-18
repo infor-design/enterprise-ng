@@ -4,6 +4,8 @@
 
 ### 14.4.0 Fixes
 
+- `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
+
 ## 14.3.0
 
 ### 14.3.0 Features
