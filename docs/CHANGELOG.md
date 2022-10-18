@@ -4,6 +4,8 @@
 
 ### 14.4.0 Fixes
 
+- `[Datagrid]` Remove unnecessary role on datagrid. ([#1378](https://github.com/infor-design/enterprise-ng/issues/1378))
+
 ## 14.3.0
 
 ### 14.3.0 Features
