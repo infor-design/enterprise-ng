@@ -285,6 +285,7 @@ import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 import { CustomEditorComponent } from './datagrid/custom-editor.component';
 import { DatagridCustomEditorComponent } from './datagrid/datagrid-custom-editor.demo';
+import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 
 @NgModule({
   declarations: [
@@ -397,6 +398,7 @@ import { DatagridCustomEditorComponent } from './datagrid/datagrid-custom-editor
     DataGridExpandableRowNestedDemoComponent,
     DataGridExpandableRowDynamicDemoComponent,
     DataGridSummaryRowDemoComponent,
+    DataGridRowSpanDemoComponent,
     DatepickerDemoComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,

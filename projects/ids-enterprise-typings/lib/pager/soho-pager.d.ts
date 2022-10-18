@@ -41,6 +41,9 @@ interface SohoStandalonePagerOptions {
   /** display page size selector field */
   showPageSizeSelector?: boolean;
 
+  /** display page selector input field */
+  showPageSelectorInput?: boolean;
+
   /** display small page size selector field */
   smallPageSizeSelector?: boolean;
 

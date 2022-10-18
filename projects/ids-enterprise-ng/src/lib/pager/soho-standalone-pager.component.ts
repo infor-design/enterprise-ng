@@ -64,6 +64,11 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     }
   }
 
+  @Input() set showPageSelectorInput(showPageSelectorInput: boolean) {
+    this.options.showPageSelectorInput = showPageSelectorInput;
+    this.updateRequired = !!this.pager;
+  }
+
   @Input() set enableFirstButton(enableFirstButton: boolean) {
     this.options.enableFirstButton = enableFirstButton;
     if (this.pager) {

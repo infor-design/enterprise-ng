@@ -11,12 +11,16 @@
 - `[Calendar]` Add a setting for calendar to show and hide the legend. ([EP#6533](https://github.com/infor-design/enterprise/issues/6533))
 - `[Datagrid]` Fixed a bug in datagrid where calling `updated` no longer worked. ([#6783](https://github.com/infor-design/enterprise/issues/6783))
 - `[Datagrid]` Fixed a bug in datagrid where setting gridOptions no longer worked. ([#6783](https://github.com/infor-design/enterprise/issues/6783))
+- `[Datagrid]` Added rowspan in datagrid column setting. ([#1353](https://github.com/infor-design/enterprise-ng/issues/1353))
+- `[Datagrid]` Added fileupload formatter in datagrid. ([#1372](https://github.com/infor-design/enterprise-ng/issues/1372))
 - `[Modal]` Update example page to test fullsize. ([#1358](https://github.com/infor-design/enterprise-ng/issues/1358))
+- `[Pager]` Added show page selector input setting. ([#1350](https://github.com/infor-design/enterprise-ng/issues/1350))
 
 ### 14.3.0 Fixes
 
 - `[Button]` Added notification badges for buttons with labels. ([#1347](https://github.com/infor-design/enterprise-ng/issues/1347))
 - `[Popupmenu]` Updated popupmenu demo for getSelected() example. ([#1349](https://github.com/infor-design/enterprise-ng/issues/1349))
+- `[Textarea]` Updated textarea demo for enabling disabling example. ([EP#6773](https://github.com/infor-design/enterprise/issues/6773))
 
 ## 14.2.0
 
@@ -24,6 +28,7 @@
 
 - `[Button]` Added setting `iconAlign` for right side icon buttons. Fixed a regression where all buttons changed the icons to the right side instead of the left. ([#1340](https://github.com/infor-design/enterprise-ng/issues/1340))
 - `[Datagrid]` Added setting `timeFormat` for datagrid column model. ([#1333](https://github.com/infor-design/enterprise-ng/issues/1333))
+- `[Datagrid]` Added `ariaDescribedBy` setting in the datagrid column. ([#6530](https://github.com/infor-design/enterprise/issues/6530))
 - `[Datepicker]` Fixes error when legend is set before the calendar is opened. ([#1345](https://github.com/infor-design/enterprise-ng/issues/1345))
 - `[Popdown]` Updated example page to test click outside event. ([#1304](https://github.com/infor-design/enterprise-ng/issues/1304))
 

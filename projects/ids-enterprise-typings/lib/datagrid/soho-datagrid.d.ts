@@ -581,6 +581,11 @@ interface SohoDataGridCellEditor {
   initEditor?: (input: any) => void;
 }
 
+type SohoDataGridAriaDescribedByFunction = (
+  row?: any,
+  cell?: any
+) => string;
+
 type SohoDataGridColumnEditorFunction = (
   row?: any,
   cell?: any,
@@ -635,6 +640,7 @@ interface SohoStatic {
     Favorite: SohoDataGridColumnFormatterFunction;
     Status: SohoDataGridColumnFormatterFunction;
     TargetedAchievement: SohoDataGridColumnFormatterFunction;
+    Fileupload: SohoDataGridColumnFormatterFunction;
   };
   Editors: {
     // Supports, Text, Numeric, Integer via mask
@@ -714,6 +720,7 @@ declare var Formatters: {
   Favorite: SohoDataGridColumnFormatterFunction;
   Status: SohoDataGridColumnFormatterFunction;
   TargetedAchievement: SohoDataGridColumnFormatterFunction;
+  Fileupload: SohoDataGridColumnFormatterFunction;
 };
 
 type SohoDataGridColumnHrefFunction = (
@@ -956,6 +963,9 @@ interface SohoDataGridColumn {
   /** Adds an extra class to the header for formatting */
   headerCssClass?: string;
 
+  /** Adds the ability to set/override the aria-describedby attribute on the cells. */
+  ariaDescribedBy?: SohoDataGridAriaDescribedByFunction;
+
   /** Content visible function*/
   contentVisible?: SohoDataGridColumnContentVisibleFunction;
 
@@ -1006,6 +1016,9 @@ interface SohoDataGridColumn {
 
   /* Array of objects with a value and label to be used as options in the filter row dropdown. */
   filterRowEditorOptions?: SohoGridCellOption[];
+
+  /* Add row span or not */
+  rowspan?: boolean;
 
   /* formatter summary */
   summaryRowFormatter?: SohoDataGridColumnFormatterFunction | string;

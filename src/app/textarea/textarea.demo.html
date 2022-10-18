@@ -11,6 +11,12 @@
         </div>
         <br>
         <div class="field">
+          <label soho-label for="textToggle" class="label" [required]="true">Toggle</label>
+          <textarea soho-textarea name="textToggle" class="toggleText" data-validate="required" [(ngModel)]="model.toggleText" #toggleTextArea ></textarea>
+          <button soho-button (click)="toggleAccessibility()">Toggle</button>
+        </div>
+        <br>
+        <div class="field">
           <label for="counter" class="label">Counter</label>
           <textarea soho-textarea maxlength="90" name="counter" [(ngModel)]="model.counterText"></textarea>
         </div>

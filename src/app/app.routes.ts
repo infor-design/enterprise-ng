@@ -232,6 +232,7 @@ import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfiel
 import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 import { DatagridCustomEditorComponent } from './datagrid/datagrid-custom-editor.demo';
+import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -335,6 +336,7 @@ export const routes: Routes = [
   { path: 'datagrid-lookup-dialog', component: DataGridLookupDialogDemoComponent },
   { path: 'datagrid-rowreorder', component: DataGridRowReorderDemoComponent },
   { path: 'datagrid-standard-formatter', component: DataGridStandardFormatterDemoComponent },
+  { path: 'datagrid-rowspan', component: DataGridRowSpanDemoComponent },
   { path: 'datepicker', component: DatepickerDemoComponent },
   { path: 'donut', component: DonutDemoComponent },
   { path: 'drag', component: DragDemoComponent },
