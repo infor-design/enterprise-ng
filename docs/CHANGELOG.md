@@ -1,5 +1,13 @@
 # What's New with Enterprise-NG
 
+## 14.5.0
+
+## 14.5.0 Features
+
+## 14.5.0 Fixes
+
+- `[Datagrid]` Remove unnecessary role on datagrid. ([#1378](https://github.com/infor-design/enterprise-ng/issues/1378))
+
 ## 14.4.0
 
 ## 14.4.0 Features
@@ -10,7 +18,6 @@
 
 ### 14.4.0 Fixes
 
-- `[Datagrid]` Remove unnecessary role on datagrid. ([#1378](https://github.com/infor-design/enterprise-ng/issues/1378))
 - `[Popupmenu]` Updated popupmenu demo for getSelected() example. ([#1349](https://github.com/infor-design/enterprise-ng/issues/1349))
 - `[Textarea]` Updated textarea demo for enabling disabling example. ([EP#6773](https://github.com/infor-design/enterprise/issues/6773))
 
