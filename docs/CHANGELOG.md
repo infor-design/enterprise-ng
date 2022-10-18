@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 14.5.0
+
+### 14.5.0 Fixes
+
+- `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
+
 ## 14.4.0
 
 ## 14.4.0 Features
@@ -7,7 +13,6 @@
 - `[Datagrid]` Added rowspan in datagrid column setting. ([#1353](https://github.com/infor-design/enterprise-ng/issues/1353))
 - `[Datagrid]` Added fileupload formatter in datagrid. ([#1372](https://github.com/infor-design/enterprise-ng/issues/1372))
 - `[Pager]` Added show page selector input setting. ([#1350](https://github.com/infor-design/enterprise-ng/issues/1350))
-- `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
 
 ### 14.4.0 Fixes
 
