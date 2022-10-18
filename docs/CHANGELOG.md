@@ -2,7 +2,7 @@
 
 ## 14.4.0
 
-## 14.4.0 Feaatures
+## 14.4.0 Features
 
 - `[Datagrid]` Added rowspan in datagrid column setting. ([#1353](https://github.com/infor-design/enterprise-ng/issues/1353))
 - `[Datagrid]` Added fileupload formatter in datagrid. ([#1372](https://github.com/infor-design/enterprise-ng/issues/1372))
