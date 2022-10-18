@@ -7,10 +7,10 @@
 - `[Datagrid]` Added rowspan in datagrid column setting. ([#1353](https://github.com/infor-design/enterprise-ng/issues/1353))
 - `[Datagrid]` Added fileupload formatter in datagrid. ([#1372](https://github.com/infor-design/enterprise-ng/issues/1372))
 - `[Pager]` Added show page selector input setting. ([#1350](https://github.com/infor-design/enterprise-ng/issues/1350))
+- `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
 
 ### 14.4.0 Fixes
 
-- `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
 - `[Popupmenu]` Updated popupmenu demo for getSelected() example. ([#1349](https://github.com/infor-design/enterprise-ng/issues/1349))
 - `[Textarea]` Updated textarea demo for enabling disabling example. ([EP#6773](https://github.com/infor-design/enterprise/issues/6773))
 
