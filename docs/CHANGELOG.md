@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 14.5.0
+
+### 14.5.0 Fixes
+
+- `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
+
 ## 14.4.0
 
 ## 14.4.0 Features

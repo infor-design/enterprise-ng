@@ -20,6 +20,8 @@ type SohoPagerPosition = 'bottom' | 'top';
 interface SohoStandalonePagerOptions {
   type?: 'standalone';
 
+  dataset?: any[];
+
   /** curreent pagesize of page chooser dropdown  */
   pagesize?: number;
 
