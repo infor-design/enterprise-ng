@@ -1,5 +1,13 @@
 # What's New with Enterprise-NG
 
+## 14.5.0
+
+## 14.5.0 Features
+
+## 14.5.0 Fixes
+
+- `[Datagrid]` Added Example Page for Add Row in Datagrid. ([EP#6730](https://github.com/infor-design/enterprise/issues/6730))
+
 ## 14.4.0
 
 ## 14.4.0 Features
