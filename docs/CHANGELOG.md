@@ -6,7 +6,7 @@
 
 ## 14.5.0 Fixes
 
-- `[Datagrid]` Remove unnecessary role on datagrid. ([#1378](https://github.com/infor-design/enterprise-ng/issues/1378))
+- `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
 
 ## 14.4.0
 
