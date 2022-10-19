@@ -19,6 +19,11 @@ import {
 })
 export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
+  @Input() set dataset(dataset: any[]) {
+    this.options.dataset = dataset;
+    this.updateRequired = !!this.pager;
+  }
+
   @Input() set pageSize(pageSize: number) {
     this.options.pagesize = pageSize;
     this.updateRequired = !!this.pager;
