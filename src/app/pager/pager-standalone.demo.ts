@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PAGING_DATA } from '../datagrid/datagrid-paging-data';
 
 @Component({ // eslint-disable-line
   selector: 'app-pager-standalone-demo',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 export class PagerStandaloneDemoComponent {
 
   model = {
+    dataset: PAGING_DATA,
+
     hideFirstButton: false,
     hidePreviousButton: false,
     hideNextButton: false,
