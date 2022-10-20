@@ -2,8 +2,11 @@
 
 ## 14.5.0
 
-### 14.5.0 Fixes
+## 14.5.0 Features
 
+## 14.5.0 Fixes
+
+- `[Datagrid]` Added Example Page for Add Row in Datagrid. ([EP#6730](https://github.com/infor-design/enterprise/issues/6730))
 - `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
 
 ## 14.4.0
