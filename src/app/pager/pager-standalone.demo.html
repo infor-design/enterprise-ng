@@ -2,6 +2,8 @@
   <div class="row">
     <div class="six columns">
       <div soho-standalone-pager
+        [dataset]="model.dataset"
+
         [showFirstButton]="!model.hideFirstButton"
         [showPreviousButton]="!model.hidePreviousButton"
         [showNextButton]="!model.hideNextButton"
