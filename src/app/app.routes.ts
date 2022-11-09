@@ -76,6 +76,7 @@ import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
+import { DataGridFrozenColumnRefreshDemoComponent } from './datagrid/datagrid-frozen-column-refresh.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
@@ -304,6 +305,7 @@ export const routes: Routes = [
   { path: 'datagrid-editors', component: DataGridEditorsDemoComponent },
   { path: 'datagrid-export-without-datagrid', component: DataGridExportWithoutDataGridDemoComponent },
   { path: 'datagrid-fixedheader', component: DataGridFixedHeaderDemoComponent },
+  { path: 'datagrid-frozen-column', component: DataGridFrozenColumnRefreshDemoComponent },
   { path: 'datagrid-groupedheader', component: DataGridGroupedHeaderDemoComponent },
   { path: 'datagrid-groupable', component: DataGridGroupableDemoComponent },
   { path: 'datagrid-mixed-selection', component: DataGridMixedSelectionDemoComponent },
