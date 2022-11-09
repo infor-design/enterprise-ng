@@ -12,7 +12,7 @@ import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'datagrid-frozen-column-refresh-demo',
+  selector: 'soho-datagrid-frozen-column-refresh-demo',
   templateUrl: 'datagrid-frozen-column-refresh-demo.component.html',
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
