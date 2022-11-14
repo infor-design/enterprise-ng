@@ -1,12 +1,12 @@
 {
   "name": "ids-enterprise-typings",
   "slug": "ids-enterprise-typings",
-  "version": "14.4.3",
+  "version": "14.5.0",
   "declaration": true,
   "types": "index.d.ts",
   "dependencies": {
-    "@types/jquery": "3.3.29",
-    "@types/d3": "4.13.0"
+    "@types/jquery": "3.5.14",
+    "@types/d3": "5.7.2"
   },
   "peerDependencies": {},
   "description": "Infor Design System (IDS) Enterprise Widget Typings",
