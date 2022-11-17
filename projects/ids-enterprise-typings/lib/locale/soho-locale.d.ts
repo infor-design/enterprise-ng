@@ -85,6 +85,7 @@ interface SohoLocaleStatic {
   defaultLocales: any;
   supportedLocales: any;
   defaultLocale: string;
+  minify: boolean;
 
   /**
    * Internally stores a new culture file for future use.
