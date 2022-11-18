@@ -1,0 +1,30 @@
+<div style="padding:10px; font-size: 1.2em">
+  <h2>Issue 1:</h2>
+  <p>
+    1) Click on one of the + icons and edit the value in the expanded row.
+  </p>
+  <p>
+    2) Now click on either Quantity or Price and now try to edit the value in
+    the expanded row. This is broken as the focus is continually lost.
+  </p>
+  <p>
+    3) Now click on the Order Date and now edit in the expanded row (which now
+    works because it somehow removes the incorrect state).
+  </p>
+  <div
+    soho-datagrid="auto"
+    *ngIf="gridOptions"
+    [gridOptions]="gridOptions"
+    style="max-height: 300px"
+  ></div>
+</div>
+<div style="padding:10px; font-size: 1.2em">
+  <h2>Issue 2:</h2>
+  <p>
+    1) Click on one of the + icons and try to edit the value in the expanded
+    row. This is broken because in this DataGrid the cell containing the +
+    expander icon has an editor. It fails if the editor is Input, Date or
+    CheckBox.
+  </p>
+  <app-datagrid-expandable-row-not-editable-demo></app-datagrid-expandable-row-not-editable-demo>
+</div>
