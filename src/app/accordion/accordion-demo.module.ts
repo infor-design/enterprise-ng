@@ -7,12 +7,14 @@ import { AccordionDemoComponent } from './accordion.demo';
 import { AccordionDynamicDemoComponent } from './accordion-dynamic.demo';
 import { AccordionPanelsDemoComponent } from './accordion-panels.demo';
 import { AccordionDemoRoutingModule } from './accordion-demo.routes';
+import { AccordionCardDemoComponent } from './accordion-card.demo';
 
 @NgModule({
   declarations: [
     AccordionDemoComponent,
     AccordionDynamicDemoComponent,
-    AccordionPanelsDemoComponent
+    AccordionPanelsDemoComponent,
+    AccordionCardDemoComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,7 @@ import { AccordionDemoRoutingModule } from './accordion-demo.routes';
     FormsModule,
     SohoComponentsModule,
     AccordionDemoRoutingModule
-   ],
+  ],
   providers: [
   ],
   bootstrap: []
