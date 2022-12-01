@@ -6,6 +6,7 @@
 
 ### 14.5.0 Fixes
 
+- `[Accordion]` Added example page to test accordion bug. ([EP#6820](https://github.com/infor-design/enterprise/issues/6820))
 - `[Datagrid]` Remove unnecessary role on datagrid. ([#1378](https://github.com/infor-design/enterprise-ng/issues/1378))
 - `[Datagrid]` Added Example Page for Add Row in Datagrid. ([EP#6730](https://github.com/infor-design/enterprise/issues/6730))
 - `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))

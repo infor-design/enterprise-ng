@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="one-half column">
+      <soho-accordion
+        [allowOnePane]="true"
+        [hasPanels]="true"
+      >
+        <ng-container *ngTemplateOutlet="AccordionContent"></ng-container>
+      </soho-accordion>
+    </div>
+    <div class="one-half column">
+      <soho-card
+        [expandableHeader]="true"
+        [verticalButtonAction]="true"
+        [attributes]="model.attributes"
+        class="is-expanded">
+
+        <soho-card-header>
+          <p class="heading">Test</p>
+        </soho-card-header>
+
+        <soho-card-pane class="card-pane">
+          <div style="height: 400px; background-color:lightskyblue">
+            Test
+          </div>
+        </soho-card-pane>
+
+      </soho-card>
+    </div>
+  </div>
+
+  <ng-template #AccordionContent>
+    <soho-accordion-header>Test A</soho-accordion-header>
+    <soho-accordion-pane>
+      <soho-accordion-header>Item 1</soho-accordion-header>
+      <soho-accordion-header>Item 2</soho-accordion-header>
+    </soho-accordion-pane>
+    <soho-accordion-header>Test B</soho-accordion-header>
+    <soho-accordion-pane>
+      <soho-accordion-header>Item 1</soho-accordion-header>
+      <soho-accordion-header>Item 2</soho-accordion-header>
+    </soho-accordion-pane>
+    <soho-accordion-header>Test C</soho-accordion-header>
+    <soho-accordion-pane>
+      <soho-accordion-header>Item 1</soho-accordion-header>
+      <soho-accordion-header>Item 2</soho-accordion-header>
+    </soho-accordion-pane>
+    <soho-accordion-header>Test D</soho-accordion-header>
+    <soho-accordion-pane>
+      <soho-accordion-header>Item 1</soho-accordion-header>
+      <soho-accordion-header>Item 2</soho-accordion-header>
+    </soho-accordion-pane>
+  </ng-template>
