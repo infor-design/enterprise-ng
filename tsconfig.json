@@ -14,11 +14,11 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "resolveJsonModule": true,
-    "target": "es2020",
+    "target": "ES2022",
     "module": "es2020",
     "typeRoots": [
       "node_modules/@types",
-       "./dist"
+      "./dist"
     ],
     "types": [
       "jasmine",
@@ -38,13 +38,8 @@
       "ids-enterprise-ng/*": [
         "dist/ids-enterprise-ng/*"
       ]
-
-    // For auto code compile use this.
-    // "paths": {
-    //   "ids-enterprise-ng": [
-    //     "projects/ids-enterprise-ng/src/public_api"
-    //   ]
-    }
+    },
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

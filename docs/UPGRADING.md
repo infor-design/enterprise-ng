@@ -24,6 +24,25 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
+#### Angular 15
+
+When updating from angular 14 to 15 we were able to do this with the command:
+
+```sh
+npx ng update @angular/cli @angular/core
+```
+
+No special changes were needed this time.
+
+See <https://blog.angular.io/angular-v15-is-now-available-df7be7f2f4c8> for more information.
+Also check out <https://levelup.gitconnected.com/angular-15-new-must-know-features-ae392a2baf2d>.
+
+As previously you mean need a bit more memory.
+
+```sh
+export NODE_OPTIONS="--max-old-space-size=8192"
+```
+
 #### Angular 14
 
 When updating from angular 13 to 14 we were able to do this with the command:

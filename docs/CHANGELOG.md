@@ -1,7 +1,8 @@
 # What's New with Enterprise-NG
+
 ## 15.0.0
 
-### 14.5.0 Features
+### 15.0.0 Features
 
 - `[General]` Updated to NG 15 d made small fixes. See the `UPGRADING.md` guide for details. ([#1316](https://github.com/infor-design/enterprise-ng/issues/1316))
 

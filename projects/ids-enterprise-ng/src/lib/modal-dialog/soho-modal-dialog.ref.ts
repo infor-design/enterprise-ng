@@ -442,7 +442,7 @@ export class SohoModalDialogRef<T> {
       });
 
       // Initialise the event guart
-      this.eventGuard = this.componentRef.instance;
+      this.eventGuard = this.componentRef.instance || null;
 
       this._options.content = jQuery(this.componentRef.location.nativeElement);
     }
