@@ -1,10 +1,15 @@
 # What's New with Enterprise-NG
-
-## 14.5.0
+## 15.0.0
 
 ### 14.5.0 Features
 
-### 14.5.0 Fixes
+- `[General]` Updated to NG 15 d made small fixes. See the `UPGRADING.md` guide for details. ([#1316](https://github.com/infor-design/enterprise-ng/issues/1316))
+
+## 14.7.0
+
+### 14.7.0 Features
+
+### 14.7.0 Fixes
 
 - `[Accordion]` Added example page to test accordion bug. ([EP#6820](https://github.com/infor-design/enterprise/issues/6820))
 - `[Datagrid]` Remove unnecessary role on datagrid. ([#1378](https://github.com/infor-design/enterprise-ng/issues/1378))
