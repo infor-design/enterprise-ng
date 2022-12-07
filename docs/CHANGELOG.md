@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 14.3.7
+
+### 14.3.7 Fixes
+
+- `[General]` Release 4.67.6 patches.
+
 ## 14.3.6
 
 ### 14.3.6 Fixes
