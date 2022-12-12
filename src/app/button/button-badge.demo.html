@@ -39,6 +39,15 @@
 				<br>
 				<button soho-button [disabled]="buttonToggle" (click)="toggleOn()">Toggle On</button>
         <button soho-button [disabled]="!buttonToggle" (click)="toggleOff()">Toggle Off</button>
+        <br>
+        <br>
+        <br>
+				<span class="label">Nav Button Badge</span>
+				<button soho-toolbar-flex-nav-button [buttonOptions]="badgeOption6" #togglenav>Navigation</button>
+				<br>
+				<br>
+				<button soho-button [disabled]="navToggle" (click)="navOn()">Toggle On</button>
+        <button soho-button [disabled]="!navToggle" (click)="navOff()">Toggle Off</button>
 			</div>
 		</div>
 	</div>
