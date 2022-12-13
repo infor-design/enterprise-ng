@@ -313,7 +313,6 @@ export class SohoToolbarFlexNavButtonComponent implements AfterViewInit {
 
 
   updated(settings?: SohoButtonOptions) {
-    console.log(this._buttonOptions);
     if (settings) {
       this._buttonOptions = Soho.utils.mergeSettings((this.element as any)[0], settings, this._buttonOptions);
     }
