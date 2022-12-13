@@ -317,11 +317,11 @@ export class SohoToolbarFlexNavButtonComponent implements AfterViewInit {
     if (settings) {
       this._buttonOptions = Soho.utils.mergeSettings((this.element as any)[0], settings, this._buttonOptions);
     }
-    this.ngZone.runOutsideAngular(() => {
-      if (this.button) {
-        this.button.updated(this._buttonOptions);
-      }
-    });
+    if (this.button) {
+      this.ngZone.runOutsideAngular(() => {
+        this.button?.updated(this._buttonOptions)
+      });
+    }
   }
 }
 
