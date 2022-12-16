@@ -1281,6 +1281,21 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   sorted = new EventEmitter<SohoDataGridSortedEvent>();
 
   @Output()
+  nextPage = new EventEmitter<SohoPagerPagingInfo>();
+
+  @Output()
+  previousPage = new EventEmitter<SohoPagerPagingInfo>();
+
+  @Output()
+  firstPage = new EventEmitter<SohoPagerPagingInfo>();
+
+  @Output()
+  lastPage = new EventEmitter<SohoPagerPagingInfo>();
+
+  @Output()
+  pageSizeChange = new EventEmitter<SohoPagerPagingInfo>();
+
+  @Output()
   beforePaging = new EventEmitter<SohoPagerPagingInfo>();
 
   @Output()
@@ -2506,6 +2521,51 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Event fired when using built-in pager to next page.
+   */
+  private onNextPage(args: SohoPagerPagingInfo) {
+    this.ngZone.run(() => {
+      this.nextPage.next(args);
+    });
+  }
+
+  /**
+     * Event fired when using built-in pager to previous page.
+     */
+  private onPreviousPage(args: SohoPagerPagingInfo) {
+    this.ngZone.run(() => {
+      this.previousPage.next(args);
+    });
+  }
+
+  /**
+     * Event fired when using built-in pager to first page.
+     */
+  private onFirstPage(args: SohoPagerPagingInfo) {
+    this.ngZone.run(() => {
+      this.firstPage.next(args);
+    });
+  }
+
+  /**
+     * Event fired when using built-in pager to last page.
+     */
+  private onLastPage(args: SohoPagerPagingInfo) {
+    this.ngZone.run(() => {
+      this.lastPage.next(args);
+    });
+  }
+
+  /**
+   * Event fired on paging size change
+   */
+  private onPageSizeChange(args: SohoPagerPagingInfo) {
+    this.ngZone.run(() => {
+      this.pageSizeChange.next(args);
+    });
+  }
+
+  /**
    * Event fired before paging
    */
   private onBeforePaging(args: SohoPagerPagingInfo) {
@@ -2803,6 +2863,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('afterpaging', (_e: any, args: SohoPagerPagingInfo) => this.onAfterPaging(args))
         .on('scroll', (_e: any, args: SohoDataGridScrollEvent) => this.onVerticalScroll(args))
         .on('filteroperatorchanged', (_e: any, args: SohoDataGridFilterOperatorChangedEvent) => this.onFilterOperatorChanged(args))
+        .on('nextpage', (_e: any, args: SohoPagerPagingInfo) => this.onNextPage(args))
+        .on('previouspage', (_e: any, args: SohoPagerPagingInfo) => this.onPreviousPage(args))
+        .on('firstpage', (_e: any, args: SohoPagerPagingInfo) => this.onFirstPage(args))
+        .on('lastpage', (_e: any, args: SohoPagerPagingInfo) => this.onLastPage(args))
+        .on('pagesizechange', (_e: any, args: SohoPagerPagingInfo) => this.onPageSizeChange(args))
     });
 
     // Initialise the SohoXi control.
