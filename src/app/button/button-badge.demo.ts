@@ -4,7 +4,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { SohoButtonComponent } from 'ids-enterprise-ng';
+import { SohoButtonComponent,SohoToolbarFlexNavButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-button-badge-demo',
@@ -12,9 +12,10 @@ import { SohoButtonComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonBadgeDemoComponent implements OnInit {
-
   @ViewChild('togglebutton', { static: true }) buttonDemo?: SohoButtonComponent;
+  @ViewChild('togglenav', { static: true }) navDemo?: SohoToolbarFlexNavButtonComponent;
   public buttonToggle = true;
+  public navToggle = true;
 
   public badgeOption1: SohoButtonOptions = {
     notificationBadge: true,
@@ -55,7 +56,13 @@ export class ButtonBadgeDemoComponent implements OnInit {
       color: 'warning'
     }
   }
-
+  public badgeOption6: SohoButtonOptions = {
+    notificationBadge: true,
+    notificationBadgeOptions: {
+      position: 'upper-right',
+      color: 'alert'
+    }
+  }
   constructor() { }
   ngOnInit() { }
 
@@ -69,5 +76,17 @@ export class ButtonBadgeDemoComponent implements OnInit {
     this.buttonToggle = false;
     this.badgeOption5.notificationBadge = this.buttonToggle;
     this.buttonDemo?.updated(this.badgeOption5);
+  }
+
+  navOn() {
+    this.navToggle = true;
+    this.badgeOption6.notificationBadge = this.navToggle;
+    this.navDemo?.updated(this.badgeOption6);
+  }
+
+  navOff() {
+    this.navToggle = false;
+    this.badgeOption6.notificationBadge = this.navToggle;
+    this.navDemo?.updated(this.badgeOption6);
   }
 }

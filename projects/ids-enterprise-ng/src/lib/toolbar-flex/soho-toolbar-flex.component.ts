@@ -306,7 +306,21 @@ export class SohoToolbarFlexNavButtonComponent implements AfterViewInit {
 
       this.jQueryElement = jQuery(this.element.nativeElement);
       this.jQueryElement.button(this._buttonOptions);
+
+      this.button = this.jQueryElement.data('button');
     });
+  }
+
+
+  updated(settings?: SohoButtonOptions) {
+    if (settings) {
+      this._buttonOptions = Soho.utils.mergeSettings((this.element as any)[0], settings, this._buttonOptions);
+    }
+    if (this.button) {
+      this.ngZone.runOutsideAngular(() => {
+        this.button?.updated(this._buttonOptions)
+      });
+    }
   }
 }
 
