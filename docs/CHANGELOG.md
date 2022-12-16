@@ -16,6 +16,7 @@
 - `[Datagrid]` Remove unnecessary role on datagrid. ([#1378](https://github.com/infor-design/enterprise-ng/issues/1378))
 - `[Datagrid]` Added Example Page for Add Row in Datagrid. ([EP#6730](https://github.com/infor-design/enterprise/issues/6730))
 - `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
+- `[Datagrid]` Added events from built-in pager. ([EP#1419](https://github.com/infor-design/enterprise-ng/issues/1419))
 
 ## 14.4.0
 
