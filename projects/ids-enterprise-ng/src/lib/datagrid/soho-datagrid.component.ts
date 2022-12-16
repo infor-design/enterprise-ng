@@ -872,6 +872,18 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  /**
+   * Sets the datagrid header background color, either dark or light.
+   * 
+   * @param headerBackgroundColor - default value is 'dark'
+   */
+  @Input() set headerBackgroundColor(value: SohoDatagridHeaderBackgroundColor | undefined) {
+    this._gridOptions.headerBackgroundColor = value;
+    if (this.datagrid) {
+      this.datagrid.settings.headerBackgroundColor = value;
+    }
+  }
+
   get disableRowDeactivation(): boolean | undefined {
     if (this.datagrid) {
       return this.datagrid.settings.disableRowDeactivation;

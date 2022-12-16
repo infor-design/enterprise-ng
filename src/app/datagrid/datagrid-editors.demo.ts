@@ -317,7 +317,8 @@ export class DataGridEditorsDemoComponent implements OnInit {
       rowHeight: 'small',
       filterable: true,
       showDirty: true,
-      stretchColumn: 'favorite'
+      stretchColumn: 'favorite',
+      headerBackgroundColor: 'light'
     };
   }
 
