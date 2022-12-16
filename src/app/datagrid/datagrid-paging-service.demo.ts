@@ -114,4 +114,24 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
   onAfterPaging(_event: SohoPagerPagingInfo) {
     console.log('onAfterPaging', _event);
   }
+
+  onFirstPage(_event: SohoPagerPagingInfo) {
+    console.log('onFirstPage', _event);
+  }
+
+  onLastPage(_event: SohoPagerPagingInfo) {
+    console.log('onLastPage', _event);
+  }
+
+  onNextPage(_event: SohoPagerPagingInfo) {
+    console.log('onNextPage', _event);
+  }
+
+  onPreviousPage(_event: SohoPagerPagingInfo) {
+    console.log('onPreviousPage', _event);
+  }
+
+  onPageSizeChange(_event: SohoPagerPagingInfo) {
+    console.log('onPageSizeChange', _event);
+  }
 }

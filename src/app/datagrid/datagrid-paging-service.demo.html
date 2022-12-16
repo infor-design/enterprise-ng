@@ -20,12 +20,18 @@
 
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-    <div soho-datagrid
+    <div
+      soho-datagrid
       *ngIf="gridOptions"
       [gridOptions]="gridOptions"
       (rowClicked)="onRowClicked($event)"
       (beforePaging)="onBeforePaging($event)"
       (afterPaging)="onAfterPaging($event)"
+      (firstPage)="onFirstPage($event)"
+      (lastPage)="onLastPage($event)"
+      (nextPage)="onNextPage($event)"
+      (previousPage)="onPreviousPage($event)"
+      (pageSizeChange)="onPageSizeChange($event)"
       (settingsChanged)="onSettingsChanged($event)"
       (rendered)="onRendered($event)"
     ></div>
