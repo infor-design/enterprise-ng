@@ -11,6 +11,7 @@
 type SohoDataGridRowHeight = 'extra-small' | 'small' | 'medium' | 'large' | 'short' | 'medium' | 'normal';
 type SohoDataGridTextAlign = 'left' | 'center' | 'right';
 type SohoDataGridResizeMode = 'flex' | 'fit';
+type SohoDatagridHeaderBackgroundColor = 'dark' | 'light';
 type SohoFallbackTooltipOptions = {
   content: string;
   delay: number;
@@ -220,6 +221,9 @@ interface SohoDataGridOptions {
 
   /** Allow to hide the checkbox header (true to show, false to hide) */
   showSelectAllCheckBox?: boolean;
+
+  /** Ability to set background color of datagrid header either light or dark. */
+  headerBackgroundColor?: SohoDatagridHeaderBackgroundColor;
 
   /** Only allows one expandable row at a time. */
   allowOneExpandedRow?: boolean;
