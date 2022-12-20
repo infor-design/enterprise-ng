@@ -1,7 +1,8 @@
 
 import {
   Component,
-  HostBinding
+  HostBinding,
+  Input
 } from '@angular/core';
 
 @Component({
@@ -10,4 +11,8 @@ import {
 })
 export class SohoIconsEmptyComponent {
   @HostBinding('style.display') none = 'none';
+
+  @Input() icons: SohoEmptyIconSet = 'classic';
 }
+
+export type SohoEmptyIconSet = 'classic' | 'new' | 'colorful';
