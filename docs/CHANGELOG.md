@@ -7,6 +7,10 @@
 - `[Datagrid]` Added a setting to set the color of the header in datagrid (`dark` or `light`). ([#7008](https://github.com/infor-design/enterprise/issues/7008)) `EA`
 - `[General]` Updated to NG 15 d made small fixes. See the `UPGRADING.md` guide for details. ([#1316](https://github.com/infor-design/enterprise-ng/issues/1316))
 
+### 15.0.0 Fixes
+
+- `[Datepicker]` Added empty string value check in datepicker range. ([#1397](https://github.com/infor-design/enterprise-ng/issues/1397))
+
 ## 14.7.0
 
 ### 14.7.0 Features
