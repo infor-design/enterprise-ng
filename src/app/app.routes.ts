@@ -234,6 +234,7 @@ import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfiel
 import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
+import { DataGridSandboxDemoComponent } from './datagrid/datagrid-sandbox.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -297,6 +298,7 @@ export const routes: Routes = [
   { path: 'context-menu-toggle', component: ContextMenuToggleDemoComponent },
   { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb', component: DataGridBreadcrumbDemoComponent },
+  { path: 'datagrid-sandbox', component: DataGridSandboxDemoComponent },
   { path: 'datagrid-dirty-indication', component: DataGridDirtyIndicationDemoComponent },
   { path: 'datagrid-dynamic', component: DataGridDynamicDemoComponent },
   { path: 'datagrid-add-row', component: DataGridAddRowDemoComponent },
