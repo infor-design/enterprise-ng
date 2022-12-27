@@ -169,6 +169,10 @@ export class DatepickerDemoComponent implements OnInit {
     }]);
   }
 
+  clearRangeByString() {
+    this.model.range2 = '';
+  }
+
   public onDynamicListOpened(): void {
     const currentDate = this.dynamicLegendDatePicker?.getValue(true) as Date;
     this.legendSubject.next([{
