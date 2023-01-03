@@ -37,7 +37,7 @@ No special changes were needed this time.
 See <https://blog.angular.io/angular-v15-is-now-available-df7be7f2f4c8> for more information.
 Also check out <https://levelup.gitconnected.com/angular-15-new-must-know-features-ae392a2baf2d>.
 
-As previously you mean need a bit more memory.
+As in previous updates you may need a bit more memory.
 
 ```sh
 export NODE_OPTIONS="--max-old-space-size=8192"
