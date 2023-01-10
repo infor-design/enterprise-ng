@@ -1,5 +1,6 @@
 
 import {
+  ChangeDetectionStrategy,
   Component,
   HostBinding,
   Input
@@ -8,6 +9,7 @@ import {
 @Component({
   selector: 'soho-icons-empty',
   templateUrl: 'svg-empty.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoIconsEmptyComponent {
   @HostBinding('style.display') none = 'none';
