@@ -37,7 +37,7 @@ export class AppComponent implements AfterViewInit {
    * is not quite perfect, as we need to listen for the theme change here.
    * Maybe wrap all the icons into their own component?
    */
-  public useNewIcons = false;
+  public useNewIcons = Soho.theme.currentTheme.id.startsWith("theme-new");
 
   public personalizeOptions: SohoPersonalizeOptions = {};
 
