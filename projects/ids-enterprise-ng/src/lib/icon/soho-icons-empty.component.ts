@@ -14,7 +14,7 @@ import {
 export class SohoIconsEmptyComponent {
   @HostBinding('style.display') none = 'none';
 
-  @Input() icons: SohoEmptyIconSet = 'classic';
+  @Input() icons: SohoEmptyIconSet = 'colorful';
 }
 
 export type SohoEmptyIconSet = 'classic' | 'new' | 'colorful';
