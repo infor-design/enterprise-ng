@@ -2,6 +2,12 @@
 
 ## 15.0.0
 
+### 15.0.0 Breaking Changes
+- `[Icons]` The `SohoIconsEmptyComponent` can now be configured to use one of `"colorful"`, `"classic"` or `"new"` icons. By default, the newly added `"colorful"` icons will be used. To revert to the classic icons, applications must explicitly configure this:
+```html
+<soho-icons-empty icons="classic"></soho-icons-empty>
+```
+
 ### 15.0.0 Features
 
 - `[Datagrid]` Added a setting to set the color of the header in datagrid (`dark` or `light`). ([#7008](https://github.com/infor-design/enterprise/issues/7008)) `EA`
