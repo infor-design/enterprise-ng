@@ -3,7 +3,9 @@
 ## 15.0.0
 
 ### 15.0.0 Breaking Changes
+
 - `[Icons]` The `SohoIconsEmptyComponent` can now be configured to use one of `"colorful"`, `"classic"` or `"new"` icons. By default, the newly added `"colorful"` icons will be used. To revert to the classic icons, applications must explicitly configure this:
+
 ```html
 <soho-icons-empty icons="classic"></soho-icons-empty>
 ```
