@@ -6,12 +6,11 @@ import { Component } from '@angular/core';
  */
 @Component({
   selector: 'app-emptymessage-demo',
-  templateUrl: 'emptymessage.demo.html'
+  templateUrl: 'emptymessage.demo.html',
 })
 export class EmptyMessageDemoComponent {
 
-  public buttonSettings = {
-    id: 'test',
+  buttonSettings: SohoEmptyMessageButtonOptions = {
     text: 'Retry',
     click: () => {
       alert('Do the thing');

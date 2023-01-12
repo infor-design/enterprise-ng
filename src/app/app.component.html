@@ -3,8 +3,7 @@
 <soho-icons *ngIf="!useNewIcons"></soho-icons>
 <soho-icons-new *ngIf="useNewIcons"></soho-icons-new>
 
-<soho-icons-empty *ngIf="!useNewIcons"></soho-icons-empty>
-<soho-icons-empty-new *ngIf="useNewIcons"></soho-icons-empty-new>
+<soho-icons-empty [icons]="useNewIcons ? 'colorful' : 'classic'"></soho-icons-empty>
 
 <app-masthead-demo></app-masthead-demo>
 
