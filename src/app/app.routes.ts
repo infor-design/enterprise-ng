@@ -235,6 +235,7 @@ import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 import { DataGridSandboxDemoComponent } from './datagrid/datagrid-sandbox.demo';
+import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -343,6 +344,7 @@ export const routes: Routes = [
   { path: 'datagrid-rowspan', component: DataGridRowSpanDemoComponent },
   { path: 'datepicker', component: DatepickerDemoComponent },
   { path: 'donut', component: DonutDemoComponent },
+  { path: 'donut-colors', component: DonutColorsDemoComponent },
   { path: 'drag', component: DragDemoComponent },
   { path: 'dropdown', component: DropdownDemoComponent },
   { path: 'dropdown-async-busy', component: DropdownAsyncBusyDemoComponent },

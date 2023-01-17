@@ -287,6 +287,7 @@ import { SearchFieldCategoryUpdateDemoComponent } from './searchfield/searchfiel
 import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
+import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
 
 @NgModule({
   declarations: [
@@ -406,6 +407,7 @@ import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
     DonutDemoComponent,
+    DonutColorsDemoComponent,
     DragDemoComponent,
     PriceCellFormatterComponent,
     ButtonCellFormatterComponent,
