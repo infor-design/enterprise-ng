@@ -12,6 +12,7 @@
 
 ### 15.0.0 Features
 
+- `[Chart]` Added example page for chart colors. ([EP#7084](https://github.com/infor-design/enterprise/issues/7084))
 - `[Datagrid]` Added a setting to set the color of the header in datagrid (`dark` or `light`). ([#7008](https://github.com/infor-design/enterprise/issues/7008)) `EA`
 - `[General]` Updated to NG 15 d made small fixes. See the `UPGRADING.md` guide for details. ([#1316](https://github.com/infor-design/enterprise-ng/issues/1316))
 - `[Icons]` Merge old, new and "colorful" empty state icons into `SohoIconsEmptyComponent`, with the ability to force the use of colorful icons. ([#1418](https://github.com/infor-design/enterprise-ng/issues/1418))
