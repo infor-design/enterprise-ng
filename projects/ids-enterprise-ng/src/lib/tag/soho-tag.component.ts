@@ -24,7 +24,7 @@ import {
  * Note: You should not use color alone to indicate state, this should be either
  * supplemented with off-screen labels or visual labels near the element explaining the state.
  */
-export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | undefined;
+export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | 'info' | undefined;
 
 @Component({
   selector: '[soho-tag-list]', // eslint-disable-line
@@ -134,6 +134,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   static GOOD: SohoTagType = 'good';
   static SECONDARY: SohoTagType = 'secondary';
   static ERROR: SohoTagType = 'error';
+  static INFO: SohoTagType = 'info';
   static DEFAULT: SohoTagType = undefined;
 
   // -------------------------------------------
@@ -178,6 +179,11 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.error')
   get error() {
     return this.tagType === SohoTagComponent.ERROR;
+  }
+
+  @HostBinding('class.info')
+  get info() {
+    return this.tagType === SohoTagComponent.INFO;
   }
 
   @HostBinding('class.is-linkable') @Input() isClickable?: boolean;
