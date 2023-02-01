@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 14.8.0
+
+### 14.8.0 Features
+
+- `[General]` Added 4.80.0 with new colors for header, buttons and tabs.
+
 ## 14.7.0
 
 ### 14.7.0 Features
