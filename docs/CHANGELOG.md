@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 15.0.1
+
+### 15.0.1 Features
+
+- `[General]` Added 4.81.0 with patches
+
 ## 15.0.0
 
 ### 15.0.0 Breaking Changes
@@ -20,6 +26,12 @@
 ### 15.0.0 Fixes
 
 - `[Datepicker]` Added empty string value check in datepicker range. ([#1397](https://github.com/infor-design/enterprise-ng/issues/1397))
+
+## 14.8.1
+
+### 14.8.1 Features
+
+- `[General]` Added 4.81.0 with patches
 
 ## 14.8.0
 
