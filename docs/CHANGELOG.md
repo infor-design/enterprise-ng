@@ -1,14 +1,20 @@
 # What's New with Enterprise-NG
 
+## 15.0.3
+
+### 15.0.3 Features
+
+- `[General]` Added 4.80.2 with patches
+
+## 15.0.2
+
+### 15.0.2 Features
+
+- `[General]` Added 4.80.1 with patches
+
 ## 15.0.1
 
-### 15.0.1 Features
-
-- `[General]` Added 4.81.0 with patches
-
-## 15.0.0
-
-### 15.0.0 Breaking Changes
+### 15.0.1 Breaking Changes
 
 - `[Icons]` The `SohoIconsEmptyComponent` can now be configured to use one of `"colorful"`, `"classic"` or `"new"` icons. By default, the newly added `"colorful"` icons will be used. To revert to the classic icons, applications must explicitly configure this:
 
@@ -27,11 +33,16 @@
 
 - `[Datepicker]` Added empty string value check in datepicker range. ([#1397](https://github.com/infor-design/enterprise-ng/issues/1397))
 
-## 14.8.1
+## 14.8.2
+
+### 14.8.2 Features
+
+- `[General]` Added 4.80.2 with patches
+
 
 ### 14.8.1 Features
 
-- `[General]` Added 4.81.0 with patches
+- `[General]` Added 4.80.1 with patches
 
 ## 14.8.0
 
