@@ -39,7 +39,6 @@
 
 - `[General]` Added 4.80.2 with patches
 
-
 ### 14.8.1 Features
 
 - `[General]` Added 4.80.1 with patches
