@@ -1,10 +1,16 @@
 # What's New with Enterprise-NG
 
+## 14.8.2
+
+### 14.8.2 Features
+
+- `[General]` Added 4.80.2 with patches
+
 ## 14.8.1
 
 ### 14.8.1 Features
 
-- `[General]` Added 4.81.0 with patches
+- `[General]` Added 4.80.1 with patches
 
 ## 14.8.0
 
