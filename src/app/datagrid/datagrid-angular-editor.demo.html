@@ -4,6 +4,12 @@
     <p>
       This demo illustrates the use of a angular components as editors.
     </p>
+    <div class="field">
+      <label soho-label for="locales">{{'Locales'|sohoTranslate}}</label>
+      <select soho-dropdown noSearch name="locales" (change)="onChange($event)">
+        <option *ngFor="let locale of locales" [value]="locale.value">{{locale.label}}</option>
+      </select>
+    </div>
   </div>
 </div>
 
