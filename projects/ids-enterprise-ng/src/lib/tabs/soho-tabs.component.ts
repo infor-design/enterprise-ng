@@ -597,6 +597,8 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     // call outside the angular zone so change detection isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
       const $liList = this.getTabLiList();
+      const $activateTab = this.getActivatedTab();
+
       if (!$liList) {
         return;
       }
@@ -617,6 +619,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
         this.tabCount = $liList.length;
         this.tabTitles = this.getTabTitles($liList);
         this.tabIds = tabIds;
+        this.activateTab($activateTab);
         return;
       }
 
@@ -625,6 +628,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
           this.tabs?.updated();
           this.tabIds = tabIds;
           this.tabTitles = this.getTabTitles($liList);
+          this.activateTab($activateTab);
           return;
         }
       }
@@ -679,6 +683,11 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     return this.ngZone.runOutsideAngular(() => this.jQueryElement?.find('.tab-list').find('li'));
   }
 
+  private getActivatedTab(): JQuery | undefined {
+    // get the current selected tab outside of the angular zone
+    return this.ngZone.runOutsideAngular(() => this.jQueryElement?.find('.tab-list').find('li.is-selected'));
+  }
+
   private getTabIds(): Array<string> {
     // call outside the angular zone so change detection isn't triggered by the soho component.
     return this.ngZone.runOutsideAngular(() => {
@@ -710,6 +719,21 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   public updated(): void {
     // call outside the angular zone so change detection isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => this.tabs?.updated());
+  }
+
+  /**
+   * @param tab The tab element in the list that needs to be activated
+   * @returns 
+   */
+  public activateTab(tab: JQuery | undefined) {
+    return this.ngZone.runOutsideAngular(() => {
+      if (!tab) {
+        return;
+      }
+
+      const tabAnchor = tab?.children('a');
+      this.tabs?.activate(tabAnchor?.attr('href'), tabAnchor);
+    });
   }
 
   /**
