@@ -2,7 +2,9 @@ import {
   Component,
   ViewChild,
   Inject,
-  OnInit
+  OnInit,
+  ChangeDetectorRef,
+  NgZone
 } from '@angular/core';
 
 // @ts-ignore
@@ -285,6 +287,15 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
 export class DataGridAngularEditorDemoComponent implements OnInit {
   gridOptions?: any;
 
+  public locales = [
+    { value: 'en-US', label: 'English (American)' },
+    { value: 'ar-SA', label: 'Arabic (Saudi Arabia)' }
+  ];
+
+  constructor(
+    private ref: ChangeDetectorRef,
+    private ngZone: NgZone) { }
+
   ngOnInit() {
     this.gridOptions = {
       columns: EDITORS_COLUMNS,
@@ -296,5 +307,17 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       isList: true,
       filterable: true
     };
+  }
+
+  onChange(e: SohoDropDownEvent) {
+    const value = e.data;
+    Soho.Locale.set(value).done(
+      () => {
+        this.ngZone.run(
+          () => {
+            this.ref.markForCheck();
+          }
+        );
+      });
   }
 }
