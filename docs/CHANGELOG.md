@@ -1,5 +1,17 @@
 # What's New with Enterprise-NG
 
+## 15.0.5
+
+### 15.0.5 Features
+
+- `[General]` Added 4.80.3 with patches
+
+## 15.0.4
+
+### 15.0.4 Features
+
+- `[General]` Fixed angular version problem
+
 ## 15.0.3
 
 ### 15.0.3 Features
