@@ -685,7 +685,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   private getActivatedTab(): JQuery | undefined {
     // get the current selected tab outside of the angular zone
-    return this.ngZone.runOutsideAngular(() => this.jQueryElement?.find('.tab-list').find('li.is-selected'));
+    return this.ngZone.runOutsideAngular(() => this.jQueryElement?.siblings('.tab-panel-container').find('.tab-panel.is-visible'));
   }
 
   private getTabIds(): Array<string> {
@@ -731,8 +731,8 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
         return;
       }
 
-      const tabAnchor = tab?.children('a');
-      this.tabs?.activate(tabAnchor?.attr('href'), tabAnchor);
+      const tabHref = `#${tab?.attr('id')}`;
+      this.tabs?.activate(tabHref);
     });
   }
 

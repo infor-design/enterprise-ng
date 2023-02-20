@@ -145,7 +145,7 @@ interface SohoTabsStatic {
 
   enable(): void;
 
-  activate(href: string | undefined, anchor: JQuery | undefined): void;
+  activate(href: string | undefined): void;
 
   /** Manually refreshes the component, with an optional check to swap the component to/from responsive mode (if applicable). */
   handleResize(doResponsiveCheck?: boolean): void;
