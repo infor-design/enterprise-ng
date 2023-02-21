@@ -161,4 +161,20 @@
     </div>
   </div>
 
+  <div class="eight columns">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">List</h2>
+      </div>
+      <div class="card-content">
+        <soho-listview #searchSelectionView [dataset]="demoTasks" [selectable]="'multiple'" [searchable]="true">
+          <input soho-searchfield placeholder="Search" [clearable]="true" />
+          <li soho-listview-item *ngFor="let data of demoTasks">
+            <p soho-listview-header>Task #{{data.task}}</p>
+          </li>
+        </soho-listview>
+      </div>
+    </div>
+  </div>
+
 </div>
