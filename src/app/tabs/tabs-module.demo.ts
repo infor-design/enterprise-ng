@@ -1,10 +1,35 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+
+import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-tabs-module-demo',
   templateUrl: 'tabs-module.demo.html'
 })
-export class TabsModuleDemoComponent {
+export class TabsModuleDemoComponent implements OnInit {
+  @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;
+  private counter = 7;
+
+  addTab() {
+    let counter = this.counter;
+    const tabId = `order-${counter}`;
+    const options = {
+      name: `Order ${counter}`,
+      isDismissible: true,
+      content: `This is the content for Tab ${counter}`
+    }
+
+    this.sohoTabsComponent?.add(tabId, options, counter);
+    this.counter++;
+  }
+
+  ngOnInit() {
+    console.log(this.sohoTabsComponent);
+  }
 
   public data: Array<any> = [
     {
@@ -21,7 +46,8 @@ export class TabsModuleDemoComponent {
       id: 'order-3',
       title: 'Order 3',
       body: 'It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet ' // eslint-disable-line
-    },
+    }
+    ,
     {
       id: 'order-4',
       title: 'Order 4',
