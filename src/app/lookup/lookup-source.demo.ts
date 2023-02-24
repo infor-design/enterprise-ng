@@ -126,7 +126,7 @@ export class LookupSourceDemoComponent {
   ];
 
   source: SohoDataGridSourceFunction = (request, response): void => {
-    response(this.dataset, request);
+    setTimeout(() => response(this.dataset, request), 1000);
   }
 }
 
