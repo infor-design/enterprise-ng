@@ -51,6 +51,9 @@ interface SohoDatePickerOptions {
   /** If true the month and year will render as dropdowns. */
   showMonthYearPicker?: boolean;
 
+  /** If true the week number will show. */
+  showWeekNumber?: boolean;
+
   /** The number of years ahead to show in the month/year picker should total 9 with yearsBack. */
   hideDays?: boolean;
 

@@ -192,4 +192,12 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="four columns">
+      <div class="field">
+        <label for="statechange" class="label">Show Week Number</label>
+        <input soho-datepicker id="weekNumberDatePicker" name="weekNumberDatePicker" [showWeekNumber]="true" dateFormat="MM/dd/yyyy" mode="standard" [(ngModel)]="model.standard2" (change)="onChange($event)"/>
+      </div>
+    </div>
+  </div>
 </form>
