@@ -231,6 +231,16 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
   }
 
   /**
+   * Indicates if the month and year will render as dropdowns.
+   */
+  @Input() set showWeekNumber(showWeekNumber: boolean) {
+    this._options.showWeekNumber = showWeekNumber;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Indicates if the days portion of the calendar will be hidden.
    */
   @Input() set hideDays(hideDays: boolean) {
