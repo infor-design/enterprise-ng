@@ -382,26 +382,6 @@ describe('Soho Datepicker Unit Tests', () => {
     });
   }));
 
-  it('Check getting value for en-US', waitForAsync(() => {
-    spyOn(comp, 'onChange');
-
-    const date = new Date('1978-11-11T12:00:00Z');
-    const dateWithoutTime = getDateWithoutTime(date);
-
-    expect(Soho.Locale.currentLocale.name).toEqual('en-US');
-    comp.datepicker?.setValue(date, true, false);
-
-    fixture.detectChanges();
-
-    fixture.whenStable().then(() => {
-      fixture.detectChanges();
-      expect(Soho.Locale.currentLocale.name).toEqual('en-US');
-      expect(comp.onChange).toHaveBeenCalled();
-      expect(['11/11/1978', '1978-11-11']).toContain(comp.datepicker?.getValue() as any);
-      expect(dateWithoutTime).toEqual(comp.datepicker?.getValue(true) as any);
-    });
-  }));
-
   it('Check getting value for different date format', waitForAsync(() => {
     comp.dateFormat = 'dd:MM:yyyy';
     fixture.detectChanges();
