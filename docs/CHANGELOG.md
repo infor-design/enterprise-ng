@@ -6,6 +6,10 @@
 
 - `[General]` Added 4.80.3 with patches
 
+### 15.0.5 Fixes
+
+- `[Notification]` Fixed notification throws errors when `closeAll` and `closeLatest`. ([#7276](https://github.com/infor-design/enterprise/issues/7276))
+
 ## 15.0.4
 
 ### 15.0.4 Features

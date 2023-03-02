@@ -27,13 +27,13 @@ export class SohoNotificationService {
    * Hide the latest notification in the list
    */
   closeLatest(): void {
-    jQuery('body').data('notification').closeLatest();
+    jQuery('body').data('notification')?.closeLatest();
   }
 
   /**
    * Hide all the notifications in the list
    */
   closeAll(): void {
-    jQuery('body').data('notification').closeAll();
+    jQuery('body').data('notification')?.closeAll();
   }
 }

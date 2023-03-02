@@ -33,8 +33,9 @@ export class NotificationDemoComponent implements OnInit {
   }
 
   closeLatestNotification() {
+    this.notificationService.closeLatest();
+
     if (this.counter > 0) {
-      this.notificationService.closeLatest();
       this.counter--;
 
       if (this.counter === 0) {
@@ -44,8 +45,9 @@ export class NotificationDemoComponent implements OnInit {
   }
 
   closeAllNotification() {
+    this.notificationService.closeAll();
+
     if (this.counter > 0) {
-      this.notificationService.closeAll();
       this.counter = 0;
       this.current = 0;
     }
