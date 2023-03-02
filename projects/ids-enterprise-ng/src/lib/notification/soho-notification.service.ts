@@ -20,7 +20,7 @@ export class SohoNotificationService {
    * @param id id of notification
    */
   close(id: string): void {
-    jQuery('body').data('notification').close(id);
+    jQuery('body').data('notification')?.close(id);
   }
 
   /**
