@@ -22,8 +22,9 @@ export class NotificationDemoComponent implements OnInit {
   }
 
   closeFirstNotification() {
+    this.notificationService.close(`notif-${this.counter > 0 ? this.current++ : ''}`);
+
     if (this.counter > 0) {
-      this.notificationService.close(`notif-${this.current++}`);
       this.counter--;
 
       if (this.counter === 0) {
