@@ -4,6 +4,7 @@
 
 ### 15.0.5 Features
 
+- `[Arrange]` Added a directive/wrapper for arrange component. ([#1432](https://github.com/infor-design/enterprise-ng/issues/1432))
 - `[General]` Added 4.80.3 with patches
 
 ### 15.0.5 Fixes

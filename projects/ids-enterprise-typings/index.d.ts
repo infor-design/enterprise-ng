@@ -8,6 +8,7 @@
 /// <reference path='lib/actionsheet/soho-actionsheet.d.ts' />
 /// <reference path='lib/alert/soho-alert.d.ts' />
 /// <reference path='lib/application-menu/soho-application-menu.d.ts' />
+/// <reference path='lib/arrange/soho-arrange.d.ts' />
 /// <reference path='lib/autocomplete/soho-autocomplete.d.ts' />
 /// <reference path='lib/bar/soho-bar.d.ts' />
 /// <reference path='lib/blockgrid/soho-blockgrid.d.ts' />
