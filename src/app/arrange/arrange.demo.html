@@ -61,13 +61,64 @@
   html[dir='rtl'] .grid > div {
     float: right;
   }
-  </style>
-  
-  <div class="row top-padding">
-    <div class="twelve columns">
-  
-      <h2>Sortable List</h2>
-      <ul soho-arrange class="arrange list example">
+</style>
+
+<div class="row top-padding">
+  <div class="twelve columns">
+
+    <h2>Sortable List</h2>
+    <ul soho-arrange class="arrange list example">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+    </ul>
+
+    <br><br>
+    <h2>Sortable Grid</h2>
+    <div soho-arrange class="arrange grid example">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+      <div>Item 4</div>
+      <div>Item 5</div>
+      <div>Item 6</div>
+    </div>
+
+    <br><br>
+    <h2>Exclude Items</h2>
+    <ul soho-arrange class="arrange list example">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li data-arrange-exclude="true" class="is-disabled">Item 4</li>
+      <li data-arrange-exclude="true" class="is-disabled">Item 5</li>
+      <li data-arrange-exclude="true" class="is-disabled">Item 6</li>
+    </ul>
+
+    <br><br>
+    <h2>Sortable List with Handles</h2>
+    <ul
+      soho-arrange
+      (drag)="onDrag($event)"
+      (beforeArrange)="onBeforeArrange($event)"
+      (arrangeUpdate)="onArrangeUpdate($event)"
+      class="arrange list example"
+      data-arrange-handle=".handle">
+      <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span> Item 1</li>
+      <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span>  Item 2</li>
+      <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span> Item 3</li>
+      <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span>  Item 4</li>
+      <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span>  Item 5</li>
+      <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span>  Item 6</li>
+    </ul>
+
+    <br><br>
+    <h2>Connected Sortable Lists</h2>
+    <div class="connected-wrap">
+      <ul soho-arrange class="arrange list example connected" data-arrange-connectWith=".connected">
         <li>Item 1</li>
         <li>Item 2</li>
         <li>Item 3</li>
@@ -75,68 +126,15 @@
         <li>Item 5</li>
         <li>Item 6</li>
       </ul>
-  
-      <br><br>
-      <h2>Sortable Grid</h2>
-      <div soho-arrange class="arrange grid example">
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
-        <div>Item 5</div>
-        <div>Item 6</div>
-      </div>
-  
-      <br><br>
-      <h2>Exclude Items</h2>
-      <ul soho-arrange class="arrange list example">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li data-arrange-exclude="true" class="is-disabled">Item 4</li>
-        <li data-arrange-exclude="true" class="is-disabled">Item 5</li>
-        <li data-arrange-exclude="true" class="is-disabled">Item 6</li>
+      <ul soho-arrange class="list example connected no2">
+        <li class="green">Item 1</li>
+        <li class="green">Item 2</li>
+        <li class="green">Item 3</li>
+        <li class="green">Item 4</li>
+        <li class="green">Item 5</li>
+        <li class="green">Item 6</li>
       </ul>
-  
-      <br><br>
-      <h2>Sortable List with Handles</h2>
-      <ul
-        soho-arrange
-        (drag)="onDrag($event)"
-        (beforeArrange)="onBeforeArrange($event)"
-        (arrangeUpdate)="onArrangeUpdate($event)"
-        class="arrange list example"
-        data-arrange-handle=".handle">
-        <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span> Item 1</li>
-        <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span>  Item 2</li>
-        <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span> Item 3</li>
-        <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span>  Item 4</li>
-        <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span>  Item 5</li>
-        <li><span class="handle"><svg class="icon icon-handle" focusable="false" aria-hidden="true" role="presentation"><use href="#icon-drag"></use></svg></span>  Item 6</li>
-      </ul>
-  
-      <br><br>
-      <h2>Connected Sortable Lists</h2>
-      <div class="connected-wrap">
-        <ul soho-arrange class="arrange list example connected" data-arrange-connectWith=".connected">
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-          <li>Item 5</li>
-          <li>Item 6</li>
-        </ul>
-        <ul soho-arrange class="list example connected no2">
-          <li class="green">Item 1</li>
-          <li class="green">Item 2</li>
-          <li class="green">Item 3</li>
-          <li class="green">Item 4</li>
-          <li class="green">Item 5</li>
-          <li class="green">Item 6</li>
-        </ul>
-      </div>
-  
-  
     </div>
+
   </div>
-  
+</div>
