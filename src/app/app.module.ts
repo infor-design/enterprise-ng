@@ -23,6 +23,7 @@ import { ApplicationMenuLazyDemoComponent } from './application-menu/application
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { AreaDemoComponent } from './area/area.demo';
+import { ArrangeDemoComponent } from './arrange/arrange.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { AutocompleteTemplatesDemoComponent } from './autocomplete/autocomplete-templates.demo';
 import { BarDemoComponent } from './bar/bar.demo';
@@ -304,6 +305,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     ApplicationMenuNotificationBadgeDemoComponent,
     ApplicationMenuTestPerfDemoComponent,
     AreaDemoComponent,
+    ArrangeDemoComponent,
     AutocompleteDemoComponent,
     AutocompleteTemplatesDemoComponent,
     BarDemoComponent,

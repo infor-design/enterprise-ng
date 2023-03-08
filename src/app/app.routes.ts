@@ -8,6 +8,7 @@ import { ActionsheetWithTrayDemoComponent } from './actionsheet/actionsheet-with
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AreaDemoComponent } from './area/area.demo';
+import { ArrangeDemoComponent } from './arrange/arrange.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { AutocompleteTemplatesDemoComponent } from './autocomplete/autocomplete-templates.demo';
 import { BarDemoComponent } from './bar/bar.demo';
@@ -250,6 +251,7 @@ export const routes: Routes = [
   { path: 'application-menu-notification-badge', component: ApplicationMenuNotificationBadgeDemoComponent },
   { path: 'application-menu-test-performance', component: ApplicationMenuTestPerfDemoComponent },
   { path: 'area', component: AreaDemoComponent },
+  { path: 'arrange', component: ArrangeDemoComponent },
   { path: 'autocomplete', component: AutocompleteDemoComponent },
   { path: 'autocomplete-templates', component: AutocompleteTemplatesDemoComponent },
   { path: 'bar', component: BarDemoComponent },
