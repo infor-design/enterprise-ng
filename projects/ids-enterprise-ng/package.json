@@ -6,7 +6,7 @@
     "@types/jquery": "3.5.14",
     "@types/d3": "5.7.2",
     "ids-enterprise": "4.80.4",
-    "ids-enterprise-typings": "15.0.5",
+    "ids-enterprise-typings": "15.0.6",
     "jquery": "3.6.4",
     "d3": "7.8.2",
     "tslib": "^2.4.0"
