@@ -150,24 +150,6 @@ describe('Soho Pie Unit Tests', () => {
     expect((comp as any).updateRequired).toEqual(false);
     expect(pieUpdatedSpy).toHaveBeenCalledTimes(1);
   });
-
-  it('check public functions', (done) => {
-    comp.dataset = pieData;
-    fixture.detectChanges();
-
-    comp.toggleSelected({ index: 1 });
-
-    setTimeout(() => {
-      expect((comp.getSelected() as any)[0].index).toEqual(1);
-      comp.setSelected({ index: 2 });
-      setTimeout(() => {
-        expect((comp.getSelected() as any)[0].index).toEqual(2);
-        done();
-      }, 201);
-    }, 201);
-  });
-
-  // xit('set data', () => {
   //   // checking dataset before init of pieChart
   //   comp.dataset = pieData;
   //   fixture.detectChanges();

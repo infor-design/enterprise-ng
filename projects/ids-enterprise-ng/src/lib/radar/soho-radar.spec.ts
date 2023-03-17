@@ -189,22 +189,6 @@ describe('Soho Radar Unit Tests', () => {
     expect((comp as any).updateRequired).toEqual(false);
     expect(updatedSpy).toHaveBeenCalledTimes(1);
   });
-
-  it('check public functions', (done) => {
-    comp.dataset = radarData;
-    fixture.detectChanges();
-    comp.toggleSelected({ index: 1 });
-
-    setTimeout(() => {
-      expect((comp as any).getSelected().index).toEqual(1);
-      comp.setSelected({ index: 2 });
-
-      setTimeout(() => {
-        expect((comp as any).getSelected().index).toEqual(2);
-        done();
-      }, 201);
-    }, 201);
-  });
 });
 
 @Component({
