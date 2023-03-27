@@ -14,11 +14,13 @@ import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
 import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component';
 import { FullSizeModalDialogComponent } from './example-fullsize-modal.component';
+import { ModalDatepickerComponent } from './modal-datepicker.component';
 import { ModalDialogPickerComponent } from './modal-dialog-picker.component';
 
 @NgModule({
     declarations: [
         FullSizeModalDialogComponent,
+        ModalDatepickerComponent,
         NestedModalDialogComponent,
         ExampleModalDialogComponent,
         ModalDialogDemoComponent,
