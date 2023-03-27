@@ -1,0 +1,61 @@
+<div class="example-section">
+  <form>
+    <div class="row">
+      <h1>Track Dirty Textarea Readonly On Load</h1>
+      <h4>Testing tract dirty on textarea with initial state of readonly that can be toggled to editable field</h4>
+      <hr />
+      <br />
+
+      <div class="row">
+        <div class="two columns">
+          <div class="field">
+            <label soho-label for="textbox">Textbox</label>
+            <input name="textbox" [(ngModel)]="model.textbox"
+              soho-trackdirty
+                (pristine)="onPristine($event)"
+                (dirty)="onDirty($event)"
+                (afterResetDirty)="onAfterResetDirty($event)"/>
+          </div>
+        </div>
+
+        <div class="two columns">
+          <div class="field">
+            <label soho-label for="textarea2">Textarea</label>
+            <textarea name="textarea2" [(ngModel)]="model.textarea2"
+              soho-textarea
+                [characterCounter]="false"
+                [maxlength]="500"
+                [rows]="5"
+              soho-trackdirty
+                (pristine)="onPristine($event)"
+                (dirty)="onDirty($event)"
+                (afterResetDirty)="onAfterResetDirty($event)"
+              (input)="onInput($event)"
+              ></textarea>
+          </div>
+        </div>
+
+        <div class="four columns">
+          <div class="field">
+            <label soho-label for="textarea">Textarea Readonly Initial</label>
+            <textarea [(ngModel)]="model.textarea"
+              [readonly]="isReadOnly"
+              soho-textarea
+                [characterCounter]="false"
+                [maxlength]="500"
+                [rows]="5"
+              soho-trackdirty
+                (pristine)="onPristine($event)"
+                (dirty)="onDirty($event)"
+                (afterResetDirty)="onAfterResetDirty($event)"
+              (input)="onInput($event)"
+              #readDirty
+              ></textarea>
+          </div>
+        </div>
+      </div>
+      <button soho-button (click)="toggleEdit()">Toggle Textarea Readonly</button>
+      <button soho-button (click)="resetForm()">Reset</button>
+    </div>
+  </form>
+</div>
