@@ -1,0 +1,39 @@
+<form *ngIf="filtersForm" [formGroup]="filtersForm">
+  <div *ngFor="let searchableColumn of searchableColumns">
+    <div class="field">
+      <label soho-label>{{ searchableColumn.columnName }}</label>
+      <div [ngSwitch]="searchableColumn.filterType">
+        <input
+          *ngSwitchCase="'text'"
+          soho-searchfield
+          class="searchfield"
+          [id]="searchableColumn.columnId"
+          [formControlName]="searchableColumn.columnId"
+          [clearable]="true"
+        />
+
+        <select
+          *ngSwitchCase="'select'"
+          soho-dropdown
+          [id]="searchableColumn.columnId"
+          [formControlName]="searchableColumn.columnId"
+        >
+          <option
+            *ngFor="let option of searchableColumn.options"
+            [value]="option.value"
+          >
+            {{ option.label }}
+          </option>
+        </select>
+
+        <input
+          *ngSwitchCase="'date'"
+          soho-datepicker
+          [id]="searchableColumn.columnId"
+          [formControlName]="searchableColumn.columnId"
+          mode="standard"
+        />
+      </div>
+    </div>
+  </div>
+</form>

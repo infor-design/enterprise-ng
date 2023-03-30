@@ -9,6 +9,7 @@ import {
 } from 'ids-enterprise-ng';
 
 import { FullSizeModalDialogComponent } from './example-fullsize-modal.component';
+import { ModalDatepickerComponent } from './modal-datepicker.component';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
 import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component';
@@ -79,6 +80,52 @@ export class ModalDialogDemoComponent {
         (ref as any).buttonsetAPI.at(2).disabled = true;
         return true;
       }).afterOpen((_: any, ref: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
+        (ref as any).buttonsetAPI.at(3).disabled = false;
+        return true;
+      })
+      .open();
+  }
+
+  openDialogDatepicker() {
+    const dialogRef = this.modalService
+      .modal<ModalDatepickerComponent>(ModalDatepickerComponent, this.placeholder, { fullsize: 'responsive' })
+      .showCloseBtn(true)
+      .title(this.title)
+      .buttons(
+        [
+          {
+            text: 'Enable', click: () => {
+              const api = dialogRef.buttonsetAPI;
+              if (api) {
+                api.at(2).disabled = false;
+                api.at(3).disabled = false;
+              }
+            }
+          },
+          {
+            text: 'Disable', click: () => {
+              const api = dialogRef.buttonsetAPI;
+              if (api) {
+                api.at(2).disabled = true;
+                api.at(3).disabled = true;
+              }
+            }
+          },
+          {
+            text: 'Cancel', click: () => {
+              dialogRef.close('CANCEL');
+            }
+          },
+          {
+            text: 'Submit', click: () => {
+              dialogRef.close('SUBMIT');
+            }, isDefault: true
+          }
+        ])
+      .beforeOpen((ref?: SohoModalDialogRef<ModalDatepickerComponent>) => {
+        (ref as any).buttonsetAPI.at(2).disabled = true;
+        return true;
+      }).afterOpen((_: any, ref: SohoModalDialogRef<ModalDatepickerComponent>) => {
         (ref as any).buttonsetAPI.at(3).disabled = false;
         return true;
       })
@@ -220,14 +267,14 @@ export class ModalDialogDemoComponent {
 
   openDialogPicker() {
     const dialogRef = this.modalService
-    .modal<ModalDialogPickerComponent>(ModalDialogPickerComponent, this.placeholder)
-    .title(this.title)
-    .buttons(
-      [{
-        text: 'Cancel', click: () => {
-          dialogRef.close();
-        }
-      }])
-    .open();
+      .modal<ModalDialogPickerComponent>(ModalDialogPickerComponent, this.placeholder)
+      .title(this.title)
+      .buttons(
+        [{
+          text: 'Cancel', click: () => {
+            dialogRef.close();
+          }
+        }])
+      .open();
   }
 }

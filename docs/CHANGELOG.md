@@ -6,6 +6,7 @@
 
 ### 15.2.0 Fixes
 
+- `[Modal]` Added Example Page with Datepicker. ([EP#7144](https://github.com/infor-design/enterprise/issues/7144))
 - `[Textarea]` Added Example Page with Textarea Toggle Dirty. ([#1429](https://github.com/infor-design/enterprise/issues/1429))
 
 ## 15.1.0
