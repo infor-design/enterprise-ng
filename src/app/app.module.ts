@@ -235,6 +235,7 @@ import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
+import { TextAreaDirtyDemoComponent } from './textarea/textarea-dirty.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
@@ -519,6 +520,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     TagDemoComponent,
     TestTabsBasicComponent,
     TextareaDemoComponent,
+    TextAreaDirtyDemoComponent,
     TimePickerDemoComponent,
     ToastDemoComponent,
     ToolbarAllIconsDemoComponent,
