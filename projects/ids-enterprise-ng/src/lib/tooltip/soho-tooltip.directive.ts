@@ -115,6 +115,13 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   }
 
   /**
+   * @param appendTo additional classes
+   */
+  @Input() set appendTo(appendTo: string) {
+    this.options.appendTo = appendTo;
+  }
+
+  /**
    * @param maxWidth the maximum width of the tooltip in pixels.
    */
   @Input() set maxWidth(maxWidth: number) {
