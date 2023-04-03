@@ -5,7 +5,7 @@ interface SohoTooltipOptions {
   trigger?: string; // supports click and immediate and hover (and maybe in future focus)
   title?: string; // Title for Infor Tips
   beforeShow?: any; // Call back for ajax tooltip
-  popover?: boolean ; // force it to be a popover (no content)
+  popover?: boolean; // force it to be a popover (no content)
   closebutton?: boolean; // Show X close button next to title in popover
   isError?: boolean; // Add error classes
   isErrorColor?: boolean; // Add error color only not description
@@ -19,6 +19,7 @@ interface SohoTooltipOptions {
   keepOpen?: boolean; // Forces the tooltip to stay open in situations where it would normally close.
   extraClass?: string; // Extra css class
   maxWidth?: number; // Tooltip max width
+  appendTo?: string; // Settings to where should tooltip be appended
 
   /** If the object with the tooltip is tabbed to, will also show the tooltip. **/
   showOnKeyboardFocus?: boolean;

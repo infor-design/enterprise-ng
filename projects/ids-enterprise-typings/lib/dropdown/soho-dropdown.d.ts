@@ -146,6 +146,9 @@ interface SohoDropDownOptions {
    */
   onKeyDown?: SohoDropDownKeyDownFunction;
 
+  /** Settings to where should tooltip be appended **/
+  appendTo?: string;
+
   /** If defined, passes along 'clickHandler' and 'dismissHandler' functions to any Tags **/
   tagSettings?: any;
 

@@ -372,6 +372,13 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     return this.options.allTextString;
   }
 
+  /**
+   * @param appendTo additional classes
+   */
+  @Input() set appendTo(appendTo: string) {
+    this.options.appendTo = appendTo;
+  }
+
   /**Custom text string for `Selected` text header use in MultiSelect */
   @Input()
   public set selectedTextString(selectedTextString: string) {
