@@ -2,8 +2,6 @@
 
 ## 15.2.0
 
-### 15.2.0 Features
-
 ### 15.2.0 Fixes
 
 - `[Modal]` Added Example Page with Datepicker. ([EP#7144](https://github.com/infor-design/enterprise/issues/7144))
