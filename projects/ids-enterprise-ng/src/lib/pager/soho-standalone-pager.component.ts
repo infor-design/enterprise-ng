@@ -67,6 +67,7 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     if (this.pager) {
       this.pager.showPageSizeSelector(showPageSizeSelector);
     }
+    this.updateRequired = !!this.pager;
   }
 
   @Input() set showPageSelectorInput(showPageSelectorInput: boolean) {
