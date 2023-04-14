@@ -1282,12 +1282,17 @@ interface SohoDataGridStatic {
 
   /**
    * Sets the status of a given row in the grid.
-   *
    * @param idx - the row number (idx) of the row
    * @param status - status class name e.g. 'error'
    * @param tooltip - string value for tooltip message e.g. 'Error'
    */
   rowStatus(idx: number, status: string, tooltip: string): void;
+
+  /**
+   * Search a term across all columns and highlight it
+   * @param term - the search term
+   */
+  keywordSearch(term: string): void;
 
   /**
    * Return an array containing all of the currently modified rows, the type of modification
