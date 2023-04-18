@@ -424,6 +424,28 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.disableClientFilter;
   }
 
+  @Input() set resultsText(resultsText: SohoDataGridResultsTextFunction) {
+    this._gridOptions.resultsText = resultsText;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.resultsText = resultsText;
+    }
+  }
+
+  @Input() set showFilterTotal(showFilterTotal: boolean | undefined) {
+    this._gridOptions.showFilterTotal = showFilterTotal;
+    if (this.datagrid) {
+      this.datagrid.settings.showFilterTotal = showFilterTotal;
+    }
+  }
+
+  get showFilterTotal(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.showFilterTotal;
+    }
+
+    return this._gridOptions.showFilterTotal;
+  }
+
   /**
    * If true, the grid allows edits, otherwise if false edits are disabled.
    */
@@ -466,6 +488,81 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // initialisation, so return the current value from the
     // options.
     return this._gridOptions.isRowDisabled;
+  }
+
+  @Input() set allowOneExpandedRow(allowOneExpandedRow: boolean | undefined) {
+    this._gridOptions.allowOneExpandedRow = allowOneExpandedRow;
+    if (this.datagrid) {
+      this.datagrid.settings.allowOneExpandedRow = allowOneExpandedRow;
+    }
+  }
+
+  get allowOneExpandedRow(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.allowOneExpandedRow;
+    }
+
+    return this._gridOptions.allowOneExpandedRow;
+  }
+
+  @Input() set rowTemplate(rowTemplate: string | undefined) {
+    this._gridOptions.rowTemplate = rowTemplate;
+    if (this.datagrid) {
+      this.datagrid.settings.rowTemplate = rowTemplate;
+    }
+  }
+
+  get rowTemplate(): string | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowTemplate;
+    }
+
+    return this._gridOptions.rowTemplate;
+  }
+
+  @Input() set rowTemplateComponent(rowTemplateComponent: any) {
+    this._gridOptions.rowTemplateComponent = rowTemplateComponent;
+    if (this.datagrid) {
+      this.datagrid.settings.rowTemplateComponent = rowTemplateComponent;
+    }
+  }
+
+  get rowTemplateComponent(): any {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowTemplateComponent;
+    }
+
+    return this._gridOptions.rowTemplateComponent;
+  }
+
+  @Input() set rowTemplateComponentInputs(rowTemplateComponentInputs: any) {
+    this._gridOptions.rowTemplateComponentInputs = rowTemplateComponentInputs;
+    if (this.datagrid) {
+      this.datagrid.settings.rowTemplateComponentInputs = rowTemplateComponentInputs;
+    }
+  }
+
+  get rowTemplateComponentInputs(): any {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowTemplateComponentInputs;
+    }
+
+    return this._gridOptions.rowTemplateComponentInputs;
+  }
+
+  @Input() set rowTemplateField(rowTemplateField: string | undefined) {
+    this._gridOptions.rowTemplateField = rowTemplateField;
+    if (this.datagrid) {
+      this.datagrid.settings.rowTemplateField = rowTemplateField;
+    }
+  }
+
+  get rowTemplateField(): string | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowTemplateField;
+    }
+
+    return this._gridOptions.rowTemplateField;
   }
 
   /**
@@ -622,6 +719,21 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  @Input() set initializeToolbar(initializeToolbar: boolean | undefined) {
+    this._gridOptions.initializeToolbar = initializeToolbar;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.initializeToolbar = initializeToolbar;
+    }
+  }
+
+  get initializeToolbar(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.initializeToolbar;
+    }
+
+    return this._gridOptions.initializeToolbar;
+  }
+
   @Input() set saveUserSettings(settingsForSave: SohoDataGridSaveUserSettings) {
     this._gridOptions.saveUserSettings = settingsForSave;
     if (this.jQueryElement) {
@@ -734,6 +846,21 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // initialisation, so return the current value from the
     // options.
     return this._gridOptions.filterable;
+  }
+
+  @Input() set filterWhenTyping(filterWhenTyping: boolean | undefined) {
+    this._gridOptions.filterWhenTyping = filterWhenTyping;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.filterWhenTyping = filterWhenTyping;
+    }
+  }
+
+  get filterWhenTyping(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.filterWhenTyping;
+    }
+
+    return this._gridOptions.filterWhenTyping;
   }
 
   /**
@@ -874,13 +1001,39 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Sets the datagrid header background color, either dark or light.
-   * 
+   *
    * @param headerBackgroundColor - default value is 'dark'
    */
   @Input() set headerBackgroundColor(value: SohoDatagridHeaderBackgroundColor | undefined) {
     this._gridOptions.headerBackgroundColor = value;
     if (this.datagrid) {
       this.datagrid.settings.headerBackgroundColor = value;
+    }
+  }
+
+  /**
+   * Sets the datagrid header background color, either dark or light.
+   *
+   * @param headerMenuId - default value is 'dark'
+   */
+  @Input() set headerMenuId(value: string) {
+    this._gridOptions.headerMenuId = value;
+    if (this.datagrid) {
+      this.datagrid.settings.headerMenuId = value;
+    }
+  }
+
+  @Input() set headerMenuSelected(headerMenuSelected: Function) {
+    this._gridOptions.headerMenuSelected = headerMenuSelected;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.headerMenuSelected = headerMenuSelected;
+    }
+  }
+
+  @Input() set headerMenuBeforeOpen(headerMenuBeforeOpen: Function) {
+    this._gridOptions.headerMenuBeforeOpen = headerMenuBeforeOpen;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.headerMenuBeforeOpen = headerMenuBeforeOpen;
     }
   }
 
@@ -1045,6 +1198,50 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions?.spacerColumn;
   }
 
+  @Input() set sizeColumnsEqually(sizeColumnsEqually: boolean | undefined) {
+    this._gridOptions.sizeColumnsEqually = sizeColumnsEqually;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.sizeColumnsEqually = sizeColumnsEqually;
+    }
+  }
+
+  get sizeColumnsEqually(): boolean | undefined {
+    return this._gridOptions?.sizeColumnsEqually;
+  }
+
+  @Input() set expandableRow(expandableRow: boolean | undefined) {
+    this._gridOptions.expandableRow = expandableRow;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.expandableRow = expandableRow;
+    }
+  }
+
+  get expandableRow(): boolean | undefined {
+    return this._gridOptions?.expandableRow;
+  }
+
+  @Input() set redrawOnResize(redrawOnResize: boolean | undefined) {
+    this._gridOptions.redrawOnResize = redrawOnResize;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.redrawOnResize = redrawOnResize;
+    }
+  }
+
+  get redrawOnResize(): boolean | undefined {
+    return this._gridOptions?.redrawOnResize;
+  }
+
+  @Input() set exportConvertNegative(exportConvertNegative: boolean | undefined) {
+    this._gridOptions.exportConvertNegative = exportConvertNegative;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.exportConvertNegative = exportConvertNegative;
+    }
+  }
+
+  get exportConvertNegative(): boolean | undefined {
+    return this._gridOptions?.exportConvertNegative;
+  }
+
   /* Experimental Feature to stick on the top of the page. This feature has numerous limitations. */
   @Input() set stickyHeader(stickyHeader: boolean) {
     this._gridOptions.stickyHeader = stickyHeader;
@@ -1164,6 +1361,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  get columnGroup(): SohoDataGridColumnGroup[] {
+    return this._gridOptions.columnGroups || [];
+  }
+
   /**
    * The `emptyMessage` data grid option.
    * Use null or undefined to remove any empty message.
@@ -1218,6 +1419,21 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
 
     return this._gridOptions.selectChildren;
+  }
+
+  @Input() set allowChildExpandOnMatch(allowChildExpandOnMatch: boolean | undefined) {
+    this._gridOptions.allowChildExpandOnMatch = allowChildExpandOnMatch;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.allowChildExpandOnMatch = allowChildExpandOnMatch;
+    }
+  }
+
+  get allowChildExpandOnMatch(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.allowChildExpandOnMatch;
+    }
+
+    return this._gridOptions.allowChildExpandOnMatch;
   }
 
   /**
@@ -2090,7 +2306,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Event fired after a child row has been expanded.
    */
-  private onExpandRow(args: SohoDataGridRowExpandEvent) {
+  private onExpandRowHandler(args: SohoDataGridRowExpandEvent) {
     const event = { grid: this, ...args };
     if (this.gridOptions.rowTemplateComponent) {
       this.buildRowTemplateComponent(event);
@@ -2161,7 +2377,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Event fired after a context menu is opened
    */
-  private onKeyDown(e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) {
+  private onKeyDownHandler(e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) {
     const event = { e, args, response };
     this.ngZone.run(() => {
       this.keydown.next(event);
@@ -2290,6 +2506,66 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       return (this.datagrid as any).settings.onCollapseChildren;
     }
     return this._gridOptions.onCollapseChildren;
+  }
+
+  @Input() set onPostRenderCell(onPostRenderCell: SohoDataGridPostRenderCellFunction) {
+    const postRenderCell = (e: JQuery<HTMLElement>, args: SohoDataGridPostRenderCellArgs) => {
+      this.onPostRenderCellHandler(e, args);
+      onPostRenderCell(e, args);
+    };
+
+    this._gridOptions.onPostRenderCell = postRenderCell;
+
+    if (this.datagrid) {
+      this.datagrid.settings.onPostRenderCell = postRenderCell;
+    }
+  }
+
+  @Input() set onDestroyCell(onDestroyCell: SohoDataGridPostRenderCellFunction) {
+    const destroyCell = (e: JQuery<HTMLElement>, args: SohoDataGridPostRenderCellArgs) => {
+      this.onDestroyCellHandler(args);
+      onDestroyCell(e, args);
+    };
+
+    this._gridOptions.onDestroyCell = destroyCell;
+
+    if (this.datagrid) {
+      this.datagrid.settings.onDestroyCell = destroyCell;
+    }
+  }
+
+  @Input() set onEditCell(onEditCell: SohoDataGridEditCellFunction) {
+    const editCell = (editor: ExtendedSohoDataGridCellEditor) => {
+      this.onEditCellHandler(editor);
+      onEditCell(editor);
+    };
+
+    this._gridOptions.onEditCell = editCell;
+
+    if (this.datagrid) {
+      this.datagrid.settings.onEditCell = editCell;
+    }
+  }
+
+  @Input() set onKeyDown(onKeyDown: SohoDataGridKeyDownFunction) {
+    const keyDown = (e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) => {
+      this.onKeyDownHandler(e, args, response);
+      onKeyDown(e, args, response);
+    };
+
+    this._gridOptions.onKeyDown = keyDown;
+
+    if (this.datagrid) {
+      this.datagrid.settings.onKeyDown = keyDown;
+    }
+  }
+
+  @Input() set onExpandRow(onExpandRow: SohoDataGridExpandRowFunction) {
+    this._gridOptions.onExpandRow = onExpandRow;
+
+    if (this.datagrid) {
+      this.datagrid.settings.onExpandRow = onExpandRow;
+    }
   }
 
   /* Icon name for fallbacks if the image does not load */
@@ -2729,7 +3005,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param container the container to host the element.
    * @param args the formatter arguments.
    */
-  private onPostRenderCell(container: JQuery, args: SohoDataGridPostRenderCellArgs) {
+  private onPostRenderCellHandler(container: JQuery, args: SohoDataGridPostRenderCellArgs) {
     // Pre-conditions
     if (!args.col.component) {
       return; // throw Error(`Missing 'component' in column ${args.col.id}`);
@@ -2770,7 +3046,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param container the container.
    * @param args the args
    */
-  private onDestroyCell(args: SohoDataGridPostRenderCellArgs) {
+  private onDestroyCellHandler(args: SohoDataGridPostRenderCellArgs) {
     const idx = this.cellComponents.findIndex((c) => args.row === c.row && args.cell === c.cell);
     if (idx > -1) {
       this.cellComponents[idx].component.destroy();
@@ -2778,7 +3054,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  private onEditCell(editor: ExtendedSohoDataGridCellEditor) {
+  private onEditCellHandler(editor: ExtendedSohoDataGridCellEditor) {
     // Pre-conditions
     if (!editor.component) {
       return; // throw Error(`Missing 'component' in column ${args.col.id}`);
@@ -2825,24 +3101,32 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
       // Add the onPostCellRenderer
-      this._gridOptions.onPostRenderCell = (c, args: SohoDataGridPostRenderCellArgs) => {
-        this.onPostRenderCell(c, args);
-      };
+      if (!this._gridOptions.onPostRenderCell) {
+        this._gridOptions.onPostRenderCell = (c, args: SohoDataGridPostRenderCellArgs) => {
+          this.onPostRenderCellHandler(c, args);
+        };
+      }
 
       // Add the destroy cell callback.
-      this._gridOptions.onDestroyCell = (_, args: SohoDataGridPostRenderCellArgs) => {
-        this.onDestroyCell(args);
-      };
+      if (!this._gridOptions.onDestroyCell) {
+        this._gridOptions.onDestroyCell = (_, args: SohoDataGridPostRenderCellArgs) => {
+          this.onDestroyCellHandler(args);
+        };
+      }
 
       // Add the edit cell callback.
-      this._gridOptions.onEditCell = (editor: ExtendedSohoDataGridCellEditor) => {
-        this.onEditCell(editor);
-      };
+      if (!this._gridOptions.onEditCell) {
+        this._gridOptions.onEditCell = (editor: ExtendedSohoDataGridCellEditor) => {
+          this.onEditCellHandler(editor);
+        };
+      }
 
       // Add the keydown callback.
-      this._gridOptions.onKeyDown = (e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) => {
-        this.onKeyDown(e, args, response);
-      };
+      if (!this._gridOptions.onKeyDown) {
+        this._gridOptions.onKeyDown = (e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) => {
+          this.onKeyDown(e, args, response);
+        };
+      }
 
       // Initialise any event handlers.
       this.jQueryElement
@@ -2856,7 +3140,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('beforeentereditmode', (_e: any, args: SohoDataGridEditModeEvent) => this.onBeforeEnterEditMode(args))
         .on('exiteditmode', (_e: any, args: SohoDataGridEditModeEvent) => this.onExitEditMode(args))
         .on('entereditmode', (_e: any, args: SohoDataGridEditModeEvent) => this.onEnterEditMode(args))
-        .on('expandrow', (_e: any, args: SohoDataGridRowExpandEvent) => this.onExpandRow(args))
+        .on('expandrow', (_e: any, args: SohoDataGridRowExpandEvent) => this.onExpandRowHandler(args))
         .on('filtered', (_e: any, args: SohoDataGridFilteredEvent) => this.onFiltered(args))
         .on('openfilterrow', (_e: any, args: SohoDataGridOpenFilterRowEvent) => this.onOpenFilterRow(args))
         .on('rowremove', (_e: any, args: SohoDataGridRowRemoveEvent) => this.onRowRemove(args))
