@@ -1001,7 +1001,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Sets the datagrid header background color, either dark or light.
-   *
    * @param headerBackgroundColor - default value is 'dark'
    */
   @Input() set headerBackgroundColor(value: SohoDatagridHeaderBackgroundColor | undefined) {
@@ -1011,16 +1010,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   * Sets the datagrid header background color, either dark or light.
-   *
-   * @param headerMenuId - default value is 'dark'
-   */
-  @Input() set headerMenuId(value: string) {
+  @Input() set headerMenuId(value: string | undefined) {
     this._gridOptions.headerMenuId = value;
     if (this.datagrid) {
       this.datagrid.settings.headerMenuId = value;
     }
+  }
+
+  get headerMenuId(): string | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.headerMenuId;
+    }
+
+    return this._gridOptions.headerMenuId;
   }
 
   @Input() set headerMenuSelected(headerMenuSelected: Function) {
@@ -1206,7 +1208,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get sizeColumnsEqually(): boolean | undefined {
-    return this._gridOptions?.sizeColumnsEqually;
+    if (this.datagrid) {
+      return this.datagrid.settings.sizeColumnsEqually;
+    }
+
+    return this._gridOptions.sizeColumnsEqually;
   }
 
   @Input() set expandableRow(expandableRow: boolean | undefined) {
@@ -1217,7 +1223,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get expandableRow(): boolean | undefined {
-    return this._gridOptions?.expandableRow;
+    if (this.datagrid) {
+      return this.datagrid.settings.expandableRow;
+    }
+
+    return this._gridOptions.expandableRow;
   }
 
   @Input() set redrawOnResize(redrawOnResize: boolean | undefined) {
@@ -1228,7 +1238,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get redrawOnResize(): boolean | undefined {
-    return this._gridOptions?.redrawOnResize;
+    if (this.datagrid) {
+      return this.datagrid.settings.redrawOnResize;
+    }
+
+    return this._gridOptions.redrawOnResize;
   }
 
   @Input() set exportConvertNegative(exportConvertNegative: boolean | undefined) {
@@ -1239,7 +1253,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get exportConvertNegative(): boolean | undefined {
-    return this._gridOptions?.exportConvertNegative;
+    if (this.datagrid) {
+      return this.datagrid.settings.exportConvertNegative;
+    }
+
+    return this._gridOptions.exportConvertNegative;
   }
 
   /* Experimental Feature to stick on the top of the page. This feature has numerous limitations. */
@@ -1362,6 +1380,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get columnGroup(): SohoDataGridColumnGroup[] {
+    if (this.datagrid) {
+      return this.datagrid.settings.columnGroups || [];
+    }
+
     return this._gridOptions.columnGroups || [];
   }
 
