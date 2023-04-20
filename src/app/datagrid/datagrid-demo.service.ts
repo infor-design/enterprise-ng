@@ -31,22 +31,6 @@ export class DataGridDemoService extends SohoDataGridService {
 
   init() {
     /* eslint-disable */
-    this.columns.push(
-      {
-        id: 'action',
-        name: 'Action',
-        field: 'action',
-        align: 'center',
-        formatter: Soho.Formatters.Dropdown,
-        editor: Soho.Editors.Dropdown,
-        validate: 'required',
-        options: [
-          { label: '', value: '' },
-          { label: 'On Hold', value: 'oh' },
-          { label: 'Shipped', value: 'sh' },
-          { label: 'Action', value: 'ac' }
-        ]
-      });
     this.columns.push({
       id: 'selectionCheckbox',
       sortable: false,
