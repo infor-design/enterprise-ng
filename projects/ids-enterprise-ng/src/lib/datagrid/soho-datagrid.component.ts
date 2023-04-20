@@ -3146,7 +3146,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       // Add the keydown callback.
       if (!this._gridOptions.onKeyDown) {
         this._gridOptions.onKeyDown = (e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) => {
-          this.onKeyDown(e, args, response);
+          this.onKeyDownHandler(e, args, response);
         };
       }
 
