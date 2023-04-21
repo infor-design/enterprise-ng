@@ -21,6 +21,10 @@ export class ValidationFormDemoComponent {
   credit_code2!: number;
   requiredText!: string;
   states!: string;
+  public model = {
+    standard: new Date(),
+    tpicker: ''
+  }
 
   constructor(
     private formBuilder: UntypedFormBuilder,
@@ -33,6 +37,8 @@ export class ValidationFormDemoComponent {
       credit_card: [this.credit_card, [Validators.required]],
       credit_code1: [this.credit_code1],
       credit_code2: [this.credit_code2, [Validators.required]],
+      standard: [this.model.standard, [Validators.required]],
+      tpicker: [this.model.tpicker, [Validators.required]],
       required: [this.requiredText, [Validators.required]]
     });
   }

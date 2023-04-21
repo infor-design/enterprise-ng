@@ -7,6 +7,7 @@
 - `[Modal]` Added Example Page with Datepicker. ([EP#7144](https://github.com/infor-design/enterprise/issues/7144))
 - `[Pager]` Fixes a bug hiding and showing the page size selector. ([#1459](https://github.com/infor-design/enterprise/issues/1459))
 - `[Textarea]` Added Example Page with Textarea Toggle Dirty. ([#1429](https://github.com/infor-design/enterprise-ng/issues/1429))
+- `[Timepicker]` Added Timepicker in Example Page of Validator. ([#1435](https://github.com/infor-design/enterprise-ng/issues/1435))
 - `[Tooltip]` Added settings for popover `appendTo` settings. ([EP#7220](https://github.com/infor-design/enterprise/issues/7220))
 
 ## 15.1.0
