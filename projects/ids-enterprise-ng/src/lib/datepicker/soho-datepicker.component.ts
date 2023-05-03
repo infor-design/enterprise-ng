@@ -380,8 +380,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
       });
     } else {
       this.ngZone.runOutsideAngular(() => {
-        this.datepicker?.enable();
-        this.isReadOnly = false;
+        if (this.readonly === null || this.readonly === undefined) {
+          this.datepicker?.enable();
+          this.isReadOnly = false;
+        }
       });
     }
   }
@@ -548,6 +550,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
       if (this.isDisabled !== null && this.isDisabled !== undefined) {
         this.disabled = this.isDisabled;
       }
+
       if (this.isReadOnly !== null && this.isReadOnly !== undefined) {
         this.readonly = this.isReadOnly;
       }

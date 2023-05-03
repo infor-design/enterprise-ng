@@ -126,6 +126,8 @@ export class DatepickerDemoComponent implements OnInit {
   setEnable() {
     (this.datepicker as any).disabled = false;
     (this.rdatepicker as any).disabled = false;
+    (this.datepicker as any).readonly = false;
+    (this.rdatepicker as any).readonly = false;
     this.datepickerDisabled = (this.datepicker as any).disabled;
     this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
