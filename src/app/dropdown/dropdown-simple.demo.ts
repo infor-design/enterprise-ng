@@ -19,6 +19,8 @@ export class DropdownSimpleDemoComponent implements AfterViewInit {
   /** Used the html to comntrol the options. */
   options: any = [];
 
+  readOnly = true;
+
   ngAfterViewInit() {
     this.initialise();
   }
