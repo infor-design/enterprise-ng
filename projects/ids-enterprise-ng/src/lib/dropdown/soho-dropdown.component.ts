@@ -12,9 +12,7 @@ import {
   Optional,
   AfterViewChecked,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  SimpleChange,
-  OnChanges
+  ChangeDetectorRef
 } from '@angular/core';
 
 import {
