@@ -63,6 +63,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     reload: 'none'
   };
 
+  private isReadOnly?: boolean = undefined;
+
   /**
    * Sets the dropdown to close on selecting a value (helpful for multi-select)
    */
@@ -522,8 +524,10 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         // the model and the view markup.
         setTimeout(() => this.updated());
 
-        if (this.readonly === true) {
+        if (this.readonly) {
           this.dropdown?.readonly();
+        } else if (this.readonly === false) {
+          this.dropdown?.enable();
         }
 
         this.runUpdatedOnCheck = false;
