@@ -31,13 +31,19 @@
           </select>
         </div>
 
-        <label for="states-readonly" class="label">Model - ReadOnly</label>
-        <select soho-dropdown name="states-readonly" [readonly]="readOnly">
+        <label for="states-readonly" class="label">States - ReadOnly</label>
+        <select soho-dropdown name="states-readonly" readOnly>
           <option value="AL">Alabama</option>
           <option value="CA">California</option>
           <option value="DE">Delaware</option>
           <option value="NY">New York</option>
           <option value="WY">Wyoming</option>
+        </select>
+
+        <label for="states-readonly" class="label">Model - ReadOnly</label>
+        <select soho-dropdown name="states-readonly" readOnly>
+          <option value="1">1</option>
+          <option value="2">2</option>
         </select>
 
         <label for="states-readonly1" class="label">Totally Readonly</label>
