@@ -1,9 +1,10 @@
 # What's New with Enterprise-NG
 
-## 15.2.0
+## 15.3.0
 
-### 15.2.0 Fixes
+### 15.3.0 Fixes
 
+- `[ApplicationMenu]` Changed the app menu hamburger icon. ([1470](https://github.com/infor-design/enterprise/issues/1470))
 - `[Modal]` Added Example Page with Datepicker. ([EP#7144](https://github.com/infor-design/enterprise/issues/7144))
 - `[Pager]` Fixes a bug hiding and showing the page size selector. ([#1459](https://github.com/infor-design/enterprise/issues/1459))
 - `[Textarea]` Added Example Page with Textarea Toggle Dirty. ([#1429](https://github.com/infor-design/enterprise-ng/issues/1429))
