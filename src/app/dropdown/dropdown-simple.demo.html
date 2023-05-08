@@ -40,6 +40,12 @@
           <option value="WY">Wyoming</option>
         </select>
 
+        <label for="states-readonly" class="label">Model - ReadOnly</label>
+        <select soho-dropdown name="states-readonly" readOnly>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+
         <label for="states-readonly1" class="label">Totally Readonly</label>
         <select soho-dropdown name="states-readonly" readonly>
           <option value="AL">Alabama</option>
@@ -59,7 +65,7 @@
         </select>
 
         <label for="states-readonly3" class="label">Not Readonly by Value</label>
-        <select soho-dropdown name="states-readonly" [attr.readonly]="false ? 'true' : ''">
+        <select soho-dropdown name="states-readonly" [readonly]="false">
           <option value="AL">Alabama</option>
           <option value="CA">California</option>
           <option value="DE">Delaware</option>
