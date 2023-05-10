@@ -71,6 +71,7 @@ export class DropdownDemoComponent {
 
   setEnable() {
     (this.dropDowns as any).first.disabled = false;
+    (this.dropDowns as any).first.readonly = false;
     this.dropDownDisabled = (this.dropDowns as any).first.disabled;
     this.dropDownReadOnly = (this.dropDowns as any).first.readonly;
   }
