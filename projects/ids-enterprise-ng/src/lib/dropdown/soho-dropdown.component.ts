@@ -458,7 +458,20 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   @Input()
-  readonly: boolean | undefined;
+  public set readonly(readonly: boolean | undefined) {
+    this.isReadOnly = readonly;
+    if (this.dropdown) {
+      if (readonly) {
+        this.dropdown.readonly();
+      } else if (readonly === false) {
+        this.dropdown.enable();
+      }
+    }
+  }
+
+  get readonly(): boolean | undefined {
+    return this.isReadOnly;
+  }
 
   /**
    * Creates an instance of SohoDropDownComponent.
