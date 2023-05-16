@@ -54,6 +54,7 @@ import { CardsDemoComponent } from './cards/cards.demo';
 import { CardsExpandableDemoComponent } from './cards/cards-expandable.demo';
 import { CardsMultiSelectDemoComponent } from './cards/cards-multi-select.demo';
 import { CardsSingleSelectDemoComponent } from './cards/cards-single-select.demo';
+import { CardsWorkspaceWidgetsComponent } from './cards/cards-workspace-widgets.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -339,6 +340,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     CardsExpandableDemoComponent,
     CardsMultiSelectDemoComponent,
     CardsSingleSelectDemoComponent,
+    CardsWorkspaceWidgetsComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     CirclepagerDemoComponent,
