@@ -43,6 +43,82 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
   }
 
   /**
+   * Setting to toggle stacked week view layout
+   */
+  @Input() set stacked(isStacked: boolean | undefined) {
+    this._weekViewOptions.stacked = isStacked;
+    if (this.weekView) {
+      this.weekView.settings.stacked = isStacked;
+      this.markForRefresh();
+    }
+  }
+
+  get stacked(): boolean | undefined {
+    if (this.weekView) {
+      return this.weekView.settings.stacked
+    }
+
+    return this._weekViewOptions.stacked;
+  }
+
+  /**
+   * Setting to toggle footer when in stacked week view mode
+   */
+  @Input() set showFooter(val: boolean | undefined) {
+    this._weekViewOptions.showFooter = val;
+    if (this.weekView) {
+      this.weekView.settings.showFooter = val;
+      this.markForRefresh();
+    }
+  }
+
+  get showFooter(): boolean | undefined {
+    if (this.weekView) {
+      return this.weekView.settings.showFooter
+    }
+
+    return this._weekViewOptions.showFooter;
+  }
+
+  /**
+   * Setting to switch to one day view in phone-tablet sizes (stacked mode only)
+   */
+  @Input() set responsive(val: boolean | undefined) {
+    this._weekViewOptions.responsive = val;
+    if (this.weekView) {
+      this.weekView.settings.responsive = val;
+      this.markForRefresh();
+    }
+  }
+
+  get responsive(): boolean | undefined {
+    if (this.weekView) {
+      return this.weekView.settings.responsive
+    }
+
+    return this._weekViewOptions.responsive;
+  }
+
+  /**
+   * Setting to hide week view calendar toolbar
+   */
+  @Input() set hideToolbar(val: boolean | undefined) {
+    this._weekViewOptions.hideToolbar = val;
+    if (this.weekView) {
+      this.weekView.settings.hideToolbar = val;
+      this.markForRefresh();
+    }
+  }
+
+  get hideToolbar(): boolean | undefined {
+    if (this.weekView) {
+      return this.weekView.settings.hideToolbar
+    }
+
+    return this._weekViewOptions.hideToolbar;
+  }
+
+  /**
    * An array of objects with data for the event types.
    */
   @Input() set eventTypes(eventTypes: SohoWeekViewEventType[] | undefined) {
@@ -522,6 +598,14 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
    */
   getDayEvents(date: Date): SohoWeekViewDayEvents | undefined {
     return this.ngZone.runOutsideAngular(() => this.weekView?.getDayEvents(date));
+  }
+
+  /**
+   * Get dayMap object within weekview component
+   * @returns {SohoWeekViewDayMap[]} dayMap object
+   */
+  getDayMap(): SohoWeekViewDayMap[] | undefined {
+    return this.weekView?.dayMap;
   }
 
   /**

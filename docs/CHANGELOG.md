@@ -2,6 +2,10 @@
 
 ## 16.0.0
 
+### 16.0.0 Features
+
+- `[Weekview]` Added stacked view wrapper and example. ([7373](https://github.com/infor-design/enterprise/issues/7373))
+
 ### 16.0.0 Fixes
 
 - `[Card]` Added new settings and typings for card component. ([#7379](https://github.com/infor-design/enterprise/issues/7379))
