@@ -39,7 +39,7 @@ interface SohoCardOptions {
   attributes?: Array<Object> | Object;
 
   /** Ability to add bordered or boreder-less styles to the card element. */
-  bordered?: boolean | null;
+  bordered?: boolean | null | string;
 
   /** Determine wheter the card header should be displayed or not. */
   noHeader?: boolean;

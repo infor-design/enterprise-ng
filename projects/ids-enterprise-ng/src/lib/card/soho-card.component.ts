@@ -125,7 +125,7 @@ export class SohoCardHeaderComponent {
   @HostBinding('class.card-header') get isCardHeader() {
     return true;
   }
-  @HostBinding('style.display') block = 'block';
+  @HostBinding('style.display') flex = 'flex';
 }
 
 @Component({
@@ -149,11 +149,13 @@ export class SohoCardPaneComponent {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoCardComponent implements AfterViewInit, OnDestroy {
+export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
   @Input('soho-card') id: string | undefined; // eslint-disable-line
   @Input() expandableHeader: boolean | undefined; // eslint-disable-line
   @Input() verticalButtonAction: boolean | undefined; // eslint-disable-line
   @Input() autoHeight: boolean | undefined; // eslint-disable-line
+  @Input() bordered: boolean | string | undefined; // eslint-disable-line
+  @Input() noHeader: boolean | undefined; // eslint-disable-line
 
   @HostBinding('style.display') block = 'block';
   @HostBinding('class.card') get isCard() {
@@ -166,18 +168,12 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
     return this.autoHeight;
   }
 
-  @Input() set bordered(value: boolean | null) {
-    (this.options as any).bordered = value;
-    if (this.cards) {
-      this.options.bordered = value;
-    }
+  @HostBinding('class.bordered') get isBordered() {
+    return this.bordered;
   }
 
-  @Input() set noHeader(value: boolean) {
-    (this.options as any).noHeader = value;
-    if (this.cards) {
-      this.options.noHeader = value;
-    }
+  @HostBinding('class.no-header') get isNoHeader() {
+    return this.noHeader;
   }
 
   @Input() set contentPaddingX(value: number | undefined) {
@@ -271,21 +267,14 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
     private ngZone: NgZone
   ) { }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
 
-      if (this.toggle) {
-        this.toggle.subscribe(value => this.toggleOpen(value));
+      if (typeof (this.bordered) === 'string' && this.bordered !== null) {
+        // Convert the string value to a boolean
+        this.bordered = this.bordered.toLowerCase() === 'true';
       }
-
-      // Add listeners to emit events
-      this.jQueryElement.on('beforeexpand', (event: SohoCardEvent) => this.onBeforeExpand(event));
-      this.jQueryElement.on('beforecollapse', (event: SohoCardEvent) => this.onBeforeCollapse(event));
-      this.jQueryElement.on('expand', (event: SohoCardEvent) => this.onExpand(event));
-      this.jQueryElement.on('collapse', (event: SohoCardEvent) => this.onCollapse(event));
-      this.jQueryElement.on('afterexpand', (event: SohoCardEvent) => this.onAfterExpand(event));
-      this.jQueryElement.on('aftercollapse', (event: SohoCardEvent) => this.onAfterCollapse(event));
 
       // Add listeners to emit events
       // Initiate the element via jQuery
@@ -302,6 +291,23 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
         noShadow: this.noShadow,
         detailRefId: this.detailRefId,
       });
+    });
+  }
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+
+      if (this.toggle) {
+        this.toggle.subscribe(value => this.toggleOpen(value));
+      }
+
+      // Add listeners to emit events
+      this.jQueryElement.on('beforeexpand', (event: SohoCardEvent) => this.onBeforeExpand(event));
+      this.jQueryElement.on('beforecollapse', (event: SohoCardEvent) => this.onBeforeCollapse(event));
+      this.jQueryElement.on('expand', (event: SohoCardEvent) => this.onExpand(event));
+      this.jQueryElement.on('collapse', (event: SohoCardEvent) => this.onCollapse(event));
+      this.jQueryElement.on('afterexpand', (event: SohoCardEvent) => this.onAfterExpand(event));
+      this.jQueryElement.on('aftercollapse', (event: SohoCardEvent) => this.onAfterCollapse(event));
 
       this.cards = this.jQueryElement.data('cards');
 
