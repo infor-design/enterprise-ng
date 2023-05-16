@@ -34,6 +34,13 @@ interface SohoWeekViewEventType {
   translationKey: string;
 }
 
+interface SohoWeekViewDayMap {
+  key?: string;
+  elem?: HTMLElement;
+  footer?: HTMLElement;
+  events?: SohoWeekViewEvent[];
+}
+
 interface SohoWeekViewEvent {
   id?: string;
   title?: string;
@@ -92,6 +99,10 @@ interface SohoWeekViewOptions {
   filteredTypes?: [];
   events?: SohoWeekViewEvent[];
   locale?: string;
+  stacked?: boolean;
+  showFooter?: boolean;
+  responsive?: boolean;
+  hideToolbar?: boolean;
   showAllDay?: boolean;
   showToday?: boolean;
   showViewChanger?: boolean;
@@ -112,6 +123,8 @@ interface SohoWeekViewOptions {
 
 interface SohoWeekView {
   settings: SohoWeekViewOptions;
+
+  dayMap: SohoWeekViewDayMap[];
 
   /**
    * Get the current selected date on the Weekview.
