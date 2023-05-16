@@ -11,7 +11,7 @@ import { SohoToastService, SohoWeekViewComponent } from 'ids-enterprise-ng';
 import { WeekViewDemoService } from './week-view.demo.service';
 
 // eslint-disable-next-line no-shadow
-export enum displayType { 'oneWeek', 'twoWeeks', 'oneDay', 'twoDays' }
+export enum displayType { 'oneWeek', 'twoWeeks', 'oneDay', 'twoDays', 'stackedView' }
 
 @Component({
   selector: 'app-week-view-demo',
@@ -22,8 +22,9 @@ export enum displayType { 'oneWeek', 'twoWeeks', 'oneDay', 'twoDays' }
 export class WeekViewDemoComponent implements OnInit {
 
   @HostBinding('style.overflow') overflow = 'auto';
-  @HostBinding('style.height') height = 'auto';
-  @HostBinding('style.display') block = 'block';
+  @HostBinding('style.height') height = '100%';
+  @HostBinding('style.display') block = 'flex';
+  @HostBinding('style.fontSize') fontSize = '16px';
 
   @ViewChild(SohoWeekViewComponent, { static: true }) sohoWeekViewComponent?: SohoWeekViewComponent;
 
@@ -37,6 +38,10 @@ export class WeekViewDemoComponent implements OnInit {
   public dateIsSet = false;
   public demoType = displayType.oneWeek;
   public demoTypeEnum = displayType;
+  public stacked = false;
+  public showFooter = false;
+  public responsive = false;
+  public hideToolbar = false;
 
   ngOnInit(): void {
     this.demoType = displayType.oneWeek;
@@ -63,7 +68,7 @@ export class WeekViewDemoComponent implements OnInit {
 
   showOneWeek() {
     this.startDate = new Date('2019-02-10');
-    this.endDate = new Date('2019-02-26');
+    this.endDate = new Date('2019-02-16');
 
     this.demoType = displayType.oneWeek;
     this.changeDetectorRef.markForCheck();
@@ -93,8 +98,27 @@ export class WeekViewDemoComponent implements OnInit {
     this.changeDetectorRef.markForCheck();
   }
 
+  showStackedView() {
+    this.startDate = new Date('2019-02-11');
+    this.endDate = new Date('2019-02-17');
+    this.showFooter = true;
+    this.hideToolbar = false;
+    this.responsive = true;
+    this.stacked = true;
+    this.demoType = displayType.stackedView;
+    this.changeDetectorRef.markForCheck();
+  }
+
   onRenderWeek(event: SohoWeekViewRenderWeekEvent) {
     console.log('onRenderWeek', event);
+
+    // Popuplate footer with placeholder elem (stacked view mode only)
+    if (this.stacked && this.showFooter) {
+      event.api.dayMap?.forEach((day: any) => {
+        const footerElem = day.footer;
+        if (footerElem) footerElem.innerHTML = `<div>Open Shift(s)</div>`
+      });
+    }
   }
 
   onEventClicked(event: SohoWeekViewClickEvent) {
