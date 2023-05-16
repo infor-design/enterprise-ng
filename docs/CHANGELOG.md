@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.0.0
+
+### 16.0.0 Fixes
+
+- `[General]` Added new NG 16 to the library. ([1481](https://github.com/infor-design/enterprise/issues/1481))
+
 ## 15.3.0
 
 ### 15.3.0 Fixes
