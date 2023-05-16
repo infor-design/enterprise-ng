@@ -1,0 +1,30 @@
+<div soho-homepage>
+  <soho-card bordered="true">
+    <soho-card-header>
+      <div class="widget-header-section title">
+        <h2 class="widget-title">Bordered</h2>
+      </div>
+      <div class="widget-header-section more">
+        <button class="btn-actions" type="button">
+          <span class="audible">Actions</span>
+          <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use href="#icon-vertical-ellipsis"></use>
+          </svg>
+        </button>
+        <ul class="popupmenu">
+          <li class="is-checked"><a href="#">Action One</a></li>
+          <li><a href="#">Action Two</a></li>
+        </ul>
+      </div>
+    </soho-card-header>
+    <div class="card-content">
+      <soho-listview>
+        <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
+          <p soho-listview-header>Task #{{data.task}}</p>
+          <p soho-listview-subheader>{{data.desc}}</p>
+          <p soho-listview-micro>DUE: {{data.date}}</p>
+        </li>
+      </soho-listview>
+    </div>
+  </soho-card>
+</div>

@@ -154,6 +154,7 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
   @Input() expandableHeader: boolean | undefined; // eslint-disable-line
   @Input() verticalButtonAction: boolean | undefined; // eslint-disable-line
   @Input() autoHeight: boolean | undefined; // eslint-disable-line
+
   @HostBinding('style.display') block = 'block';
   @HostBinding('class.card') get isCard() {
     return true;
@@ -163,6 +164,48 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
   }
   @HostBinding('class.auto-height') get isAutoHeight() {
     return this.autoHeight;
+  }
+
+  @Input() set bordered(value: boolean | null) {
+    (this.options as any).bordered = value;
+    if (this.cards) {
+      this.options.bordered = value;
+    }
+  }
+
+  @Input() set noHeader(value: boolean) {
+    (this.options as any).noHeader = value;
+    if (this.cards) {
+      this.options.noHeader = value;
+    }
+  }
+
+  @Input() set contentPaddingX(value: number | undefined) {
+    (this.options as any).contentPaddingX = value;
+    if (this.cards) {
+      this.options.contentPaddingX = value;
+    }
+  }
+
+  @Input() set contentPaddingY(value: number | undefined) {
+    (this.options as any).contentPaddingY = value;
+    if (this.cards) {
+      this.options.contentPaddingY = value;
+    }
+  }
+
+  @Input() set noShadow(value: boolean) {
+    (this.options as any).noShadow = value;
+    if (this.cards) {
+      this.options.noShadow = value;
+    }
+  }
+
+  @Input() set detailRefId(value: string | undefined) {
+    (this.options as any).detailRefId = value;
+    if (this.cards) {
+      this.options.detailRefId = value;
+    }
   }
 
   @Input() set closed(value: boolean | undefined) {
@@ -251,7 +294,13 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
         expandableHeader: this.expandableHeader,
         expanded: !this.closed,
         verticalButtonAction: this.verticalButtonAction,
-        attributes: this.options.attributes
+        attributes: this.options.attributes,
+        bordered: this.bordered,
+        noHeader: this.noHeader,
+        contentPaddingX: this.contentPaddingX,
+        contentPaddingY: this.contentPaddingY,
+        noShadow: this.noShadow,
+        detailRefId: this.detailRefId,
       });
 
       this.cards = this.jQueryElement.data('cards');
