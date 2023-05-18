@@ -2,9 +2,9 @@
 
 ## 16.3.0
 
-### 16.3.0 Features
+### 16.3.0 Fixes
 
-- `[Placeholder]` Replace me with a real thing ([7373](https://github.com/infor-design/enterprise/issues/7373))
+- `[Lookup]` Updated example page for datagrid editor. ([7403](https://github.com/infor-design/enterprise/issues/7403))
 
 ## 16.2.1
 
