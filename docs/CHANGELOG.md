@@ -1,19 +1,16 @@
 # What's New with Enterprise-NG
 
-## 16.3.0
+## 16.4.0
 
-### 16.3.0 Fixes
+### 16.4.0 Fixes
 
 - `[Lookup]` Updated example page for datagrid editor. ([7403](https://github.com/infor-design/enterprise/issues/7403))
 
-## 16.2.1
+## 16.3.1
 
-### 16.2.1 Features
+### 16.3.1 Features / Fixes
 
 - `[Weekview]` Added stacked view wrapper and example. ([7373](https://github.com/infor-design/enterprise/issues/7373))
-
-### 16.210 Fixes
-
 - `[Card]` Added new settings and typings for card component. ([#7379](https://github.com/infor-design/enterprise/issues/7379))
 - `[General]` Added new NG 16 to the library. ([1481](https://github.com/infor-design/enterprise/issues/1481))
 
