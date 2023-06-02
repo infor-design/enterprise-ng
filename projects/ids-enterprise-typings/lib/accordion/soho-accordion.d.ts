@@ -8,10 +8,56 @@
 
 type SohoAccordionExpanderType = 'classic' | 'plus-minus' | 'chevron';
 
+type SohoAccordionDefaultFocusBehaviorCallback = () => void;
+
+type SohoAccordionHeaderGroup = any; // JQuery<HTMLElement>
+
+type SohoAccordionHeaderExpanderButtonGroup = any; // JQuery<HTMLElement>
+
+type SohoAccordionHeaderAnchorGroup = any; // JQuery<HTMLElement>
+
+type SohoAccordionHeaderAnyGroup = SohoAccordionHeaderGroup | SohoAccordionHeaderExpanderButtonGroup | SohoAccordionHeaderAnchorGroup;
+
+type SohoAccordionNavDirection = 0 | -1 | 1;
+
 /**
-* Soho Accordion Control Options
-*/
+ * Soho Accordion data representation types
+ * These can be used to work with the results of `.toData()`
+ */
+
+type SohoAccordionData = Array<SohoAccordionSectionData> | Array<SohoAccordionHeaderData>;
+
+type SohoAccordionSectionData = {
+  index: string,
+  type: 'section',
+  children?: Array<SohoAccordionHeaderData | SohoAccordionContentData>,
+};
+
+type SohoAccordionContentData = {
+  index: string,
+  type: 'content',
+  content?: string,
+  contentText?: string
+};
+
+type SohoAccordionHeaderData = {
+  index: string,
+  type: 'header',
+  text?: string,
+  icon?: string,
+  children?: Array<SohoAccordionHeaderData | SohoAccordionContentData>
+};
+
+/**
+ * Soho Accordion Control Options
+ */
 interface SohoAccordionOptions {
+  /**
+   * Provides a mechanism for controlling the behavior of accordion header focus.
+   * By default, the built-in behavior is used (ability to focus headers/expanders independently).
+   */
+  accordionFocusCallback?: (header: JQuery<HTMLElement>, defaultFocusBehaviorCallback?: SohoAccordionDefaultFocusBehaviorCallback) => void;
+
   /**
    * If set to true, allows only one pane of the Accordion to be open at a time.
    * If an Accordion pane is open, and that pane contains sub-headers,
@@ -68,12 +114,14 @@ interface SohoAccordionOptions {
 }
 
 /**
- * This interface represents the public API exposed by the
- * busy indicator.
+ * This interface represents the public API exposed by the Soho Accordion
  */
 interface SohoAccordionStatic {
   /** Access to the control's options block. */
   settings: SohoAccordionOptions;
+
+  /** Calls the `source` method passed via settings */
+  callSource(anchor: SohoAccordionHeaderAnchorGroup, animationCallback: () => void): void;
 
   /** Collapses all panels. */
   collapseAll(): void;
@@ -81,9 +129,11 @@ interface SohoAccordionStatic {
   /** Expands all panels. */
   expandAll(): void;
 
-  expand(header: any | string): void;
+  /** Expands one or a group of panels */
+  expand(header: SohoAccordionHeaderGroup | string): void;
 
-  collapse(header: any | string): void;
+  /** Collapses one or a group of panels */
+  collapse(header: SohoAccordionHeaderGroup | string): void;
 
   /** Disables the accordion from reacting to events. */
   disable(): void;
@@ -92,18 +142,63 @@ interface SohoAccordionStatic {
   enable(): void;
 
   /** Checks if a particular header is disabled, or if the entire accordion is disabled. */
-  isDisabled(jQuery: any): boolean;
+  isDisabled(header: SohoAccordionHeaderGroup): boolean;
 
   /** Checks if an Accordion Section is currently expanded. */
-  isExpanded(jQuery: any): boolean;
+  isExpanded(header: SohoAccordionHeaderGroup): boolean;
 
   /** Toggles the exanded state of the selected header. */
-  toggle(jQuery: any): void;
+  toggle(header: SohoAccordionHeaderGroup): boolean;
+
+  /**
+   * Gets the current contents of this accordion and creates a JSON-like representation of the structure.
+   * For full JSON compatibility, don't use the `addElementReference` flag.
+   **/
+  toData(flatten?: boolean, addElementReference?: boolean): SohoAccordionData;
+
+  /** Makes an accordion header appear with a "selected" state */
+  select(element?: SohoAccordionHeaderAnyGroup): void;
+
+  /** Gets a reference to currently-selected accordion headers */
+  getSelected(): SohoAccordionHeaderGroup;
+
+  /** Determines if an Accordion Header is disabled */
+  isDisabled(header: SohoAccordionHeaderGroup): boolean;
+
+  /** "Visually" filters accordion headers (elements are not added/removed but temporarily hidden by CSS if filtered out) */
+  filter(headers?: SohoAccordionHeaderGroup): void;
+
+  /** Resets a previously-applied filter */
+  unfilter(headers?: SohoAccordionHeaderGroup): void;
+
+  /** Determines if an Accordion Header is currently visually filtered out */
+  isFiltered(header: SohoAccordionHeaderGroup): boolean;
+
+  /** Determines if animation is currently happening on accordion panes (controls some behavior internally) */
+  isAnimating: boolean;
+
+  /** Programmatically navigates to the next-available accordion header (down) */
+  nextHeader(element: SohoAccordionHeaderAnyGroup, noDescend?: boolean): void;
+
+  /** Programmatically navigates to the previous-available accordion header (up) */
+  prevHeader(element: SohoAccordionHeaderAnyGroup, noDescend?: boolean): void;
+
+  /** Programmatically navigates to the next-available accordion header (down) */
+  ascend(element: SohoAccordionHeaderGroup, direction?: SohoAccordionNavDirection): void;
+
+  /** Programmatically navigates to the previous-available accordion header (up) */
+  descend(element: SohoAccordionHeaderGroup, direction?: SohoAccordionNavDirection): void;
+
+  /** Programmatically focuses the correct element within an accordion header (based on previously-focused elements) */
+  focusOriginalType(header: SohoAccordionHeaderGroup): void;
 
   /** Updates the accordion with any new settings. */
-  updated(headers?: JQuery[], settings?: SohoAccordionOptions): void;
+  updated(headers?: SohoAccordionHeaderGroup, settings?: SohoAccordionOptions): void;
 
-  /** Destroys the control on completion. */
+  /** Performs a teardown of the jQuery component API (does not remove the component instance) */
+  teardown(): void;
+
+  /** Destroys the control on completion. (Tears down and removes the component instance) */
   destroy(): void;
 }
 
