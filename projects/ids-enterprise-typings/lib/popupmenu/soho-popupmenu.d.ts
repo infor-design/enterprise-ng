@@ -57,6 +57,9 @@ interface SohoPopupMenuOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Appends an optional css class to `.popupmenu-wrapper/popupmenu` elements  */
+  cssClass?: string | null;
 }
 
 /**
@@ -74,6 +77,9 @@ interface SohoPopupMenuStatic {
 
   /** Configuration options. */
   settings?: SohoPopupMenuOptions;
+
+  /** Gets the Popupmenu's ID string (can be used to query the DOM for the menu element) */
+  idString: string | undefined;
 
   /** Returns the selected html element. */
   getSelected(): any;
