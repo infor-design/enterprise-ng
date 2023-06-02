@@ -280,6 +280,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo'
 import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
 import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
+import { ImagesExampleDemoComponent } from './images/images-example.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 import { HeaderSearchfieldDemoComponent } from './header/header-searchfield.demo';
@@ -454,6 +455,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     HomePageEditableFilledComponent,
     HyperlinkDemoComponent,
     IconDemoComponent,
+    ImagesExampleDemoComponent,
     InputClearableDemoComponent,
     LabelDemoComponent,
     LineDemoComponent,
