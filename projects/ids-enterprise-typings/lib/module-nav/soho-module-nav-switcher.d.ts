@@ -10,11 +10,11 @@ type SohoModuleNavSwitcherRoleRecord = Record<string, unknown>;
 
 /** Defines options present in the Soho Module Nav Switcher */
 interface SohoModuleNavSwitcherOptions {
-  displayMode: SohoModuleNavDisplayMode;
+  displayMode?: SohoModuleNavDisplayMode;
 }
 
 /** Public API for Soho Module Nav Switcher JS component */
-interface SohoModuleNavSwitcher {
+interface SohoModuleNavSwitcherStatic {
   /** Module Nav Switcher's current settings */
   settings: SohoModuleNavSwitcherOptions;
 
@@ -45,6 +45,9 @@ interface SohoModuleNavSwitcher {
   /** Reference to the Module Button's Soho Button API, if one is available */
   roleDropdownAPI?: SohoButtonStatic;
 
+  /** Initializes the jQuery component */
+  init(): void;
+
   /** Changes the Module Nav Switcher's Display Mode */
   setDisplayMode(val?: SohoModuleNavDisplayMode): void;
 
@@ -57,8 +60,8 @@ interface SohoModuleNavSwitcher {
   /** Tear down the markup for the control */
   teardown(): void;
 
-  /** Updates the monthview with any new settings */
-  updated(): void;
+  /** Updates the Module Nav Switcher with any new settings */
+  updated(newSettings?: SohoModuleNavSwitcherOptions): void;
 
   /** Destroys the control on completion. */
   destroy(): void;

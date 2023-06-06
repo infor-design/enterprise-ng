@@ -3,14 +3,14 @@
 
 /** Defines options present in the Soho Module Nav */
 interface SohoModuleNavOptions {
-  displayMode: SohoModuleNavDisplayMode;
-  filterable: boolean;
-  pinSections: boolean;
-  showDetailView: boolean;
+  displayMode?: SohoModuleNavDisplayMode;
+  filterable?: boolean;
+  pinSections?: boolean;
+  showDetailView?: boolean;
 }
 
 /** Public API for Soho Module Nav JS component */
-interface SohoModuleNav {
+interface SohoModuleNavStatic {
   /** Module Nav's current settings */
   settings: SohoModuleNavOptions;
 
@@ -30,19 +30,22 @@ interface SohoModuleNav {
   settingsEl?: HTMLElement;
 
   /** Reference to a Soho Module Nav Settings API, if one is available */
-  settingAPI?: SohoModuleNavSettings;
+  settingAPI?: SohoModuleNavSettingsStatic;
 
   /** Reference to a Soho Module Nav Switcher container element, if one is available */
   switcherEl?: HTMLElement;
 
   /** Reference to a Soho Module Nav Settings API, if one is available */
-  switcherAPI?: SohoModuleNavSwitcher;
+  switcherAPI?: SohoModuleNavSwitcherStatic;
 
   /** Misc. references to specific sections/elements */
   containerEl?: HTMLElement;
   detailViewEl?: HTMLElement;
   itemMenuEl?: HTMLElement;
   footerEl?: HTMLElement;
+
+  /** Initializes the jQuery component */
+  init(): void;
 
   /** Changes the Module Nav's Display Mode */
   setDisplayMode(val?: SohoModuleNavDisplayMode): void;
@@ -59,8 +62,8 @@ interface SohoModuleNav {
   /** Tear down the markup for the control */
   teardown(): void;
 
-  /** Updates the monthview with any new settings */
-  updated(): void;
+  /** Updates the Module Nav with any new settings */
+  updated(newSettings?: SohoModuleNavOptions): void;
 
   /** Destroys the control on completion. */
   destroy(): void;

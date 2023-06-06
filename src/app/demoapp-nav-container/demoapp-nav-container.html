@@ -1,0 +1,40 @@
+<!-- Either an App Menu or Module Nav will be rendered -->
+<ng-container
+  *ngIf="menuType === 'application-menu'; then useAppMenu; else useModuleNav">
+</ng-container>
+
+<ng-template #useAppMenu>
+  <!-- App Menu is rendered (default) -->
+  <nav soho-application-menu
+    class="is-personalizable"
+    [filterable]="true"
+    [openOnLarge]="false"
+    [dismissOnClickMobile]="true"
+    (menuVisibility)="onMenuVisibility($event)"
+    [resizable]="true"
+    [savePosition]="true">
+    <div soho-searchfield-wrapper>
+      <label class="audible" for="application-menu-searchfield">Search</label>
+      <input soho-searchfield id="application-menu-searchfield" [clearable]="true" />
+    </div>
+    <application-menu-demo></application-menu-demo>
+  </nav>
+  <div class="page-container no-scroll">
+    <ng-content></ng-content>
+  </div>
+</ng-template>
+
+<ng-template #useModuleNav>
+  <!-- Module Nav is rendered -->
+  <soho-module-nav-container
+      [ngClass]="{ 'module-nav-container': true }">
+    <soho-module-nav
+      [ngClass]="{ 'module-nav': true }"
+      [displayMode]="moduleNavDisplayMode">
+      <module-nav-demo></module-nav-demo>
+    </soho-module-nav>
+    <div class="page-container no-scroll">
+      <ng-content></ng-content>
+    </div>
+  </soho-module-nav-container>
+</ng-template>

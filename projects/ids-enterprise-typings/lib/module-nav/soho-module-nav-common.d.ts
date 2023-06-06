@@ -9,3 +9,4 @@
  * In some cases this also has affects on child components and event handling
  */
 type SohoModuleNavDisplayMode = false | 'collapsed' | 'expanded';
+

@@ -52,6 +52,8 @@ export * from './masthead/index';
 export * from './menu-button/index';
 export * from './message/index';
 export * from './modal-dialog/index';
+export * from './module-nav/index';
+export * from './module-nav-container/index';
 export * from './monthview/index';
 export * from './notification/index';
 export * from './notification-badge/index';

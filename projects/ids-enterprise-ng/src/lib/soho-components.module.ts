@@ -52,6 +52,8 @@ import { SohoMastheadModule } from './masthead/soho-masthead.module';
 import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
 import { SohoMessageModule } from './message/soho-message.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
+import { SohoModuleNavModule } from './module-nav/soho-module-nav.module';
+import { SohoModuleNavContainerModule } from './module-nav-container/soho-module-nav-container.module';
 import { SohoMonthViewModule } from './monthview/soho-monthview.module';
 import { SohoNotificationModule } from './notification/soho-notification.module';
 import { SohoNotificationBadgeModule } from './notification-badge/soho-notification-badge.module';
@@ -146,6 +148,8 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoMenuButtonModule,
     SohoMessageModule,
     SohoModalDialogModule,
+    SohoModuleNavModule,
+    SohoModuleNavContainerModule,
     SohoMonthViewModule,
     SohoNotificationModule,
     SohoNotificationBadgeModule,
@@ -237,6 +241,8 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoMastheadModule,
     SohoMenuButtonModule,
     SohoModalDialogModule,
+    SohoModuleNavModule,
+    SohoModuleNavContainerModule,
     SohoMonthViewModule,
     SohoNotificationModule,
     SohoNotificationBadgeModule,

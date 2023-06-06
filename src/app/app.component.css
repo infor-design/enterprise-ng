@@ -2,6 +2,15 @@ soho-masthead {
   display: block;
 }
 
+demoapp-nav-container,
+module-nav-demo {
+  display: block;
+}
+
+app-masthead-demo + demoapp-nav-container {
+  height: calc(100vh - 38px); /* 38px = masthead height */
+}
+
 .code-tag {
   font-size: 12px;
   font-size: 1.2rem;

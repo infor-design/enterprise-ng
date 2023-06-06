@@ -4,11 +4,11 @@
 
 /** Defines options present in the Soho Module Nav Settings */
 interface SohoModuleNavSettingsOptions {
-  displayMode: SohoModuleNavDisplayMode;
+  displayMode?: SohoModuleNavDisplayMode;
 }
 
 /** Public API for Soho Module Nav Settings JS component */
-interface SohoModuleNavSettings {
+interface SohoModuleNavSettingsStatic {
   /** Module Nav Switcher's current settings */
   settings: SohoModuleNavSettingsOptions;
 
@@ -27,6 +27,9 @@ interface SohoModuleNavSettings {
   /** Reference to the settings menu's Soho Popupmenu API, if one is available*/
   menuAPI?: SohoPopupMenuStatic;
 
+  /** Initializes the jQuery component */
+  init(): void;
+
   /** Changes the Module Nav Switcher's Display Mode */
   setDisplayMode(val?: SohoModuleNavDisplayMode): void;
 
@@ -36,8 +39,8 @@ interface SohoModuleNavSettings {
   /** Tear down the markup for the control */
   teardown(): void;
 
-  /** Updates the monthview with any new settings */
-  updated(): void;
+  /** Updates the Module Nav Settings with any new settings */
+  updated(newSettings?: SohoModuleNavSettingsOptions): void;
 
   /** Destroys the control on completion. */
   destroy(): void;
