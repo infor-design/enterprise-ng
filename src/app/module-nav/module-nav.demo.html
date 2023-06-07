@@ -1,13 +1,7 @@
 <div class="module-nav-bar">
-  <soho-accordion
-    [ngClass]="{
-      'accordion': true,
-      'panel': true,
-      'module-nav-accordion': true
-    }"
-    [allowOnePane]="false"
-    [rerouteOnLinkClick]="false">
-
+  <div soho-accordion
+    class="accordion panel module-nav-accordion"
+    data-options="{ allowOnePane: false, rerouteOnLinkClick: false }">
     <div class="module-nav-header accordion-section">
       <div class="module-nav-switcher">
         <div class="module-nav-section role-dropdown">
@@ -42,401 +36,402 @@
 
     <div class="module-nav-main accordion-section">
       <!-- A -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>A</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['about']"><span>About</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['about-nested']"><span>About (Nested)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['accordion']"><span>Accordion</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['accordion/dynamic']"><span>Accordion Dynamic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['accordion/panels']"><span>Accordion Panels</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['accordion/card']"><span>Accordion Card</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['actionsheet']"><span>Actionsheet</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['actionsheet-with-tray']"><span>Actionsheet - Tray</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['alert']"><span>Alert</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['application-lazy-menu']"><span>Application Lazy Menu</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['application-menu-roleswitcher']"><span>Application Menu Role Switcher</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['application-menu-notification-badge']"><span>Application Menu Notification Badge</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['application-menu-test-performance']"><span>Application Menu Test Performance</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['area']"><span>Area Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['arrange']"><span>Arrange</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['autocomplete']"><span>Autocomplete</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['autocomplete-templates']"><span>Autocomplete with Custom Templates</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>A</span></a>
+      </div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['about']"><span>About</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['about-nested']"><span>About (Nested)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['accordion']"><span>Accordion</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['accordion/dynamic']"><span>Accordion Dynamic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['accordion/panels']"><span>Accordion Panels</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['accordion/card']"><span>Accordion Card</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['actionsheet']"><span>Actionsheet</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['actionsheet-with-tray']"><span>Actionsheet - Tray</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['alert']"><span>Alert</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['application-lazy-menu']"><span>Application Lazy Menu</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['application-menu-roleswitcher']"><span>Application Menu Role Switcher</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['application-menu-notification-badge']"><span>Application Menu Notification Badge</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['application-menu-test-performance']"><span>Application Menu Test Performance</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['area']"><span>Area Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['arrange']"><span>Arrange</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['autocomplete']"><span>Autocomplete</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['autocomplete-templates']"><span>Autocomplete with Custom Templates</span></a></div>
+      </div>
 
       <!-- B -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>B</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['bar']"><span>Bar Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['bar-grouped']"><span>Bar Chart-Grouped</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['bar-stacked']"><span>Bar Chart-Stacked</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['blockgrid-custom-content']"><span>BlockGrid - Custom Content</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['blockgrid-mixed-selection']"><span>BlockGrid - Mixed Selection</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['blockgrid-multi-selection']"><span>BlockGrid - Multi Selection</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['blockgrid-paging']"><span>BlockGrid - Paging</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['blockgrid-single-selection']"><span>BlockGrid - Single Selection</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['breadcrumb']"><span>Breadcrumb</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['breadcrumb-change-contents']"><span>Breadcrumb - Change Contents</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['breadcrumb-css-only']"><span>Breadcrumb - CSS Only</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['breadcrumb-gauntlet']"><span>Breadcrumb Gauntlet</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['bubble']"><span>Bubble Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['bullet']"><span>Bullet Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['button']"><span>Button</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['button-badge']"><span>Button Badge</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['buttonset']"><span>Buttonset</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['busyindicator']"><span>Busy Indicator</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['busyindicatorbody']"><span>Busy Indicator Body</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>B</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['bar']"><span>Bar Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['bar-grouped']"><span>Bar Chart-Grouped</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['bar-stacked']"><span>Bar Chart-Stacked</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['blockgrid-custom-content']"><span>BlockGrid - Custom Content</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['blockgrid-mixed-selection']"><span>BlockGrid - Mixed Selection</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['blockgrid-multi-selection']"><span>BlockGrid - Multi Selection</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['blockgrid-paging']"><span>BlockGrid - Paging</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['blockgrid-single-selection']"><span>BlockGrid - Single Selection</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['breadcrumb']"><span>Breadcrumb</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['breadcrumb-change-contents']"><span>Breadcrumb - Change Contents</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['breadcrumb-css-only']"><span>Breadcrumb - CSS Only</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['breadcrumb-gauntlet']"><span>Breadcrumb Gauntlet</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['bubble']"><span>Bubble Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['bullet']"><span>Bullet Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['button']"><span>Button</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['button-badge']"><span>Button Badge</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['buttonset']"><span>Buttonset</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['busyindicator']"><span>Busy Indicator</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['busyindicatorbody']"><span>Busy Indicator Body</span></a></div>
+      </div>
 
       <!-- C -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>C</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['calendar-monthview']"><span>Calendar Monthview</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['calendar-monthview-legend']"><span>Calendar Monthview and Legend</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['calendar-monthview-hide-legend']"><span>Calendar Hide Legend</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['calendar-updated']"><span>Calendar - using updated()</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['calendar-range']"><span>Calendar - using display range</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['cards']"><span>Cards</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['cards-actionable']"> Cards - Actionable</a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['cards-expandable']"><span>Cards - Expandable</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['cards-multi-select']"><span>Cards - Multi Select</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['cards-single-select']"><span>Cards - Single Select</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['cards-workspace-widgets']"><span>Cards - Workspace Widgets</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['chart']"><span>Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['checkbox']"><span>Checkbox</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['circlepager']"><span>Circle Pager</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['code-block']"><span>Code Block</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['colorpicker']"><span>Color Picker</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['column']"><span>Column Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['column-yaxis-format']"><span>Column Chart Yaxis Formatter</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['column-grouped']"><span>Column Chart-Grouped</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['column-grouped-xaxis-twoline']"><span>Column Chart-Grouped-xAxis-Twoline</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['column-stacked']"><span>Column Chart-Stacked</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['completion-chart']"><span>Completion Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['context-menu']"><span>Context Menu</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['context-menu-lazy-load']"><span>Context Menu (lazy load)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['context-menu-nested']"><span>Context Menu (nested)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['context-menu-shared']"><span>Context Menu (shared)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['context-menu-toggle']"><span>Context Menu (toggle)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['contextual-action-panel']"><span>Contextual Action Panel</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>C</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['calendar-monthview']"><span>Calendar Monthview</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['calendar-monthview-legend']"><span>Calendar Monthview and Legend</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['calendar-monthview-hide-legend']"><span>Calendar Hide Legend</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['calendar-updated']"><span>Calendar - using updated()</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['calendar-range']"><span>Calendar - using display range</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['cards']"><span>Cards</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['cards-actionable']"> Cards - Actionable</a></div>
+        <div class="accordion-header"><a [routerLink]="['cards-expandable']"><span>Cards - Expandable</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['cards-multi-select']"><span>Cards - Multi Select</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['cards-single-select']"><span>Cards - Single Select</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['cards-workspace-widgets']"><span>Cards - Workspace Widgets</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['chart']"><span>Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['checkbox']"><span>Checkbox</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['circlepager']"><span>Circle Pager</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['code-block']"><span>Code Block</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['colorpicker']"><span>Color Picker</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['column']"><span>Column Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['column-yaxis-format']"><span>Column Chart Yaxis Formatter</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['column-grouped']"><span>Column Chart-Grouped</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['column-grouped-xaxis-twoline']"><span>Column Chart-Grouped-xAxis-Twoline</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['column-stacked']"><span>Column Chart-Stacked</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['completion-chart']"><span>Completion Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['context-menu']"><span>Context Menu</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['context-menu-lazy-load']"><span>Context Menu (lazy load)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['context-menu-nested']"><span>Context Menu (nested)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['context-menu-shared']"><span>Context Menu (shared)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['context-menu-toggle']"><span>Context Menu (toggle)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['contextual-action-panel']"><span>Contextual Action Panel</span></a></div>
+      </div>
 
       <!-- D -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>D</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['datagrid-sandbox']"><span>DataGrid - Sandbox</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-add-row']"><span>DataGrid - Add Row</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-angular-editor']"><span>DataGrid - Angular Editors</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-angular-formatter']"><span>DataGrid - Angular Formatters</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-angular-card-formatter']"><span>DataGrid - Angular Card Formatter</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-code-block-formatter']"><span>DataGrid - Code Block Formatter</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-code-block-editor']"><span>DataGrid - Code Block Editor</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-custom-formatter']"><span>DataGrid - Custom Formatter</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-custom-formatter-service']"><span>DataGrid - Custom Formatter Service</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-dirty-indication']"><span>DataGrid - Dirty Indication</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-dynamic']"><span>DataGrid - Dynamic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-editors']"><span>DataGrid - Editors</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-empty-message']"><span>DataGrid - Empty Message</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-export-without-datagrid']"><span>DataGrid - Export without Datagrid</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-fixedheader']"><span>DataGrid - Fixed Header</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-frozen-column']"><span>DataGrid - Frozen Column Refresh</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-groupedheader']"><span>DataGrid - Grouped Header</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-groupable']"><span>DataGrid - Groups</span></a></soho-accordion-header>
+        <a href="#"><span>D</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['datagrid-sandbox']"><span>DataGrid - Sandbox</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-add-row']"><span>DataGrid - Add Row</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-angular-editor']"><span>DataGrid - Angular Editors</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-angular-formatter']"><span>DataGrid - Angular Formatters</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-angular-card-formatter']"><span>DataGrid - Angular Card Formatter</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-code-block-formatter']"><span>DataGrid - Code Block Formatter</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-code-block-editor']"><span>DataGrid - Code Block Editor</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-custom-formatter']"><span>DataGrid - Custom Formatter</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-custom-formatter-service']"><span>DataGrid - Custom Formatter Service</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-dirty-indication']"><span>DataGrid - Dirty Indication</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-dynamic']"><span>DataGrid - Dynamic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-editors']"><span>DataGrid - Editors</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-empty-message']"><span>DataGrid - Empty Message</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-export-without-datagrid']"><span>DataGrid - Export without Datagrid</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-fixedheader']"><span>DataGrid - Fixed Header</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-frozen-column']"><span>DataGrid - Frozen Column Refresh</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-groupedheader']"><span>DataGrid - Grouped Header</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-groupable']"><span>DataGrid - Groups</span></a></div>
 
-        <soho-accordion-header><a [routerLink]="['datagrid-lookup-click-function']"><span>DataGrid - Lookup Click Function</span></a></soho-accordion-header>
+        <div class="accordion-header"><a [routerLink]="['datagrid-lookup-click-function']"><span>DataGrid - Lookup Click Function</span></a></div>
 
-        <soho-accordion-header><a [routerLink]="['datagrid-mixed-selection']"><span>DataGrid - Mixed Selection Mode</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-paging-service']"><span>DataGrid - Paging Service</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-paging-indeterminate']"><span>DataGrid - Paging Indeterminate</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-popupmenu-toolbar']"><span>DataGrid - Popup Menu Toolbar</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-rowreorder']"><span>DataGrid - Row Reorder</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-save-user-settings']"><span>DataGrid - Save User Settings</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-standalone-pager']"><span>DataGrid - Standalone Pager</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-standard-formatter']"><span>DataGrid - Standard Formatter</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-service']"><span>DataGrid - Service</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-tab']"><span>DataGrid - Tab</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-test-settings']"><span>DataGrid - Test Settings</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-breadcrumb']"><span>DataGrid - Toolbar and Breadcrumb</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-treegrid']"><span>DataGrid - TreeGrid</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-treegrid-cube']"><span>DataGrid - TreeGridCube</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-treegrid-lazy']"><span>DataGrid - TreeGrid Lazy</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-treegrid-dynamicfilter']"><span>DataGrid - TreeGrid Dynamic Filter</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-settings']"><span>DataGrid - Updatable Settings</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-vertical-scroll']"><span>DataGrid - Vertical Scroll</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-expandable-row']"><span>DataGrid - Expandable Row</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-expandable-row-dynamic']"><span>DataGrid - Expandable Row (dynamic component)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-expandable-row-nested']"><span>DataGrid - Expandable Row (Nested)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-summary-row']"><span>DataGrid - Summary Row</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datagrid-rowspan']"><span>DataGrid - Row Span</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['datepicker']"><span>Date Picker</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['donut']"><span>Donut Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['donut-colors']"><span>Donut Chart - Colors</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['drag']"><span>Drag</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown-async']"><span>Dropdown - Async</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown-async-busy']"><span>Dropdown - Async Busy</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown-multi']"><span>Dropdown - Multi-Select</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown-multi-landmark']"><span>Dropdown - Multi-Select (Keep Selected)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown-multi-attributes']"><span>Dropdown - Multi-Select (Attributes)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown-reactive']"><span>Dropdown - Reactive Form</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown']"><span>Dropdown - Single-Select</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown-simple']"><span>Dropdown - Simple</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['dropdown-typeahead']"><span>Dropdown - Typeahead</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <div class="accordion-header"><a [routerLink]="['datagrid-mixed-selection']"><span>DataGrid - Mixed Selection Mode</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-paging-service']"><span>DataGrid - Paging Service</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-paging-indeterminate']"><span>DataGrid - Paging Indeterminate</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-popupmenu-toolbar']"><span>DataGrid - Popup Menu Toolbar</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-rowreorder']"><span>DataGrid - Row Reorder</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-save-user-settings']"><span>DataGrid - Save User Settings</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-standalone-pager']"><span>DataGrid - Standalone Pager</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-standard-formatter']"><span>DataGrid - Standard Formatter</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-service']"><span>DataGrid - Service</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-tab']"><span>DataGrid - Tab</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-test-settings']"><span>DataGrid - Test Settings</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-breadcrumb']"><span>DataGrid - Toolbar and Breadcrumb</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-treegrid']"><span>DataGrid - TreeGrid</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-treegrid-cube']"><span>DataGrid - TreeGridCube</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-treegrid-lazy']"><span>DataGrid - TreeGrid Lazy</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-treegrid-dynamicfilter']"><span>DataGrid - TreeGrid Dynamic Filter</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-settings']"><span>DataGrid - Updatable Settings</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-vertical-scroll']"><span>DataGrid - Vertical Scroll</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-expandable-row']"><span>DataGrid - Expandable Row</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-expandable-row-dynamic']"><span>DataGrid - Expandable Row (dynamic component)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-expandable-row-nested']"><span>DataGrid - Expandable Row (Nested)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-summary-row']"><span>DataGrid - Summary Row</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datagrid-rowspan']"><span>DataGrid - Row Span</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['datepicker']"><span>Date Picker</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['donut']"><span>Donut Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['donut-colors']"><span>Donut Chart - Colors</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['drag']"><span>Drag</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown-async']"><span>Dropdown - Async</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown-async-busy']"><span>Dropdown - Async Busy</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown-multi']"><span>Dropdown - Multi-Select</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown-multi-landmark']"><span>Dropdown - Multi-Select (Keep Selected)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown-multi-attributes']"><span>Dropdown - Multi-Select (Attributes)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown-reactive']"><span>Dropdown - Reactive Form</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown']"><span>Dropdown - Single-Select</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown-simple']"><span>Dropdown - Simple</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['dropdown-typeahead']"><span>Dropdown - Typeahead</span></a></div>
+      </div>
 
       <!-- E -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>E</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['emptymessage']"><span>Empty Message</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['error']"><span>Error</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['expandablearea']"><span>Expandable Area</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['expandablearea-footer']"><span>Expandable Area With Footer</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>E</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['emptymessage']"><span>Empty Message</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['error']"><span>Error</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['expandablearea']"><span>Expandable Area</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['expandablearea-footer']"><span>Expandable Area With Footer</span></a></div>
+      </div>
 
       <!-- F -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>F</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['field-filter']"><span>Field Filter</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['field-options']"><span>Field Options</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['field-options-popdown']"><span>Field Options Popdown</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['fileupload']"><span>File Upload</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['fileupload-lm']"><span>File Upload - Landmark Example</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['fileupload-advanced']"><span>File Upload Advanced</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['form-compact']"><span>Form - Compact</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['form-reactive']"><span>Form - Reactive</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>F</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['field-filter']"><span>Field Filter</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['field-options']"><span>Field Options</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['field-options-popdown']"><span>Field Options Popdown</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['fileupload']"><span>File Upload</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['fileupload-lm']"><span>File Upload - Landmark Example</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['fileupload-advanced']"><span>File Upload Advanced</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['form-compact']"><span>Form - Compact</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['form-reactive']"><span>Form - Reactive</span></a></div>
+      </div>
 
       <!-- H -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>H</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['header-toolbar']"><span>Header - Toolbar</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['header-tabs']"><span>Header - Tabs</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['header-toggle-buttons']"><span>Header - Toggle buttons</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['header-toolbar-tabs']"><span>Header - Toolbar And Tabs</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['header-searchfield']"><span>Header - Searchfield</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['header-searchfield-flex']"><span>Header - Searchfield Flex</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['header-searchfield-category']"><span>Header - Searchfield Category</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['homepage']"><span>Homepage</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['homepage-editable']"><span>Homepage Editable</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['homepage-editable-filled']"><span>Homepage Editable Filled Widget</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['homepage-scenario-a']"><span>Homepage Scenario A</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['homepage-scenario-b']"><span>Homepage Scenario B</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['homepage-scenario-c']"><span>Homepage Scenario C</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['hierarchy']"><span>Hierarchy</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['hierarchy-paging']"><span>Hierarchy Paging</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['hyperlink']"><span>Hyperlink</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>H</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['header-toolbar']"><span>Header - Toolbar</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['header-tabs']"><span>Header - Tabs</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['header-toggle-buttons']"><span>Header - Toggle buttons</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['header-toolbar-tabs']"><span>Header - Toolbar And Tabs</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['header-searchfield']"><span>Header - Searchfield</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['header-searchfield-flex']"><span>Header - Searchfield Flex</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['header-searchfield-category']"><span>Header - Searchfield Category</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['homepage']"><span>Homepage</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['homepage-editable']"><span>Homepage Editable</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['homepage-editable-filled']"><span>Homepage Editable Filled Widget</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['homepage-scenario-a']"><span>Homepage Scenario A</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['homepage-scenario-b']"><span>Homepage Scenario B</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['homepage-scenario-c']"><span>Homepage Scenario C</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['hierarchy']"><span>Hierarchy</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['hierarchy-paging']"><span>Hierarchy Paging</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['hyperlink']"><span>Hyperlink</span></a></div>
+      </div>
 
       <!-- I -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>I</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['icon']"><span>Icon</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['input-clearable']"><span>Input - Clear</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>I</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['icon']"><span>Icon</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['input-clearable']"><span>Input - Clear</span></a></div>
+      </div>
 
       <!-- L -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>L</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['label']"><span>Label</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['line']"><span>Line Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['listbuilder']"><span>List Builder</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['listview']"><span>List View</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['listview-custom']"><span>List View - Custom Content</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['listview-context']"><span>List View - Context</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['locale-pipe']"><span>Locale - Pipes</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['lookup']"><span>Lookup</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['lookup-landmark']"><span>Lookup - Landmark Example</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['lookup-validation']"><span>Lookup - Form Control</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['lookup-source']"><span>Lookup - Source</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['lookup-desc']"><span>Lookup - Description Only</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>L</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['label']"><span>Label</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['line']"><span>Line Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['listbuilder']"><span>List Builder</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['listview']"><span>List View</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['listview-custom']"><span>List View - Custom Content</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['listview-context']"><span>List View - Context</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['locale-pipe']"><span>Locale - Pipes</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['lookup']"><span>Lookup</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['lookup-landmark']"><span>Lookup - Landmark Example</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['lookup-validation']"><span>Lookup - Form Control</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['lookup-source']"><span>Lookup - Source</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['lookup-desc']"><span>Lookup - Description Only</span></a></div>
+      </div>
 
       <!-- M -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>M</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['mask']"><span>Mask</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['mask-legacy']"><span>Mask Legacy</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['menu-button']"><span>Menu Button</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['message']"><span>Message</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['module-nav']"><span>Module Nav</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['modal-dialog']"><span>Modal Dialog</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['monthview']">Monthview</a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['monthview-inpage']">Monthview - In Page</a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['monthview-legend']">Monthview - Legend</a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>M</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['mask']"><span>Mask</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['mask-legacy']"><span>Mask Legacy</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['menu-button']"><span>Menu Button</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['message']"><span>Message</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['module-nav']"><span>Module Nav</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['modal-dialog']"><span>Modal Dialog</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['monthview']">Monthview</a></div>
+        <div class="accordion-header"><a [routerLink]="['monthview-inpage']">Monthview - In Page</a></div>
+        <div class="accordion-header"><a [routerLink]="['monthview-legend']">Monthview - Legend</a></div>
+      </div>
 
       <!-- N -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>N</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['notification']"><span>Notification</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['notification-badge-placement']"><span>Notification Badge - Placement</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['notification-badge-show-hide']"><span>Notification Badge - Show/Hide</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>N</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['notification']"><span>Notification</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['notification-badge-placement']"><span>Notification Badge - Placement</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['notification-badge-show-hide']"><span>Notification Badge - Show/Hide</span></a></div>
+      </div>
 
       <!-- P -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>P</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['pager-standalone']"><span>Pager - Standalone</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['personalize-color-api']"><span>Personalize Color API</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['pie']"><span>Pie Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['popupmenu']"><span>Popup Menu Options</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['popdown']"><span>Popdown</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['progress']"><span>Progress</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>P</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['pager-standalone']"><span>Pager - Standalone</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['personalize-color-api']"><span>Personalize Color API</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['pie']"><span>Pie Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['popupmenu']"><span>Popup Menu Options</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['popdown']"><span>Popdown</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['progress']"><span>Progress</span></a></div>
+      </div>
 
       <!-- R -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>R</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['radar']"><span>Radar Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['radiobutton']"><span>Radio Button</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['rating']"><span>Rating</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['editor']"><span>Rich Text Editor</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>R</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['radar']"><span>Radar Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['radiobutton']"><span>Radio Button</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['rating']"><span>Rating</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['editor']"><span>Rich Text Editor</span></a></div>
+      </div>
 
       <!-- S -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>S</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['searchfield']"><span>Search Field</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['searchfield-category']"><span>Search Field - Category</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['searchfield-category-update']"><span>Search Field - Category Update</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['searchfield-clear']"><span>Search Field - Clear</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['slider']"><span>Slider</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['sparkline']"><span>Sparkline Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['spinbox']"><span>Spinbox</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['splitter-vertical']"><span>Splitter - Vertical</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['splitter-horizontal']"><span>Splitter - Horizontal </span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['step-chart']"><span>Step Chart</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['step-chart-color']"><span>Step Chart - Color</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['step-process']"><span>Step Process - Basic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['step-process-btn-disble']"><span>Step Process - Disable Buttons</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['step-data-driven']"><span>Step Process - Data Driven</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['step-process-vetoable']"><span>Step Process - Vetoable</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['swaplist']"><span>Swap List - Basic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['swaplist-dynamic']"><span>Swap List - Dynamic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['swaplist-full-access']"><span>Swap List - Full Access</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['swaplist-search']"><span>Swap List - Search</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['swaplist-service']"><span>Swap List - Service</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['swipe-action']"><span>Swipe Action</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>S</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['searchfield']"><span>Search Field</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['searchfield-category']"><span>Search Field - Category</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['searchfield-category-update']"><span>Search Field - Category Update</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['searchfield-clear']"><span>Search Field - Clear</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['slider']"><span>Slider</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['sparkline']"><span>Sparkline Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['spinbox']"><span>Spinbox</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['splitter-vertical']"><span>Splitter - Vertical</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['splitter-horizontal']"><span>Splitter - Horizontal </span></a></div>
+        <div class="accordion-header"><a [routerLink]="['step-chart']"><span>Step Chart</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['step-chart-color']"><span>Step Chart - Color</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['step-process']"><span>Step Process - Basic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['step-process-btn-disble']"><span>Step Process - Disable Buttons</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['step-data-driven']"><span>Step Process - Data Driven</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['step-process-vetoable']"><span>Step Process - Vetoable</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['swaplist']"><span>Swap List - Basic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['swaplist-dynamic']"><span>Swap List - Dynamic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['swaplist-full-access']"><span>Swap List - Full Access</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['swaplist-search']"><span>Swap List - Search</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['swaplist-service']"><span>Swap List - Service</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['swipe-action']"><span>Swipe Action</span></a></div>
+      </div>
 
       <!-- T -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>T</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['tabs-basic']"><span>Tabs - Basic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tabs-counts']"><span>Tabs - Counts</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tabs-dismissible']"><span>Tabs - Dismissible</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tabs-dropdown']"><span>Tabs - Dropdown</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tabs-datadriven']"><span>Tabs - Data-driven</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tabs-dynamic']"><span>Tabs - Dynamic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tabs-resize']"><span>Tabs - Resize</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tabs-module']">Tabs - Module</a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tabs-vertical']"><span>Tabs - Vertical</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tags']"><span>Tags</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['textarea']"><span>Text Area</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['textarea-dirty']"><span>Text Area - Dirty</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['timepicker']"><span>Time Picker</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toast']"><span>Toast</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-basic']"><span>Toolbar - Basic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-all-icons']"><span>Toolbar - All Icons </span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-datadriven']"><span>Toolbar - Data-driven</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-more-actions-ajax']"><span>Toolbar - More Actions Ajax</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-state']"><span>Toolbar - State</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-right-aligned']"><span>Toolbar - No Title / Right Aligned</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-flex-basic']"><span>Toolbar Flex - Basic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-flex-datagrid']"><span>Toolbar Flex - Datagrid</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-flex-more-actions-ajax']"><span>Toolbar Flex - More Actions Ajax</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['toolbar-flex-searchfield']"><span>Toolbar Flex - Searchfield</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tooltip']"><span>Tooltip</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tooltip-nested']"><span>Tooltip (Nested)</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['trackdirty']"><span>Track Dirty</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tree-content']"><span>Tree - Content</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tree-dynamic']"><span>Tree - Dynamic</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tree-expand-target']"><span>Tree - Expand Target</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tree-service']"><span>Tree - Service</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['tree-source']"><span>Tree - Source</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['treemap']"><span>Tree Map</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>T</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['tabs-basic']"><span>Tabs - Basic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tabs-counts']"><span>Tabs - Counts</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tabs-dismissible']"><span>Tabs - Dismissible</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tabs-dropdown']"><span>Tabs - Dropdown</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tabs-datadriven']"><span>Tabs - Data-driven</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tabs-dynamic']"><span>Tabs - Dynamic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tabs-resize']"><span>Tabs - Resize</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tabs-module']">Tabs - Module</a></div>
+        <div class="accordion-header"><a [routerLink]="['tabs-vertical']"><span>Tabs - Vertical</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tags']"><span>Tags</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['textarea']"><span>Text Area</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['textarea-dirty']"><span>Text Area - Dirty</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['timepicker']"><span>Time Picker</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toast']"><span>Toast</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-basic']"><span>Toolbar - Basic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-all-icons']"><span>Toolbar - All Icons </span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-datadriven']"><span>Toolbar - Data-driven</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-more-actions-ajax']"><span>Toolbar - More Actions Ajax</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-state']"><span>Toolbar - State</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-right-aligned']"><span>Toolbar - No Title / Right Aligned</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-flex-basic']"><span>Toolbar Flex - Basic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-flex-datagrid']"><span>Toolbar Flex - Datagrid</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-flex-more-actions-ajax']"><span>Toolbar Flex - More Actions Ajax</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['toolbar-flex-searchfield']"><span>Toolbar Flex - Searchfield</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tooltip']"><span>Tooltip</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tooltip-nested']"><span>Tooltip (Nested)</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['trackdirty']"><span>Track Dirty</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tree-content']"><span>Tree - Content</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tree-dynamic']"><span>Tree - Dynamic</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tree-expand-target']"><span>Tree - Expand Target</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tree-service']"><span>Tree - Service</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['tree-source']"><span>Tree - Source</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['treemap']"><span>Tree Map</span></a></div>
+      </div>
 
       <!-- V -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>V</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['validation']"><span>Validation</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['validation-event']"><span>Validation - Event</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['validation-group']"><span>Validation - FormGroup & Mask</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>V</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['validation']"><span>Validation</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['validation-event']"><span>Validation - Event</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['validation-group']"><span>Validation - FormGroup & Mask</span></a></div>
+      </div>
 
       <!-- W -->
-      <soho-accordion-header>
+      <div class="accordion-header">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-folder"></use>
         </svg>
-        <a href="javascript:void(0);"><span>W</span></a></soho-accordion-header>
-      <soho-accordion-pane>
-        <soho-accordion-header><a [routerLink]="['week-view']"><span>Week view</span></a></soho-accordion-header>
-        <soho-accordion-header><a [routerLink]="['wizard']"><span>Wizard</span></a></soho-accordion-header>
-      </soho-accordion-pane>
+        <a href="#"><span>W</span></a></div>
+      <div class="accordion-pane">
+        <div class="accordion-header"><a [routerLink]="['week-view']"><span>Week view</span></a></div>
+        <div class="accordion-header"><a [routerLink]="['wizard']"><span>Wizard</span></a></div>
+      </div>
     </div>
 
     <div class="module-nav-footer accordion-section">
@@ -532,7 +527,7 @@
         </li>
       </ul>
     </div>
-  </soho-accordion>
+  </div>
 </div>
 <div class="module-nav-detail">
   <!-- Reports pane, etc -->

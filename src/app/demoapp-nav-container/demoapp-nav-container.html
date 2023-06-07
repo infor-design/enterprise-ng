@@ -30,7 +30,9 @@
       [ngClass]="{ 'module-nav-container': true }">
     <soho-module-nav
       [ngClass]="{ 'module-nav': true }"
-      [displayMode]="moduleNavDisplayMode">
+      [displayMode]="'expanded'"
+      [filterable]="true"
+      [pinSections]="true">
       <module-nav-demo></module-nav-demo>
     </soho-module-nav>
     <div class="page-container no-scroll">

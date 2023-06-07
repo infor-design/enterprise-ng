@@ -58,12 +58,39 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   // -------------------------------------------
 
   @Input() set displayMode(val: SohoModuleNavDisplayModeAccessor) {
+    console.info('set display mode')
     this._options.displayMode = val;
     this.updated({ displayMode: this._options.displayMode });
-    if (this.modulenav) this.modulenav.settings.displayMode = this._options.displayMode;
   }
   public get displayMode(): SohoModuleNavDisplayModeAccessor {
     return this.modulenav?.settings.displayMode || this._options.displayMode;
+  }
+
+  @Input() set filterable(val: boolean) {
+    console.info('set filterable')
+    this._options.filterable = val;
+    this.updated({ filterable: this._options.filterable });
+  }
+  public get filterable(): boolean {
+    return this.modulenav?.settings.filterable || this._options.filterable || false;
+  }
+
+  @Input() set pinSections(val: boolean) {
+    console.info('set pin sections')
+    this._options.pinSections = val;
+    this.updated({ pinSections: this._options.pinSections });
+  }
+  public get pinSections(): boolean {
+    return this.modulenav?.settings.pinSections || this._options.pinSections || false;
+  }
+
+  @Input() set showDetailView(val: boolean) {
+    console.info('set show detail view')
+    this._options.showDetailView = val;
+    this.updated({ showDetailView: this._options.showDetailView });
+  }
+  public get showDetailView(): boolean {
+    return this.modulenav?.settings.showDetailView || this._options.showDetailView || false;
   }
 
   // -------------------------------------------
@@ -97,7 +124,7 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   /** Triggers a UI Resync. */
   public updated(val?: SohoModuleNavOptions) {
     if (val) {
-      this._options = val;
+      this._options = jQuery.extend({}, this._options, val);
       if (this.modulenav) {
         this.ngZone.runOutsideAngular(() => {
           this.modulenav?.updated(this._options);
@@ -120,22 +147,9 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
       this.jQueryElement.modulenav(this._options);
       this.modulenav = this.jQueryElement.data('modulenav');
-
-      // Initialise any event handlers.
-      /*
-      this.jQueryElement
-        .on('expand', (_e, results: any[]) => this.ngZone.run(() => this.accordionExpand.next(results)))
-        .on('collapse', () => this.ngZone.run(() => this.accordionCollapse.next(true)))
-        .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
-        .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
-        .on('filtered', (_e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
-        .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))
-        .on('applicationmenuclose', () => this.ngZone.run(() => this.menuVisibility.next(false)));
-        */
     });
   }
 
-  /** */
   ngAfterViewChecked() {
     if (this.modulenav && this._updateRequired) {
       this.ngZone.runOutsideAngular(() => this.modulenav?.updated());
@@ -143,7 +157,6 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
     }
   }
 
-  /** Destructor. */
   ngOnDestroy() {
     // call outside the angular zone so change detection
     // isn't triggered by the soho component.
