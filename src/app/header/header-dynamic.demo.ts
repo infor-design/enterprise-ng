@@ -143,7 +143,6 @@ export class SohoHeaderDynamicDemoComponent {
   }
 
   onAppMenuTriggerClick() {
-    console.info('does it work?');
-    console.dir(this);
+    console.info('App Menu trigger click');
   }
 }

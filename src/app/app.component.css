@@ -2,9 +2,12 @@ soho-masthead {
   display: block;
 }
 
-demoapp-nav-container,
-module-nav-demo {
+demoapp-nav-container {
   display: block;
+}
+
+module-nav-demo {
+  display: contents;
 }
 
 app-masthead-demo + demoapp-nav-container {

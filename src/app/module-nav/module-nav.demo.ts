@@ -15,5 +15,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModuleNavDemoComponent {
+  public searchfieldOptions: SohoSearchFieldOptions = {
 
+  }
+
+  onChange(e: any) {
+    console.dir(e);
+  }
 }

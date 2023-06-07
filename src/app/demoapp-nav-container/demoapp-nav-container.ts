@@ -69,7 +69,7 @@ export class DemoappNavContainerComponent implements AfterViewInit {
    */
   public get menuType(): DemoappMenuStyle {
     const menuType = localStorage.getItem(this.MENU_TYPE_KEY) as DemoappMenuStyle | undefined;
-    return menuType ? menuType : APP_MENU;
+    return menuType ? menuType : MODULE_NAV;
   }
 
   /**

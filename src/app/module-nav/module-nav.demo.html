@@ -1,20 +1,52 @@
 <div class="module-nav-bar">
   <soho-accordion
-    [ngClass]="{ 'accordion': true, 'panel': true, 'module-nav-accordion': true }"
+    [ngClass]="{
+      'accordion': true,
+      'panel': true,
+      'module-nav-accordion': true
+    }"
     [allowOnePane]="false"
     [rerouteOnLinkClick]="false">
 
-    <div class="module-nav-switcher accordion-section">
-
+    <div class="module-nav-header accordion-section">
+      <div class="module-nav-switcher">
+        <div class="module-nav-section role-dropdown">
+          <label for="module-nav-role-switcher" class="label audible">Roles</label>
+          <select id="module-nav-role-switcher" name="module-nav-role-switcher" class="dropdown"
+            data-automation-id="custom-automation-dropdown-id">
+            <option value="admin" data-icon="{icon: 'database'}">Admin</option>
+            <option value="job-console" data-icon="{icon: 'database'}">Job Console</option>
+            <option value="landing-page-designer" data-icon="{icon: 'database'}">Landing Page Designer</option>
+            <option value="process-server-admin" data-icon="{icon: 'database'}">Process Server Administrator</option>
+            <option value="proxy-management" data-icon="{icon: 'database'}">Proxy Management</option>
+            <option value="security-system-management" data-icon="{icon: 'database'}">Security System Management</option>
+            <option value="user-management" data-icon="{icon: 'database'}">User Management</option>
+          </select>
+        </div>
+      </div>
     </div>
 
-    <div class="module-nav-search accordion-section">
-
+    <div class="module-nav-search-container accordion-section">
+      <label for="module-nav-searchfield" class="audible">Search</label>
+      <input soho-searchfield
+        id="module-nav-searchfield"
+        name="module-nav-searchfield"
+        placeholder="Search"
+        [ngClass]="{
+          'searchfield': true,
+          'module-nav-search': true
+        }"
+        [options]="searchfieldOptions"
+        (change)="onChange($event)" />
     </div>
 
     <div class="module-nav-main accordion-section">
       <!-- A -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>A</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>A</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['about']"><span>About</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['about-nested']"><span>About (Nested)</span></a></soho-accordion-header>
@@ -36,7 +68,11 @@
       </soho-accordion-pane>
 
       <!-- B -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>B</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>B</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['bar']"><span>Bar Chart</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['bar-grouped']"><span>Bar Chart-Grouped</span></a></soho-accordion-header>
@@ -60,7 +96,11 @@
       </soho-accordion-pane>
 
       <!-- C -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>C</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>C</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['calendar-monthview']"><span>Calendar Monthview</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['calendar-monthview-legend']"><span>Calendar Monthview and Legend</span></a></soho-accordion-header>
@@ -93,7 +133,11 @@
       </soho-accordion-pane>
 
       <!-- D -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>D</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>D</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['datagrid-sandbox']"><span>DataGrid - Sandbox</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['datagrid-add-row']"><span>DataGrid - Add Row</span></a></soho-accordion-header>
@@ -155,7 +199,11 @@
       </soho-accordion-pane>
 
       <!-- E -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>E</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>E</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['emptymessage']"><span>Empty Message</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['error']"><span>Error</span></a></soho-accordion-header>
@@ -164,7 +212,11 @@
       </soho-accordion-pane>
 
       <!-- F -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>F</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>F</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['field-filter']"><span>Field Filter</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['field-options']"><span>Field Options</span></a></soho-accordion-header>
@@ -177,7 +229,11 @@
       </soho-accordion-pane>
 
       <!-- H -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>H</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>H</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['header-toolbar']"><span>Header - Toolbar</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['header-tabs']"><span>Header - Tabs</span></a></soho-accordion-header>
@@ -198,14 +254,22 @@
       </soho-accordion-pane>
 
       <!-- I -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>I</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>I</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['icon']"><span>Icon</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['input-clearable']"><span>Input - Clear</span></a></soho-accordion-header>
       </soho-accordion-pane>
 
       <!-- L -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>L</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>L</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['label']"><span>Label</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['line']"><span>Line Chart</span></a></soho-accordion-header>
@@ -222,7 +286,11 @@
       </soho-accordion-pane>
 
       <!-- M -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>M</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>M</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['mask']"><span>Mask</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['mask-legacy']"><span>Mask Legacy</span></a></soho-accordion-header>
@@ -236,7 +304,11 @@
       </soho-accordion-pane>
 
       <!-- N -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>N</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>N</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['notification']"><span>Notification</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['notification-badge-placement']"><span>Notification Badge - Placement</span></a></soho-accordion-header>
@@ -244,7 +316,11 @@
       </soho-accordion-pane>
 
       <!-- P -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>P</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>P</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['pager-standalone']"><span>Pager - Standalone</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['personalize-color-api']"><span>Personalize Color API</span></a></soho-accordion-header>
@@ -255,7 +331,11 @@
       </soho-accordion-pane>
 
       <!-- R -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>R</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>R</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['radar']"><span>Radar Chart</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['radiobutton']"><span>Radio Button</span></a></soho-accordion-header>
@@ -264,7 +344,11 @@
       </soho-accordion-pane>
 
       <!-- S -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>S</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>S</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['searchfield']"><span>Search Field</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['searchfield-category']"><span>Search Field - Category</span></a></soho-accordion-header>
@@ -290,7 +374,11 @@
       </soho-accordion-pane>
 
       <!-- T -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>T</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>T</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['tabs-basic']"><span>Tabs - Basic</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['tabs-counts']"><span>Tabs - Counts</span></a></soho-accordion-header>
@@ -328,7 +416,11 @@
       </soho-accordion-pane>
 
       <!-- V -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>V</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>V</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['validation']"><span>Validation</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['validation-event']"><span>Validation - Event</span></a></soho-accordion-header>
@@ -336,7 +428,11 @@
       </soho-accordion-pane>
 
       <!-- W -->
-      <soho-accordion-header><a href="javascript:void(0);"><span>W</span></a></soho-accordion-header>
+      <soho-accordion-header>
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-folder"></use>
+        </svg>
+        <a href="javascript:void(0);"><span>W</span></a></soho-accordion-header>
       <soho-accordion-pane>
         <soho-accordion-header><a [routerLink]="['week-view']"><span>Week view</span></a></soho-accordion-header>
         <soho-accordion-header><a [routerLink]="['wizard']"><span>Wizard</span></a></soho-accordion-header>
@@ -348,7 +444,93 @@
     </div>
 
     <div class="module-nav-settings accordion-section">
-
+      <div class="module-nav-settings-btn accordion-header" data-automation-id="module-nav-settings"
+        id="module-nav-settings-btn">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-settings"></use>
+        </svg>
+        <a href="#"><span>Settings</span></a>
+      </div>
+      <ul class="popupmenu module-nav-settings-menu">
+        <li>
+          <a href="#">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-observation-precautions"></use>
+            </svg>
+            <span>Jobs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-report"></use>
+            </svg>
+            <span>Reports</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-isolation"></use>
+            </svg>
+            <span>Actions</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-edit"></use>
+            </svg>
+            <span>Personalization</span>
+          </a>
+        </li>
+        <li class="separator"></li>
+        <li>
+          <a href="#">
+            <span>Create Report</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>Proxy</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>Set "As Of Date"</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span>User Context</span>
+          </a>
+        </li>
+        <li class="separator"></li>
+        <li>
+          <a href="#">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-settings"></use>
+            </svg>
+            <span>Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-info"></use>
+            </svg>
+            <span>About</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-help"></use>
+            </svg>
+            <span>Help</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </soho-accordion>
 </div>
