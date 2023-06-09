@@ -1,12 +1,13 @@
 # What's New with Enterprise-NG
 
-## 16.4.0
+## 16.4.1
 
-### 16.4.0 Fixes
+### 16.4.1 Fixes
 
 - `[Images]` Added an example page for Image with click handler. ([EP#7007](https://github.com/infor-design/enterprise/issues/7007))
 - `[Lookup]` Updated example page for datagrid editor. ([#7403](https://github.com/infor-design/enterprise/issues/7403))
 - `[General]` Added 4.84.0 EP version.
+- `[General] Added 4.84.0 EP version.
 
 ## 16.3.1
 
