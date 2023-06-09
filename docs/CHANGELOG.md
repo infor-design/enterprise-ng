@@ -1,6 +1,11 @@
 # What's New with Enterprise-NG
 
-## 15.3.1
+## 15.4.1
+
+### 15.4.1 Features
+
+- `[General]` Added 4.84.1 version.
+- `[Misc]` Fixed readonly bindings ([EP#1466](https://github.com/infor-design/enterprise/issues/1466))
 
 ### 15.3.1 Features
 
