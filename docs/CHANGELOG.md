@@ -10,22 +10,6 @@
 ### 15.3.1 Features
 
 - `[General]` Added 4.83.2 version.
-
-## 15.2.0
-## 16.4.0
-
-### 16.4.0 Fixes
-
-- `[Lookup]` Updated example page for datagrid editor. ([7403](https://github.com/infor-design/enterprise/issues/7403))
-
-## 16.3.1
-
-### 16.3.1 Features / Fixes
-
-- `[Weekview]` Added stacked view wrapper and example. ([7373](https://github.com/infor-design/enterprise/issues/7373))
-- `[Card]` Added new settings and typings for card component. ([#7379](https://github.com/infor-design/enterprise/issues/7379))
-- `[General]` Added new NG 16 to the library. ([1481](https://github.com/infor-design/enterprise/issues/1481))
-
 ## 15.3.0
 
 ### 15.3.0 Fixes
