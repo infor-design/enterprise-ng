@@ -12,7 +12,7 @@
 
     <soho-toolbar-flex #appDynamicHeaderToolbar maxVisibleButtons="5" hasMoreButton="!currentToolbarOptions">
 
-      <button soho-toolbar-flex-nav-button>Show Navigation</button>
+      <button soho-toolbar-flex-nav-button (click)="onAppMenuTriggerClick()">Show Navigation</button>
 
       <soho-toolbar-flex-section [isTitle]="true">
         <h1>

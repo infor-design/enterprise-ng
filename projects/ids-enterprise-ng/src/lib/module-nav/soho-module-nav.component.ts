@@ -24,7 +24,8 @@ type SohoModuleNavDisplayModeAccessor = SohoModuleNavDisplayMode | undefined;
  * This Component attaches to an element annotated with the `soho-module-nav` attribute,
  */
 @Component({
-  selector: 'soho-module-nav',
+  selector: 'soho-module-nav, [soho-module-nav]',
+  styleUrls: ['./soho-module-nav.component.css'],
   templateUrl: 'soho-module-nav.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -166,6 +166,15 @@ export class DemoappNavContainerComponent implements AfterViewInit {
 
   }
 
+  /**
+   * Runs after a captured app menu trigger is clicked
+   */
+  toggleModuleNavDisplayMode() {
+    console.info('event captured')
+    const isCurrentlyCollapsed = this.moduleNavDisplayMode === 'collapsed';
+    this.moduleNavDisplayMode = isCurrentlyCollapsed ? 'expanded' : 'collapsed';
+  }
+
   public onMenuVisibility(visible: boolean): void {
     if (this.isApplicationMenuOpen !== visible) {
       this.isApplicationMenuOpen = visible;

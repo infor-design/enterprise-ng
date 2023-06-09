@@ -32,7 +32,8 @@
       [ngClass]="{ 'module-nav': true }"
       [displayMode]="'expanded'"
       [filterable]="true"
-      [pinSections]="true">
+      [pinSections]="true"
+      (appMenuTriggerClick)="toggleModuleNavDisplayMode()">
       <module-nav-demo></module-nav-demo>
     </soho-module-nav>
     <div class="page-container no-scroll has-module-nav-offset">

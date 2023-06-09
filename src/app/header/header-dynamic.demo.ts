@@ -1,7 +1,10 @@
 import {
   Component,
+  EventEmitter,
   HostBinding,
   Input,
+  NgZone,
+  Output,
   ViewChild
 } from '@angular/core';
 import {
@@ -79,6 +82,11 @@ export class SohoHeaderDynamicDemoComponent {
     });
   }
 
+  /**
+   * Triggers NG events that can be picked up by a navigation container
+   */
+  @Output() appMenuTriggerClick = new EventEmitter();
+
   get toolbarSearchField(): ToolbarSearchField {
     return this._toolbarSearchField;
   }
@@ -105,7 +113,11 @@ export class SohoHeaderDynamicDemoComponent {
   public defaultPersonalizeColor?: string | null;
   public defaultPersonalizeTheme?: string | null;
 
-  constructor(private headerRef: HeaderDynamicDemoRefService, public router: Router) {
+  constructor(
+    private headerRef: HeaderDynamicDemoRefService,
+    private ngZone: NgZone,
+    public router: Router,
+  ) {
     this.headerRef.instance = this;
     this.defaultPersonalizeColor = this.getDefaultColor();
     this.defaultPersonalizeTheme = this.getDefaultTheme();
@@ -142,7 +154,11 @@ export class SohoHeaderDynamicDemoComponent {
     return 'default';
   }
 
-  onAppMenuTriggerClick() {
+  onAppMenuTriggerClick(args: MouseEvent) {
     console.info('App Menu trigger click');
+
+    this.ngZone.run(() => {
+      this.appMenuTriggerClick.next(args);
+    });
   }
 }
