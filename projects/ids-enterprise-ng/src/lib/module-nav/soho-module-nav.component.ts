@@ -14,11 +14,6 @@ import {
   forwardRef,
 } from '@angular/core';
 
-// import { SohoAccordionHeaderComponent } from './soho-accordion-header.component';
-// import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
-
-type SohoModuleNavDisplayModeAccessor = SohoModuleNavDisplayMode | undefined;
-
 /**
  * Angular Wrapper for the Soho Module Nav control.
  * This Component attaches to an element annotated with the `soho-module-nav` attribute,
@@ -58,17 +53,15 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   // Inputs
   // -------------------------------------------
 
-  @Input() set displayMode(val: SohoModuleNavDisplayModeAccessor) {
-    console.info('set display mode')
+  @Input() set displayMode(val: SohoModuleNavDisplayMode | undefined) {
     this._options.displayMode = val;
     this.updated({ displayMode: this._options.displayMode });
   }
-  public get displayMode(): SohoModuleNavDisplayModeAccessor {
+  public get displayMode(): SohoModuleNavDisplayMode | undefined {
     return this.modulenav?.settings.displayMode || this._options.displayMode;
   }
 
   @Input() set filterable(val: boolean) {
-    console.info('set filterable')
     this._options.filterable = val;
     this.updated({ filterable: this._options.filterable });
   }
@@ -77,7 +70,6 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   @Input() set pinSections(val: boolean) {
-    console.info('set pin sections')
     this._options.pinSections = val;
     this.updated({ pinSections: this._options.pinSections });
   }
@@ -86,7 +78,6 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   @Input() set showDetailView(val: boolean) {
-    console.info('set show detail view')
     this._options.showDetailView = val;
     this.updated({ showDetailView: this._options.showDetailView });
   }
