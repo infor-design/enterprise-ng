@@ -29,6 +29,16 @@
       </div>
 
       <div class="field">
+        <label for="standard" class="required">Standard Date</label>
+        <input soho-datepicker id="standard" name="standard" data-validate="required date" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" formControlName="standard"/>
+      </div>
+
+      <div class="field">
+        <label for="tpicker" class="required">Standard Time (h:mm a)</label>
+        <input soho-timepicker id="tpicker" name="tpicker" timeFormat="h:mm a" data-validate="required time" mode="standard" [(ngModel)]="model.tpicker" formControlName="tpicker"/>
+      </div>
+
+      <div class="field">
         <label for="required" class="label required">Required Text Area</label>
         <textarea soho-textarea name="required" [(ngModel)]="requiredText" data-validate="required" formControlName="required"></textarea>
       </div>

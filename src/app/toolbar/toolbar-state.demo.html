@@ -1,20 +1,14 @@
-<soho-toolbar
-  #SohoToolbarComponent
-  [maxVisibleButtons]="_maxVisibleButtons"
-  favorButtonset="true"
-  resizeContainers="true"
->
+<soho-toolbar #SohoToolbarComponent [maxVisibleButtons]="_maxVisibleButtons" favorButtonset="true"
+  resizeContainers="true">
 
   <soho-toolbar-title>
 
     <!-- in header -->
     <button *ngIf="inHeader" class="btn-icon application-menu-trigger" type="button">
       <span class="audible">Show navigation</span>
-      <span class="icon app-header">
-        <span class="one"></span>
-        <span class="two"></span>
-        <span class="three"></span>
-      </span>
+      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use href="#icon-menu"></use>
+      </svg>
     </button>
     <h1 *ngIf="inHeader" class="titleHeader">
       <span *ngIf="pageTitle" class="section-title">{{_pageTitle}}</span>
@@ -30,14 +24,17 @@
     <ng-template ngFor let-b [ngForOf]="_buttons">
 
       <ng-container *ngIf="b?.icon; else TextButton">
-        <button soho-button="icon" *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
+        <button soho-button="icon" *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}"
+          [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
       </ng-container>
       <ng-template #TextButton>
-        <button soho-button="btn" *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
+        <button soho-button="btn" *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}"
+          [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
       </ng-template>
 
       <ng-template [ngIf]="b.menu && b.state.visible">
-        <button soho-menu-button [icon]="b?.icon" attr.data-button="{{b?.data}}" title="{{b?.title}}" [attr.disabled]="b.state.disabled ? true : null"></button>
+        <button soho-menu-button [icon]="b?.icon" attr.data-button="{{b?.data}}" title="{{b?.title}}"
+          [attr.disabled]="b.state.disabled ? true : null"></button>
         <!--
         Must include wrapper popup menu wrapper when using inside an ngIf statement. See ng-template [ngIf] above. Angular
         keeps track of elements when an ngIf is used. If the element get moved by soho then angular will be out of sync

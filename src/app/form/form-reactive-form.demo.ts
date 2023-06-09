@@ -5,6 +5,8 @@ import {
 } from '@angular/core';
 
 import {
+  FormControl,
+  FormGroup,
   UntypedFormBuilder,
   UntypedFormGroup,
 } from '@angular/forms';
@@ -56,20 +58,20 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
 
   createForm() {
     // note - both controls have the .required validator.
-    this.demoForm = this.formBuilder.group({
-      input: [this.model.inputValue],
-      datepick: [this.model.datevalue],
-      timepick: [this.model.timevalue],
-      dropdown: [this.model.dropdownvValue],
-      colorpick: [this.model.colorpickValue],
-      checkbox: [this.model.checkedValue],
-      autocomplete: [this.model.autocompleteValue],
-      slider: [this.model.sliderValue],
-      lookup: [this.model.lookupValue],
-      editor: [this.model.editorValue],
-      radiobutton: [this.model.radiobuttonValue],
-      textarea: [this.model.textAreaValue],
-      spinbox: [this.model.spinbox]
+    this.demoForm = new FormGroup({
+      input: new FormControl({ value: this.model.inputValue, disabled: false }),
+      datepick: new FormControl({ value: this.model.datevalue, disabled: false }),
+      timepick: new FormControl({ value: this.model.timevalue, disabled: false }),
+      dropdown: new FormControl({ value: this.model.dropdownvValue, disabled: false }),
+      colorpick: new FormControl({ value: this.model.colorpickValue, disabled: false }),
+      checkbox: new FormControl({ value: this.model.checkedValue, disabled: true }),
+      autocomplete: new FormControl({ value: this.model.autocompleteValue, disabled: false }),
+      slider: new FormControl({ value: this.model.sliderValue, disabled: false }),
+      lookup: new FormControl({ value: this.model.lookupValue, disabled: false }),
+      editor: new FormControl({ value: this.model.editorValue, disabled: false }),
+      radiobutton: new FormControl({ value: this.model.radiobuttonValue, disabled: false }),
+      textarea: new FormControl({ value: this.model.textAreaValue, disabled: false }),
+      spinbox: new FormControl({ value: this.model.spinbox, disabled: false })
     });
 
     this.demoForm.valueChanges

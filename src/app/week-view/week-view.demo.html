@@ -1,4 +1,4 @@
-<div class="one column" [ngStyle]="{'width': '120px', 'padding-top': '20px', 'margin-right': '20px'}">
+<div [ngStyle]="{'width': '120px', 'padding-top': '20px', 'margin-inline': '20px'}">
   <div class="row">
     <button soho-button [ngStyle]="{'width': '120px'}" (click)="showOneWeek()">1 Week</button><br><br>
   </div>
@@ -11,49 +11,67 @@
   <div class="row">
     <button soho-button [ngStyle]="{'width': '120px'}" (click)="showTwoDays()">2 Days</button><br>
   </div>
+  <div class="row">
+    <button soho-button [ngStyle]="{'width': '120px', 'margin-top': '20px'}" (click)="showStackedView()">Stacked</button><br>
+  </div>
 </div>
-<ng-container [ngSwitch]="demoType">
-  <ng-container *ngSwitchCase="demoTypeEnum.oneWeek">
-    <div soho-week-view
-         [renderWeekCallback]="onRenderWeekCallback"
-         [startDate]="startDate"
-         [endDate]="endDate"
-         (weekRendered)="onRenderWeek($event)"
-         (eventClick)="onEventClicked($event)"
-         (eventDblClick)="onEventDblClicked($event)"
-    ></div>
+<div [ngStyle]="{'height': 'calc(100% - 50px)', 'flex-grow': '1', 'margin-inline-end': '20px'}">
+  <ng-container [ngSwitch]="demoType">
+    <ng-container *ngSwitchCase="demoTypeEnum.oneWeek">
+      <div soho-week-view
+          [renderWeekCallback]="onRenderWeekCallback"
+          [startDate]="startDate"
+          [endDate]="endDate"
+          (weekRendered)="onRenderWeek($event)"
+          (eventClick)="onEventClicked($event)"
+          (eventDblClick)="onEventDblClicked($event)"
+      ></div>
+    </ng-container>
+    <ng-container *ngSwitchCase="demoTypeEnum.twoWeeks">
+      <div soho-week-view
+          [renderWeekCallback]="onRenderWeekCallback"
+          [startDate]="startDate"
+          [endDate]="endDate"
+          (weekRendered)="onRenderWeek($event)"
+          (eventClick)="onEventClicked($event)"
+          (eventDblClick)="onEventDblClicked($event)"
+      ></div>
+    </ng-container>
+    <ng-container *ngSwitchCase="demoTypeEnum.oneDay">
+      <div soho-week-view
+          [renderWeekCallback]="onRenderWeekCallback"
+          [startDate]="startDate"
+          [endDate]="endDate"
+          (weekRendered)="onRenderWeek($event)"
+          (eventClick)="onEventClicked($event)"
+          (eventDblClick)="onEventDblClicked($event)"
+      ></div>
+    </ng-container>
+    <ng-container *ngSwitchCase="demoTypeEnum.twoDays">
+      <div soho-week-view
+          [renderWeekCallback]="onRenderWeekCallback"
+          [startDate]="startDate"
+          [endDate]="endDate"
+          (weekRendered)="onRenderWeek($event)"
+          (eventClick)="onEventClicked($event)"
+          (eventDblClick)="onEventDblClicked($event)"
+      ></div>
+    </ng-container>
+    <ng-container *ngSwitchCase="demoTypeEnum.stackedView">
+      <div soho-week-view
+          [renderWeekCallback]="onRenderWeekCallback"
+          [startDate]="startDate"
+          [endDate]="endDate"
+          [stacked]="stacked"
+          [showFooter]="showFooter"
+          [responsive]="responsive"
+          (weekRendered)="onRenderWeek($event)"
+          (eventClick)="onEventClicked($event)"
+          (eventDblClick)="onEventDblClicked($event)"
+      ></div>
+    </ng-container>
   </ng-container>
-  <ng-container *ngSwitchCase="demoTypeEnum.twoWeeks">
-    <div soho-week-view
-         [renderWeekCallback]="onRenderWeekCallback"
-         [startDate]="startDate"
-         [endDate]="endDate"
-         (weekRendered)="onRenderWeek($event)"
-         (eventClick)="onEventClicked($event)"
-         (eventDblClick)="onEventDblClicked($event)"
-    ></div>
-  </ng-container>
-  <ng-container *ngSwitchCase="demoTypeEnum.oneDay">
-    <div soho-week-view
-         [renderWeekCallback]="onRenderWeekCallback"
-         [startDate]="startDate"
-         [endDate]="endDate"
-         (weekRendered)="onRenderWeek($event)"
-         (eventClick)="onEventClicked($event)"
-         (eventDblClick)="onEventDblClicked($event)"
-    ></div>
-  </ng-container>
-  <ng-container *ngSwitchCase="demoTypeEnum.twoDays">
-    <div soho-week-view
-         [renderWeekCallback]="onRenderWeekCallback"
-         [startDate]="startDate"
-         [endDate]="endDate"
-         (weekRendered)="onRenderWeek($event)"
-         (eventClick)="onEventClicked($event)"
-         (eventDblClick)="onEventDblClicked($event)"
-    ></div>
-  </ng-container>
-</ng-container>
+</div>
 
 
 

@@ -247,12 +247,10 @@ export class SohoSelectionCountComponent {
 @Component({
   selector: 'button[soho-nav-button]', // eslint-disable-line
   template: `
-              <span class="icon app-header">
-        <span class="one"></span>
-        <span class="two"></span>
-        <span class="three"></span>
-      </span>
-              <span class="audible">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-menu"></use>
+        </svg>
+        <span class="audible">
         <ng-content></ng-content>
       </span>
             `,

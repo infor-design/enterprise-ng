@@ -125,7 +125,7 @@ export class SohoCardHeaderComponent {
   @HostBinding('class.card-header') get isCardHeader() {
     return true;
   }
-  @HostBinding('style.display') block = 'block';
+  @HostBinding('style.display') flex = 'flex';
 }
 
 @Component({
@@ -149,11 +149,14 @@ export class SohoCardPaneComponent {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoCardComponent implements AfterViewInit, OnDestroy {
+export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
   @Input('soho-card') id: string | undefined; // eslint-disable-line
   @Input() expandableHeader: boolean | undefined; // eslint-disable-line
   @Input() verticalButtonAction: boolean | undefined; // eslint-disable-line
   @Input() autoHeight: boolean | undefined; // eslint-disable-line
+  @Input() bordered: boolean | string | undefined; // eslint-disable-line
+  @Input() noHeader: boolean | undefined; // eslint-disable-line
+
   @HostBinding('style.display') block = 'block';
   @HostBinding('class.card') get isCard() {
     return true;
@@ -163,6 +166,42 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
   }
   @HostBinding('class.auto-height') get isAutoHeight() {
     return this.autoHeight;
+  }
+
+  @HostBinding('class.bordered') get isBordered() {
+    return this.bordered;
+  }
+
+  @HostBinding('class.no-header') get isNoHeader() {
+    return this.noHeader;
+  }
+
+  @Input() set contentPaddingX(value: number | undefined) {
+    (this.options as any).contentPaddingX = value;
+    if (this.cards) {
+      this.options.contentPaddingX = value;
+    }
+  }
+
+  @Input() set contentPaddingY(value: number | undefined) {
+    (this.options as any).contentPaddingY = value;
+    if (this.cards) {
+      this.options.contentPaddingY = value;
+    }
+  }
+
+  @Input() set noShadow(value: boolean) {
+    (this.options as any).noShadow = value;
+    if (this.cards) {
+      this.options.noShadow = value;
+    }
+  }
+
+  @Input() set detailRefId(value: string | undefined) {
+    (this.options as any).detailRefId = value;
+    if (this.cards) {
+      this.options.detailRefId = value;
+    }
   }
 
   @Input() set closed(value: boolean | undefined) {
@@ -228,6 +267,32 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
     private ngZone: NgZone
   ) { }
 
+  ngOnInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+
+      if (typeof (this.bordered) === 'string' && this.bordered !== null) {
+        // Convert the string value to a boolean
+        this.bordered = this.bordered.toLowerCase() === 'true';
+      }
+
+      // Add listeners to emit events
+      // Initiate the element via jQuery
+      this.jQueryElement.cards({
+        id: this.id,
+        expandableHeader: this.expandableHeader,
+        expanded: !this.closed,
+        verticalButtonAction: this.verticalButtonAction,
+        attributes: this.options.attributes,
+        bordered: this.bordered,
+        noHeader: this.noHeader,
+        contentPaddingX: this.contentPaddingX,
+        contentPaddingY: this.contentPaddingY,
+        noShadow: this.noShadow,
+        detailRefId: this.detailRefId,
+      });
+    });
+  }
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
@@ -243,16 +308,6 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement.on('collapse', (event: SohoCardEvent) => this.onCollapse(event));
       this.jQueryElement.on('afterexpand', (event: SohoCardEvent) => this.onAfterExpand(event));
       this.jQueryElement.on('aftercollapse', (event: SohoCardEvent) => this.onAfterCollapse(event));
-
-      // Add listeners to emit events
-      // Initiate the element via jQuery
-      this.jQueryElement.cards({
-        id: this.id,
-        expandableHeader: this.expandableHeader,
-        expanded: !this.closed,
-        verticalButtonAction: this.verticalButtonAction,
-        attributes: this.options.attributes
-      });
 
       this.cards = this.jQueryElement.data('cards');
 

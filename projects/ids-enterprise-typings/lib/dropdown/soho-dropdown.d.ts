@@ -28,6 +28,16 @@ interface SohoDropDownOptions {
   cssClass?: string;
 
   /**
+   * Controls the style of the icon representing the Dropdown's "open/close" functionality.
+   */
+  dropdownIcon?: string;
+
+  /**
+   * If true, adds an extra wrapping element in the Dropdown List (in some situations used for styling/scrolling behavior changes)
+   */
+  extraListWrapper?: boolean;
+
+  /**
    * Search mode to use between 'contains',  'keyword',  'wordStartsWith', 'phraseStartsWith false will not allow client side filter
    */
   filterMode?: SohoDropDownFilterModeOptions;
@@ -124,6 +134,11 @@ interface SohoDropDownOptions {
   width?: number;
 
   /**
+   * CSS selector representing an element that the Dropdown component can use to define the list's width
+   */
+  widthTarget?: string;
+
+  /**
    * Show the select all text/option.
    */
   showSelectAll?: boolean;
@@ -217,7 +232,9 @@ interface SohoDropDownStatic {
    */
   disable(): void;
 
-  /** Enable the control. */
+  /**
+   * Enable the control.
+   */
   enable(): void;
 
   /**

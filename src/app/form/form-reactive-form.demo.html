@@ -19,8 +19,8 @@
 
       <div class="field">
         <label for="standard" class="label">Standard Date</label>
-        <input soho-datepicker name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" formControlName="datepick"
-          (change)="onChange($event)" />
+        <input soho-datepicker name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"
+          formControlName="datepick" (change)="onChange($event)" />
       </div>
 
       <div class="field">
@@ -41,25 +41,27 @@
       </div>
 
       <div class="field">
-        <input soho-checkbox type="checkbox" id="checkbox" name="checkbox" formControlName="checkbox" (change)="onChange($event)">
+        <input soho-checkbox type="checkbox" id="checkbox" name="checkbox" formControlName="checkbox"
+          (change)="onChange($event)">
         <label soho-label for="checkbox" [forCheckBox]="true">Checked</label>
       </div>
 
       <div class="field">
         <label for="autocomplete">States</label>
-        <input id="autocomplete" soho-autocomplete type="text" [source]="model.autocompleteUrl" formControlName="autocomplete" (selected)="onValueChanged($event)">
+        <input id="autocomplete" soho-autocomplete type="text" [source]="model.autocompleteUrl"
+          formControlName="autocomplete" (selected)="onValueChanged($event)">
       </div>
 
       <div class="field">
         <label for="slider-regular">Slider</label>
-        <input soho-slider id="slider-regular" name="slider-regular" min="0" max="100" type="range" formControlName="slider" (change)="onChange($event)"
-        />
+        <input soho-slider id="slider-regular" name="slider-regular" min="0" max="100" type="range"
+          formControlName="slider" (change)="onChange($event)" />
       </div>
 
       <div class="field">
         <label soho-label for="lookup">Lookup</label>
-        <input soho-lookup formControlName="lookup" [columns]="lookupColumns" [dataset]="lookupData" field="productId" name="lookup"
-        />
+        <input soho-lookup formControlName="lookup" [columns]="lookupColumns" [dataset]="lookupData" field="productId"
+          name="lookup" />
       </div>
 
       <div class="field">

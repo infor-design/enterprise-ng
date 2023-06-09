@@ -54,6 +54,7 @@ import { CardsDemoComponent } from './cards/cards.demo';
 import { CardsExpandableDemoComponent } from './cards/cards-expandable.demo';
 import { CardsMultiSelectDemoComponent } from './cards/cards-multi-select.demo';
 import { CardsSingleSelectDemoComponent } from './cards/cards-single-select.demo';
+import { CardsWorkspaceWidgetsComponent } from './cards/cards-workspace-widgets.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -185,6 +186,7 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+import { ModuleNavDemoComponent } from './module-nav/module-nav.demo';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
@@ -290,6 +292,7 @@ import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
+import { DemoappNavContainerComponent } from './demoapp-nav-container/demoapp-nav-container';
 
 @NgModule({
   declarations: [
@@ -339,6 +342,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     CardsExpandableDemoComponent,
     CardsMultiSelectDemoComponent,
     CardsSingleSelectDemoComponent,
+    CardsWorkspaceWidgetsComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     CirclepagerDemoComponent,
@@ -406,6 +410,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     DataGridSummaryRowDemoComponent,
     DataGridRowSpanDemoComponent,
     DatepickerDemoComponent,
+    DemoappNavContainerComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
@@ -468,6 +473,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     MaskDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
+    ModuleNavDemoComponent,
     MonthViewDemoComponent,
     MonthViewDemoInPageComponent,
     MonthViewLegendDemoComponent,

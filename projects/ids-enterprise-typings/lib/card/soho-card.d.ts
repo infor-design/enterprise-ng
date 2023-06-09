@@ -37,6 +37,24 @@ interface SohoCardOptions {
 
   /** Add extra attributes like id's to the component */
   attributes?: Array<Object> | Object;
+
+  /** Ability to add bordered or boreder-less styles to the card element. */
+  bordered?: boolean | null | string;
+
+  /** Determine wheter the card header should be displayed or not. */
+  noHeader?: boolean;
+
+  /** The padding left and right of the content of the card element. It will generate the css utlity classes for paddings. */
+  contentPaddingX?: number | null;
+
+  /** The padding top and bottom of the content of the card element. It will generate the css utlity classes for paddings. */
+  contentPaddingY?: number | null;
+
+  /** Ability to remove the shadow of the card element. */
+  noShadow?: boolean;
+
+  /** The id of the detail element that will be used to display the detail content. */
+  detailRefId?: string;
 }
 
 /**

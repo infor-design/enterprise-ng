@@ -1,3 +1,6 @@
+/// <reference path='../accordion/soho-accordion.d.ts' />
+/// <reference path='../searchfield/soho-searchfield.d.ts' />
+
 /**
  * Soho Application Menu.
  *
@@ -62,6 +65,15 @@ interface SohoApplicationMenuOptions {
 interface SohoApplicationMenuStatic {
   /** Control settings. */
   settings: SohoApplicationMenuOptions;
+
+  /** Accordion element */
+  accordionEl: HTMLElement;
+
+  /** Searchfield element, if present */
+  searchEl?: HTMLElement | null;
+
+  /** Searchfield API, if present */
+  searchAPI?: SohoSearchFieldStatic;
 
   /**
    * Opens the application menu.
