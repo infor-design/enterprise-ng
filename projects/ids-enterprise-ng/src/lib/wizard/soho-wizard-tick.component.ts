@@ -40,6 +40,7 @@ export class SohoWizardTickComponent implements AfterViewInit {
   /**
    * The id, used to link back to the pages.
    */
+  @HostBinding('attr.tickid')
   @Input() public tickId!: string;
 
   /**
