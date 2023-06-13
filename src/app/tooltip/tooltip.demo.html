@@ -68,3 +68,16 @@
     </button>
   </div>
 </div>
+
+
+<div class="row">
+  <div class="six columns">
+    <h2 class="fieldset-title">Popover with keep open. Click to force close</h2>
+    <button soho-button class="btn" id="test3" type="button"
+      soho-tooltip #keepOpenTooltip [popover]="true" [closebutton]="true" extraClass="alternate"
+      [content]="popoverMarkup" [title]="popoverTitle" [keepOpen]="true" trigger="click"
+      placement="bottom">Popover Content
+    </button>
+    <button soho-button title="Force Close" (click)="forceClose()">Force Close</button>
+  </div>
+</div>
