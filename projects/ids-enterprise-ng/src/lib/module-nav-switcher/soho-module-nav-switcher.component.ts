@@ -5,9 +5,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  EventEmitter,
   Input,
   NgZone,
-  OnDestroy
+  OnDestroy,
+  Output
 } from '@angular/core';
 
 /**

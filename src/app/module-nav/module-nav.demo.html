@@ -4,10 +4,24 @@
     data-options="{ allowOnePane: false, rerouteOnLinkClick: false }">
     <div class="module-nav-header accordion-section">
       <div class="module-nav-switcher">
+        <div class="module-nav-section module-btn">
+          <button soho-button
+            id="module-nav-homepage-btn"
+            class="btn-icon btn-tertiary"
+            (click)="onModuleButtonClick()">
+              <span>Standard Module</span>
+          </button>
+        </div>
         <div class="module-nav-section role-dropdown">
           <label for="module-nav-role-switcher" class="label audible">Roles</label>
-          <select id="module-nav-role-switcher" name="module-nav-role-switcher" class="dropdown"
-            data-automation-id="custom-automation-dropdown-id">
+          <select
+            soho-dropdown
+            id="module-nav-role-switcher"
+            name="module-nav-role-switcher"
+            class="dropdown"
+            data-automation-id="custom-automation-dropdown-id"
+            (change)="onRoleChange($event)"
+            (selected)="onRoleChange($event)">
             <option value="admin" data-icon="{icon: 'database'}">Admin</option>
             <option value="job-console" data-icon="{icon: 'database'}">Job Console</option>
             <option value="landing-page-designer" data-icon="{icon: 'database'}">Landing Page Designer</option>
@@ -31,7 +45,7 @@
           'module-nav-search': true
         }"
         [options]="searchfieldOptions"
-        (change)="onChange($event)" />
+        (change)="onSearchChange($event)" />
     </div>
 
     <div class="module-nav-main accordion-section">

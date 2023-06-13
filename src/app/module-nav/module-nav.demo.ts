@@ -19,7 +19,15 @@ export class ModuleNavDemoComponent {
 
   }
 
-  onChange(e: any) {
-    console.dir(e);
+  onRoleChange(value: string) {
+    console.dir('Role Change', value);
+  }
+
+  onModuleButtonClick() {
+    console.info('Module Button Clicked');
+  }
+
+  onSearchChange(e: any) {
+    console.dir('Searchfield Change', e);
   }
 }
