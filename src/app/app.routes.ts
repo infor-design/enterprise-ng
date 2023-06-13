@@ -230,6 +230,7 @@ import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo';
 import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
 import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
+import { ImagesExampleDemoComponent } from './images/images-example.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 import { HeaderDefaultContentDemoComponent } from './header/header-default-content.demo';
@@ -391,6 +392,7 @@ export const routes: Routes = [
   { path: 'homepage-scenario-c', component: HomePageScenarioCDemoComponent },
   { path: 'hyperlink', component: HyperlinkDemoComponent },
   { path: 'icon', component: IconDemoComponent },
+  { path: 'images-example', component: ImagesExampleDemoComponent },
   { path: 'input-clearable', component: InputClearableDemoComponent },
   { path: 'label', component: LabelDemoComponent },
   { path: 'line', component: LineDemoComponent },
