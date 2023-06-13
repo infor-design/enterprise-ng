@@ -644,6 +644,10 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
       }
     });
   }
+  
+  showMonth(month: number, year: number) {
+    this.monthview.showMonth(month, year);
+  }
 
   /**
    * Cleanup just before Angular destroys the component.
