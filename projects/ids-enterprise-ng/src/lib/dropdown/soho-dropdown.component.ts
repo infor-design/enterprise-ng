@@ -104,6 +104,22 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   /**
+   * Sets the icon used as the Dropdown Indicator
+   */
+  @Input()
+  public set dropdownIcon(icon: string | undefined) {
+    this.options.dropdownIcon = icon;
+    if (this.dropdown) {
+      this.dropdown.settings.dropdownIcon = icon;
+      this.markForRefresh();
+    }
+  }
+
+  public get dropdownIcon(): string | undefined {
+    return this.options.dropdownIcon;
+  }
+
+  /**
    * Initialize the empty value
    */
   @Input()

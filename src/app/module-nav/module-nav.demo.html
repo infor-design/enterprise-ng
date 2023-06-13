@@ -20,6 +20,7 @@
             name="module-nav-role-switcher"
             class="dropdown"
             data-automation-id="custom-automation-dropdown-id"
+            [dropdownIcon]="'expand-all'"
             (change)="onRoleChange($event)"
             (selected)="onRoleChange($event)">
             <option value="admin" data-icon="{icon: 'database'}">Admin</option>
