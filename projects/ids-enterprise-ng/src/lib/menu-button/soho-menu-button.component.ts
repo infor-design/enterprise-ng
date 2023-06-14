@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'button[soho-menu-button]', // eslint-disable-line
+  selector: '[soho-menu-button]', // eslint-disable-line
   templateUrl: 'soho-menu-button.component.html',
   styleUrls: ['./soho-menu-button.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -107,6 +107,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     }
   }
 
+  get returnFocus(): boolean {
+    return this.options.returnFocus || false;
+  }
+
   @Input() set trigger(trigger: SohoPopupMenuTrigger) {
     this.options.trigger = trigger;
     if (this.menuButton) {
@@ -144,6 +148,18 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     return this.buttonOptions.hideMenuArrow;
   }
 
+  @Input() set offset(value: SohoPopupmenuOffset | undefined) {
+    this.options.offset = value;
+    if (this.menuButton) {
+      (this.menuButton as any).settings.offset = value;
+      this.markForRefresh();
+    }
+  }
+
+  get offset(): SohoPopupmenuOffset | undefined {
+    return this.menuButton?.settings?.offset || this.options.offset;
+  }
+
   @Input() set attachToBody(value: boolean | undefined) {
     this.options.attachToBody = value;
     if (this.menuButton) {
@@ -164,6 +180,18 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   }
   get removeOnDestroy(): boolean | undefined {
     return this.options.removeOnDestroy;
+  }
+
+  @Input() set ripple(value: boolean | undefined) {
+    this.buttonOptions.ripple = value;
+    if (this.button) {
+      (this.button as any).settings.ripple = value;
+      this.markForRefresh();
+    }
+  }
+
+  get ripple(): boolean | undefined {
+    return this.button?.settings?.ripple || this.buttonOptions.ripple;
   }
 
   constructor(
@@ -208,7 +236,8 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
       this.ngZone.runOutsideAngular(() => {
-        this.menuButton?.updated();
+        this.menuButton?.updated(this.options);
+        this.button?.updated(this.buttonOptions);
         this.runUpdatedOnCheck = false;
       });
     }
@@ -238,9 +267,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     });
   }
 
-  updated() {
+  updated(menuSettings?: SohoPopupMenuOptions, buttonSettings?: SohoButtonOptions) {
     this.ngZone.runOutsideAngular(() => {
-      this.menuButton?.updated();
+      this.menuButton?.updated(menuSettings);
+      this.button?.updated(buttonSettings);
     });
   }
 
