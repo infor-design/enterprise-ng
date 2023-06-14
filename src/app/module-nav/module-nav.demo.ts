@@ -20,14 +20,26 @@ export class ModuleNavDemoComponent {
   }
 
   onRoleChange(value: string) {
-    console.dir('Role Change', value);
+    console.dir('Module Nav Role change', value);
   }
 
   onModuleButtonClick() {
-    console.info('Module Button Clicked');
+    console.info('Module Nav Role Button clicked');
   }
 
   onSearchChange(e: any) {
-    console.dir('Searchfield Change', e);
+    console.dir('Module Nav Searchfield content change', e);
+  }
+
+  onSettingsMenuSelected(e: SohoContextMenuEvent) {
+    console.dir('Module Nav Settings Menu selection occured', e);
+  }
+
+  onSettingsMenuOpen(e: any) {
+    console.dir('Module Nav Settings Menu opened', e);
+  }
+
+  onSettingsMenuClose(e: any) {
+    console.dir('Module Nav Settings Menu closed', e);
   }
 }
