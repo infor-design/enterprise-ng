@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
   ViewChildren,
-  QueryList
+  QueryList,
+  ViewChild
 } from '@angular/core';
 
 import { SohoTooltipDirective } from 'ids-enterprise-ng';
@@ -14,6 +15,7 @@ import { SohoTooltipDirective } from 'ids-enterprise-ng';
 export class TooltipDemoComponent implements OnInit {
 
   @ViewChildren(SohoTooltipDirective) tooltips?: QueryList<SohoTooltipDirective>;
+  @ViewChild('keepOpenTooltip', { read: SohoTooltipDirective }) keepOpenTooltip?: SohoTooltipDirective;
 
   public normalTooltipText = 'Tooltips Provide<br> Additional Information';
 
@@ -59,5 +61,9 @@ export class TooltipDemoComponent implements OnInit {
   changeTooltip() {
     this.standardTooltipText = 'CHANGED';
     this.normalTooltipText = 'CHANGED';
+  }
+
+  forceClose() {
+    this.keepOpenTooltip?.hide(true);
   }
 }

@@ -245,9 +245,9 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   /**
    * Hides the tooltip.
    */
-  public hide(): void {
+  public hide(force?: boolean): void {
     if (this.tooltip) {
-      this.tooltip.hide();
+      this.tooltip.hide(force);
     }
   }
 
