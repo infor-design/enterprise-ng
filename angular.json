@@ -204,7 +204,7 @@
   "cli": {
     "analytics": "deda5b6f-0536-400b-81ca-445018af21f9",
     "cache": {
-      "enabled": true,
+      "enabled": false,
       "path": ".cache",
       "environment": "all"
     }
