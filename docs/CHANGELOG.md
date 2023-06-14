@@ -4,9 +4,10 @@
 
 ### 16.4.1 Fixes
 
+- `[General]` Added 4.84.0 EP version.
 - `[Images]` Added an example page for Image with click handler. ([EP#7007](https://github.com/infor-design/enterprise/issues/7007))
 - `[Lookup]` Updated example page for datagrid editor. ([#7403](https://github.com/infor-design/enterprise/issues/7403))
-- `[General] Added 4.84.0 EP version.
+- `[ProcessIndicator]` Added process indicator demo. ([EP#7583](https://github.com/infor-design/enterprise/issues/75837007))
 
 ## 16.3.1
 
