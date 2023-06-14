@@ -646,8 +646,8 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   }
   
   /**
-  * Shows the given month and year.
-  */
+   * Shows the given month and year.
+   */
   showMonth(month: number, year: number) {
     if (this.monthview) {
       (this.monthview as any).showMonth(month, year);
