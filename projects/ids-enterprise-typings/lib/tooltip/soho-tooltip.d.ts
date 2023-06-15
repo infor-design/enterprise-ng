@@ -53,7 +53,7 @@ interface SohoTooltipEvent extends JQuery.TriggeredEvent {
 interface SohoTooltipStatic {
   settings: SohoTooltipOptions;
   destroy(): void;
-  hide(): void;
+  hide(force?: boolean): void;
   show(): void;
   updated(): void;
 }
