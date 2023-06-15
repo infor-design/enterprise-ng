@@ -28,7 +28,11 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements AfterViewInit {
-  @ViewChild(SohoPersonalizeDirective, { static: true }) personalize?: SohoPersonalizeDirective;
+  @ViewChild(SohoPersonalizeDirective, { static: true })
+  personalize?: SohoPersonalizeDirective;
+
+  @ViewChild(DemoappNavContainerComponent, { static: true})
+  demoappNavContainer?: DemoappNavContainerComponent;
 
   /**
    * Include the new icons only if required by the current theme, this
@@ -56,5 +60,10 @@ export class AppComponent implements AfterViewInit {
       || ev.data.theme === 'theme-new-light'
       || ev.data.theme === 'theme-new-dark'
       || ev.data.theme === 'theme-new-contrast';
+  }
+
+  toggleMenuVisibility() {
+    console.info('app menu click captured.  Fire demoapp container toggle')
+    this.demoappNavContainer?.toggleMenuVisibility();
   }
 }

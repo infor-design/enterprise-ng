@@ -8,6 +8,28 @@
 - `[Misc]` Fixed readonly bindings ([EP#1466](https://github.com/infor-design/enterprise/issues/1466))
 
 ### 15.3.1 Features
+## 16.15.0
+
+### 16.15.0 Fixes
+
+- `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
+
+## 16.4.1
+
+### 16.4.1 Fixes
+
+- `[Module Nav]` Add Module Nav Component wrappers and replace the app menu with the Module Nav menu. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
+- `[Images]` Added an example page for Image with click handler. ([EP#7007](https://github.com/infor-design/enterprise/issues/7007))
+- `[Lookup]` Updated example page for datagrid editor. ([#7403](https://github.com/infor-design/enterprise/issues/7403))
+- `[General] Added 4.84.0 EP version.
+
+## 16.3.1
+
+### 16.3.1 Features / Fixes
+
+- `[Weekview]` Added stacked view wrapper and example. ([#7373](https://github.com/infor-design/enterprise/issues/7373))
+- `[Card]` Added new settings and typings for card component. ([#7379](https://github.com/infor-design/enterprise/issues/7379))
+- `[General]` Added new NG 16 to the library. ([1481](https://github.com/infor-design/enterprise/issues/1481))
 
 - `[General]` Added 4.83.2 version.
 ## 15.3.0

@@ -4,10 +4,24 @@
     data-options="{ allowOnePane: false, rerouteOnLinkClick: false }">
     <div class="module-nav-header accordion-section">
       <div class="module-nav-switcher">
+        <div class="module-nav-section module-btn">
+          <button soho-button="icon"
+            id="module-nav-homepage-btn"
+            (click)="onModuleButtonClick()">
+              <span>Standard Module</span>
+          </button>
+        </div>
         <div class="module-nav-section role-dropdown">
           <label for="module-nav-role-switcher" class="label audible">Roles</label>
-          <select id="module-nav-role-switcher" name="module-nav-role-switcher" class="dropdown"
-            data-automation-id="custom-automation-dropdown-id">
+          <select
+            soho-dropdown
+            id="module-nav-role-switcher"
+            name="module-nav-role-switcher"
+            class="dropdown"
+            data-automation-id="custom-automation-dropdown-id"
+            [dropdownIcon]="'expand-all'"
+            (change)="onRoleChange($event)"
+            (selected)="onRoleChange($event)">
             <option value="admin" data-icon="{icon: 'database'}">Admin</option>
             <option value="job-console" data-icon="{icon: 'database'}">Job Console</option>
             <option value="landing-page-designer" data-icon="{icon: 'database'}">Landing Page Designer</option>
@@ -31,7 +45,7 @@
           'module-nav-search': true
         }"
         [options]="searchfieldOptions"
-        (change)="onChange($event)" />
+        (change)="onSearchChange($event)" />
     </div>
 
     <div class="module-nav-main accordion-section">
@@ -440,85 +454,96 @@
 
     <div class="module-nav-settings accordion-section">
       <soho-module-nav-settings>
-        <div class="module-nav-settings-btn accordion-header" id="module-nav-settings-btn">
-          <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-            <use href="#icon-settings"></use>
-          </svg>
+        <div soho-menu-button
+          id="module-nav-settings-btn"
+          class="module-nav-settings-btn accordion-header"
+          [icon]="'settings'"
+          [hideMenuArrow]="true"
+          [showArrow]="false"
+          [offset]="{ 'y': 8 }"
+          [returnFocus]="true"
+          [ripple]="false"
+          [menu]="'module-nav-settings-menu'"
+          (open)="onSettingsMenuOpen($event)"
+          (close)="onSettingsMenuClose($event)"
+          (selected)="onSettingsMenuSelected($event)">
           <a href="#"><span>Settings</span></a>
         </div>
-        <ul soho-popupmenu class="popupmenu module-nav-settings-menu">
-          <li>
-            <a href="#">
+        <ul soho-popupmenu
+          id="module-nav-settings-menu"
+          class="popupmenu module-nav-settings-menu">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use href="#icon-observation-precautions"></use>
               </svg>
               <span>Jobs</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use href="#icon-report"></use>
               </svg>
               <span>Reports</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use href="#icon-isolation"></use>
               </svg>
               <span>Actions</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use href="#icon-edit"></use>
               </svg>
               <span>Personalization</span>
             </a>
           </li>
-          <li class="separator"></li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-separator class="separator"></li>
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <span>Create Report</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <span>Proxy</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <span>Set "As Of Date"</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <span>User Context</span>
             </a>
           </li>
-          <li class="separator"></li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-separator class="separator"></li>
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use href="#icon-settings"></use>
               </svg>
               <span>Settings</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use href="#icon-info"></use>
               </svg>
               <span>About</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label href="#">
               <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use href="#icon-help"></use>
               </svg>

@@ -3,14 +3,19 @@
 /// <reference path='../button/soho-button.d.ts' />
 /// <reference path='../dropdown/soho-dropdown.d.ts' />
 
+
 /** Defines a Module Nav Switcher Role Record
  * (Takes the same arguments as items present in the Soho Dropdown JSON notation)
  */
 type SohoModuleNavSwitcherRoleRecord = Record<string, unknown>;
 
+type SohoModuleNavSwitcherIconSetting = string | ((api: SohoModuleNavSwitcherStatic) => string) | undefined;
+
 /** Defines options present in the Soho Module Nav Switcher */
 interface SohoModuleNavSwitcherOptions {
   displayMode?: SohoModuleNavDisplayMode;
+  icon?: SohoModuleNavSwitcherIconSetting;
+  roles?: Array<SohoModuleNavSwitcherRoleRecord>;
 }
 
 /** Public API for Soho Module Nav Switcher JS component */
