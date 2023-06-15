@@ -144,6 +144,7 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { ModuleNavDemoComponent } from './module-nav/module-nav.demo';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
@@ -409,6 +410,7 @@ export const routes: Routes = [
   { path: 'menu-button', component: MenuButtonDemoComponent },
   { path: 'message', component: MessageDemoComponent },
   { path: 'modal-dialog', component: ModalDialogDemoComponent },
+  { path: 'module-nav', component: ModuleNavDemoComponent },
   { path: 'monthview', component: MonthViewDemoComponent },
   { path: 'monthview-inpage', component: MonthViewDemoInPageComponent },
   { path: 'monthview-legend', component: MonthViewLegendDemoComponent },

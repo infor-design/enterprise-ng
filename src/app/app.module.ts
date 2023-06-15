@@ -186,6 +186,7 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+import { ModuleNavDemoComponent } from './module-nav/module-nav.demo';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
@@ -292,6 +293,7 @@ import { ListBuilderDemoComponent } from './listbuilder/listbuilder.demo';
 import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo';
 import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
+import { DemoappNavContainerComponent } from './demoapp-nav-container/demoapp-nav-container';
 
 @NgModule({
   declarations: [
@@ -409,6 +411,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     DataGridSummaryRowDemoComponent,
     DataGridRowSpanDemoComponent,
     DatepickerDemoComponent,
+    DemoappNavContainerComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
@@ -472,6 +475,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
     MaskDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
+    ModuleNavDemoComponent,
     MonthViewDemoComponent,
     MonthViewDemoInPageComponent,
     MonthViewLegendDemoComponent,
