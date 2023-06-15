@@ -85,7 +85,7 @@ export class SohoHeaderDynamicDemoComponent {
   /**
    * Triggers NG events that can be picked up by a navigation container
    */
-  @Output() appMenuTriggerClick = new EventEmitter();
+  @Output() appMenuTriggerClick: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   get toolbarSearchField(): ToolbarSearchField {
     return this._toolbarSearchField;
@@ -154,11 +154,9 @@ export class SohoHeaderDynamicDemoComponent {
     return 'default';
   }
 
-  onAppMenuTriggerClick(args: MouseEvent) {
-    console.info('App Menu trigger click');
-
+  onAppMenuTriggerClick() {
     this.ngZone.run(() => {
-      this.appMenuTriggerClick.next(args);
+      this.appMenuTriggerClick.emit(true);
     });
   }
 }

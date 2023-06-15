@@ -1,6 +1,8 @@
 import {
   Component,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  AfterViewInit,
+  OnInit
 } from '@angular/core';
 
 import {
@@ -14,7 +16,7 @@ import {
   templateUrl: 'module-nav.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ModuleNavDemoComponent {
+export class ModuleNavDemoComponent implements OnInit, AfterViewInit {
   public searchfieldOptions: SohoSearchFieldOptions = {
 
   }
@@ -41,5 +43,17 @@ export class ModuleNavDemoComponent {
 
   onSettingsMenuClose(e: any) {
     console.dir('Module Nav Settings Menu closed', e);
+  }
+
+  // ------------------------------------------
+  // Lifecycle Events
+  // ------------------------------------------
+
+  ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {
+
   }
 }

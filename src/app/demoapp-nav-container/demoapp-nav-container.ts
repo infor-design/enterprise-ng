@@ -43,17 +43,32 @@ export class DemoappNavContainerComponent implements AfterViewInit {
 
   private jQueryElement!: JQuery | undefined;
 
+  private appMenuComp?: SohoApplicationMenuComponent;
+  private moduleNavContainerComp?: SohoModuleNavContainerComponent;
+  private moduleNavComp?: SohoModuleNavComponent;
+
   @Output() moduleNavIsExpanded = new EventEmitter<boolean>();
 
   /** App Menu component refs */
-  @ViewChild(SohoApplicationMenuComponent, { static: true })
-  public applicationMenu?: SohoApplicationMenuComponent;
+  @ViewChild(SohoApplicationMenuComponent, { static: false })
+  set applicationMenu(appMenuEl: SohoApplicationMenuComponent | undefined) {
+    if (appMenuEl) this.appMenuComp = appMenuEl;
+  }
+  get applicationMenu(): SohoApplicationMenuComponent | undefined { return this.appMenuComp; }
 
   /** Module Nav component refs */
-  @ViewChild(SohoModuleNavContainerComponent, { static: true })
-  public moduleNavContainer?: SohoModuleNavContainerComponent;
-  @ViewChild(SohoModuleNavComponent, { static: true })
-  public moduleNav?: SohoModuleNavComponent;
+  @ViewChild(SohoModuleNavContainerComponent, { static: false })
+  set moduleNavContainer(appMenuEl: SohoModuleNavContainerComponent | undefined) {
+    if (appMenuEl) this.moduleNavContainerComp = appMenuEl;
+  }
+  get moduleNavContainer(): SohoModuleNavContainerComponent | undefined { return this.moduleNavContainerComp; }
+
+  @ViewChild(SohoModuleNavComponent, { static: false })
+  set moduleNav(moduleNav: SohoModuleNavComponent | undefined) {
+    if (moduleNav) this.moduleNavComp = moduleNav;
+  }
+  get moduleNav(): SohoModuleNavComponent | undefined { return this.moduleNavComp; }
+
 
   @HostBinding('class.no-scroll') get isNoScroll() {
     return true;
@@ -113,44 +128,8 @@ export class DemoappNavContainerComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.ngZone.runOutsideAngular(() => {
-      this.jQueryElement = jQuery(this.element.nativeElement);
-
-      // Module Nav Component events
-      if (this.moduleNavContainer) {
-        this.jQueryElement
-          .on('click', '.application-menu-trigger', (e: any) => {
-            debugger;
-            const target = (e.target);
-            if (this.moduleNavDisplayMode === 'collapsed') this.moduleNavDisplayMode = 'expanded';
-            else this.moduleNavDisplayMode = 'collapsed';
-          });
-      }
-    });
-
-    /**
-     * Note: If using an input like [triggers]="[ '.application-menu-trigger' ]"
-     * hookup the app menu trigger once the afterViewInit is called. This will
-     * ensure that the toolbar has had a chance to create the application-menu-trugger
-     * button.
-     * this.applicationMenu.triggers = [ '.application-menu-trigger' ];
-     */
-    if (this.applicationMenu) {
-      if (this.isApplicationMenuOpen) {
-        this.applicationMenu?.openMenu(true, true);
-      } else {
-        this.applicationMenu?.closeMenu();
-      }
-    }
-
-    /**
-     * Configures the demo app's Module Nav, if one is present
-     */
-    if (this.moduleNavContainer) {
-      if (this.moduleNavDisplayMode) {
-        this.moduleNav?.updated({ displayMode: this.moduleNavDisplayMode });
-      }
-    }
+    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.renderVisibility();
   }
 
   public get isApplicationMenuOpen(): boolean {
@@ -169,15 +148,52 @@ export class DemoappNavContainerComponent implements AfterViewInit {
   /**
    * Runs after a captured app menu trigger is clicked
    */
-  toggleModuleNavDisplayMode() {
-    console.info('event captured')
+  public toggleModuleNavDisplayMode() {
+    if (!this.moduleNavContainer) return;
     const isCurrentlyCollapsed = this.moduleNavDisplayMode === 'collapsed';
     this.moduleNavDisplayMode = isCurrentlyCollapsed ? 'expanded' : 'collapsed';
   }
 
   public onMenuVisibility(visible: boolean): void {
+    if (!this.applicationMenu) return;
     if (this.isApplicationMenuOpen !== visible) {
       this.isApplicationMenuOpen = visible;
     }
+  }
+
+  private renderVisibility() {
+    /**
+     * Note: If using an input like [triggers]="[ '.application-menu-trigger' ]"
+     * hookup the app menu trigger once the afterViewInit is called. This will
+     * ensure that the toolbar has had a chance to create the application-menu-trugger
+     * button.
+     * this.applicationMenu.triggers = [ '.application-menu-trigger' ];
+     */
+    if (this.applicationMenu) {
+      if (this.isApplicationMenuOpen) {
+        this.applicationMenu?.openMenu(true, true);
+      } else {
+        this.applicationMenu?.closeMenu();
+      }
+    }
+
+    /**
+     * Configures the demoapp's Module Nav, if one is present
+     */
+    if (this.moduleNavContainer) {
+      if (this.moduleNavDisplayMode) {
+        this.moduleNav?.updated({ displayMode: this.moduleNavDisplayMode });
+      }
+    }
+  }
+
+  public toggleMenuVisibility() {
+    if (this.applicationMenu) {
+      this.isApplicationMenuOpen = !this.isApplicationMenuOpen;
+    }
+    if (this.moduleNavContainer) {
+      this.toggleModuleNavDisplayMode();
+    }
+    this.renderVisibility();
   }
 }
