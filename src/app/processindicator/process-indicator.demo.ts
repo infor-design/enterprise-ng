@@ -60,21 +60,7 @@ export class ProcessIndicatorDemoComponent implements OnInit {
         lastUpdated: 'Apr 5, 2023 1:57 PM',
         activated: true,
         currentState: true,
-      },
-      // {
-      //   state: 'invoiceUnderReview',
-      //   name: 'Invoice Under Review',
-      //   lastUpdated: '',
-      //   activated: false,
-      //   currentState: false,
-      // },
-      // {
-      //   state: 'invoiceApproved',
-      //   name: 'Invoice Approved',
-      //   lastUpdated: '',
-      //   activated: false,
-      //   currentState: false,
-      // },
+      }
     ];
 
     this.updateColorsBasedOnStates();

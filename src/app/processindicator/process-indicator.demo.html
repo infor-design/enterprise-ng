@@ -1,4 +1,4 @@
-<div class="row top-padding left-padding afp-process-indicator">
+<div class="row top-padding left-padding afp-process-indicator" style="padding-left: 200px;">
   <div class="process-indicator compact responsive has-labels">
     <div class="display">
       <div
@@ -21,8 +21,7 @@
               [ngClass]="{ test: process.currentState }"
             >
               <use
-                class="empty-circle"
-                [ngClass]="process.titleClass"
+                class="empty-circle azure06-color"
                 [attr.href]="
                   process.activated
                     ? '#icon-user-status-unknown'
@@ -34,7 +33,7 @@
           <span class="separator"></span>
         </div>
         <div class="details">
-          <span class="heading" [ngClass]="process.titleClass">{{
+          <span class="heading azure06-color">{{
             process.name
           }}</span>
         </div>
