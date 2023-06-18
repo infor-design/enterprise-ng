@@ -1,10 +1,17 @@
 # What's New with Enterprise-NG
 
+## 16.15.0
+
+### 16.15.0 Fixes
+
+- `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
+
 ## 16.4.1
 
 ### 16.4.1 Fixes
 
 - `[General]` Added 4.84.0 EP version.
+- `[Module Nav]` Add Module Nav Component wrappers and replace the app menu with the Module Nav menu. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
 - `[Images]` Added an example page for Image with click handler. ([EP#7007](https://github.com/infor-design/enterprise/issues/7007))
 - `[Lookup]` Updated example page for datagrid editor. ([#7403](https://github.com/infor-design/enterprise/issues/7403))
 - `[ProcessIndicator]` Added process indicator demo. ([EP#7583](https://github.com/infor-design/enterprise/issues/75837007))

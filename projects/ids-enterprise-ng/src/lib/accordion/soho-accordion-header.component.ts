@@ -27,6 +27,7 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
   @HostBinding('style.display') isBlockDisplay = 'block';
   @HostBinding('class.accordion-header') isAccordionHeader = true;
   @HostBinding('class.is-expanded') @Input() isExpanded = false;
+  @HostBinding('class.module-nav-item') @Input() moduleNavItem = false;
 
   /**
    * Constructor.

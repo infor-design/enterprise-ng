@@ -7,19 +7,12 @@
 
 <app-masthead-demo></app-masthead-demo>
 
-<nav soho-application-menu class="is-personalizable" [filterable]="true" [openOnLarge]="false"
-  [dismissOnClickMobile]="true" (menuVisibility)="onMenuVisibility($event)" [resizable]="true"
-  [savePosition]="true">
-  <div soho-searchfield-wrapper>
-    <label class="audible" for="application-menu-searchfield">Search</label>
-    <input soho-searchfield id="application-menu-searchfield" [clearable]="true" />
-  </div>
-  <application-menu-demo></application-menu-demo>
-</nav>
-<div class="page-container no-scroll">
-  <app-header-dynamic-demo></app-header-dynamic-demo>
+<demoapp-nav-container>
+  <app-header-dynamic-demo
+    (appMenuTriggerClick)="toggleMenuVisibility()"></app-header-dynamic-demo>
   <div id="maincontent" class="page-container scrollable" role="main">
-      <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
-</div>
+</demoapp-nav-container>
+
 <div soho-personalize (changetheme)="onChangeTheme($event)"></div>
