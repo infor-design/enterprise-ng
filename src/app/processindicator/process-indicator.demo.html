@@ -1,33 +1,17 @@
-<div class="row top-padding left-padding afp-process-indicator" style="padding-left: 200px;">
+<div class="row top-padding left-padding afp-process-indicator" style="padding-left: 32px">
   <div class="process-indicator compact responsive has-labels">
     <div class="display">
-      <div
-        class="step"
-        id="step{{ i + 1 }}"
-        [ngClass]="{ 'last-state': i === processStates.length - 1 }"
-        *ngFor="let process of processStates; let i = index"
-      >
+      <div class="step" id="step{{ i + 1 }}" [ngClass]="{ 'last-state': i === processStates.length - 1 }"
+        *ngFor="let process of processStates; let i = index">
         <div class="lines">
-          <span
-            soho-tooltip
-            [title]="process.lastUpdated"
-            class="indicator icon"
-            [ngClass]="{ current: process.currentState }"
-            ><svg
-              class="icon"
-              focusable="false"
-              aria-hidden="true"
-              role="presentation"
-              [ngClass]="{ test: process.currentState }"
-            >
-              <use
-                class="empty-circle azure06-color"
-                [attr.href]="
+          <span soho-tooltip [title]="process.lastUpdated" class="indicator icon"
+            [ngClass]="{ current: process.currentState }"><svg class="icon" focusable="false" aria-hidden="true"
+              role="presentation" [ngClass]="{ test: process.currentState }">
+              <use class="empty-circle azure06-color" [attr.href]="
                   process.activated
                     ? '#icon-user-status-unknown'
                     : '#icon-empty-circle'
-                "
-              ></use>
+                "></use>
             </svg>
           </span>
           <span class="separator"></span>
@@ -35,10 +19,9 @@
         <div class="details">
           <span class="heading azure06-color">{{
             process.name
-          }}</span>
+            }}</span>
         </div>
       </div>
     </div>
   </div>
 </div>
-
