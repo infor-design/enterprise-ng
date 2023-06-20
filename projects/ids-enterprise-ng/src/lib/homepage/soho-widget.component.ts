@@ -39,10 +39,6 @@ export class SohoWidgetComponent implements AfterViewInit, OnInit {
 
   @HostBinding('class.widget') isWidget = true;
 
-  @HostBinding('class.bordered') get isBordered() {
-    return this.bordered;
-  }
-
   @HostBinding('class.no-header') get isNoHeader() {
     return this.noHeader;
   }
@@ -55,7 +51,6 @@ export class SohoWidgetComponent implements AfterViewInit, OnInit {
   @Input() widgetHeight?: WidgetSize | 'auto';
   @Input() removable?: boolean;
 
-  @Input() bordered: boolean | string | undefined;
   @Input() noHeader: boolean | undefined;
   @Input() noShadow: boolean | undefined;
 
@@ -63,6 +58,13 @@ export class SohoWidgetComponent implements AfterViewInit, OnInit {
     (this.options as any).contentPaddingX = value;
     if (this.cards) {
       this.options.contentPaddingX = value;
+    }
+  }
+
+  @Input() set bordered(value: boolean | string | undefined) {
+    (this.options as any).bordered = value;
+    if (this.cards) {
+      this.options.bordered = value;
     }
   }
 
@@ -99,9 +101,16 @@ export class SohoWidgetComponent implements AfterViewInit, OnInit {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-      if (typeof (this.bordered) === 'string' && this.bordered !== null) {
-        this.bordered = this.bordered.toLocaleLowerCase() === 'true';
+      if (typeof (this.options.bordered) === 'string' && this.options.bordered !== null) {
+        this.bordered = this.options.bordered.toLocaleLowerCase() === 'true';
       }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
+      this.jQueryElement.cards(this.options);
 
       this.jQueryElement.cards({
         bordered: this.bordered,
@@ -111,12 +120,6 @@ export class SohoWidgetComponent implements AfterViewInit, OnInit {
         noShadow: this.noShadow,
         detailRefId: this.detailRefId,
       })
-    });
-  }
-
-  ngAfterViewInit() {
-    this.ngZone.runOutsideAngular(() => {
-      this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
       this.jQueryElement
         .on('resizecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onResizeCard(card, metadata))

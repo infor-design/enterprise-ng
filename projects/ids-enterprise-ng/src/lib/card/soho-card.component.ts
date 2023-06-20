@@ -154,8 +154,6 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
   @Input() expandableHeader: boolean | undefined; // eslint-disable-line
   @Input() verticalButtonAction: boolean | undefined; // eslint-disable-line
   @Input() autoHeight: boolean | undefined; // eslint-disable-line
-  @Input() bordered: boolean | string | undefined; // eslint-disable-line
-  @Input() noHeader: boolean | undefined; // eslint-disable-line
 
   @HostBinding('style.display') block = 'block';
   @HostBinding('class.card') get isCard() {
@@ -168,12 +166,18 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
     return this.autoHeight;
   }
 
-  @HostBinding('class.bordered') get isBordered() {
-    return this.bordered;
+  @Input() set bordered(value: boolean | string | undefined) {
+    (this.options as any).bordered = value;
+    if (this.cards) {
+      this.options.bordered = value;
+    }
   }
 
-  @HostBinding('class.no-header') get isNoHeader() {
-    return this.noHeader;
+  @Input() set noHeader(value: boolean | undefined) {
+    (this.options as any).noHeader = value;
+    if (this.cards) {
+      this.options.noHeader = value;
+    }
   }
 
   @Input() set contentPaddingX(value: number | undefined) {
@@ -271,10 +275,17 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
 
-      if (typeof (this.bordered) === 'string' && this.bordered !== null) {
+      if (typeof (this.options.bordered) === 'string' && this.options.bordered !== null) {
         // Convert the string value to a boolean
-        this.bordered = this.bordered.toLowerCase() === 'true';
+        this.bordered = this.options.bordered.toLowerCase() === 'true';
       }
+    });
+  }
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+
+      this.jQueryElement.cards(this.options);
 
       // Add listeners to emit events
       // Initiate the element via jQuery
@@ -291,11 +302,6 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
         noShadow: this.noShadow,
         detailRefId: this.detailRefId,
       });
-    });
-  }
-  ngAfterViewInit() {
-    this.ngZone.runOutsideAngular(() => {
-      this.jQueryElement = jQuery(this.element.nativeElement);
 
       if (this.toggle) {
         this.toggle.subscribe(value => this.toggleOpen(value));
