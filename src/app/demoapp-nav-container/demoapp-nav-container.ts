@@ -11,11 +11,7 @@ import {
 } from '@angular/core';
 
 // @ts-ignore
-import {
-  SohoApplicationMenuComponent,
-  SohoModuleNavContainerComponent,
-  SohoModuleNavComponent
-} from 'ids-enterprise-ng';
+import { SohoApplicationMenuComponent, SohoModuleNavContainerComponent, SohoModuleNavComponent } from 'ids-enterprise-ng';
 
 import {
   ApplicationMenuDemoComponent

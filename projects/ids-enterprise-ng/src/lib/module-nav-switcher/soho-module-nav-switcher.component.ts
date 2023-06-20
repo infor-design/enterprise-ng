@@ -75,6 +75,14 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   }
 
   // -------------------------------------------
+  // Outputs
+  // -------------------------------------------
+
+  @Output() rolechange = new EventEmitter<JQuery.TriggeredEvent>();
+
+  @Output() modulebuttonclick = new EventEmitter<JQuery.TriggeredEvent>();
+
+  // -------------------------------------------
   // Public API
   // -------------------------------------------
 
@@ -112,6 +120,16 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
 
   public teardown() {
     this.modulenavswitcher?.teardown();
+  }
+
+  /** Triggered by a Module Button click */
+  onModuleButtonClick(event: JQuery.TriggeredEvent) {
+    this.modulebuttonclick.emit(event);
+  }
+
+  /** Triggered by a Role Dropdown change */
+  onRoleChange(event: JQuery.TriggeredEvent) {
+    this.rolechange.emit(event);
   }
 
   // ------------------------------------------

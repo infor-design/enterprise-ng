@@ -3,35 +3,10 @@
     class="accordion panel module-nav-accordion"
     data-options="{ allowOnePane: false, rerouteOnLinkClick: false }">
     <div class="module-nav-header accordion-section">
-      <div class="module-nav-switcher">
-        <div class="module-nav-section module-btn">
-          <button soho-button="icon"
-            id="module-nav-homepage-btn"
-            (click)="onModuleButtonClick()">
-              <span>Standard Module</span>
-          </button>
-        </div>
-        <div class="module-nav-section role-dropdown">
-          <label for="module-nav-role-switcher" class="label audible">Roles</label>
-          <select
-            soho-dropdown
-            id="module-nav-role-switcher"
-            name="module-nav-role-switcher"
-            class="dropdown"
-            data-automation-id="custom-automation-dropdown-id"
-            [dropdownIcon]="'expand-all'"
-            (change)="onRoleChange($event)"
-            (selected)="onRoleChange($event)">
-            <option value="admin" data-icon="{icon: 'database'}">Admin</option>
-            <option value="job-console" data-icon="{icon: 'database'}">Job Console</option>
-            <option value="landing-page-designer" data-icon="{icon: 'database'}">Landing Page Designer</option>
-            <option value="process-server-admin" data-icon="{icon: 'database'}">Process Server Administrator</option>
-            <option value="proxy-management" data-icon="{icon: 'database'}">Proxy Management</option>
-            <option value="security-system-management" data-icon="{icon: 'database'}">Security System Management</option>
-            <option value="user-management" data-icon="{icon: 'database'}">User Management</option>
-          </select>
-        </div>
-      </div>
+      <soho-module-nav-switcher
+        roles="[]"
+        (modulebuttonclick)="onModuleButtonClick($event)"
+        (rolechange)="onRoleChange($event)"></soho-module-nav-switcher>
     </div>
 
     <div class="module-nav-search-container accordion-section">

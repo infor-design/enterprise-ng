@@ -5,10 +5,13 @@ import {
   OnInit
 } from '@angular/core';
 
+// @ts-ignore
 import {
   SohoAccordionComponent,
   SohoAccordionHeaderComponent,
   SohoAccordionPaneComponent,
+  SohoModuleNavSwitcherComponent,
+  SohoModuleNavSettingsComponent
 } from 'ids-enterprise-ng';
 
 @Component({
@@ -25,8 +28,8 @@ export class ModuleNavDemoComponent implements OnInit, AfterViewInit {
     console.dir('Module Nav Role change', value);
   }
 
-  onModuleButtonClick() {
-    console.info('Module Nav Role Button clicked');
+  onModuleButtonClick(e: any) {
+    console.info('Module Nav Role Button clicked', e);
   }
 
   onSearchChange(e: any) {
