@@ -144,6 +144,7 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { ModuleNavDemoComponent } from './module-nav/module-nav.demo';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
@@ -231,6 +232,7 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
 import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 import { ImagesExampleDemoComponent } from './images/images-example.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
+import { ProcessIndicatorDemoComponent } from './processindicator/process-indicator.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 import { HeaderDefaultContentDemoComponent } from './header/header-default-content.demo';
 import { HomePageEditableFilledComponent } from './homepage/homepage-editable-filled.demo';
@@ -409,6 +411,7 @@ export const routes: Routes = [
   { path: 'menu-button', component: MenuButtonDemoComponent },
   { path: 'message', component: MessageDemoComponent },
   { path: 'modal-dialog', component: ModalDialogDemoComponent },
+  { path: 'module-nav', component: ModuleNavDemoComponent },
   { path: 'monthview', component: MonthViewDemoComponent },
   { path: 'monthview-inpage', component: MonthViewDemoInPageComponent },
   { path: 'monthview-legend', component: MonthViewLegendDemoComponent },
@@ -421,6 +424,7 @@ export const routes: Routes = [
   { path: 'popdown', component: PopDownDemoComponent },
   { path: 'popupmenu', component: PopupMenuDemoComponent },
   { path: 'progress', component: ProgressDemoComponent },
+  { path: 'process-indicator', component: ProcessIndicatorDemoComponent },
   { path: 'radar', component: RadarDemoComponent },
   { path: 'radiobutton', component: RadioButtonDemoComponent },
   { path: 'rating', component: RatingDemoComponent },

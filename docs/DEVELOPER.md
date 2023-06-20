@@ -331,3 +331,23 @@ Make sure you have added the following to the `angular.json` file:
 ```
 
 NOTE: if you run any `npm` command in the target project, the link will be reset.  So you would need to run the above command again.
+
+## Angular 13+ Caching
+
+There is a known issue where Angular 13+ attempts to do its own internal caching of builds/packages, which can sometimes interfere with linking Enterprise to Enterprise NG (and further toolchains).
+
+To disable this caching and restore behavior to the pre-Angular 13 style, add this setting to `angular.json`:
+
+```json
+{
+    "cli": {
+        "cache": {
+            "enabled": false
+        }
+    }
+}
+```
+
+To re-enable this behavior, simply remove that line from the `angular.json`.
+
+Read further about this issue [here](https://stackoverflow.com/a/70249096)

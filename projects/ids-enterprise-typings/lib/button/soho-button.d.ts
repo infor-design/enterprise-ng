@@ -107,7 +107,7 @@ declare class SohoButtonStatic {
   toggle(): void;
 
   /** Update the component with new settings. */
-  updated(settings: SohoButtonOptions): void;
+  updated(settings?: SohoButtonOptions): void;
 }
 
 /**

@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter,
   NgZone,
+  OnInit,
   ElementRef,
   AfterViewInit,
 } from '@angular/core';
@@ -15,7 +16,7 @@ export type WidgetSize = 'single' | 'double' | 'triple' | 'quad';
   selector: 'div[soho-widget]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
 })
-export class SohoWidgetComponent implements AfterViewInit {
+export class SohoWidgetComponent implements AfterViewInit, OnInit {
   @HostBinding('class') get classList(): string {
     let tmp = '';
 
@@ -38,13 +39,53 @@ export class SohoWidgetComponent implements AfterViewInit {
 
   @HostBinding('class.widget') isWidget = true;
 
+  @HostBinding('class.bordered') get isBordered() {
+    return this.bordered;
+  }
+
+  @HostBinding('class.no-header') get isNoHeader() {
+    return this.noHeader;
+  }
+
+  @HostBinding('class.no-shadow') get isNoShadow() {
+    return this.noShadow;
+  }
+
   @Input() widgetWidth?: WidgetSize;
   @Input() widgetHeight?: WidgetSize | 'auto';
   @Input() removable?: boolean;
 
+  @Input() bordered: boolean | string | undefined;
+  @Input() noHeader: boolean | undefined;
+  @Input() noShadow: boolean | undefined;
+
+  @Input() set contentPaddingX(value: number | undefined) {
+    (this.options as any).contentPaddingX = value;
+    if (this.cards) {
+      this.options.contentPaddingX = value;
+    }
+  }
+
+  @Input() set contentPaddingY(value: number | undefined) {
+    (this.options as any).contentPaddingY = value;
+    if (this.cards) {
+      this.options.contentPaddingY = value;
+    }
+  }
+
+  @Input() set detailRefId(value: string | undefined) {
+    (this.options as any).detailRefId = value;
+    if (this.cards) {
+      this.options.detailRefId = value;
+    }
+  }
+
   @Output() resizecard = new EventEmitter<any>();
   @Output() reordercard = new EventEmitter<any>();
   @Output() removecard = new EventEmitter<any>();
+
+  private options: SohoCardOptions = {};
+  private cards?: SohoCardStatic | null;
 
   constructor(
     private elementRef: ElementRef,
@@ -53,6 +94,25 @@ export class SohoWidgetComponent implements AfterViewInit {
 
   // Reference to the jQuery element.
   private jQueryElement?: JQuery;
+
+  ngOnInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
+
+      if (typeof (this.bordered) === 'string' && this.bordered !== null) {
+        this.bordered = this.bordered.toLocaleLowerCase() === 'true';
+      }
+
+      this.jQueryElement.cards({
+        bordered: this.bordered,
+        noHeader: this.noHeader,
+        contentPaddingX: this.contentPaddingX,
+        contentPaddingY: this.contentPaddingY,
+        noShadow: this.noShadow,
+        detailRefId: this.detailRefId,
+      })
+    });
+  }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
