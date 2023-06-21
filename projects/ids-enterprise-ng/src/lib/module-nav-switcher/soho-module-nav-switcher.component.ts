@@ -35,6 +35,8 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     displayMode: false,
     generate: false,
     icon: undefined,
+    moduleButtonText: undefined,
+    roleDropdownLabel: undefined,
     roles: []
   };
 
@@ -75,12 +77,20 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     return this.modulenavswitcher?.settings.icon || this._options.icon;
   }
 
-  @Input() set icon(val: SohoModuleNavSwitcherIconSetting) {
-    this._options.icon = val;
-    this.updated({ icon: this._options.icon });
+  @Input() set moduleButtonText(val: string | undefined) {
+    this._options.moduleButtonText = val;
+    this.updated({ moduleButtonText: this._options.moduleButtonText });
   }
-  public get icon(): SohoModuleNavSwitcherIconSetting {
-    return this.modulenavswitcher?.settings.icon || this._options.icon;
+  public get moduleButtonText(): string | undefined {
+    return this.modulenavswitcher?.settings.moduleButtonText || this._options.moduleButtonText;
+  }
+
+  @Input() set roleDropdownLabel(val: string | undefined) {
+    this._options.roleDropdownLabel = val;
+    this.updated({ roleDropdownLabel: this._options.roleDropdownLabel });
+  }
+  public get roleDropdownLabel(): string | undefined {
+    return this.modulenavswitcher?.settings.roleDropdownLabel || this._options.roleDropdownLabel;
   }
 
   @Input() set roles(val: Array<SohoModuleNavSwitcherRoleRecord> | undefined) {

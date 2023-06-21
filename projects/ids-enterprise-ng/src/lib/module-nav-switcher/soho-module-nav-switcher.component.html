@@ -3,11 +3,11 @@
     id="module-nav-homepage-btn"
     class="btn-icon"
     (click)="onModuleButtonClick($event)">
-    <span class="audible">Standard Module</span>
+    <span class="audible">{{moduleButtonText}}</span>
   </button>
 </div>
 <div class="module-nav-section role-dropdown">
-  <label for="module-nav-role-switcher" class="label audible">Roles</label>
+  <label for="module-nav-role-switcher" class="label audible">{{roleDropdownLabel}}</label>
   <select soho-dropdown
     id="module-nav-role-switcher"
     name="module-nav-role-switcher"
