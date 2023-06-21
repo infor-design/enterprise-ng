@@ -4,7 +4,8 @@
     data-options="{ allowOnePane: false, rerouteOnLinkClick: false }">
     <div class="module-nav-header accordion-section">
       <soho-module-nav-switcher
-        roles="[]"
+        class="module-nav-switcher"
+        [generate]="false"
         (modulebuttonclick)="onModuleButtonClick($event)"
         (rolechange)="onRoleChange($event)"></soho-module-nav-switcher>
     </div>
