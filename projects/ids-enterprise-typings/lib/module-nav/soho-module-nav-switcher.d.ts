@@ -65,6 +65,9 @@ interface SohoModuleNavSwitcherStatic {
   /** Re-renders jQuery child component APIs */
   renderChildComponents(): void;
 
+  /** Changes the focus of the Module Button */
+  toggleModuleButtonFocus(doFocus?: boolean): void;
+
   /** Tear down the markup for the control */
   teardown(): void;
 
