@@ -14,7 +14,10 @@ type SohoModuleNavSwitcherIconSetting = string | ((api: SohoModuleNavSwitcherSta
 /** Defines options present in the Soho Module Nav Switcher */
 interface SohoModuleNavSwitcherOptions {
   displayMode?: SohoModuleNavDisplayMode;
+  generate?: boolean;
   icon?: SohoModuleNavSwitcherIconSetting;
+  moduleButtonText?: string;
+  roleDropdownLabel?: string;
   roles?: Array<SohoModuleNavSwitcherRoleRecord>;
 }
 
@@ -61,6 +64,9 @@ interface SohoModuleNavSwitcherStatic {
 
   /** Re-renders jQuery child component APIs */
   renderChildComponents(): void;
+
+  /** Changes the focus of the Module Button */
+  toggleModuleButtonFocus(doFocus?: boolean): void;
 
   /** Tear down the markup for the control */
   teardown(): void;

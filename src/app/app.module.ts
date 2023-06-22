@@ -283,6 +283,7 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
 import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 import { ImagesExampleDemoComponent } from './images/images-example.demo';
 import { InputClearableDemoComponent } from './input/input-clearable.demo';
+import { ProcessIndicatorDemoComponent } from './processindicator/process-indicator.demo';
 import { ListViewContextDemoComponent } from './listview/listview-context.demo';
 import { HeaderSearchfieldDemoComponent } from './header/header-searchfield.demo';
 import { HeaderSearchfieldFlexDemoComponent } from './header/header-searchfield-flex-demo';
@@ -460,6 +461,7 @@ import { DemoappNavContainerComponent } from './demoapp-nav-container/demoapp-na
     IconDemoComponent,
     ImagesExampleDemoComponent,
     InputClearableDemoComponent,
+    ProcessIndicatorDemoComponent,
     LabelDemoComponent,
     LineDemoComponent,
     ListViewCustomContentDemoComponent,

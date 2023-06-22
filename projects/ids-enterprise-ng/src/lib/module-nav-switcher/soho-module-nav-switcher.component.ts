@@ -33,7 +33,10 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   /** Stored settings */
   private _options: SohoModuleNavSwitcherOptions = {
     displayMode: false,
+    generate: false,
     icon: undefined,
+    moduleButtonText: undefined,
+    roleDropdownLabel: undefined,
     roles: []
   };
 
@@ -58,12 +61,36 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     return this.modulenavswitcher?.settings.displayMode || this._options.displayMode;
   }
 
+  @Input() set generate(val: boolean | undefined) {
+    this._options.generate = val;
+    this.updated({ generate: this._options.generate });
+  }
+  public get generate(): boolean | undefined {
+    return this.modulenavswitcher?.settings.generate || this._options.generate;
+  }
+
   @Input() set icon(val: SohoModuleNavSwitcherIconSetting) {
     this._options.icon = val;
     this.updated({ icon: this._options.icon });
   }
   public get icon(): SohoModuleNavSwitcherIconSetting {
     return this.modulenavswitcher?.settings.icon || this._options.icon;
+  }
+
+  @Input() set moduleButtonText(val: string | undefined) {
+    this._options.moduleButtonText = val;
+    this.updated({ moduleButtonText: this._options.moduleButtonText });
+  }
+  public get moduleButtonText(): string | undefined {
+    return this.modulenavswitcher?.settings.moduleButtonText || this._options.moduleButtonText;
+  }
+
+  @Input() set roleDropdownLabel(val: string | undefined) {
+    this._options.roleDropdownLabel = val;
+    this.updated({ roleDropdownLabel: this._options.roleDropdownLabel });
+  }
+  public get roleDropdownLabel(): string | undefined {
+    return this.modulenavswitcher?.settings.roleDropdownLabel || this._options.roleDropdownLabel;
   }
 
   @Input() set roles(val: Array<SohoModuleNavSwitcherRoleRecord> | undefined) {
@@ -73,6 +100,14 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   public get roles(): Array<SohoModuleNavSwitcherRoleRecord> | undefined {
     return this.modulenavswitcher?.settings.roles || this._options.roles;
   }
+
+  // -------------------------------------------
+  // Outputs
+  // -------------------------------------------
+
+  @Output() rolechange = new EventEmitter<JQuery.TriggeredEvent>();
+
+  @Output() modulebuttonclick = new EventEmitter<JQuery.TriggeredEvent>();
 
   // -------------------------------------------
   // Public API
@@ -98,6 +133,10 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     this.modulenavswitcher?.init();
   }
 
+  public toggleModuleButtonFocus(doFocus?: boolean) {
+    this.modulenavswitcher?.toggleModuleButtonFocus(doFocus);
+  }
+
   /** Triggers a UI Resync. */
   public updated(val?: SohoModuleNavSwitcherOptions) {
     if (val) {
@@ -114,6 +153,21 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     this.modulenavswitcher?.teardown();
   }
 
+  /** Sets the roles array programmatically */
+  setRoles(val: Array<SohoModuleNavSwitcherRoleRecord>) {
+    this.roles = val;
+  }
+
+  /** Triggered by a Module Button click */
+  onModuleButtonClick(event: JQuery.TriggeredEvent) {
+    this.modulebuttonclick.emit(event);
+  }
+
+  /** Triggered by a Role Dropdown change */
+  onRoleChange(event: JQuery.TriggeredEvent) {
+    this.rolechange.emit(event);
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
@@ -122,8 +176,12 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     this.ngZone.runOutsideAngular(() => {
       // Initialize/store instance
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
-      this.jQueryElement.modulenav(this._options);
+      this.jQueryElement.modulenavswitcher(this._options);
       this.modulenavswitcher = this.jQueryElement.data('modulenavswitcher');
+
+      // @todo - add event binding control so we don't bind if not required.
+      this.jQueryElement
+        .on('change', (event: JQuery.TriggeredEvent) => this.onRoleChange(event))
     });
   }
 

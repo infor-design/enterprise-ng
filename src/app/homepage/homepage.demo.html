@@ -1,61 +1,302 @@
-<div soho-homepage
-  (resize)="onResize($event)">
-    <div soho-widget widgetWidth="triple">
+<div soho-homepage style="height: 100%;"
+  (resize)="onResize($event)"
+  class="scrollable">
+    <div soho-widget
+      bordered="true">
       <div soho-widget-header>
-        <div soho-widget-title tabIndex="0"><h2>Chart Title</h2></div>
-        <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu" trigger="click" class="btn-actions"></button>
-      </div>
-      <div soho-widget-content>
-        <div class="chart-container" style="height:100%">
-          <div soho-chart
-            [dataSet]="getBarChartData()"
-            type="bar"
-            showLegend="true">
-          </div>
+        <div class="widget-header-section title">
+          <h2 class="widget-title">Bordered</h2>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-3" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-3">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
         </div>
       </div>
+      <div soho-widget-content>
+      </div>
     </div>
-    <div soho-widget bordered="false">
+    <div soho-widget
+      bordered="true">
       <div soho-widget-header>
-        <div soho-widget-title tabIndex="1"><h2>Tasks</h2></div>
-        <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu" trigger="click" class="btn-actions"></button>
+        <div class="widget-header-section title">
+          <h2 class="widget-title">Bordered With Actions</h2>
+        </div>
+        <div class="widget-header-section custom-action">
+          <button type="button" class="btn-icon" id="tertiary-filter-one">
+            <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
+              <use href="#icon-add"></use>
+            </svg>
+            <span>Add</span>
+          </button>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-2" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-2">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
       </div>
       <div soho-widget-content>
-        <soho-listview
-          (rendered)="onRendered($event)"
-          (selected)="onSelected($event)"
-          (sorted)="onSorted($event)">
+      </div>
+    </div>
+
+    <div soho-widget
+      bordered="true"
+      contentPaddingX="16"
+      contentPaddingY="16">
+      <div soho-widget-header>
+        <div class="widget-header-section title">
+          <h2 class="widget-title">Bordered with Padding</h2>
+        </div>
+        <div class="widget-header-section custom-action">
+          <button type="button" class="btn-icon" id="tertiary-filter-one">
+            <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
+              <use href="#icon-search"></use>
+            </svg>
+            <span>Search</span>
+          </button>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content>
+        <p>Introducing our new line of sustainable and eco-friendly products! We're committed to reducing our environmental
+          impact and creating products that are better for the planet. Our new line features materials such as organic
+          cotton, recycled plastic, and bamboo, all of which are renewable and biodegradable.</p>
+      </div>
+    </div>
+
+    <div soho-widget
+      bordered="false"
+      contentPaddingX="16"
+      contentPaddingY="16">
+      <div soho-widget-header>
+        <div class="widget-header-section title">
+          <h2>Borderless</h2>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-4" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-4">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content>
+        <p>Introducing our new line of sustainable and eco-friendly products! We're committed to reducing our environmental
+          impact and creating products that are better for the planet. Our new line features materials such as organic
+          cotton, recycled plastic, and bamboo, all of which are renewable and biodegradable.</p>
+      </div>
+    </div>
+
+    <div soho-widget
+      bordered="false"
+      contentPaddingX="16"
+      contentPaddingY="16">
+      <div soho-widget-header>
+        <div class="widget-header-section title">
+          <h2>Borderless with Actions</h2>
+        </div>
+        <div class="widget-header-section custom-action">
+          <button type="button" class="btn-icon" id="tertiary-filter-one">
+            <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
+              <use href="#icon-map-pin"></use>
+            </svg>
+            <span>Add</span>
+          </button>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-5" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-5">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content>
+        <p>Welcome to our fitness app! With our app, you can easily track your daily workouts and monitor your progress towards your fitness goals. Whether you're a beginner or an experienced athlete, our app has something for everyone. You can choose from a variety of workout plans and customize them to fit your needs.</p>
+      </div>
+    </div>
+
+    <div soho-widget
+      bordered="true">
+      <div soho-widget-header>
+        <div class="widget-header-section title">
+          <h2>Search</h2>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-6" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-6">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content style="overflow:visible">
+        <div class="listview-search">
+          <input soho-searchfield placeholder="Search My List" [clearable]="true">
+        </div>
+        <div class="listview" id="search-listview" data-init="false">
+          <soho-listview
+          [dataset]="demoTasks">
           <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
             <p soho-listview-header>Task #{{data.task}}</p>
             <p soho-listview-subheader>{{data.desc}}</p>
             <p soho-listview-micro>DUE: {{data.date}}</p>
           </li>
         </soho-listview>
-      </div>
-    </div>
-
-    <div soho-widget noShadow="true">
-      <div soho-widget-header>
-        <div soho-widget-title tabIndex="2"><h2>Business Insight</h2></div>
-        <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu" trigger="click" class="btn-actions"></button>
-      </div>
-      <div soho-widget-content>
-        <div class="chart-container" style="height:100%">
-          <div soho-chart
-            [dataSet]="getPieChartData()"
-            type="pie"
-          >
-          </div>
         </div>
       </div>
     </div>
 
-  <ul soho-popupmenu id="action-popupmenu"
-    (selected)="onSelected($event)"
-    (beforeopen)="onBeforeOpen($event)"
-    (close)="onClose($event)"
-    (open)="onOpen($event)">
-    <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
-    <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
-  </ul>
+    <div soho-widget
+      bordered="true">
+      <div soho-widget-header>
+        <div class="widget-header-section title">
+          <h2>Search on a widget</h2>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-7" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-7">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content>
+        <div class="listview-search">
+          <label class="audible" for="gridfilter">Search</label>
+          <input soho-searchfield placeholder="Search My List" [clearable]="true">
+        </div>
+        <div class="fake-content" style="height: calc(100% - 48px);overflow: auto;border-top: 1px solid transparent">
+          <div class="fake-content" style="height: 1000px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div soho-widget
+      bordered="true"
+      contentPaddingX="16"
+      contentPaddingY="16"
+      detailRefId="trigger-btn">
+      <div soho-widget-header>
+        <div class="widget-header-section detail-title">
+          <h2 class="widget-title">Detail View</h2>
+        </div>
+        <div class="widget-header-section detail-custom-action">
+          <button type="button" class="btn-icon" id="star-id">
+            <span>Star</span>
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-star-outlined"></use>
+            </svg>
+            <span class="audible">Star</span>
+          </button>
+          <button type="button" class="btn-icon" id="new-doc-id">
+            <span>New Document</span>
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-new-document"></use>
+            </svg>
+            <span class="audible">New Document</span>
+          </button>
+        </div>
+        <div class="widget-header-section title">
+          <h2 class="widget-title">Back Button</h2>
+          <p class="label font-size-px-14 m-bottom-0">Example Subtitle</p>
+        </div>
+        <div class="widget-header-section custom-action">
+          <button type="button" class="btn-icon" id="search-id">
+            <span>Calendar</span>
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-calendar"></use>
+            </svg>
+            <span class="audible">Calendar</span>
+          </button>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-8" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-8">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div soho-widget-content class="has-back-button">
+        <div class="content-main">
+          <button id="trigger-btn" type="button" class="btn-secondary">Click to open the detail view</button>
+        </div>
+        <div class="content-detail">
+          <p>Happy Birthday!</p>
+          <p>Wishing you a day filled with joy, laughter, and wonderful memories. May this new year of your life bring you
+            happiness, success, and all the things you've been dreaming of. Enjoy your special day to the fullest! Cheers to
+            another amazing year ahead!</p>
+        </div>
+      </div>
+    </div>
+    <div soho-widget
+      bordered="true"
+      class="show-buttons">
+      <div soho-widget-header>
+        <div class="widget-header-section title">
+          <h2 class="widget-title">Badge</h2>
+          <span class="round info badge">5</span>
+        </div>
+        <div class="widget-header-section custom-action">
+          <button type="button" class="btn-icon" id="search-id">
+            <span>Search</span>
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-search"></use>
+            </svg>
+            <span class="audible">Search</span>
+          </button>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-9" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-9">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content></div>
+    </div>
+
+    <div soho-widget
+      bordered="true">
+      <div soho-widget-header
+        class="has-subtitle">
+        <div class="widget-header-section title">
+          <h2 class="widget-title">Title</h2>
+          <p class="label font-size-px-14 m-bottom-0">Subtitle</p>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-10" trigger="click"
+          class="btn-actions"></button>
+          <ul soho-popupmenu id="action-popupmenu-10">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content></div>
+    </div>
+
 </div>
