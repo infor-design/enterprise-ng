@@ -133,6 +133,10 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     this.modulenavswitcher?.init();
   }
 
+  public toggleModuleButtonFocus(doFocus?: boolean) {
+    this.modulenavswitcher?.toggleModuleButtonFocus(doFocus);
+  }
+
   /** Triggers a UI Resync. */
   public updated(val?: SohoModuleNavSwitcherOptions) {
     if (val) {

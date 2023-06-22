@@ -159,6 +159,12 @@ interface SohoAccordionStatic {
   /** Makes an accordion header appear with a "selected" state */
   select(element?: SohoAccordionHeaderAnyGroup): void;
 
+  /** Makes an accordion header appear with a "deselected" state */
+  deselect(element?: SohoAccordionHeaderAnyGroup): void;
+
+  /** Makes all accordion headers deselected */
+  deselectAll(): void;
+
   /** Gets a reference to currently-selected accordion headers */
   getSelected(): SohoAccordionHeaderGroup;
 

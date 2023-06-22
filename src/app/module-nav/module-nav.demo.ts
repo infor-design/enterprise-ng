@@ -47,6 +47,13 @@ export class ModuleNavDemoComponent implements AfterViewInit {
 
   onModuleButtonClick(e: any) {
     console.info('Module Nav Role Button clicked', e);
+    this.moduleNavSwitcher?.toggleModuleButtonFocus(true);
+    this.accordion?.deselectAll();
+  }
+
+  onModuleNavAccordionClick(e: any) {
+    console.info('Module Nav Accordion header clicked', e?.target?.textContent.trim());
+    this.moduleNavSwitcher?.toggleModuleButtonFocus(false);
   }
 
   onSearchChange(e: any) {

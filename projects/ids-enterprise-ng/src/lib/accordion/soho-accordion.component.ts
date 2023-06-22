@@ -30,7 +30,7 @@ import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
  * category or section header, and the second level provides the associated options.
  */
 @Component({
-  selector: 'soho-accordion',
+  selector: 'soho-accordion, [soho-accordion]',
   templateUrl: 'soho-accordion.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -254,6 +254,39 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   // -------------------------------------------
   // Public API
   // -------------------------------------------
+
+  /**
+   * Makes provided accordion headers appear "selected"
+   */
+  public select(header: SohoAccordionHeaderComponent | string): void {
+    if (this.accordion) {
+      this.ngZone.runOutsideAngular(() => {
+        return this.accordion.select(typeof header === 'string' ? header : header['jQueryElement']);
+      });
+    }
+  }
+
+  /**
+   * Makes provided accordion headers appear "deselected"
+   */
+  public deselect(header: SohoAccordionHeaderComponent | string): void {
+    if (this.accordion) {
+      this.ngZone.runOutsideAngular(() => {
+        return this.accordion.deselect(typeof header === 'string' ? header : header['jQueryElement']);
+      });
+    }
+  }
+
+  /**
+   * Makes all accordion headers appear "deselected"
+   */
+  public deselectAll(): void {
+    if (this.accordion) {
+      this.ngZone.runOutsideAngular(() => {
+        return this.accordion.deselectAll();
+      });
+    }
+  }
 
   /**
    * Get's the nth header from the accordion.

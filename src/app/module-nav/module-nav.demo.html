@@ -1,7 +1,8 @@
 <div class="module-nav-bar">
   <div soho-accordion
     class="accordion panel module-nav-accordion"
-    data-options="{ allowOnePane: false, rerouteOnLinkClick: false }">
+    data-options="{ allowOnePane: false, rerouteOnLinkClick: false }"
+    (click)="onModuleNavAccordionClick($event)">
     <div class="module-nav-header accordion-section">
       <soho-module-nav-switcher
         class="module-nav-switcher"
