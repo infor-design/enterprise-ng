@@ -14,7 +14,10 @@ type SohoModuleNavSwitcherIconSetting = string | ((api: SohoModuleNavSwitcherSta
 /** Defines options present in the Soho Module Nav Switcher */
 interface SohoModuleNavSwitcherOptions {
   displayMode?: SohoModuleNavDisplayMode;
+  generate?: boolean;
   icon?: SohoModuleNavSwitcherIconSetting;
+  moduleButtonText?: string;
+  roleDropdownLabel?: string;
   roles?: Array<SohoModuleNavSwitcherRoleRecord>;
 }
 

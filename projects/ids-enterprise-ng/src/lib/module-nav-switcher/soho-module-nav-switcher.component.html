@@ -1,6 +1,19 @@
-<ng-container
-  [ngClass]="{ 'module-nav-header': true, 'accordion-section': true }">
-  <div class="module-nav-switcher">
-    <ng-content></ng-content>
-  </div>
-<ng-container>
+<div class="module-nav-section module-btn">
+  <button
+    id="module-nav-homepage-btn"
+    class="btn-icon"
+    (click)="onModuleButtonClick($event)">
+    <span class="audible">{{moduleButtonText}}</span>
+  </button>
+</div>
+<div class="module-nav-section role-dropdown">
+  <label for="module-nav-role-switcher" class="label audible">{{roleDropdownLabel}}</label>
+  <select soho-dropdown
+    id="module-nav-role-switcher"
+    name="module-nav-role-switcher"
+    class="dropdown"
+    data-automation-id="custom-automation-dropdown-id"
+    (change)="onRoleChange($event)">
+    <option *ngFor="let role of roles" [value]="role.value">{{role.label}}</option>
+  </select>
+</div>
