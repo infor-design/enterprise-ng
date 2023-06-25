@@ -85,6 +85,21 @@ export class DatepickerDemoComponent implements OnInit {
     locale: 'ar-SA'
   };
 
+  public customValidator: SohoDatePickerValidator = {
+       validator: {
+         check: (value: any, field: any, grid: any) => {
+           if (value == "") {
+             return true;
+           }
+           return new Date(value) > new Date();
+         },
+         id: 'myCustomValidator',
+         type: 'error',
+         message: 'My Custom Error Message!',
+       },
+       validatorEvents: 'change blur enter'
+  };
+
   public legend$ = this.legendSubject.asObservable().pipe(
     delay(250)
   );
