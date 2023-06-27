@@ -6,6 +6,7 @@
 
 - `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
 - `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
+- `[Datepicker]` Added custom validation for Datepicker component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
 
 ## 16.4.1
 

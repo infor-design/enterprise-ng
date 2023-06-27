@@ -46,6 +46,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
 
   private updateLegend: boolean = false;
 
+  private _validation: SohoDatePickerValidator | null = null;
+
   /**
    * Indicates to display the timepicker; defaults to false.
    */
@@ -354,6 +356,13 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     }
   }
 
+  @Input() set validation(validation: SohoDatePickerValidator) {
+    this._validation = validation;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
   get options(): SohoDatePickerOptions {
     return this._options;
   }
@@ -543,6 +552,13 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     if (this.updateLegend && this.datepicker?.isOpen()) {
       this.datepicker.loadLegend(this._options.legend);
       this.updateLegend = false;
+    }
+
+    if (this._validation) {
+      // @ts-ignore
+      Soho.Validation.rules[this._validation.validator.id] = this._validation.validator;
+      this.datepicker?.element.attr({'data-validate': this._validation.validator.id})
+      this.datepicker?.element.attr({'data-validation-events': {[this._validation.validator.id]: this._validation.validatorEvents}});
     }
 
     if (this.runUpdatedOnCheck) {
