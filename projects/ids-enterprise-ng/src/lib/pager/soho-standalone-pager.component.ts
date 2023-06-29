@@ -148,6 +148,7 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
   @Output() previousPage: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() nextPage: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() pageSizeChange: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() page: EventEmitter<Object> = new EventEmitter<Object>();
 
   private jQueryElement?: JQuery;
   private pager?: SohoStandalonePagerStatic | null;
@@ -180,6 +181,7 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
       this.jQueryElement.on('previouspage', (...args) => this.ngZone.run(() => this.previousPage.emit(args)));
       this.jQueryElement.on('nextpage', (...args) => this.ngZone.run(() => this.nextPage.emit(args)));
       this.jQueryElement.on('pagesizechange', (...args) => this.ngZone.run(() => this.pageSizeChange.emit(args)));
+      this.jQueryElement.on('page', (...args) => this.ngZone.run(() => this.page.emit(args)));
     });
   }
 
