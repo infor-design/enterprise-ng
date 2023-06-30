@@ -129,6 +129,22 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
     this.modulenav?.teardown();
   }
 
+  /**
+   * Updates the accordion and expands the target header
+   * @param sohoModuleNavComponent
+   * @param target
+   */
+  public updateLazy(sohoModuleNavComponent: SohoModuleNavComponent, target: any) {
+    const $applicationMenu = jQuery(sohoModuleNavComponent.elementRef.nativeElement).data('modulenav');
+    this.ngZone.runOutsideAngular(() => {
+      setTimeout(() => {
+        $applicationMenu.accordionAPI.updated();
+        const header = jQuery(target).closest('.accordion-header');
+        $applicationMenu.accordionAPI.expand(header);
+      }, 1);
+    });
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
