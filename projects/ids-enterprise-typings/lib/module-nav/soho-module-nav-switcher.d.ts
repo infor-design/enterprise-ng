@@ -51,7 +51,7 @@ interface SohoModuleNavSwitcherStatic {
   roleDropdownEl?: HTMLElement;
 
   /** Reference to the Module Button's Soho Button API, if one is available */
-  roleDropdownAPI?: SohoButtonStatic;
+  roleDropdownAPI?: SohoDropDownStatic;
 
   /** Initializes the jQuery component */
   init(): void;
