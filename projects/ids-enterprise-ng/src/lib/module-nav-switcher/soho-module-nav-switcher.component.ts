@@ -187,7 +187,7 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
 
   ngAfterViewChecked() {
     if (this.modulenavswitcher && this._updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.modulenavswitcher?.updated());
+      this.ngZone.runOutsideAngular(() => this.modulenavswitcher?.updated(this._options));
       this._updateRequired = false;
     }
   }

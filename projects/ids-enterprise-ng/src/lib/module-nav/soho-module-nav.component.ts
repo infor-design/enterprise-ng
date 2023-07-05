@@ -34,7 +34,9 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
 
   /** Stored settings */
   private _options: SohoModuleNavOptions = {
+    accordionSettings: {},
     displayMode: false,
+    initChildren: true,
     filterable: false,
     pinSections: false,
     showDetailView: false,
@@ -53,6 +55,14 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   // Inputs
   // -------------------------------------------
 
+  @Input() set accordionSettings(val: SohoAccordionOptions | undefined) {
+    this._options.accordionSettings = val;
+    this.updated({ accordionSettings: this._options.accordionSettings });
+  }
+  public get accordionSettings(): SohoAccordionOptions | undefined {
+    return this.modulenav?.settings.accordionSettings || this._options.accordionSettings;
+  }
+
   @Input() set displayMode(val: SohoModuleNavDisplayMode | undefined) {
     this._options.displayMode = val;
     this.updated({ displayMode: this._options.displayMode });
@@ -67,6 +77,14 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   }
   public get filterable(): boolean {
     return this.modulenav?.settings.filterable || this._options.filterable || false;
+  }
+
+  @Input() set initChildren(val: boolean) {
+    this._options.initChildren = val;
+    this.updated({ initChildren: this._options.initChildren });
+  }
+  public get initChildren(): boolean {
+    return this.modulenav?.settings.initChildren || this._options.initChildren || false;
   }
 
   @Input() set pinSections(val: boolean) {
@@ -144,7 +162,7 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
 
   ngAfterViewChecked() {
     if (this.modulenav && this._updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.modulenav?.updated());
+      this.ngZone.runOutsideAngular(() => this.modulenav?.updated(this._options));
       this._updateRequired = false;
     }
   }
