@@ -1,5 +1,13 @@
 # What's New with Enterprise-NG
 
+## 15.4.3
+
+### 15.4.3 Features
+
+- `[General]` Added 4.84.3 version.
+- `[Module Nav]` Add more module nav fixes. ([#1522](https://github.com/infor-design/enterprise-ng/pull/1522))
+- `[Module Nav]` Add more module nav fixes. ([#1519](https://github.com/infor-design/enterprise-ng/pull/1519))
+
 ## 15.4.2
 
 ### 15.4.2 Features
