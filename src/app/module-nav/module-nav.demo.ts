@@ -2,6 +2,7 @@ import {
   Component,
   ChangeDetectionStrategy,
   AfterViewInit,
+  NgZone,
   ViewChild
 } from '@angular/core';
 
@@ -23,6 +24,12 @@ export class ModuleNavDemoComponent implements AfterViewInit {
   @ViewChild(SohoSearchFieldComponent) searchfield?: SohoSearchFieldComponent;
   @ViewChild(SohoModuleNavSwitcherComponent) moduleNavSwitcher?: SohoModuleNavSwitcherComponent;
   @ViewChild(SohoModuleNavSettingsComponent) moduleNavSettings?: SohoModuleNavSettingsComponent;
+
+  /**
+   * Constructor.
+   * @param ngZone - zone access.
+   */
+  constructor(private ngZone: NgZone) { }
 
   public searchfieldOptions: SohoSearchFieldOptions = {}
 
@@ -77,6 +84,8 @@ export class ModuleNavDemoComponent implements AfterViewInit {
   // ------------------------------------------
 
   ngAfterViewInit() {
-    this.moduleNavSwitcher?.setRoles(this.dropdownRoles);
+    this.ngZone.runOutsideAngular(() => {
+      this.moduleNavSwitcher?.setRoles(this.dropdownRoles);
+    });
   }
 }

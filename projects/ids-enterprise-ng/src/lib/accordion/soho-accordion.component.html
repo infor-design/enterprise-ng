@@ -1,3 +1,9 @@
-<div [ngClass]="{'accordion': true, 'panel': hasPanels, 'alternate': alternate, 'inverse': inverse, 'has-subheader-separators': hasSubheaderSeparators}">
+<div [ngClass]="{
+  'accordion': true,
+  'panel': hasPanels,
+  'alternate': alternate,
+  'inverse': inverse,
+  'has-subheader-separators': hasSubheaderSeparators,
+  'module-nav-accordion': moduleNav }">
   <ng-content></ng-content>
 </div>
