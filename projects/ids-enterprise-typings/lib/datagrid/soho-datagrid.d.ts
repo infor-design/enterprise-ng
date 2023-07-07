@@ -963,6 +963,9 @@ interface SohoDataGridColumn {
   /** Sets the name of the icon to show in the header */
   headerIcon?: string;
 
+  /** Sets the name of the icon to show in the header */
+  headerIconTooltip?: string;
+
   /** Adds an extra class to the header for formatting */
   headerCssClass?: string;
 

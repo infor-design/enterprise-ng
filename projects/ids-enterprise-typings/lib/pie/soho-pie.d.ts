@@ -46,6 +46,9 @@ interface SohoPieOptions {
   /** Where to locate the legend. This can be bottom or right at the moment. */
   legendPlacement?: 'bottom' | 'right' | string;
 
+  /** Force Legend popup below regardless of the quantity of labels. */
+  forceLegendPopup?: boolean,
+
   /** A setting that controls the legend values and format. */
   legend?: SohoPieLegendOptions;
 

@@ -230,6 +230,28 @@ interface SohoDatePickerMonthRenderedEvent extends JQuery.TriggeredEvent {
 }
 
 /**
+ * Interface to set custom data validation for the datepicker.
+ */
+interface SohoDatePickerValidator {
+  validator: {
+    /** Validator ID */
+    id: string;
+
+    /** Function to perform the validation */
+    check(value: any, field: any, grid: any): boolean
+
+    /** Message type */
+    type: string;
+
+    /** Message text */
+    message: string;
+  };
+
+  /** The event types that will trigger the validation */
+  validatorEvents: string;
+}
+
+/**
  * JQuery Integration
  */
 interface JQueryStatic {

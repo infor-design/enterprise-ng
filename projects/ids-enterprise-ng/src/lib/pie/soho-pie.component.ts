@@ -137,6 +137,16 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
     }
   }
 
+  /** Where to locate the legend. This can be bottom or right at the moment. */
+  @Input() set forceLegendPopup(value: boolean) {
+    this.options.forceLegendPopup = value;
+
+    if (this.pie) {
+      this.pie.settings.forceLegendPopup = value;
+      this.updateRequired = true;
+    }
+  }
+
   /** A setting that controls the legend values and format. */
   @Input() set legend(value: SohoPieLegendOptions) {
     this.options.legend = value;

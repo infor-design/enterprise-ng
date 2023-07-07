@@ -31,6 +31,7 @@ import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
  */
 @Component({
   selector: 'soho-accordion, [soho-accordion]',
+  styleUrls: ['./soho-accordion.component.css'],
   templateUrl: 'soho-accordion.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -140,8 +141,6 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * Can be set to false if routing is externally handled, otherwise
    * links are handled normally.
-   *
-   *
    */
   @Input() public set rerouteOnLinkClick(rerouteOnLinkClick: boolean | undefined) {
     this.options.rerouteOnLinkClick = typeof (rerouteOnLinkClick) === 'boolean' && rerouteOnLinkClick;
@@ -242,6 +241,9 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   @Input() public hasSubheaderSeparators?: boolean;
+
+  /** Enables Module Nav variant */
+  @Input() public moduleNav?: boolean;
 
   /**
    * Constructor.

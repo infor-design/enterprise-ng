@@ -3,8 +3,10 @@
 
 /** Defines options present in the Soho Module Nav */
 interface SohoModuleNavOptions {
+  accordionSettings?: SohoAccordionOptions;
   displayMode?: SohoModuleNavDisplayMode;
   filterable?: boolean;
+  initChildren?: boolean;
   pinSections?: boolean;
   showDetailView?: boolean;
 }

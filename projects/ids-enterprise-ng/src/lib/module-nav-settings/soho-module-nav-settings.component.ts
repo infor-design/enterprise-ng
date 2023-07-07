@@ -92,7 +92,7 @@ export class SohoModuleNavSettingsComponent implements AfterViewInit, AfterViewC
 
   ngAfterViewChecked() {
     if (this.modulenavsettings && this._updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.modulenavsettings?.updated());
+      this.ngZone.runOutsideAngular(() => this.modulenavsettings?.updated(this._options));
       this._updateRequired = false;
     }
   }
