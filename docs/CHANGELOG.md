@@ -5,7 +5,6 @@
 ### 15.4.6 Features
 
 - `[General]` Fixed type issue
-
 ## 15.4.5
 
 ### 15.4.5 Features
@@ -15,7 +14,6 @@
 - `[Module Nav]` Add more module nav fixes. ([#1519](https://github.com/infor-design/enterprise-ng/pull/1519))
 
 ## 15.4.2
-
 ### 15.4.2 Features
 
 - `[General]` Added 4.84.1 version.
@@ -24,18 +22,6 @@
 - `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
 - `[Datepicker]` Added custom validation for Datepicker component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
 - `[Datagrid]` Added missing headerTooltip setting. ([#1514](https://github.com/infor-design/enterprise-ng/issues/1514))
-
-## 16.4.1
-
-### 16.4.1 Fixes
-
-- `[General]` Added 4.84.0 EP version.
-- `[Module Nav]` Add Module Nav Component wrappers and replace the app menu with the Module Nav menu. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
-- `[Images]` Added an example page for Image with click handler. ([EP#7007](https://github.com/infor-design/enterprise/issues/7007))
-- `[Lookup]` Updated example page for datagrid editor. ([#7403](https://github.com/infor-design/enterprise/issues/7403))
-- `[General]` Added 4.84.0 EP version.
-- `[General] Added 4.84.0 EP version.
-- `[ProcessIndicator]` Added process indicator demo. ([EP#7583](https://github.com/infor-design/enterprise/issues/75837007))
 
 ## 15.4.1
 
