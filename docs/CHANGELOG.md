@@ -1,5 +1,14 @@
 # What's New with Enterprise-NG
 
+## 15.5.0
+
+### 15.5.0 Fixes
+
+- `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
+- `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
+- `[Datepicker]` Added custom validation for Datepicker component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
+- `[Datagrid]` Added missing headerTooltip setting. ([#1514](https://github.com/infor-design/enterprise-ng/issues/1514))
+
 ## 15.4.6
 
 ### 15.4.6 Features
