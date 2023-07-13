@@ -1,8 +1,8 @@
 # What's New with Enterprise-NG
 
-## 16.15.0
+## 16.5.0
 
-### 16.15.0 Fixes
+### 16.5.0 Fixes
 
 - `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
 - `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
