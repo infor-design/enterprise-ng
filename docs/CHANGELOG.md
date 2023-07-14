@@ -8,6 +8,7 @@
 - `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
 - `[Datepicker]` Added custom validation for Datepicker component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
 - `[Datagrid]` Added missing headerTooltip setting. ([#1514](https://github.com/infor-design/enterprise-ng/issues/1514))
+- `[Datagrid]` Updated data type of cell in drilldown click event. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
 
 ## 16.4.1
 
