@@ -11,6 +11,9 @@
     </soho-toolbar-button-set>
   </soho-toolbar>
 
-  <div soho-datagrid *ngIf="gridOptions" [gridOptions]="gridOptions"></div>
+  <div soho-datagrid *ngIf="gridOptions" [toolbar]="{
+    results: true,
+    keywordFilter: true
+  }" [gridOptions]="gridOptions"></div>
 
 </div>
