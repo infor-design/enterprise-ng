@@ -38,6 +38,9 @@ interface SohoModuleNavSwitcherStatic {
   /** Reference to the Module Button's Container Element */
   moduleButtonContainerEl?: HTMLElement;
 
+  /** Reference to the Module Button's Icon Element */
+  moduleButtonIconEl?: HTMLElement | SVGElement;
+
   /** Reference to the Module Button element */
   moduleButtonEl?: HTMLElement;
 
