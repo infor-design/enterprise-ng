@@ -27,7 +27,7 @@ export class ButtonCellFormatterComponent implements OnDestroy {
   template: '<p>{{args?.value?.price}}</p>'
 })
 export class PriceCellFormatterComponent {
-  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {}
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) { }
 }
 
 @Component({
@@ -36,33 +36,59 @@ export class PriceCellFormatterComponent {
 })
 export class DataGridAngularFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [
-    { id: 'productId',   name: 'Product Id',   field: 'productId',
+    {
+      id: 'productId',
+      field: 'productId',
+      align: 'center',
+      sortable: false,
+      name: 'Drilldown',
+      filterType: 'integer',
+      formatter: Soho.Formatters.Drilldown,
+      click: (e, args) => {
+        this.numberOnly(args[0].cell !== null ? args[0].cell : 0);
+      }
+    },
+    {
+      id: 'productId', name: 'Product Id', field: 'productId',
       sortable: false, filterType: 'integer',
-      formatter: Soho.Formatters.Readonly },
-    { id: 'button-formatter', name: 'Edit', text: 'Edit Row',
+      formatter: Soho.Formatters.Readonly
+    },
+    {
+      id: 'button-formatter', name: 'Edit', text: 'Edit Row',
       sortable: false, icon: 'edit', align: 'center',
       formatter: Soho.Formatters.Button, click: (_e, args) => this.onClick(args),
-      disabled: this.disableButton },
-    { id: 'button', name: 'Settings',
+      disabled: this.disableButton
+    },
+    {
+      id: 'button', name: 'Settings',
       sortable: false, align: 'center', postRender: true,
       component: ButtonCellFormatterComponent,
-      componentInputs: { value: 'somespecialvalue' } },
-    { id: 'price',  name: 'Price (std fmt)', field: 'price',
+      componentInputs: { value: 'somespecialvalue' }
+    },
+    {
+      id: 'price', name: 'Price (std fmt)', field: 'price',
       sortable: false, filterType: 'decimal',
-      formatter: Soho.Formatters.Decimal },
-    { id: 'price2', name: 'Price (ng fmt)', field: 'price',
+      formatter: Soho.Formatters.Decimal
+    },
+    {
+      id: 'price2', name: 'Price (ng fmt)', field: 'price',
       sortable: false, align: 'center', postRender: true,
-      component: PriceCellFormatterComponent, componentInputs: {} }
+      component: PriceCellFormatterComponent, componentInputs: {}
+    }
   ];
 
   public data = PAGING_DATA;
 
-  constructor() {}
+  constructor() { }
 
   onClick(_args: any) {
     console.log('click');
   }
   disableButton(_row: number, _cell: any, _data: any, _col: SohoDataGridColumn, item: any) {
     return (item.productId === 214221 || item.productId === 214222);
+  }
+
+  numberOnly(num: number) {
+    console.log('Drilldown Click Cell', num);
   }
 }

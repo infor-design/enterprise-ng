@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.6.0
+
+### 16.6.0 Fixes
+
+- `[Datagrid]` Updated data type of cell in drilldown click event. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
+
 ## 16.5.0
 
 ### 16.5.0 Fixes
