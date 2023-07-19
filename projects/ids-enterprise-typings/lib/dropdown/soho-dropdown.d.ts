@@ -251,6 +251,11 @@ interface SohoDropDownStatic {
    * Set the selected option on the dropdown.
    */
   selectValue(value: any): void;
+
+  /**
+   * Set the selected option with icon.
+   */
+  setListIcon(): void;
 }
 
 /**

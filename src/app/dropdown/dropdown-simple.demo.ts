@@ -19,6 +19,20 @@ export class DropdownSimpleDemoComponent implements AfterViewInit {
   /** Used the html to comntrol the options. */
   options: any = [];
 
+  /** Used the html to comntrol the options with icons. */
+  optionWithIcons: any = [
+    { value: 'AK', label: 'Alaska', icon: 'mail' },
+    { value: 'AZ', label: 'Arizona', icon: "{icon: 'camera', class: 'good'}" },
+    { value: 'CA', label: 'California', icon: "{icon: 'send', class: 'info'}" },
+    { value: 'CO', label: 'Colorado', icon: "{icon: 'notes', class: 'alert'}" },
+    { value: 'MN', label: 'Minnesota', icon: 'add-grid-record' },
+    { value: 'ND', label: 'North Dakota', icon: 'language' },
+    { value: 'OR', label: 'Oregon', icon: 'search-folder' },
+    { value: 'WA', label: 'Washington', icon: 'technology' },
+    { value: 'WY', label: 'Wyoming', icon: 'spreadsheet' }
+  ];
+
+
   readOnly = true;
 
   ngAfterViewInit() {

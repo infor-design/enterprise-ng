@@ -5,6 +5,7 @@
 ### 16.6.0 Fixes
 
 - `[Datagrid]` Updated data type of cell in drilldown click event. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
+- `[Dropdown]` Fixed icons not rendering properly in Dropdown. ([#1425](https://github.com/infor-design/enterprise-ng/issues/1425))
 
 ## 16.5.0
 
