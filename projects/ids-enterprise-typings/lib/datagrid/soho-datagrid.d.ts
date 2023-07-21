@@ -772,8 +772,8 @@ interface SohoDataGridColumnClickData {
   /** Index of the row clicked. */
   row: number;
 
-  /** Element click. */
-  cell: HTMLElement;
+  /** Cell index. */
+  cell: number | null;
 
   /** Row data */
   item: any;

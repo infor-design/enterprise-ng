@@ -35,6 +35,7 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     displayMode: false,
     generate: false,
     icon: undefined,
+    changeIconOnSelect: true,
     moduleButtonText: undefined,
     roleDropdownLabel: undefined,
     roles: []
@@ -75,6 +76,14 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   }
   public get icon(): SohoModuleNavSwitcherIconSetting {
     return this.modulenavswitcher?.settings.icon || this._options.icon;
+  }
+
+  @Input() set changeIconOnSelect(val: boolean | undefined) {
+    this._options.changeIconOnSelect = val;
+    this.updated({ changeIconOnSelect: this._options.changeIconOnSelect });
+  }
+  public get changeIconOnSelect(): boolean | undefined {
+    return this.modulenavswitcher?.settings.changeIconOnSelect || this._options.changeIconOnSelect;
   }
 
   @Input() set moduleButtonText(val: string | undefined) {
