@@ -539,6 +539,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         .on('listopened', (event: JQuery.TriggeredEvent) => this.onListOpened(event));
 
       this.runUpdatedOnCheck = true;
+
+      // Angular Lifecycle checks earlier when the select component is not fully created..
+      setTimeout(() => {
+        this.dropdown?.setListIcon();
+      }, 50);
     });
   }
 

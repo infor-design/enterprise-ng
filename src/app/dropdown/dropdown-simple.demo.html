@@ -7,7 +7,15 @@
           <select soho-dropdown soho-busyindicator noSearch name="states1"
             (update)="onUpdated($event)"
             (change)="onChange($event)">
-            <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+            <option *ngFor="let option of options" [attr.data-icon]="option.icon" [value]="option.value">{{option.label}}</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="statesWithIcon" class="label">Simple Dropdown with Icons and Colors</label>
+          <select soho-dropdown soho-busyindicator noSearch name="statesWithIcon"
+            (update)="onUpdated($event)"
+            (change)="onChange($event)">
+            <option *ngFor="let option of optionWithIcons" [attr.data-icon]="option.icon" [value]="option.value">{{option.label}}</option>
           </select>
         </div>
         <div class="field">
