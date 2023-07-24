@@ -1,19 +1,10 @@
 # What's New with Enterprise-NG
-
 ## 15.4.6
 
 ### 15.4.6 Features
-## 16.6.0
 
-### 16.6.0 Fixes
+- `[General]` Added 4.84.5 version.
 
-- `[Datagrid]` Updated data type of cell in drilldown click event. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
-
-## 16.5.0
-
-### 16.5.0 Fixes
-
-- `[General]` Fixed type issue
 ## 15.4.5
 
 ### 15.4.5 Features
@@ -23,6 +14,7 @@
 - `[Module Nav]` Add more module nav fixes. ([#1519](https://github.com/infor-design/enterprise-ng/pull/1519))
 
 ## 15.4.2
+
 ### 15.4.2 Features
 
 - `[General]` Added 4.84.1 version.
