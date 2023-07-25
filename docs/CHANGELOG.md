@@ -36,6 +36,44 @@
 - `[Card]` Added new settings and typings for card component. ([#7379](https://github.com/infor-design/enterprise/issues/7379))
 - `[General]` Added new NG 16 to the library. ([1481](https://github.com/infor-design/enterprise/issues/1481))
 
+## 15.4.8
+
+### 15.4.8 Features
+
+- `[General]` Added 4.84.5 version.
+
+## 15.4.7
+
+### 15.4.7 Features
+
+- `[General]` Added 4.84.4 version.
+
+## 15.4.5
+
+### 15.4.5 Features
+
+- `[General]` Added 4.84.3 version.
+- `[Module Nav]` Add more module nav fixes. ([#1522](https://github.com/infor-design/enterprise-ng/pull/1522))
+- `[Module Nav]` Add more module nav fixes. ([#1519](https://github.com/infor-design/enterprise-ng/pull/1519))
+
+## 15.4.2
+
+### 15.4.2 Features
+
+- `[General]` Added 4.84.1 version.
+- `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
+- `[Module Nav]` Add Module Nav Component wrappers and replace the app menu with the Module Nav menu. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
+- `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
+- `[Datepicker]` Added custom validation for Datepicker component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
+- `[Datagrid]` Added missing headerTooltip setting. ([#1514](https://github.com/infor-design/enterprise-ng/issues/1514))
+
+## 15.4.1
+
+### 15.4.1 Features
+
+- `[General]` Added 4.84.1 version.
+- `[Misc]` Fixed readonly bindings ([EP#1466](https://github.com/infor-design/enterprise/issues/1466))
+
 ## 15.3.0
 
 ### 15.3.0 Fixes
