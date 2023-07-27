@@ -119,3 +119,50 @@
     <button soho-button="primary" (click)="onClick()">Selected Items</button>
   </div>
 </div>
+
+<div class="row top-padding">
+  <div class="twelve columns">
+    <button soho-menu-button [menu]="'mock-menu'" [id]="'mock-button'" [hideMenuArrow]="false">Menu</button>
+    <ul soho-popupmenu id="mock-menu">
+      <li soho-popupmenu-separator [multiSelectableSection]="true"></li>
+      <li soho-popupmenu-item [isChecked]="true" class="is-multiselectable">
+        <a soho-popupmenu-label>Menu Option #1</a>
+      </li>
+
+      <li soho-popupmenu-item [isChecked]="false" class="is-multiselectable">
+        <a soho-popupmenu-label>Menu Option #2</a>
+      </li>
+
+      <li soho-popupmenu-separator [singleSelectableSection]="true"></li>
+
+      <li soho-popupmenu-item [subMenu]="true" [isSelectable]="false">
+        <a href="">Menu Option #3</a>
+        <ul soho-popupmenu>
+          <li soho-popupmenu-heading>Primary</li>
+          <li soho-popupmenu-item [isSelectable]="true" [isChecked]="true">
+            <a soho-popupmenu-label>Option 1</a>
+          </li>
+          <li class="hotdog" soho-popupmenu-item [isSelectable]="true" [isChecked]="false">
+            <a soho-popupmenu-label>Option 2</a>
+          </li>
+          <li soho-popupmenu-item [isSelectable]="true">
+            <a soho-popupmenu-label>Option 3</a>
+          </li>
+
+          <li soho-popupmenu-separator [singleSelectableSection]="true"></li>
+
+          <li soho-popupmenu-heading>Secondary</li>
+          <li soho-popupmenu-item [isSelectable]="true" [isChecked]="true">
+            <a soho-popupmenu-label>Option 1</a>
+          </li>
+          <li soho-popupmenu-item [isSelectable]="true">
+            <a soho-popupmenu-label>Option 2</a>
+          </li>
+          <li soho-popupmenu-item [isSelectable]="true">
+            <a soho-popupmenu-label>Option 3</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
