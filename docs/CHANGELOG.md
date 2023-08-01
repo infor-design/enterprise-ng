@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## 15.4.10
+
+### 15.4.10 Features
+
+- `[General]` Added 4.84.6 version.
+- `[Module Nav]` Added ability to set icon to false
+
 ## 15.4.9
 
 ### 15.4.9 Features
