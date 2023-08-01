@@ -2,7 +2,7 @@
   <soho-accordion [allowOnePane]="true" [hasPanels]="true" [moduleNav]="true" [rerouteOnLinkClick]="false"
     (click)="onModuleNavAccordionClick($event)">
     <div class="module-nav-header accordion-section">
-      <soho-module-nav-switcher class="module-nav-switcher" [icon]="'database'" [moduleButtonText]="'Standard Module'"
+      <soho-module-nav-switcher class="module-nav-switcher" [icon]="false" [moduleButtonText]="'Standard Module'"
         [roleDropdownLabel]="'Module Roles'" [generate]="false" (modulebuttonclick)="onModuleButtonClick($event)"
         (rolechange)="onRoleChange($event)" [changeIconOnSelect]="false"></soho-module-nav-switcher>
     </div>

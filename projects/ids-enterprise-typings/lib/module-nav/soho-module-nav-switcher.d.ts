@@ -9,7 +9,7 @@
  */
 type SohoModuleNavSwitcherRoleRecord = Record<string, unknown>;
 
-type SohoModuleNavSwitcherIconSetting = string | ((api: SohoModuleNavSwitcherStatic) => string) | undefined;
+type SohoModuleNavSwitcherIconSetting = string | ((api: SohoModuleNavSwitcherStatic) => string) | undefined | false;
 
 /** Defines options present in the Soho Module Nav Switcher */
 interface SohoModuleNavSwitcherOptions {
