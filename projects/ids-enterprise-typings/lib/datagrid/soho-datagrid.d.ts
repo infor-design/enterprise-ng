@@ -829,6 +829,9 @@ interface SohoDataGridColumn {
   /** Tooltip for the column header. */
   headerTooltip?: string;
 
+  /** Tooltip Options for the columns of the datagrid */
+  tooltipOptions?: SohoTooltipOptions;
+
   /** Column formatter function or a string.  */
   formatter?: SohoDataGridColumnFormatterFunction | string;
 
