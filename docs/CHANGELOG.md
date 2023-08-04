@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.7.0
+
+### 16.7.0 Fixes
+
+- `[Datagrid]` Added tooltipOptions for Column Settings. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
+
 ## 16.6.0
 
 ### 16.6.0 Fixes
