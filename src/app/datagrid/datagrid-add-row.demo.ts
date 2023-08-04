@@ -21,6 +21,13 @@ export class DataGridAddRowDemoComponent implements OnInit {
 
   public options!: SohoDataGridOptions;
   public newRowData!: string;
+  public tooltipOptions: SohoTooltipOptions = {
+    placement: 'top'
+  }
+
+  public tooltipCompressor: SohoTooltipOptions = {
+    placement: 'bottom'
+  }
 
   constructor() { }
 
@@ -34,19 +41,39 @@ export class DataGridAddRowDemoComponent implements OnInit {
         id: 'name',
         name: 'Name',
         field: 'name',
-        width: 150,
+        // width: 80, 
         sortable: true,
+        headerTooltip: 'Name Column',
+        tooltipOptions: this.tooltipOptions,
+        formatter: Soho.Formatters.Ellipsis,
+      },
+      {
+        id: 'compressor',
+        name: 'Compressor',
+        field: 'compressor',
+        // width: 80,
+        sortable: true,
+        headerTooltip: 'Compressor Column',
+        tooltipOptions: this.tooltipCompressor,
+        formatter: Soho.Formatters.Ellipsis,
+      },
+      {
+        id: 'quantity',
+        name: 'Quantity',
+        field: 'quantity',
+        // width: 80,
+        sortable: true,
+        headerTooltip: 'Quantity Column',
+        tooltipOptions: this.tooltipOptions,
         formatter: Soho.Formatters.Ellipsis,
       },
       {
         id: 'open',
         name: 'Actions',
-        width: 80,
+        // width: 80,
+        sortable: false,
         formatter: Soho.Formatters.Button,
         icon: 'info',
-        headerTooltip: 'Actions',
-        resizable: false,
-        sortable: false,
         menuId: 'card-options',
         click: (_: Event, data: SohoDataGridColumnClickData[]) => {
           console.info(data);
@@ -55,8 +82,9 @@ export class DataGridAddRowDemoComponent implements OnInit {
       },
     ];
     this.options = {
-      dataset: [{ name: 'Foo' }],
+      dataset: [{ name: 'Lorem', compressor: 'Compressor 1', quantity: 24 }],
       columns,
+      enableTooltips: true
     };
   }
 
