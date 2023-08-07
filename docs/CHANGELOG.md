@@ -6,6 +6,7 @@
 
 - `[General]` Added 4.84.6 version.
 - `[Module Nav]` Added ability to set icon to false
+- `[Module Nav Switcher]` Added noSearch setting to pass through to nav switcher ([#1535](https://github.com/infor-design/enterprise-ng/issues/1535))
 
 ## 15.4.9
 
