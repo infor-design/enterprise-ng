@@ -5,6 +5,7 @@
 ### 16.7.0 Fixes
 
 - `[Datagrid]` Added tooltipOptions for Column Settings. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
+- `[Module Nav Switcher]` Added noSearch setting to pass through to nav switcher ([#1535](https://github.com/infor-design/enterprise-ng/issues/1535))
 
 ## 16.6.0
 
