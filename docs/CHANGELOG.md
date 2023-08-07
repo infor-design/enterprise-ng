@@ -1,12 +1,5 @@
 # What's New with Enterprise-NG
 
-## 16.7.0
-
-### 16.7.0 Fixes
-
-- `[Datagrid]` Added tooltipOptions for Column Settings. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
-- `[Module Nav Switcher]` Added noSearch setting to pass through to nav switcher ([#1535](https://github.com/infor-design/enterprise-ng/issues/1535))
-
 ## 16.6.0
 
 ### 16.6.0 Fixes
@@ -14,6 +7,8 @@
 - `[Datagrid]` Updated data type of cell in drilldown click event. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
 - `[Dropdown]` Fixed icons not rendering properly in Dropdown. ([#1425](https://github.com/infor-design/enterprise-ng/issues/1425))
 - `[Popupmenu]` Added Example for Multiselect and Singleselect. ([EP#7556](https://github.com/infor-design/enterprise/issues/7556))
+- `[Datagrid]` Added tooltipOptions for Column Settings. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
+- `[Module Nav Switcher]` Added noSearch setting to pass through to nav switcher ([#1535](https://github.com/infor-design/enterprise-ng/issues/1535))
 
 ## 16.5.0
 
