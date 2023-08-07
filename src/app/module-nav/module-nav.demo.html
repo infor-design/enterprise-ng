@@ -13,6 +13,7 @@
         [roleDropdownLabel]="'Module Roles'"
         [generate]="false"
         [changeIconOnSelect]="false"
+        [noSearch]="true"
         (modulebuttonclick)="onModuleButtonClick($event)"
         (rolechange)="onRoleChange($event)"></soho-module-nav-switcher>
     </div>
@@ -288,7 +289,6 @@
         <div class="accordion-header"><a [routerLink]="['mask-legacy']"><span>Mask Legacy</span></a></div>
         <div class="accordion-header"><a [routerLink]="['menu-button']"><span>Menu Button</span></a></div>
         <div class="accordion-header"><a [routerLink]="['message']"><span>Message</span></a></div>
-        <div class="accordion-header"><a [routerLink]="['module-nav']"><span>Module Nav</span></a></div>
         <div class="accordion-header"><a [routerLink]="['modal-dialog']"><span>Modal Dialog</span></a></div>
         <div class="accordion-header"><a [routerLink]="['monthview']">Monthview</a></div>
         <div class="accordion-header"><a [routerLink]="['monthview-inpage']">Monthview - In Page</a></div>

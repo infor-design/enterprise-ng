@@ -19,6 +19,7 @@ interface SohoModuleNavSwitcherOptions {
   moduleButtonText?: string;
   roleDropdownLabel?: string;
   changeIconOnSelect?: boolean;
+  noSearch?: boolean;
   roles?: Array<SohoModuleNavSwitcherRoleRecord>;
 }
 
