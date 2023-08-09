@@ -78,16 +78,7 @@ export class ModuleNavDemoComponent implements AfterViewInit {
     if ([elId, parentElId].includes('toggle-custom-roles')) {
       this.customRoles = !this.customRoles;
       this.toggleCustomRoles();
-      debugger;
     }
-
-    /*
-    if (evt.args?.attr('id') === 'toggle-custom-roles') {
-      this.customRoles = !this.customRoles;
-      this.toggleCustomRoles();
-      debugger;
-    }
-    */
   }
 
   onSettingsMenuOpen(e: any) {

@@ -217,6 +217,15 @@ interface SohoDropDownStatic {
    */
   settings: SohoDropDownOptions;
 
+  /** Provides an array of selected values */
+  readonly selectedValues: Array<string>
+
+  /** Provides an array of selected HTMLOptionElements */
+  readonly selectedOptions: Array<HTMLOptionElement>
+
+  /** Provides the true "value" of the Dropdown input (different depending on single vs multiple) */
+  readonly value: Array<string> | string
+
   /**
    * Mark the contro as readonly.
    */

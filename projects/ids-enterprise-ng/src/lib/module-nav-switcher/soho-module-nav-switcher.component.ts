@@ -114,10 +114,7 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
 
   @Input() set roles(val: Array<SohoModuleNavSwitcherRoleRecord> | undefined) {
     this._options.roles = val;
-    if (this.modulenavswitcher) {
-      this.modulenavswitcher.settings.roles = val;
-      this.modulenavswitcher.setRoles(val, true);
-    }
+    if (val) this.setRoles(val);
   }
   public get roles(): Array<SohoModuleNavSwitcherRoleRecord> | undefined {
     return this.modulenavswitcher?.settings.roles || this._options.roles;
@@ -177,7 +174,15 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
 
   /** Sets the roles array programmatically */
   setRoles(val: Array<SohoModuleNavSwitcherRoleRecord>) {
-    this.roles = val;
+    if (this.modulenavswitcher) {
+      this.modulenavswitcher.settings.roles = val;
+      this.modulenavswitcher.setRoles(val, true);
+    }
+  }
+
+  /** Sets the current dropdown role using <option> tag's `value` */
+  selectRole(val: string) {
+    this.modulenavswitcher?.selectRole(val);
   }
 
   /** Triggered by a Module Button click */
