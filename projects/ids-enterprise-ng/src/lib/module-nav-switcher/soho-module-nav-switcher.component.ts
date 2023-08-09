@@ -178,6 +178,13 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     if (this.modulenavswitcher) {
       this.modulenavswitcher.settings.roles = val;
       this.modulenavswitcher.setRoles(val, true);
+
+      setTimeout(() => {
+        const selected = this.modulenavswitcher?.roleDropdownAPI?.selectedValues;
+        if (selected?.length) {
+          this.selectRole(selected[0]);
+        }
+      }, 10);
     }
   }
 
