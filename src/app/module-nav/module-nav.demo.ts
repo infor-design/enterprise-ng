@@ -15,13 +15,13 @@ import {
 } from 'ids-enterprise-ng';
 
 const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
-  { text: 'Admin', value: 'admin', icon: 'icon-app-ac' },
-  { text: 'Job Console', value: 'job-console', icon: 'icon-app-jo' },
-  { text: 'Landing Page Designer', value: 'landing-page-designer', icon: 'icon-app-ssm' },
-  { text: 'Process Server Admin', value: 'process-server-admin', icon: 'icon-app-um' },
-  { text: 'Proxy Management', value: 'proxy-management', icon: 'icon-app-pm' },
-  { text: 'Security System Management', value: 'security-system-management', icon: 'icon-app-psa' },
-  { text: 'User Management', value: 'user-management', icon: 'icon-app-lmd' }
+  { text: 'Admin', value: 'admin', icon: 'app-ac' },
+  { text: 'Job Console', value: 'job-console', icon: 'app-jo' },
+  { text: 'Landing Page Designer', value: 'landing-page-designer', icon: 'app-ssm' },
+  { text: 'Process Server Admin', value: 'process-server-admin', icon: 'app-um' },
+  { text: 'Proxy Management', value: 'proxy-management', icon: 'app-pm' },
+  { text: 'Security System Management', value: 'security-system-management', icon: 'app-psa' },
+  { text: 'User Management', value: 'user-management', icon: 'app-lmd' }
 ];
 
 @Component({
