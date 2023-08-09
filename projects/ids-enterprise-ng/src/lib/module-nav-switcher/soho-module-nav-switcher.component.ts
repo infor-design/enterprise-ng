@@ -114,7 +114,10 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
 
   @Input() set roles(val: Array<SohoModuleNavSwitcherRoleRecord> | undefined) {
     this._options.roles = val;
-    this.updated({ roles: this._options.roles });
+    if (this.modulenavswitcher) {
+      this.modulenavswitcher.settings.roles = val;
+      this.modulenavswitcher.setRoles(val, true);
+    }
   }
   public get roles(): Array<SohoModuleNavSwitcherRoleRecord> | undefined {
     return this.modulenavswitcher?.settings.roles || this._options.roles;

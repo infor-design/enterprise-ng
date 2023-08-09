@@ -14,6 +14,16 @@ import {
   SohoModuleNavSettingsComponent
 } from 'ids-enterprise-ng';
 
+const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
+  { text: 'Admin', value: 'admin', icon: 'icon-app-ac' },
+  { text: 'Job Console', value: 'job-console', icon: 'icon-app-jo' },
+  { text: 'Landing Page Designer', value: 'landing-page-designer', icon: 'icon-app-ssm' },
+  { text: 'Process Server Admin', value: 'process-server-admin', icon: 'icon-app-um' },
+  { text: 'Proxy Management', value: 'proxy-management', icon: 'icon-app-pm' },
+  { text: 'Security System Management', value: 'security-system-management', icon: 'icon-app-psa' },
+  { text: 'User Management', value: 'user-management', icon: 'icon-app-lmd' }
+];
+
 @Component({
   selector: 'module-nav-demo', // eslint-disable-line
   templateUrl: 'module-nav.demo.html',
@@ -25,6 +35,7 @@ export class ModuleNavDemoComponent implements AfterViewInit {
   @ViewChild(SohoModuleNavSwitcherComponent) moduleNavSwitcher?: SohoModuleNavSwitcherComponent;
   @ViewChild(SohoModuleNavSettingsComponent) moduleNavSettings?: SohoModuleNavSettingsComponent;
 
+
   /**
    * Constructor.
    * @param ngZone - zone access.
@@ -33,19 +44,9 @@ export class ModuleNavDemoComponent implements AfterViewInit {
 
   public searchfieldOptions: SohoSearchFieldOptions = {}
 
-  public dropdownRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
-    { text: 'Admin', value: 'admin' },
-    { text: 'Job Console', value: 'job-console' },
-    { text: 'Landing Page Designer', value: 'landing-page-designer' },
-    { text: 'Process Server Admin', value: 'process-server-admin' },
-    { text: 'Proxy Management', value: 'proxy-management' },
-    { text: 'Security System Management', value: 'security-system-management' },
-    { text: 'User Management', value: 'user-management' }
-  ]
-
   public model = {
     selectedRole: 'admin',
-    roles: this.dropdownRoles
+    roles: defaultRoles
   }
 
   onRoleChange(e: JQuery.TriggeredEvent) {
@@ -67,8 +68,26 @@ export class ModuleNavDemoComponent implements AfterViewInit {
     console.dir('Module Nav Searchfield content change', e);
   }
 
-  onSettingsMenuSelected(e: SohoContextMenuEvent) {
-    console.dir('Module Nav Settings Menu selection occured', e);
+  onSettingsMenuSelected(evt: SohoContextMenuEvent) {
+    console.dir('Module Nav Settings Menu selection occured', evt);
+
+    const el = evt.args;
+    const elId = el.attr('id');
+    const parentEl = el.parent();
+    const parentElId = parentEl.attr('id');
+    if ([elId, parentElId].includes('toggle-custom-roles')) {
+      this.customRoles = !this.customRoles;
+      this.toggleCustomRoles();
+      debugger;
+    }
+
+    /*
+    if (evt.args?.attr('id') === 'toggle-custom-roles') {
+      this.customRoles = !this.customRoles;
+      this.toggleCustomRoles();
+      debugger;
+    }
+    */
   }
 
   onSettingsMenuOpen(e: any) {
@@ -85,7 +104,48 @@ export class ModuleNavDemoComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
-      this.moduleNavSwitcher?.setRoles(this.dropdownRoles);
+      this.moduleNavSwitcher?.setRoles(this.model.roles);
     });
+  }
+
+  // ------------------------------------------
+  // Demo API
+  // ------------------------------------------
+
+  customRoles: boolean = false;
+
+  public resetRoles() {
+    this.model.roles = defaultRoles;
+  }
+
+  public setCustomRoles(val: Array<SohoModuleNavSwitcherRoleRecord>) {
+    this.model.roles = val;
+  }
+
+  private toggleCustomRoles() {
+    if (this.customRoles) {
+      console.info('Enable custom roles');
+      this.setCustomRoles([
+        {
+          value: '1',
+          text: 'One',
+          icon: 'https://randomuser.me/api/portraits/lego/1.jpg'
+        },
+        {
+          value: '2',
+          text: 'Two',
+          icon: 'https://randomuser.me/api/portraits/lego/2.jpg'
+        },
+        {
+          value: '3',
+          text: 'Three',
+          icon: 'https://randomuser.me/api/portraits/lego/3.jpg'
+        }
+      ])
+    } else {
+      console.info('Disable custom roles');
+      this.resetRoles();
+    }
+    this.moduleNavSwitcher?.setRoles(this.model.roles);
   }
 }
