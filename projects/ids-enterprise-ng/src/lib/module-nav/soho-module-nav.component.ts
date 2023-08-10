@@ -36,6 +36,7 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   private _options: SohoModuleNavOptions = {
     accordionSettings: {},
     displayMode: false,
+    enableOutsideClick: false,
     initChildren: true,
     filterable: false,
     pinSections: false,
@@ -71,6 +72,14 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
     return this.modulenav?.settings.displayMode || this._options.displayMode;
   }
 
+  @Input() set enableOutsideClick(val: boolean) {
+    this._options.enableOutsideClick = val;
+    this.updated({ enableOutsideClick: this._options.enableOutsideClick });
+  }
+  public get enableOutsideClick(): boolean {
+    return this.modulenav?.settings.enableOutsideClick || this._options.enableOutsideClick || false;
+  }
+
   @Input() set filterable(val: boolean) {
     this._options.filterable = val;
     this.updated({ filterable: this._options.filterable });
@@ -102,6 +111,12 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   public get showDetailView(): boolean {
     return this.modulenav?.settings.showDetailView || this._options.showDetailView || false;
   }
+
+  // -------------------------------------------
+  // Component Output
+  // -------------------------------------------
+
+  @Output() displaymodechange = new EventEmitter<SohoModuleNavDisplayModeChangeEvent>();
 
   // -------------------------------------------
   // Public API
@@ -170,9 +185,13 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
       // Initialize/store instance
-      this.jQueryElement = jQuery(this.elementRef.nativeElement);
+      this.jQueryElement = jQuery(this.elementRef.nativeElement)!;
       this.jQueryElement.modulenav(this._options);
       this.modulenav = this.jQueryElement.data('modulenav');
+
+      // bind to jquery events and emit as angular events
+      this.jQueryElement.on('displaymodechange', (e: JQuery.TriggeredEvent, val: SohoModuleNavDisplayMode) =>
+        this.ngZone.run(() => this.displaymodechange.emit({ e, val })));
     });
   }
 

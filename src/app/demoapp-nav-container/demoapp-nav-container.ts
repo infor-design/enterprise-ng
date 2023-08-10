@@ -118,7 +118,7 @@ export class DemoappNavContainerComponent implements AfterViewInit {
       localStorage.setItem(this.MODULE_NAV_DISPLAY_MODE_KEY, displayMode);
     }
 
-    if (this.moduleNavContainer) {
+    if (this.moduleNavDisplayMode !== displayMode && this.moduleNavContainer) {
       this.moduleNav?.updated({ displayMode });
     }
   }
@@ -187,9 +187,12 @@ export class DemoappNavContainerComponent implements AfterViewInit {
     if (this.applicationMenu) {
       this.isApplicationMenuOpen = !this.isApplicationMenuOpen;
     }
-    if (this.moduleNavContainer) {
-      this.toggleModuleNavDisplayMode();
-    }
+    this.toggleModuleNavDisplayMode();
     this.renderVisibility();
+  }
+
+  public handleDisplayModeChange(e: SohoModuleNavDisplayModeChangeEvent) {
+    console.info('sup', e);
+    this.moduleNavDisplayMode = e.val;
   }
 }

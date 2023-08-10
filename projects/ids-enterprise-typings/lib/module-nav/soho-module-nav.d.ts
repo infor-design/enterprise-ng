@@ -1,10 +1,16 @@
 /// <reference path='./soho-module-nav-common.d.ts' />
 /// <reference path='../accordion/soho-accordion.d.ts' />
 
+interface SohoModuleNavDisplayModeChangeEvent {
+  e: JQuery.TriggeredEvent,
+  val: SohoModuleNavDisplayMode
+}
+
 /** Defines options present in the Soho Module Nav */
 interface SohoModuleNavOptions {
   accordionSettings?: SohoAccordionOptions;
   displayMode?: SohoModuleNavDisplayMode;
+  enableOutsideClick?: boolean;
   filterable?: boolean;
   initChildren?: boolean;
   pinSections?: boolean;
