@@ -6,6 +6,11 @@
 
 - `[General]` Added 4.84.6 version.
 - `[Module Nav]` Added ability to set icon to false
+- `[Datagrid]` Updated data type of cell in drilldown click event. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
+- `[Dropdown]` Fixed icons not rendering properly in Dropdown. ([#1425](https://github.com/infor-design/enterprise-ng/issues/1425))
+- `[Popupmenu]` Added Example for Multiselect and Singleselect. ([EP#7556](https://github.com/infor-design/enterprise/issues/7556))
+- `[Datagrid]` Added tooltipOptions for Column Settings. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
+- `[Module Nav]` Add `enableOutsideClick` for collapse/hide of menu when content is clicked. ([EP#7786](https://github.com/infor-design/enterprise/issues/7786))
 - `[Module Nav Switcher]` Added noSearch setting to pass through to nav switcher ([#1535](https://github.com/infor-design/enterprise-ng/issues/1535))
 
 ## 15.4.9
