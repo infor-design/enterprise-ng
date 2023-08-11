@@ -6,4 +6,5 @@ export * from './soho-icons-uplift.component';
 export * from './soho-icons-empty-uplift.component';
 export * from './soho-icons-new.component';
 export * from './soho-icons-empty-new.component';
+export * from './soho-icons-app.component';
 export * from './soho-icon.module';

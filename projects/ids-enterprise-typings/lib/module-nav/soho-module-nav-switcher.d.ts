@@ -67,6 +67,10 @@ interface SohoModuleNavSwitcherStatic {
   /** Sets visible */
   setRoles(val?: SohoModuleNavSwitcherRoleRecord[], doUpdate?: boolean): void;
 
+  /** Selects a role in the dropdown based on its value,
+   * keeping all Module Nav Switcher elements synced */
+  selectRole(val: string): void;
+
   /** Re-renders jQuery child component APIs */
   renderChildComponents(): void;
 
