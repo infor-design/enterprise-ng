@@ -210,8 +210,20 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     this.ngZone.runOutsideAngular(() => {
       // Initialize/store instance
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
-      if (this._options.noSearch)
+      if (this._options.noSearch) {
         this.jQueryElement.find('select').attr('data-options', `{ noSearch: true}`);
+        this.jQueryElement.attr('data-options', `{ noSearch: true}`);
+      }
+
+      if (this._options.icon === false) {
+        this.jQueryElement.find('select').attr('data-options', `{ icon: false}`);
+        this.jQueryElement.attr('data-options', `{ icon: false }`);
+      }
+
+      if (this._options.icon === false && this._options.noSearch) {
+        this.jQueryElement.find('select').attr('data-options', `{ noSearch: true, icon: false}`);
+        this.jQueryElement.attr('data-options', `{ noSearch: true, icon: false}`);
+      }
 
       this.jQueryElement.modulenavswitcher(this._options);
       this.modulenavswitcher = this.jQueryElement.data('modulenavswitcher');
