@@ -1,8 +1,15 @@
 # What's New with Enterprise-NG
 
-## 15.4.10
+## 15.4.12
 
-### 15.4.10 Features
+### 15.4.12 Features
+
+- `[General]` Added 4.84.7 version.
+- `[Module Nav]` Fixed non applying search and icon setting ([#1544](https://github.com/infor-design/enterprise-ng/issues/1544))
+
+## 15.4.11
+
+### 15.4.11 Features
 
 - `[General]` Added 4.84.6 version.
 - `[Module Nav]` Added ability to set icon to false
