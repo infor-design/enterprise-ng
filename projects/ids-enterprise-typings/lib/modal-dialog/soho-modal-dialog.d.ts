@@ -32,6 +32,13 @@ interface SohoModalOptions {
   /** The string used as the title for the dialog - not defaulted. */
   title?: string;
 
+  /** The icon to add to the the title for the dialog - name without icon- */
+  icon?: string;
+
+  /** The class to add for example `info` for color and placement */
+  iconClass?: string;
+
+
   // The content, can be 'html' or a selector.
   content?: JQuery | string;
 

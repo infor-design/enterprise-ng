@@ -45,6 +45,8 @@ export class ModalDialogDemoComponent {
       .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder, { fullsize: 'responsive' })
       .showCloseBtn(true)
       .title(this.title)
+      .icon('check')
+      .iconClass('info')
       .buttons(
         [
           {

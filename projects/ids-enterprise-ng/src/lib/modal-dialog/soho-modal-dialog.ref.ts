@@ -167,10 +167,34 @@ export class SohoModalDialogRef<T> {
     this._options.title = title;
     if (this.modal) {
       this.modal.settings.title = title;
-      // @todo - need an api on modal to update settings.
     }
     return this;
   }
+
+  /**
+   * Sets the icon of the modal dialog title
+   * @param icon - the icon name without icon-
+   */
+  icon(icon: string): SohoModalDialogRef<T> {
+    this._options.icon = icon;
+    if (this.modal) {
+      this.modal.settings.icon = icon;
+    }
+    return this;
+  }
+
+  /**
+   * Sets the class to add for color and placement on the icon
+   * @param icon - the css class name
+   */
+  iconClass(icon: string): SohoModalDialogRef<T> {
+    this._options.iconClass = icon;
+    if (this.modal) {
+      this.modal.settings.iconClass = icon;
+    }
+    return this;
+  }
+
 
   /**
    * Sets the buttons to use on the modal dialog.
