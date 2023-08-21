@@ -60,16 +60,17 @@ export class ExampleModuleDialogModule {}
 | `options(SohoModalOptions)` | Applies the given Soho options to the modal, overrides all options. |
 | `frameHeight(number)` | Sets the extra frame height for the dialog. |
 | `title(string)` | Sets the title for the dialog. |
+| `icon(string)` | Sets the icon for the dialog in the title. |
 | `buttons(SohoModalButton[])` | Sets the button to use for the modal dialog. |
 | `id(string)` | Sets the element id for the modal dialog. |
 | `trigger(SohoModalTriggerType)` | Sets the trigger for the modal dialog. |
-| `isAlert(boolean)` | Sets the isAlert option - controls the styling and assessibility. |
+| `isAlert(boolean)` | Sets the isAlert option - controls the styling and accessibility. |
 | `content(string | JQuery)` | Defines the content of the dialog, if not using an Angular component. |
 | `cssClass(string)` | Extra CSS for the markup . |
 | `autoFocus(boolean)` | Auto Focus the dialog. TBC |
 | `beforeOpen(() => boolean)` | 'Registers a 'beforeOpen' callback, which can veto open. |
 | `afterOpen(Function)` | 'Registers an 'afterOpen' callback. |
-| `opened(Function)` | 'Registers an 'opened' callback - before the dialog is opend. |
+| `opened(Function)` | 'Registers an 'opened' callback - before the dialog is opened. |
 | `beforeClose((dialogRef: SohoModalDialogRef<T>) => boolean)` | 'Registers a 'beforeClose' callback, which can veto the close. |
 | `afterClose(Function)` | 'Registers an 'afterClose' callback. |
 | `closed(Function)` | 'Registers a 'closed' callback - before dialog is closed. |
@@ -108,7 +109,7 @@ openMessage() {
 
 ### Setting the dialog result
 
-Setting the `dialogResult` can be achieved in several ways, the simpliest is to
+Setting the `dialogResult` can be achieved in several ways, the simplest is to
 use the `close` method on `SohoModalDialogRef` in your button handler, which takes the
 dialog result as an argument.  This is set on the dialog reference and then passed into
 the `afterClose` event handler.
@@ -139,7 +140,7 @@ openMessage() {
 
 To provide access to any model present on the underlying dialog component, a reference to
 this component is passed to the `beforeClose`, `closed` and `afterClose` callbacks.  This
-reference can then be used to interogate the public properties of that `dialogComponent`.
+reference can then be used to interrogate the public properties of that `dialogComponent`.
 
 ```typescript
 dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogComponent>, dialogComponent: ExampleModalDialogComponent) => {
@@ -149,7 +150,7 @@ dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogCom
 
 Access to the `dialogComponent` is also possible from the `SohoModalDialogRef` using the `componentDialog` property.
 
-### Vetoable Closure using 'beforeClose'
+### Veto able Closure using 'beforeClose'
 
 To veto the closure of a modal dialog, the `SohoModalDialogRef` calls the `beforeClose` guard function.  If this function returns `false`
 the dialog will not be closed.  The `beforeClose` guard can be configured on a modal (or message) dialog. In this example, the closure of

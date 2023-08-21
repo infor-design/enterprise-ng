@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.7.0
+
+### 16.7.0 Fixes
+
+- `[Modal]` Added type for icons. ([#1544](https://github.com/infor-design/enterprise-ng/issues/1544))
+
 ## 16.6.0
 
 ### 16.6.0 Fixes

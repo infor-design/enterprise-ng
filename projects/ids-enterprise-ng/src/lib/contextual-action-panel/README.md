@@ -63,7 +63,7 @@ export class ContexutualActionPanelModule {}
 
 | Name | Description |
 | --- | --- |
-| `panel` | Creates a contextual actioni panel under the placeholder, based on the given component. |
+| `panel` | Creates a contextual action panel under the placeholder, based on the given component. |
 
 ## SohoContextualActionPanelRef
 
@@ -80,7 +80,7 @@ export class ContexutualActionPanelModule {}
 | `trigger(Sohocontextual action panelTriggerType)` | Sets the trigger for the contextual action panel. |
 | `beforeOpen(() => boolean)` | 'Registers a 'beforeOpen' callback, which can veto open. |
 | `afterOpen(Function)` | 'Registers an 'afterOpen' callback. |
-| `opened(Function)` | 'Registers an 'opened' callback - before the panel is opend. |
+| `opened(Function)` | 'Registers an 'opened' callback - before the panel is opened. |
 | `closed(Function)` | 'Registers a 'closed' callback - before panel is closed. |
 | `beforeClose(() => boolean)` | 'Registers a 'beforeClose' callback, which can veto close. |
 | `afterClose(Function)` | 'Registers an 'afterClose' callback. |
