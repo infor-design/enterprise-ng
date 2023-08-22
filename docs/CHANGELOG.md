@@ -6,6 +6,8 @@
 
 - `[General]` Added 4.84.7 version.
 - `[Module Nav]` Fixed non applying search and icon setting ([#1544](https://github.com/infor-design/enterprise-ng/issues/1544))
+- `[Modal]` Added type for icons. ([#1544](https://github.com/infor-design/enterprise-ng/issues/1544))
+- `[ModuleNav]` Added `listcontextmenu` event ([#7822](https://github.com/infor-design/enterprise/issues/7822))
 
 ## 15.4.11
 

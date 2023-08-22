@@ -2,9 +2,17 @@
   <soho-accordion [allowOnePane]="true" [hasPanels]="true" [moduleNav]="true" [rerouteOnLinkClick]="false"
     (click)="onModuleNavAccordionClick($event)">
     <div class="module-nav-header accordion-section">
-      <soho-module-nav-switcher class="module-nav-switcher" [icon]="false" [moduleButtonText]="'Standard Module'"
-        [roleDropdownLabel]="'Module Roles'" [generate]="false" (modulebuttonclick)="onModuleButtonClick($event)"
-        (rolechange)="onRoleChange($event)" [changeIconOnSelect]="false" [noSearch]="true"></soho-module-nav-switcher>
+      <soho-module-nav-switcher
+        class="module-nav-switcher"
+        [icon]="false"
+        [moduleButtonText]="'Standard Module'"
+        [roleDropdownLabel]="'Module Roles'"
+        [generate]="false"
+        [changeIconOnSelect]="false"
+        [noSearch]="true"
+        (modulebuttonclick)="onModuleButtonClick($event)"
+        (rolechange)="onRoleChange($event)"
+        (listcontextmenu)="onListContextMenu($event)"></soho-module-nav-switcher>
     </div>
 
     <div class="module-nav-search-container accordion-section">

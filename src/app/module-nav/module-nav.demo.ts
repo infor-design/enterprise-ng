@@ -53,6 +53,12 @@ export class ModuleNavDemoComponent implements AfterViewInit {
     console.info('Module Nav Role change: ', e.target.value);
   }
 
+  onListContextMenu(e: JQuery.TriggeredEvent) {
+    console.info('Module Context Menu', e.target);
+    const url = $(e.target).text().replace(/^\s+|\s+$/g, '').replace(' ', '').toLocaleLowerCase();
+    $(e.target).attr('href', `https://example.com/${url}`);
+  }
+
   onModuleButtonClick(e: any) {
     console.info('Module Nav Role Button clicked', e);
     this.moduleNavSwitcher?.toggleModuleButtonFocus(true);

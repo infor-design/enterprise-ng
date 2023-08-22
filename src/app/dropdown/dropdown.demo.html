@@ -1,12 +1,10 @@
 <div class="example-section">
   <form>
     <div class="row">
-      <h1>Single-Select Dropdown</h1>
-      <span class="code-tag">Live Example</span>
       <div class="row">
         <div class="field">
           <label for="states" class="label">States</label>
-          <select soho-dropdown noSearch name="states" [(ngModel)]="model.single" (change)="onChange($event)" (keydown)="onKeyDown($event)" (listopened)="onListOpened($event)" (listclosed)="onListClosed($event)">
+          <select soho-dropdown noSearch name="states" [(ngModel)]="model.single" (change)="onChange($event)" (listcontextmenu)="onListContextMenu($event)" (listopened)="onListOpened($event)"  (keydown)="onKeyDown($event)" (listclosed)="onListClosed($event)">
             <option value="AL">Alabama</option>
             <option value="CA">California</option>
             <option value="DE" >Delaware</option>

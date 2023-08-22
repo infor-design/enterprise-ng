@@ -126,7 +126,7 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   // -------------------------------------------
 
   @Output() rolechange = new EventEmitter<JQuery.TriggeredEvent>();
-
+  @Output() listcontextmenu = new EventEmitter<JQuery.TriggeredEvent>();
   @Output() modulebuttonclick = new EventEmitter<JQuery.TriggeredEvent>();
 
   // -------------------------------------------
@@ -198,9 +198,14 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
     this.modulebuttonclick.emit(event);
   }
 
-  /** Triggered by a Role Dropdown change */
+  /** Triggered by a dropdown change */
   onRoleChange(event: JQuery.TriggeredEvent) {
     this.rolechange.emit(event);
+  }
+
+  /** Triggered by a right click on the dropdown */
+  onListContextMenu(event: JQuery.TriggeredEvent) {
+    this.listcontextmenu.emit(event);
   }
 
   // ------------------------------------------
@@ -231,7 +236,12 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
 
       // @todo - add event binding control so we don't bind if not required.
       this.jQueryElement
-        .on('change', (event: JQuery.TriggeredEvent) => this.onRoleChange(event))
+        .on('change', (event: JQuery.TriggeredEvent) => this.onRoleChange(event));
+      this.jQueryElement
+        .on('listcontextmenu', (event: JQuery.TriggeredEvent, delegate: any) => {
+          event.target = delegate.target;
+          this.onListContextMenu(event);
+        });
     });
   }
 

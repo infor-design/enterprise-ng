@@ -13,7 +13,8 @@
     name="module-nav-role-switcher"
     class="dropdown"
     data-automation-id="custom-automation-dropdown-id"
-    (change)="onRoleChange($event)">
+    (change)="onRoleChange($event)"
+    (listcontextmenu)="onListContextMenu($event)">
     <option *ngFor="let role of roles" [value]="role.value">{{role.label}}</option>
   </select>
 </div>

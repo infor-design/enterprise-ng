@@ -58,6 +58,10 @@ export class DropdownDemoComponent {
     console.log(`listclosed: ${e.action}`);
   }
 
+  onListContextMenu(e: SohoDropDownEvent) {
+    console.log(`listcontextmenu`, (e as any).target);
+  }
+
   onListOpened(_e: SohoDropDownEvent) {
     console.log(`listopened`);
   }
