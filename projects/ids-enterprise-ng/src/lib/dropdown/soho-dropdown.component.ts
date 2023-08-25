@@ -444,6 +444,13 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   listOpened$ = new EventEmitter<SohoDropDownEvent>();
 
   /**
+   * Fired when the dropdown list is right clicked.
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-rename
+  @Output('listcontextmenu')
+  listContextMenu$ = new EventEmitter<SohoDropDownEvent>();
+
+  /**
    * This event is fired when a key is pressed
    */
   // eslint-disable-next-line @angular-eslint/no-output-rename, @angular-eslint/no-output-native
@@ -536,7 +543,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         .on('updated', (event: JQuery.TriggeredEvent) => this.onUpdated(event))
         .on('requestend', (event: JQuery.TriggeredEvent, searchTerm: string, data: any[]) => this.onRequestEnd(event, searchTerm, data))
         .on('listclosed', (event: JQuery.TriggeredEvent, action: SohoDropDownEventActions) => this.onListClosed(event, action))
-        .on('listopened', (event: JQuery.TriggeredEvent) => this.onListOpened(event));
+        .on('listopened', (event: JQuery.TriggeredEvent) => this.onListOpened(event))
+        .on('listcontextmenu', (event: JQuery.TriggeredEvent, delegate: any) => this.onListContextMenu(event, delegate))
 
       this.runUpdatedOnCheck = true;
 
@@ -605,10 +613,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   /**
    * Event handler for the 'changed' event on the 'dropdown' component.
-   *
-   *
    * @param event the standard jQuery event.
-   *
    */
   private onChanged(event: any) {
     // Retrieve the value from the 'dropdown' component.
@@ -632,6 +637,18 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // that up.
       event.data = val;
       this.change$.emit(event);
+    });
+  }
+
+  /**
+   * Event handler for the 'listchanged' event on the 'dropdown' component.
+   * @param event the standard jQuery event.
+   */
+  private onListContextMenu(event: any, delegate: any) {
+    event.delegate = delegate;
+    event.target = delegate.target;
+    this.ngZone.run(() => {
+      this.listContextMenu$.emit(event);
     });
   }
 

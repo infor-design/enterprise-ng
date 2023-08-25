@@ -192,7 +192,7 @@ export class DemoappNavContainerComponent implements AfterViewInit {
   }
 
   public handleDisplayModeChange(e: SohoModuleNavDisplayModeChangeEvent) {
-    console.info('sup', e);
+    console.info('Display Mode Changed', e);
     this.moduleNavDisplayMode = e.val;
   }
 }
