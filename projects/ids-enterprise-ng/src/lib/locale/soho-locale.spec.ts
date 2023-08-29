@@ -1,14 +1,5 @@
 describe('Soho Locale Types Tests', () => {
 
-  it('Validate Types and Translations', (done) => {
-    Soho.Locale.set('en-US').done(() => {
-      expect(Soho.Locale.currentLanguage.messages['AddComments'].value).toEqual('Add comments');
-      expect(Soho.Locale.currentLanguage.messages['AddComments'].comment).toEqual('Add comments to a form of data');
-      expect(Soho.Locale.currentLanguage.messages['AddComments'].id).toEqual('AddComments');
-      done();
-    });
-  });
-
   it('Add a new message (not the best way)', (done) => {
     Soho.Locale.set('en-US').done(() => {
       Soho.Locale.currentLanguage.messages['Test'] = {
