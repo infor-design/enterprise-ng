@@ -1002,6 +1002,11 @@ interface SohoDataGridColumn {
    */
   selectChildren?: boolean;
 
+  /**
+   * Disable the filter area
+   */
+  filterDisabled?: boolean;
+
   /** Enforce a max length when editing this column */
   maxLength?: number;
 
