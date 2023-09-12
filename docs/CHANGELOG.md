@@ -4,6 +4,12 @@
 
 ## 14.4.6 Fixes
 
+- `[General]` Added patch for 4.68.4.
+
+## 14.4.6
+
+## 14.4.6 Fixes
+
 - `[General]` Added patch for 4.68.3.
 
 ## 14.4.5
