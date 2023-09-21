@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.8.0
+
+### 16.8.0 Fixes
+
+- `[Datepicker]` Fixed readonly state when called from disabled method. ([#1540](https://github.com/infor-design/enterprise-ng/issues/1540))
+
 ## 16.7.0
 
 ### 16.7.0 Fixes
