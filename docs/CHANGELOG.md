@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## 16.8.0
+
+### 16.8.0 Fixes
+
+- `[ModuleNav]` Added types for new mobile setting. ([#7804](https://github.com/infor-design/enterprise/issues/7804))
+- `[Cards]` Fixed an issue with initialization. ([#7804](https://github.com/infor-design/enterprise/issues/7804))
+
 ## 16.7.0
 
 ### 16.7.0 Fixes
@@ -11,9 +18,9 @@
 
 ### 16.6.0 Fixes
 
-- `[Datagrid]` Updated data type of cell in drilldown click event. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
+- `[Datagrid]` Updated data type of cell in `drilldown` click event. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
 - `[Dropdown]` Fixed icons not rendering properly in Dropdown. ([#1425](https://github.com/infor-design/enterprise-ng/issues/1425))
-- `[Popupmenu]` Added Example for Multiselect and Singleselect. ([EP#7556](https://github.com/infor-design/enterprise/issues/7556))
+- `[Popupmenu]` Added Example for `Multiselect` and `Singleselect`. ([EP#7556](https://github.com/infor-design/enterprise/issues/7556))
 - `[Datagrid]` Added tooltipOptions for Column Settings. ([EP#7473](https://github.com/infor-design/enterprise/issues/7473))
 - `[Module Nav]` Add `enableOutsideClick` for collapse/hide of menu when content is clicked. ([EP#7786](https://github.com/infor-design/enterprise/issues/7786))
 - `[Module Nav Switcher]` Added noSearch setting to pass through to nav switcher ([#1535](https://github.com/infor-design/enterprise-ng/issues/1535))
@@ -24,7 +31,7 @@
 
 - `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
 - `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
-- `[Datepicker]` Added custom validation for Datepicker component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
+- `[Datepicker]` Added custom validation for Date picker component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
 - `[Datagrid]` Added missing headerTooltip setting. ([#1514](https://github.com/infor-design/enterprise-ng/issues/1514))
 
 ## 16.4.1
@@ -34,7 +41,7 @@
 - `[General]` Added 4.84.0 EP version.
 - `[Module Nav]` Add Module Nav Component wrappers and replace the app menu with the Module Nav menu. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
 - `[Images]` Added an example page for Image with click handler. ([EP#7007](https://github.com/infor-design/enterprise/issues/7007))
-- `[Lookup]` Updated example page for datagrid editor. ([#7403](https://github.com/infor-design/enterprise/issues/7403))
+- `[Lookup]` Updated example page for `datagrid` editor. ([#7403](https://github.com/infor-design/enterprise/issues/7403))
 - `[General]` Added 4.84.0 EP version.
 - `[General] Added 4.84.0 EP version.
 - `[ProcessIndicator]` Added process indicator demo. ([EP#7583](https://github.com/infor-design/enterprise/issues/75837007))
@@ -75,7 +82,7 @@
 - `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
 - `[Module Nav]` Add Module Nav Component wrappers and replace the app menu with the Module Nav menu. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
 - `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
-- `[Datepicker]` Added custom validation for Datepicker component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
+- `[Datepicker]` Added custom validation for `Datepicker` component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
 - `[Datagrid]` Added missing headerTooltip setting. ([#1514](https://github.com/infor-design/enterprise-ng/issues/1514))
 
 ## 15.4.1
@@ -90,10 +97,10 @@
 ### 15.3.0 Fixes
 
 - `[ApplicationMenu]` Changed the app menu hamburger icon. ([1470](https://github.com/infor-design/enterprise/issues/1470))
-- `[Modal]` Added Example Page with Datepicker. ([EP#7144](https://github.com/infor-design/enterprise/issues/7144))
+- `[Modal]` Added Example Page with `Datepicker`. ([EP#7144](https://github.com/infor-design/enterprise/issues/7144))
 - `[Pager]` Fixes a bug hiding and showing the page size selector. ([#1459](https://github.com/infor-design/enterprise/issues/1459))
-- `[Textarea]` Added Example Page with Textarea Toggle Dirty. ([#1429](https://github.com/infor-design/enterprise-ng/issues/1429))
-- `[Timepicker]` Added Timepicker in Example Page of Validator. ([#1435](https://github.com/infor-design/enterprise-ng/issues/1435))
+- `[Textarea]` Added Example Page with `Textarea` Toggle Dirty. ([#1429](https://github.com/infor-design/enterprise-ng/issues/1429))
+- `[Timepicker]` Added `Timepicker` in Example Page of Validator. ([#1435](https://github.com/infor-design/enterprise-ng/issues/1435))
 - `[Tooltip]` Added settings for popover `appendTo` settings. ([EP#7220](https://github.com/infor-design/enterprise/issues/7220))
 
 ## 15.1.0
@@ -144,13 +151,13 @@
 ### 15.0.0 Features
 
 - `[Chart]` Added example page for chart colors. ([EP#7084](https://github.com/infor-design/enterprise/issues/7084))
-- `[Datagrid]` Added a setting to set the color of the header in datagrid (`dark` or `light`). ([#7008](https://github.com/infor-design/enterprise/issues/7008)) `EA`
+- `[Datagrid]` Added a setting to set the color of the header in `datagrid` (`dark` or `light`). ([#7008](https://github.com/infor-design/enterprise/issues/7008)) `EA`
 - `[General]` Updated to NG 15 d made small fixes. See the `UPGRADING.md` guide for details. ([#1316](https://github.com/infor-design/enterprise-ng/issues/1316))
 - `[Icons]` Merge old, new and "colorful" empty state icons into `SohoIconsEmptyComponent`, with the ability to force the use of colorful icons. ([#1418](https://github.com/infor-design/enterprise-ng/issues/1418))
 
 ### 15.0.0 Fixes
 
-- `[Datepicker]` Added empty string value check in datepicker range. ([#1397](https://github.com/infor-design/enterprise-ng/issues/1397))
+- `[Datepicker]` Added empty string value check in `datepicker` range. ([#1397](https://github.com/infor-design/enterprise-ng/issues/1397))
 
 ## 14.8.2
 
