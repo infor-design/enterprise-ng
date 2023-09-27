@@ -386,6 +386,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     if (value) {
       this.ngZone.runOutsideAngular(() => {
         this.datepicker?.disable();
+        this.isReadOnly = true;
       });
     } else {
       this.ngZone.runOutsideAngular(() => {
@@ -557,8 +558,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     if (this._validation) {
       // @ts-ignore
       Soho.Validation.rules[this._validation.validator.id] = this._validation.validator;
-      this.datepicker?.element.attr({'data-validate': this._validation.validator.id})
-      this.datepicker?.element.attr({'data-validation-events': {[this._validation.validator.id]: this._validation.validatorEvents}});
+      this.datepicker?.element.attr({ 'data-validate': this._validation.validator.id })
+      this.datepicker?.element.attr({ 'data-validation-events': { [this._validation.validator.id]: this._validation.validatorEvents } });
     }
 
     if (this.runUpdatedOnCheck) {

@@ -4,8 +4,9 @@
 
 ### 16.8.0 Fixes
 
-- `[ModuleNav]` Added types for new mobile setting. ([#7804](https://github.com/infor-design/enterprise/issues/7804))
 - `[Cards]` Fixed an issue with initialization. ([#7804](https://github.com/infor-design/enterprise/issues/7804))
+- `[Datepicker]` Fixed readonly state when called from disabled method. ([#1540](https://github.com/infor-design/enterprise-ng/issues/1540))
+- `[ModuleNav]` Added types for new mobile setting. ([#7804](https://github.com/infor-design/enterprise/issues/7804))
 
 ## 16.7.0
 
