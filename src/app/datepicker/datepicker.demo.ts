@@ -86,18 +86,18 @@ export class DatepickerDemoComponent implements OnInit {
   };
 
   public customValidator: SohoDatePickerValidator = {
-       validator: {
-         check: (value: any, field: any, grid: any) => {
-           if (value == "") {
-             return true;
-           }
-           return new Date(value) > new Date();
-         },
-         id: 'myCustomValidator',
-         type: 'error',
-         message: 'My Custom Error Message!',
-       },
-       validatorEvents: 'change blur enter'
+    validator: {
+      check: (value: any, field: any, grid: any) => {
+        if (value == "") {
+          return true;
+        }
+        return new Date(value) > new Date();
+      },
+      id: 'myCustomValidator',
+      type: 'error',
+      message: 'My Custom Error Message!',
+    },
+    validatorEvents: 'change blur enter'
   };
 
   public legend$ = this.legendSubject.asObservable().pipe(
@@ -151,6 +151,11 @@ export class DatepickerDemoComponent implements OnInit {
     (this.datepicker as any).disabled = true;
     (this.rdatepicker as any).disabled = true;
     this.datepickerDisabled = (this.datepicker as any).disabled;
+  }
+
+  getStates() {
+    console.log("readonly", (this.datepicker as any).readonly);
+    console.log("disabled", (this.datepicker as any).disabled);
   }
 
   setReadonly() {
