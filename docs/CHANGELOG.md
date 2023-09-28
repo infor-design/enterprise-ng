@@ -13,7 +13,8 @@
 ### 16.7.0 Fixes
 
 - `[Modal]` Added type for icons. ([#1544](https://github.com/infor-design/enterprise-ng/issues/1544))
-- `[ModuleNav]` Added `listcontextmenu` event ([#7822](https://github.com/infor-design/enterprise/issues/7822))
+- `[ModuleNav]` Added `listcontextmenu` event. ([#7822](https://github.com/infor-design/enterprise/issues/7822))
+- `[ModuleNav]` Changed targeting of `soho-accordion`` display rules. ([#1559](https://github.com/infor-design/enterprise-ng/issues/1559))
 
 ## 16.6.0
 
