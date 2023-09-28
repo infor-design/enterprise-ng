@@ -36,11 +36,14 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   private _options: SohoModuleNavOptions = {
     accordionSettings: {},
     displayMode: false,
-    enableOutsideClick: false,
     initChildren: true,
     filterable: false,
     pinSections: false,
     showDetailView: false,
+    mobileBehavior: true,
+    breakpoint: 'phone-to-tablet',
+    showOverlay: true,
+    enableOutsideClick: false,
   };
 
   /** Internal use flags */
@@ -70,6 +73,31 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   }
   public get displayMode(): SohoModuleNavDisplayMode | undefined {
     return this.modulenav?.settings.displayMode || this._options.displayMode;
+  }
+
+  // Mobile Options
+  @Input() set mobileBehavior(val: boolean) {
+    this._options.mobileBehavior = val;
+    this.updated({ mobileBehavior: this._options.mobileBehavior });
+  }
+  public get mobileBehavior(): boolean {
+    return this.modulenav?.settings.mobileBehavior || this._options.mobileBehavior || false;
+  }
+
+  @Input() set breakpoint(val: SohoModuleNavBreakPoint) {
+    this._options.breakpoint = val;
+    this.updated({ breakpoint: this._options.breakpoint });
+  }
+  public get breakpoint(): SohoModuleNavBreakPoint {
+    return this.modulenav?.settings.breakpoint || this._options.breakpoint || 'phone-to-tablet';
+  }
+
+  @Input() set showOverlay(val: boolean) {
+    this._options.showOverlay = val;
+    this.updated({ showOverlay: this._options.showOverlay });
+  }
+  public get showOverlay(): boolean {
+    return this.modulenav?.settings.showOverlay || this._options.showOverlay || false;
   }
 
   @Input() set enableOutsideClick(val: boolean) {

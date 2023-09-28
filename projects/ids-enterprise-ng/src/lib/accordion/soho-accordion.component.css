@@ -1,3 +1,4 @@
-:host {
+/* Needed for scrolling to work when contained in soho-module-nav */
+.module-nav-bar :host {
   display: contents;
 }

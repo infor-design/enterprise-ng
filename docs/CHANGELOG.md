@@ -1,5 +1,13 @@
 # What's New with Enterprise-NG
 
+## 15.4.13
+
+### 15.4.13 Features
+
+- `[General]` Added 4.84.10 version.
+- `[Cards]` Fixed an issue with initialization. ([#7804](https://github.com/infor-design/enterprise/issues/7804))
+- `[ModuleNav]` Added types for new mobile setting. ([#7804](https://github.com/infor-design/enterprise/issues/7804))
+
 ## 15.4.12
 
 ### 15.4.12 Features
