@@ -6,15 +6,27 @@ interface SohoModuleNavDisplayModeChangeEvent {
   val: SohoModuleNavDisplayMode
 }
 
+type SohoModuleNavBreakPoint =
+  'phone' |
+  'slim' |
+  'phablet' |
+  'phone-to-tablet' |
+  'wide-tablet' |
+  'tablet-to-desktop' |
+  'desktop-to-extralarge' | undefined;
+
 /** Defines options present in the Soho Module Nav */
 interface SohoModuleNavOptions {
   accordionSettings?: SohoAccordionOptions;
   displayMode?: SohoModuleNavDisplayMode;
-  enableOutsideClick?: boolean;
   filterable?: boolean;
   initChildren?: boolean;
   pinSections?: boolean;
   showDetailView?: boolean;
+  mobileBehavior?: boolean;
+  breakpoint?: SohoModuleNavBreakPoint,
+  showOverlay?: boolean;
+  enableOutsideClick?: boolean;
 }
 
 /** Public API for Soho Module Nav JS component */

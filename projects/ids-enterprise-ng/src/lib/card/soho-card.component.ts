@@ -285,23 +285,21 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
 
-      this.jQueryElement.cards(this.options);
+      this.options.id = this.id;
+      this.options.expandableHeader = this.expandableHeader;
+      this.options.expanded = !this.closed,
+        this.options.verticalButtonAction = this.verticalButtonAction;
+      this.options.attributes = this.options.attributes
+      this.options.bordered = this.bordered;
+      this.options.noHeader = this.noHeader;
+      this.options.contentPaddingX = this.contentPaddingX;
+      this.options.contentPaddingY = this.contentPaddingY;
+      this.options.noShadow = this.noShadow;
+      this.options.detailRefId = this.detailRefId;
 
       // Add listeners to emit events
       // Initiate the element via jQuery
-      this.jQueryElement.cards({
-        id: this.id,
-        expandableHeader: this.expandableHeader,
-        expanded: !this.closed,
-        verticalButtonAction: this.verticalButtonAction,
-        attributes: this.options.attributes,
-        bordered: this.bordered,
-        noHeader: this.noHeader,
-        contentPaddingX: this.contentPaddingX,
-        contentPaddingY: this.contentPaddingY,
-        noShadow: this.noShadow,
-        detailRefId: this.detailRefId,
-      });
+      this.jQueryElement.cards(this.options);
 
       if (this.toggle) {
         this.toggle.subscribe(value => this.toggleOpen(value));
