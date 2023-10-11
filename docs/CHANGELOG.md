@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 15.4.15
+
+### 15.4.15 Features
+
+- `[General]` Added 4.84.12 version.
+
 ## 15.4.14
 
 ### 15.4.14 Features
