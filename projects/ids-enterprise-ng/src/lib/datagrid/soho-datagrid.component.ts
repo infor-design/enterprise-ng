@@ -2948,6 +2948,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  updateSummaryRow(col: object, cell: number): void {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.datagrid?.updateSummaryRow(col, cell);
+    })
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------

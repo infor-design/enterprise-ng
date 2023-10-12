@@ -1344,6 +1344,14 @@ interface SohoDataGridStatic {
   toggleRowDetail(dataRowIndex: number): void;
 
   /**
+   * Function to update the summary row
+   * @private
+   * @param {object} col The column data
+   * @param {number} cell The cell index
+   */
+  updateSummaryRow(col: object, cell: number): void;
+
+  /**
    * Update the component with new settings.
    *
    * @param settings The settings you would like to modify.
