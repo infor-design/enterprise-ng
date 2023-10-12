@@ -1,3 +1,32 @@
+<div class="row top-padding">
+  <div class="two columns">
+    <div class="field">
+      <label for="dd-row" class="label">Row</label>
+      <select soho-dropdown name="dd-row" [(ngModel)]="model.ddValue">
+        <option *ngFor="let option of options" [ngValue]="option.value">{{option.text}}</option>
+      </select>
+    </div>
+    <div class="field">
+      <button soho-button (click)="updateRow()">Update Row</button>
+    </div>
+  </div>
+  <div class="two columns">
+    <div class="field">
+      <label for="dd-qty" class="label">Quantity</label>
+      <input id="dd-qty" name="dd-qty" alignRight="true" [(ngModel)]="model.quantity" soho-input
+            soho-mask [process]="'number'" [integerLimit]="3"/>
+    </div>
+  </div>
+  <div class="two columns">
+    <div class="field">
+      <label for="dd-price" class="label">Price</label>
+      <input id="dd-price" name="dd-price" alignRight="true" [(ngModel)]="model.price" soho-input
+            soho-mask [process]="'number'" [allowThousandsSeparator]="false" [allowDecimal]="true" [integerLimit]="6"
+            [decimalLimit]="2"/>
+    </div>
+  </div>
+</div>
+
 <div class="full-width full-height scrollable-flex">
   <div soho-datagrid *ngIf="gridOptions" [gridOptions]="gridOptions"></div>
 </div>

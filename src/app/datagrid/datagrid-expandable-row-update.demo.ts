@@ -33,6 +33,24 @@ export class DataGridExpandableRowUpdateDemoComponent implements AfterViewChecke
   ngAfterViewChecked() {
   }
 
+  updateRow() {
+    const row = parseInt(this.model.ddValue);
+    const rowData = PAGING_DATA[row];
+    rowData.quantity = this.model.quantity ? this.model.quantity : rowData.quantity;
+    rowData.price = this.model.price ? this.model.price : rowData.price;
+
+    this.sohoDataGridComponent?.updateRow(row, rowData);
+    this.sohoDataGridComponent?.toggleRowDetail(row);
+  }
+
+  public model = {
+    quantity: '',
+    price: '',
+    ddValue: ''
+  };
+
+  public options: Array<Object> = [];
+
   private buildGridOptions(): SohoDataGridOptions {
     const PAGING_COLUMNS = [{
       id: 'productId',
@@ -221,8 +239,7 @@ export class DataGridExpandableRowUpdateDemoComponent implements AfterViewChecke
         orderDate: '2015-01-01T06:00:00.000Z',
         action: 'Action',
         rated: 0.76,
-      }
-      ,
+      },
       {
         id: 11,
         productId: 214231,
@@ -308,6 +325,12 @@ export class DataGridExpandableRowUpdateDemoComponent implements AfterViewChecke
         rated: 0.76,
       }
     ];
+
+    for (let j = 0; j < PAGING_DATA.length; j++) {
+      const rowData = PAGING_DATA[j];
+      const tempData = { value: rowData.id, text: rowData.productId };
+      this.options.push(tempData);
+    }
 
     return {
       columns: PAGING_COLUMNS,
