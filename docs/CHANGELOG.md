@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.8.1
+
+### 16.8.1 Fixes
+
+- `[General]` Added patch for 4.88.1
+
 ## 16.8.0
 
 ### 16.8.0 Fixes
