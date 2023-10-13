@@ -1340,8 +1340,9 @@ interface SohoDataGridStatic {
   /**
    * Expand Detail Row Or Tree Row
    * @param {number} dataRowIndex The row to toggle
+   * @param  {boolean} expandOnly Set the toggle to expand only
    */
-  toggleRowDetail(dataRowIndex: number): void;
+  toggleRowDetail(dataRowIndex: number, expandOnly?: boolean | undefined): void;
 
   /**
    * Function to update the summary row

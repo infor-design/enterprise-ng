@@ -40,7 +40,7 @@ export class DataGridExpandableRowUpdateDemoComponent implements AfterViewChecke
     rowData.price = this.model.price ? this.model.price : rowData.price;
 
     this.sohoDataGridComponent?.updateRow(row, rowData);
-    this.sohoDataGridComponent?.toggleRowDetail(row);
+    this.sohoDataGridComponent?.toggleRowDetail(row, true);
   }
 
   public model = {
