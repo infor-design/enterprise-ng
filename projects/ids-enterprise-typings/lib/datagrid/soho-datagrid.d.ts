@@ -660,6 +660,7 @@ interface SohoStatic {
     Autocomplete: SohoDataGridColumnEditorFunction;
     Spinbox: SohoDataGridColumnEditorFunction;
     Favorite: SohoDataGridColumnEditorFunction;
+    MultiSelect: SohoDataGridColumnEditorFunction;
   };
 }
 
