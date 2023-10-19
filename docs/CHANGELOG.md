@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.9.0
+
+### 16.9.0 Features
+
+- `[Datagrid]` Added ability for expandable and summary rows to be updated after cell update. ([#8058](https://github.com/infor-design/enterprise/issues/8058))
+
 ## 16.8.0
 
 ### 16.8.0 Fixes

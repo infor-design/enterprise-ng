@@ -124,6 +124,7 @@ import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridExpandableRowDemoComponent } from './datagrid/datagrid-expandable-row.demo';
+import { DataGridExpandableRowUpdateDemoComponent } from './datagrid/datagrid-expandable-row-update.demo';
 import { DatagridPopupMenuToolbarComponent } from './datagrid/datagrid-popupmenu-toolbar.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
@@ -395,6 +396,7 @@ import { DemoappNavContainerComponent } from './demoapp-nav-container/demoapp-na
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
     DataGridExpandableRowDemoComponent,
+    DataGridExpandableRowUpdateDemoComponent,
     DataGridStandardFormatterDemoComponent,
     DataGridTabDemoComponent,
     DataGridTestSettingsDemoComponent,

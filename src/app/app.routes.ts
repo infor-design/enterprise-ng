@@ -90,6 +90,7 @@ import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridExpandableRowDemoComponent } from './datagrid/datagrid-expandable-row.demo';
+import { DataGridExpandableRowUpdateDemoComponent } from './datagrid/datagrid-expandable-row-update.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
 import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
@@ -328,6 +329,7 @@ export const routes: Routes = [
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings', component: DataGridSettingsDemoComponent },
   { path: 'datagrid-expandable-row', component: DataGridExpandableRowDemoComponent },
+  { path: 'datagrid-expandable-row-update', component: DataGridExpandableRowUpdateDemoComponent },
   { path: 'datagrid-expandable-row-dynamic', component: DataGridExpandableRowDynamicDemoComponent },
   { path: 'datagrid-expandable-row-nested', component: DataGridExpandableRowNestedDemoComponent },
   { path: 'datagrid-summary-row', component: DataGridSummaryRowDemoComponent },
