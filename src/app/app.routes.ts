@@ -243,6 +243,7 @@ import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo'
 import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 import { DataGridSandboxDemoComponent } from './datagrid/datagrid-sandbox.demo';
 import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
+import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-dataset.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -338,6 +339,7 @@ export const routes: Routes = [
   { path: 'datagrid-treegrid-lazy', component: DataGridTreeGridLazyDemoComponent },
   { path: 'datagrid-treegrid-cube', component: DataGridTreeGridCubeDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter', component: DatagridTreegridDynamicfilteringDemoComponent },
+  { path: 'datagrid-update-dataset', component: DataGridUpdateDatasetDemoComponent },
   { path: 'datagrid-vertical-scroll', component: DataGridVerticalScrollDemoComponent },
   { path: 'datagrid-tab', component: DataGridTabDemoComponent },
   { path: 'datagrid-angular-editor', component: DataGridAngularEditorDemoComponent },

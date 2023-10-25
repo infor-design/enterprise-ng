@@ -296,6 +296,7 @@ import { MonthViewLegendDemoComponent } from './monthview/monthview-legend.demo'
 import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
 import { DemoappNavContainerComponent } from './demoapp-nav-container/demoapp-nav-container';
+import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-dataset.demo';
 
 @NgModule({
   declarations: [
@@ -407,6 +408,7 @@ import { DemoappNavContainerComponent } from './demoapp-nav-container/demoapp-na
     DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
     DataGridVerticalScrollDemoComponent,
+    DataGridUpdateDatasetDemoComponent,
     NestedDatagridDemoComponent,
     ExpandedDemoComponent,
     DataGridExpandableRowNestedDemoComponent,

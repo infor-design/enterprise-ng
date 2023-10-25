@@ -3277,6 +3277,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Update the dataset of datagrid
+   * @param dataset New dataset to be used
+   * @param pagerInfo Pager info if needed
+   */
+  public updateDataset(dataset: Array<any>, pagerInfo?: object | undefined) {
+    this.ngZone.runOutsideAngular(() => {
+      this.datagrid?.updateDataset(dataset, pagerInfo);
+    })
+  }
+
+  /**
    * Updates the source setting/function to use source input if set.
    * Otherwise use dataGridService if that is set.
    *
