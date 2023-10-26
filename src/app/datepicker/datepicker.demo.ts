@@ -36,6 +36,7 @@ export class DatepickerDemoComponent implements OnInit {
   public showModel = false;
   public datepickerDisabled = false;
   public datepickerReadOnly = false;
+  public isDisabled = false;
 
   public disableOptions: SohoDatePickerDisable = {
     dates: '',
@@ -145,12 +146,14 @@ export class DatepickerDemoComponent implements OnInit {
     (this.rdatepicker as any).readonly = false;
     this.datepickerDisabled = (this.datepicker as any).disabled;
     this.datepickerReadOnly = (this.datepicker as any).readonly;
+    this.isDisabled = false;
   }
 
   setDisable() {
     (this.datepicker as any).disabled = true;
     (this.rdatepicker as any).disabled = true;
     this.datepickerDisabled = (this.datepicker as any).disabled;
+    this.isDisabled = true;
   }
 
   getStates() {
