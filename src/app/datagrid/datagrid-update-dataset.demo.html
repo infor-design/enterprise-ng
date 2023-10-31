@@ -1,0 +1,10 @@
+<div class="full-width">
+    <div class="field">
+      <select soho-dropdown name="codelist" (change)="onChange($event)">
+        <option *ngFor="let option of (codeList)" [value]="option">{{option}}</option>
+      </select>
+      <button type="button" class="btn btn-primary" style="margin-left:10px" (click)="onAddClicked()">Add</button>
+    </div>
+    <br>
+    <div soho-datagrid [gridOptions]="gridOptions"></div>
+  </div>

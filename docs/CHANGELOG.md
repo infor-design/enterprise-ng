@@ -7,6 +7,10 @@
 - `[Datagrid]` Added ability for expandable and summary rows to be updated after cell update. ([#8058](https://github.com/infor-design/enterprise/issues/8058))
 - `[Datagrid]` Added example page for vertical scroll in list style. ([#7879](https://github.com/infor-design/enterprise/issues/7879))
 
+### 16.9.0 Fixes
+
+- `[Datagrid]` Fix on dataset creating a new array on update. ([#7995](https://github.com/infor-design/enterprise/issues/7995))
+
 ## 16.8.0
 
 ### 16.8.0 Fixes
