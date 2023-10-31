@@ -390,10 +390,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
       });
     } else {
       this.ngZone.runOutsideAngular(() => {
-        if (this.readonly === null || this.readonly === undefined) {
-          this.datepicker?.enable();
-          this.isReadOnly = false;
-        }
+        this.datepicker?.enable();
+        this.isReadOnly = false;
       });
     }
   }
@@ -411,12 +409,12 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     // as enable() is called by both disabled()
     // and readonly().
     if (this.datepicker == null) {
-      this.isReadOnly = value;
+      this.isReadOnly = false;
       return;
     }
 
     // Set the status locally (for refreshing)
-    this.isReadOnly = value;
+    this.isReadOnly = value === undefined || value === null ? false : value;
 
     if (value) {
       this.ngZone.runOutsideAngular(() => this.datepicker?.readonly());

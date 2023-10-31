@@ -28,7 +28,7 @@
     <div class="four columns">
       <div class="field">
         <label for="dynamicLegend" class="label">Dynamic Legend</label>
-        <input soho-datepicker #dynamicLegend id="dynamicLegend" name="dynamicLegend" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)" (listopened)="onDynamicListOpened()" (monthrendered)="onDynamicMonthRendered($event)" [showLegend]="true" [legend]="legend$ | async"/>
+        <input soho-datepicker #dynamicLegend id="dynamicLegend" [readonly]="isDisabled" name="dynamicLegend" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)" (listopened)="onDynamicListOpened()" (monthrendered)="onDynamicMonthRendered($event)" [showLegend]="true" [legend]="legend$ | async"/>
       </div>
     </div>
   </div>

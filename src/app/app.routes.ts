@@ -244,6 +244,7 @@ import { DataGridRowSpanDemoComponent } from './datagrid/datagrid-rowspan.demo';
 import { DataGridSandboxDemoComponent } from './datagrid/datagrid-sandbox.demo';
 import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
 import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-dataset.demo';
+import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end-list.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -341,6 +342,7 @@ export const routes: Routes = [
   { path: 'datagrid-treegrid-dynamicfilter', component: DatagridTreegridDynamicfilteringDemoComponent },
   { path: 'datagrid-update-dataset', component: DataGridUpdateDatasetDemoComponent },
   { path: 'datagrid-vertical-scroll', component: DataGridVerticalScrollDemoComponent },
+  { path: 'datagrid-vertical-scroll-list', component: DataGridVerticalScrollListDemoComponent },
   { path: 'datagrid-tab', component: DataGridTabDemoComponent },
   { path: 'datagrid-angular-editor', component: DataGridAngularEditorDemoComponent },
   { path: 'datagrid-angular-card-formatter', component: DataGridAngularCardFormatterDemoComponent },
