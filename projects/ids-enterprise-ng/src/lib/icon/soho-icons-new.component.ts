@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'soho-icons-new',
-  templateUrl: 'theme-new-svg.html',
+  templateUrl: 'theme-new-default-svg.html',
 })
 export class SohoIconsNewComponent {
   @HostBinding('style.display') none = 'none';
