@@ -18,6 +18,7 @@ export class WizardDemoComponent {
       text: Soho.Locale.translate('Previous'),
       click: () => this.wizard.previous(),
       disabled: () => !this.wizard.hasPrevious(),
+      hidden: () => false,
       position: 'middle'
     },
     {
@@ -26,6 +27,7 @@ export class WizardDemoComponent {
       click: () => this.wizard.next(),
       isDefault: true,
       disabled: () => this.nextButtonDisabled(),
+      hidden: () => false,
       position: 'middle'
     },
     {
@@ -33,6 +35,7 @@ export class WizardDemoComponent {
       text: 'Finish', // Soho.Locale.translate('Finish'),
       click: () => this.wizard.finish(),
       disabled: () => !this.wizard.hasFinished(),
+      hidden: () => false,
       position: 'middle'
     }
   ];
@@ -50,7 +53,7 @@ export class WizardDemoComponent {
   }
 
   nextButtonDisabled() {
-    return this.wizard.currentTickId === 'confirmation';
+    return this.wizard.currentTickId === 'result';
   }
 
   onBeforeActivated(e: Event) {
