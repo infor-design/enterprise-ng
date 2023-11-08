@@ -1,10 +1,10 @@
 # What's New with Enterprise-NG
 
-
 ## 16.10.0
 
 ### 16.10.0 Fixes
-- `[TimePicker]` Fix timepicker to allow icon button to be clickable after re-enabling ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
+
+- `[TimePicker]` Fix timepicker to allow icon button to be clickable after reenabling ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
 
 ## 16.9.0
 
