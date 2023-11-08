@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+
+## 16.10.0
+
+### 16.10.0 Fixes
+- `[TimePicker]` Fix timepicker to allow icon button to be clickable after re-enabling
+
 ## 16.9.0
 
 ### 16.9.0 Features
