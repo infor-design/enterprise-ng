@@ -1115,6 +1115,9 @@ interface SohoDataGridStatic {
   /** Updates the data displayed in the given row. */
   updateRow(idx: number, rowData: Object): void;
 
+  /** Updates the data displayed in the given cell and runs the formatter. */
+  updateCell(row: number, cell: number, rowCellValue: any): void;
+
   /**
    * Hides the column at the given index.
    * @param id The id of the column to show.
