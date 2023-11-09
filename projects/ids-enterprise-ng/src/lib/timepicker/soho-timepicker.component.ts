@@ -172,6 +172,8 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     } else {
       this.ngZone.runOutsideAngular(() => {
         (this.timepicker as any).enable();
+        (this.timepicker as any).trigger.prop('disabled', false);
+        (this.timepicker as any).trigger.removeAttr('disabled');
         this.isReadOnly = false;
       });
     }

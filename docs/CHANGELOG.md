@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## 15.6.1
+
+### 15.6.1 Features
+
+- `[TimePicker]` Fix timepicker to allow icon button to be clickable after reenabling ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
+- `[Timepicker]` Remove `disabled` prop in trigger button on enable call. ([NG#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
+
 ## 15.6.0
 
 ### 15.6.0 Features
