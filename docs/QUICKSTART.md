@@ -166,6 +166,7 @@ import { SohoComponentsModule } from 'ids-enterprise-ng';
 Add ```SohoComponentsModule``` to the imports.
 
 app.module.ts:
+
 ```ts
 @NgModule({
   ...
@@ -180,6 +181,7 @@ app.module.ts:
 ```
 
 app.component.ts:
+
 ```ts
 @Component({
   ...
