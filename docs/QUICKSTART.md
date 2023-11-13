@@ -123,7 +123,7 @@ The link in the following to the `src/index.html` file would be the output folde
 ```html
 <head>
   ...
-  <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/new-theme.css" type="text/css">
+  <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/theme-new-light.css" type="text/css">
 </head>
 ```
 
@@ -157,13 +157,15 @@ Type `npm install --save classlist.js` to add the classlist package.
 
 ## Add the SohoComponentsModule
 
-Edit `src/app/app.module.ts`:
+Edit `src/app/app.module.ts` or `src/app/app.component.ts`. Newer versions of Angular will only have the app.component.
 
 ```ts
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 ```
 
 Add ```SohoComponentsModule``` to the imports.
+
+app.module.ts:
 
 ```ts
 @NgModule({
@@ -176,6 +178,19 @@ Add ```SohoComponentsModule``` to the imports.
   ]
   ...
 )}
+```
+
+app.component.ts:
+
+```ts
+@Component({
+  ...
+  imports: [CommonModule, RouterOutlet, SohoComponentsModule],
+  ...
+})
+export class AppComponent {
+  ...
+}
 ```
 
 ## Add a SoHoXi Component
