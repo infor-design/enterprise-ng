@@ -9,7 +9,7 @@ describe('Locale Tests', () => {
       cy.get('#dropdown-list')
         .should('not.exist');
 
-      cy.get('div.dropdown-wrapper')
+      cy.get('form div.dropdown-wrapper')
         .should('be.visible')
         .click();
 
