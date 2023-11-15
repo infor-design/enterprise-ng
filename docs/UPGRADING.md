@@ -24,6 +24,12 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
+#### Angular 17
+
+When updating from angular 16 to 17 we were able to follow the instructions on the update.angular.io site. See
+<https://update.angular.io/?v=16.0-17.0> for more information. We ran into issues with an older Cypress version
+and had to follow the migration guide at <https://docs.cypress.io/guides/references/migration-guide#Migrating-to-Cypress-version-10-0>.
+
 #### Angular 16
 
 When updating from angular 16 we were able to do this with the command:
