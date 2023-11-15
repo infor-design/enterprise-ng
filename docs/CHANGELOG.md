@@ -4,7 +4,8 @@
 
 ### 16.10.0 Fixes
 
-- `[TimePicker]` Fix timepicker to allow icon button to be clickable after reenabling ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
+- `[Monthview]` Updated example page to showcase change of day in monthview. ([#1565](https://github.com/infor-design/enterprise-ng/issues/1565))
+- `[TimePicker]` Fixed timepicker to allow icon button to be clickable after reenabling. ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
 
 ## 16.9.0
 
