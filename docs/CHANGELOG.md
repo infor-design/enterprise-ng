@@ -4,7 +4,7 @@
 
 ### 17.0.0 Features
 
-- Upgraded to Angular 17. See the "Introducing Angular v17" blog post for more information: <https://blog.angular.io/introducing-angular-v17-4d7033312e4b>
+- `[General]` Upgraded to Angular 17. See the "Introducing Angular v17" blog post for more information: <https://blog.angular.io/introducing-angular-v17-4d7033312e4b>. Also includes all 16.9.0 features ([#1589](https://github.com/infor-design/enterprise/issues/1589))
 
 ## 16.9.0
 
