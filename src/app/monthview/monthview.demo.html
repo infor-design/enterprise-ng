@@ -1,5 +1,19 @@
-<div soho-monthview
-  [month]="initialMonth"
-  [year]="initialYear"
->
+<div class="row top-padding">
+  <div style="margin:25px;">
+    <button soho-button="primary" (click)="updateDate()">
+      Update Date
+    </button>
+    <p>
+      After clicking the Update date button, the day will update to 15th.
+    </p>
+  </div>
+  
+  <div class="twelve columns">
+    <div soho-monthview
+      [day]="initialDay"
+      [month]="initialMonth"
+      [year]="initialYear"
+    >
+    </div>
+  </div>
 </div>
