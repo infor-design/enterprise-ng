@@ -17,7 +17,7 @@ export class MonthViewDemoComponent implements OnInit {
   @ViewChild(SohoMonthViewComponent) sohoMonthViewComponent?: SohoMonthViewComponent;
 
   public initialMonth = 10;
-  public initialDay = 13;
+  public initialDay = 12;
   public initialYear = 2023;
 
   ngOnInit() { }
