@@ -18,6 +18,9 @@
 
 - `[Datagrid]` Added ability for expandable and summary rows to be updated after cell update. ([#8058](https://github.com/infor-design/enterprise/issues/8058))
 - `[Datagrid]` Added example page for vertical scroll in list style. ([#7879](https://github.com/infor-design/enterprise/issues/7879))
+- `[Monthview]` Updated example page to showcase change of day in monthview. ([#1565](https://github.com/infor-design/enterprise-ng/issues/1565))
+- `[TimePicker]` Fixed timepicker to allow icon button to be clickable after reenabling. ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
+- `[General]` Added Enterprise 4.89.0 version
 
 ### 16.9.0 Fixes
 
