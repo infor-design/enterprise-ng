@@ -1,6 +1,6 @@
 # What's New with Enterprise-NG
 
-## 16.11.0
+## 17.0.0
 
 ### 16.11.0 Features
 
