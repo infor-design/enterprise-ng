@@ -2,15 +2,9 @@
 
 ## 17.0.0
 
-### 16.11.0 Features
+### 17.0.0 Features
 
-- Upgraded to Angular 17
-
-## 16.10.0
-
-### 16.10.0 Fixes
-
-- `[TimePicker]` Fix timepicker to allow icon button to be clickable after reenabling ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
+- Upgraded to Angular 17. See the "Introducing Angular v17" blog post for more information: <https://blog.angular.io/introducing-angular-v17-4d7033312e4b>
 
 ## 16.9.0
 
