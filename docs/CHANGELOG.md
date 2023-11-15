@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.11.0
+
+### 16.11.0 Features
+
+- Upgraded to Angular 17
+
 ## 16.10.0
 
 ### 16.10.0 Fixes
