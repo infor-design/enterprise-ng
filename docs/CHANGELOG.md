@@ -2,6 +2,12 @@
 
 ## 17.0.0
 
+### 17.0.0 Preview
+
+- `[General]` Added 4.90.0-dev.0 EP version.
+
+## 17.0.0
+
 ### 17.0.0 Features
 
 - `[General]` Upgraded to Angular 17. See the "Introducing Angular v17" blog post for more information: <https://blog.angular.io/introducing-angular-v17-4d7033312e4b>. Also includes all 16.9.0 features ([#1589](https://github.com/infor-design/enterprise/issues/1589))

@@ -59,7 +59,7 @@ function executeUpdate(cmd) {
  * Copy the ids-enterprise package version from the root package.json
  * to the library package.json and the write it to the file
  */
- function syncPackageJsonVersions() {
+function syncPackageJsonVersions() {
   const rootPackageStr = fs.readFileSync('./package.json');
   const libPackageStr = fs.readFileSync('./projects/ids-enterprise-ng/package.json');
 
@@ -102,7 +102,7 @@ function copySvgIcons() {
     });
   };
 
-  copy('theme-new-svg.html');
+  copy('theme-new-default-svg.html');
   copy('theme-new-svg-empty.html');
   copy('theme-classic-svg.html');
   copy('theme-classic-svg-empty.html');
