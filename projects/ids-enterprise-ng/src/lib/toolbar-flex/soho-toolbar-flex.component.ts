@@ -368,7 +368,6 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
   private jQueryElement?: JQuery<HTMLElement>;
   private toolbarFlex?: SohoToolbarFlexStatic | null;
   private toolbarFlexChanged?: boolean;
-  private changes: any;
 
   constructor(
     private changeDetector: ChangeDetectorRef,
