@@ -11,6 +11,7 @@ import {
   NgZone,
   Output,
   OnDestroy,
+  DoCheck
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -330,7 +331,7 @@ export class SohoToolbarFlexNavButtonComponent implements AfterViewInit {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
+export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit, OnDestroy, DoCheck {
   @HostBinding('class.flex-toolbar') isToolbar = true;
 
   /**
@@ -368,6 +369,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
   private jQueryElement?: JQuery<HTMLElement>;
   private toolbarFlex?: SohoToolbarFlexStatic | null;
   private toolbarFlexChanged?: boolean;
+  private changes: any;
 
   constructor(
     private changeDetector: ChangeDetectorRef,
@@ -397,6 +399,10 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     }
   }
 
+  ngDoCheck(): void {
+    // this.markForRefresh();
+  }
+
   ngOnDestroy() {
     // call outside the angular zone so change detection isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
@@ -414,6 +420,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
   updated(settings?: SohoToolbarFlexOptions) {
     if (this.toolbarFlex) {
       this.ngZone.runOutsideAngular(() => this.toolbarFlex?.updated(settings));
+      this.markForRefresh();
     }
   }
 

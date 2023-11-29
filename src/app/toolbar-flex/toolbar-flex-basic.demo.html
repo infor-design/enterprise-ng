@@ -168,4 +168,21 @@
       </div>
     </div>
   </div>
+
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <soho-toolbar-flex #conditional (selected)="onSelectedConditional()">
+        <soho-toolbar-flex-section [isTitle]="true"
+          ><h1>Toolbar With A Button That Displays on Click</h1></soho-toolbar-flex-section
+        >
+        <soho-toolbar-flex-section [isButtonSet]="true">
+          <button soho-button="btn">Click Me!</button>
+          <button *ngIf="showButton" soho-button="btn">Conditional Button</button>
+        </soho-toolbar-flex-section>
+      </soho-toolbar-flex>
+      <button soho-button="primary" (click)="showButtonConditional()">
+        Show conditional button
+      </button>
+    </div>
+  </div>
 </form>
