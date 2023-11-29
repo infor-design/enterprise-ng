@@ -10,8 +10,7 @@ import {
   Input,
   NgZone,
   Output,
-  OnDestroy,
-  DoCheck
+  OnDestroy
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -331,7 +330,7 @@ export class SohoToolbarFlexNavButtonComponent implements AfterViewInit {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit, OnDestroy, DoCheck {
+export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   @HostBinding('class.flex-toolbar') isToolbar = true;
 
   /**
@@ -397,10 +396,6 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
       this.updated();
       this.toolbarFlexChanged = false;
     }
-  }
-
-  ngDoCheck(): void {
-    // this.markForRefresh();
   }
 
   ngOnDestroy() {
