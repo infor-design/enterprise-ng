@@ -298,6 +298,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
 import { DemoappNavContainerComponent } from './demoapp-nav-container/demoapp-nav-container';
 import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-dataset.demo';
 import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end-list.demo';
+import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.demo';
 
 @NgModule({
   declarations: [
@@ -369,6 +370,7 @@ import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-ver
     DataGridBreadcrumbDemoComponent,
     DataGridSandboxDemoComponent,
     DataGridCardDemoComponent,
+    DataGridCustomComponent,
     DataGridAngularEditorDemoComponent,
     DataGridAngularFormatterDemoComponent,
     DataGridAngularCardFormatterDemoComponent,

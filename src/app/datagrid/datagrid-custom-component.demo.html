@@ -1,0 +1,10 @@
+<div class="row top-padding">
+    <div class="twelve columns">
+      <div
+        soho-datagrid="auto"
+        *ngIf="gridOptions"
+        [gridOptions]="gridOptions"
+        (cellchange)="onCellChange($event)"
+      ></div>
+    </div>
+  </div>
