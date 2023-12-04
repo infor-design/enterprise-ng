@@ -245,6 +245,7 @@ import { DataGridSandboxDemoComponent } from './datagrid/datagrid-sandbox.demo';
 import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
 import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-dataset.demo';
 import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end-list.demo';
+import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -348,6 +349,7 @@ export const routes: Routes = [
   { path: 'datagrid-angular-card-formatter', component: DataGridAngularCardFormatterDemoComponent },
   { path: 'datagrid-angular-formatter', component: DataGridAngularFormatterDemoComponent },
   { path: 'datagrid-code-block-formatter', component: DataGridCodeBlockFormatterDemoComponent },
+  { path: 'datagrid-custom-component', component: DataGridCustomComponent },
   { path: 'datagrid-code-block-editor', component: DataGridCodeBlockEditorDemoComponent },
   { path: 'datagrid-custom-formatter', component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },
