@@ -10,7 +10,7 @@ import {
   Input,
   NgZone,
   Output,
-  OnDestroy,
+  OnDestroy
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -414,6 +414,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
   updated(settings?: SohoToolbarFlexOptions) {
     if (this.toolbarFlex) {
       this.ngZone.runOutsideAngular(() => this.toolbarFlex?.updated(settings));
+      this.markForRefresh();
     }
   }
 

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
+import { SohoToastService, SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-toolbar-flex-basic-demo',
@@ -7,6 +7,14 @@ import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 })
 export class ToolbarFlexBasicDemoComponent {
   @ViewChild(SohoToolbarFlexComponent) toolbarFlex!: SohoToolbarFlexComponent;
+  @ViewChild('conditional', { static: false }) toolbarFlexConditional!: SohoToolbarFlexComponent;
+
+  public showButton = false;
+
+  constructor(
+    private readonly toastService: SohoToastService) {
+
+  }
 
   onSelected(event: SohoToolbarFlexSelectedEvent) {
     if (event.item.type === 'actionbutton' || event.item.type === 'menubutton') {
@@ -28,6 +36,18 @@ export class ToolbarFlexBasicDemoComponent {
 
   public onCleared(event: any) {
     console.log('Clear Fired', event);
+  }
+
+  public onSelectedConditional(): void {
+    this.toastService.show({
+      title: 'Selected event fired',
+      message: '',
+    });
+  }
+
+  public showButtonConditional(): void {
+    this.showButton = !this.showButton;
+    this.toolbarFlexConditional?.updated();
   }
 
   toggleDisabled() {
