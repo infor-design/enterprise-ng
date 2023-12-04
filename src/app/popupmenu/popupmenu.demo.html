@@ -114,6 +114,7 @@
     </ul>
   </div>
 </div>
+
 <div class="row">
   <div class="twelve columns">
     <button soho-button="primary" (click)="onClick()">Selected Items</button>
@@ -163,6 +164,57 @@
             <a soho-popupmenu-label>Option 3</a>
           </li>
         </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <span class="label">Datagrid Default Menu Clone</span>
+    <button soho-menu-button [menu]="'datagrid-menu'" [id]="'datagrid-menu-button'" [hideMenuArrow]="false">Data Grid Menu</button>
+    <ul soho-popupmenu id="datagrid-menu">
+      <li soho-popupmenu-separator [multiSelectableSection]="true"></li>
+      <li soho-popupmenu-item [isChecked]="true" class="is-multiselectable">
+        <a soho-popupmenu-label>Menu Option #1</a>
+      </li>
+      <li soho-popupmenu-item [isChecked]="false" class="is-multiselectable">
+        <a soho-popupmenu-label>Menu Option #2</a>
+      </li>
+      <li soho-popupmenu-separator [singleSelectableSection]="false"></li>
+      <li soho-popupmenu-item [subMenu]="true" [isSelectable]="false">
+        <a href="">Menu Option #3</a>
+      </li>
+      <li soho-popupmenu-separator [singleSelectableSection]="true"></li>
+      <li soho-popupmenu-item [isIndented]="true">
+          <a soho-popupmenu-label href="#" data-option="personalize-columns">Personalize Columns</a>
+      </li>
+      <li soho-popupmenu-separator></li>
+      <li soho-popupmenu-heading>RowHeight</li>
+      <li soho-popupmenu-item [isSelectable]="true">
+          <a soho-popupmenu-label href="#" data-option="row-extra-small">Extra Small</a>
+      </li>
+      <li soho-popupmenu-item [isSelectable]="true">
+          <a soho-popupmenu-label href="#" data-option="row-small">Small</a>
+      </li>
+      <li soho-popupmenu-item [isSelectable]="true">
+          <a soho-popupmenu-label href="#" data-option="row-medium">Medium</a>
+      </li>
+      <li soho-popupmenu-item [isSelectable]="true">
+          <a soho-popupmenu-label href="#" data-option="row-large">Large</a>
+      </li>
+      <li soho-popupmenu-separator [singleSelectableSection]="true"></li>
+      <li soho-popupmenu-heading>Filter</li>
+      <li soho-popupmenu-item [isIndented]="true" [isSelectable]="true" [isChecked]="true">
+          <a soho-popupmenu-label href="#" data-option="show-filter-row">Show Filter Row</a>
+      </li>
+      <li soho-popupmenu-separator [singleSelectableSection]="false"></li>
+      <li soho-popupmenu-item>
+          <a soho-popupmenu-label href="#" data-option="run-filter">Run Filter</a>
+      </li>
+      <li soho-popupmenu-separator [singleSelectableSection]="true"></li>
+      <li soho-popupmenu-item [isIndented]="true">
+          <a soho-popupmenu-label href="#" data-option="clear-filter">Clear Filter</a>
       </li>
     </ul>
   </div>
