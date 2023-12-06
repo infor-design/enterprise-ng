@@ -3,14 +3,14 @@ import {
   ViewChild,
 } from '@angular/core';
 
-import { SohoWizardComponent } from 'ids-enterprise-ng';
+import {SohoWizardComponent} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'demo-wizard-demo',
   templateUrl: 'wizard.demo.html',
 })
 export class WizardDemoComponent {
-  @ViewChild(SohoWizardComponent, { static: true }) wizard!: SohoWizardComponent;
+  @ViewChild(SohoWizardComponent, {static: true}) wizard!: SohoWizardComponent;
 
   public buttons = [
     {
@@ -18,7 +18,7 @@ export class WizardDemoComponent {
       text: Soho.Locale.translate('Previous'),
       click: () => this.wizard.previous(),
       disabled: () => !this.wizard.hasPrevious(),
-      hidden: () => false,
+      // hidden: () => false,
       position: 'middle'
     },
     {
@@ -27,7 +27,6 @@ export class WizardDemoComponent {
       click: () => this.wizard.next(),
       isDefault: true,
       disabled: () => this.nextButtonDisabled(),
-      hidden: () => false,
       position: 'middle'
     },
     {
@@ -37,6 +36,13 @@ export class WizardDemoComponent {
       disabled: () => !this.wizard.hasFinished(),
       hidden: () => false,
       position: 'middle'
+    },
+    {
+      id: 'hidden',
+      text: 'Hidden', // Soho.Locale.translate('Finish'),
+      disabled: () => !this.wizard.hasFinished(),
+      hidden: () => true,
+      position: 'right'
     }
   ];
 

@@ -6,7 +6,7 @@ import {
   Input,
 } from '@angular/core';
 
-import { SohoWizardComponent } from './soho-wizard.component';
+import {SohoWizardComponent} from './soho-wizard.component';
 
 /**
  * Angular wrapper for the soho wizard buttonbar.
@@ -23,21 +23,21 @@ import { SohoWizardComponent } from './soho-wizard.component';
         <ng-container *ngFor="let button of buttons" >
           <button *ngIf="button.position==='left'"
             [soho-button]="button?.type" [icon]="button?.icon" [id]='button?.id' [disabled]="button?.disabled()"
-            [hidden]="button?.hidden()" (click)='button?.click()'>{{button?.text}}</button>
+            [hidden]="button?.hidden()" (click)='button?.click?.()'>{{button?.text}}</button>
         </ng-container>
       </div>
       <div class="middle">
       <ng-container *ngFor="let button of buttons" >
         <button *ngIf="button.position==='middle'"
-          [soho-button]="button?.type" [icon]="button?.icon" [id]='button?.id' [disabled]="button?.disabled()"
-          [hidden]="button?.hidden()" (click)='button?.click()'>{{button?.text}}</button>
+          [soho-button]="button?.type" [icon]="button?.icon" [id]='button?.id' [disabled]="button?.disabled?.()"
+          [hidden]="button?.hidden?.()" (click)='button?.click?.()'>{{button?.text}}</button>
       </ng-container>
       </div>
       <div class="right">
         <ng-container *ngFor="let button of buttons" >
           <button *ngIf="button.position==='right'"
-            [soho-button]="button?.type" [icon]="button?.icon" [id]='button?.id' [disabled]="button?.disabled()"
-            [hidden]="button?.hidden()" (click)='button?.click()'>{{button?.text}}</button>
+            [soho-button]="button?.type" [icon]="button?.icon" [id]='button?.id' [disabled]="button?.disabled?.()"
+            [hidden]="button?.hidden?.()" (click)='button?.click?.()'>{{button?.text}}</button>
         </ng-container>
         <ng-content></ng-content>
       </div>
@@ -73,15 +73,13 @@ import { SohoWizardComponent } from './soho-wizard.component';
 })
 export class SohoWizardButtonbarComponent {
 
-  // @todo need types for these button, these seem to be different from SohoButtonOptions
   @Input()
-  public buttons: any[] = [
+  public buttons: SohoWizardButtonBarButton[] = [
     {
       id: 'previous',
       text: Soho.Locale.translate('Previous'),
       click: () => this.wizard.previous(),
       disabled: () => !this.wizard.hasPrevious(),
-      hidden: () => false,
       position: 'middle'
     },
     {
@@ -102,7 +100,6 @@ export class SohoWizardButtonbarComponent {
         this.wizard.finish();
       },
       disabled: () => this.wizard.hasFinished(),
-      hidden: () => false,
       position: 'right'
     }];
 
