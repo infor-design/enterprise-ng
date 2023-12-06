@@ -21,13 +21,14 @@ describe('Modal Tests', () => {
         .should('exist')
         .should('not.have.class', 'display-fullsize')
         .contains('Submit')
-        .pipe(click)
+        .click()
         .should('not.exist')
         .then(() => cy.log(`click retry count: ${count}`));
     });
 
     it('should access the modal in full view', () => {
       cy.viewport(600, 600);
+      cy.get('.page-overlay').click('topRight', { force: true });
       cy.contains('Full on Tablet').click();
       cy.get('div.modal-page-container')
         .should('be.visible')
@@ -35,7 +36,7 @@ describe('Modal Tests', () => {
         .should('exist')
         .should('have.class', 'display-fullsize')
         .contains('Submit')
-        .pipe(click)
+        .click()
         .should('not.exist')
         .then(() => cy.log(`click retry count: ${count}`));
     });

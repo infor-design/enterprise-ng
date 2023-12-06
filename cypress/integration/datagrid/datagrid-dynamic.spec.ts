@@ -82,7 +82,7 @@ describe('Datagrid Dynamic Tests', () => {
 
   describe('Filter Tests', () => {
     it('should toggle filter row', () => {
-      cy.get('th .datagrid-filter-wrapper:not(.is-empty)').should('be.visible').should('have.length', 7);
+      cy.get('th:not(.is-hidden) .datagrid-filter-wrapper:not(.is-empty)').should('be.visible').should('have.length', 2);
       cy.contains('Toggle Filter Row').click();
       cy.get('th .datagrid-filter-wrapper:not(.is-empty)').should('not.be.visible');
       cy.contains('Toggle Filter Row').click();
@@ -91,7 +91,8 @@ describe('Datagrid Dynamic Tests', () => {
 
     it('should filter rows', () => {
       cy.get('tr.datagrid-row').should('have.length', 8);
-      cy.get('th .datagrid-filter-wrapper:not(.is-empty)').first().type('some');
+      cy.get('th:not(.is-hidden) .datagrid-filter-wrapper:not(.is-empty) .dropdown-wrapper').first().type('completed').wait(1000);
+      cy.get('.dropdown-option[data-val="Completed"]').click();
       cy.get('tr.datagrid-row').should('have.length', 2);
       cy.contains('Reset Filter').click();
       cy.get('tr.datagrid-row').should('have.length', 8);
