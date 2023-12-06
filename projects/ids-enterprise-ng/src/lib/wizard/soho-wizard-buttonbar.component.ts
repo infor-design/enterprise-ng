@@ -6,7 +6,7 @@ import {
   Input,
 } from '@angular/core';
 
-import {SohoWizardComponent} from './soho-wizard.component';
+import { SohoWizardComponent } from './soho-wizard.component';
 
 /**
  * Angular wrapper for the soho wizard buttonbar.
