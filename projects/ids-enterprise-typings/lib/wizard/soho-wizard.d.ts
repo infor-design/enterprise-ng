@@ -5,11 +5,39 @@
  * interface of the Soho jQuery wizard control.
  */
 
- /**
-  * Soho Widget model for a tick
-  */
- interface SohoWizardTick {
+/**
+ * Soho ButtonBar button definition
+ */
+interface SohoWizardButtonBarButton {
+  /** the button's unique element id */
+  id: string, // e.g. 'next',
 
+  /** the button's text */
+  text: string, // Soho.Locale.translate('Next'),
+
+  /** the button's icon */
+  icon?: string, // the name of the icon to use
+
+  /** the click callback for the button */
+  click: () => void,
+
+  /** an optional disable callback, return true if the button is disabled */
+  disabled?: () => boolean,
+
+  /** an optional hidden callback, return true if the button is hidden */
+  hidden?: () => boolean,
+
+  /** an optional isDefault flag, true if the button is displayed as the default */
+  isDefault?: boolean, // defaults to false
+
+  /** the relative position of the button */
+  position?: string
+}
+
+/**
+ * Soho Widget model for a tick
+ */
+interface SohoWizardTick {
   /**
    * Sets the ng-click event for AngularJS.
    *
@@ -35,7 +63,7 @@
    *
    */
   label?: string;
- }
+}
 
 /**
  * Wizard options.
@@ -43,9 +71,6 @@
 interface SohoWizardOptions {
   /**
    * Optional model driven list of ticks to display.
-   *
-   *
-   *
    */
   ticks?: SohoWizardTick[];
 }
