@@ -27,9 +27,6 @@ import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 export class SohoWizardHeaderComponent {
   /**
    * List of ticks in the control.
-   *
-   *
-   *
    */
   @ContentChildren(SohoWizardTickComponent) steps?: QueryList<SohoWizardTickComponent>;
 
