@@ -10,6 +10,7 @@
 
 - `[Datagrid]` Added example page to test bug when row updates on a cell with a custom component. ([#1564](https://github.com/infor-design/enterprise-ng/issues/1564))
 - `[Toolbar]` Refresh toolbar when `updated` method is called. ([#1569](https://github.com/infor-design/enterprise/issues/1569))
+- `[Wizard]` Added typings for the buttons input on the wizard's button bar, and also made the 'hidden' change backwardly compatible. ([#1598](https://github.com/infor-design/enterprise/issues/1598))
 
 ## 16.9.0
 

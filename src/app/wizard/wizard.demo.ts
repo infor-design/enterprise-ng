@@ -46,15 +46,6 @@ export class WizardDemoComponent {
     }
   ];
 
-  // public ticks: SohoWizardTick[] = [
-  //   { label: 'Select Files', href: 'select-files', state: 'current'},
-  //   { label: 'Target Folder', href: 'target-folder'},
-  //   { label: 'Backup Rules', href: 'backup-rule'},
-  //   { label: 'Validation', href: 'validation-rule'},
-  //   { label: 'Confirmation', href: 'confirmation'},
-  //   { label: 'Result', href: 'result'}
-  // ];
-
   constructor() {
   }
 

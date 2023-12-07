@@ -10,10 +10,10 @@
  */
 interface SohoWizardButtonBarButton {
   /** the button's unique element id */
-  id: string, // e.g. 'next',
+  id: string, // e.g. 'next'
 
   /** the button's text */
-  text: string, // Soho.Locale.translate('Next'),
+  text: string, // e.g. "Next"
 
   /** the button's icon */
   icon?: string, // the name of the icon to use
@@ -31,7 +31,7 @@ interface SohoWizardButtonBarButton {
   isDefault?: boolean, // defaults to false
 
   /** the relative position of the button */
-  position?: string
+  position?: 'left' | 'middle' | 'right' | undefined
 }
 
 /**
