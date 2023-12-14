@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## 17.1.0
+
+### 17.1.0 Fixes
+
+- `[General]` Added 4.90 release
+- `[Datagrid]` Added fix to button types and errors in wizard. ([#1598](https://github.com/infor-design/enterprise-ng/issues/1598))
+
 ## 17.0.0
 
 ### 17.0.0 Features
@@ -10,6 +17,7 @@
 
 - `[Datagrid]` Added example page to test bug when row updates on a cell with a custom component. ([#1564](https://github.com/infor-design/enterprise-ng/issues/1564))
 - `[Toolbar]` Refresh toolbar when `updated` method is called. ([#1569](https://github.com/infor-design/enterprise/issues/1569))
+- `[Wizard]` Added typings for the buttons input on the wizard's button bar, and also made the 'hidden' change backwardly compatible. ([#1598](https://github.com/infor-design/enterprise/issues/1598))
 
 ## 16.9.0
 
