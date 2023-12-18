@@ -198,6 +198,7 @@ import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
 import { PieDemoComponent } from './pie/pie.demo';
+import { PieBorderedDemoComponent } from './pie/pie-bordered.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
@@ -498,6 +499,7 @@ import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.de
     PersonalizeColorApiDemoComponent,
     PersonalizeMenuComponent,
     PieDemoComponent,
+    PieBorderedDemoComponent,
     PopDownDemoComponent,
     PopupMenuDemoComponent,
     ProgressDemoComponent,

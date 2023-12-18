@@ -154,6 +154,7 @@ import { NotificationBadgeShowHideDemoComponent } from './notification-badge/not
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
 import { PieDemoComponent } from './pie/pie.demo';
+import { PieBorderedDemoComponent } from './pie/pie-bordered.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
@@ -431,6 +432,7 @@ export const routes: Routes = [
   { path: 'pager-standalone', component: PagerStandaloneDemoComponent },
   { path: 'personalize-color-api', component: PersonalizeColorApiDemoComponent },
   { path: 'pie', component: PieDemoComponent },
+  { path: 'pie-bordered', component: PieBorderedDemoComponent },
   { path: 'popdown', component: PopDownDemoComponent },
   { path: 'popupmenu', component: PopupMenuDemoComponent },
   { path: 'progress', component: ProgressDemoComponent },
