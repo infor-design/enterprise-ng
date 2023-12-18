@@ -140,7 +140,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       price: 210.99,
       orderDate: '2015-01-01T06:00:00.000Z',
       action: 'Action',
-      favorite: true
+      favorite: true,
+      shipped: 'op'
     },
     {
       id: 1,
@@ -152,7 +153,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'Late',
       orderDate: '2015-01-02T06:00:00.000Z',
       action: 'Action',
-      favorite: false
+      favorite: false,
+      shipped: 'oh'
     },
     {
       id: 2,
@@ -164,7 +166,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'Active',
       orderDate: '2015-01-03T06:00:00.000Z',
       action: 'Action',
-      favorite: true
+      favorite: true,
+      shipped: 'sh'
     },
     {
       id: 3,
@@ -176,7 +179,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'Inactive',
       orderDate: '2015-01-04T06:00:00.000Z',
       action: 'Action',
-      favorite: true
+      favorite: true,
+      shipped: 'ac'
     },
     {
       id: 4,
@@ -188,7 +192,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'Inactive',
       orderDate: '2015-01-05T06:00:00.000Z',
       action: 'Action',
-      favorite: false
+      favorite: false,
+      shipped: 'op'
     },
     {
       id: 5,
@@ -200,7 +205,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'Inactive',
       orderDate: '2015-01-06T06:00:00.000Z',
       action: 'Action',
-      favorite: false
+      favorite: false,
+      shipped: 'oh'
     },
     {
       id: 6,
@@ -212,7 +218,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'On Hold',
       orderDate: '2015-01-07T06:00:00.000Z',
       action: 'Action',
-      favorite: true
+      favorite: true,
+      shipped: 'sh'
     },
     {
       id: 7,
@@ -224,7 +231,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'On Hold',
       orderDate: '2015-01-08T06:00:00.000Z',
       action: 'Action',
-      favorite: true
+      favorite: true,
+      shipped: 'ac'
     },
     {
       id: 8,
@@ -236,7 +244,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'On Hold',
       orderDate: '2015-01-09T06:00:00.000Z',
       action: 'Action',
-      favorite: false
+      favorite: false,
+      shipped: 'op'
     },
     {
       id: 9,
@@ -248,9 +257,24 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       status: 'On Hold',
       orderDate: '2015-01-10T06:00:00.000Z',
       action: 'Action',
-      favorite: false
+      favorite: false,
+      shipped: 'oh'
     }
   ];
+
+  MULTISELECT_OPTIONS = [{
+    label: "Open",
+    value: "op"
+  }, {
+    label: "On Hold",
+    value: "oh"
+  }, {
+    label: "Shipped",
+    value: "sh"
+  }, {
+    label: "Action",
+    value: "ac"
+  }];
 
   EDITORS_COLUMNS: SohoDataGridColumn[] = [
     {
@@ -272,7 +296,19 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       editor: Soho.Editors.Lookup,
       editorOptions: this.STATUS_LOOKUP_OPTIONS
     },
-
+    {
+      id: 'shipped',
+      name: 'Shipped',
+      field: 'shipped',
+      filterType: 'text',
+      editor: Soho.Editors.MultiSelect,
+      formatter: Soho.Formatters.MultiSelect,
+      editorOptions: {
+        multiple: true,
+        closeOnSelect: true,
+      },
+      options: this.MULTISELECT_OPTIONS
+    },
     {
       id: 'quantity',
       name: 'Quantity',
