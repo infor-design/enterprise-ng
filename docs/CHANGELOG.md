@@ -2,6 +2,10 @@
 
 ## 17.1.0
 
+### 17.1.0 Features
+
+- `[Datagrid]` Added multiselect formatter and updated example page. ([#1573](https://github.com/infor-design/enterprise-ng/issues/1573))
+
 ### 17.1.0 Fixes
 
 - `[General]` Added 4.90 release
