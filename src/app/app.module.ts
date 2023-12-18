@@ -136,6 +136,7 @@ import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagr
 import { ExpandedDemoComponent, DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
 import { NestedDatagridDemoComponent, DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
+import { DataGridTabNavigationDemoComponent } from './datagrid/datagrid-tab-navigation.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DragDemoComponent } from './drag/drag.demo';
@@ -418,6 +419,7 @@ import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.de
     DataGridExpandableRowNestedDemoComponent,
     DataGridExpandableRowDynamicDemoComponent,
     DataGridSummaryRowDemoComponent,
+    DataGridTabNavigationDemoComponent,
     DataGridRowSpanDemoComponent,
     DatepickerDemoComponent,
     DemoappNavContainerComponent,

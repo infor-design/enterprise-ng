@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Tab Navigation</h2>
+    <!-- <p>
+      This demo illustrates the use of a summary row.
+    </p> -->
+  </div>
+</div>
+
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <soho-toolbar>
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title>PartnerMapIntExtLine</span>
+      </soho-toolbar-title>
+      <soho-toolbar-button-set>
+        <button id="create-btn-IntExtMappings" class="btn" (click)="doCreate()">Add Row</button>
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+    <div id="gridContainer">
+      <div soho-datagrid rowHeight="short" selectable="multiple" editMode="row" [columns]="columns | async" [data]="data | async" uniqueId="partnerMappingGrid"></div>
+    </div>
+  </div>
+</div>
