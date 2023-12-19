@@ -5,6 +5,7 @@
 ### 17.1.0 Features
 
 - `[Datagrid]` Added multiselect formatter and updated example page. ([#1573](https://github.com/infor-design/enterprise-ng/issues/1573))
+- `[Tabs]` Fixed tabs item sortable and updated example page ([#1480](https://github.com/infor-design/enterprise-ng/issues/1480))
 
 ### 17.1.0 Fixes
 

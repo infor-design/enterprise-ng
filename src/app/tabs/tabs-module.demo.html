@@ -5,6 +5,8 @@
   <br>
   <div soho-tabs
     moduleTabs="true"
+    [draggable]="true"
+    [tabsOptions]="tabOptions"
 >
   <div soho-tab-list-container>
     <ul soho-tab-list>
@@ -13,7 +15,7 @@
   </div>
 </div>
 
-<div soho-tab-panel-container>
+<div soho-tab-panel-container id="module-tabs-container">
   <div soho-tab-panel *ngFor="let tab of data" [tabId]="tab.id">
     <div class="row">
       <div class="twelve columns">
