@@ -13,6 +13,7 @@
 - `[Datagrid]` Added fix to button types and errors in wizard. ([#1598](https://github.com/infor-design/enterprise-ng/issues/1598))
 - `[Datagrid]` Fixed tab key navigation when using actionable mode when having editor or formatter. ([EP#8141](https://github.com/infor-design/enterprise/issues/8141))
 - `[Pie/Donut]` Fixed rendering issues when having bordered class in the widget. ([EP#8164](https://github.com/infor-design/enterprise/issues/8164))
+- `[Tabs]` Fixed an error in tabs where it is not sortable. ([#1480](https://github.com/infor-design/enterprise-ng/issues/1480))
 
 ## 17.0.0
 
