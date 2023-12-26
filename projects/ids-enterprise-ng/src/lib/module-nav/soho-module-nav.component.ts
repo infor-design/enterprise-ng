@@ -43,6 +43,9 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
     mobileBehavior: true,
     breakpoint: 'phone-to-tablet',
     showOverlay: true,
+    showModuleSwitcher: true,
+    showGuestSection: false,
+    showSearchBar: true,
     enableOutsideClick: false,
   };
 
@@ -98,6 +101,30 @@ export class SohoModuleNavComponent implements AfterViewInit, AfterViewChecked, 
   }
   public get showOverlay(): boolean {
     return this.modulenav?.settings.showOverlay || this._options.showOverlay || false;
+  }
+
+  @Input() set showModuleSwitcher(val: boolean) {
+    this._options.showModuleSwitcher = val;
+    this.updated({ showModuleSwitcher: this._options.showModuleSwitcher });
+  }
+  public get showModuleSwitcher(): boolean {
+    return this.modulenav?.settings.showModuleSwitcher || this._options.showModuleSwitcher || false;
+  }
+
+  @Input() set showGuestSection(val: boolean) {
+    this._options.showGuestSection = val;
+    this.updated({ showGuestSection: this._options.showGuestSection });
+  }
+  public get showGuestSection(): boolean {
+    return this.modulenav?.settings.showGuestSection || this._options.showGuestSection || false;
+  }
+
+  @Input() set showSearchBar(val: boolean) {
+    this._options.showSearchBar = val;
+    this.updated({ showSearchBar: this._options.showSearchBar });
+  }
+  public get showSearchBar(): boolean {
+    return this.modulenav?.settings.showSearchBar || this._options.showSearchBar || false;
   }
 
   @Input() set enableOutsideClick(val: boolean) {

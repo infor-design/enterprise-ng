@@ -26,6 +26,9 @@ interface SohoModuleNavOptions {
   mobileBehavior?: boolean;
   breakpoint?: SohoModuleNavBreakPoint,
   showOverlay?: boolean;
+  showModuleSwitcher?: boolean;
+  showGuestSection?: boolean;
+  showSearchBar?: boolean;
   enableOutsideClick?: boolean;
 }
 
