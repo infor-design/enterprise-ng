@@ -14,6 +14,13 @@ export class TabsModuleDemoComponent implements OnInit {
   @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;
   private counter = 7;
 
+  public tabOptions: any = {
+    containerElement: '#module-tabs-container',
+    appMenuTrigger: true,
+    appMenuTriggerText: ' ',
+    sortable: true,
+  };
+
   addTab() {
     let counter = this.counter;
     const tabId = `order-${counter}`;

@@ -680,7 +680,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   private getTabLiList() {
     // call outside the angular zone since angular doesn't need to know about this.
-    return this.ngZone.runOutsideAngular(() => this.jQueryElement?.find('.tab-list').find('li'));
+    return this.ngZone.runOutsideAngular(() => this.jQueryElement?.find('.tab-list').find(`li.tab:not('.application-menu-trigger'):not('.arrange-placeholder')`));
   }
 
   private getActivatedTab(): JQuery | undefined {
