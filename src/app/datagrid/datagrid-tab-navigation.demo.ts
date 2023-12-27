@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ import { PartnerIdDetailDataGridService } from './datagrid-tab-navigation.servic
   providers: [PartnerIdDetailDataGridService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridTabNavigationDemoComponent implements OnInit {
+export class DataGridTabNavigationDemoComponent implements OnInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent, { static: true })
   dataGrid!: SohoDataGridComponent;
 
@@ -35,13 +35,11 @@ export class DataGridTabNavigationDemoComponent implements OnInit {
    * @param changeDetectorRef - Instance of ChangeDetectorRef
    * @memberOf PartnerIdDetailDataGridComponent
    */
-  constructor(private gridService: PartnerIdDetailDataGridService) {
+  constructor(private gridService: PartnerIdDetailDataGridService, private ref: ChangeDetectorRef) {
     this.doTranslations();
   }
 
   ngOnInit() { }
-
-  ngAfterContentInit() { }
 
   /**
    * Called after the view has been initialized
