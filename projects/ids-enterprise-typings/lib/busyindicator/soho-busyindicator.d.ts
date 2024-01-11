@@ -10,17 +10,17 @@
  */
 interface SohoBusyIndicatorOptions {
   /** Blocks UI events to the attached components whilst the indictor is active. */
-   blockUI?: boolean;
+  blockUI?: boolean;
 
-   /** Text to display, will show 'Loading...' if left undefined. */
-   text?: string;
+  /** Text to display, will show 'Loading...' if left undefined. */
+  text?: string;
 
-   /** Number of milliseconds to wait befre the indicator is dislayed, if 0 it is displayed immediately. */
-   displayDelay?: number;
+  /** Number of milliseconds to wait befre the indicator is dislayed, if 0 it is displayed immediately. */
+  displayDelay?: number;
 
-   /** Number of milliseconds before the indicator is removed, if 0 does indefinitely. */
-   // Is this correct?  Should the indicator not close.
-   timeToComplete?: number;
+  /** Number of milliseconds before the indicator is removed, if 0 does indefinitely. */
+  // Is this correct?  Should the indicator not close.
+  timeToComplete?: number;
 
   /**
    * If true, allows the "blockUI" setting to display an overlay that prevents interaction,
@@ -57,7 +57,7 @@ interface SohoBusyIndicatorStatic {
   close(fromEvent: boolean): void;
 
   /** Updates the busy indicator with any new seettings. */
-  updated(): void;
+  updated(settings?: SohoBusyIndicatorOptions): void;
 
   /** whether or not the busy indicator is displaying or not */
   isActive(): boolean | undefined;
