@@ -1,8 +1,8 @@
 # What's New with Enterprise-NG
 
-## 17.2.0
+## 17.3.0
 
-## 17.2.0 Fixes
+## 17.3.0 Fixes
 
 - `[BusyIndicator]` Added optional settings in the updated method. ([#1602](https://github.com/infor-design/enterprise-ng/issues/1602))
 
