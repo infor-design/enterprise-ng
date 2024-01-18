@@ -87,24 +87,24 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "servePath": "/ids-enterprise-ng-demo",
-            "buildTarget": "ids-enterprise-ng-app:build"
+            "browserTarget": "ids-enterprise-ng-app:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "ids-enterprise-ng-app:build:production"
+              "browserTarget": "ids-enterprise-ng-app:build:production"
             },
             "development": {
-              "buildTarget": "ids-enterprise-ng-app:build:development"
+              "browserTarget": "ids-enterprise-ng-app:build:development"
             },
             "es5": {
-              "buildTarget": "ids-enterprise-ng-app:build:es5"
+              "browserTarget": "ids-enterprise-ng-app:build:es5"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ids-enterprise-ng-app:build"
+            "browserTarget": "ids-enterprise-ng-app:build"
           }
         },
         "test": {
