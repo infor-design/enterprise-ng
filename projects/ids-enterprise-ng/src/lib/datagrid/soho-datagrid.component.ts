@@ -2028,6 +2028,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Hides the contextual toolbar.
+   */
+  hideContextualToolbar(): void {
+    this.ngZone.runOutsideAngular(() => {
+      if (this.datagrid) {
+        this.datagrid.hideContextualToolbar();
+      }
+    });
+  }
+
+  /**
    * Returns the rows currently selected on the data grid.
    *
    * @return an array of SohoDataGridSelectedRow instances.
