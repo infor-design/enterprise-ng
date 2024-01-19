@@ -97,7 +97,7 @@
     <div class="twelve columns">
       <hr>
       <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
-      <button soho-button="primary" (click)="changeDataset()">Change dataset</button>
+      <button soho-button="primary" (click)="changeDataset()">Change Dataset</button>
       <h3 *ngIf="showModel">
         <pre>{{ model | json }}</pre>
       </h3>

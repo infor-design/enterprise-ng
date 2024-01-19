@@ -35,7 +35,7 @@ export class PagerStandaloneDemoComponent {
     pageSizes: [5, 10, 15, 20],
   };
 
-  model_new = {
+  modelNew = {
     dataset: PAGING_DATA.slice(80),
     hideFirstButton: false,
     hidePreviousButton: false,
@@ -84,6 +84,6 @@ export class PagerStandaloneDemoComponent {
   }
 
   changeDataset() {
-    this.model = this.model_new;
+    this.model = this.modelNew;
   }
 }
