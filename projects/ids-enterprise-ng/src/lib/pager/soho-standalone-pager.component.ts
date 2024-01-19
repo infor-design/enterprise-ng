@@ -21,6 +21,9 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
 
   @Input() set dataset(dataset: any[]) {
     this.options.dataset = dataset;
+    if (this.pager) {
+      this.pager.settings.dataset = dataset;
+    }
     this.updateRequired = !!this.pager;
   }
 
