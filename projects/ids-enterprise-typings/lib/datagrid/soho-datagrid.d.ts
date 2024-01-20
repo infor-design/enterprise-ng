@@ -1025,6 +1025,9 @@ interface SohoDataGridColumn {
   /** call back to handle custom tooltips for the column header */
   tooltip?: (row: number, cell: number, value: any, col: SohoDataGridColumn, rowData: Object, api: SohoDataGridStatic) => string;
 
+  /** Disable tooltip for this column */
+  disableTooltip?: boolean;
+
   /** Placeholder text to display in the field **/
   placeholder?: string | Function;
 

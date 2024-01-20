@@ -15,6 +15,7 @@ import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-acti
 import { ContextualActionPanelFullSizeComponent } from './contextual-action-panel-fullsize.component';
 import { ContextualActionPanelVerticalTabsComponent } from './contextual-action-panel-tabs-vertical.component';
 import { ContextualActionPanelButtonsetAPIComponent } from './contextual-action-panel-buttonsetapi.component';
+import { CAPDatagridDemoComponent } from './cap-datagrid.demo';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { ContextualActionPanelButtonsetAPIComponent } from './contextual-action-
         ContextualActionPanelVerticalTabsComponent,
         ContextualActionPanelDemoComponent,
         ContextualActionPanelButtonsetAPIComponent,
+        CAPDatagridDemoComponent,
         NestedModalDialogComponent,
     ],
     exports: [],
