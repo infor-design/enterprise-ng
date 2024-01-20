@@ -2,6 +2,10 @@
 
 ## 17.3.0
 
+## 17.3.0 Features
+
+- `[Datagrid]` Added `disableTooltip` column setting. ([EP#8252](https://github.com/infor-design/enterprise/issues/8252))
+
 ## 17.3.0 Fixes
 
 - `[BusyIndicator]` Added optional settings in the updated method. ([#1602](https://github.com/infor-design/enterprise-ng/issues/1602))
