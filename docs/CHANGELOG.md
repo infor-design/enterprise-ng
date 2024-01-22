@@ -6,6 +6,7 @@
 
 - `[BusyIndicator]` Added optional settings in the updated method. ([#1602](https://github.com/infor-design/enterprise-ng/issues/1602))
 - `[Datagrid]` Added NG handle for hideContextualToolbar method. ([EP#8352](https://github.com/infor-design/enterprise/issues/8352))
+- `[Pager]` Fixed dataset not updated correctly. ([#1554](https://github.com/infor-design/enterprise-ng/issues/1554))
 
 ## 17.1.0
 
