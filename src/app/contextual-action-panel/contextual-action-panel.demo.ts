@@ -12,6 +12,7 @@ import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-acti
 import { ContextualActionPanelVerticalTabsComponent } from './contextual-action-panel-tabs-vertical.component';
 import { NestedContextualActionPanelComponent } from './nested-contextualaction-panel.component';
 import { ContextualActionPanelButtonsetAPIComponent } from './contextual-action-panel-buttonsetapi.component';
+import { CAPDatagridDemoComponent } from './cap-datagrid.demo';
 
 @Component({
   selector: 'app-contextual-action-panel-demo',
@@ -299,5 +300,30 @@ export class ContextualActionPanelDemoComponent {
       }
     })
 
+  }
+
+  openPanelWithDatagrid(): void {
+    const dialog = this.panelService
+      .contextualactionpanel<CAPDatagridDemoComponent>(CAPDatagridDemoComponent, this.placeholder)
+      .title('Test Modal')
+      .modalSettings({
+        buttons: [
+          {
+            cssClass: 'btn',
+            icon: '#icon-close',
+            text: 'Close',
+            click: () => {
+              dialog.close();
+            },
+          },
+        ],
+        autoFocus: false,
+        useFlexToolbar: true,
+      });
+    dialog
+      .apply((component: CAPDatagridDemoComponent) => {
+        component.dialog = dialog;
+      })
+      .open();
   }
 }
