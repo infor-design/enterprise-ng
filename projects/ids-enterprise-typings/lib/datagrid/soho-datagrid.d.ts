@@ -1183,6 +1183,9 @@ interface SohoDataGridStatic {
   /** Clear and reset the filter */
   clearFilter(): void;
 
+  /** Hides the contextual toolbar */
+  hideContextualToolbar(): void;
+
   selectedRows(): SohoDataGridSelectedRow[];
 
   selectAllRows(): void;
