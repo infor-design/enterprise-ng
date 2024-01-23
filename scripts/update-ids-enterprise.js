@@ -59,7 +59,7 @@ function executeUpdate(cmd) {
  * Copy the ids-enterprise package version from the root package.json
  * to the library package.json and the write it to the file
  */
- function syncPackageJsonVersions() {
+function syncPackageJsonVersions() {
   const rootPackageStr = fs.readFileSync('./package.json');
   const libPackageStr = fs.readFileSync('./projects/ids-enterprise-ng/package.json');
 
@@ -85,27 +85,29 @@ function copySvgIcons() {
   const sourcePath = `${rootPath}/node_modules/ids-enterprise/dist/svg/`;
   const destPath = `${rootPath}/src/app/icon/`;
   const destPathLib = `${rootPath}/projects/ids-enterprise-ng/src/lib/icon/`;
-  const copy = function (fileName) {
-    fs.copyFile(sourcePath + fileName, destPath + fileName, (err) => {
+  const copy = function (fileName, destinationFileName) {
+    fs.copyFile(sourcePath + fileName, destPath + destinationFileName, (err) => {
       if (err) {
         throw err;
       } else {
-        console.log(`updated 1 file src/app/icon/${fileName}`);
+        console.log(`updated 1 file src/app/icon/${destinationFileName}`);
       }
     });
-    fs.copyFile(sourcePath + fileName, destPathLib + fileName, (err) => {
+    fs.copyFile(sourcePath + fileName, destPathLib + destinationFileName, (err) => {
       if (err) {
         throw err;
       } else {
-        console.log(`updated 1 file /projects/ids-enterprise-ng/src/lib/icon/${fileName}`);
+        console.log(`updated 1 file /projects/ids-enterprise-ng/src/lib/icon/${destinationFileName}`);
       }
     });
   };
 
-  copy('theme-new-svg.html');
-  copy('theme-new-svg-empty.html');
-  copy('theme-classic-svg.html');
-  copy('theme-classic-svg-empty.html');
+  copy('theme-new-default-svg.html', 'theme-new-default-svg.html');
+  copy('theme-new-default-svg.html', 'theme-new-svg.html');
+  copy('theme-new-default-svg.html', 'theme-uplift-svg.html');
+  copy('theme-new-svg-empty.html', 'theme-new-svg-empty.html');
+  copy('theme-classic-svg.html', 'theme-classic-svg.html');
+  copy('theme-classic-svg-empty.html', 'theme-classic-svg-empty.html');
 }
 
 // -------------------------------------
