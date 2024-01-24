@@ -18,6 +18,13 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
+  @Input() set activePage(page: number) {
+    this.options.activePage = page;
+    if (this.pager) {
+      this.pager.setActivePage(page);
+    }
+    this.updateRequired = !!this.pager;
+  }
 
   @Input() set dataset(dataset: any[]) {
     this.options.dataset = dataset;

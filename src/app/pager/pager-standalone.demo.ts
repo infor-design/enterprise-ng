@@ -33,6 +33,7 @@ export class PagerStandaloneDemoComponent {
 
     pageSize: 10,
     pageSizes: [5, 10, 15, 20],
+    activePage: 1,
   };
 
   modelNew = {
@@ -55,6 +56,7 @@ export class PagerStandaloneDemoComponent {
     pageSizeMenuSettings: { attachToBody: false },
     pageSize: 10,
     pageSizes: [5, 10, 15, 20],
+    activePage: 2,
   };
 
   showModel = false;
