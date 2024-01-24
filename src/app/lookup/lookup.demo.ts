@@ -125,7 +125,7 @@ export class LookupDemoComponent implements OnInit {
       console.log('Autocomplete beforeopen', e)
     }
   };
-  
+
   public showModel = false;
   public templates?: Array<Asset>;
 
