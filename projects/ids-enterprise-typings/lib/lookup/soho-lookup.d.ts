@@ -79,6 +79,8 @@ interface SohoLookupOptions {
 
   /** Set the input to allow duplicates */
   allowDuplicates?: boolean;
+
+  cssClass?: string;
 }
 
 /**

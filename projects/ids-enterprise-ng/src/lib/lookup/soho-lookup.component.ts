@@ -322,6 +322,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.tabbable;
   }
 
+  /**  Set custom CSS classes for lookup */
+  @Input() public set cssClass(cssClass: string | undefined) {
+    this.settings.cssClass = cssClass;
+    if (this.lookup) {
+      this.lookup.settings.cssClass = this.settings.cssClass;
+      this.markForUpdate();
+    }
+  }
+  public get cssClass(): string | undefined {
+    return this.settings.cssClass;
+  }
+
   /**  Set the input to allow duplicates */
   @Input() public set allowDuplicates(allowDuplicates: boolean | undefined) {
     this.settings.allowDuplicates = allowDuplicates;

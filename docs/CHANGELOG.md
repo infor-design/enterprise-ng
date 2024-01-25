@@ -5,6 +5,7 @@
 ## 17.3.0 Features
 
 - `[Datagrid]` Added `disableTooltip` column setting. ([EP#8252](https://github.com/infor-design/enterprise/issues/8252))
+- `[Lookup]` Added `cssClass` setting. ([EP#8206](https://github.com/infor-design/enterprise/issues/8206))
 - `[Pager]` Added ability to set active page. ([#1571](https://github.com/infor-design/enterprise-ng/issues/1571))
 
 ## 17.3.0 Fixes

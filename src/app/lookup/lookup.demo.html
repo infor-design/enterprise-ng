@@ -245,10 +245,27 @@
           />
         </div>
 
-        <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
-        <div *ngIf="showModel">
-          <hr>
-          <h3>{{ model | json }}</h3>
+        <div class="field">
+          <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+          <div *ngIf="showModel">
+            <hr>
+            <h3>{{ model | json }}</h3>
+          </div>
+        </div>
+
+        <div class="field">
+          <label soho-label for="toggle-buttons">Custom CSS</label>
+          <input soho-lookup
+                 #toggleButtons
+                 [(ngModel)]="model.single"
+                 [columns]="columns_product"
+                 [dataset]="data_product"
+                 field="productId"
+                 title="Products"
+                 [buttons]="customButtons"
+                 cssClass="lookup-test"
+                 name="toggle-buttons"
+          />
         </div>
 
       </div>

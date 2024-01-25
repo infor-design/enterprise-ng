@@ -1,3 +1,5 @@
+@import url('./lookup/lookup.demo.scss');
+
 soho-masthead {
   display: block;
 }
