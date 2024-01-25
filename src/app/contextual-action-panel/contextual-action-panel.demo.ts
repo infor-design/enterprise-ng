@@ -99,6 +99,8 @@ export class ContextualActionPanelDemoComponent {
       })
       .afterOpen(() => {
         console.log('After Open Fires');
+        console.log('Buttonset API', this.panelRef?.buttonsetAPI);
+        console.log('Toolbar API', this.panelRef?.toolbarAPI);
       })
       .beforeClose(() => {
         console.log('Before close fires');

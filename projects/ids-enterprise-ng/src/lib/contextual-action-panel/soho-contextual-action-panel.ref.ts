@@ -72,6 +72,15 @@ export class SohoContextualActionPanelRef<T> {
     return this.contextualactionpanel ? this.contextualactionpanel.buttonsetAPI : undefined;
   }
 
+  /**
+   * The toolbar API for the CAP dialog.
+   *
+   * @returns the toolbar API for the CAP dialog, if initialized.
+   */
+  public get toolbarAPI(): SohoToolbarStatic | SohoToolbarFlexStatic | undefined {
+    return this.contextualactionpanel ? this.contextualactionpanel.toolbarAPI : undefined;
+  }
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
