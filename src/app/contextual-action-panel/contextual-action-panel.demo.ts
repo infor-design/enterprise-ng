@@ -91,11 +91,16 @@ export class ContextualActionPanelDemoComponent {
       .open()
       .initializeContent(true)
       .cssClass('custom-panel')
+      .beforeOpen(() => {
+        console.log('Before Open Fires');
+      })
       .opened(() => {
         console.log('Open Fires');
       })
       .afterOpen(() => {
         console.log('After Open Fires');
+        console.log('Buttonset API', this.panelRef?.buttonsetAPI);
+        console.log('Toolbar API', this.panelRef?.toolbarAPI);
       })
       .beforeClose(() => {
         console.log('Before close fires');
