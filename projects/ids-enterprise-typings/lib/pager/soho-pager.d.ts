@@ -87,6 +87,9 @@ interface SohoStandalonePagerOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Current page */
+  activePage?: number;
 }
 
 /**
@@ -193,6 +196,12 @@ interface SohoStandalonePagerStatic {
    * @param toggleOption Toggle vs show
    */
   showPageSizeSelector(toggleOption: boolean): void;
+
+  /**
+   * Set current page
+   * @param page the page number to set as active
+   * */
+  setActivePage(page: number): void;
 
   /** call from ngOnDestroy to ensure any resources the pager uses are cleaned up */
   destroy(): void;
