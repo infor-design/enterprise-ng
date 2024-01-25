@@ -91,6 +91,9 @@ export class ContextualActionPanelDemoComponent {
       .open()
       .initializeContent(true)
       .cssClass('custom-panel')
+      .beforeOpen(() => {
+        console.log('Before Open Fires');
+      })
       .opened(() => {
         console.log('Open Fires');
       })

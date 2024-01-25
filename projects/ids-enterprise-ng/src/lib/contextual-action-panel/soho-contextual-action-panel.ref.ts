@@ -32,7 +32,10 @@ export class SohoContextualActionPanelRef<T> {
   /** Event fired after closing the panel. */
   private afterClose$: Subject<any> = new Subject();
 
-  /** Event fired after opening the panel panel. */
+  /** Event fired before opening the panel. */
+  private beforeOpen$: Subject<any> = new Subject();
+
+  /** Event fired after opening the panel. */
   private afterOpen$: Subject<any> = new Subject();
 
   /** Handle resource tidy up of this class. */
@@ -330,6 +333,9 @@ export class SohoContextualActionPanelRef<T> {
     this.jQueryElement?.on('open.contextualactionpanel', ((event: any) => {
       this.onOpen(event);
     }));
+    (this.contextualactionpanel as any).panel?.on('beforeopen.contextualactionpanel', ((event: any) => {
+      this.onBeforeOpen(event);
+    }));
     (this.contextualactionpanel as any).panel?.on('afterclose.contextualactionpanel', ((event: any) => {
       this.onAfterClose(event);
     }));
@@ -386,6 +392,19 @@ export class SohoContextualActionPanelRef<T> {
    */
   afterOpen(eventFn: Function): SohoContextualActionPanelRef<T> | null {
     this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+      eventFn(f, this);
+    });
+    return this;
+  }
+
+  /**
+   * Opened Event.
+   * This event is fired after the panel has been opened.
+   *
+   * @param eventFn - the function to invoke when the panel is to be opened.
+   */
+  beforeOpen(eventFn: Function): SohoContextualActionPanelRef<T> | null {
+    this.beforeOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
       eventFn(f, this);
     });
     return this;
@@ -457,6 +476,16 @@ export class SohoContextualActionPanelRef<T> {
    */
   private onAfterOpen(event: any) {
     this.afterOpen$.next(event);
+  }
+
+  /**
+   * Handles the 'afterOpen' event, fired after the panel panel
+   * has been opened.
+   *
+   * @param event - full event object.
+   */
+  private onBeforeOpen(event: any) {
+    this.beforeOpen$.next(event);
   }
 
   /**
