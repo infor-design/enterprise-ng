@@ -103,6 +103,8 @@ interface SohoTabsOptions {
 
   /** Sets the tabs to be sortable by drag and drop. **/
   sortable?: boolean;
+
+  validate?: boolean;
 }
 
 /**

@@ -441,6 +441,15 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     }
   }
 
+  /** If false then error icon will not appear when validator is running */
+  @Input() set validate(validate: boolean) {
+    this._tabsOptions.validate = validate;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.validate = validate;
+      this.updateRequired = true;
+    }
+  }
+
   /**
    * if you would like to run the updated() function yourself instead of having
    * this tabs component check for you set this input to true. The advantage to
@@ -723,7 +732,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * @param tab The tab element in the list that needs to be activated
-   * @returns 
+   * @returns
    */
   public activateTab(tab: JQuery | undefined) {
     return this.ngZone.runOutsideAngular(() => {
