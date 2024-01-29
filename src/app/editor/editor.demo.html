@@ -10,7 +10,10 @@
 
       <div class="field">
         <span class="label">Comments</span>
-        <div soho-editor id="editor1" role="textbox" aria-multiline="true" aria-label="Comments" [innerHtml]="model.editorText" (change)="onChange($event)"></div>
+        <div soho-editor id="editor1" role="textbox" aria-multiline="true" aria-label="Comments"
+          [innerHtml]="model.editorText"
+          (change)="onChange($event)"
+          (generateai)="onGenerateAi($event)"></div>
         <button soho-button [disabled]="editorReadOnly" (click)="setReadonly()">Read Only</button>
         <button soho-button [disabled]="editorDisabled" (click)="setDisable()">Disable</button>
         <button soho-button [disabled]="!editorDisabled && !editorReadOnly" (click)="setEnable()">Enable</button>
