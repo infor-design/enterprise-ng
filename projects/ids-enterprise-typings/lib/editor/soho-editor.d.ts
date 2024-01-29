@@ -6,8 +6,8 @@
  */
 
 interface SohoEditorButtons {
-  editor: Array<any>;
-  source: Array<any>;
+  editor?: Array<any>;
+  source?: Array<any>;
 }
 
 interface SohoEditorRows {
@@ -20,23 +20,29 @@ interface SohoEditorRows {
  */
 interface SohoEditorOptions {
   buttons?: SohoEditorButtons;
-  delay?: number;
+  excludeButtons?: SohoEditorButtons;
   firstHeader?: string;
   secondHeader?: string;
   placeholder?: string;
+  delay?: number;
+  pasteAsPlainText?: boolean
   anchor?: SohoEditorAnchor;
   image?: SohoEditorOptionsImage;
   onLinkClick?: (e: JQuery.TriggeredEvent, elem: any) => void;
   showHtmlView?: boolean;
   preview?: boolean;
   rows?: SohoEditorRows;
+  paragraphSeparator?: string;
+  useFlexToolbar?: boolean;
+  useSourceFormatter?: boolean;
+  formatterTabsize?: number
   attributes?: Array<Object> | Object;
 }
 
 interface SohoEditorAnchor {
   url?: string;
   class?: string;
-  target?: 'Same window'|'New window'| any;
+  target?: 'Same window' | 'New window' | any;
   isClickable?: boolean;
   showIsClickable?: boolean;
 }
@@ -100,4 +106,6 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
  * Soho Editor Event
  */
 interface SohoEditorEvent {
+  api: any;
+  elem: JQuery;
 }
