@@ -38,8 +38,7 @@ export class EditorDemoComponent implements AfterViewInit {
   ngAfterViewInit() {
 
     // Customize the settings on init
-
-    (this.editor as any).anchor = {
+    this.editor!.anchor = {
       url: 'http://www.example.com',
       class: 'hyperlink',
       target: 'New Window',
@@ -47,10 +46,15 @@ export class EditorDemoComponent implements AfterViewInit {
       showIsClickable: true
     };
 
+    this.editor!.excludeButtons = { editor: ['backColor'] };
   }
 
   onUpdated(event: any) {
-    alert(event);
+    console.log('updated event fired', event);
+  }
+
+  onGenerateAi(event: any) {
+    console.log('generate ai event fired', event);
   }
 
   toggleModel() {
@@ -74,6 +78,6 @@ export class EditorDemoComponent implements AfterViewInit {
   }
 
   onChange(event: any) {
-    console.log(`changed: ${event}`);
+    console.log('change event fired', event);
   }
 }

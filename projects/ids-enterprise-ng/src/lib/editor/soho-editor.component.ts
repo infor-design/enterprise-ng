@@ -160,6 +160,15 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  @Input() set excludeButtons(buttons: SohoEditorButtons) {
+    this.options.excludeButtons = buttons;
+
+    if (this.editor) {
+      this.editor.settings.excludeButtons = buttons;
+      this.markForRefresh();
+    }
+  }
+
   /**
    * onLinkClick Callback for Editor clicks
    */
@@ -221,6 +230,8 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    * Called when the editor updates in some way
    */
   @Output() updated = new EventEmitter<SohoEditorEvent>();
+  @Output() generateai = new EventEmitter<SohoEditorEvent>();
+
 
   // -------------------------------------------
   // Public API
@@ -265,6 +276,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
       // Bind to jQueryElement's events
       this.jQueryElement
         .on('change', (_e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onChange(args))
+        .on('generateai', (_e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onGenerateAi(args))
         .on('updated', (_e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onUpdated(args));
 
       if (this.internalValue) {
@@ -309,6 +321,16 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     });
   }
 
+  /**
+   * Handle the generate AI button being clicked
+   */
+  onGenerateAi(event: SohoEditorEvent) {
+    this.ngZone.run(() => this.generateai.emit(event));
+  }
+
+  /**
+   * Handle the updated event firing
+   */
   onUpdated(event: SohoEditorEvent) {
     this.ngZone.run(() => {
       this.updated.next(event);
