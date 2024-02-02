@@ -1,15 +1,15 @@
 # What's New with Enterprise-NG
 
-## 17.3.0
+## 17.4.0
 
-## 17.3.0 Features
+## 17.4.0 Features
 
 - `[Datagrid]` Added `disableTooltip` column setting. ([EP#8252](https://github.com/infor-design/enterprise/issues/8252))
 - `[Lookup]` Added `cssClass` setting. ([EP#8206](https://github.com/infor-design/enterprise/issues/8206))
 - `[Pager]` Added ability to set active page. ([#1571](https://github.com/infor-design/enterprise-ng/issues/1571))
 - `[Tabs]` Added `validate` setting to disable/enable error icon. ([EP#8254](https://github.com/infor-design/enterprise/issues/8254))
 
-## 17.3.0 Fixes
+## 17.4.0 Fixes
 
 - `[BusyIndicator]` Added optional settings in the updated method. ([#1602](https://github.com/infor-design/enterprise-ng/issues/1602))
 - `[Datagrid]` Added NG handle for hideContextualToolbar method. ([EP#8352](https://github.com/infor-design/enterprise/issues/8352))
