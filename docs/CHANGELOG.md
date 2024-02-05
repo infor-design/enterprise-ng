@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 17.5.0
+
+## 17.5.0 Fixes
+
+- `[EmptyMessage]` Added missing empty state icons. ([#1636](https://github.com/infor-design/enterprise/issues/1636))
+
 ## 17.4.0
 
 ## 17.4.0 Features
