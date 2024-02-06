@@ -229,6 +229,7 @@ import { SwapListSearchDemoComponent } from './swaplist/swaplist-search.demo';
 import { SwapListServiceDemoComponent } from './swaplist/swaplist-service.demo';
 import { SwipeActionDemoComponent } from './swipe-action/swipe-action.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
+import { TabsModuleMaxWidthDemoComponent } from './tabs/tabs-module-max-width.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
@@ -531,6 +532,7 @@ import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.de
     SwapListServiceDemoComponent,
     SwipeActionDemoComponent,
     TabsBasicDemoComponent,
+    TabsModuleMaxWidthDemoComponent,
     TabsCountsDemoComponent,
     TabsDataDrivenDemoComponent,
     TabsDismissibleDemoComponent,
