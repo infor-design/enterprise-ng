@@ -320,6 +320,18 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   /**
+   * If true, will change the selected tab on invocation based on the URL that exists after the hash
+   *
+   */
+  @Input() set maxWidth(width: number) {
+    this._tabsOptions.maxWidth = width;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.maxWidth = width;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
    * If defined as a function, provides an external method for adjusting the current page hash used by these tabs
    * TODO: how to handle call back function?
    */

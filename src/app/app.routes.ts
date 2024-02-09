@@ -182,6 +182,7 @@ import { SwapListSearchDemoComponent } from './swaplist/swaplist-search.demo';
 import { SwapListServiceDemoComponent } from './swaplist/swaplist-service.demo';
 import { SwipeActionDemoComponent } from './swipe-action/swipe-action.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
+import { TabsModuleMaxWidthDemoComponent } from './tabs/tabs-module-max-width.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
@@ -462,6 +463,7 @@ export const routes: Routes = [
   { path: 'swipe-action', component: SwipeActionDemoComponent },
   { path: 'spinbox', component: SpinboxDemoComponent },
   { path: 'tabs-basic', component: TabsBasicDemoComponent },
+  { path: 'tabs-module-max-width', component: TabsModuleMaxWidthDemoComponent },
   { path: 'tabs-counts', component: TabsCountsDemoComponent },
   { path: 'tabs-datadriven', component: TabsDataDrivenDemoComponent },
   { path: 'tabs-dismissible', component: TabsDismissibleDemoComponent },

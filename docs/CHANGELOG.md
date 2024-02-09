@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 17.5.0
+
+## 17.5.0 Fixes
+
+- `[TabsModule]` Added setting `maxWidth` for tabs for long titles. ([EP#8017](https://github.com/infor-design/enterprise/issues/8017))
+
 ## 17.4.0
 
 ## 17.4.0 Features

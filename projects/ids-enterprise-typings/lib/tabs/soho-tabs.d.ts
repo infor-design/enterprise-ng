@@ -94,6 +94,11 @@ interface SohoTabsOptions {
   tabCounts?: boolean;
 
   /**
+   * If not null, set the initial width of the tabs.
+   */
+  maxWidth?: number | undefined;
+
+  /**
    * If Vertical Tabs & true, will automatically switch to Horizontal Tabs on smaller breakpoints.
    */
   verticalResponsive?: boolean;
