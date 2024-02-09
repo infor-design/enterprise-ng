@@ -31,7 +31,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(SohoPersonalizeDirective, { static: true })
   personalize?: SohoPersonalizeDirective;
 
-  @ViewChild(DemoappNavContainerComponent, { static: true})
+  @ViewChild(DemoappNavContainerComponent, { static: true })
   demoappNavContainer?: DemoappNavContainerComponent;
 
   /**
