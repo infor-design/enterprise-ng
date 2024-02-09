@@ -5,6 +5,7 @@
 ## 17.5.0 Fixes
 
 - `[EmptyMessage]` Added missing empty state icons. ([#1636](https://github.com/infor-design/enterprise/issues/1636))
+- `[TabsModule]` Added setting `maxWidth` for tabs for long titles. ([EP#8017](https://github.com/infor-design/enterprise/issues/8017))
 
 ## 17.4.0
 
