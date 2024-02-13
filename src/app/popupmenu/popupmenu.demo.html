@@ -90,7 +90,7 @@
 
 <div class="row top-padding">
   <div class="twelve columns">
-    <span class="label">Popup Menu Get Selected</span>
+    <span class="label">Popup Selected</span>
     <button
       class="btn-menu"
       soho-context-menu
@@ -121,9 +121,10 @@
   </div>
 </div>
 
+
 <div class="row top-padding">
   <div class="twelve columns">
-    <span class="label">Popup Menu Multiselect Singleselect</span>
+    <span class="label">Popup Menu Multiselect Singleselect</span><br>
     <button soho-menu-button [menu]="'mock-menu'" [id]="'mock-button'" [hideMenuArrow]="false">Menu</button>
     <ul soho-popupmenu id="mock-menu">
       <li soho-popupmenu-separator [multiSelectableSection]="true"></li>
@@ -169,9 +170,10 @@
   </div>
 </div>
 
+
 <div class="row">
   <div class="twelve columns">
-    <span class="label">Datagrid Default Menu Clone</span>
+    <span class="label">Datagrid Menu Example</span><br>
     <button soho-menu-button [menu]="'datagrid-menu'" [id]="'datagrid-menu-button'" [hideMenuArrow]="false">Data Grid Menu</button>
     <ul soho-popupmenu id="datagrid-menu">
       <li soho-popupmenu-separator [multiSelectableSection]="true"></li>
@@ -215,6 +217,23 @@
       <li soho-popupmenu-separator [singleSelectableSection]="true"></li>
       <li soho-popupmenu-item [isIndented]="true">
           <a soho-popupmenu-label href="#" data-option="clear-filter">Clear Filter</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <span class="label">Menu For Loop</span>
+    <button soho-menu-button menu="menu">Popupmenu</button>
+    <ul soho-popupmenu id="menu" [isSelectable]="true">
+      <li
+        *ngFor="let item of menuItems; let i = index"
+        soho-popupmenu-item
+        [isChecked]="item.selected"
+        (click)="onChange(i)"
+      >
+        <a soho-popupmenu-label>{{ item.text }}</a>
       </li>
     </ul>
   </div>

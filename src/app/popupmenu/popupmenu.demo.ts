@@ -21,6 +21,23 @@ export class PopupMenuDemoComponent implements OnInit {
     autoScale: false,
   };
 
+  public menuItems = [
+    {
+      text: 'First Item',
+      selected: true,
+    },
+    {
+      text: 'Second Item',
+      selected: false,
+    },
+  ];
+
+  public onChange(index: number): void {
+    this.menuItems[index].selected = true;
+    this.menuItems[index ? 0 : 1].selected = false;
+    console.log(this.menuItems);
+  }
+
   public suiteOptions: string[] = ['Hello', 'World', 'Team'];
 
   @ViewChild('popmenutrigger', { static: true })
