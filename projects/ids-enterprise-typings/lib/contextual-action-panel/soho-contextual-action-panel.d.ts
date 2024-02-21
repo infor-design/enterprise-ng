@@ -32,6 +32,9 @@ interface SohoContextualActionPanelOptions {
   /** The string used as the title for the panel - not defaulted. */
   title?: string;
 
+  /** The id of the detail element that will be used to display the detail content. */
+  detailRefId?: string | undefined,
+
   /** Settings to pass through to the modal */
   modalSettings?: SohoModalOptions;
 

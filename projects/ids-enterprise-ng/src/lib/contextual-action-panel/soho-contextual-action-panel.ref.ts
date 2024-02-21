@@ -92,6 +92,7 @@ export class SohoContextualActionPanelRef<T> {
     content: undefined,
     initializeContent: true, // initialize content before opening
     title: 'Contextual Action Panel',
+    detailRefId: undefined,
     modalSettings: {
       title: undefined,
       buttons: [],
@@ -173,6 +174,19 @@ export class SohoContextualActionPanelRef<T> {
     this._options.title = title;
     if (this.contextualactionpanel) {
       this.contextualactionpanel.settings.title = title;
+    }
+    return this;
+  }
+
+  /**
+   * Sets the title of the panel.
+   *
+   * @param title - the title of the panel.
+   */
+  detailRefId(detailRefId: string): SohoContextualActionPanelRef<T> {
+    this._options.detailRefId = detailRefId;
+    if (this.contextualactionpanel) {
+      this.contextualactionpanel.settings.detailRefId = detailRefId;
     }
     return this;
   }
