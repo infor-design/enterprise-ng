@@ -7,6 +7,7 @@
     "@types/d3": "7.4.0",
     "ids-enterprise": "4.92.2",
     "ids-enterprise-typings": "17.5.0-dev.0",
+    "ids-enterprise-wc": "1.0.0-beta.21",
     "jquery": "3.6.4",
     "d3": "7.8.2"
   },
