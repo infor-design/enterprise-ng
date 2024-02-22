@@ -35,6 +35,11 @@
                 "input": "node_modules/ids-enterprise/dist/js/cultures",
                 "output": "/assets/ids-enterprise/js/cultures"
               },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/ids-enterprise-wc/themes",
+                "output": "themes"
+              },
               "src/app/demodata"
             ],
             "styles": [

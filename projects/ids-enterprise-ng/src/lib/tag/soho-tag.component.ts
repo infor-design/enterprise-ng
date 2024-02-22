@@ -10,7 +10,8 @@ import {
   EventEmitter,
   ChangeDetectionStrategy
 } from '@angular/core';
-import IdsTag from 'ids-enterprise-wc/components/ids-tag/ids-tag';
+
+import 'ids-enterprise-wc/components/ids-tag/ids-tag';
 
 /**
  * Support Tag types.
@@ -127,7 +128,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
 
 @Component({
   selector: '[soho-tag]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
+  template: '<ids-tag><ng-content></ng-content></ids-tag>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTagComponent implements AfterViewInit, OnDestroy {
@@ -227,21 +228,24 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement = jQuery(this.element.nativeElement);
 
       // initialise the tag control
-      this.jQueryElement.tag(this.options);
+      // this.jQueryElement.tag(this.options);
 
       // extract the api
-      this.tag = document.createElement('ids-tag') as any;
+      //  this.tag = this.jQueryElement.data('tag');
+      // this.tag = this.element.nativeElement.parentNode;
+      // document.createElement('ids-tag') as any;
 
       // @todo - add event binding control so we don't bind if not required.
-      // this.jQueryElement
       const tagElem = this.tag?.element;
-      const parent = tagElem ? jQuery(tagElem).parent() : null;
+      this.element.nativeElement.setAttribute('class', '');
+      this.tag = this.element.nativeElement.querySelector('ids-tag');
 
-      this.jQueryElement
-        .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
+      // this.jQueryElement
+      //  .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
 
       if (parent) {
-        parent.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
+        // TODO: Solve this
+        // this.element.nativeElement.parentNode?.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
       }
     });
   }
