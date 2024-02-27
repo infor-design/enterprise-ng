@@ -1,5 +1,5 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import {
   CommonModule
 } from '@angular/common';
@@ -10,7 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
-// @ts-ignore
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { AboutDemoComponent } from './about/about.demo';
@@ -597,7 +596,6 @@ import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.de
     ApplicationMenuLazyService,
     SohoRenderLoopService
   ],
-  bootstrap: [AppComponent],
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

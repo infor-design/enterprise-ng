@@ -32,13 +32,13 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/ids-enterprise/dist/js/cultures",
-                "output": "/assets/ids-enterprise/js/cultures"
+                "input": "./node_modules/ids-enterprise-wc/themes",
+                "output": "themes"
               },
               {
                 "glob": "**/*",
-                "input": "./node_modules/ids-enterprise-wc/themes",
-                "output": "themes"
+                "input": "node_modules/ids-enterprise/dist/js/cultures",
+                "output": "/assets/ids-enterprise/js/cultures"
               },
               "src/app/demodata"
             ],

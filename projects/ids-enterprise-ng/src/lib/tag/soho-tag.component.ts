@@ -12,19 +12,17 @@ import {
 } from '@angular/core';
 
 import 'ids-enterprise-wc/components/ids-tag/ids-tag';
+import IdsTag from 'ids-enterprise-wc/components/ids-tag/ids-tag';
+import { IdsColorValue } from 'ids-enterprise-wc/utils/ids-color-utils/ids-color-utils';
 
 /**
- * Support Tag types.
+ * Support Tag types. Leaving the value off the element displays the element in it's default state.
  *
- * `error` displayed as an error (for example with a red background).
- * `good` displayed to mean correct or valid (for example with a green background).
- * `alert` displayed as an alert (for example with a yellow background).
+ * `error` displayed as an error (for example with a red background). (danger deprecated)
+ * `success` displayed to mean correct or valid (for example with a green background). (good deprecated)
+ * `warning` displayed as an warning (for example with a orange background).
+ * `caution` displayed as an caution (for example with a yellow background). (alert deprecated)
  * `secondary` displayed as grey - like a secondary button.
- *
- * Leaving the value off the element displays the element in it's default state.
- *
- * Note: You should not use color alone to indicate state, this should be either
- * supplemented with off-screen labels or visual labels near the element explaining the state.
  */
 
 // These are changed
@@ -33,6 +31,17 @@ import 'ids-enterprise-wc/components/ids-tag/ids-tag';
 // Now:
 // error / warning / caution / info / success
 export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | 'info' | undefined;
+const tagsMapped = {
+  'danger': 'error',
+  'error': 'error',
+  'warning': 'warning',
+  'alert': 'caution',
+  'caution': 'caution',
+  'info': 'info',
+  'success': 'success',
+  'good': 'success',
+  'secondary': 'secondary'
+};
 
 // This is not longer supposed to be a component
 @Component({
@@ -197,11 +206,15 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
    * Allow override of element name, to match the component name.
    */
   @Input('soho-tag') set sohoTag(type: SohoTagType) {
+    if (type !== undefined) console.log('soho-tag', tagsMapped[type] || 'none');
     if (!type) {
       type = SohoTagComponent.DEFAULT;
     }
     this.tagType = type;
     this.options.style = type;
+
+    if (this.tagComponent)
+      this.tagComponent!.color = type === undefined ? '' : tagsMapped[type] as IdsColorValue;
   }
 
   private tagType: SohoTagType;
@@ -211,6 +224,9 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   // This would break
   tag?: SohoTag | null;
+
+  // Made a new one
+  tagComponent?: IdsTag | null;
 
   /**
    * Creates an instance of SohoTagComponent.
@@ -235,16 +251,18 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
       // this.tag = this.element.nativeElement.parentNode;
       // document.createElement('ids-tag') as any;
 
-      // @todo - add event binding control so we don't bind if not required.
-      const tagElem = this.tag?.element;
       this.element.nativeElement.setAttribute('class', '');
-      this.tag = this.element.nativeElement.querySelector('ids-tag');
+      this.tagComponent = this.element.nativeElement.querySelector('ids-tag') as IdsTag;
+
+      this.tagComponent.color = this.tagType === undefined ? '' : tagsMapped[this.tagType] as IdsColorValue;
 
       // this.jQueryElement
       //  .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
+      // Can we change this / e: JQuery.TriggeredEvent
+      this.tagComponent.onEvent('click', (e: CustomEvent) => this.onClick(e));
 
       if (parent) {
-        // TODO: Solve this
+        // TODO: Solve this / check history for the issue
         // this.element.nativeElement.parentNode?.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
       }
     });
@@ -257,16 +275,20 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  private onClick(event: JQuery.TriggeredEvent) {
+  private onClick(event: CustomEvent) {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    event.stopPropagation();
     this.ngZone.run(() =>
-      this.click.next(event));
+      this.click.next(event as any));
+    return false;
   }
 
   /**
    * The settings have been updated.
    */
   public updated(): void {
-    // Will Not Need
+    // TODO: Update Each Setting on tagComponent
   }
 
   /**
