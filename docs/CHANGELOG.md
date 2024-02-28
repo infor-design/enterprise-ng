@@ -4,8 +4,9 @@
 
 ## 17.5.0 Fixes
 
-- `[EmptyMessage]` Added missing empty state icons. ([#1636](https://github.com/infor-design/enterprise/issues/1636))
-- `[TabsModule]` Added setting `maxWidth` for tabs for long titles. ([EP#8017](https://github.com/infor-design/enterprise/issues/8017))
+- `[ContextualActionPanel]` Added typings and definitions for detail contents. ([EP#8112](https://github.com/infor-design/enterprise/issues/8112))
+- `[EmptyMessage]` Added missing empty state icons. ([#1636](https://github.com/infor-design/enterprise-ng/issues/1636))
+- `[TabsModule]` Added setting `maxWidth` for tabs for long titles. ([EP#8017](https://github.com/infor-design/enterprise-ng/issues/8017))
 
 ## 17.4.0
 
