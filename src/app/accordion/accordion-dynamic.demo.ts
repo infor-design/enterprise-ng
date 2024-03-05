@@ -84,7 +84,6 @@ export class AccordionDynamicDemoComponent {
     if (header) {
       header.expanded = false;
     }
-
   }
 
 }

@@ -40,7 +40,7 @@ export class PersonalizeMenuComponent implements OnInit {
    * Default Theme: this should really be based on the one selected in
    * the IDS Enterprise component code.
    */
-  private readonly DEFAULT_THEME = 'theme-soho-light';
+  private readonly DEFAULT_THEME = 'theme-new-light';
 
   /**
    * Storage key for the theme.

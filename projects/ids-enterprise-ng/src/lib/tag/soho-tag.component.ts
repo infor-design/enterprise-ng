@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 
 import 'ids-enterprise-wc/components/ids-tag/ids-tag';
-import IdsTag from 'ids-enterprise-wc/components/ids-tag/ids-tag';
+import type IdsTag from 'ids-enterprise-wc/components/ids-tag/ids-tag';
 import { IdsColorValue } from 'ids-enterprise-wc/utils/ids-color-utils/ids-color-utils';
 
 /**
@@ -253,7 +253,6 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
       this.element.nativeElement.setAttribute('class', '');
       this.tagComponent = this.element.nativeElement.querySelector('ids-tag') as IdsTag;
-
       this.tagComponent.color = this.tagType === undefined ? '' : tagsMapped[this.tagType] as IdsColorValue;
 
       // this.jQueryElement

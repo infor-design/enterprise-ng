@@ -19,7 +19,7 @@ export class DataGridSandboxDemoComponent implements OnInit {
         name: "Name",
         field: "displayName",
         sortable: true,
-        formatter: Soho.Formatters.Ellipsis,
+        // formatter: Soho.Formatters.Ellipsis,
       },
     ],
     dataset: [],

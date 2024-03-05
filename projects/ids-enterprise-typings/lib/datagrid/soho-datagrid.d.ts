@@ -98,6 +98,7 @@ interface SohoDataGridOptions {
 
   /** Initial dataset. */
   dataset?: Object[];
+  data?: Object[];
 
   /** set frozen columns */
   frozenColumns?: SohoDataGridFrozenColumns;
@@ -1089,6 +1090,9 @@ interface SohoDataGridStatic {
 
   /** Updates the dataset displayed by the data grid. */
   updateDataset(dataset: Object[], pagerInfo?: SohoPagerPagingInfo): void;
+
+  data?: Object[];
+  columns?: Object[];
 
   /** Sets the row height on the datagrid. */
   rowHeight(rowHeight: SohoDataGridRowHeight): void;

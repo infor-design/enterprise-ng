@@ -20,6 +20,8 @@ import {
   NgZone
 } from '@angular/core';
 
+import 'ids-enterprise-wc/components/ids-data-grid/ids-data-grid';
+import type IdsDataGrid from 'ids-enterprise-wc/components/ids-data-grid/ids-data-grid';
 import { ArgumentHelper } from '../utils/argument.helper';
 import { SohoDataGridService } from './soho-datagrid.service';
 
@@ -137,7 +139,7 @@ enum RefreshHintFlags {
  */
 @Component({
   selector: '[soho-datagrid]', // eslint-disable-line
-  template: ' <ng-content></ng-content>',
+  template: '<ids-data-grid><ng-content></ng-content></ids-data-grid>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
@@ -1134,12 +1136,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * call loadData on the control api if ready.
    */
   @Input() set data(data: any[] | undefined) {
+    debugger;
     this.gridData = data;
     if (data && this.jQueryElement) {
 
       this.ngZone.runOutsideAngular(() => {
-        // @todo add hints for this too, as other changes may force a rebuild?
-        this.datagrid?.loadData(data);
+        // this.datagrid?.loadData(data);
+        if (this.datagrid) this.datagrid.data = data;
       });
     }
   }
@@ -1152,6 +1155,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * call loadData on the control api if ready.
    */
   @Input() set columns(columns: SohoDataGridColumn[] | undefined) {
+    debugger;
     this._gridOptions.columns = columns || [];
 
     this.checkForComponentEditors();
@@ -1159,8 +1163,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     if (columns && this.jQueryElement) {
 
       this.ngZone.runOutsideAngular(() => {
-        this.datagrid?.updateColumns((this._gridOptions as any).columns, (this._gridOptions as any).columnGroups);
-        (this.datagrid as any).setOriginalColumns();
+        if (this.datagrid) {
+          this.datagrid.columns = (this._gridOptions as any).columns;
+          // (this.datagrid as any).setOriginalColumns();
+        }
       });
     }
   }
@@ -1664,7 +1670,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     private resolver: ComponentFactoryResolver,
     private injector: Injector,
     private app: ApplicationRef,
-    @Optional() protected datagridService: SohoDataGridService) {
+    @Optional() protected datagridService: SohoDataGridService,
+    private element: ElementRef) {
 
   }
 
@@ -3207,13 +3214,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
 
     // Initialise the SohoXi control.
-    this.jQueryElement?.datagrid(this._gridOptions);
-    this.jQueryElement?.removeAttr('role');
+    // this.jQueryElement?.datagrid(this._gridOptions);
+    // this.jQueryElement?.removeAttr('role');
 
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
     // defined by the plug-in, but in this case is 'datagrid'.
-    this.datagrid = this.jQueryElement?.data('datagrid');
+    this.datagrid = this.element.nativeElement.querySelector('ids-data-grid') as any;
 
     // If "auto" and there's a service, get the columns from it.
     // (may want to check if columns have already been set? Error?)
@@ -3224,13 +3231,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.datagridService.getData(null)
         .subscribe((data: any[]) => {
           this.ngZone.runOutsideAngular(() => {
-            this.datagrid?.loadData(data);
+            if (this.datagrid) this.datagrid.data = data as any;
           });
         });
-    } else if (this.gridData) {
+    } else if (this.gridData && this.datagrid) {
       // Not using a service, so use the pre-loaded data.
       this.ngZone.runOutsideAngular(() => {
-        this.datagrid?.loadData((this.gridData as any));
+        if (this.datagrid) this.datagrid.data = this.gridData as any;
       });
     }
   }
@@ -3271,8 +3278,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.ngZone.runOutsideAngular(() => {
       if (!this.refreshHint) {
         this.datagrid?.updated(this._gridOptions);
-      } else if (settings && this.refreshHint & RefreshHintFlags.Rebuild) {
-        this.datagrid?.updated(this._gridOptions);
+      } else if (settings && this.refreshHint & RefreshHintFlags.Rebuild && this.datagrid) {
+        // this.datagrid?.updated(this._gridOptions);
+        this.datagrid.columns = this._gridOptions.columns as any;
+        this.datagrid.data = this._gridOptions.dataset as any;
       } else if (this.refreshHint & RefreshHintFlags.Rebuild) {
         this.datagrid?.renderHeader();
         this.datagrid?.renderRows();
