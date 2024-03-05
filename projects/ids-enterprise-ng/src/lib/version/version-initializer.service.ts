@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import packageInfo from '../../version.json';
 
 /**
  * Initialise the locale service BEFORE the root application component is
@@ -16,7 +15,7 @@ export class SohoVersionInitializerService {
    * Initializes the version attribute.
    */
   initialize() {
-    $('html').attr(SohoVersionInitializerService.VERSION_ATTR_NAME, packageInfo.version);
+    $('html').attr(SohoVersionInitializerService.VERSION_ATTR_NAME, '17.6.0-dev.0');
   }
 }
 
