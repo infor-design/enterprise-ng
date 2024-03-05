@@ -5,15 +5,14 @@
 1. Check if the angular dependencies need a minor update to latest. This is done by:
     - `ng update @angular/cli @angular/core`
     - Update peer dependencies in projects/ids-enterprise-ng/package.json
+1. May need to edit projects/ids-enterprise-ng/src/lib/version/version-initializer.service.ts to set the new version.
 1. Commit the update (see previous section).
-1. Checkout the release branch (`#.#.x`) and `git pull --tags`
+1. Create the release branch (`#.#.x`) and `git pull --tags`
     - If you have just created the release branch, verify it is "Protected" in github settings
 1. Run a release cmd:
     - `npm run release:final` - the release itself
-    - **Always** verify the release version when the script asks
 1. Set the main branch to the next minor dev version.
     - For example if we made branch `4.9.x`, then the `main` projects/ids-enterprise-ng/package.json version should now be changed to `4.10.0-dev`
-1. May need to edit projects/ids-enterprise-ng/src/lib/version/version-initializer.service.ts to set the new version.
 1. Commit the version change and push to main
 1. Bump the changelog
 1. Update the stackblitz and quickstart
