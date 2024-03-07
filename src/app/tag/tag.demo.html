@@ -3,9 +3,12 @@
     <div class="field">
 
       <!-- Reccomended -->
-      <div soho-tag-list>
-        <ids-tag color="success">Web Component Tag</ids-tag>
-      </div>
+      <ids-tag-list>
+        <ids-tag color="secondary">Web Component Tag #1</ids-tag>
+        <ids-tag color="secondary">Web Component Tag #2</ids-tag>
+        <ids-tag color="secondary">Web Component Tag #3</ids-tag>
+        <span soho-tag>Soho Tag</span>
+      </ids-tag-list>
 
       <div soho-tag-list (afterRemove)="afterRemove($event)">
         <span soho-tag>#Tagged</span>

@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 
 import 'ids-enterprise-wc/components/ids-tag/ids-tag';
+import 'ids-enterprise-wc/components/ids-tag/ids-tag-list';
 import 'ids-enterprise-wc/components/ids-icon/ids-icon';
 import type IdsTag from 'ids-enterprise-wc/components/ids-tag/ids-tag';
 import { IdsColorValue } from 'ids-enterprise-wc/utils/ids-color-utils/ids-color-utils';
@@ -42,14 +43,10 @@ const tagsMapped = {
 
 @Component({
   selector: '[soho-tag-list]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
+  template: '<ids-tag-list><ng-content></ng-content></ids-tag-list>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTagListComponent implements AfterViewInit, OnDestroy {
-  @HostBinding('class.tag-list') get isTagList() {
-    return true;
-  }
-
   /**
    * Fired before a tag item is removed.
    */
@@ -72,23 +69,20 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
     private ngZone: NgZone) { }
 
   ngAfterViewInit() {
-    // Call outside the angular zone so change detection
-    // isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
-      // Add event handlers for the outer tag list.
-      //this.jQueryElement
-      //  .on('aftertagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onAfterTagRemove(e, tag));
       this.element.nativeElement.addEventListener('aftertagremove', (e: CustomEvent) => {
-        console.log('aftertagremove', e);
         this.onAfterTagRemove(e as any, e.target as any);
       });
-      //  .on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
+      this.element.nativeElement.addEventListener('beforetagremove', (e: CustomEvent) => {
+        this.onBeforeTagRemove(e as any, e.target as any);
+      });
     });
   }
 
   private onAfterTagRemove(e: SohoTagAfterRemoveEvent, tag: IdsTag) {
     this.ngZone.run(() => {
       e.tag = tag;
+      (e.tag as any).settings = { content: tag.innerText };
       this.afterRemove.next(e)
     });
   }
@@ -96,6 +90,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   private onBeforeTagRemove(e: SohoTagBeforeRemoveEvent, tag: IdsTag) {
     this.ngZone.run(() => {
       e.tag = tag;
+      (e.tag as any).settings = { content: tag.innerText };
       this.beforeRemove.next(e);
     });
   }
@@ -203,6 +198,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   private onBeforeTagRemove(event: SohoTagBeforeRemoveEvent) {
     this.ngZone.run(() => {
       (event as any).tag = this.tag;
+      (event as any).tag.settings = { content: this.tag!.innerText };
       (event as any).sohoTag = this;
       this.beforeTagRemove.next(event);
     });
@@ -211,8 +207,8 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   private onAfterTagRemove(event: SohoTagAfterRemoveEvent) {
     this.ngZone.run(() => {
       (event as any).tag = this.tag;
-      (event as any).tag.settings.content = this.tag?.innerHTML;
       (event as any).sohoTag = this;
+      (event as any).tag.settings = { content: this.tag!.innerText };
       this.beforeTagRemove.next(event);
     });
   }
