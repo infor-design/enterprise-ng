@@ -1,6 +1,12 @@
 <div class="row top-padding">
   <div class="twelve columns">
     <div class="field">
+
+      <!-- Reccomended -->
+      <div soho-tag-list>
+        <ids-tag color="success">Web Component Tag</ids-tag>
+      </div>
+
       <div soho-tag-list (afterRemove)="afterRemove($event)">
         <span soho-tag>#Tagged</span>
         <span soho-tag="secondary">#Tagged</span>
@@ -11,8 +17,6 @@
         <a href="#" soho-tag [isClickable]="true" (click)="onClick($event)">#Clickable</a>
         <a href="#" soho-tag [isDismissible]="true">#Dismissible</a>
       </div>
-
-      <br/>
 
       <div soho-tag-list>
         <a href="#" soho-tag="secondary" [isDismissible]="true" (beforeTagRemove)="beforeRemoveSolo($event)">#Solo Tag</a>

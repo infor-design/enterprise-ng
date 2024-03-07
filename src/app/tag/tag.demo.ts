@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SohoTagComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-tag-demo',
   templateUrl: 'tag.demo.html'
 })
 export class TagDemoComponent implements OnInit {
+  @ViewChild(SohoTagComponent, { static: true }) tag?: SohoTagComponent;
 
   constructor() {
   }
 
   ngOnInit() {
+    // TODO
+    console.log(this.tag?.settings);
   }
 
   afterRemove(e: any) {

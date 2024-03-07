@@ -32,10 +32,12 @@
     ],
     "paths": {
       "ids-enterprise-ng": [
-        "projects/ids-enterprise-ng/src/lib"
+        "projects/ids-enterprise-ng/src/lib",
+        "projects/ids-enterprise-typing/src/lib"
       ],
       "ids-enterprise-ng/*": [
-        "projects/ids-enterprise-ng/src/lib"
+        "projects/ids-enterprise-ng/src/lib",
+        "projects/ids-enterprise-typing/src/lib"
       ]
     },
     "useDefineForClassFields": false

@@ -7,7 +7,7 @@ import {
 import { SohoBarComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-bar-demo',
+  selector: 'app-bar-grouped-demo',
   templateUrl: 'bar-grouped.demo.html',
 })
 export class BarGroupedDemoComponent implements OnInit {
@@ -16,7 +16,7 @@ export class BarGroupedDemoComponent implements OnInit {
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoBarSelected  = {groupName: 'name', groupValue: 'Component B'};
-  private selection: SohoBarSelected  = {groupIndex: 2};
+  private selection: SohoBarSelected = { groupIndex: 2 };
 
   public barGroupedData = [{
     data: [{
@@ -41,7 +41,7 @@ export class BarGroupedDemoComponent implements OnInit {
     }],
     name: 'Component B'
   }, {
-  data: [{
+    data: [{
       name: 'Jan', value: 32
     }, {
       name: 'Feb', value: 31
@@ -55,28 +55,28 @@ export class BarGroupedDemoComponent implements OnInit {
 
   public barType = 'bar-grouped';
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent?.setSelected(SohoBarSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent?.toggleSelected(SohoBarSelected);
   }
 
-  onSelected (args: any) {
+  onSelected(args: any) {
     console.log('selected', args);
   }
 
-  onDblclick (args: any) {
+  onDblclick(args: any) {
     // Use only when `dblclick` is firing on our component
     if (!args.target) {
-     console.log('double clicked', args);
+      console.log('double clicked', args);
     }
   }
 }

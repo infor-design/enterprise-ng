@@ -1,21 +1,25 @@
-# Infor Design Enterpriise (SohoXi) Angular Component : Tag
+# Infor Design Enterprise Angular Component : Tag
 
 ## Description
 
-This component provides access from Angular to the `tag` JQuery control.
+This component provides access from Angular to the `ids-tag` web component control.
 
-### Usage
+### Web Component Usage (Recommended)
 
-To add a `tag` to a component requires adding the module `SohoTagModule` into the hosting component. If you
+(See Web Component Docs)[https://github.com/infor-design/enterprise-wc/blob/main/src/components/ids-tag/README.md]
+
+### Angular Usage
+
+To add a `soho-tag` to a component requires adding the module `SohoTagModule` into the hosting component. If you
 have included the top level Soho module then this will be already included.
 
-Tags are simple span elements with the class `tag`. They can be mixed in with other elements like lists, grids and search fields. You can optionally add a few classes to add color or status such as `error` for red, `good` to be green and `alert` for yellow. Since you should not use color alone to indicate state, this should be either supplemented with off-screen labels or visual labels near the element explaining the state.
+Tags are simple span elements with the class `tag`. They can be mixed in with other elements like lists, grids and search fields.
 
 ## Methods
 
 | Name | Description |
 | --- | --- |
-| updated() | updates the settings |
+| updated() | updates the settings (deprecated doesn't do anything) |
 
 ## Events
 
@@ -23,11 +27,25 @@ Tags are simple span elements with the class `tag`. They can be mixed in with ot
 | --- | --- |
 | beforeRemoveTag | Fires before the tag is removed from it's container. |
 | afterRemoveTag | Fires after the tag has been removed from it's container. |
-| click | Fires when a tag has been clicked. |
+| click | Fires when a dismissible tag has been clicked. |
 
 ## Example
 
-For example:
+Web Component Example
+
+```html
+<ids-tag-list>
+  <ids-tag>#Tagged</ids-tag>
+  <ids-tag color"secondary">#Tagged</span>
+  <ids-tag color="error">Delayed</ids-tag>
+  <ids-tag color="success">Open Order</span>
+  <ids-tag color="warning">Help Order</ids-tag>
+  <ids-tag clickable="true">#Clickable</ids-tag>
+  <ids-tag dismissible="true">#Dismissible</ids-tag>
+</ids-tag-list>
+```
+
+Angular example:
 
 ```html
 <div soho-tag-list>

@@ -11,20 +11,34 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
+import 'ids-enterprise-wc/components/ids-tag/ids-tag';
+import 'ids-enterprise-wc/components/ids-icon/ids-icon';
+import type IdsTag from 'ids-enterprise-wc/components/ids-tag/ids-tag';
+import { IdsColorValue } from 'ids-enterprise-wc/utils/ids-color-utils/ids-color-utils';
+import { SohoTagAfterRemoveEvent, SohoTagBeforeRemoveEvent, SohoTagOptions } from 'projects/ids-enterprise-typings/lib/tag/soho-tag';
+
 /**
- * Support Tag types.
- *
- * `error` displayed as an error (for example with a red background).
- * `good` displayed to mean correct or valid (for example with a green background).
- * `alert` displayed as an alert (for example with a yellow background).
- * `secondary` displayed as grey - like a secondary button.
+ * Support Tag types:
+ * `error` displayed as an error (for example with a red background). (danger deprecated)
+ * `success` displayed to mean correct or valid (for example with a green background). (good deprecated)
+ * `warning` displayed as an warning (for example with a orange background).
+ * `caution` displayed as an caution (for example with a yellow background). (alert deprecated)
+ * `secondary` displayed as white - sort of like a secondary button.
  *
  * Leaving the value off the element displays the element in it's default state.
- *
- * Note: You should not use color alone to indicate state, this should be either
- * supplemented with off-screen labels or visual labels near the element explaining the state.
  */
 export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | 'info' | undefined;
+const tagsMapped = {
+  'danger': 'error',
+  'error': 'error',
+  'warning': 'warning',
+  'alert': 'warning',
+  'caution': 'caution',
+  'info': 'info',
+  'success': 'success',
+  'good': 'success',
+  'secondary': 'secondary'
+};
 
 @Component({
   selector: '[soho-tag-list]', // eslint-disable-line
@@ -47,11 +61,6 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   @Output() afterRemove = new EventEmitter<SohoTagAfterRemoveEvent>();
 
   /**
-   * The wrapped jQuery element.
-   */
-  private jQueryElement?: JQuery;
-
-  /**
    * Creates an instance of SohoTagListComponent.
    *
    * @param element wrapped element.
@@ -66,63 +75,50 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
     // Call outside the angular zone so change detection
     // isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
-      this.jQueryElement = jQuery(this.element.nativeElement);
-
       // Add event handlers for the outer tag list.
-      this.jQueryElement
-        .on('aftertagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onAfterTagRemove(e, tag));
-      this.jQueryElement
-        .on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
+      //this.jQueryElement
+      //  .on('aftertagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onAfterTagRemove(e, tag));
+      this.element.nativeElement.addEventListener('aftertagremove', (e: CustomEvent) => {
+        console.log('aftertagremove', e);
+        this.onAfterTagRemove(e as any, e.target as any);
+      });
+      //  .on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
     });
   }
 
-  private onAfterTagRemove(e: SohoTagAfterRemoveEvent, tag: SohoTag) {
+  private onAfterTagRemove(e: SohoTagAfterRemoveEvent, tag: IdsTag) {
     this.ngZone.run(() => {
       e.tag = tag;
       this.afterRemove.next(e)
     });
   }
 
-  private onBeforeTagRemove(e: SohoTagBeforeRemoveEvent, tag: SohoTag) {
+  private onBeforeTagRemove(e: SohoTagBeforeRemoveEvent, tag: IdsTag) {
     this.ngZone.run(() => {
       e.tag = tag;
       this.beforeRemove.next(e);
     });
   }
 
-
   ngOnDestroy() {
-    this.ngZone.runOutsideAngular(() => {
-      if (this.jQueryElement) {
-        // remove the event listeners on this element.
-        this.jQueryElement.off();
-        this.jQueryElement = undefined;
-      }
-    });
   }
 }
 
 /**
- * Angular Support for elements styled as SohoXi tags.  The styling can be
+ * Angular Support for elements styled as Ids tags.  The styling can be
  * controlled using the additional tag type, specified on element.
  *
- * They can be mixed in with other elements like lists, grids and search fields.
- *
  *<pre>
- * {@code
- * <span soho-tag='error'>#Error</span>
- * }
+ * <span soho-tag="error">#Error</span>
+ * <ids-tag type="error">#Error</ids-tag>
  *</pre>
  *
  * @export
- *
- *
- *
  */
 
 @Component({
   selector: '[soho-tag]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
+  template: '<ids-tag><ng-content></ng-content></ids-tag>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTagComponent implements AfterViewInit, OnDestroy {
@@ -152,62 +148,29 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
    * @todo remove usage of native element
    */
   // eslint-disable-next-line @angular-eslint/no-output-native
-  @Output() click = new EventEmitter<SohoTagAfterRemoveEvent>();
+  @Output() click = new EventEmitter<CustomEvent>();
 
   /** Options. */
   private options: SohoTagOptions = {};
 
-  @HostBinding('class.tag') get isTag() {
-    return true;
-  }
-
-  @HostBinding('class.alert')
-  get alert() {
-    return this.tagType === SohoTagComponent.ALERT;
-  }
-
-  @HostBinding('class.good')
-  get good() {
-    return this.tagType === SohoTagComponent.GOOD;
-  }
-
-  @HostBinding('class.secondary')
-  get secondary() {
-    return this.tagType === SohoTagComponent.SECONDARY;
-  }
-
-  @HostBinding('class.error')
-  get error() {
-    return this.tagType === SohoTagComponent.ERROR;
-  }
-
-  @HostBinding('class.info')
-  get info() {
-    return this.tagType === SohoTagComponent.INFO;
-  }
-
-  @HostBinding('class.is-linkable') @Input() isClickable?: boolean;
-
-  @HostBinding('class.is-dismissible') @Input() isDismissible?: boolean;
+  @Input() isClickable?: boolean;
+  @Input() isDismissible?: boolean;
 
   /**
    * Allow override of element name, to match the component name.
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('soho-tag') set sohoTag(type: SohoTagType) {
     if (!type) {
       type = SohoTagComponent.DEFAULT;
     }
     this.tagType = type;
     this.options.style = type;
-    this.updated();
+    if (this.tag) this.tag!.color = type === undefined ? '' : tagsMapped[type] as IdsColorValue;
   }
 
   private tagType: SohoTagType;
 
-  private jQueryElement?: JQuery;
-
-  tag?: SohoTag | null;
+  tag?: IdsTag | null;
 
   /**
    * Creates an instance of SohoTagComponent.
@@ -217,71 +180,72 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
     private ngZone: NgZone) { }
 
   ngAfterViewInit() {
-    // call outside the angular zone so change detection
-    // isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
-      // assign element to local variable
-      this.jQueryElement = jQuery(this.element.nativeElement);
+      // Map The API
+      this.tag = this.element.nativeElement.querySelector('ids-tag') as IdsTag;;
+      this.tag.color = this.tagType === undefined ? '' : tagsMapped[this.tagType] as IdsColorValue;
+      this.tag.dismissible = this.isDismissible || false;
+      this.tag.clickable = this.isClickable || false;
+      this.tag.onEvent('click', (e: CustomEvent) => this.onClick(e));
+      this.tag.onEvent('beforetagremove', this.tag, (e: SohoTagBeforeRemoveEvent) => this.onBeforeTagRemove(e));
+      this.tag.onEvent('aftertagremove', this.tag, (e: SohoTagAfterRemoveEvent) => this.onAfterTagRemove(e));
 
-      // initialise the tag control
-      this.jQueryElement.tag(this.options);
-
-      // extract the api
-      this.tag = this.jQueryElement.data('tag');
-
-      // @todo - add event binding control so we don't bind if not required.
-      // this.jQueryElement
-      const tagElem = this.tag?.element;
-      const parent = tagElem ? jQuery(tagElem).parent() : null;
-
-      this.jQueryElement
-        .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
-
-      if (parent) {
-        parent.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
-      }
+      // Prevent Redirects
+      this.tag.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        e.stopPropagation();
+        return false;
+      });
     });
   }
 
-  private onBeforeTagRemove(event: SohoTagBeforeRemoveEvent, tag: SohoTag) {
+  private onBeforeTagRemove(event: SohoTagBeforeRemoveEvent) {
     this.ngZone.run(() => {
-      event.tag = tag;
-      this.beforeTagRemove.next(event)
+      (event as any).tag = this.tag;
+      (event as any).sohoTag = this;
+      this.beforeTagRemove.next(event);
     });
   }
 
-  private onClick(event: JQuery.TriggeredEvent) {
+  private onAfterTagRemove(event: SohoTagAfterRemoveEvent) {
+    this.ngZone.run(() => {
+      (event as any).tag = this.tag;
+      (event as any).tag.settings.content = this.tag?.innerHTML;
+      (event as any).sohoTag = this;
+      this.beforeTagRemove.next(event);
+    });
+  }
+
+  private onClick(event: CustomEvent) {
     this.ngZone.run(() =>
       this.click.next(event));
   }
 
+  set settings(settings: SohoTagOptions) {
+    for (const key in settings) {
+      if (settings.hasOwnProperty(key) && (this.tag as any)[key]) {
+        (this.tag as any)[key] = (settings as any)[key];
+        (this.options as any)[key] = (settings as any)[key];
+      }
+    }
+  }
+
+  get settings(): SohoTagOptions {
+    return this.options;
+  }
+
   /**
    * The settings have been updated.
+   * @deprecated no need to call this
    */
   public updated(): void {
-    if (this.tag) {
-      this.ngZone.runOutsideAngular(() => this.tag?.updated(this.options));
-    }
   }
 
   /**
    * Destroys the component.
-   *
-   *
+   * @deprecated no need to call this as component will destroy on disconnnected callback
    */
   ngOnDestroy() {
-    this.ngZone.runOutsideAngular(() => {
-      if (this.jQueryElement) {
-        // remove the event listeners on this element.
-        this.jQueryElement.off();
-        this.jQueryElement = undefined;
-      }
-
-      // Destroy any widget resources.
-      if (this.tag) {
-        this.tag.destroy();
-        this.tag = null;
-      }
-    });
   }
 }

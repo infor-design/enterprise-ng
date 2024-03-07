@@ -1,5 +1,5 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
   CommonModule
 } from '@angular/common';
@@ -597,6 +597,7 @@ import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.de
     ApplicationMenuLazyService,
     SohoRenderLoopService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

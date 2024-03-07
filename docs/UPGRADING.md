@@ -24,9 +24,31 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
+#### Web Components
+
+When a component is converted to web components it may have the following "breaking changes" depending how used.
+
+1. The event type is a Native Custom Event not a Jquery Event with type `JQuery.TriggeredEvent`, we will try to keep the object generally compatible as an object.
+1. The underlying element is now a NativeElement not a jQuery element
+1. No need to call `updated()` settings update live
+1. (May) Need to add Add CUSTOM_ELEMENTS_SCHEMA to src/app/app.module.ts if an error prompts you or if using some web components directly.
+1. Need to add new assets to angular.json
+
+```
+{
+  "glob": "**/*",
+  "input": "./node_modules/ids-enterprise-wc/themes",
+  "output": "themes"
+}
+```
+
+1. Add style sheet to the page `<link rel="stylesheet" id="wc-stylesheet" href="themes/ids-theme-default-light.css" type="text/css">` this helps with FOUC or if you want to manage the assets manually
+1. Carefully test any custom css as some of the lower elements are changed. May be a chance to remove this and use the defaults.
+1. If a feature wasn't in the examples we might not know about it. So if something broke let us know and we'll fix or provide an option.
+
 #### Angular 17
 
-When updating from angular 16 to 17 we were able to follow the instructions on the update.angular.io site. See
+When updating from angular 16 to 17 we were able to follow the instructions on the `update.angular.io` site. See
 <https://update.angular.io/?v=16.0-17.0> for more information. We ran into issues with an older Cypress version
 and had to follow the migration guide at <https://docs.cypress.io/guides/references/migration-guide#Migrating-to-Cypress-version-10-0>.
 
@@ -74,7 +96,7 @@ When updating from angular 13 to 14 we were able to do this with the command:
 ng update @angular/core@14 @angular/cli@14
 ```
 
-In addition the compiler picked up a few bugs (? on the left hand side) that i had too fix. Also cleaned out the core-js imports from the polyfills since we no longer support IE.
+In addition the compiler picked up a few bugs (? on the left hand side) that i had too fix. Also cleaned out the `core-js` imports from the polyfills since we no longer support IE.
 
 See <https://blog.angular.io/angular-v14-is-now-available-391a6db736af> for more information.
 

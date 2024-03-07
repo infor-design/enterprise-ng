@@ -7,7 +7,7 @@ import {
 import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-column-demo',
+  selector: 'app-column-grouped-demo',
   templateUrl: 'column-grouped.demo.html',
 })
 export class ColumnGroupedDemoComponent implements OnInit {
@@ -16,7 +16,7 @@ export class ColumnGroupedDemoComponent implements OnInit {
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component C'};
-  private selection: SohoColumnSelected  = {groupIndex: 1};
+  private selection: SohoColumnSelected = { groupIndex: 1 };
 
   public columnGroupedData = [{
     data: [{
@@ -67,27 +67,27 @@ export class ColumnGroupedDemoComponent implements OnInit {
 
   public columnType = 'column-grouped';
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent?.setSelected(SohoColumnSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent?.toggleSelected(SohoColumnSelected);
   }
 
-  onSelected (args: any) {
+  onSelected(args: any) {
     console.log('selected', args);
   }
 
-  onDblclick (args: any) {
+  onDblclick(args: any) {
     // Use only when `dblclick` is firing on our component
     if (!args.target) {
-     console.log('double clicked', args);
+      console.log('double clicked', args);
     }
   }
 }

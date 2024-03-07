@@ -104,16 +104,4 @@ describe('Soho Tag Render', () => {
     expect(topLevelElement.classList).not.toContain('alert');
     expect(topLevelElement.classList).toContain('tag');
   });
-
-  // it('check `click`', async(() => {
-  //     spyOn(tag, 'click');
-
-  //     const button = el.querySelector('button');
-  //     button.click();
-
-  //     fixture.whenStable().then(() => {
-  //       expect(tag.click).toHaveBeenCalled();
-  //     });
-  // }));
-
 });

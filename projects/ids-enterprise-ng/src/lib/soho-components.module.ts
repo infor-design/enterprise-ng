@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SohoAboutModule } from './about/soho-about.module';
 import { SohoAccordionModule } from './accordion/soho-accordion.module';
 import { SohoActionsheetModule } from './actionsheet/soho-actionsheet.module';
@@ -285,6 +285,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoVersionInitializerModule,
     SohoWeekViewModule,
     SohoWizardModule
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SohoComponentsModule { }

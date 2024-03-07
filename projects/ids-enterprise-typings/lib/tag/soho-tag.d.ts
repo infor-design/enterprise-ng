@@ -5,6 +5,8 @@
  * interface of the jQuery Tags control.
  */
 
+import type IdsTag from 'ids-enterprise-wc/components/ids-tag/ids-tag';
+
 /**
  * Tag Options
  */
@@ -39,14 +41,13 @@ interface SohoTag {
   destroy(): void;
 }
 
-interface SohoTagBeforeRemoveEvent extends JQuery.TriggeredEvent {
-  tag?: SohoTag;
+interface SohoTagBeforeRemoveEvent extends CustomEvent {
+  tag?: IdsTag;
+  sohoTag?: SohoTag;
 }
 
-interface SohoTagAfterRemoveEvent extends JQuery.TriggeredEvent {
-  tag?: SohoTag;
+interface SohoTagAfterRemoveEvent extends CustomEvent {
+  tag?: IdsTag;
+  sohoTag?: SohoTag;
 }
 
-interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
-  tag(options?: SohoTagOptions): JQuery;
-}
