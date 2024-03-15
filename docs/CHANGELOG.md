@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 17.6.0
+
+## 17.6.0 Fixes
+
+- `[Tabs]` Fixed `beforeactivated` event not cancelling activation of tabs properly. ([#1578](https://github.com/infor-design/enterprise-ng/issues/1578))
+
 ## 17.5.0
 
 ## 17.5.0 Fixes
