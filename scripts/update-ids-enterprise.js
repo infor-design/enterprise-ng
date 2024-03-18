@@ -59,7 +59,7 @@ function executeUpdate(cmd) {
  * Copy the ids-enterprise package version from the root package.json
  * to the library package.json and the write it to the file
  */
- function syncPackageJsonVersions() {
+function syncPackageJsonVersions() {
   const rootPackageStr = fs.readFileSync('./package.json');
   const libPackageStr = fs.readFileSync('./projects/ids-enterprise-ng/package.json');
 
