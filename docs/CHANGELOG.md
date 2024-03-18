@@ -1,6 +1,12 @@
 # What's New with Enterprise-NG
 
-## 15.6.1
+## 15.7.0
+
+### 15.7.0 Features
+
+## 15.7.0
+
+- `[General]` Added 4.93.0 version.
 
 ### 15.6.1 Features
 
