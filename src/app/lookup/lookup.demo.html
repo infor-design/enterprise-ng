@@ -268,6 +268,21 @@
           />
         </div>
 
+        <div class="field">
+          <label soho-label for="toggle-buttons">Custom Placeholder</label>
+          <input soho-lookup
+                 #toggleButtons
+                 [(ngModel)]="model.single"
+                 [columns]="columns_product"
+                 [dataset]="data_product"
+                 field="productId"
+                 title="Products"
+                 [buttons]="customButtons"
+                 name="toggle-buttons"
+                 toolbarPlaceholder="Enter your keywords here!"
+          />
+        </div>
+
       </div>
       <div class="six columns">
         <div class="field">

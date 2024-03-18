@@ -9,6 +9,41 @@
  * Toolbar options.
  */
 interface SohoToolbarOptions {
+  actions?: any | any[];
+
+  advancedFilter?: boolean;
+
+  collapsibleFilter?: boolean;
+
+  dateFilter?: boolean;
+
+  filterRow?: boolean | SohoDataGridToolbarFilterRowOptions;
+
+  keywordFilter?: boolean;
+
+  personalize?: boolean;
+
+  results?: boolean;
+
+  rowHeight?: boolean;
+
+  title?: string;
+
+  views?: boolean;
+
+  resetLayout?: boolean;
+
+  exportToExcel?: boolean;
+
+  fullWidth?: boolean;
+
+  contextualToolbar?: boolean;
+
+  /**
+   * Placeholder text for searchfield
+   */
+  placeholder?: string;
+
   /**
    * Does the toolbar include the more button?
    */
@@ -101,7 +136,7 @@ interface SohoToolbarMenuItemEvent extends SohoToolbarButtonEvent {
   event: SohoToolbarButtonEvent;
 }
 
-interface SohoToolbarEvent extends JQuery.TriggeredEvent {}
+interface SohoToolbarEvent extends JQuery.TriggeredEvent { }
 
 /**
  * Configuration options.

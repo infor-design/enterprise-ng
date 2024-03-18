@@ -160,7 +160,7 @@ interface SohoDataGridOptions {
   clickToSelect?: boolean;
 
   /** Toolbar options. */
-  toolbar?: boolean | SohoToolbarOptions;
+  toolbar?: SohoToolbarOptions;
 
   /** Can set to false if you will initialize the toolbar yourself. */
   initializeToolbar?: boolean;
@@ -1488,27 +1488,6 @@ interface SohoDataGridSettingsChangedEvent {
 interface SohoDataGridToolbarFilterRowOptions {
   showFilter?: boolean;
   clearFilter?: boolean;
-}
-
-/**
- * Move to toolbar!
- */
-interface SohoToolbarOptions {
-  actions?: any | any[];
-  advancedFilter?: boolean;
-  collapsibleFilter?: boolean;
-  dateFilter?: boolean;
-  filterRow?: boolean | SohoDataGridToolbarFilterRowOptions;
-  keywordFilter?: boolean;
-  personalize?: boolean;
-  results?: boolean;
-  rowHeight?: boolean;
-  title?: string;
-  views?: boolean;
-  resetLayout?: boolean;
-  exportToExcel?: boolean;
-  fullWidth?: boolean;
-  contextualToolbar?: boolean;
 }
 
 /**
