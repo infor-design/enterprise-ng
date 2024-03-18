@@ -1,45 +1,10 @@
 # What's New with Enterprise-NG
 
-## 17.3.0
+## 16.13.1
 
-## 17.3.0 Features
+## 16.13.0 Fixes
 
-- `[Datagrid]` Added `disableTooltip` column setting. ([EP#8252](https://github.com/infor-design/enterprise/issues/8252))
-- `[Lookup]` Added `cssClass` setting. ([EP#8206](https://github.com/infor-design/enterprise/issues/8206))
-- `[Pager]` Added ability to set active page. ([#1571](https://github.com/infor-design/enterprise-ng/issues/1571))
-
-## 17.3.0 Fixes
-
-- `[BusyIndicator]` Added optional settings in the updated method. ([#1602](https://github.com/infor-design/enterprise-ng/issues/1602))
-- `[Datagrid]` Added NG handle for hideContextualToolbar method. ([EP#8352](https://github.com/infor-design/enterprise/issues/8352))
-- `[Pager]` Fixed dataset not updated correctly. ([#1554](https://github.com/infor-design/enterprise-ng/issues/1554))
-
-## 17.1.0
-
-### 17.1.0 Features
-
-- `[Datagrid]` Added multiselect formatter and updated example page. ([#1573](https://github.com/infor-design/enterprise-ng/issues/1573))
-- `[Tabs]` Fixed tabs item sortable and updated example page ([#1480](https://github.com/infor-design/enterprise-ng/issues/1480))
-
-### 17.1.0 Fixes
-
-- `[General]` Added 4.90 release
-- `[Datagrid]` Added fix to button types and errors in wizard. ([#1598](https://github.com/infor-design/enterprise-ng/issues/1598))
-- `[Datagrid]` Fixed tab key navigation when using actionable mode when having editor or formatter. ([EP#8141](https://github.com/infor-design/enterprise/issues/8141))
-- `[Pie/Donut]` Fixed rendering issues when having bordered class in the widget. ([EP#8164](https://github.com/infor-design/enterprise/issues/8164))
-- `[Tabs]` Fixed an error in tabs where it is not sortable. ([#1480](https://github.com/infor-design/enterprise-ng/issues/1480))
-
-## 17.0.0
-
-### 17.0.0 Features
-
-- `[General]` Upgraded to Angular 17. See the "Introducing Angular v17" blog post for more information: <https://blog.angular.io/introducing-angular-v17-4d7033312e4b>. Also includes all 16.9.0 features ([#1589](https://github.com/infor-design/enterprise/issues/1589))
-
-### 17.0.0 Fixes
-
-- `[Datagrid]` Added example page to test bug when row updates on a cell with a custom component. ([#1564](https://github.com/infor-design/enterprise-ng/issues/1564))
-- `[Toolbar]` Refresh toolbar when `updated` method is called. ([#1569](https://github.com/infor-design/enterprise/issues/1569))
-- `[Wizard]` Added typings for the buttons input on the wizard's button bar, and also made the 'hidden' change backwardly compatible. ([#1598](https://github.com/infor-design/enterprise/issues/1598))
+- `[General]` Added 4.92.5 with avatar fixes
 
 ## 16.9.0
 
