@@ -346,6 +346,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.allowDuplicates;
   }
 
+  @Input() toolbarPlaceholder?: string;
+
   @Input() multiselect = false;
 
   @Input() name?: string;
@@ -353,7 +355,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   // Make sure you bind the context to the function
   @Input() source?: SohoDataGridSourceFunction;
 
-  @Input() toolbar: any;
+  @Input() toolbar?: SohoToolbarOptions;
 
   // Autocomplete template settings
   @Input() autoCompleteSettings?: SohoLookupAutoComplete;
@@ -483,21 +485,27 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       // The default options for the data grid, which will
       // be overriden by the options provided by the caller
       // on a field by field basis.
+      const toolbarOptions: SohoToolbarOptions = Object.assign({
+        actions: true,
+        advancedFilter: false,
+        dateFilter: false,
+        fullWidth: true,
+        keywordFilter: true,
+        results: true,
+        rowHeight: true,
+        views: false,
+      }, this.toolbar)
+
+      if (this.toolbarPlaceholder) {
+        toolbarOptions.placeholder = this.toolbarPlaceholder;
+      }
+
       const datagridConfig: SohoDataGridOptions = {
         cellNavigation: false,
         columns: this.columns,
         dataset: dataSet,
         selectable: this.isMultiselect() ? 'multiple' : 'single',
-        toolbar: Object.assign({
-          actions: true,
-          advancedFilter: false,
-          dateFilter: false,
-          fullWidth: true,
-          keywordFilter: true,
-          results: true,
-          rowHeight: true,
-          views: false,
-        }, this.toolbar),
+        toolbar: toolbarOptions,
         source: this.source
       };
 
