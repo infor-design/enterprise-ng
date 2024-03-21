@@ -8,7 +8,7 @@
 
 ## 17.6.0 Fixes
 
-- `[Tabs]` Updated type in `actions` parameter. ([#1632](https://github.com/infor-design/enterprise-ng/issues/1632))
+- `[Actionsheet]` Updated type in `actions` parameter. ([#1632](https://github.com/infor-design/enterprise-ng/issues/1632))
 - `[Tabs]` Fixed `beforeactivated` event not cancelling activation of tabs properly. ([#1578](https://github.com/infor-design/enterprise-ng/issues/1578))
 
 ## 17.5.0
