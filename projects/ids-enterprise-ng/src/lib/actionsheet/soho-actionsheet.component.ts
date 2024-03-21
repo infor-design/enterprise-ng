@@ -19,7 +19,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Constructor
-   * 
+   *
    * @param elementRef - the element matching the component's selector.
    * @param ngZone - the angular zone for this component.
    */
@@ -42,7 +42,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
   private actionsheet?: SohoActionsheetStatic | null;
   private jQueryElement!: JQuery | undefined;
 
-  @Input() set actions(actions: SohoActionsheetActions | undefined) {
+  @Input() set actions(actions: Array<SohoActionsheetActions> | undefined) {
     this._options.actions = actions;
     this.updated();
 
@@ -50,7 +50,7 @@ export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
       this.actionsheet.settings.actions = actions;
     }
   }
-  public get actions(): SohoActionsheetActions | undefined {
+  public get actions(): Array<SohoActionsheetActions> | undefined {
     if (!this.actionsheet) {
       return this._options.actions;
     }
