@@ -9,6 +9,7 @@
 ## 17.6.0 Fixes
 
 - `[Tabs]` Fixed `beforeactivated` event not cancelling activation of tabs properly. ([#1578](https://github.com/infor-design/enterprise-ng/issues/1578))
+- `[Timeline]` Updated example page of cards workspace. ([EP#8524](https://github.com/infor-design/enterprise/issues/8524))
 
 ## 17.5.0
 
