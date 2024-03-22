@@ -1,6 +1,6 @@
 /**
  * Soho Actionsheet.
- * 
+ *
  * This file contains the TypeScript mappings for the public
  * interface of the Soho Actionsheet control.
  */
@@ -14,7 +14,7 @@ type SohoActionsheetDisplay = false | 'responsive' | 'always';
 type SohoActionsheetTrayBackgroundColors = 'slate' | 'ruby' | 'amber' | 'emerald' | 'azure' | 'turquoise' | 'amethyst';
 
 interface SohoActionsheetOptions {
-  actions?: SohoActionsheetActions;
+  actions?: Array<SohoActionsheetActions>;
   autoFocus?: boolean;
   breakpoint?: string;
   displayAsActionSheet?: SohoActionsheetDisplay;

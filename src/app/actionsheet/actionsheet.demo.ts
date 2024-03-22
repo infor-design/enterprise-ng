@@ -26,7 +26,7 @@ export class ActionsheetDemoComponent implements AfterViewInit {
 
   breakpoint = 'phone-to-tablet';
 
-  constructor() {}
+  constructor() { }
 
   ngAfterViewInit() { }
 }
