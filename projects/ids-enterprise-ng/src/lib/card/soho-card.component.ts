@@ -129,6 +129,19 @@ export class SohoCardHeaderComponent {
 }
 
 @Component({
+  selector: 'soho-card-content',
+  template: `
+    <ng-content></ng-content>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoCardContentComponent {
+  @HostBinding('class.card-content') get isCardContent() {
+    return true;
+  }
+}
+
+@Component({
   selector: 'soho-card-pane',
   template: `
     <ng-content></ng-content>

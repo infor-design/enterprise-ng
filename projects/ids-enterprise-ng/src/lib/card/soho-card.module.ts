@@ -4,6 +4,7 @@ import {
   SohoCardsComponent,
   SohoCardActionableComponent,
   SohoCardHeaderComponent,
+  SohoCardContentComponent,
   SohoCardPaneComponent,
   SohoCardComponent,
 } from './soho-card.component';
@@ -14,6 +15,7 @@ import {
     SohoCardsComponent,
     SohoCardActionableComponent,
     SohoCardHeaderComponent,
+    SohoCardContentComponent,
     SohoCardPaneComponent,
     SohoCardComponent,
   ],
@@ -21,6 +23,7 @@ import {
     SohoCardsComponent,
     SohoCardActionableComponent,
     SohoCardHeaderComponent,
+    SohoCardContentComponent,
     SohoCardPaneComponent,
     SohoCardComponent,
   ]
