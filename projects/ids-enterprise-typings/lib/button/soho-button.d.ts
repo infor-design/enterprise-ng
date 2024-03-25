@@ -4,7 +4,7 @@
  * This file contains the Typescript mappings for the public
  * interface of the Soho button control.
  */
-type SohoButtonOptionsStyle = 'default' | 'btn' | 'btn-primary' | 'btn-secondary' | 'btn-tertiary' | 'btn-destructive' | null | undefined;
+type SohoButtonOptionsStyle = 'default' | 'btn' | 'btn-primary' | 'btn-secondary' | 'btn-tertiary' | 'btn-destructive' | 'btn-generative' | null | undefined;
 
 type SohoButtonOptionsType = 'default' | 'btn-icon' | 'btn-menu' | 'btn-actions' | 'btn-toggle' |
   'icon-favorite' | 'btn-editor' | 'input' | null | undefined;
@@ -105,6 +105,16 @@ declare class SohoButtonStatic {
 
   /** Toggles the current state of the icon button. */
   toggle(): void;
+
+  /** Performs a generative action by replacing the content of a button with a loading indicator, 
+   * then replacing it with generated AI content after a specified delay. */
+  performGenerativeAction(delay?: Number): void;
+
+  /** Starts a generative action. */
+  startGenerativeActionAnimation(): void;
+
+  /** Stops a generative action. */
+  stopGenerativeActionAnimation(): void;
 
   /** Update the component with new settings. */
   updated(settings?: SohoButtonOptions): void;
