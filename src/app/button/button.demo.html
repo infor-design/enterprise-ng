@@ -1,93 +1,88 @@
-<div class="example-section">
-  <div class="row">
-    <br>
-    <br>
-    <br>
-    <h1>Buttons</h1>
-    <span class="code-tag">Live Example</span>
+<div class="row">
+  <div class="twelve columns">
     <div class="row">
-      <div class="three columns">
-        <span class="label">Primary</span>
-        <button soho-button="primary">Action</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button="primary" disabled>Action</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button="primary" icon="alert">Primary Button</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button="primary" icon="alert" toggle="error">Toggles Icon</button> (deprecated in 4.3.x)
-        <br>
-        <br>
-        <br>
-        <button soho-button="primary" [ripple]="false">No Ripple</button>
+      <div class="four column">
+        <h2 class="fieldset-title">Standard <span class="code-tag">Live Example</span></h2>
       </div>
-
-      <div class="three columns">
-        <span class="label">Secondary</span>
-        <button soho-button>Action</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button disabled>Action</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button icon="settings">
-          <div class="disabled-tooltip" title="DISABLED"></div>
-        </button>
-        <br>
-        <br>
-        <br>
-        <button soho-button icon="user-profile" toggle="refresh"  (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button> (deprecated in 4.3.x)
-      </div>
-
-      <div class="three columns">
-        <span class="label">Tertiary</span>
-        <button soho-button="tertiary" icon="filter">Action</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button="tertiary" disabled icon="filter">Action</button>
-      </div>
-
-      <div class="three columns">
-        <span class="label">Tertiary (icon on  right)</span>
-        <button soho-button="tertiary" iconAlign="end" icon="filter">Action</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button="tertiary" iconAlign="end" disabled icon="filter">Action</button>
-      </div>
-
-      <div class="three columns">
-        <span class="label">Icon</span>
-        <button soho-button="icon" icon="calendar" title="Date">Date</button>
-        <button soho-button="icon" icon="calendar" toggle="error" title="Toggle Date">Toggle Date</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button="icon" icon="calendar" disabled soho-tooltip>Date</button>
-        <button soho-button="icon" icon="bullet-list" disabled soho-tooltip title="DATAGRID_VIEW"><div class="disabled-tooltip" title="DATAGRID_VIEW"></div></button>
-        <button soho-button="icon" icon="bullet-list" soho-tooltip title="DATAGRID_VIEW"><div class="disabled-tooltip" title="DATAGRID_VIEW"></div></button>
-      </div>
-
     </div>
 
-    <br/>
-    <div *ngIf="shouldSayHi" class="row">
-      <h2>Hello there!</h2>
+    <div class="three columns">
+      <span class="label">Primary</span>
+      <button soho-button="primary">Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="primary" disabled>Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="primary" icon="alert">Primary Button</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="primary" icon="alert" toggle="error">Toggles Icon</button><br>(Deprecated in 4.3.x)
+      <br>
+      <br>
+      <br>
+      <button soho-button="primary" [ripple]="false">No Ripple</button>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Secondary</span>
+      <button soho-button>Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button disabled>Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button icon="settings">
+        <div class="disabled-tooltip" title="DISABLED"></div>
+      </button>
+      <br>
+      <br>
+      <br>
+      <button soho-button icon="user-profile" toggle="refresh"  (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button><br>(Deprecated in 4.3.x)
+    </div>
+
+    <div class="three columns">
+      <span class="label">Tertiary</span>
+      <button soho-button="tertiary" icon="filter">Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="tertiary" disabled icon="filter">Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="tertiary" iconAlign="end" icon="filter">Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="tertiary" iconAlign="end" disabled icon="filter">Action</button>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Icon</span>
+      <button soho-button="icon" icon="calendar" title="Date">Date</button>
+      <button soho-button="icon" icon="calendar" toggle="error" title="Toggle Date">Toggle Date</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="icon" icon="calendar" disabled soho-tooltip>Date</button>
+      <button soho-button="icon" icon="bullet-list" disabled soho-tooltip title="DATAGRID_VIEW"><div class="disabled-tooltip" title="DATAGRID_VIEW"></div></button>
+      <button soho-button="icon" icon="bullet-list" soho-tooltip title="DATAGRID_VIEW"><div class="disabled-tooltip" title="DATAGRID_VIEW"></div></button>
     </div>
   </div>
 
-  <br>
-  <br>
-  <h2>Toggle Buttons</h2>
-  <div class="row">
+  <div class="twelve columns">
+    <div class="row">
+      <div class="four column">
+        <h2 class="fieldset-title">Toggle <span class="code-tag">Live Example</span></h2>
+      </div>
+    </div>
+
     <div class="three columns">
       <span class="label">Primary</span>
       <button soho-button="primary" isToggle="true" icon="heart-filled" title="Love It"><span>Love It</span></button>
@@ -118,42 +113,80 @@
     <div class="three columns">
       <span class="label">Icon</span>
       <button soho-button="icon" isToggle="true" icon="heart-filled">Love It</button>
-      <br>
-      <br>
-      <br>
       <button soho-button="icon" [isTogglePressed]="false" isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It">Love It</button>
+      <br>
+      <br>
+      <button soho-button="favorite" title="Favorite" aria-pressed="true"></button>
+      <button soho-button="favorite" title="Favorite"></button>
+      <br>
+      <br>
+      <span class="label">(Deprecated in 4.3.x)</span>
+      <button soho-button="favorite" [state]="true" title="Favorite">Favorite</button>
+      <button soho-button="favorite" [state]="false" title="Favorite">Favorite</button>
     </div>
-
   </div>
 
-  <br>
-  <br>
-  <h2>Favorites Icon Buttons</h2>
-  <div class="row">
+  <div class="twelve columns">
     <div class="row">
-      <div class="three columns">
-        <span class="label">Initially Filled</span>
-        <button soho-button="favorite" title="Favorite" aria-pressed="true"></button>
-        <br>
-        <br>
-        <span class="label">Initially Outlined</span>
-        <button soho-button="favorite" title="Favorite"></button>
+      <div class="four column">
+        <h2 class="fieldset-title">Destructive <span class="code-tag">Live Example</span></h2>
       </div>
     </div>
-  </div>
 
-  <p>The Old Way(deprecated in 4.3.x)</p>
-  <div class="row">
-    <div class="row">
-      <div class="three columns">
-        <span class="label">Initially Filled</span>
-        <button soho-button="favorite" [state]="true" title="Favorite">Favorite</button>
-        <br>
-        <br>
-        <span class="label">Initially Outlined</span>
-        <button soho-button="favorite" [state]="false" title="Favorite">Favorite</button>
-      </div>
+    <div class="three columns">
+      <span class="label">Primary</span>
+      <button soho-button="primary-destructive">Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="primary-destructive" disabled>Action</button>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Tertiary</span>
+      <button soho-button="tertiary-destructive" icon="open-folder">Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="tertiary-destructive" icon="open-folder" disabled>Action</button>
     </div>
   </div>
 
+  <div class="twelve columns">
+    <div class="row">
+      <div class="four column">
+        <h2 class="fieldset-title">Generative <span class="code-tag">Live Example</span></h2>
+      </div>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Primary</span>
+      <button soho-button="primary-generative" #primaryGenerative icon="insights-smart-panel" iconAlign="end" (click)="performAnimation()">Generate</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="primary-generative" icon="insights-smart-panel" iconAlign="end" disabled>Generate</button>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Tertiary</span>
+      <button soho-button="tertiary-generative" #tertiaryGenerative icon="insights-smart-panel" iconAlign="end" (click)="performAnimation()">Generate</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="tertiary-generative" icon="insights-smart-panel" iconAlign="end" disabled>Generate</button>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Icon</span>
+      <button soho-button="icon-generative" #iconGenerative icon="insights-smart-panel" (click)="performAnimation()">Generate</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="icon-generative" icon="insights-smart-panel">Generate</button>
+    </div>
+
+    <button soho-button="primary" (click)="startAnimation()">Start</button>
+    <button soho-button="secondary" (click)="stopAnimation()">Stop</button>
+  </div>
 </div>

@@ -16,7 +16,8 @@ import { ArgumentHelper } from '../utils/argument.helper';
 /**
  * Supported button types.
  */
-export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'icon' | 'favorite' | 'modal' | 'modal-primary';
+export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'icon' | 'favorite' | 'modal' | 'modal-primary' |
+  'primary-destructive' | 'tertiary-destructive' | 'primary-generative' | 'tertiary-generative' | 'icon-generative';
 
 @Component({
   selector: 'button[soho-button]', // eslint-disable-line
@@ -37,6 +38,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   static FAVORITE: SohoButtonType = 'favorite';
   static MODAL: SohoButtonType = 'modal';
   static MODAL_PRIMARY: SohoButtonType = 'modal-primary';
+  static PRIMARY_DESTRUCTIVE: SohoButtonType = 'primary-destructive';
+  static TERTIARY_DESTRUCTIVE: SohoButtonType = 'tertiary-destructive';
+  static PRIMARY_GENERATIVE: SohoButtonType = 'primary-generative';
+  static TERTIARY_GENERATIVE: SohoButtonType = 'tertiary-generative';
+  static ICON_GENERATIVE: SohoButtonType = 'icon-generative';
 
   // -------------------------------------------
   // Private Member Data
@@ -268,6 +274,19 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     return this.buttonType === SohoButtonComponent.MODAL_PRIMARY;
   }
 
+  @HostBinding('class.destructive')
+  get btnDestructive(): boolean {
+    return this.buttonType === SohoButtonComponent.PRIMARY_DESTRUCTIVE ||
+      this.buttonType === SohoButtonComponent.TERTIARY_DESTRUCTIVE;
+  }
+
+  @HostBinding('class.btn-generative')
+  get btnGenerative(): boolean {
+    return this.buttonType === SohoButtonComponent.PRIMARY_GENERATIVE ||
+      this.buttonType === SohoButtonComponent.TERTIARY_GENERATIVE ||
+      this.buttonType === SohoButtonComponent.ICON_GENERATIVE;
+  }
+
   @HostBinding('class.is-pressed') get btnTogglePressed() {
     return this.isTogglePressed;
   }
@@ -371,6 +390,18 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
         }
       }
 
+      if (this.buttonType === SohoButtonComponent.PRIMARY_DESTRUCTIVE || this.buttonType === SohoButtonComponent.PRIMARY_GENERATIVE) {
+        this.jQueryElement.addClass('btn-primary');
+      }
+
+      if (this.buttonType === SohoButtonComponent.TERTIARY_DESTRUCTIVE || this.buttonType === SohoButtonComponent.TERTIARY_GENERATIVE) {
+        this.jQueryElement.addClass('btn-tertiary');
+      }
+
+      if (this.buttonType === SohoButtonComponent.ICON_GENERATIVE) {
+        this.jQueryElement.addClass('btn-icon');
+      }
+
       // There are no 'extra' event handlers for button.
 
       // Add observer for button changes in html
@@ -427,6 +458,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
               removeClassStyles();
               self.buttonType = SohoButtonComponent.FAVORITE;
               buttonOptions.type = 'icon-favorite';
+              break;
+            case 'generative':
+              removeClassStyles();
+              self.buttonType = SohoButtonComponent.PRIMARY_GENERATIVE;
+              buttonOptions.style = 'btn-generative';
               break;
             case 'default':
               removeClassStyles();
@@ -489,6 +525,24 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       const pressed = this.element.nativeElement.getAttribute('aria-pressed');
       this._isPressed = (pressed === true || pressed === 'true');
       return this._isPressed;
+    });
+  }
+
+  performAnimation(delay?: Number) {
+    this.ngZone.runOutsideAngular(() => {
+      this.button?.performAnimation(delay);
+    });
+  }
+
+  startAnimation() {
+    this.ngZone.runOutsideAngular(() => {
+      this.button?.startAnimation();
+    });
+  }
+
+  stopAnimation() {
+    this.ngZone.runOutsideAngular(() => {
+      this.button?.stopAnimation();
     });
   }
 
