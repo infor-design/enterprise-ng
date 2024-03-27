@@ -1,17 +1,10 @@
 # What's New with Enterprise-NG
 
-## 17.1.2
+## 17.1.4
 
-### 17.1.2 Fixes
+### 17.1.4 Features
 
-- `[Wizard]` Added typings for the buttons input on the wizard's button bar, and also made the 'hidden' change backwardly compatible. ([#1598](https://github.com/infor-design/enterprise/issues/1598))
-
-## 17.1.0
-
-### 17.1.0 Fixes
-
-- `[General]` Added 4.90 release
-- `[Datagrid]` Added fix to button types and errors in wizard. ([#1598](https://github.com/infor-design/enterprise-ng/issues/1598))
+- `[General]` Added 4.90.3 EP version.
 
 ## 17.0.0
 
