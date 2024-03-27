@@ -108,13 +108,13 @@ declare class SohoButtonStatic {
 
   /** Performs a generative action by replacing the content of a button with a loading indicator, 
    * then replacing it with generated AI content after a specified delay. */
-  performGenerativeAction(delay?: Number): void;
+  performAnimation(delay?: Number): void;
 
   /** Starts a generative action. */
-  startGenerativeActionAnimation(): void;
+  startAnimation(): void;
 
   /** Stops a generative action. */
-  stopGenerativeActionAnimation(): void;
+  stopAnimation(): void;
 
   /** Update the component with new settings. */
   updated(settings?: SohoButtonOptions): void;

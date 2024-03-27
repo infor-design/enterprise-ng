@@ -528,21 +528,21 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     });
   }
 
-  performGenerativeAction(delay?: Number) {
+  performAnimation(delay?: Number) {
     this.ngZone.runOutsideAngular(() => {
-      this.button?.performGenerativeAction(delay);
+      this.button?.performAnimation(delay);
     });
   }
 
-  startGenerativeActionAnimation() {
+  startAnimation() {
     this.ngZone.runOutsideAngular(() => {
-      this.button?.startGenerativeActionAnimation();
+      this.button?.startAnimation();
     });
   }
 
-  stopGenerativeActionAnimation() {
+  stopAnimation() {
     this.ngZone.runOutsideAngular(() => {
-      this.button?.stopGenerativeActionAnimation();
+      this.button?.stopAnimation();
     });
   }
 

@@ -24,9 +24,21 @@ export class ButtonDemoComponent implements OnInit {
     this.shouldSayHi = !this.shouldSayHi;
   }
 
-  performGenerativeAction() {
-    this.primaryGenerative?.performGenerativeAction(5000);
-    this.tertiaryGenerative?.performGenerativeAction(5000);
-    this.iconGenerative?.performGenerativeAction(5000);
+  performAnimation() {
+    this.primaryGenerative?.performAnimation(5000);
+    this.tertiaryGenerative?.performAnimation(5000);
+    this.iconGenerative?.performAnimation(5000);
+  }
+
+  startAnimation() {
+    this.primaryGenerative?.startAnimation();
+    this.tertiaryGenerative?.startAnimation();
+    this.iconGenerative?.startAnimation();
+  }
+
+  stopAnimation() {
+    this.primaryGenerative?.stopAnimation();
+    this.tertiaryGenerative?.stopAnimation();
+    this.iconGenerative?.stopAnimation();
   }
 }

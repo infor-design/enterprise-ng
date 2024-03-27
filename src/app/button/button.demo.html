@@ -161,7 +161,7 @@
 
     <div class="three columns">
       <span class="label">Primary</span>
-      <button soho-button="primary-generative" #primaryGenerative icon="insights-smart-panel" iconAlign="end" (click)="performGenerativeAction()">Generate</button>
+      <button soho-button="primary-generative" #primaryGenerative icon="insights-smart-panel" iconAlign="end" (click)="performAnimation()">Generate</button>
       <br>
       <br>
       <br>
@@ -170,7 +170,7 @@
 
     <div class="three columns">
       <span class="label">Tertiary</span>
-      <button soho-button="tertiary-generative" #tertiaryGenerative icon="insights-smart-panel" iconAlign="end" (click)="performGenerativeAction()">Generate</button>
+      <button soho-button="tertiary-generative" #tertiaryGenerative icon="insights-smart-panel" iconAlign="end" (click)="performAnimation()">Generate</button>
       <br>
       <br>
       <br>
@@ -179,11 +179,14 @@
 
     <div class="three columns">
       <span class="label">Icon</span>
-      <button soho-button="icon-generative" #iconGenerative icon="insights-smart-panel" (click)="performGenerativeAction()">Generate</button>
+      <button soho-button="icon-generative" #iconGenerative icon="insights-smart-panel" (click)="performAnimation()">Generate</button>
       <br>
       <br>
       <br>
       <button soho-button="icon-generative" icon="insights-smart-panel">Generate</button>
     </div>
+
+    <button soho-button="primary" (click)="startAnimation()">Start</button>
+    <button soho-button="secondary" (click)="stopAnimation()">Stop</button>
   </div>
 </div>
