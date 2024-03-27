@@ -9,6 +9,7 @@
 ## 17.6.0 Fixes
 
 - `[Actionsheet]` Updated type in `actions` parameter. ([#1632](https://github.com/infor-design/enterprise-ng/issues/1632))
+- `[Dropdown]` Added example page for `dropdown` with `width` and `maxWidth` settings. ([#1619](https://github.com/infor-design/enterprise-ng/issues/1619))
 - `[Tabs]` Fixed `beforeactivated` event not cancelling activation of tabs properly. ([#1578](https://github.com/infor-design/enterprise-ng/issues/1578))
 - `[Timeline]` Updated example page of cards workspace. ([EP#8524](https://github.com/infor-design/enterprise/issues/8524))
 

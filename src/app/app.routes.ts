@@ -108,6 +108,7 @@ import { DropdownMultiselectLandmarkDemoComponent } from './dropdown/dropdown-mu
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
+import { DropdownWithWidthAndMaxWidthComponent } from './dropdown/dropdown-with-width-and-maxwidth';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
@@ -375,6 +376,7 @@ export const routes: Routes = [
   { path: 'dropdown-reactive', component: DropdownReactiveDemoComponent },
   { path: 'dropdown-simple', component: DropdownSimpleDemoComponent },
   { path: 'dropdown-typeahead', component: DropdownTypeaheadDemoComponent },
+  { path: 'dropdown-with-width-and-maxwidth', component: DropdownWithWidthAndMaxWidthComponent },
   { path: 'editor', component: EditorDemoComponent },
   { path: 'emptymessage', component: EmptyMessageDemoComponent },
   { path: 'error', component: ErrorDemoComponent },

@@ -148,6 +148,7 @@ import { DropdownMultiselectLandmarkDemoComponent } from './dropdown/dropdown-mu
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
+import { DropdownWithWidthAndMaxWidthComponent } from './dropdown/dropdown-with-width-and-maxwidth';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
@@ -441,6 +442,7 @@ import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.de
     DropdownReactiveDemoComponent,
     DropdownSimpleDemoComponent,
     DropdownTypeaheadDemoComponent,
+    DropdownWithWidthAndMaxWidthComponent,
     EditorDemoComponent,
     EmptyMessageDemoComponent,
     ErrorDemoComponent,
