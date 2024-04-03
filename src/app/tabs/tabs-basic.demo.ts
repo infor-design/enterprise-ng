@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { SohoToastService } from 'ids-enterprise-ng';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { SohoTabsComponent, SohoToastService } from 'ids-enterprise-ng';
 
 /**
  * This example:
@@ -9,11 +9,17 @@ import { SohoToastService } from 'ids-enterprise-ng';
   selector: 'app-tabs-basic-demo',
   templateUrl: 'tabs-basic.demo.html',
 })
-export class TabsBasicDemoComponent {
-  constructor(private toastService: SohoToastService) { }
+export class TabsBasicDemoComponent implements AfterViewInit {
+  @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;
 
   private title: any = '';
   private message: any = '';
+
+  constructor(private toastService: SohoToastService) { }
+
+  ngAfterViewInit(): void {
+    this.sohoTabsComponent?.select('#tabs-normal-contracts', true);
+  }
 
   showToast(type: any, anchorId: any, anchorName: any, isVeto: boolean = false, position: SohoToastPosition = SohoToastService.TOP_RIGHT,) {
     this.message = 'The "<b>' + anchorName + '</b>" tab was clicked or triggered!';
