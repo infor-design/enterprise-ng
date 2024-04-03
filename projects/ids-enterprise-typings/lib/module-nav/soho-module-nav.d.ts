@@ -20,6 +20,7 @@ interface SohoModuleNavOptions {
   accordionSettings?: SohoAccordionOptions;
   displayMode?: SohoModuleNavDisplayMode;
   filterable?: boolean;
+  disableSwitcher?: boolean;
   initChildren?: boolean;
   pinSections?: boolean;
   showDetailView?: boolean;
