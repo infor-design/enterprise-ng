@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { SohoTabsComponent, SohoToastService } from 'ids-enterprise-ng';
 
 /**
