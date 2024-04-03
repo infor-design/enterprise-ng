@@ -879,10 +879,11 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * Selects the tab given an href
    *
    * @param href an href used to find the tab to select
+   * @param noFocus true to prevent focus
    */
-  select(href: string): void {
+  select(href: string, noFocus: boolean = false): void {
     // call outside the angular zone so change detection isn't triggered by the soho component.
-    this.ngZone.runOutsideAngular(() => (this.tabs as any).select(href));
+    this.ngZone.runOutsideAngular(() => (this.tabs as any).select(href, noFocus));
   }
 
   /**
