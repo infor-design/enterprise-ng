@@ -33,7 +33,7 @@ export class ModuleNavDemoComponent implements AfterViewInit {
   @ViewChild(SohoAccordionComponent) accordion!: SohoAccordionComponent;
   @ViewChild(SohoSearchFieldComponent) searchfield?: SohoSearchFieldComponent;
   @ViewChild(SohoModuleNavSwitcherComponent) moduleNavSwitcher?: SohoModuleNavSwitcherComponent;
-  @ViewChild(SohoModuleNavSettingsComponent) moduleNavSettings?: SohoModuleNavSettingsComponent;
+  @ViewChild(SohoModuleNavSettingsComponent, { static: true }) moduleNavSettings?: SohoModuleNavSettingsComponent;
 
 
   /**
@@ -72,6 +72,11 @@ export class ModuleNavDemoComponent implements AfterViewInit {
 
   onSearchChange(e: any) {
     console.dir('Module Nav Searchfield content change', e);
+  }
+
+  toggleSwitcher() {
+    const isDisabled = this.moduleNavSwitcher?.disabled || false;
+    this.moduleNavSwitcher?.updated({ disabled: !isDisabled });
   }
 
   onSettingsMenuSelected(evt: SohoContextMenuEvent) {

@@ -465,11 +465,11 @@
           id="module-nav-settings-menu"
           class="popupmenu module-nav-settings-menu">
           <li soho-popupmenu-item>
-            <a soho-popupmenu-label href="#">
+            <a soho-popupmenu-label (click)="toggleSwitcher()" href="#">
               <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use href="#icon-observation-precautions"></use>
               </svg>
-              <span>Jobs</span>
+              <span>Toggle Disable Switcher</span>
             </a>
           </li>
           <li soho-popupmenu-item>

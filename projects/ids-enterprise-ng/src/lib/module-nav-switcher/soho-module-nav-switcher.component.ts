@@ -34,6 +34,7 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   private _options: SohoModuleNavSwitcherOptions = {
     displayMode: false,
     generate: false,
+    disabled: false,
     icon: undefined,
     changeIconOnSelect: true,
     noSearch: false,
@@ -118,6 +119,14 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   }
   public get roles(): Array<SohoModuleNavSwitcherRoleRecord> | undefined {
     return this.modulenavswitcher?.settings.roles || this._options.roles;
+  }
+
+  @Input() set disabled(val: boolean | undefined) {
+    this._options.disabled = val;
+    this.updated({ disabled: val });
+  }
+  public get disabled(): boolean | undefined {
+    return this.modulenavswitcher?.settings.disabled || this._options.disabled;
   }
 
   // -------------------------------------------
