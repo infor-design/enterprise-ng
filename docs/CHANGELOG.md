@@ -7,6 +7,7 @@
 - `[Button]` Added typings for generative button and updated example page. ([EP#8541](https://github.com/infor-design/enterprise/issues/8541))
 - `[Lookup]` Added `placeholder` setting for filter searchfield. ([EP#8416](https://github.com/infor-design/enterprise/issues/8416))
 - `[Module Nav]` Added `disableSwitcher` and `disabled` setting for Module Nav and Module Nav Switcher. ([EP#8381](https://github.com/infor-design/enterprise/issues/8381))
+- `[Tabs]` Added `noFocus` parameter for selected method in Tabs component. ([#1647](https://github.com/infor-design/enterprise-ng/issues/1647))
 
 ## 17.6.0 Fixes
 
