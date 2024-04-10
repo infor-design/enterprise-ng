@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 17.6.1
+
+## 17.6.1 Fixes
+
+- `[General]` Added Enterprise 4.94.2 version
+
 ## 17.6.0
 
 ## 17.6.0 Features
