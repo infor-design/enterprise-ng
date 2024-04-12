@@ -131,6 +131,18 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     return this.options.empty;
   }
 
+  /** Set `no-margin` class to lookup wrapper */
+  public set noMarginWrapper(noMarginWrapper: boolean | undefined) {
+    this.options.noMarginWrapper = noMarginWrapper;
+    if (this.dropdown) {
+      this.dropdown.settings.noMarginWrapper = noMarginWrapper;
+      this.markForRefresh();
+    }
+  }
+  public get noMarginWrapper(): boolean | undefined {
+    return this.options.noMarginWrapper;
+  }
+
   /**
    * Value of the maximum number of selected elements (must have multiple set to true)
    */

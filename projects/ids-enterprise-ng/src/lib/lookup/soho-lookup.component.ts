@@ -322,6 +322,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.tabbable;
   }
 
+  /** Set `no-margin` class to lookup wrapper */
+  @Input() public set noMarginWrapper(noMarginWrapper: boolean | undefined) {
+    this.settings.noMarginWrapper = noMarginWrapper;
+    if (this.lookup) {
+      this.lookup.settings.noMarginWrapper = this.settings.noMarginWrapper;
+      this.markForUpdate();
+    }
+  }
+  public get noMarginWrapper(): boolean | undefined {
+    return this.settings.noMarginWrapper;
+  }
+
   /**  Set custom CSS classes for lookup */
   @Input() public set cssClass(cssClass: string | undefined) {
     this.settings.cssClass = cssClass;
