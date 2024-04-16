@@ -30,6 +30,9 @@ interface SohoLookupOptions {
   /** Pass dialog buttons or Cancel / Apply. */
   buttons?: SohoModalButton[];
 
+  /** If true, the lookup wrapper will add `no-margin` class. */
+  noMarginWrapper?: boolean;
+
   /** Options to pass to the underlying data grid. */
   options?: SohoDataGridOptions;
 
