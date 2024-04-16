@@ -117,6 +117,9 @@ interface SohoDropDownOptions {
    */
   empty?: boolean;
 
+  /** If true, the lookup wrapper will add `no-margin` class. */
+  noMarginWrapper?: boolean;
+
   /**
    * Typing Buffer Delay
    */
