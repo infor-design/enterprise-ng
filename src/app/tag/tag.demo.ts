@@ -1,16 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tag-demo',
-  templateUrl: 'tag.demo.html'
+  templateUrl: 'tag.demo.html',
 })
-export class TagDemoComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class TagDemoComponent {
 
   afterRemove(e: any) {
     alert(`afterRemove ${e.tag.settings.content}`);

@@ -12,7 +12,8 @@
   },
   "peerDependencies": {
     "@angular/common": "^17.3.2",
-    "@angular/core": "^17.3.2"
+    "@angular/core": "^17.3.2",
+    "ids-foundation": "1.0.1"
   },
   "description": "Infor Design System (IDS) Enterprise Angular Components",
   "repository": {

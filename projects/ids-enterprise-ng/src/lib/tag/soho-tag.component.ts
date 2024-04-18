@@ -24,7 +24,7 @@ import {
  * Note: You should not use color alone to indicate state, this should be either
  * supplemented with off-screen labels or visual labels near the element explaining the state.
  */
-export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | 'info' | undefined;
+export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | 'info' | 'success' | undefined;
 
 @Component({
   selector: '[soho-tag-list]', // eslint-disable-line

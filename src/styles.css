@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets/ids-theme-default-light.css';
 
 #compound_field_popdown_contents.popdown {
   width: 700px;
