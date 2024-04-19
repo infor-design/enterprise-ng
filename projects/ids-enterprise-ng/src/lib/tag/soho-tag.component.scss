@@ -1,0 +1,104 @@
+:host(a) {
+  cursor: default;
+}
+
+:host(.is-clickable) {
+  cursor: pointer;
+}
+
+.ids-tag {
+  // Colors/Borders
+  background-color: var(--ids-tag-color-background-default);
+  border: 1px solid var(--ids-tag-color-border);
+  border-radius: var(--ids-tag-border-radius);
+
+  // Fonts
+  font-family: var(--ids-font-family-default);
+  font-size: var(--ids-tag-font-size-default);
+  color: var(--ids-tag-color-text-default);
+  white-space: nowrap;
+
+  // Layout
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-end: var(--ids-space-xxs);
+  padding-inline:  var(--ids-space-xs);
+  height: var(--ids-tag-height);
+  contain: content;
+
+  // Secondary has a darker border
+  &.secondary {
+    background-color: var(--ids-tag-secondary-color-background);
+    border-color: var(--ids-tag-secondary-color-border);
+  }
+
+  &.info {
+    background-color: var(--ids-tag-color-background-info);
+    border-color: var(--ids-tag-color-border-info);
+    color: var(--ids-tag-color-text-info);
+  }
+
+  &.success {
+    background-color: var(--ids-tag-color-background-success);
+    border-color: var(--ids-tag-color-border-success);
+    color: var(--ids-tag-color-text-success);
+  }
+
+  &.warning {
+    background-color: var(--ids-tag-color-background-warning);
+    border-color: var(--ids-tag-color-border-warning);
+    color: var(--ids-tag-color-text-warning);
+  }
+
+  &.caution {
+    background-color: var(--ids-tag-color-background-caution);
+    border-color: var(--ids-tag-color-border-caution);
+    color: var(--ids-tag-color-text-caution);
+  }
+
+  &.error {
+    background-color: var(--ids-tag-color-background-error);
+    border-color: var(--ids-tag-color-border-error);
+    color: var(--ids-tag-color-text-error);
+  }
+
+  &.purple {
+    background-color: var(--ids-tag-color-background-purple);
+    border-color: var(--ids-tag-color-border-purple);
+    color: var(--ids-tag-color-text-purple);
+  }
+
+  &.teal {
+    background-color: var(--ids-tag-color-background-teal);
+    border-color: var(--ids-tag-color-border-teal);
+    color: var(--ids-tag-color-text-teal);
+  }
+
+  &.is-dismissible {
+    i[icon="close"] {
+      cursor: pointer;
+    }
+  }
+
+  // Clickable tags can be focused and clicked
+  &.focusable {
+    cursor: var(--ids-cursor-pointer);
+
+    &:focus {
+      cursor: var(--ids-cursor-pointer);
+      border-color: var(--ids-color-border-focus);
+      outline: var(--ids-outline-none);
+      box-shadow: var(--ids-shadow-focus);
+    }
+  }
+
+  i[ids-icon] {
+    margin-inline-start: 2px;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}

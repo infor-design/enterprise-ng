@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {
-  SohoTagComponent,
-  SohoTagListComponent
-} from './soho-tag.component';
+import { SohoTagComponent } from './soho-tag.component';
+import { SohoTagListComponent } from './soho-tag-list.component';
+import { IdsIconModule } from '../iconn/ids-icon.module';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    IdsIconModule
   ],
   declarations: [
     SohoTagComponent,
@@ -19,4 +20,4 @@ import {
     SohoTagListComponent
   ],
 })
-export class SohoTagModule {}
+export class SohoTagModule { }
