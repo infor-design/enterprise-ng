@@ -40,3 +40,28 @@ For example:
   <a href="#" soho-tag [isDismissible]="true">#Clickable</a>
 </div>
 ```
+
+## Phoenix Conversion Notes
+PROS (also works for wc dependency)
+  - Declaring setters/getters/custom events is simpler in Angular via @Input/@Output decorators
+    - @Input/@Output decorators have useful configs like `transform: booleanAttribute` to convert input
+    - similar to what we want to do in WC with setter/getter decorators in the future
+  - Template/Class/Attribute binding is much easier/shorter in angular
+  - If done the angular way, angular auto handles unbinding events/observables and component cleanup
+  - We get to use rxjs which offers a more declarative approach for reacting to component state changes
+  - Rebuild/live-reload is faster than our current wc rebuild/live-reload project
+  - Using ids-foundation style token was pretty seamless, but still need to figure out how to properly import them
+  - Security built-in (ie. safe/unsafe html injections)
+  - Dependency injection is nifty
+  - Didn't need ngZone
+
+CONS
+  - Need to accomodate older/removed JQUERY interfaces (ie. tag settings)
+  - new way to figure out accessibility 
+  - Going this native ng route will be more of a rewrite than a copy/paste from WC project
+    - DOM manipulation/Data Binding/Event Binding is very different in angular
+    - Our mixins will need to be re written as Angular Directives
+  - Difference in implementation will make feature/path parity difficult across projects
+  - Trouble finding way to self-destruct component
+    - removing host element from DOM does via nativeElement.remove() does not call ngOnDestroy()
+    - could mean that angular skips it's teardown process

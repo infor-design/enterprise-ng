@@ -50,7 +50,21 @@ export class SohoTagComponent implements OnDestroy {
 
   constructor(public elementRef: ElementRef) { }
 
-  get settings() {
+  get settings(): SohoTagOptions {
+    // other settings to accomadate removal of jquery object
+
+    // audibleContent?: string;
+    // clickable?: boolean;
+    // clickHandler?: any;
+    // disabled?: boolean;
+    // dismissible?: boolean;
+    // dismissHandler?: any;
+    // href?: string;
+    // id?: string;
+    // parent?: HTMLElement;
+    // style?: string;
+    // value?: string;
+
     return {
       content: this.elementRef.nativeElement.textContent
     }
