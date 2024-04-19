@@ -44,29 +44,26 @@ export class SohoTagComponent implements OnDestroy {
   @HostBinding('class.is-dismissible')
   isDismissible = false;
 
-  @Output() dismissed = new EventEmitter();
   @Output() clicked = new EventEmitter();
-  @Output() destroyed = new EventEmitter();
+  @Output() beforeTagRemove = new EventEmitter();
+  @Output() afterTagRemove = new EventEmitter();
 
   constructor(public elementRef: ElementRef) { }
 
   get settings(): SohoTagOptions {
-    // other settings to accomadate removal of jquery object
-
-    // audibleContent?: string;
-    // clickable?: boolean;
-    // clickHandler?: any;
-    // disabled?: boolean;
-    // dismissible?: boolean;
-    // dismissHandler?: any;
-    // href?: string;
-    // id?: string;
-    // parent?: HTMLElement;
-    // style?: string;
-    // value?: string;
-
     return {
       content: this.elementRef.nativeElement.textContent
+      // audibleContent?: string;
+      // clickable?: boolean;
+      // clickHandler?: any;
+      // disabled?: boolean;
+      // dismissible?: boolean;
+      // dismissHandler?: any;
+      // href?: string;
+      // id?: string;
+      // parent?: HTMLElement;
+      // style?: string;
+      // value?: string;
     }
   }
 
@@ -79,11 +76,11 @@ export class SohoTagComponent implements OnDestroy {
 
   onDismiss(event: MouseEvent) {
     const e = { ...event, tag: this }
-    this.dismissed.emit(e);
+    this.beforeTagRemove.emit(e);
     // NOTE: is there an angular way to self-destruct?
     // Removal via nativeElement.remove() does not invoke ngOnDestroy
     this.elementRef.nativeElement.remove();
-    this.destroyed.emit(e);
+    this.afterTagRemove.emit(e);
   }
 
   ngOnDestroy() {

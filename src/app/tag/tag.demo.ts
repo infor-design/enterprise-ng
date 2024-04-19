@@ -15,6 +15,7 @@ export class TagDemoComponent {
   }
 
   beforeRemoveSolo(e: any) {
+    console.log('before remove solo');
     alert(`beforeRemove (solo) ${e.tag.settings.content}`);
   }
 
