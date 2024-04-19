@@ -4,7 +4,7 @@
 
 ## 16.13.2 Fixes
 
-- `[General]` Added 4.92.6 with avatar fixes
+- `[General]` Added 4.92.7 with avatar fixes
 
 ## 16.13.1
 
