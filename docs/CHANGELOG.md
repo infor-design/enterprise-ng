@@ -1,8 +1,14 @@
 # What's New with Enterprise-NG
 
+## 16.13.2
+
+## 16.13.2 Fixes
+
+- `[General]` Added 4.92.6 with avatar fixes
+
 ## 16.13.1
 
-## 16.13.0 Fixes
+## 16.13.1 Fixes
 
 - `[General]` Added 4.92.5 with avatar fixes
 
