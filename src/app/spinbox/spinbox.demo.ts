@@ -11,7 +11,7 @@ export class SpinboxDemoComponent {
   @ViewChild('spinbox', { static: true }) spinbox?: SohoSpinboxComponent;
 
   public model = { // eslint-disable-line
-    value1: '10'
+    value1: '50'
   };
   public disabled = false;
   public id1 = 'regular-spinbox';

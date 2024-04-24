@@ -76,7 +76,7 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     return this.internalValue;
   }
 
-  @HostBinding('attr.step') @Input() step?: boolean;
+  @HostBinding('attr.step') @Input() step?: number;
 
   @Input() set attrDisabled(_value: boolean) {
     console.warn(`soho-spinbox 'disabled' input has been deprecated, please use '[attr.disabled]'.`);
@@ -175,10 +175,8 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
   writeValue(value: number) {
     super.writeValue(value);
 
-    if (this.jQueryElement) {
-      // The processing is required to ensure we use the correct format
-      // in the control.
-      this.jQueryElement.val(value);
+    if (this.spinbox) {
+      this.spinbox.updateVal(value);
     }
   }
 
