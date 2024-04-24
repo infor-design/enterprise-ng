@@ -303,6 +303,7 @@ import { DemoappNavContainerComponent } from './demoapp-nav-container/demoapp-na
 import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-dataset.demo';
 import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end-list.demo';
 import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.demo';
+import { DropdownFocusComponent } from './dropdown/dropdown-focus';
 
 @NgModule({
   declarations: [
@@ -437,6 +438,7 @@ import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.de
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,
+    DropdownFocusComponent,
     DropdownMultiselectDemoComponent,
     DropdownMultiselectLandmarkDemoComponent,
     DropdownReactiveDemoComponent,

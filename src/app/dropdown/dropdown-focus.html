@@ -1,0 +1,70 @@
+<div class="example-section">
+  <div class="row">
+    <div class="twelve columns m-top-10 m-bottom-10">
+        <p>
+            This is an example of programatically focusing dropdown. It also showcases the focusing when another input was focused before.
+            <br>
+            1. In 'Focus dropdown' type either 1, 2 or 3 and click Enter. The entered dropdown should focus.
+            <br>
+            2. Click 'Focus' button next to any dropdown. This dropdown should get focused.
+            <br>
+        </p>
+    </div>
+</div>
+  <form>
+    <div class="field m-left-20">
+      <label for="example-input">Focus dropdown</label>
+      <input soho-input name="example-input" (change)="focus($event.target.value)" />
+    </div>
+
+    <table style="border-spacing: 20px 10px">
+      <tr>
+        <th><label>States</label></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>
+          <select soho-dropdown noSearch name="states-1" [(ngModel)]="model.one">
+          <option value="AL">Alabama</option>
+          <option value="CA">California</option>
+          <option value="DE" >Delaware</option>
+          <option value="NY">New York</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </td>
+      <td style="vertical-align: top;">
+        <button soho-button="primary" (click)="focus(1)">Focus</button>
+      </td>
+      </tr>
+      <tr>
+        <td>
+          <select soho-dropdown name="states-2" [(ngModel)]="model.two">
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE" >Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </td>
+        <td style="vertical-align: top;">
+          <button soho-button="primary" (click)="focus(2)">Focus</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <select soho-dropdown noSearch name="states-3" [(ngModel)]="model.three">
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE" >Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </td>
+        <td  style="vertical-align: top;">
+          <button soho-button="primary" (click)="focus(3)">Focus</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+

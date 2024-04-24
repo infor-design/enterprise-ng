@@ -250,6 +250,7 @@ import { DonutColorsDemoComponent } from './donut/donut-colors.demo';
 import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-dataset.demo';
 import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end-list.demo';
 import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.demo';
+import { DropdownFocusComponent } from './dropdown/dropdown-focus';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -370,6 +371,7 @@ export const routes: Routes = [
   { path: 'dropdown', component: DropdownDemoComponent },
   { path: 'dropdown-async-busy', component: DropdownAsyncBusyDemoComponent },
   { path: 'dropdown-async', component: DropdownAsyncDemoComponent },
+  { path: 'dropdown-focus', component: DropdownFocusComponent },
   { path: 'dropdown-multi', component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-multi-landmark', component: DropdownMultiselectLandmarkDemoComponent },
   { path: 'dropdown-multi-attributes', component: DropdownMultiselectAttributesDemoComponent },

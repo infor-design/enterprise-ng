@@ -268,6 +268,11 @@ interface SohoDropDownStatic {
    * Set the selected option with icon.
    */
   setListIcon(): void;
+
+  /**
+   * Focus the input element. Since the select is hidden this is needed over normal focus()
+   */
+  activate(): void;
 }
 
 /**
