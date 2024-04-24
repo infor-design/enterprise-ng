@@ -718,12 +718,14 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * @description
    *
    * Soho-dropdown is not a native element - need this to set focus programmatically.
-   * 'name' attribute must be set on the control for this to work correctly.
    */
   public setFocus(): void {
-    if (this.jQueryElement) {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement?.blur();
+    }
+    if (this.dropdown) {
       this.ngZone.runOutsideAngular(() => {
-        this.jQueryElement?.trigger('activated');
+        this.dropdown?.activate();
       });
     }
   }
