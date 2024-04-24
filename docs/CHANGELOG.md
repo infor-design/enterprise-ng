@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 17.7.0
+
+## 17.7.0 Fixes
+
+- `[Spinbox]` Updated type for step and fixed increase/decrease buttons not getting disabled when value passed with ngControl was matching min/max value. ([EP#1680](https://github.com/infor-design/enterprise-ng/issues/1680))
+
 ## 17.6.0
 
 ## 17.6.0 Features
