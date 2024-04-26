@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 17.1.5
+
+### 17.1.5 Features
+
+- `[General]` Added 4.90.4 EP version.
+
 ## 17.1.4
 
 ### 17.1.4 Features
