@@ -21,6 +21,9 @@
       <p>Value: {{model.text.value}} <br> FilterType: {{model.text.filterType}}</p>
     </div>
 
+    <button soho-button (click)="onResetDefault()">Reset Default</button>
+    <br><br>
+
     <div class="field">
       <label soho-label for="example-dropdown">Dropdown</label>
       <select soho-dropdown soho-field-filter [fieldSettings]="filterSettings" id="example-dropdown" name="example-dropdown" class="input-mm" [(ngModel)]="model.dropdown.value" (filtered)="onFiltered($event)">

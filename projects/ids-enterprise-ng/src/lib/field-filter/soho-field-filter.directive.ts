@@ -114,7 +114,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
    * param {number|string} value to be set, index or value.
    * returns {void}
    */
-  public setFilterType(value: SohoFieldFilterOperator | number) {
+  public setFilterType(value: SohoFieldFilterOperator | number | string) {
     if (!value) {
       return;
     }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SohoFieldFilterDirective } from 'ids-enterprise-ng';
 
 /**
  * This example shows basic field filter functionality on input elements
@@ -8,6 +9,8 @@ import { Component } from '@angular/core';
   templateUrl: 'field-filter.demo.html'
 })
 export class FieldFilterDemoComponent {
+
+  @ViewChild(SohoFieldFilterDirective) sohoFieldFilter?: SohoFieldFilterDirective;
 
   public model = {
     text: {
@@ -38,12 +41,12 @@ export class FieldFilterDemoComponent {
 
   public filterSettings: SohoFieldFilterSettings = {
     dataset: [
-    { value: 'equals', text: 'Equals', icon: 'filter-equals' },
-    { value: 'does-not-equal', text: 'Does Not Equal', icon: 'filter-does-not-equal' },
-    { value: 'less-than', text: 'Less Than', icon: 'filter-less-than' },
-    { value: 'less-equals', text: 'Less Or Equals', icon: 'filter-less-equals', selected: true },
-    { value: 'greater-than', text: 'Greater Than', icon: 'filter-greater-than' },
-    { value: 'greater-equals', text: 'Greater Or Equals', icon: 'filter-greater-equals' }]
+      { value: 'equals', text: 'Equals', icon: 'filter-equals' },
+      { value: 'does-not-equal', text: 'Does Not Equal', icon: 'filter-does-not-equal' },
+      { value: 'less-than', text: 'Less Than', icon: 'filter-less-than' },
+      { value: 'less-equals', text: 'Less Or Equals', icon: 'filter-less-equals', selected: true },
+      { value: 'greater-than', text: 'Greater Than', icon: 'filter-greater-than' },
+      { value: 'greater-equals', text: 'Greater Or Equals', icon: 'filter-greater-equals' }]
   };
 
   public fieldDropdownDataSet = [
@@ -56,21 +59,28 @@ export class FieldFilterDemoComponent {
   ];
 
   public filterOperator = 'equals';
+  public defaultFilterOperator = 'equals';
 
   public filterSettingsWithRange: SohoFieldFilterSettings = {
     dataset: [
-    { value: 'equals', text: 'Equals', icon: 'filter-equals' },
-    { value: 'in-range', text: 'In Range', icon: 'filter-in-range' },
-    { value: 'does-not-equal', text: 'Does Not Equal', icon: 'filter-does-not-equal', selected: true },
-    { value: 'less-than', text: 'Less Than', icon: 'filter-less-than' },
-    { value: 'less-equals', text: 'Less Or Equals', icon: 'filter-less-equals' },
-    { value: 'greater-than', text: 'Greater Than', icon: 'filter-greater-than' },
-    { value: 'greater-equals', text: 'Greater Or Equals', icon: 'filter-greater-equals' }]
+      { value: 'equals', text: 'Equals', icon: 'filter-equals' },
+      { value: 'in-range', text: 'In Range', icon: 'filter-in-range' },
+      { value: 'does-not-equal', text: 'Does Not Equal', icon: 'filter-does-not-equal', selected: true },
+      { value: 'less-than', text: 'Less Than', icon: 'filter-less-than' },
+      { value: 'less-equals', text: 'Less Or Equals', icon: 'filter-less-equals' },
+      { value: 'greater-than', text: 'Greater Than', icon: 'filter-greater-than' },
+      { value: 'greater-equals', text: 'Greater Or Equals', icon: 'filter-greater-equals' }]
   };
 
   public dateMode = 'standard';
 
   constructor() { }
+
+  onResetDefault() {
+    (this.model.text as any).value = '';
+    (this.model.text as any).selectedFilterType = this.defaultFilterOperator;
+    this.sohoFieldFilter?.setFilterType(this.defaultFilterOperator);
+  }
 
   onFiltered(event: SohoFieldFilteredEvent) {
     const targetElement = event.target as Element;
