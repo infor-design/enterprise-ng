@@ -46,22 +46,22 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
 
 type SohoFieldFilterOperator =
   'end-with' | 'does-not-end-with' |
- 'start-with' | 'does-not-start-with' |
- 'equals' | 'does-not-equal' |
- 'contains' | 'does-not-contain' |
- 'calendar' | 'in-range' |
- 'is-empty' | 'is-not-empty' |
- 'less-equals' | 'less-than' |
- 'greater-equals' | 'greater-than' |
- 'between' | 'selected-notselected' |
- 'selected' | 'not-selected' |
- 'sort-a-to-z' | 'sort-z-to-a';
+  'start-with' | 'does-not-start-with' |
+  'equals' | 'does-not-equal' |
+  'contains' | 'does-not-contain' |
+  'calendar' | 'in-range' |
+  'is-empty' | 'is-not-empty' |
+  'less-equals' | 'less-than' |
+  'greater-equals' | 'greater-than' |
+  'between' | 'selected-notselected' |
+  'selected' | 'not-selected' |
+  'sort-a-to-z' | 'sort-z-to-a';
 
 interface SohoFieldFilterOption {
   value: SohoFieldFilterOperator;
   text: string;
   icon: string;
-  selected ?: boolean;
+  selected?: boolean;
 }
 
 interface SohoFieldFilteredEvent extends JQuery.TriggeredEvent {
