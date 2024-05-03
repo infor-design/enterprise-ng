@@ -28,6 +28,9 @@ interface SohoHomePageOptions {
   widgetHeight?: number;
   useSmall?: boolean;
   timeout?: number;
+  background?: {
+    banner?: SohoHomePageBannerOptions;
+  }
   onBeforeRemoveCard?: SohoHomePageBeforeRemoveCardFunction;
 }
 
@@ -99,6 +102,17 @@ interface SohoHomePageWidgetEditEvent {
   widget?: any; // import("./soho-widget.component").SohoWidgetComponent;
   card?: JQuery;
   metadata?: object;
+}
+
+/**
+ * Soho Homepage background settings
+ */
+interface SohoHomePageBannerOptions {
+  image?: string;
+  icon?: {
+    image?: string;
+    width?: number;
+  }
 }
 
 type SohoHomePageBeforeRemoveCardFunction = null | Function;

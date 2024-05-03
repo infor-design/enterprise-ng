@@ -179,6 +179,17 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
     return this._homePageOptions.onBeforeRemoveCard;
   }
 
+  @Input() set banner(banner: SohoHomePageBannerOptions | undefined) {
+    this._homePageOptions.background = { banner };
+    if (this.homepage) {
+      this.homepage.settings.background = { banner };
+    }
+  }
+
+  get banner(): SohoHomePageBannerOptions | undefined {
+    return this._homePageOptions.background?.banner;
+  }
+
   @HostBinding('class.homepage') isHomepage = true;
 
   // Reference to the jQuery element.
