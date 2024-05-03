@@ -132,6 +132,7 @@ import { HomePageEditableDemoComponent } from './homepage/homepage-editable.demo
 import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
 import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
 import { HomePageScenarioCDemoComponent } from './homepage/homepage-scenario-c.demo';
+import { HomePageScenarioDDemoComponent } from './homepage/homepage-scenario-d.demo';
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
@@ -407,6 +408,7 @@ export const routes: Routes = [
   { path: 'homepage-scenario-a', component: HomePageScenarioADemoComponent },
   { path: 'homepage-scenario-b', component: HomePageScenarioBDemoComponent },
   { path: 'homepage-scenario-c', component: HomePageScenarioCDemoComponent },
+  { path: 'homepage-scenario-d', component: HomePageScenarioDDemoComponent },
   { path: 'hyperlink', component: HyperlinkDemoComponent },
   { path: 'icon', component: IconDemoComponent },
   { path: 'images-example', component: ImagesExampleDemoComponent },
