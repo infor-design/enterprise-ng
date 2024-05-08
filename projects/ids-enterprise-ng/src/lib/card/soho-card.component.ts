@@ -273,6 +273,8 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
   @Output() collapse: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() afterexpand: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() aftercollapse: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() deselected: EventEmitter<Object> = new EventEmitter<Object>();
 
   private jQueryElement?: JQuery;
   private options: SohoCardOptions = {};
@@ -325,6 +327,8 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
       this.jQueryElement.on('collapse', (event: SohoCardEvent) => this.onCollapse(event));
       this.jQueryElement.on('afterexpand', (event: SohoCardEvent) => this.onAfterExpand(event));
       this.jQueryElement.on('aftercollapse', (event: SohoCardEvent) => this.onAfterCollapse(event));
+      this.jQueryElement.on('selected', (event: SohoCardEvent) => this.onSelected(event));
+      this.jQueryElement.on('deselected', (event: SohoCardEvent) => this.onDeselected(event));
 
       this.cards = this.jQueryElement.data('cards');
 
@@ -396,5 +400,13 @@ export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
 
   private onAfterCollapse(event: SohoCardEvent) {
     this.ngZone.run(() => this.aftercollapse.emit(event));
+  }
+
+  private onSelected(event: SohoCardEvent) {
+    this.ngZone.run(() => this.selected.emit(event));
+  }
+
+  private onDeselected(event: SohoCardEvent) {
+    this.ngZone.run(() => this.deselected.emit(event));
   }
 }
