@@ -8,6 +8,10 @@
 
 ## 17.7.0
 
+## 17.7.0 Features
+
+- `[Modal]` Added `buttonsetTextWidth` option to specify width of the buttonset text in the modal. ([EP#8639](https://github.com/infor-design/enterprise/issues/8639))
+
 ## 17.7.0 Fixes
 
 - `[Dropdown]` Fixed setFocus method to work also when there is no label associated with the dropdown. ([#1673](https://github.com/infor-design/enterprise-ng/issues/1673))

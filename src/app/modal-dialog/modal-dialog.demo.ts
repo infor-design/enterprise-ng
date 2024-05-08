@@ -279,4 +279,28 @@ export class ModalDialogDemoComponent {
         }])
       .open();
   }
+
+  openModalButtonsetText() {
+    const dialogRef = this.modalService
+      .message('<span class="message">Are you sure you want to delete this page?</span>')
+      .buttons(
+        [
+          {
+            text: 'Click here to explore our comprehensive collection of innovative solutions for optimizing your workflow and boosting productivity.', click: () => {
+              dialogRef.close('CANCEL');
+            }
+          },
+          {
+            text: 'Submit', click: () => {
+              dialogRef.close('SUBMIT');
+            }, isDefault: true
+          }
+        ])
+      .buttonsetTextWidth('auto')
+      .title(this.title)
+      .open()
+      .afterClose((result: any) => {
+        this.closeResult = result;
+      });
+  }
 }

@@ -80,6 +80,9 @@ interface SohoModalOptions {
   // The maximum width to show for the modal, regardless of content.
   maxWidth?: number;
 
+  // Optional width to set the text of the buttonset.
+  buttonsetTextWidth?: number | string;
+
   // Force the modal to go full size.
   fullsize?: SohoModalFullSize;
 

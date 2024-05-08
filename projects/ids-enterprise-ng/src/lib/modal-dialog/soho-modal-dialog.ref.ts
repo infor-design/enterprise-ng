@@ -159,6 +159,19 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
+   * Optional width to set the text of the buttonset.
+   * 
+   * @param buttonsetTextWidth - The width of buttonset text.
+   */
+  buttonsetTextWidth(buttonsetTextWidth: number | string): SohoModalDialogRef<T> {
+    this._options.buttonsetTextWidth = buttonsetTextWidth;
+    if (this.modal) {
+      this.modal.settings.buttonsetTextWidth = buttonsetTextWidth;
+    }
+    return this;
+  }
+
+  /**
    * Sets the title of the modal dialog.
    *
    * @param title - the title of the dialog.
