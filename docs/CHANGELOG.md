@@ -1,15 +1,10 @@
 # What's New with Enterprise-NG
 
-## 17.8.0
-
-## 17.8.0 Fixes
-
-- `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
-
 ## 17.7.0
 
 ## 17.7.0 Features
 
+- `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
 - `[Modal]` Added `buttonsetTextWidth` option to specify width of the buttonset text in the modal. ([EP#8639](https://github.com/infor-design/enterprise/issues/8639))
 
 ## 17.7.0 Fixes
