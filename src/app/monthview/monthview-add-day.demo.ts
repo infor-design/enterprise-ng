@@ -10,7 +10,7 @@ import { SohoDatePickerComponent, SohoMonthViewComponent } from 'ids-enterprise-
   templateUrl: 'monthview-add-day.demo.html'
 })
 export class MonthViewAddDayDemoComponent {
-  @ViewChild(SohoMonthViewComponent, { static: true }) datepicker?: SohoMonthViewComponent;
+  @ViewChild(SohoMonthViewComponent, { static: true }) monthview?: SohoMonthViewComponent;
 
   private _selectedDate: Date = new Date();
   public monthViewOptions: SohoMonthViewOptions = {
@@ -41,6 +41,7 @@ export class MonthViewAddDayDemoComponent {
       activeDate: this._selectedDate as any,
     };
     console.log(this._selectedDate.toDateString());
+    this.monthview?.updated(this.monthViewOptions);
   }
 
   get selectedDate(): String {
