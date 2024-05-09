@@ -2,6 +2,10 @@
 
 ## 17.8.0
 
+## 17.8.0 Features
+
+- `[ContextualActionPanel/Modal]` Added new settings `propagateStyle` and `compactPanel`. ([#1594](https://github.com/infor-design/enterprise-ng/issues/1594))
+
 ## 17.8.0 Fixes
 
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))

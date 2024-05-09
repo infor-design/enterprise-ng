@@ -107,6 +107,12 @@ interface SohoModalOptions {
   /** If true, causes the modal's trigger element not to become focused once the modal is closed. **/
   noRefocus?: boolean;
 
+  /** If true, add classes for modal body for propagate style. **/
+  propagateStyle?: boolean;
+
+  /** If true, add classes for modal body for compact panel. **/
+  compactPanel?: boolean;
+
   /** The modal's trigger element to keep refocused once the modal is closed.  **/
   triggerButton?: any;
 
