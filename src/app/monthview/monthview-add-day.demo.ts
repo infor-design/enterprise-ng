@@ -15,7 +15,7 @@ export class MonthViewAddDayDemoComponent {
   private _selectedDate: Date = new Date();
   public monthViewOptions: SohoMonthViewOptions = {
     inPage: true,
-    inPageExpanded: false,
+    inPageExpanded: true,
     showMonthYearPicker: false,
     showLegend: true,
     disable: {
