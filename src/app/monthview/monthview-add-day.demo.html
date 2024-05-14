@@ -1,0 +1,15 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+    <p>{{selectedDate}}</p><br>
+    <button soho-button="primary" (click)="addDay()">Add Day</button>
+  </div>
+</div>
+<div class="row top-padding">
+  <div class="twelve columns">
+    <div soho-monthview
+      [monthviewOptions]="monthViewOptions"
+      (selected)="onSelected($event)"
+      (monthRendered)="onRenderMonth($event)">
+    </div>
+  </div>
+</div>

@@ -66,6 +66,9 @@ interface SohoMonthViewRenderEvent {
 interface SohoMonthView {
   settings: SohoMonthViewOptions;
 
+  /** Updates the monthview with any new settings and data. */
+  updated(settings?: SohoMonthViewOptions): void;
+
   /** Set range selection */
   setRangeSelection(): void;
 

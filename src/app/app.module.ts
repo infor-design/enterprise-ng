@@ -192,6 +192,7 @@ import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
 import { ModuleNavDemoComponent } from './module-nav/module-nav.demo';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
+import { MonthViewAddDayDemoComponent } from './monthview/monthview-add-day.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { NotificationBadgePlacementDemoComponent } from './notification-badge/notification-badge-placement.demo';
@@ -497,6 +498,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     MessageDemoComponent,
     ModuleNavDemoComponent,
     MonthViewDemoComponent,
+    MonthViewAddDayDemoComponent,
     MonthViewDemoInPageComponent,
     MonthViewLegendDemoComponent,
     NotificationDemoComponent,

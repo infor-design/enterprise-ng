@@ -607,8 +607,8 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   /**
    * Handle updated settings and values.
    */
-  updated() {
-    this.ngZone.runOutsideAngular(() => (this.monthview as any).updated());
+  updated(settings?: SohoMonthViewOptions) {
+    this.ngZone.runOutsideAngular(() => (this.monthview as any).updated(settings));
   }
 
   /**
@@ -644,7 +644,7 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
       }
     });
   }
-  
+
   /**
    * Shows the given month and year.
    */
