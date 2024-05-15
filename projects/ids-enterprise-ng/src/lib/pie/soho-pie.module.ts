@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SohoPieComponent } from './soho-pie.component';
@@ -13,5 +13,6 @@ import { SohoPieComponent } from './soho-pie.component';
   exports: [
     SohoPieComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SohoPieModule {}
+export class SohoPieModule { }
