@@ -93,6 +93,7 @@ import { SohoVersionInitializerModule } from './version/version-initializer.modu
 import { SohoWeekViewModule } from './week-view/soho-week-view.module';
 import { SohoWizardModule } from './wizard/soho-wizard.module';
 import { SohoListBuilderModule } from './listbuilder';
+import { IdsIconModule } from './iconn/ids-icon.module';
 
 @NgModule({
   imports: [
@@ -188,7 +189,8 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoTreeModule,
     SohoTreemapModule,
     SohoWeekViewModule,
-    SohoWizardModule
+    SohoWizardModule,
+    IdsIconModule
   ],
   declarations: [],
   exports: [
@@ -284,7 +286,8 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoTreemapModule,
     SohoVersionInitializerModule,
     SohoWeekViewModule,
-    SohoWizardModule
+    SohoWizardModule,
+    IdsIconModule
   ]
 })
 export class SohoComponentsModule { }

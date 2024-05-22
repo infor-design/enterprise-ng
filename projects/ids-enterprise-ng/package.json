@@ -10,10 +10,11 @@
   "peerDependencies": {
     "d3": "7.8.5",
     "jquery": "^3.7.1",
-    "ids-enterprise-wc": "1.0.0",
-    "ids-enterprise": "4.95.0",
+    "ids-enterprise-wc": "1.1.0",
+    "ids-enterprise": "4.95.2",
     "@angular/common": "^17.3.8",
-    "@angular/core": "^17.3.8"
+    "@angular/core": "^17.3.8",
+    "ids-foundation": "1.0.1"
   },
   "description": "Infor Design System (IDS) Enterprise Angular Components",
   "repository": {
