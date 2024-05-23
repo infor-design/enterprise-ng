@@ -3,7 +3,6 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  HostBinding,
   Input,
   OnDestroy,
   Output
