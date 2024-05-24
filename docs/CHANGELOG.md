@@ -1,8 +1,12 @@
 # What's New with Enterprise-NG
 
-## 17.8.0
+## 18.0.0
 
-## 17.8.0 Fixes
+## 17.8.0 Notes
+
+- `[General]` Added new dependencies and updated to NG 18. And made dependencies peer dependencies. ([#1705](https://github.com/infor-design/enterprise-ng/issues/1705))
+
+## 18.0.0 Fixes
 
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
 - `[Mask]` Fixed placeholder value being duplicated on number input. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1686))
