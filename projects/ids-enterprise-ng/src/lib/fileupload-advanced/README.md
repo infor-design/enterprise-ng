@@ -30,7 +30,7 @@ or
 | --- | --- | --- |
 | `disabled` | Boolean | The disabled state of the control, either true or false. |
 | `isStandalone` | Boolean | Used for some visual styling depending on the container, On page(true) -or- on modal (false) |
-| `allowedTypes` | String | Restrict file types(ie. 'jpg|png|gif') ['*' all types] |
+| `allowedTypes` | String | Restrict file types(ie.`jpg png gif`) ['*' all types] |
 | `send` | Function | Callback, invoked when a file(s) are selected, see below. |
 | `maxFilesInProcess` | Number | Max number of files that can be uploaded. |
 | `maxFileSize` | Number | Max file size in bytes, -1 for unlimited |

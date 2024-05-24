@@ -73,7 +73,6 @@ export class TabsDynamicDemoComponent implements OnInit {
     if (!this.tabs) {
       return;
     }
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < this.tabs.length; i++) {
       // ----------------------------------------------------------------------
       // Calling setTitle on the soho component/control so that the entire

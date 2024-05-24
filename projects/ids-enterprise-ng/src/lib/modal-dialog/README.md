@@ -65,7 +65,7 @@ export class ExampleModuleDialogModule {}
 | `id(string)` | Sets the element id for the modal dialog. |
 | `trigger(SohoModalTriggerType)` | Sets the trigger for the modal dialog. |
 | `isAlert(boolean)` | Sets the isAlert option - controls the styling and accessibility. |
-| `content(string | JQuery)` | Defines the content of the dialog, if not using an Angular component. |
+| `content(string)` | Defines the content of the dialog, if not using an Angular component. |
 | `cssClass(string)` | Extra CSS for the markup . |
 | `autoFocus(boolean)` | Auto Focus the dialog. TBC |
 | `beforeOpen(() => boolean)` | 'Registers a 'beforeOpen' callback, which can veto open. |

@@ -76,7 +76,7 @@ export class ContexutualActionPanelModule {}
 | `id(string)` | Sets the element id for the contextual action panel. |
 | `title(string)` | Sets the title for the contextual action panel. |
 | `buttons(Sohocontextual action panelButton[])` | Sets the button to use for the contextual action panel. |
-| `content(string | JQuery)` | Defines the content of the panel, if not using an Angular component. |
+| `content(string)` | Defines the content of the panel, if not using an Angular component. |
 | `trigger(Sohocontextual action panelTriggerType)` | Sets the trigger for the contextual action panel. |
 | `beforeOpen(() => boolean)` | 'Registers a 'beforeOpen' callback, which can veto open. |
 | `afterOpen(Function)` | 'Registers an 'afterOpen' callback. |
