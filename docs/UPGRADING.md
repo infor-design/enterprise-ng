@@ -26,6 +26,12 @@ You will need to fix any issues raised, as these will depend on the dependency t
 
 #### Angular 17
 
+When updating from angular 17 to 18 we were able to follow the instructions on the update.angular.io site. See
+<https://update.angular.io/?v=17.0-18.0> for more information. We skipped cypress upgrades since we are moving to playwright.
+Actual command ran:
+
+#### Angular 17
+
 When updating from angular 16 to 17 we were able to follow the instructions on the update.angular.io site. See
 <https://update.angular.io/?v=16.0-17.0> for more information. We ran into issues with an older Cypress version
 and had to follow the migration guide at <https://docs.cypress.io/guides/references/migration-guide#Migrating-to-Cypress-version-10-0>.

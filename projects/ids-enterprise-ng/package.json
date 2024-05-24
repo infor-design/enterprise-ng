@@ -3,16 +3,17 @@
   "slug": "ids-enterprise-ng",
   "version": "17.7.0-dev.0",
   "dependencies": {
-    "@types/jquery": "3.5.16",
-    "@types/d3": "7.4.0",
-    "ids-enterprise": "4.95.0",
-    "ids-enterprise-typings": "17.7.0-dev.0",
-    "jquery": "3.6.4",
-    "d3": "7.8.2"
+    "ids-enterprise": "4.95.2"
   },
   "peerDependencies": {
-    "@angular/common": "^17.3.8",
-    "@angular/core": "^17.3.8"
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "ids-enterprise": "4.95.0",
+    "jquery": "3.7.1",
+    "d3": "7.8.2",
+    "@types/jquery": "3.5.16",
+    "@types/d3": "7.4.0",
+    "ids-enterprise-typings": "17.7.0-dev.0"
   },
   "description": "Infor Design System (IDS) Enterprise Angular Components",
   "repository": {
