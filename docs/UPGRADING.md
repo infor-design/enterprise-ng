@@ -24,11 +24,11 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
-#### Angular 17
+#### Angular 18
 
 When updating from angular 17 to 18 we were able to follow the instructions on the update.angular.io site. See
 <https://update.angular.io/?v=17.0-18.0> for more information. We skipped cypress upgrades since we are moving to playwright.
-Actual command ran:
+Actual command ran: `npx ng update @angular/core@18 @angular/cli@18`
 
 #### Angular 17
 
