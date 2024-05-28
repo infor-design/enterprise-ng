@@ -11,6 +11,7 @@
 ## 17.8.0 Features
 
 - `[ContextualActionPanel/Modal]` Added new settings `propagateStyle` and `compactPanel`. ([#1594](https://github.com/infor-design/enterprise-ng/issues/1594))
+- `[Datagrid]` Updated example page to test personalize columns setting. ([EP#8138](https://github.com/infor-design/enterprise/issues/8138))
 
 ## 17.7.0
 
