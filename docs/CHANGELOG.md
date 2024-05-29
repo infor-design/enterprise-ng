@@ -1,11 +1,16 @@
 # What's New with Enterprise-NG
 
-## 17.8.0
+## 18.0.0
 
-## 17.8.0 Fixes
+## 17.8.0 Notes
+
+- `[General]` Added new dependencies and updated to NG 18. And made dependencies peer dependencies. ([#1705](https://github.com/infor-design/enterprise-ng/issues/1705))
+
+## 18.0.0 Fixes
 
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
 - `[Mask]` Fixed placeholder value being duplicated on number input. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1686))
+- `[Monthview]` Fixed `monthview` not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
 - `[Monthview]` Fixed monthview not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
 - `[Popupmenu]` Updated example page to fix multiselect. ([#8623](https://github.com/infor-design/enterprise-ng/issues/8623))
 
@@ -19,20 +24,20 @@
 ## 17.7.0 Features
 
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
-- `[Modal]` Added `buttonsetTextWidth` option to specify width of the buttonset text in the modal. ([EP#8639](https://github.com/infor-design/enterprise/issues/8639))
+- `[Modal]` Added `buttonsetTextWidth` option to specify width of the `buttonset` text in the modal. ([EP#8639](https://github.com/infor-design/enterprise/issues/8639))
 
 ## 17.7.0 Fixes
 
 - `[Dropdown]` Fixed setFocus method to work also when there is no label associated with the dropdown. ([#1673](https://github.com/infor-design/enterprise-ng/issues/1673))
 - `[FieldFilter]` Fixed field filter reset method not clearing on NG. ([#1641](https://github.com/infor-design/enterprise-ng/issues/1641))
-- `[Spinbox]` Updated type for step and fixed increase/decrease buttons not getting disabled when value passed with ngControl was matching min/max value. ([#1680](https://github.com/infor-design/enterprise-ng/issues/1680))
+- `[Spinbox]` Updated type for step and fixed increase/decrease buttons not getting disabled when value passed with `ngControl` was matching min/max value. ([#1680](https://github.com/infor-design/enterprise-ng/issues/1680))
 
 ## 17.6.0
 
 ## 17.6.0 Features
 
 - `[Button]` Added typings for generative button and updated example page. ([EP#8541](https://github.com/infor-design/enterprise/issues/8541))
-- `[Lookup]` Added `placeholder` setting for filter searchfield. ([EP#8416](https://github.com/infor-design/enterprise/issues/8416))
+- `[Lookup]` Added `placeholder` setting for filter `searchfield`. ([EP#8416](https://github.com/infor-design/enterprise/issues/8416))
 - `[Module Nav]` Added `disableSwitcher` and `disabled` setting for Module Nav and Module Nav Switcher. ([EP#8381](https://github.com/infor-design/enterprise/issues/8381))
 - `[Tabs]` Added `noFocus` parameter for selected method in Tabs component. ([#1647](https://github.com/infor-design/enterprise-ng/issues/1647))
 
@@ -71,7 +76,7 @@
 
 ### 17.1.0 Features
 
-- `[Datagrid]` Added multiselect formatter and updated example page. ([#1573](https://github.com/infor-design/enterprise-ng/issues/1573))
+- `[Datagrid]` Added `multiselect` formatter and updated example page. ([#1573](https://github.com/infor-design/enterprise-ng/issues/1573))
 - `[Tabs]` Fixed tabs item sortable and updated example page ([#1480](https://github.com/infor-design/enterprise-ng/issues/1480))
 
 ### 17.1.0 Fixes
@@ -100,7 +105,7 @@
 
 - `[Datagrid]` Added ability for expandable and summary rows to be updated after cell update. ([#8058](https://github.com/infor-design/enterprise/issues/8058))
 - `[Datagrid]` Added example page for vertical scroll in list style. ([#7879](https://github.com/infor-design/enterprise/issues/7879))
-- `[Monthview]` Updated example page to showcase change of day in monthview. ([#1565](https://github.com/infor-design/enterprise-ng/issues/1565))
+- `[Monthview]` Updated example page to showcase change of day in `monthview`. ([#1565](https://github.com/infor-design/enterprise-ng/issues/1565))
 - `[TimePicker]` Fixed time picker to allow icon button to be clickable after reenabling. ([#1567](https://github.com/infor-design/enterprise-ng/issues/1567))
 - `[General]` Added Enterprise 4.89.0 version
 

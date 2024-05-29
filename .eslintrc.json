@@ -76,7 +76,6 @@
         ],
         "@angular-eslint/no-attribute-decorator": "error",
         "@angular-eslint/no-forward-ref": "error",
-        "@typescript-eslint/consistent-type-definitions": "error",
         "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/explicit-member-accessibility": [
           "off",
@@ -84,7 +83,6 @@
             "accessibility": "explicit"
           }
         ],
-        "@typescript-eslint/no-empty-interface": "off",
         "id-blacklist": "off",
         "id-match": "off",
         "no-multiple-empty-lines": "error",

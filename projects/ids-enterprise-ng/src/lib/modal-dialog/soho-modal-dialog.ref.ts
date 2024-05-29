@@ -160,7 +160,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Optional width to set the text of the buttonset.
-   * 
+   *
    * @param buttonsetTextWidth - The width of buttonset text.
    */
   buttonsetTextWidth(buttonsetTextWidth: number | string): SohoModalDialogRef<T> {
@@ -794,7 +794,6 @@ export type SohoModalDialogEventVetoFunction<T> = (dialogRef: SohoModalDialogRef
 /**
  * Contract for all SohoModalDialogComponents.
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SohoModalComponent<T> {
 }
 

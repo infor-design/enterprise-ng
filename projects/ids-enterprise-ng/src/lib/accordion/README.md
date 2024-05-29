@@ -34,14 +34,14 @@ In the markup for you angular component, simply add elements named `soho-accordi
 
 ## Inputs
 
-The 'accordion' component provides a number of options to control its behaviour, and presentation.
+The 'accordion' component provides a number of options to control its behavior, and presentation.
 
 | Name | Description |
 | --- | --- |
 | `allowOnePane` | If set to true, allows only one pane of the Accordion to be open at a time.  If an Accordion pane is open, and that pane contains sub-headers, only one of the pane's sub-headers can be open at a time. (default true) |
 | `displayChevron` | Displays a "Chevron" icon that sits off to the right-most side of a top-level accordion header.  Used in place of an Expander (+/-) if enabled. |
 | `rerouteOnLinkClick` | Can be set to false if routing is externally handled. |
-| `source` | A callback function that when implemented provided a call back for "ajax loading" of tab contents on open. |
+| `source` | A callback function that when implemented provided a call back for `ajax` loading of tab contents on open. |
 
 Changes to these properties will dynamically update the component.
 
@@ -53,7 +53,7 @@ Changes to these properties will dynamically update the component.
 | `collapseAll` | Collapses all accordion headers. |
 | `disable` | Disable the accordion. |
 | `enable` | Enable the accordion. |
-| `expand(h: SohoHeaderComponent| string)` | Expand the given Panel on the Accordion. |
+| `expand(h: SohoHeaderComponent)` | Expand the given Panel on the Accordion. |
 | `expandAll` | Expands all accordion headers, if possible. |
 | `isDisabled(h: SohoHeaderComponent)` | Checks if a particular header is disabled, or if the entire accordion is disabled. |
 | `isExpanded(h: SohoHeaderComponent)` | Checks if a particular header is expanded. |

@@ -35,10 +35,10 @@ actions: SohoActionsheetActions[] = [
 
 ## inputs
 
-The `actionsheet` component provides a number of options to contol its behaviour, and presentation.
+The `actionsheet` component provides a number of options to control its behavior, and presentation.
 
-| Name | Description |
-| --- | --- |
+| Name | Type | Description |
+| --- | --- | --- |
 | `actions` | Object | Provides the data (`icon`, and `text`) of the action button. |
 | `attributes` | Object | Add extra attributes like id's to the toast element. For example `attributes: { name: 'id', value: 'my-unique-id' }`. |
 | `showCancelButton` | Boolean | Add an extra cancel button to the actionsheet. |

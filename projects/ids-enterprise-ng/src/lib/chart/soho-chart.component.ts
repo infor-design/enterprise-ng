@@ -183,7 +183,6 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
     if (this.jQueryElement) {
       const dataArray = this._chartOptions.dataset || [];
       if (this._chartOptions.type === 'pie' || this._chartOptions.type === 'donut') {
-        // eslint-disable-next-line @typescript-eslint/prefer-for-of
         for (let i = 0; i < dataArray.length; i++) {
           const dataNode = dataArray[i];
           for (let j = 0; j < dataNode.data.length; j++) {

@@ -71,7 +71,6 @@ export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
     const responseValues = [];
     const selectedValues = (this.dropdownElement as any).nativeElement.querySelectorAll('option:checked');
 
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < selectedValues.length; i++) {
       const optionValue = selectedValues[i].value;
       const array = optionValue.split(':');
