@@ -1,8 +1,14 @@
 # What's New with Enterprise-NG
 
-## 16.13.2
+## 16.12.7
 
-## 16.13.2 Fixes
+## 16.12.7 Fixes
+
+- `[General]` Added 4.92.9 with patches
+
+## 16.12.6
+
+## 16.12.6 Fixes
 
 - `[General]` Added 4.92.8 with patches
 
