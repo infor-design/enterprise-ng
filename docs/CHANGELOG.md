@@ -11,10 +11,13 @@
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
 - `[Mask]` Fixed placeholder value being duplicated on number input. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1686))
 - `[Monthview]` Fixed `monthview` not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
+- `[Monthview]` Fixed monthview not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
+- `[Popupmenu]` Updated example page to fix multiselect. ([#8623](https://github.com/infor-design/enterprise-ng/issues/8623))
 
 ## 17.8.0 Features
 
 - `[ContextualActionPanel/Modal]` Added new settings `propagateStyle` and `compactPanel`. ([#1594](https://github.com/infor-design/enterprise-ng/issues/1594))
+- `[Datagrid]` Updated example page to test personalize columns setting. ([EP#8138](https://github.com/infor-design/enterprise/issues/8138))
 
 ## 17.7.0
 
