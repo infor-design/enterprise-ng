@@ -2315,6 +2315,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  /**
+   * Search a term across all columns and highlight it
+   * @param term - the search term
+   */
+  keywordSearch(value: string): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.datagrid?.keywordSearch(value)
+    })
+  }
+
   // -------------------------------------------
   // Event Handlers
   // -------------------------------------------
