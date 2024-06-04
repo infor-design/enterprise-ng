@@ -5,6 +5,7 @@
 ## 17.8.0 Fixes
 
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
+- `[Datepicker]` Fixed readonly state when called from disabled method. ([#1702](https://github.com/infor-design/enterprise-ng/issues/1702))
 - `[Monthview]` Fixed monthview not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
 
 ## 17.8.0 Features
