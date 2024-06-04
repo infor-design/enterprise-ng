@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 17.2.2
+
+### 17.2.2 Fixes
+
+- `[General]` Added patched version `4.91.2`
+
 ## 17.1.0
 
 ### 17.1.0 Features
