@@ -1,7 +1,12 @@
 <div class="row top-padding">
     <div class="six columns">
         <div class="field">
+            <label for="clearable-input">Clearable</label>
             <input soho-input [clearable]="true" id="clearable-input"/>
+        </div>
+        <div class="field">
+            <label for="number-mask">Number Mask</label>
+            <input id="number-mask" soho-mask soho-input [process]="'number'" placeholder="100"/>
         </div>
     </div>
 </div>

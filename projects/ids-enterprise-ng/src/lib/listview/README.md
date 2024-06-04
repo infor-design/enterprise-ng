@@ -32,10 +32,10 @@ In the markup for the hosting component add:
 
 | Name | Description |
 | --- | --- |
-| `remove(index | index[])` | Remove the item(s) at the given index (or indices) from the listview. |
-| `select(index | index[])` | Select the item(s) at the given index (or indices) from the listview. |
-| `unselect(index | index[])` | Deselect the item(s) at the given index (or indices) from the listview. (Deprecated) use deselect. |
-| `deselect(index | index[])` | Deselect the item(s) at the given index (or indices) from the listview. |
+| `remove(index)` | Remove the item(s) at the given index (or indices) from the listview. |
+| `select(index)` | Select the item(s) at the given index (or indices) from the listview. |
+| `unselect(index)` | Deselect the item(s) at the given index (or indices) from the listview. (Deprecated) use deselect. |
+| `deselect(index)` | Deselect the item(s) at the given index (or indices) from the listview. |
 | `toggleAll()` | Toggles the current selection of all items. |
 | `clearAllSelected()` | Deselects all the selected items. |
 

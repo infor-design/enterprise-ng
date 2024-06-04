@@ -575,6 +575,5 @@ export type SohoContextualActionPanelEventFunction<T> = (result: any, panelRef: 
 /**
  * Contract for all SohoContextualActionPanelComponents.
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SohoContextualActionPanelComponent<T> {
 }

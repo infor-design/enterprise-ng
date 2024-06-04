@@ -49,6 +49,7 @@
       <li soho-popupmenu-item [subMenu]="true">
         <a soho-popupmenu-label>Multiselectable</a>
         <ul soho-popupmenu [isMultiselectable]="true">
+          <li soho-popupmenu-separator multiSelectableSection="true"></li>
           <li soho-popupmenu-item [isChecked]="options.autoScale"><a soho-popupmenu-label (click)="toggleOption('autoScale')">Auto Scale</a></li>
           <li soho-popupmenu-item [isChecked]="options.showLabel"><a soho-popupmenu-label (click)="toggleOption('showLabel')">Show Label</a></li>
           <li soho-popupmenu-item [isChecked]="options.showAxis"><a soho-popupmenu-label (click)="toggleOption('showAxis')">Show Axis</a></li>

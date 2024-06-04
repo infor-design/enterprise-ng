@@ -56,7 +56,6 @@ export class DropdownTypeaheadDemoComponent implements AfterViewInit {
 
     // Filter based on the search term
     const filtered: any = [];
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < states.length; i++) {
       if (states[i].label.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
         filtered.push(states[i]);

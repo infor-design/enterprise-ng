@@ -726,7 +726,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
       const tabTitles: Array<string> = [];
       const $anchorList: any | JQuery = $liList?.find('a');
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i = 0; i < $anchorList.length; i++) {
         tabTitles.push($($anchorList[i]).html());
       }

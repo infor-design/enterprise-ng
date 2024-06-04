@@ -91,6 +91,13 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
 
   /** The placeholder text for the mask. */
   @Input() set placeholder(value: string) {
+    if (this.mask) {
+      this.mask.updated();
+    }
+  }
+
+  /** The placeholder character for the mask. */
+  @Input() set placeholderChar(value: string) {
     this._options.placeholderChar = value;
     if (this.mask) {
       this.mask.settings.placeholderChar = value;
