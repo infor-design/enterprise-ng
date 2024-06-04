@@ -3,12 +3,9 @@
   "slug": "ids-enterprise-ng",
   "version": "17.7.0-dev.0",
   "dependencies": {
-    "ids-enterprise": "4.95.2"
-  },
-  "peerDependencies": {
     "@angular/common": "^18.0.0",
     "@angular/core": "^18.0.0",
-    "ids-enterprise": "4.95.0",
+    "ids-enterprise": "4.95.2",
     "jquery": "3.7.1",
     "d3": "7.8.2",
     "@types/jquery": "3.5.16",
