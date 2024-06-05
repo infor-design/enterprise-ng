@@ -14,10 +14,6 @@ import {
 } from '@angular/core';
 
 import {
-  FormGroup,
-} from '@angular/forms';
-
-import {
   BaseControlValueAccessor,
   provideControlValueAccessor
 } from '../utils/base-control-value-accessor';
@@ -517,15 +513,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     private ngZone: NgZone,
     public ref: ChangeDetectorRef) {
     super();
-  }
-
-  hasFormGroup(component: any): boolean {
-    for (let key in component) {
-      if (component[key] instanceof FormGroup) {
-        return true;
-      }
-    }
-    return false;
   }
 
   ngAfterViewInit() {
