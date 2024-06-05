@@ -567,7 +567,11 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
       }
 
       if (this.isReadOnly !== null && this.isReadOnly !== undefined) {
-        this.readonly = this.isReadOnly;
+        // readonly and disabled are associated together when building the control (for disabled).
+        // Which means that the this.readonly and this.disabled will be set to true if the control is disabled.
+        // We need to get the parent element to check if the control is disabled `.is-disabled` (Coming from the jQuery library).
+        // This is connected to setDisabledState() function.
+        this.readonly = this.datepicker?.element.prop('readonly') && !this.jQueryElement?.parent('.is-disabled').length;
       }
 
       this.ngZone.runOutsideAngular(() => {
@@ -630,7 +634,20 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
    * Depending on the value, it will enable or disable the appropriate DOM element.
    */
   setDisabledState(isDisabled: boolean): void {
+    // check if the element is readonly
+    // This is needed to revert the readonly state of the element
+    let isReadOnlyElem;
+    if (this.datepicker?.element.prop('readonly')) {
+      isReadOnlyElem = true;
+    }
+
     this.disabled = isDisabled;
+
+    // if the element is readonly, set it back to readonly
+    if (isReadOnlyElem) {
+      this.isReadOnly = true;
+      this.datepicker?.element.prop('readonly', true);
+    }
   }
 
   ngOnDestroy() {
