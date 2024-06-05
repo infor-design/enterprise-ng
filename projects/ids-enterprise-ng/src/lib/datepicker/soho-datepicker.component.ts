@@ -14,6 +14,10 @@ import {
 } from '@angular/core';
 
 import {
+  FormGroup,
+} from '@angular/forms';
+
+import {
   BaseControlValueAccessor,
   provideControlValueAccessor
 } from '../utils/base-control-value-accessor';
@@ -515,6 +519,15 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     super();
   }
 
+  hasFormGroup(component: any): boolean {
+    for (let key in component) {
+      if (component[key] instanceof FormGroup) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   ngAfterViewInit() {
 
     // call outside the angular zone so change detection
@@ -634,10 +647,19 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
    * Depending on the value, it will enable or disable the appropriate DOM element.
    */
   setDisabledState(isDisabled: boolean): void {
-    // Making sure that the disabled attribute is not set to undefined
-    // which means that this element is not disabled but readonly.
-    if (this.disabled !== undefined) {
-      this.disabled = isDisabled;
+    // check if the element is readonly
+    // This is needed to revert the readonly state of the element
+    let isReadOnlyElem;
+    if (this.datepicker?.element.prop('readonly')) {
+      isReadOnlyElem = true;
+    }
+
+    this.disabled = isDisabled;
+
+    // if the element is readonly, set it back to readonly
+    if (isReadOnlyElem) {
+      this.isReadOnly = true;
+      this.datepicker?.element.prop('readonly', true);
     }
   }
 
