@@ -1,0 +1,142 @@
+// Reset
+//================================================== //
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cite,
+code,
+em,
+img,
+small,
+strong,
+sub,
+sup,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+input,
+textarea,
+select,
+button,
+table,
+caption,
+thead,
+tbody,
+tfoot,
+tr,
+th,
+td {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+a:focus,
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: 0;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+main,
+section {
+  display: block;
+}
+
+// Responsive images and other embedded objects
+img,
+object,
+embed {
+  max-width: 100%;
+}
+
+img {
+  border-color: transparent;
+  border-style: none;
+  border-width: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+input,
+textarea,
+select,
+button,
+th {
+  border: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  margin: 0;
+  overflow: visible;
+  width: auto;
+}
+
+// Remove button padding in FF
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+// Fix the way some browsers apply webkit text fill by default, so we
+// don't have to keep overriding it everwhere.
+// Skip IE so it doesn't cause errors due to not being supported.
+html:not(.ie):not(.is-safari) {
+  -webkit-text-fill-color: unset;
+}

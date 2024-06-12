@@ -7,7 +7,7 @@ import {
 import { SohoBarComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-bar-demo',
+  selector: 'app-bar-stacked-demo',
   templateUrl: 'bar-stacked.demo.html',
 })
 export class BarStackedDemoComponent implements OnInit {
@@ -16,7 +16,7 @@ export class BarStackedDemoComponent implements OnInit {
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: '2009'};
-  private selection: SohoBarSelected  = {index: 0};
+  private selection: SohoBarSelected = { index: 0 };
 
   public barStackedData = [{
     data: [{
@@ -46,28 +46,28 @@ export class BarStackedDemoComponent implements OnInit {
 
   public barType = 'bar-stacked';
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent?.setSelected(SohoBarSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent?.toggleSelected(SohoBarSelected);
   }
 
-  onSelected (args: any) {
+  onSelected(args: any) {
     console.log('selected', args);
   }
 
-  onDblclick (args: any) {
+  onDblclick(args: any) {
     // Use only when `dblclick` is firing on our component
     if (!args.target) {
-     console.log('double clicked', args);
+      console.log('double clicked', args);
     }
   }
 }

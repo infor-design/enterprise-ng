@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-column-demo',
+  selector: 'app-column-grouped-axisdemo',
   templateUrl: 'column-grouped-xaxis-twoline.demo.html',
 })
 export class ColumnGroupedXaxisTwolineDemoComponent implements OnInit {

@@ -40,11 +40,15 @@
             "styles": [
               "src/styles.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/ids-enterprise/src/components/tag/"
+              ]
+            },
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/d3/dist/d3.js",
-              "node_modules/ids-enterprise/dist/js/sohoxi.js",
-              "node_modules/lscache/lscache.js"
+              "node_modules/ids-enterprise/dist/js/sohoxi.js"
             ]
           },
           "configurations": {
@@ -118,12 +122,16 @@
               "node_modules/jquery/dist/jquery.js",
               "node_modules/d3/dist/d3.js",
               "node_modules/ids-enterprise/dist/js/sohoxi.js",
-              "node_modules/ids-enterprise/dist/js/cultures/en-US.js",
-              "node_modules/lscache/lscache.js"
+              "node_modules/ids-enterprise/dist/js/cultures/en-US.js"
             ],
             "styles": [
               "src/styles.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "projects/ids-enterprise/src/components/tag/"
+              ]
+            },
             "assets": [
               {
                 "glob": "**/*",
@@ -201,12 +209,15 @@
       }
     }
   },
-  "cli": {
-    "analytics": "deda5b6f-0536-400b-81ca-445018af21f9",
-    "cache": {
-      "enabled": false,
-      "path": ".cache",
-      "environment": "all"
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
     }
+  },
+  "cli": {
+    "cache": {
+      "enabled": false
+    },
+    "analytics": false
   }
 }

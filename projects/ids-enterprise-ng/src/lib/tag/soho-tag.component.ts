@@ -8,8 +8,12 @@ import {
   NgZone,
   Output,
   EventEmitter,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  ViewEncapsulation
 } from '@angular/core';
+
+import { Tag } from './soho-tag.js';
+import { TagList } from './soho-tag.list.js';
 
 /**
  * Support Tag types.
@@ -32,7 +36,7 @@ export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | 'info' | un
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTagListComponent implements AfterViewInit, OnDestroy {
-  @HostBinding('class.tag-list') get isTagList() {
+  @HostBinding('class.soho-tag-list') get isTagList() {
     return true;
   }
 
@@ -62,13 +66,16 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
     private element: ElementRef,
     private ngZone: NgZone) { }
 
+  tagList?: TagList;
+
   ngAfterViewInit() {
     // Call outside the angular zone so change detection
     // isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
-      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.tagList = new TagList(this.element.nativeElement, '');
 
       // Add event handlers for the outer tag list.
+      this.jQueryElement = jQuery(this.element.nativeElement);
       this.jQueryElement
         .on('aftertagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onAfterTagRemove(e, tag));
       this.jQueryElement
@@ -105,25 +112,13 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
 /**
  * Angular Support for elements styled as SohoXi tags.  The styling can be
  * controlled using the additional tag type, specified on element.
- *
- * They can be mixed in with other elements like lists, grids and search fields.
- *
- *<pre>
- * {@code
- * <span soho-tag='error'>#Error</span>
- * }
- *</pre>
- *
- * @export
- *
- *
- *
  */
-
 @Component({
   selector: '[soho-tag]', // eslint-disable-line
   template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './soho-tag.component.scss',
+  encapsulation: ViewEncapsulation.None // TODO: Why default doesnt work?
 })
 export class SohoTagComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
@@ -157,7 +152,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   /** Options. */
   private options: SohoTagOptions = {};
 
-  @HostBinding('class.tag') get isTag() {
+  @HostBinding('class.soho-tag') get isTag() {
     return true;
   }
 
@@ -224,18 +219,14 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement = jQuery(this.element.nativeElement);
 
       // initialise the tag control
-      this.jQueryElement.tag(this.options);
-
-      // extract the api
-      this.tag = this.jQueryElement.data('tag');
+      this.tag = new Tag(this.element.nativeElement, this.options as any);
 
       // @todo - add event binding control so we don't bind if not required.
       // this.jQueryElement
       const tagElem = this.tag?.element;
       const parent = tagElem ? jQuery(tagElem).parent() : null;
 
-      this.jQueryElement
-        .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
+      this.jQueryElement!.on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
 
       if (parent) {
         parent.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));

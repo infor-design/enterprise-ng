@@ -5,11 +5,38 @@ import { SohoHomePageComponent } from 'ids-enterprise-ng';
 @Component({
   selector: 'app-homepage-demo',
   templateUrl: 'homepage.demo.html',
+  styleUrls: ['homepage.demo.scss']
 })
 export class HomePageDemoComponent {
   @ViewChild(SohoHomePageComponent, { static: true }) homepage?: SohoHomePageComponent;
 
   public demoTasks: Object[];
+
+  public searchText: string = '';
+  public language = {
+    searchPlaceholder: 'Search',
+    poRequests: 'PO Requests',
+    info: 'Info',
+    tasks: 'Tasks',
+    unresolveMessage: 'Unresolved Messages',
+    poAck: 'PO Acknowledgements',
+    ack: 'Acknowledgements',
+    itemLabel: 'Item',
+  };
+
+  public buyerCountsArray = [
+    { name: 'Buyer 1', counts: [5, 3, 3, 2, 1], imageFlag: false, buyerProfile: 'am' },
+    { name: 'Buyer 2', counts: [5, 3, 3, 2, 1], imageFlag: false, buyerProfile: 'te' },
+    { name: 'Buyer 3', counts: [5, 3, 3, 2, 1], imageFlag: false, buyerProfile: 'ar' },
+    { name: 'Buyer 4', counts: [5, 3, 3, 2, 1], imageFlag: false, buyerProfile: 'se' },
+  ];
+
+  public modalGroupMessages = [
+    { GroupType: 'Group A', GroupdataCompany: 'Company A', GroupdataLocation: 'USA', itemLabel: 'Item A', GroupdataItem: 10 },
+    { GroupType: 'Group B', GroupdataCompany: 'Company B', GroupdataLocation: 'USA', itemLabel: 'Item B', GroupdataItem: 20 },
+    { GroupType: 'Group C', GroupdataCompany: 'Company C', GroupdataLocation: 'USA', itemLabel: 'Item C', GroupdataItem: 30 },
+    { GroupType: 'Group D', GroupdataCompany: 'Company D', GroupdataLocation: 'USA', itemLabel: 'Item D', GroupdataItem: 20 },
+  ]
 
   public pieData = [{
     data: [{
@@ -97,6 +124,9 @@ export class HomePageDemoComponent {
   }
   onSorted(event: any) {
     console.log('Sorted: ' + event);
+  }
+  onSearchClear() {
+    console.log('Search cleared ');
   }
   onBeforeOpen(_event: any) {
   }

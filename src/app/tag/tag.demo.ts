@@ -13,18 +13,18 @@ export class TagDemoComponent implements OnInit {
   }
 
   afterRemove(e: any) {
-    alert(`afterRemove ${e.tag.settings.content}`);
+    console.info(`afterRemove ${e.tag.settings.content} fired`);
   }
 
   beforeRemove(e: any) {
-    alert(`beforeRemove ${e.tag.settings.content}`);
+    console.info(`beforeRemove ${e.tag.settings.content} fired`);
   }
 
   beforeRemoveSolo(e: any) {
-    alert(`beforeRemove (solo) ${e.tag.settings.content}`);
+    console.info(`beforeRemove (solo) ${e.tag.settings.content} fired`);
   }
 
   onClick(e: any) {
-    alert(`Clicked`);
+    console.info(`Clicked`);
   }
 }

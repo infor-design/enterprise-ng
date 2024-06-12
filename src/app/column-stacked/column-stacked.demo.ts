@@ -7,7 +7,7 @@ import {
 import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-column-demo',
+  selector: 'app-column-stacked-demo',
   templateUrl: 'column-stacked.demo.html',
 })
 export class ColumnStackedDemoComponent implements OnInit {
@@ -15,7 +15,7 @@ export class ColumnStackedDemoComponent implements OnInit {
   @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent?: SohoColumnComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
-  private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Mar'};
+  private selection: SohoColumnSelected = { fieldName: 'name', fieldValue: 'Mar' };
   // private selection: SohoColumnSelected  = {index: 8};
 
   public columnStackedData = [{
@@ -103,27 +103,27 @@ export class ColumnStackedDemoComponent implements OnInit {
 
   public columnType = 'column-stacked';
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
 
   setChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent?.setSelected(SohoColumnSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent?.toggleSelected(SohoColumnSelected);
   }
 
-  onSelected (args: any) {
+  onSelected(args: any) {
     console.log('selected', args);
   }
 
-  onDblclick (args: any) {
+  onDblclick(args: any) {
     // Use only when `dblclick` is firing on our component
     if (!args.target) {
-     console.log('double clicked', args);
+      console.log('double clicked', args);
     }
   }
 }

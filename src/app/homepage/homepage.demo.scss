@@ -1,0 +1,24 @@
+.lm-scroll-vert {
+  overflow-y: auto;
+}
+
+.lm-size-full {
+  width: 100%;
+}
+
+lm-scroll-no-x {
+  overflow-x: hidden;
+}
+
+.lm-scroll-no-y {
+  overflow-y: hidden;
+}
+
+.lm-display-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.lm-padding-md {
+  padding: 12px;
+}

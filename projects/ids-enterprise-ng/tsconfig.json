@@ -14,13 +14,23 @@
     ],
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "paths": {
+      "@ids-enterprise": [
+        "../ids-enterprise/src/"
+      ],
+      "@ids-enterprise/*": [
+        "../ids-enterprise/src/"
+      ]
+    },
   },
   "angularCompilerOptions": {
     "declaration": false,
     "module": "esnext",
     "importHelpers": true,
     "resolveJsonModule": true,
+    "allowJs": true,
     "target": "es2015",
     "strict": true
   },

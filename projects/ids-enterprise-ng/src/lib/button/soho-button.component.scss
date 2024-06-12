@@ -1,0 +1,2136 @@
+// Buttons
+//================================================== //
+
+@import  '../themes/theme-new-light.scss';
+// @import  ''../themestheme-new-dark';
+// @import  ''../themestheme-new-dark';
+
+button {
+  background-color: transparent;
+  margin-right: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.soho-btn-icon {
+  .notification-badge-container {
+    .notification-dot {
+      display: block !important;
+
+      &.notification-dot-upper-right {
+        right: 7px;
+        top: 4px;
+        transform: scale(1) translate(50%, -50%);
+        transform-origin: 100% 0%;
+      }
+
+      &.notification-dot-upper-left {
+        top: 4px;
+        left: -16px;
+        transform: scale(1) translate(-50%, -50%);
+        transform-origin: 0% 0%;
+      }
+
+      &.notification-dot-lower-right {
+        top: 11px;
+        left: -8px;
+        transform: scale(1) translate(50%, 50%);
+        transform-origin: 0% 100%;
+      }
+
+      &.notification-dot-lower-left {
+        top: 11px;
+        left: -16px;
+        transform: scale(1) translate(-50%, 50%);
+        transform-origin: 0% 100%;
+      }
+    }
+  }
+
+  // Styles for svg hamburger menu
+  &.application-menu-trigger {
+    svg.icon {
+      height: 18px;
+      top: 1px;
+      width: 18px;
+
+      + .notification-badge-container {
+        .notification-dot.notification-dot-upper-left {
+          left: -22px;
+          top: 5px;
+        }
+
+        .notification-dot.notification-dot-upper-right {
+          right: 5px;
+          top: 5px;
+        }
+
+        .notification-dot.notification-dot-lower-left {
+          left: -22px;
+          top: 13px;
+        }
+
+        .notification-dot.notification-dot-lower-right {
+          top: 13px;
+        }
+      }
+    }
+  }
+}
+
+.soho-btn-primary,
+.soho-btn-secondary,
+.soho-btn-tertiary {
+  .notification-badge-container {
+    display: unset;
+
+    .notification-dot {
+      display: block !important;
+
+      &.notification-dot-upper-right {
+        right: 10px;
+        top: 3px;
+        transform: scale(1) translate(50%, -50%);
+        transform-origin: 100% 0%;
+      }
+
+      &.notification-dot-upper-left {
+        top: 3px;
+        left: -16px;
+        transform: scale(1) translate(-50%, -50%);
+        transform-origin: 0% 0%;
+      }
+
+      &.notification-dot-lower-right {
+        top: 10px;
+        left: -8px;
+        transform: scale(1) translate(50%, 50%);
+        transform-origin: 0% 100%;
+      }
+
+      &.notification-dot-lower-left {
+        top: 10px;
+        left: -16px;
+        transform: scale(1) translate(-50%, 50%);
+        transform-origin: 0% 100%;
+      }
+    }
+  }
+}
+
+.dot-flashing-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  gap: 2px;
+  margin-inline-end: 5px;
+
+  .dot {
+    display: inline-flex;
+    position: relative;
+    width: 3px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #fff;
+
+    &:nth-child(1) {
+      animation: dot-flashing 1s infinite alternate;
+      animation-delay: 0s;
+    }
+
+    &:nth-child(2) {
+      animation: dot-flashing 1s infinite linear alternate;
+      animation-delay: 0.5s;
+    }
+
+    &:nth-child(3) {
+      animation: dot-flashing 1s infinite alternate;
+      animation-delay: 1s;
+    }
+  }
+}
+
+@keyframes dot-flashing {
+  0% {
+    background-color: $button-primary-dot-flashing-bg-color-key-one;
+  }
+
+  50%, 100% {
+    background-color: $button-primary-dot-flashing-bg-color-key-two;
+  }
+}
+
+@keyframes dot-flashing-colors {
+  0% {
+    background-color: $button-tertiary-dot-flashing-bg-color-key-one;
+  }
+
+  50%, 100% {
+    background-color: $button-tertiary-dot-flashing-bg-color-key-two;
+  }
+}
+
+.soho-btn-icon.soho-btn-generative {
+  background: $button-gen-ai-bg-color;
+  border: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &:focus {
+    box-shadow: $button-gen-ai-focus !important;
+  }
+
+  .dot-flashing-container {
+    margin-inline-end: 0;
+  }
+
+  &:hover {
+    background: $button-gen-ai-hover-bg-color;
+
+    svg.icon {
+      color: $button-color-gen-ai !important;
+    }
+  }
+
+  &:active {
+    background: $button-gen-ai-active-bg-color;
+  }
+
+  &[disabled] {
+    background: $button-primary-disabled-color-gen-ai;
+    background-color: $ids-color-palette-white !important;
+    color: $button-color-gen-ai !important;
+    opacity: 0.4;
+
+    &:hover {
+      background: $button-primary-disabled-hover-color-gen-ai;
+      background-color: $ids-color-palette-white !important;
+    }
+  }
+
+  svg.icon {
+    color: $button-color-gen-ai;
+    margin-top: 0;
+  }
+
+  .ai-loading-indicator {
+    width: 30px;
+  }
+}
+
+.soho-btn-primary.soho-btn-generative {
+  background: $button-gen-ai-bg-color;
+  border: none !important;
+  color: $button-color-gen-ai;
+  padding: 0 24px !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    border-radius: 8px;
+    background: $button-gen-ai-hover-bg-color;
+  }
+
+  &:active {
+    background: $button-gen-ai-active-bg-color;
+  }
+
+  &[disabled] {
+    background: $button-primary-disabled-color-gen-ai;
+    background-color: $ids-color-palette-white !important;
+    color: $button-color-gen-ai !important;
+    opacity: 0.4;
+
+    &:hover {
+      background: $button-primary-disabled-hover-color-gen-ai;
+      background-color: $ids-color-palette-white !important;
+    }
+  }
+
+  &:focus {
+    box-shadow: $button-gen-ai-focus;
+  }
+
+  .icon {
+    color: $button-color-gen-ai;
+  }
+
+  span ~ svg.icon {
+    margin-top: 0;
+  }
+}
+
+.soho-btn-primary.soho-btn-generative {
+  > svg.icon {
+    margin-top: 0 !important;
+  }
+}
+
+.soho-btn-tertiary.soho-btn-generative {
+  background: $button-tertiary-color-gen-ai;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  &:hover {
+    background: $button-tertiary-hover-color-gen-ai;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:active {
+      svg.icon {
+        linearGradient#paint-linear stop {
+          &:first-child {
+            stop-color: $button-tertiary-gradient-active-color-one;
+          }
+
+          &:last-child {
+            stop-color: $button-tertiary-gradient-active-color-two;
+          }
+        }
+      }
+    }
+  }
+
+  &:active {
+    background: $button-gen-ai-active-bg-color;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    svg.icon {
+      linearGradient#paint-linear stop {
+        &:first-child {
+          stop-color: $button-tertiary-gradient-active-color-one;
+        }
+
+        &:last-child {
+          stop-color: $button-tertiary-gradient-active-color-two;
+        }
+      }
+    }
+  }
+
+  &:focus {
+    box-shadow: $button-tertiary-gen-ai-focus !important;
+  }
+
+  &[disabled] {
+    background: $button-tertiary-disabled-color-gen-ai;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    svg.icon {
+      opacity: 0.5;
+
+      linearGradient#paint-linear-disabled stop {
+        &:first-child {
+          stop-color: $button-tertiary-disabled-icon-color-gen-ai-key-one;
+        }
+
+        &:last-child {
+          stop-color: $button-tertiary-disabled-icon-color-gen-ai-key-two;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    svg.icon {
+      linearGradient#paint-linear stop {
+        &:first-child {
+          stop-color: $button-tertiary-gradient-hover-color-one;
+        }
+
+        &:last-child {
+          stop-color: $button-tertiary-gradient-hover-color-two;
+        }
+      }
+    }
+  }
+
+  svg.icon {
+    margin-top: 0;
+
+    linearGradient#paint-linear stop {
+      &:first-child {
+        stop-color: $button-tertiary-gradient-color-one;
+      }
+
+      &:last-child {
+        stop-color: $button-tertiary-gradient-color-two;
+      }
+    }
+  }
+
+  &.loading {
+    background: $button-gen-ai-active-bg-color;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+  }
+
+  .dot-flashing-container {
+    .dot {
+      &:nth-child(1) {
+        animation: dot-flashing-colors 1s infinite alternate;
+        animation-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        animation: dot-flashing-colors 1s infinite linear alternate;
+        animation-delay: 0.5s;
+      }
+
+      &:nth-child(3) {
+        animation: dot-flashing-colors 1s infinite alternate;
+        animation-delay: 1s;
+      }
+    }
+  }
+}
+
+// Hover effect on SVG btn-tertiary AI
+.original-svg,
+.hover-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hover-svg {
+  opacity: 0;
+}
+
+.soho-btn-tertiary.soho-btn-generative:hover .original-svg:not(.active-effect) {
+  opacity: 0;
+}
+
+.soho-btn-tertiary.soho-btn-generative:hover .hover-svg {
+  opacity: 1;
+}
+
+// How all button types will deal with iconography
+.soho-btn,
+.soho-btn-primary,
+.soho-btn-secondary,
+.soho-btn-tertiary,
+.soho-btn-generative {
+  //Fixes an issue about the circle effect coming out of the button.
+  @include css3-extended(backface-visibility, hidden, (-webkit-, -moz-));
+  @include css3-extended(transform, translate3d(0, 0, 0), (-webkit-, -moz-));
+  @include css3-extended(color, transparent, (-webkit-tap-highlight-));
+  @include transition(color 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94));
+  @include antialiased();
+
+  color: inherit;
+  font-size: $ids-size-font-base;
+  font-weight: $ids-number-font-weight-bold;
+  height: 34px;
+  line-height: normal;
+  min-width: 75px;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  width: auto;
+
+  > * {
+    vertical-align: middle;
+  }
+
+  > svg {
+    pointer-events: none;
+  }
+
+  > .icon {
+    color: inherit;
+    position: static;
+    width: 18px;
+
+    + span.notification-badge-container {
+      padding-left: 3px;
+    }
+
+    + span:not(.audible):not(:empty) {
+      padding-left: 3px;
+    }
+
+    + * + span:not(.notification-badge-container) {
+      padding-left: 0;
+    }
+
+    + .icon {
+      margin-left: 0;
+    }
+  }
+
+  &.custom-button > .icon {
+    position: relative;
+  }
+
+  .icon {
+    @include transition(color 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94));
+  }
+
+  &.half-width {
+    padding: 0 30px;
+    width: 50%;
+
+    @media (max-width: $breakpoint-slim) {
+      text-overflow: ellipsis;
+    }
+  }
+
+  &.full-width {
+    padding: 0 30px;
+    width: 100%;
+  }
+
+  &.soho-btn-full-width {
+    width: 100%;
+  }
+
+  span {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    pointer-events: none;
+
+    &.audible,
+    &:empty {
+      + .icon {
+        margin-left: 0;
+      }
+    }
+
+    &:empty:not(.icon):not(.one):not(.two):not(.three):not(.four):not(.five):not(.six):not(.seven):not(.eight):not(.nine):not(.swatch) {
+      display: none;
+    }
+  }
+
+  span.audible {
+    + .notification-badge-container {
+      .notification-dot {
+        display: block !important;
+
+        &.notification-dot-upper-right {
+          right: 9px;
+          top: 9px;
+          transform: scale(1) translate(50%, -50%);
+          transform-origin: 100% 0%;
+        }
+
+        &.notification-dot-upper-left {
+          top: 9px;
+          left: -24px;
+          transform: scale(1) translate(-50%, -50%);
+          transform-origin: 0% 0%;
+        }
+
+        &.notification-dot-lower-right {
+          top: 16px;
+          left: -14px;
+          transform: scale(1) translate(50%, 50%);
+          transform-origin: 0% 100%;
+        }
+
+        &.notification-dot-lower-left {
+          top: 16px;
+          left: -24px;
+          transform: scale(1) translate(-50%, 50%);
+          transform-origin: 0% 100%;
+        }
+      }
+    }
+  }
+
+  .icon.app-header {
+    + .notification-badge-container {
+      .notification-dot {
+        display: block !important;
+
+        &.notification-dot-upper-right {
+          right: 13px;
+          top: 9px;
+          transform: scale(1) translate(50%, -50%);
+          transform-origin: 100% 0%;
+        }
+
+        &.notification-dot-upper-left {
+          top: 9px;
+          left: -24px;
+          transform: scale(1) translate(-50%, -50%);
+          transform-origin: 0% 0%;
+        }
+
+        &.notification-dot-lower-right {
+          top: 16px;
+          left: -14px;
+          transform: scale(1) translate(50%, 50%);
+          transform-origin: 0% 100%;
+        }
+
+        &.notification-dot-lower-left {
+          top: 16px;
+          left: -24px;
+          transform: scale(1) translate(-50%, 50%);
+          transform-origin: 0% 100%;
+        }
+      }
+    }
+  }
+
+  // Stackable buttons take up 100% of their container width and stack
+  &.stackable {
+    margin-bottom: 10px;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    cursor: default;
+
+    .disabled-tooltip {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &.hitbox {
+    overflow: visible; // making the button visible to make hitbox work.
+
+    span.hitbox-area {
+      display: block !important;
+      height: 44px;
+      left: -1px;
+      min-width: 44px;
+      overflow: hidden;
+      position: absolute;
+      pointer-events: auto !important;
+      transform: translateY(-50%);
+      top: 50%;
+      width: calc(100% + 2px);
+    }
+
+    &.soho-btn-icon,
+    &.soho-btn-actions {
+      span.hitbox-area {
+        transform: translate(-4px, -50%);
+      }
+    }
+  }
+}
+
+.soho-btn-primary,
+.soho-btn-secondary {
+  border-radius: 2px;
+  padding: 0 32px;
+}
+
+// standard, primary, destructive
+.soho-btn-primary {
+  background-color: $button-color-primary-initial-background;
+  border: 1px solid $button-color-primary-initial-background;
+  color: $button-color-primary-initial-font;
+
+  &.soho-btn {
+    color: $button-color-primary-initial-font;
+  }
+
+  .icon {
+    color: $button-color-primary-initial-font;
+  }
+
+  // In case both are specified
+  &.soho-btn {
+    color: $button-color-primary-initial-font;
+  }
+
+  &:hover {
+    background-color: $button-color-primary-hover-background;
+    border: 1px solid $button-color-primary-hover-background;
+
+    &.soho-btn {
+      color: $button-color-primary-initial-font;
+    }
+  }
+
+  &:active {
+    background-color: $button-color-primary-active-background;
+    border: 1px solid $button-color-primary-active-background;
+    box-shadow: none;
+  }
+
+  &:focus {
+    border: 1px solid $button-color-tertiary-focus-border;
+
+    &:not(.hide-focus) {
+      box-shadow: 0 0 0 2px $body-color-primary-background, 0 0 0 3px $button-color-primary-initial-background, $focus-box-shadow;
+    }
+
+    &:active {
+      background-color: $button-color-primary-active-background;
+      box-shadow: none;
+    }
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: $button-color-primary-disabled-background;
+    border-color: $button-color-primary-disabled-border;
+    box-shadow: none;
+    color: $button-color-primary-disabled-font;
+
+    .icon {
+      color: $button-color-primary-disabled-icon;
+    }
+  }
+
+  .ripple-effect {
+    background-color: $ids-color-palette-white;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  &.soho-btn-menu {
+    color: $button-color-primary-initial-font;
+
+    .icon {
+      color: $button-color-primary-initial-font;
+    }
+
+    &:hover,
+    &.is-open {
+      color: $button-color-primary-initial-font;
+
+      .icon {
+        color: $button-color-primary-initial-font;
+      }
+    }
+  }
+
+  &.destructive {
+    background-color: $button-color-primary-destructive-initial-background-new;
+    border: 2px solid $button-color-primary-destructive-initial-background-new;
+    color: $button-color-primary-initial-font;
+
+    &:focus:not(:disabled) {
+      border-color: $button-color-destructive-focus-border-new;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $button-color-primary-destructive-hover-background-new;
+      border: 2px solid $button-color-primary-destructive-hover-background-new;
+    }
+
+    &[disabled] {
+      background-color: $button-color-primary-destructive-initial-background-new;
+      border: 1px solid $button-color-primary-destructive-initial-background-new;
+      color: $button-color-primary-initial-font;
+      opacity: 0.4;
+    }
+  }
+}
+
+a.soho-btn,
+a.soho-btn-icon,
+a.soho-btn-primary,
+a.soho-btn-secondary,
+a.soho-btn-tertiary,
+a.soho-btn-menu,
+a.soho-btn-close {
+  display: inline-block;
+  line-height: 31px;
+  margin-bottom: -2px;
+  min-width: auto;
+  text-decoration: none;
+  width: auto;
+
+  &:not(:root:root) {
+    margin-bottom: auto;
+  }
+
+  &.soho-btn-icon {
+    line-height: 32px;
+    padding: 0 6px;
+  }
+}
+
+.soho-btn-split-menu {
+  min-width: auto;
+
+  + .separator {
+    margin: 3px 3px 0 -10px !important;
+
+    + .soho-btn-split-menu {
+      margin-left: -3px;
+      min-width: 20px;
+      width: 20px;
+
+      .icon {
+        margin-left: -7px;
+      }
+    }
+  }
+
+  &.soho-btn {
+    margin-right: -8px;
+  }
+}
+
+@-moz-document url-prefix() {
+  a.soho-btn,
+  a.soho-btn-primary,
+  a.soho-btn-secondary,
+  a.soho-btn-tertiary,
+  a.soho-btn-menu,
+  a.soho-btn-close {
+    line-height: 32px;
+    margin-bottom: -3px;
+  }
+}
+
+// Secondary Button
+.soho-btn-secondary {
+  background-color: $button-color-secondary-initial-background;
+  border: 1px solid $button-color-secondary-initial-background;
+  color: $button-color-secondary-initial-font;
+
+  .icon {
+    color: $button-color-secondary-initial-font;
+  }
+
+  &:hover {
+    background-color: $button-color-secondary-hover-background;
+    border: 1px solid $button-color-secondary-hover-background;
+  }
+
+  &:active {
+    background-color: $button-color-secondary-active-background;
+    border: 1px solid $button-color-secondary-active-background;
+  }
+
+  &:focus {
+    &:not(.hide-focus) {
+      box-shadow: $button-color-secondary-focus-shadow;
+    }
+
+    &:active {
+      background-color: $button-color-secondary-active-background;
+      box-shadow: none;
+    }
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background-color: $button-color-secondary-disabled-background;
+    border: 1px solid $button-color-secondary-disabled-border;
+    box-shadow: none;
+    color: $button-color-secondary-disabled-font;
+    cursor: default;
+
+    .icon {
+      color: $button-color-secondary-disabled-icon;
+    }
+  }
+
+  .ripple-effect {
+    background: $secondary-btn-ripple-color;
+  }
+
+  // Menu Button Form
+  &.soho-btn-menu {
+    color: $button-color-secondary-initial-font;
+
+    .icon {
+      color: $button-color-secondary-initial-font;
+    }
+
+    &:hover,
+    &.is-open {
+      color: $button-color-secondary-initial-font;
+
+      .icon {
+        color: $button-color-secondary-initial-font;
+      }
+    }
+  }
+}
+
+// Destructive Actions / Third Level Button
+.soho-btn,
+.soho-btn-tertiary,
+.soho-btn-icon,
+.soho-btn-close,
+.soho-btn-actions,
+.soho-btn-menu {
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: none;
+  color: $button-color-tertiary-initial-font;
+  overflow: hidden;
+
+  &:hover:not([disabled]) {
+    background-color: $button-color-tertiary-hover-background-new !important;
+    color: $button-color-tertiary-hover-text;
+
+    .icon {
+      color: $button-color-tertiary-hover-text;
+    }
+  }
+
+  &:active {
+    color: $button-color-tertiary-active-font;
+  }
+
+  &:focus:not(.hide-focus) {
+    border-color: $button-color-tertiary-focus-border;
+    box-shadow: $button-color-tertiary-focus-shadow;
+    z-index: 3;
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  &[disabled]:not(.soho-btn-icon):not(.destructive),
+  &[disabled]:not(.soho-btn-icon):not(.destructive):hover {
+    color: $button-color-tertiary-initial-font;
+    cursor: default;
+    opacity: 0.4;
+
+    .icon {
+      color: $button-color-tertiary-initial-font;
+    }
+  }
+
+  &.is-pressed {
+    color: $button-color-primary-initial-background;
+
+    .icon {
+      color: $button-color-primary-initial-background;
+    }
+  }
+
+  span {
+    color: inherit;
+  }
+
+  .icon {
+    color: $button-color-tertiary-initial-font;
+  }
+}
+
+.soho-btn-icon {
+  &[disabled] {
+    background-color: transparent;
+    opacity: 0.4;
+
+    .icon {
+      color: $button-icon-disabled-color;
+    }
+
+    &.soho-btn-generative {
+      .icon {
+        color: $button-gen-ai-icon-disabled-color;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.soho-btn,
+.soho-btn-primary,
+.soho-btn-secondary,
+.soho-btn-tertiary,
+.soho-btn-icon,
+.soho-btn-actions,
+.soho-btn-menu {
+  span {
+    &::before,
+    &::after {
+      content: ' ';
+    }
+  }
+}
+
+// Menu Buttons have a special state that shows up when their menus are visible.
+.soho-btn-menu,
+.soho-btn-actions {
+  &.is-open {
+    color: $ids-color-brand-primary-base;
+
+    .icon {
+      color: $ids-color-brand-primary-base;
+    }
+  }
+}
+
+.soho-btn {
+  padding: 0 10px;
+}
+
+.soho-btn-tertiary,
+.soho-btn-menu {
+  // Dark Ui on Light UI
+  &.inverse {
+    color: $tertiary-btn-dark-color;
+
+    .icon {
+      color: $tertiary-btn-dark-color;
+    }
+
+    &:hover,
+    &.is-open {
+      color: $tertiary-btn-dark-hover-color;
+
+      .icon {
+        color: $tertiary-btn-dark-hover-color;
+      }
+    }
+  }
+}
+
+.soho-btn-tertiary {
+  padding: 0 10px;
+}
+
+.soho-btn-tertiary,
+.soho-btn-icon,
+.soho-btn-menu {
+  &.destructive:not(:disabled) {
+    color: $button-color-tertiary-destructive-initial-background-new;
+
+    svg.icon {
+      color: $button-color-tertiary-destructive-initial-background-new;
+    }
+
+    &:focus:not(.hide-focus) {
+      border-color: $button-color-destructive-focus-border-new;
+      box-shadow: $button-color-destructive-tertiary-focus-shadow;
+    }
+
+    &:hover:not(:disabled) {
+      color: $button-color-tertiary-destructive-hover-font-new !important;
+      background-color: $button-color-tertiary-destructive-hover-background-new !important;
+
+      svg.icon {
+        color: $button-color-tertiary-destructive-hover-font-new !important;
+      }
+    }
+
+    &:disabled {
+      color: $button-color-tertiary-destructive-disabled-font-new;
+      background-color: $button-color-tertiary-destructive-disabled-background-new;
+
+      svg.icon {
+        color: $button-color-tertiary-destructive-disabled-font-new;
+      }
+    }
+  }
+}
+
+.soho-btn-menu {
+  min-width: auto;
+  padding: 0 10px;
+
+  &.soho-btn-primary,
+  &.soho-btn-secondary {
+    padding: 0 12px 0 16px;
+  }
+}
+
+// Icon Buttons
+// Also see ./_icons.scss
+.soho-btn-icon,
+.soho-btn-actions,
+.soho-btn-close {
+  border-radius: 8px;
+  height: 34px;
+  margin-top: 0;
+  min-height: 34px;
+  min-width: 34px;
+  padding: 0;
+  width: 34px;
+
+  // Icon Buttons only have one icon (never two) and no text visible, so disable padding
+  > .icon {
+    padding-right: 0;
+  }
+
+  > span {
+    display: inline-block;
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+  }
+
+  &:hover {
+    > span {
+      color: transparent;
+    }
+  }
+}
+
+// Some Actions Buttons can be vertical
+.soho-btn-icon,
+.soho-btn-actions {
+  &.vertical {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+// Set the size of the "X"
+.soho-btn-close {
+  > .icon {
+    width: 16px;
+  }
+}
+
+// Specific Icon Button styles
+.soho-btn-icon {
+  > span:not(.icon) {
+    text-indent: -99999px;
+  }
+
+  .icon.app-header {
+    left: 0;
+    margin-left: 0;
+    position: relative;
+    top: 0;
+  }
+
+  &.has-content {
+    .icon {
+      color: $ids-color-brand-primary-base;
+    }
+
+    &:hover .icon {
+      color: $ids-color-palette-azure-80;
+    }
+  }
+}
+
+// Ripple Effect
+.ripple-effect {
+  border-radius: 50%;
+  height: 2px;
+  opacity: 0;
+  position: absolute;
+  width: 2px;
+
+  &.is-animation {
+    @include css3(animation, ripple-animation 1s);
+  }
+
+  .ripple-circle {
+    color: rgba($ids-color-palette-white, 0);
+  }
+}
+
+@include keyframes(ripple-animation) {
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    @include css3(transform, scale(20));
+
+    opacity: 0;
+  }
+}
+
+@include respond-to(phone) {
+  // Reset the above rule when these types of buttons appear in toolbars
+  .toolbar {
+    .soho-btn,
+    .soho-btn-teritary {
+      margin: 0 2px;
+
+      .icon {
+        // If an icon is present, the span should not be visible at this breakpoint
+        + span { // prevents oblong-shaped focus state around buttons
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+
+// Short field buttons
+.field-short,
+.form-layout-compact .field {
+  [class^='btn']:not(.soho-btn-editor):not(.soho-btn-icon):not(.soho-btn-dismissible) {
+    height: $button-size-compact-height;
+    margin-bottom: 10px;
+    min-height: $button-size-compact-height;
+    min-width: 0;
+
+    &[class*='searchfield'] {
+      height: $searchfield-button-size-compact-height;
+    }
+
+    > .icon:not(.icon-dropdown) {
+      height: 14px;
+      margin: 0;
+      margin-top: -2px;
+      vertical-align: middle;
+
+      + span:not(.audible) {
+        display: inline-block;
+        padding: 0 4px 1px 0;
+      }
+    }
+  }
+
+  .soho-btn,
+  .soho-btn-menu {
+    padding: 0 5px;
+  }
+
+  .soho-btn-primary,
+  .soho-btn-secondary,
+  .soho-btn-tertiary {
+    padding: 0 9px;
+    font-size: 12px;
+  }
+
+  .soho-btn-icon,
+  .soho-btn-actions,
+  .soho-btn-close {
+    border-radius: 12px;
+    padding: 0;
+  }
+
+  .tag {
+    .soho-btn-dismissible {
+      align-items: center;
+      display: flex;
+      height: inherit;
+      line-height: inherit;
+      margin-bottom: 0;
+      min-height: inherit;
+    }
+  }
+}
+
+html {
+  .field {
+    .searchfield-wrapper.has-close-icon-button.has-text {
+      .soho-btn-icon.close {
+        border-radius: 11px;
+        top: 7px;
+
+        svg.close {
+          position: relative;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .field-short,
+  .form-layout-compact .field {
+    .searchfield-wrapper.has-close-icon-button.has-text {
+      .soho-btn-icon.close {
+        top: 1px;
+
+        svg.close {
+          position: relative;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+// RTL Styles
+html[dir='rtl'] {
+  button {
+    margin-left: 5px;
+    margin-right: 0;
+
+    &:last-child {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  // How all button types will deal with iconography
+  .soho-btn,
+  .soho-btn-primary,
+  .soho-btn-secondary,
+  .soho-btn-teritary {
+    > .icon {
+      + span:not(.audible):not(:empty) {
+        padding-left: 0;
+        padding-right: 5px;
+      }
+
+      + * + span {
+        padding-right: 0;
+      }
+    }
+
+    &:not(.soho-btn-generative) span {
+      + .icon {
+        margin-right: 5px;
+      }
+
+      + * + .icon {
+        margin-right: 5px;
+      }
+
+      &.audible {
+        + .icon {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .soho-btn-menu {
+    &.soho-btn-primary,
+    &.soho-btn-secondary {
+      padding-left: 20px;
+      padding-right: 10px;
+    }
+  }
+
+  .soho-btn-icon,
+  .soho-btn-actions {
+    span {
+      + .icon {
+        margin-right: 0;
+      }
+
+      + * + .icon {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .soho-btn-icon {
+    .notification-badge-container {
+      .notification-dot {
+        display: block !important;
+
+        &.notification-dot-upper-right {
+          right: -16px;
+          top: 4px;
+          transform: scale(1) translate(50%, -50%);
+          transform-origin: 100% 0%;
+        }
+
+        &.notification-dot-upper-left {
+          top: 4px;
+          left: 7px;
+          transform: scale(1) translate(-50%, -50%);
+          transform-origin: 0% 0%;
+        }
+
+        &.notification-dot-lower-right {
+          top: 11px;
+          left: 15px;
+          transform: scale(1) translate(50%, 50%);
+          transform-origin: 0% 100%;
+        }
+
+        &.notification-dot-lower-left {
+          top: 11px;
+          left: 7px;
+          transform: scale(1) translate(-50%, 50%);
+          transform-origin: 0% 100%;
+        }
+      }
+    }
+  }
+
+  .soho-btn-primary,
+  .soho-btn-secondary,
+  .soho-btn-tertiary {
+    .notification-badge-container {
+      display: unset;
+
+      .notification-dot {
+        display: block !important;
+
+        &.notification-dot-upper-right {
+          right: 6px;
+          top: 3px;
+          transform: scale(1) translate(50%, -50%);
+          transform-origin: 100% 0%;
+        }
+
+        &.notification-dot-upper-left {
+          top: 3px;
+          left: -12px;
+          transform: scale(1) translate(-50%, -50%);
+          transform-origin: 0% 0%;
+        }
+
+        &.notification-dot-lower-right {
+          top: 10px;
+          left: -4px;
+          transform: scale(1) translate(50%, 50%);
+          transform-origin: 0% 100%;
+        }
+
+        &.notification-dot-lower-left {
+          top: 10px;
+          left: -12px;
+          transform: scale(1) translate(-50%, 50%);
+          transform-origin: 0% 100%;
+        }
+      }
+    }
+  }
+
+  &.is-chrome,
+  &.is-safari {
+    .field-short,
+    .form-layout-compact .field {
+      .searchfield-wrapper.has-close-icon-button.has-text {
+        .soho-btn-icon.close {
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &.is-firefox {
+    .field-short,
+    .form-layout-compact .field {
+      .searchfield-wrapper.has-close-icon-button.has-text {
+        .soho-btn-icon.close {
+          top: 4px;
+        }
+      }
+
+      .soho-btn,
+      .soho-btn-primary,
+      .soho-btn-secondary,
+      .soho-btn-teritary {
+        span {
+          + .icon {
+            margin-bottom: 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .field-short {
+    .searchfield-wrapper.has-close-icon-button.has-text {
+      .soho-btn-icon.close {
+        right: 235px;
+      }
+    }
+  }
+
+  .field-short,
+  .form-layout-compact .field {
+    .searchfield-wrapper.has-close-icon-button.has-text {
+      .soho-btn-icon.close {
+        top: 5px;
+      }
+    }
+  }
+}
+
+//Do not allow upper case in french
+html[lang^='fr-'] {
+  [class^='btn'] {
+    text-transform: none;
+  }
+}
+
+//Special "Ghost" Secondary Border button-font-size
+.soho-btn-secondary-border {
+  @include transition(all 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94));
+
+  border: 1px solid $secondary-border-btn-border-color;
+  border-radius: 2px;
+  color: $secondary-border-btn-color;
+
+  span {
+    padding: 0 26px;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $secondary-border-btn-hover-border-color;
+    color: $secondary-border-btn-hover-color;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 1px $body-color-primary-background, 0 0 0 2px $ids-color-brand-primary-base, $focus-box-shadow;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .ripple-effect {
+    background-color: $secondary-border-btn-ripple-color;
+  }
+}
+
+//Grid Filter button
+.soho-btn-filter {
+  min-width: 45px;
+  width: 55px;
+}
+
+.is-mac.is-firefox {
+  .field-short,
+  .form-layout-compact .field {
+    .soho-btn,
+    .soho-btn-primary,
+    .soho-btn-secondary,
+    .soho-btn-teritary {
+      line-height: $button-size-compact-height;
+
+      > .icon:not(.icon-dropdown) {
+        margin-top: -7px;
+      }
+
+      > .icon:not(.icon-dropdown) + span:not(.audible) {
+        padding: 0 4px 7px 0;
+      }
+    }
+  }
+}
+
+.soho-btn-link {
+  color: $button-hyperlink-color;
+
+  .icon {
+    color: $button-hyperlink-color;
+  }
+
+  &:hover {
+    color: $button-hyperlink-hover-color;
+
+    .icon {
+      color: $button-hyperlink-hover-color;
+    }
+  }
+}
+
+// Special case to target buttons that are inside of the page container only
+.page-container {
+  button {
+    &.soho-btn,
+    &.soho-btn-secondary {
+      @media (max-width: $breakpoint-big-phone) {
+        max-width: 100%;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+html.theme-classic-light,
+html.theme-classic-dark,
+html.theme-classic-contrast {
+  .soho-btn-generative,
+  .generative-section {
+    display: none;
+  }
+}
+
+// New Button
+//================================================== //
+
+.soho-btn-primary {
+  border-radius: 8px;
+  background-color: $button-color-primary-initial-background;
+  border: 2px solid $button-color-primary-initial-background;
+  color: $button-color-primary-initial-font;
+  padding: 0 12px;
+
+  &:hover {
+    background-color: $button-color-primary-hover-background;
+    border: 2px solid $button-color-primary-hover-background;
+
+    &.soho-btn {
+      color: $button-color-primary-initial-font;
+    }
+  }
+
+  &:active {
+    background-color: $button-color-primary-hover-background;
+    border: 2px solid $button-color-primary-hover-background;
+    box-shadow: none;
+  }
+
+  &:focus {
+    border: 2px solid transparent;
+
+    &:not(.hide-focus) {
+      box-shadow: 0 0 0 2px $body-color-primary-background, 0 0 0 3px $button-color-primary-initial-background, $focus-box-shadow;
+    }
+
+    &:active {
+      background-color: $button-color-primary-hover-background;
+      box-shadow: none;
+    }
+  }
+
+  &.destructive {
+    background-color: $button-color-primary-destructive-initial-background-new;
+    border: 2px solid $button-color-primary-destructive-initial-background-new;
+    color: $ids-color-palette-white;
+
+    &:focus:not(.hide-focus) {
+      border-color: $button-color-destructive-focus-border-new;
+      box-shadow: 0 0 0 2px $body-color-primary-background,
+        0 0 0 3px $button-color-destructive-focus-border-new;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: $button-color-primary-destructive-hover-background-new;
+      border: 2px solid $button-color-primary-destructive-hover-background-new;
+    }
+  }
+}
+
+.soho-btn-primary[disabled]:not(.destructive):not(.soho-btn-generative) {
+  background-color: $button-color-primary-initial-background;
+  border: 2px solid $button-color-primary-initial-background;
+  color: $button-color-primary-initial-font;
+  opacity: 0.4;
+
+  svg.icon {
+    color: $button-color-primary-initial-font;
+  }
+
+  &:hover {
+    background-color: $button-color-primary-initial-background;
+    border-color: $button-color-primary-initial-background;
+    color: $button-color-primary-initial-font;
+
+    svg.icon {
+      color: $button-color-primary-initial-font;
+    }
+  }
+}
+
+.soho-btn-secondary {
+  background-color: transparent;
+  border-radius: 8px;
+  color: $button-color-secondary-initial-font-new;
+  border: 1px solid $button-color-secondary-initial-border-new;
+  padding: 0 12px;
+
+  &.soho-btn-menu {
+    color: $button-color-secondary-initial-font-new;
+    border-color: $button-color-secondary-initial-border-new;
+
+    .icon {
+      color: $button-color-secondary-initial-font-new;
+    }
+
+    &.is-open {
+      background-color: $button-color-tertiary-hover-background-new;
+      color: $button-color-secondary-menu-open-new;
+
+      .icon {
+        color: $button-color-secondary-menu-open-new;
+      }
+    }
+
+    &:focus:not(.hide-focus) {
+      box-shadow: unset;
+    }
+  }
+
+  svg.icon {
+    color: $button-color-secondary-initial-font-new;
+  }
+
+  &:hover {
+    background-color: $button-color-secondary-hover-background-new;
+    border: 1px solid $button-color-secondary-hover-border-new;
+    color: $button-color-secondary-initial-font-new;
+  }
+
+  &:active {
+    background-color: $button-color-secondary-hover-background-new;
+    border: 1px solid $button-color-secondary-hover-border-new;
+    color: $button-color-secondary-initial-font-new;
+  }
+
+  &:focus {
+    border: 1px solid $button-color-secondary-hover-border-new;
+
+    &:active {
+      background-color: $button-color-secondary-hover-background-new;
+      border: 1px solid $button-color-secondary-hover-border-new;
+      color: $button-color-secondary-initial-font-new;
+    }
+  }
+
+  &[disabled] {
+    background-color: $button-color-secondary-initial-background;
+    color: $button-color-secondary-initial-font-new !important;
+    border: 1px solid $button-color-secondary-initial-border-new;
+    opacity: 0.4;
+
+    svg.icon,
+    .icon {
+      color: $button-color-secondary-initial-font-new !important;
+
+      &:hover {
+        color: $button-color-secondary-initial-font-new;
+      }
+    }
+
+    &:hover {
+      background-color: $button-color-secondary-initial-background;
+      color: $button-color-secondary-initial-font-new;
+      border: 1px solid $button-color-secondary-initial-border-new;
+    }
+  }
+}
+
+// Menu Buttons have a special state that shows up when their menus are visible.
+.soho-btn-menu,
+.soho-btn-actions {
+  &.is-open {
+    background-color: $button-color-tertiary-hover-background-new !important;
+    color: $button-color-tertiary-hover-text-new !important;
+
+    .icon {
+      color: $button-color-tertiary-hover-text-new !important;
+    }
+  }
+}
+
+.soho-btn-tertiary,
+.soho-btn-icon,
+.soho-btn-menu,
+.soho-btn {
+  border-radius: 8px;
+
+  &.soho-btn-icon {
+    padding: 0;
+  }
+
+  &:hover:not([disabled]):not(.soho-btn-primary):not(.trigger) {
+    &:not(:disabled) {
+      background-color: $button-color-tertiary-hover-background-new;
+      color: $button-color-tertiary-hover-text-new;
+    }
+
+    &.close,
+    &.soho-btn-filter,
+    &.personalize-actionable {
+      background-color: unset !important;
+      color: unset;
+    }
+
+    svg.icon {
+      color: $button-color-tertiary-hover-text-new;
+    }
+  }
+
+  &.destructive {
+    color: $button-color-tertiary-destructive-initial-background-new;
+
+    svg.icon {
+      color: $button-color-tertiary-destructive-initial-background-new;
+    }
+
+    &:focus:not(.hide-focus) {
+      border-color: $button-color-destructive-focus-border-new;
+    }
+
+    &:hover:not(:disabled) {
+      color: $button-color-tertiary-destructive-hover-font-new;
+      background-color: $button-color-tertiary-destructive-hover-background-new;
+
+      svg.icon {
+        color: $button-color-tertiary-destructive-hover-font-new;
+      }
+    }
+
+    &:disabled {
+      color: $button-color-tertiary-destructive-initial-background-new;
+      opacity: 0.4;
+
+      svg.icon {
+        color: $button-color-tertiary-destructive-initial-background-new;
+      }
+    }
+  }
+}
+
+.soho-btn-editor {
+  border-radius: 8px;
+
+  &:hover:not(:disabled):not(.close):not(.soho-btn-filter):not(.personalize-actionable):not(.destructive) {
+    background-color: $button-editor-color-hover-background-new !important;
+    color: $button-editor-color-tertiary-hover-font-new !important;
+
+    svg.icon {
+      color: $button-editor-color-tertiary-hover-font-new !important;
+    }
+
+    &.is-active svg.icon {
+      color: $editor-btn-active-color !important;
+    }
+  }
+}
+
+.soho-btn-icon.trigger:hover:not(:disabled) {
+  background-color: $button-color-tertiary-hover-background-new;
+}
+
+.soho-btn-link {
+  color: $button-color-tertiary-initial-font;
+  border-radius: 8px;
+
+  svg.icon,
+  .icon {
+    color: $button-color-tertiary-initial-font;
+  }
+
+  &:not([disabled]):not(:disabled):hover {
+    background-color: $button-color-tertiary-hover-background-new;
+    color: $button-color-tertiary-initial-font;
+
+    svg.icon {
+      color: $button-color-tertiary-initial-font;
+    }
+  }
+}
+
+// Reset standard button alignments.
+.soho-btn,
+.soho-btn-primary,
+.soho-btn-secondary,
+.soho-btn-tertiary {
+  height: auto;
+  line-height: normal;
+  min-height: 34px;
+
+  > * {
+    vertical-align: baseline;
+  }
+
+  > .icon {
+    margin-top: -3px;
+    vertical-align: middle;
+  }
+}
+
+// Icon/Actions button icons should be better-centered against the focus state.
+.soho-btn-actions,
+.soho-btn-icon,
+.soho-btn-close {
+  > .icon {
+    display: inline-flex;
+    vertical-align: middle;
+    flex-direction: row;
+  }
+}
+
+// Fix cross pixel effect
+.soho-btn-actions {
+  > .icon {
+    height: 19px;
+    top: -1px;
+  }
+}
+
+// Resize the "x" in the close button back to Soho-style sizes
+.soho-btn-close {
+  > .icon {
+    width: 18px;
+  }
+}
+
+// Safari's and Firefox's `middle` alignment doesn't jive
+// well with our iconography
+.is-safari,
+.is-firefox {
+  .soho-btn,
+  .soho-btn-primary,
+  .soho-btn-secondary,
+  .soho-btn-tertiary {
+    > .icon {
+      margin-top: -2px;
+    }
+  }
+}
+
+.field-short [class^='btn']:not(.soho-btn-editor):not(.soho-btn-icon),
+.form-layout-compact .field [class^='btn']:not(.soho-btn-editor):not(.soho-btn-icon):not(.soho-btn-dismissible) {
+  min-height: $button-size-compact-height;
+
+  > .icon + span:not(.audible):not(:empty) {
+    padding: 0;
+  }
+
+  > .icon {
+    top: 0;
+    vertical-align: sub;
+
+    &:not(.icon-dropdown) {
+      height: 16px;
+      position: relative;
+      vertical-align: sub;
+
+      + span:not(.audible) {
+        position: relative;
+      }
+    }
+  }
+}
+
+.form-layout-compact .field {
+  .tag {
+    .soho-btn-dismissible {
+      align-items: center;
+      display: flex;
+      height: inherit !important;
+      line-height: inherit;
+      margin-bottom: 0;
+      min-height: inherit !important;
+
+      > .icon {
+        &:not(.icon-dropdown) {
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+.soho-btn-icon .icon.app-header {
+  top: 2px;
+}
+
+.soho-btn-icon.application-menu-trigger {
+  svg.icon {
+    + .notification-badge-container {
+      .notification-dot.notification-dot-upper-left {
+        left: -19px;
+      }
+
+      .notification-dot.notification-dot-upper-right {
+        right: 8px;
+      }
+
+      .notification-dot.notification-dot-lower-left {
+        left: -19px;
+        top: 10px;
+      }
+
+      .notification-dot.notification-dot-lower-right {
+        left: -11px;
+        top: 10px;
+      }
+    }
+  }
+}
+
+.field-short,
+.form-layout-compact .field {
+  [class^='btn']:not(.soho-btn-editor):not(.soho-btn-icon) {
+    &[class*='searchfield'] {
+      height: $searchfield-button-size-compact-height-new;
+      min-height: $searchfield-button-size-compact-height-new;
+    }
+  }
+
+  .searchfield-wrapper {
+    .soho-btn-icon.close {
+      top: 4px;
+    }
+  }
+}
+
+html {
+  .field {
+    .searchfield-wrapper.has-close-icon-button.has-text {
+      .soho-btn-icon.close {
+        border-radius: 11px;
+
+        svg.close {
+          position: relative;
+          top: 0.5px;
+        }
+      }
+    }
+  }
+
+  .field-short,
+  .form-layout-compact .field {
+    .searchfield-wrapper.has-close-icon-button.has-text {
+      .soho-btn-icon.close {
+        top: 2px;
+
+        svg.close {
+          position: relative;
+          top: 2px;
+        }
+      }
+    }
+  }
+}
+
+html[dir='rtl'] {
+  &.is-chrome,
+  &.is-safari {
+    .field-short,
+    .form-layout-compact .field {
+      .searchfield-wrapper.has-close-icon-button.has-text {
+        .soho-btn-icon.close {
+          top: 4px;
+        }
+      }
+    }
+  }
+
+  &.is-firefox {
+    .field-short,
+    .form-layout-compact .field {
+      .searchfield-wrapper.has-close-icon-button.has-text {
+        .soho-btn-icon.close {
+          top: 6px;
+        }
+      }
+
+      .soho-btn,
+      .soho-btn-primary,
+      .soho-btn-secondary,
+      .soho-btn-teritary {
+        span {
+          + .icon {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Chevron Toggle Buttons (Expand/Collapse)
+//================================================== //
+
+@mixin btn-chevron-style {
+  background-color: transparent !important;
+  border-color: transparent;
+  color: $font-color-highcontrast;
+  height: 38px;
+  margin: 0 3px;
+  min-width: 0;
+  padding: 0 10px;
+  width: 40px;
+
+  > * {
+    pointer-events: none;
+  }
+
+  + a {
+    width: calc(100% - 57px);
+  }
+
+  .icon {
+    padding-left: 0;
+    padding-right: 1px;
+    position: relative;
+
+    &:not(.plus-minus) {
+      top: -1px;
+    }
+
+    &.plus-minus {
+      position: static;
+      width: auto;
+
+      &::before,
+      &::after {
+        background-color: $accordion-icon-color;
+        left: 13px;
+        top: 17px;
+        width: 12px;
+      }
+    }
+
+    &.chevron {
+      @include css3(transform, rotateX(0deg));
+      @include transition(transform 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94));
+
+      padding-right: 0;
+
+      &.active {
+        @include css3(transform, rotateX(180deg));
+      }
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+
+    &:not(.hide-focus) {
+      border-color: $accordion-selected-bg-color;
+      box-shadow: $focus-box-shadow;
+    }
+
+    &:active {
+      background-color: $accordion-selected-bg-color;
+    }
+  }
+
+  &:active {
+    .icon {
+      color: $button-color-tertiary-active-font;
+    }
+
+    .plus-minus {
+      &::before,
+      &::after {
+        background-color: $button-color-tertiary-active-font;
+      }
+    }
+  }
+}
+
+.soho-btn-expander {
+  @include btn-chevron-style;
+}

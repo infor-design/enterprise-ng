@@ -198,7 +198,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
   }
 
   public resetBtnWidths(btns: SohoButtonStatic[]) {
-    btns.forEach(function (btn: SohoButtonStatic) {
+    btns.forEach(function (btn) {
       (btn.element as any)[0].style.width = '';
     });
   }

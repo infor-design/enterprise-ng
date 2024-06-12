@@ -3,13 +3,7 @@
     "[javascript]": {
         "editor.formatOnSave": true
     },
-    "[javascriptreact]": {
-        "editor.formatOnSave": true
-    },
     "[typescript]": {
-        "editor.formatOnSave": true
-    },
-    "[typescriptreact]": {
         "editor.formatOnSave": true
     },
     "[markdown]": {
@@ -23,13 +17,13 @@
     },
     "eslint.validate": [
         "javascript",
-        "javascriptreact",
         "typescript",
-        "typescriptreact",
         "html"
     ],
     "typescript.tsdk": "node_modules/typescript/lib",
     "angular.enable-strict-mode-prompt": false,
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false,
+    "editor.tabSize": 2,
+    "files.eol": "\n"
 }

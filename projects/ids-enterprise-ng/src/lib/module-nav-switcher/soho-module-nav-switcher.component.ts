@@ -89,7 +89,6 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   }
 
   @Input() set noSearch(val: boolean | undefined) {
-    console.log(val);
     this._options.noSearch = val;
     this.updated({ noSearch: this._options.noSearch });
   }

@@ -14,6 +14,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "resolveJsonModule": true,
+    "allowJs": true,
     "target": "ES2022",
     "module": "es2020",
     "typeRoots": [
@@ -36,6 +37,12 @@
       ],
       "ids-enterprise-ng/*": [
         "projects/ids-enterprise-ng/src/lib"
+      ],
+      "@ids-enterprise": [
+        "projects/ids-enterprise/src"
+      ],
+      "@ids-enterprise/*": [
+        "projects/ids-enterprise/src/"
       ]
     },
     "useDefineForClassFields": false

@@ -15,6 +15,7 @@
     "module": "esnext",
     "importHelpers": true,
     "resolveJsonModule": true,
+    "allowJs": true,
     "target": "es2015",
     "strict": true
   },

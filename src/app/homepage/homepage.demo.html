@@ -1,6 +1,161 @@
 <div soho-homepage style="height: 100%;"
-  (resize)="onResize($event)"
-  class="scrollable">
+  (resize)="onResize($event)">
+
+<!--     <div soho-widget bordered="true">
+      <div soho-widget-header>
+        <div class="widget-header-section title">
+          <h2 class="widget-title">List view buyer exceptions</h2>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-2" trigger="click" class="btn-actions">Settings</button>
+          <ul soho-popupmenu id="action-popupmenu-2">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content>
+        <div
+          #dialogWidgetView
+          class="lm-size-full lm-scroll-no-x lm-scroll-no-y lm-display-flex-column">
+          <div class="listview-search search-box">
+            <input
+              soho-searchfield
+              [(ngModel)]="searchText"
+              placeholder="{{ language.searchPlaceholder }}"
+              [clearable]="true"
+              (cleared)="onSearchClear()" />
+          </div>
+          <soho-listview [selectable]="false">
+            <li
+              soho-listview-item
+              class="lm-no-border lm-padding-sm-b lm-padding-sm-t">
+              <div class="row lm-margin-zero-b lm-margin-zero-t">
+                <div class="three columns">
+                  <label>&nbsp;</label>
+                </div>
+                <div class="three columns align-text-center lm-info-text">
+                  {{ language.poRequests }} <br />
+                  {{ language.info }}
+                </div>
+                <div class="two columns align-text-center lm-info-text">
+                  {{ language.unresolveMessage }}
+                </div>
+                <div class="three columns align-text-center lm-info-text">
+                  {{ language.poAck }} <br />
+                  {{ language.ack }}
+                </div>
+                <div class="one columns">
+                  <label>&nbsp;</label>
+                </div>
+              </div>
+            </li>
+          </soho-listview>
+          <div class="lm-scroll-vert">
+            <soho-listview [selectable]="false">
+              <li
+                soho-listview-item
+                *ngFor="let item of buyerCountsArray"
+                class="lm-padding-zero-r lm-padding-sm-t lm-padding-md-b">
+                <div class="row lm-margin-sm-b lm-padding-zero-r">
+                  <div
+                    class="one column image lm-padding-sm-t lm-margin-zero-l lm-margin-lg-r">
+                    <div
+                      [ngClass]="item.buyerColor"
+                      *ngIf="item.buyerProfile"
+                      class="avatar large round">
+                      <div tabindex="0">{{ item.buyerProfile }}</div>
+                    </div>
+                  </div>
+                  <div class="three columns lm-padding-sm-t lm-margin-md-l">
+                    <p class="listview-heading">{{ item.BuyerName }}</p>
+                    <p class="listview-subheading font-size-px-14">
+                      {{ item.buyer }}
+                    </p>
+                  </div>
+                  <div
+                    class="two columns lm-margin-md-l lm-padding-xl-t align-text-center lm-padding-xl-r">
+                    <span class="font-size-px-20 text-strong text-muted">
+                      {{ item.counts[0] }}
+                    </span>
+                  </div>
+                  <div
+                    class="two columns lm-margin-xl-l lm-padding-lg-l lm-padding-xl-t lm-margin-xl-r align-text-center">
+                    <span class="font-size-px-20  text-strong text-muted">
+                      {{ item.counts[1] }}
+                    </span>
+                  </div>
+                  <div class="two columns lm-padding-xl-t align-text-center">
+                    <span class="font-size-px-20 text-strong text-muted">
+                      {{ item.counts[2] }}
+                    </span>
+                  </div>
+                  <div
+                    class="two columns align-text-right lm-pull-right"
+                    style="padding-top:18px">
+                    <button
+                      soho-button="tertiary"
+                      icon="print-preview"
+                      (click)="openList(item.BuyerName)">
+                      {{ language.review }}
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </soho-listview>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div soho-widget bordered="true">
+      <div soho-widget-header>
+        <div class="widget-header-section title">
+          <h2 class="widget-title">List view Company Groups</h2>
+        </div>
+        <div class="widget-header-section more">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-2" trigger="click" class="btn-actions">More</button>
+          <ul soho-popupmenu id="action-popupmenu-2">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+          </ul>
+        </div>
+      </div>
+      <div soho-widget-content>
+        <div
+          #dialogWidgetView
+          class="lm-size-full lm-scroll-no-x lm-scroll-no-y lm-display-flex-column">
+          <div class="listview-search search-box">
+            <input
+              soho-searchfield
+              [(ngModel)]="searchText"
+              placeholder="{{ language.searchPlaceholder }}"
+              [clearable]="true"
+              (cleared)="onSearchClear()" />
+          </div>
+          <div class="lm-scroll-vert">
+            <soho-listview *ngIf="modalGroupMessages.length !== 0">
+              <li
+                soho-listview-item
+                class="lm-padding-md"
+                *ngFor="let item of modalGroupMessages">
+                <p class="listview-heading text-strong">{{ item.GroupType }}</p>
+                <p *ngIf="item.GroupdataLocation" class="listview-subheading">
+                  {{ item.GroupdataCompany }}, {{ item.GroupdataLocation }}
+                </p>
+                <p *ngIf="!item.GroupdataLocation" class="listview-subheading">
+                  {{ item.GroupdataCompany }}
+                </p>
+                <p class="listview-subheading">
+                  {{ language.itemLabel }}: {{ item.GroupdataItem }}
+                </p>
+              </li>
+            </soho-listview>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div soho-widget
       bordered="true">
       <div soho-widget-header>
@@ -8,8 +163,7 @@
           <h2 class="widget-title">Bordered</h2>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-3" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-3" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu-3">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
@@ -19,6 +173,7 @@
       <div soho-widget-content>
       </div>
     </div>
+
     <div soho-widget
       bordered="true">
       <div soho-widget-header>
@@ -34,9 +189,8 @@
           </button>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-2" trigger="click"
-          class="btn-actions"></button>
-          <ul soho-popupmenu id="action-popupmenu-2">
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-21" trigger="click" class="btn-actions">Settings</button>
+          <ul soho-popupmenu id="action-popupmenu-21">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
           </ul>
@@ -63,8 +217,7 @@
           </button>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
@@ -87,8 +240,7 @@
           <h2>Borderless</h2>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-4" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-4" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu-4">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
@@ -119,8 +271,7 @@
           </button>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-5" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-5" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu-5">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
@@ -139,8 +290,7 @@
           <h2>Search</h2>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-6" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-6" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu-6">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
@@ -171,8 +321,7 @@
           <h2>Search on a widget</h2>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-7" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-7" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu-7">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
@@ -229,8 +378,7 @@
           </button>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-8" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-8" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu-8">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
@@ -268,8 +416,7 @@
           </button>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-9" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-9" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu-9">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
@@ -288,8 +435,7 @@
           <p class="label font-size-px-14 m-bottom-0">Subtitle</p>
         </div>
         <div class="widget-header-section more">
-          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-10" trigger="click"
-          class="btn-actions"></button>
+          <button soho-button="icon" icon="vertical-ellipsis" soho-context-menu menu="action-popupmenu-10" trigger="click" class="btn-actions">Settings</button>
           <ul soho-popupmenu id="action-popupmenu-10">
             <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
             <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>

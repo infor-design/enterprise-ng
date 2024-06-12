@@ -9,9 +9,12 @@ import {
   NgZone,
   OnDestroy,
   OnInit,
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
+
+import { Button } from './soho-button';
 
 /**
  * Supported button types.
@@ -22,7 +25,9 @@ export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'ico
 @Component({
   selector: 'button[soho-button]', // eslint-disable-line
   templateUrl: 'soho-button.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './soho-button.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 
@@ -237,40 +242,40 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    */
   @Input() expandableExpander = false;
 
-  @HostBinding('class.btn')
+  @HostBinding('class.soho-btn')
   get btn() {
     return this.buttonType === SohoButtonComponent.BTN;
   }
 
-  @HostBinding('class.btn-primary')
+  @HostBinding('class.soho-btn-primary')
   get btnPrimary() {
     return this.buttonType === SohoButtonComponent.PRIMARY;
   }
 
-  @HostBinding('class.btn-secondary')
+  @HostBinding('class.soho-btn-secondary')
   get btnSecondary() {
     return this.buttonType === SohoButtonComponent.SECONDARY;
   }
 
-  @HostBinding('class.btn-tertiary')
+  @HostBinding('class.soho-btn-tertiary')
   get btnTertiary(): boolean {
     return this.buttonType === SohoButtonComponent.TERTIARY;
   }
 
-  @HostBinding('class.btn-icon')
+  @HostBinding('class.soho-btn-icon')
   get btnIcon(): boolean {
     return this.buttonType === SohoButtonComponent.ICON || this.buttonType === SohoButtonComponent.FAVORITE;
   }
 
-  @HostBinding('class.btn-toggle') get btnToggle() {
+  @HostBinding('class.soho-btn-toggle') get btnToggle() {
     return this.isToggle;
   }
 
-  @HostBinding('class.btn-modal') get btnModal() {
+  @HostBinding('class.soho-btn-modal') get btnModal() {
     return this.buttonType === SohoButtonComponent.MODAL;
   }
 
-  @HostBinding('class.btn-modal-primary') get btnModalPrimary() {
+  @HostBinding('class.soho-btn-modal-primary') get btnModalPrimary() {
     return this.buttonType === SohoButtonComponent.MODAL_PRIMARY;
   }
 
@@ -280,7 +285,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       this.buttonType === SohoButtonComponent.TERTIARY_DESTRUCTIVE;
   }
 
-  @HostBinding('class.btn-generative')
+  @HostBinding('class.soho-btn-generative')
   get btnGenerative(): boolean {
     return this.buttonType === SohoButtonComponent.PRIMARY_GENERATIVE ||
       this.buttonType === SohoButtonComponent.TERTIARY_GENERATIVE ||
@@ -295,9 +300,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     return this.buttonType === SohoButtonComponent.FAVORITE;
   }
 
-  @HostBinding('class.btn-moveto-left') @Input() moveToLeft: any;
-  @HostBinding('class.btn-moveto-right') @Input() moveToRight: any;
-  @HostBinding('class.btn-moveto-selected') @Input() moveToSelected: any;
+  @HostBinding('class.soho-btn-moveto-left') @Input() moveToLeft: any;
+  @HostBinding('class.soho-btn-moveto-right') @Input() moveToRight: any;
+  @HostBinding('class.soho-btn-moveto-selected') @Input() moveToSelected: any;
 
   @HostBinding('class.no-ripple')
   get noRipple(): boolean {
@@ -361,17 +366,12 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       this.jQueryElement = jQuery(this.element.nativeElement);
 
       // Initialise the Soho control.
-      this.jQueryElement.button(this._buttonOptions);
+      this.button = new Button(this.element.nativeElement, this._buttonOptions as any) as any;
 
       // Initialize title attribute as a soho tooltip
       if (this.jQueryElement.has('[title]') && !this.jQueryElement.has('[popover]')) {
         this.jQueryElement.tooltip();
       }
-
-      // Once the control is initialised, extract the control
-      // plug-in from the element.  The element name is defined
-      // by the plug-in, but in this case is 'button'.
-      this.button = this.jQueryElement.data('button');
 
       if (this.state !== undefined) { // eslint-disable-line
         // turn off the default handling of the favorite icon switching
@@ -391,15 +391,15 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       }
 
       if (this.buttonType === SohoButtonComponent.PRIMARY_DESTRUCTIVE || this.buttonType === SohoButtonComponent.PRIMARY_GENERATIVE) {
-        this.jQueryElement.addClass('btn-primary');
+        this.jQueryElement.addClass('soho-btn-primary');
       }
 
       if (this.buttonType === SohoButtonComponent.TERTIARY_DESTRUCTIVE || this.buttonType === SohoButtonComponent.TERTIARY_GENERATIVE) {
-        this.jQueryElement.addClass('btn-tertiary');
+        this.jQueryElement.addClass('soho-btn-tertiary');
       }
 
       if (this.buttonType === SohoButtonComponent.ICON_GENERATIVE) {
-        this.jQueryElement.addClass('btn-icon');
+        this.jQueryElement.addClass('soho-btn-icon');
       }
 
       // There are no 'extra' event handlers for button.
@@ -408,12 +408,12 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       const observer = new MutationObserver(function (mutations) {
         if (mutations[0].attributeName === 'soho-button' && self.jQueryElement) {
           const buttonStyles = [
-            'btn',
-            'btn-primary',
-            'btn-secondary',
-            'btn-tertiary',
-            'btn-icon',
-            'icon-favorite',
+            'soho-btn',
+            'soho-btn-primary',
+            'soho-btn-secondary',
+            'soho-btn-tertiary',
+            'soho-btn-icon',
+            'soho-icon-favorite',
             'default'
           ];
           const removeClassStyles = () => {
