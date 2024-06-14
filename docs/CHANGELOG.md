@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.0.2
+
+## 18.0.2 Notes
+
+- `[General]` Rebuild to update to 18.0.3 and add type fixes
+
 ## 18.0.0
 
 ## 17.8.0 Notes
