@@ -89,7 +89,6 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
   }
 
   @Input() set noSearch(val: boolean | undefined) {
-    console.log(val);
     this._options.noSearch = val;
     this.updated({ noSearch: this._options.noSearch });
   }
@@ -241,6 +240,10 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
 
       this.jQueryElement.modulenavswitcher(this._options);
       this.modulenavswitcher = this.jQueryElement.data('modulenavswitcher');
+
+      if (this._options.roles) {
+        this.setRoles(this._options.roles);
+      }
 
       // @todo - add event binding control so we don't bind if not required.
       this.jQueryElement

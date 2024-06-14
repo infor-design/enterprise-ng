@@ -14,6 +14,7 @@
         [generate]="false"
         [changeIconOnSelect]="false"
         [noSearch]="true"
+        [roles]="(Roles$ | async)!"
         (modulebuttonclick)="onModuleButtonClick($event)"
         (rolechange)="onRoleChange($event)"
         (listcontextmenu)="onListContextMenu($event)"></soho-module-nav-switcher>
