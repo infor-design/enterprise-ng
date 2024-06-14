@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.1.0
+
+## 18.1.0 Fixes
+
+- `[Module Nav]` Fixed roles not being updated when changed before `AfterViewInit`. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1677))
+
 ## 18.0.0
 
 ## 18.0.0 Fixes
@@ -7,7 +13,6 @@
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
 - `[Datepicker]` Fixed readonly state when called from disabled method. ([#1702](https://github.com/infor-design/enterprise-ng/issues/1702))
 - `[Mask]` Fixed placeholder value being duplicated on number input. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1686))
-- `[Module Nav]` Fixed roles not being updated when changed before `AfterViewInit`. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1677))
 - `[Monthview]` Fixed `monthview` not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
 - `[Monthview]` Fixed monthview not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
 - `[Popupmenu]` Updated example page to fix multiselect. ([#8623](https://github.com/infor-design/enterprise-ng/issues/8623))
