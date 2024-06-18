@@ -1,0 +1,186 @@
+// New Listview
+//================================================== //
+
+.listview .alert-text {
+  font-size: 12px;
+  line-height: 25px;
+  position: relative;
+  text-transform: uppercase;
+  top: -2px;
+
+  &::before {
+    margin-top: 9px;
+  }
+}
+
+.is-firefox {
+  .listview .alert-text {
+    &::before {
+      margin-top: 7px;
+    }
+  }
+}
+
+.listview-search,
+.card-search,
+.widget-search {
+  .searchfield {
+    padding: 9px 10px 9px 34px;
+  }
+
+  + .listview {
+    height: calc(100% - 48px);
+    overflow-y: auto;
+  }
+
+  .searchfield-wrapper {
+    border-radius: 4px;
+    margin: 0 8px;
+    width: calc(100% - 16px);
+    height: 38px;
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 8px;
+
+    input {
+      border: 1px solid $listview-search-wrapper-border-color;
+      border-radius: 4px;
+    }
+
+    &.has-focus:not(.toolbar-searchfield-wrapper) {
+      box-shadow: $focus-box-shadow;
+      z-index: 1;
+    }
+
+    &.non-collapsible.is-open {
+      .icon:not(.close):not(.icon-error) {
+        left: 10px;
+        margin-top: 1px;
+      }
+    }
+
+    &.non-collapsible.is-open>.icon:not(.close):not(.icon-error) {
+      left: 10px !important;
+    }
+
+    .btn-icon {
+      top: 7px;
+
+      &.close {
+        right: 8px;
+      }
+    }
+
+    &.has-listview-filters {
+      top: 1px;
+    }
+
+    &.is-hovered {
+      .searchfield {
+        &[disabled] {
+          border-top-color: $listview-border-color;
+
+          &:hover {
+            border-top-color: $listview-border-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.listview-filter-wrapper {
+  border-top: 1px solid $listview-border-color;
+  top: unset;
+}
+
+.listview {
+  .listview-heading {
+    font-size: 1.6rem;
+    color: $listview-color;
+    font-weight: 600;
+  }
+
+  .listview-subheading {
+    font-size: 1.6rem;
+    color: $listview-secondary-color;
+  }
+
+  .listview-micro {
+    font-size: 1.4rem;
+    color: $listview-tertiary-color;
+  }
+}
+
+html.is-safari {
+  .listview-search {
+    .searchfield-wrapper {
+      &.has-listview-filters {
+        top: 2px;
+      }
+    }
+  }
+}
+
+html[dir='rtl'] {
+  .listview-search,
+  .card-search,
+  .widget-search {
+    + .listview {
+      height: calc(100% - 55px);
+    }
+
+  }
+}
+
+// Firefox/Safari icon placement adjustments
+html[dir='rtl'] {
+  &.is-firefox {
+    .listview .alert-text {
+      &::before {
+        margin: 0 -4px 0 0;
+        right: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+html[dir='rtl'] {
+  &:not(.is-firefox) {
+    .listview ul li {
+      .alert-text::before {
+        margin-right: -14px;
+      }
+    }
+  }
+
+  .listview-search {
+    .searchfield-wrapper {
+      .icon:not(.close):not(.icon-error) {
+        left: auto;
+        right: 18px;
+      }
+    }
+  }
+}
+
+html[dir='rtl'] {
+  &.is-safari {
+    .listview ul li {
+      .alert-text {
+        &::before {
+          margin-right: 0;
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.card .listview li:last-child,
+.widget .listview li:last-child {
+  border-radius: 0 0 0 8px;
+}

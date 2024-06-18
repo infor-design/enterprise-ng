@@ -1,0 +1,1205 @@
+// Dependencies
+// emptymessage/emptymessage';
+// pager/pager';
+// popupmenu/popupmenu';
+// searchfield/searchfield';
+
+//================================================== //
+// Listview Component
+
+.listview {
+  background-color: inherit;
+  height: inherit;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+
+  input.searchfield {
+    height: 100%;
+  }
+
+  p[class^='listview-'] {
+    margin-top: 0;
+  }
+
+  .bold {
+    font-weight: $ids-number-font-weight-bold;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .listview-heading,
+  .listview-data {
+    @include ellipsis();
+
+    color: $listview-color;
+    font-size: $ids-size-font-base;
+    font-weight: $ids-number-font-weight-base;
+    overflow-wrap: break-word;
+
+    &.hyperlink {
+      color: $hyperlink-color;
+    }
+  }
+
+  .image-user-status {
+    float: left;
+    padding-right: 10px;
+  }
+
+  .listview-heading-lg {
+    display: block;
+    font-size: $ids-size-font-lg;
+    margin: 8px 0 5px;
+
+    .icon-favorite {
+      display: inline;
+      margin-top: -10px;
+      position: absolute;
+      vertical-align: top;
+    }
+  }
+
+  .listview-image-column {
+    width: 100px;
+  }
+
+  .listview-subheading,
+  .listview-data-label {
+    color: $listview-secondary-color;
+    font-size: $ids-size-font-sm;
+    overflow-wrap: break-word;
+  }
+
+  &.alternate-row {
+    .listview-text {
+      color: $listview-selected-text-color;
+    }
+
+    li:not(:hover):not(:focus) {
+      &:nth-child(odd) {
+        background-color: $listview-bg-color;
+      }
+
+      &:nth-child(even) {
+        background-color: $listview-bg-color-alternate;
+      }
+    }
+  }
+
+  .listview-micro {
+    color: $listview-tertiary-color;
+    font-size: $ids-size-font-sm;
+
+    &::after {
+      clear: both;
+      content: '';
+      display: inline-block;
+    }
+
+    .l-pull-right {
+      position: static;
+    }
+
+    &.l-pull-right {
+      top: -7px;
+    }
+  }
+
+  .badge {
+    float: left;
+    margin-right: 15px;
+    margin-top: -1px;
+    min-height: 19px;
+    min-width: 19px;
+    position: relative;
+
+    &.pending::before {
+      left: 0.35em !important;
+    }
+  }
+
+  li {
+    background-color: $listview-bg-color;
+    border: 1px solid transparent;
+    border-bottom-color: $listview-border-color;
+    color: $listview-color;
+    padding: 16px 16px 15px;
+    position: relative;
+
+    &:hover {
+      background-color: $listview-hover-bg-color;
+      outline: none;
+    }
+
+    &:focus {
+      border-color: $ids-color-brand-primary-lighter !important;
+      box-shadow: 0 0 4px 1px $focus-box-shadow-color;
+      outline: none;
+    }
+
+    &.error,
+    &.alert,
+    &.border-color {
+      border-left-style: solid;
+      border-left-width: 4px;
+      padding: 15px 20px 15px 17px;
+    }
+
+    &.border-color.ruby {
+      border-left-color: $ids-color-palette-ruby-60 !important;
+    }
+
+    &.border-color.amber {
+      border-left-color: $ids-color-palette-amber-60 !important;
+    }
+
+    &.border-color.emerald {
+      border-left-color: $ids-color-palette-emerald-60 !important;
+    }
+
+    &.border-color.azure {
+      border-left-color: $ids-color-palette-azure-60 !important;
+    }
+
+    &.border-color.turquoise {
+      border-left-color: $ids-color-palette-turquoise-60 !important;
+    }
+
+    &.border-color.amethyst {
+      border-left-color: $ids-color-palette-amethyst-60 !important;
+    }
+
+    &.border-color.slate {
+      border-left-color: $ids-color-palette-slate-60 !important;
+    }
+
+    &.border-color.graphite {
+      border-left-color: $ids-color-palette-graphite-60 !important;
+    }
+
+    &.error {
+      border-left-color: $error-color !important;
+
+      .days,
+      .hours,
+      .day-sign,
+      .hour-sign {
+        color: $error-color;
+      }
+    }
+
+    &.is-error {
+      background-color: $error-bg-color;
+      border-color: $error-color;
+
+      &:hover {
+        background-color: $error-bg-color;
+      }
+
+      + li {
+        border-top-color: transparent;
+      }
+    }
+
+    &.alert {
+      border-left-color: $ids-color-status-warning !important;
+
+      .days,
+      .hours,
+      .day-sign,
+      .hour-sign {
+        color: $ids-color-status-warning;
+      }
+
+      .icon-alert {
+        color: $ids-color-status-warning !important;
+      }
+    }
+
+    > .icon {
+      float: left;
+      margin: 1px 15px 10px 0;
+      vertical-align: middle;
+
+      + * {
+        display: inline-block;
+      }
+    }
+
+    p {
+      line-height: normal;
+      margin-bottom: 5px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    > a {
+      @include ellipsis();
+
+      color: $listview-color;
+      font-size: $ids-size-font-base;
+      font-weight: $ids-number-font-weight-base;
+
+      &.hyperlink {
+        color: $hyperlink-color;
+      }
+    }
+
+    &.child {
+      padding-left: 35px;
+    }
+  }
+
+  &.disable-hover {
+    li:hover {
+      background-color: $listview-bg-color;
+    }
+  }
+
+  i {
+    color: $listview-color;
+    font-style: normal;
+    font-weight: $ids-number-font-weight-bold;
+  }
+
+  .days,
+  .hours,
+  .day-sign,
+  .hour-sign {
+    @include font-size(20);
+
+    color: $listview-secondary-color;
+  }
+
+  .dropdown-wrapper {
+    float: left;
+  }
+
+  .l-pull-right {
+    position: relative;
+    top: -29px;
+
+    button {
+      margin: 0 25px;
+    }
+
+    .btn-actions {
+      margin: 3px -11px;
+
+      svg {
+        height: 18px;
+        width: 22px;
+      }
+    }
+
+    .icon-error,
+    .icon {
+      left: -5px;
+      top: 2px;
+    }
+
+    .dropdown-wrapper {
+      top: 4px;
+
+      .icon {
+        left: unset;
+        top: unset;
+      }
+    }
+  }
+
+  .field {
+    float: left;
+  }
+
+  .checkbox-label {
+    left: 20px;
+    line-height: 18px;
+    margin: 0;
+    position: relative;
+    top: 10px;
+  }
+
+  .listview-thumbnail {
+    border-radius: 50%;
+    display: inline-block;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: -7px;
+    padding: 0;
+    vertical-align: middle;
+    width: 50px;
+  }
+
+  .listview-cell {
+    display: table-cell;
+    width: auto;
+  }
+
+  p {
+    color: $listview-color;
+    font-size: $ids-size-font-base;
+    line-height: 23px;
+  }
+
+  .is-toolbar-open {
+    height: calc(100% - 50px);
+    margin-top: 50px;
+  }
+
+  button {
+    &:not(.tableview button) {
+      background-color: transparent;
+      border-radius: 0;
+    }
+
+    svg {
+      height: 23px;
+      width: 30px;
+
+      &.icon-close {
+        height: 15px;
+        width: 15px;
+      }
+    }
+  }
+
+  // Selection Styling
+  &.is-selectable li,
+  &.is-selectable tr {
+    cursor: pointer;
+
+    &.is-disabled {
+      cursor: default;
+    }
+  }
+
+  .is-touch {
+    @include unselectable;
+  }
+
+  .is-disabled,
+  .is-disabled p {
+    @include unselectable;
+
+    color: $listview-disabled-color;
+    cursor: default;
+
+    * {
+      @include unselectable;
+
+      color: $listview-disabled-color;
+      cursor: default;
+    }
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+
+  li.is-selected:not(.hide-selected-color),
+  tr.is-selected:not(.hide-selected-color) {
+    background-color: $selected-bg-color;
+
+    &:hover {
+      background-color: $selected-bg-color;
+    }
+  }
+
+  li.is-activated,
+  tr.is-activated {
+    background-color: $selected-bg-color;
+
+    &:hover {
+      background-color: $selected-bg-color;
+    }
+  }
+
+  tr.is-selected td:first-child {
+    padding: 13px 15px;
+  }
+
+  // Selection Checkboxes
+  .listview-checkbox {
+    margin-left: -5px;
+    position: absolute;
+
+    + p {
+      margin-left: 35px;
+    }
+  }
+
+  &.is-multiselect li {
+    padding-left: 45px;
+    position: relative;
+
+    .listview-selection-checkbox {
+      left: 18px;
+      margin-top: -9px;
+      position: absolute;
+    }
+
+    &.is-disabled {
+      .listview-selection-checkbox .label-text {
+        cursor: default;
+      }
+
+      .listview-selection-checkbox .label-text::before,
+      .listview-selection-checkbox .checkbox:hover .label-text::before {
+        border-color: $listview-disabled-color !important;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &.tableview {
+    background-color: transparent;
+
+    .dropdown-wrapper {
+      margin-bottom: 0;
+    }
+
+    .info > li,
+    .info > li:hover {
+      background-color: transparent;
+      border: 0 none;
+      padding: 0 !important;
+    }
+
+    td {
+      .row:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        font-size: 1.2em;
+      }
+
+      button {
+        margin: 0;
+      }
+
+      input[type='text']:not([class='dropdown']) { //text field center-text
+        margin-bottom: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .highlight {
+    background-color: transparent;
+    color: inherit;
+    font-weight: $ids-number-font-weight-bold;
+  }
+
+  // Empty message area
+  .empty-message {
+    @include vertical-align();
+
+    margin-top: -20px;
+  }
+
+  &.card-list {
+    padding: 2px 0;
+
+    li {
+      background-color: transparent;
+      border: none;
+      padding: 0 16px;
+
+      &.is-selected,
+      &:hover,
+      &.is-selected:not(.hide-selected-color):hover {
+        background-color: transparent;
+      }
+
+      &:focus {
+        box-shadow: none;
+        border: none;
+      }
+
+      &.is-selected {
+        .card,
+        .widget {
+          .card-content {
+            border: none;
+          }
+        }
+      }
+
+      .tag-list {
+        margin: 0;
+        min-width: 11%;
+      }
+
+      .card,
+      .widget {
+        height: auto;
+        width: 100%;
+        position: relative;
+        border: none;
+        box-shadow: 0 0 4px $cardlist-box-shadow-color;
+        transition: box-shadow 0.3s cubic-bezier(.17, .04, .03, .94);
+        padding-right: 10px;
+
+        .card-header {
+          &.has-subheader {
+            display: block;
+            height: fit-content;
+          }
+        }
+
+        .card-content {
+          height: auto;
+          min-height: auto;
+        }
+
+        .card-buttonset {
+          padding: 5px;
+
+          .card-content-action .btn-actions {
+            margin-right: 0;
+          }
+        }
+
+        button {
+          border-radius: 8px;
+        }
+
+        &:hover {
+          outline: 1px solid $card-border-color-hover;
+          box-shadow: 0 2px 4px 1px $cardlist-box-shadow-color-hover;
+          border-color: transparent;
+        }
+
+        &.is-selected {
+          outline: 2px solid $card-selected-border-color;
+          border-color: $card-selected-border-color
+        }
+
+        &:focus {
+          &:not(.hide-focus) {
+            box-shadow: 0 0 0 2px $body-color-primary-background, 0 0 0 3px $button-color-primary-initial-background, $focus-box-shadow;
+            outline: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &.link-list {
+    padding-top: 5px;
+
+    li {
+      cursor: default;
+      background-color: transparent;
+      border: none;
+      padding: 0 15px;
+
+      .link-item {
+        padding: 0;
+        height: 28px;
+
+        .hyperlink {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          max-width: 327px;
+          display: inline-block;
+        }
+
+        .hyperlink,
+        .hyperlink span {
+          color: $linklist-color-text-font;
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: 600;
+          height: 28px;
+
+          &.show-visited:visited,
+          &.force-visited {
+            color: $linklist-color-visited-text-font;
+
+            svg,
+            span {
+              color: $linklist-color-visited-text-font;
+            }
+          }
+
+          > svg {
+            color: $linklist-color-text-font;
+            left: 0;
+            margin-right: 5px;
+          }
+
+          &[disabled] {
+            color: $linklist-color-disabled-text-font;
+            text-decoration: none;
+
+            svg,
+            span {
+              color: $linklist-color-disabled-text-font;
+            }
+          }
+        }
+
+        .hyperlink:not(.has-icon),
+        .hyperlink span {
+          &:hover:not([disabled]) {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &.is-selected:not(.hide-selected-color) {
+        background-color: transparent;
+      }
+
+      &:focus {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.listview-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  tr,
+  td {
+    color: $listview-color;
+    font-size: $ids-size-font-base;
+    padding: 13px 15px;
+  }
+
+  tr {
+    border-bottom: 1px solid $listview-border-color;
+  }
+
+  tr:focus {
+    outline: none;
+  }
+
+  th {
+    display: none;
+  }
+
+  &.show-headers {
+    thead tr {
+      background-color: $listview-header-bg-color;
+    }
+
+    th {
+      color: $listview-header-color;
+      display: table-cell;
+      font-size: $ids-size-font-sm;
+      font-weight: $ids-number-font-weight-bold;
+      padding: 15px;
+
+      span {
+        color: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+      }
+    }
+
+    th:not(.l-right-text) {
+      text-align: left;
+    }
+  }
+}
+
+// White Header for top of flat lists
+.listview-header {
+  background-color: $panel-bg-color;
+  border: 1px solid $panel-border-color;
+  padding: 20px;
+
+  .listview-heading {
+    font-size: $ids-size-font-lg;
+  }
+
+  .btn-expand {
+    display: inline-block;
+    left: -7px;
+
+    .icon.plus-minus::before,
+    .icon.plus-minus::after {
+      left: 0.8em;
+    }
+  }
+
+  .listview-subheading {
+    color: $font-color-lowcontrast;
+    font-size: $ids-size-font-base;
+    font-weight: $ids-number-font-weight-bold;
+    padding-top: 3px;
+  }
+
+  + .listview {
+    border-left: 1px solid $panel-border-color;
+    border-right: 1px solid $panel-border-color;
+  }
+}
+
+.listview-footer {
+  border-bottom: 1px solid $panel-border-color;
+
+  td:first-child {
+    padding: 20px;
+  }
+
+  p {
+    @include font-size(16);
+
+    color: $font-color-highcontrast;
+  }
+
+  strong {
+    @include font-size(16);
+
+    color: $font-color-highcontrast;
+    font-weight: $ids-number-font-weight-bold;
+    margin-top: 10px;
+  }
+}
+
+// Contextual Toolbar Positioning
+.contextual-toolbar {
+  &.is-hidden {
+    + .listview {
+      height: 100%;
+    }
+  }
+
+  + .listview {
+    @include css3(transition, height 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94));
+
+    &.is-toolbar-open {
+      height: calc(100% - 40px);
+    }
+  }
+}
+
+// Search Toolbar on Listview
+.listview-search,
+.card-search,
+.widget-search {
+  .searchfield-wrapper {
+    background-color: $body-color-primary-background;
+    height: 100%;
+    margin-bottom: 0;
+    width: 100%;
+
+    .searchfield {
+      height: 38px;
+
+      &::placeholder {
+        color: $listview-search-placeholder-color;
+        opacity: 1;
+      }
+    }
+
+    &.non-collapsible.is-open > .icon:not(.close):not(.icon-error) {
+      left: 18px !important;
+    }
+
+    .btn-icon {
+      top: 7px;
+    }
+
+    &.has-listview-filters {
+      height: 38px;
+      z-index: 1;
+
+      .searchfield {
+        height: 38px;
+      }
+
+      .btn-icon {
+        top: 7px;
+      }
+
+      svg.icon {
+        top: 12px;
+        left: 16px !important;
+      }
+
+      .btn-icon.close {
+        svg.close {
+          position: static;
+        }
+      }
+    }
+
+    &.has-focus {
+      input {
+        border: 1px solid $listview-search-border-color;
+      }
+    }
+
+    &.is-hovered:not(.has-focus) {
+      input:not([disabled='true']) {
+        border: 1px solid $listview-search-border-color;
+      }
+    }
+  }
+
+  .searchfield-filter-wrapper {
+    left: 0;
+  }
+
+  .icon:not(.close):not(.filter-icon) {
+    left: 10px;
+    top: 10px;
+  }
+
+  .icon.close {
+    top: 0;
+  }
+
+  .searchfield {
+    background-color: $listview-full-width-bg-color;
+    border: 1px solid transparent;
+    border-bottom-color: $listview-border-color;
+    line-height: 16px;
+    padding: 9px 10px 9px 45px;
+    width: 100%;
+
+    &[disabled] {
+      background-color: $listview-search-disabled-bg-color;
+      color: $listview-search-disabled-color;
+      opacity: $listview-search-disabled-opacity;
+
+      &:hover {
+        border-color: $listview-search-disabled-border-color;
+      }
+
+      ~ svg.icon {
+        color: $listview-search-disabled-icon-color;
+      }
+    }
+  }
+
+  // Modify the height of the content inside of listview cards
+  + .contextual-toolbar {
+    + .listview {
+      height: calc(100% - 90px);
+    }
+
+    &.is-hidden {
+      + .listview {
+        height: calc(100% - 40px);
+      }
+    }
+  }
+
+  + .listview {
+    height: calc(100% - 38px);
+  }
+}
+
+.listview-filter-wrapper {
+  display: inline-block;
+  border-bottom: 1px solid $listview-border-color;
+  border-left: 1px solid $listview-border-color;
+  background-color: $listview-full-width-bg-color;
+  height: 38px;
+  position: relative;
+  left: 1px;
+  top: -2px;
+  margin-left: 0;
+
+  .listview-filters {
+    height: 24px;
+    width: 24px;
+    top: 1px;
+  }
+
+  .listview-filters:first-child {
+    margin-left: 0;
+  }
+
+  .listview-filters:last-child {
+    margin-right: 6px;
+    margin-left: -4px;
+  }
+}
+
+html[dir='rtl'] .listview-filter-wrapper {
+  .listview-filters:first-child {
+    margin-left: -1px;
+  }
+
+  .listview-filters:last-child {
+    margin-right: -4px;
+    margin-left: 2px;
+  }
+}
+
+// Tasks
+@media (max-width: 768px) {
+  .listview[aria-label='Tasks'] {
+    .l-pull-right {
+      .days,
+      .hours {
+        font-size: 1.9rem;
+      }
+
+      .icon-error {
+        height: 15px;
+        left: 0;
+        width: 15px;
+      }
+    }
+  }
+
+  .listview .icon-favorite {
+    top: 10px;
+  }
+}
+
+.ios .listview {
+  .icon-error,
+  .icon-success,
+  .icon-pending {
+    top: 3px !important;
+  }
+}
+
+.sidebar.scrollable {
+  .listview-search .searchfield-wrapper {
+    display: inline-block;
+    margin: 0;
+    width: 100%
+  }
+}
+
+// RTL Styles
+html[dir='rtl'] {
+  &.is-safari {
+    .listview ul li {
+      .alert-text {
+        &::after {
+          content: '\200E'; // fix for rlm character
+        }
+      }
+    }
+  }
+
+  .listview {
+    &[aria-label^='Icons'] li {
+      padding: 16px 12px 15px;
+    }
+
+    .listview-image-round {
+      float: right;
+      margin-left: 20px;
+      margin-right: inherit;
+    }
+
+    .badge {
+      float: right;
+      margin-left: 15px;
+      margin-right: inherit;
+      left: 0;
+      right: unset;
+
+      &.pending::before {
+        left: auto;
+        right: 0.35em !important;
+      }
+    }
+
+    li {
+      &.error {
+        border-left: 3px solid $error-color !important;
+        border-right: 0 solid $error-color !important;
+        padding: 15px 17px 15px 20px;
+      }
+
+      > .icon {
+        float: right;
+        margin: 1px 0 10px 15px;
+      }
+    }
+
+    .day-sign,
+    .hour-sign {
+      margin-left: 5px;
+      margin-right: inherit;
+    }
+
+    .dropdown-wrapper {
+      float: right;
+    }
+
+    .l-pull-right {
+      .icon-error,
+      .icon-alert {
+        left: auto;
+        right: -10px;
+      }
+    }
+
+    .field {
+      float: left;
+    }
+
+    .checkbox-label {
+      left: auto;
+      right: 20px;
+    }
+
+    .listview-thumbnail {
+      float: right;
+      margin-left: 20px;
+      margin-right: inherit;
+    }
+
+    // Selection Checkboxes
+    .listview-checkbox {
+      margin-left: inherit;
+      margin-right: -5px;
+
+      + p {
+        margin-left: inherit;
+        margin-right: 35px;
+      }
+    }
+
+    &.is-multiselect li::before {
+      left: auto;
+      margin-left: inherit;
+      margin-right: 0;
+      right: 14px;
+    }
+
+    &.is-multiselect li {
+      padding-left: inherit;
+      padding-right: 43px;
+
+      .listview-selection-checkbox {
+        left: auto;
+        right: 10px;
+      }
+
+      &.is-selected::after {
+        left: auto;
+        right: 19px;
+      }
+    }
+  }
+
+  .listview-table {
+    &.show-headers {
+      th:not(.l-right-text) {
+        text-align: right;
+      }
+    }
+  }
+
+  .listview-search {
+    input {
+      padding: 11px 40px 7px 10px !important;
+    }
+
+    .icon:not(.close) {
+      left: 0 !important;
+      right: 10px !important;
+    }
+
+    .icon.close {
+      left: 12px !important;
+      right: unset !important;
+    }
+  }
+}
+
+html[class*='-dark'] {
+  .card-image {
+    .amber01-border-color {
+      border-color: transparent !important;
+    }
+
+    .amber01 {
+      background-color: transparent !important;
+    }
+
+    .ruby01-border-color {
+      border-color: transparent !important;
+    }
+
+    .ruby01 {
+      background-color: transparent !important;
+    }
+
+    .emerald01-border-color {
+      border-color: transparent !important;
+    }
+
+    .emerald01 {
+      background-color: transparent !important;
+    }
+
+    .azure01-border-color {
+      border-color: transparent !important;
+    }
+
+    .azure01 {
+      background-color: transparent !important;
+    }
+
+    .turquoise01-border-color {
+      border-color: transparent !important;
+    }
+
+    .turquoise01 {
+      background-color: transparent !important;
+    }
+
+    .amethyst01-border-color {
+      border-color: transparent !important;
+    }
+
+    .slate01-border-color {
+      background-color: transparent !important;
+    }
+
+    .slate01 {
+      background-color: transparent !important;
+    }
+  }
+}
+
+html[dir='rtl'] {
+  &.is-firefox {
+    .listview .alert-text {
+      &::before {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+html[class*='theme-classic-'] {
+  .card-content {
+    .listview-search {
+      display: flex;
+
+      .listview-filter-wrapper {
+        display: flex;
+        top: 0;
+        left: 0;
+        margin-left: 0;
+      }
+    }
+  }
+}

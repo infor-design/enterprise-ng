@@ -1,0 +1,5 @@
+/**
+ * Row Options
+ */
+interface SohoRowOptions {
+}

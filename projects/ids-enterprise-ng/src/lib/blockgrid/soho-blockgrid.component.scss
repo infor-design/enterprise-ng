@@ -1,0 +1,180 @@
+// Block Grid
+//================================================== //
+
+@import  '../themes/theme-new-light.scss';
+// @import  '../themes/theme-new-dark';
+// @import  '../themes/theme-new-dark';
+
+.soho-blockgrid {
+  margin: 0;
+  max-width: 100%;
+  text-align: left;
+
+  .soho-block,
+  .block {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 20px 0 0 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    width: 200px;
+
+    img {
+      border: 1px solid transparent; // to prevent jump on focus
+      margin-bottom: 10px;
+
+      &.image-round {
+        border-radius: 100%;
+        height: 75px;
+        width: 75px;
+      }
+
+      &:focus {
+        @include focus-state();
+      }
+    }
+
+    a {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    &.text-block {
+      width: 300px;
+
+      p {
+        text-align: left;
+        padding: 5%;
+        padding-left: 45px;
+      }
+    }
+
+    &.is-selected {
+      background-color: $blockgrid-selected-bg-color;
+      box-shadow: 0 0 0 1px $blockgrid-selected-bg-color;
+    }
+
+    &.is-selectable {
+      border: 1px transparent solid;
+      border-radius: 3px;
+      outline: none;
+
+      &.is-selected {
+        background-color: transparent;
+        border: 1px $blockgrid-selected-border-color solid;
+        box-shadow: 0 0 0 1px $blockgrid-selected-border-color;
+
+        &:hover {
+          background-color: transparent;
+        }
+
+        input.checkbox + label {
+          display: block;
+        }
+      }
+
+      &.is-activated {
+        background-color: $blockgrid-selected-bg-color;
+
+        &.is-selected {
+          border: 1px $blockgrid-selected-border-color solid;
+          box-shadow: 0 0 0 1px $blockgrid-selected-border-color;
+        }
+
+        &:hover {
+          background-color: $blockgrid-selected-bg-color;
+        }
+      }
+
+      &:hover {
+        background-color: $blockgrid-hover-color;
+        border-radius: 3px;
+        cursor: pointer;
+
+        input.checkbox + label {
+          display: block;
+        }
+      }
+
+      &:focus {
+        border: 1px $blockgrid-focus-border-color solid;
+        box-shadow: $focus-box-shadow;
+
+        input.checkbox + label {
+          display: block;
+        }
+      }
+
+      &.has-focus {
+        border: 1px $blockgrid-focus-border-color solid;
+      }
+    }
+
+    // Position the checkbox on the top right and show on focus
+    input.checkbox {
+      &:focus {
+        + label {
+          display: block;
+        }
+      }
+
+      + label {
+        display: none;
+        outline: none;
+        position: absolute;
+        right: 0;
+        top: 7px;
+        z-index: 100;
+
+        &.text-block {
+          right: 87%;
+          top: 45%;
+        }
+      }
+    }
+  }
+
+  &.l-center {
+    text-align: center;
+  }
+
+  &.soho-blockgrid-md .soho-block,
+  &.blockgrid-md .block {
+    width: 145px;
+  }
+
+  &.soho-blockgrid-sm .soho-block,
+  &.blockgrid-sm .block {
+    width: 120px;
+  }
+
+  &.is-selectable {
+    cursor: pointer;
+  }
+
+  .soho-blockgrid-title {
+    @include antialiased();
+
+    color: $font-color;
+    display: block;
+    font-size: $ids-size-font-base;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+}
+
+// RTL Styles
+html[dir='rtl'] {
+  .soho-blockgrid {
+    text-align: right;
+
+    .soho-block,
+    .block {
+      margin: 20px 20px 0 0;
+    }
+  }
+}

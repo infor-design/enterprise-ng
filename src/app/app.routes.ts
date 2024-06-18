@@ -122,6 +122,7 @@ import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileuploa
 import { FormReactiveFormDemoComponent } from './form/form-reactive-form.demo';
 import { FormCompactDemoComponent } from './form-compact/form-compact.demo';
 import { GridDemoComponent } from './grid/grid.demo';
+import { GridSimplifiedDemoComponent } from './grid/grid-simplified.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -396,6 +397,7 @@ export const routes: Routes = [
   { path: 'fileupload', component: FileUploadDemoComponent },
   { path: 'form-compact', component: FormCompactDemoComponent },
   { path: 'grid', component: GridDemoComponent },
+  { path: 'grid-simplified', component: GridSimplifiedDemoComponent },
   { path: 'header-tabs', component: HeaderTabsDemoComponent },
   { path: 'header-toggle-buttons', component: HeaderToggleButtonsDemoComponent },
   { path: 'header-toolbar', component: HeaderToolbarDemoComponent },
