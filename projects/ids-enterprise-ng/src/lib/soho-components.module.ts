@@ -69,6 +69,7 @@ import { SohoRadarModule } from './radar/soho-radar.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoRatingModule } from './rating/soho-rating.module';
 import { SohoRenderLoopModule } from './renderLoop/soho-render-loop.module';
+import { SohoGridModule } from './grid/soho-grid.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSparklineModule } from './sparkline/soho-sparkline.module';
@@ -167,6 +168,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoRadioButtonModule,
     SohoRatingModule,
     SohoRenderLoopModule,
+    SohoGridModule,
     SohoSearchFieldModule,
     SohoSparklineModule,
     SohoSplitterModule,
@@ -262,6 +264,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoRadioButtonModule,
     SohoRatingModule,
     SohoRenderLoopModule,
+    SohoGridModule,
     SohoSearchFieldModule,
     SohoSliderModule,
     SohoSparklineModule,

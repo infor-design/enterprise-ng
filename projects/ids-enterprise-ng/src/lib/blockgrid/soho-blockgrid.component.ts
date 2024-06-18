@@ -9,12 +9,17 @@ import {
   NgZone,
   OnDestroy,
   Output,
+  ViewEncapsulation,
 } from '@angular/core';
+
+import Blockgrid from './soho-blockgrid';
 
 @Component({
   selector: '[soho-blockgrid]', // eslint-disable-line
   template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './soho-blockgrid.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
@@ -27,7 +32,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   private jQueryElement?: JQuery;
   private blockgrid?: SohoBlockGrid | null;
 
-  @HostBinding('class.blockgrid') get isBlockGrid() {
+  @HostBinding('class.soho-blockgrid') get isBlockGrid() {
     return true;
   }
 
@@ -145,8 +150,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
-      this.jQueryElement.blockgrid(this.options);
-      this.blockgrid = this.jQueryElement.data('blockgrid');
+
+      this.blockgrid = new Blockgrid(this.element.nativeElement, this.options);
 
       // Setup the events
       this.jQueryElement.on('selected', (...args) => this.onSelected(args));

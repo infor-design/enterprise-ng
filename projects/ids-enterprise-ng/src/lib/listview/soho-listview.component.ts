@@ -14,8 +14,11 @@ import {
   Output,
   ViewChild,
   forwardRef,
-  QueryList, NgZone
+  QueryList, NgZone,
+  ViewEncapsulation
 } from '@angular/core';
+
+import ListView from './soho-listview';
 
 import { ArgumentHelper } from '../utils/argument.helper';
 
@@ -118,7 +121,9 @@ export class SohoListViewSubHeaderComponent {
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-micro]',
   template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './soho-listview.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class SohoListViewMicroComponent {
   @HostBinding('class.listview-micro') get isMicro() {
@@ -386,8 +391,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
       }
 
       this.jQueryElement = jQuery(this.listViewRef?.nativeElement);
-      this.jQueryElement.listview(this.options);
-      this.listview = this.jQueryElement.data('listview');
+      this.listview = new ListView(this.listViewRef?.nativeElement, this.options as any) as any;
 
       /**
        * Bind to jQueryElement's events

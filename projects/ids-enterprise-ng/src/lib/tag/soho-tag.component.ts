@@ -12,8 +12,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import { Tag } from './soho-tag.js';
-import { TagList } from './soho-tag.list.js';
+import Tag from './soho-tag';
+import TagList from './soho-tag.list';
 
 /**
  * Support Tag types.
@@ -215,18 +215,14 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
     // call outside the angular zone so change detection
     // isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
-      // assign element to local variable
-      this.jQueryElement = jQuery(this.element.nativeElement);
-
       // initialise the tag control
       this.tag = new Tag(this.element.nativeElement, this.options as any);
 
-      // @todo - add event binding control so we don't bind if not required.
-      // this.jQueryElement
+      $(this.tag.element).attr('data-tmpid', 'tmp0');
       const tagElem = this.tag?.element;
       const parent = tagElem ? jQuery(tagElem).parent() : null;
 
-      this.jQueryElement!.on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
+      $(this.tag.element).on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
 
       if (parent) {
         parent.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
@@ -242,6 +238,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   }
 
   private onClick(event: JQuery.TriggeredEvent) {
+    alert();
     this.ngZone.run(() =>
       this.click.next(event));
   }

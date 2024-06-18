@@ -1303,7 +1303,7 @@ utils.toggleCompactMode = function toggleCompactMode(elem) {
  * @param {string} suffix Append an extra string at the end
  * @param {boolean} overrideExistingId Write over the current id value if there already
  */
-utils.addAttributes = function addAttributes(elem, api, setting, suffix, overrideExistingId) {
+utils.addAttributes = function addAttributes(elem, api, setting, suffix, overrideExistingId = false) {
   if (!setting) {
     return;
   }

@@ -1,5 +1,5 @@
-import { utils } from '../../utils/utils';
-import { xssUtils } from '../../utils/xss';
+import { utils } from '../utils/utils';
+import { xssUtils } from '../utils/xss';
 
 // jQuery Components
 import './button.jquery';

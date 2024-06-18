@@ -1,4 +1,4 @@
-# Infor Design Enterpriise (SohoXi) Angular Component : Tag
+# Infor Design Enterprise (SohoXi) Angular Component : Tag
 
 ## Description
 

@@ -140,3 +140,20 @@ button {
 html:not(.ie):not(.is-safari) {
   -webkit-text-fill-color: unset;
 }
+
+html body {
+  font-family: "source sans pro", helvetica, arial, sans-serif;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.audible {
+  clip: rect(0, 0, 0, 0);
+  height: 0;
+  line-height: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
