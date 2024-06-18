@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
 })
 export class TabsDismissibleDemoComponent {
   onBeforeClose(_event: any, tab: any) {
-    if ($(tab).children('a').attr('href') === '#tabs-dismissible-ie') {
+    if (tab.attr('href') === '#tabs-dismissible-ie') {
       console.log('can\'t dismiss this tab');
       return false;
     }
+    return true;
   }
 }
