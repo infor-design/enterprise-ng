@@ -13,6 +13,8 @@ import {
   SohoModuleNavSwitcherComponent,
   SohoModuleNavSettingsComponent
 } from 'ids-enterprise-ng';
+import { Observable } from 'rxjs/internal/Observable';
+import { of } from 'rxjs/internal/observable/of';
 
 const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
   { text: 'Admin', value: 'admin', icon: 'app-ac' },
@@ -29,24 +31,22 @@ const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
   templateUrl: 'module-nav.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ModuleNavDemoComponent implements AfterViewInit {
+export class ModuleNavDemoComponent {
   @ViewChild(SohoAccordionComponent) accordion!: SohoAccordionComponent;
   @ViewChild(SohoSearchFieldComponent) searchfield?: SohoSearchFieldComponent;
   @ViewChild(SohoModuleNavSwitcherComponent) moduleNavSwitcher?: SohoModuleNavSwitcherComponent;
   @ViewChild(SohoModuleNavSettingsComponent, { static: true }) moduleNavSettings?: SohoModuleNavSettingsComponent;
-
-
-  /**
-   * Constructor.
-   * @param ngZone - zone access.
-   */
-  constructor(private ngZone: NgZone) { }
+  public Roles$: Observable<Array<SohoModuleNavSwitcherRoleRecord>>;
 
   public searchfieldOptions: SohoSearchFieldOptions = {}
 
-  public model = {
-    selectedRole: 'admin',
-    roles: defaultRoles
+  public model: SohoModuleNavSwitcherOptions = {
+    roles: []
+  }
+
+  public getRoles(val: Array<SohoModuleNavSwitcherRoleRecord>): Observable<Array<SohoModuleNavSwitcherRoleRecord>> {
+    const roles = of(val);
+    return roles;
   }
 
   onRoleChange(e: JQuery.TriggeredEvent) {
@@ -104,10 +104,12 @@ export class ModuleNavDemoComponent implements AfterViewInit {
   // Lifecycle Events
   // ------------------------------------------
 
-  ngAfterViewInit() {
-    this.ngZone.runOutsideAngular(() => {
-      this.moduleNavSwitcher?.setRoles(this.model.roles);
-    });
+  /**
+   * Constructor.
+   * @param ngZone - zone access.
+   */
+  constructor(private ngZone: NgZone) {
+    this.Roles$ = this.getRoles(defaultRoles);
   }
 
   // ------------------------------------------
@@ -117,11 +119,15 @@ export class ModuleNavDemoComponent implements AfterViewInit {
   customRoles: boolean = false;
 
   public resetRoles() {
-    this.model.roles = defaultRoles;
+    this.getRoles(defaultRoles).subscribe(val => {
+      this.model.roles = val;
+    })
   }
 
   public setCustomRoles(val: Array<SohoModuleNavSwitcherRoleRecord>) {
-    this.model.roles = val;
+    this.getRoles(val).subscribe(val => {
+      this.model.roles = val;
+    });
   }
 
   private toggleCustomRoles() {
@@ -148,6 +154,6 @@ export class ModuleNavDemoComponent implements AfterViewInit {
       console.info('Disable custom roles');
       this.resetRoles();
     }
-    this.moduleNavSwitcher?.setRoles(this.model.roles);
+    this.moduleNavSwitcher?.setRoles(this.model.roles ? this.model.roles : []);
   }
 }

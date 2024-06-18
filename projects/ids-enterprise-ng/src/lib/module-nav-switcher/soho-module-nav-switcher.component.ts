@@ -241,6 +241,10 @@ export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewC
       this.jQueryElement.modulenavswitcher(this._options);
       this.modulenavswitcher = this.jQueryElement.data('modulenavswitcher');
 
+      if (this._options.roles) {
+        this.setRoles(this._options.roles);
+      }
+
       // @todo - add event binding control so we don't bind if not required.
       this.jQueryElement
         .on('change', (event: JQuery.TriggeredEvent) => this.onRoleChange(event));

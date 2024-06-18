@@ -930,11 +930,11 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     this.ngZone.run(() => {
       event.tab = tab[0];
       this.beforeClose.emit(event);
-
-      if (this.beforeCloseCallback) {
-        return this.beforeCloseCallback(event, tab);
-      }
     });
+
+    if (this.beforeCloseCallback) {
+      return this.beforeCloseCallback(event, tab);
+    }
   }
 
   private onClose(event: SohoTabsEvent, tab: any) {

@@ -30,7 +30,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    */
   @Input() fireInputEventKludge = true;
 
-  
+
   /**
    * Available Soho Template events as Output (EventEmitters passing the event)
    * Should match the Soho event names for the component
@@ -39,7 +39,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    */
   // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
-  
+
   /**
    * Input controls managed their disabled state via the 'disabled' attribute.
    * We use null as the default, rather than false, to ensure the attribute is
@@ -49,7 +49,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    */
   @HostBinding('attr.disabled') @Input()
   isDisabled: boolean | undefined = undefined;
-  
+
   /**
    * Clearable attribute. Adds a clear icon in input if true.
    */
