@@ -63,4 +63,16 @@ export class SohoMessageService {
   confirm(options?: SohoMessageOptions): SohoMessageRef {
     return new SohoMessageRef().options(options).status('confirm');
   }
+
+  /**
+ * Creates an info message, defined by the given options.
+ *
+ * The dialog won't be open until open is called on the returned instance,
+ * see the message ref api for further methods.
+ *
+ * @return the message reference.
+ */
+  info(options?: SohoMessageOptions): SohoMessageRef {
+    return new SohoMessageRef().options(options).status('info');
+  }
 }

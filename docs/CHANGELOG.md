@@ -2,6 +2,10 @@
 
 ## 18.1.0
 
+## 18.1.0 Features
+
+- `[Message]` Added info status option for message. ([#1698](https://github.com/infor-design/enterprise-ng/issues/1698))
+
 ## 18.1.0 Fixes
 
 - `[Module Nav]` Fixed roles not being updated when changed before `AfterViewInit`. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1677))
