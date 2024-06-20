@@ -216,6 +216,9 @@ interface SohoDataGridOptions {
   /**  If true the dirty indicator will be shown on the rows when they change */
   showDirty?: boolean;
 
+  /** If set false, will remove datagrid-cell-layout class from expandable rows. */
+  addCellLayoutClass?: boolean | undefined;
+
   /**  Changes the column resize behavior. */
   resizeMode?: SohoDataGridResizeMode;
 

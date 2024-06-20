@@ -2,6 +2,10 @@
 
 ## 18.1.0
 
+## 18.1.0 Features
+
+- `[Datagrid]` Added setting called addCellLayoutClass option to remove datagrid-cell-layout from expandable rows. ([#1524](https://github.com/infor-design/enterprise-ng/issues/1524))
+
 ## 18.1.0 Fixes
 
 - `[Module Nav]` Fixed roles not being updated when changed before `AfterViewInit`. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1677))

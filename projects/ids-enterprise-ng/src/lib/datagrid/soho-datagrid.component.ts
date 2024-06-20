@@ -986,6 +986,36 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * The value of the addCellLayoutClass flag.
+   */
+  get addCellLayoutClass(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.addCellLayoutClass;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.addCellLayoutClass;
+  }
+
+  /**
+   * Sets the addCellLayoutClass flag - If set false, will remove datagrid-cell-layout class from expandable rows.
+   * created.
+   *
+   * @param addCellLayoutClass - if true then dirty rows will be highlighted; otherwise they will not.
+   */
+  @Input() set addCellLayoutClass(value: boolean | undefined) {
+    this._gridOptions.addCellLayoutClass = value;
+    if (this.datagrid) {
+      this.datagrid.settings.addCellLayoutClass = value;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('addCellLayoutClass', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
    * Sets the resizeMode option to changes the column resize behavior.
    *
    * @param resizeMode - if true then dirty rows will be highlighted; otherwise they will not.
