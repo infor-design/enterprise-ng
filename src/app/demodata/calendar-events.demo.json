@@ -132,7 +132,7 @@
     "status": "Submitted",
     "comments": "Going to DC",
     "starts": "2018-11-30T00:00:00.000",
-    "ends": "2018-02-30T23:59:59.999",
+    "ends": "2018-11-30T23:59:59.999",
     "type": "dto",
     "isAllDay": "true"
   },
