@@ -75,4 +75,16 @@ export class SohoMessageService {
   info(options?: SohoMessageOptions): SohoMessageRef {
     return new SohoMessageRef().options(options).status('info');
   }
+
+  /**
+ * Creates an success message, defined by the given options.
+ *
+ * The dialog won't be open until open is called on the returned instance,
+ * see the message ref api for further methods.
+ *
+ * @return the message reference.
+ */
+  success(options?: SohoMessageOptions): SohoMessageRef {
+    return new SohoMessageRef().options(options).status('success');
+  }
 }
