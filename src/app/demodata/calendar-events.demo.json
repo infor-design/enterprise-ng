@@ -132,7 +132,7 @@
     "status": "Submitted",
     "comments": "Going to DC",
     "starts": "2018-11-30T00:00:00.000",
-    "ends": "2018-11-30T23:59:59.999",
+    "ends": "2018-02-30T23:59:59.999",
     "type": "dto",
     "isAllDay": "true"
   },
@@ -272,6 +272,19 @@
     "starts": "2019-02-14T12:00:00.000",
     "ends": "2019-02-14T18:00:00.000",
     "type": "dto",
+    "isAllDay": "false"
+  },
+  {
+    "id": "28",
+    "subject": "Holiday Overnight Trip",
+    "shortSubject": "Holiday Trip",
+    "icon": "icon-clock",
+    "comments": "Short getaway",
+    "location": "Us Office",
+    "status": "Draft",
+    "starts": "2019-02-15T18:00:00.000",
+    "ends": "2019-02-16T08:00:00.000",
+    "type": "holiday",
     "isAllDay": "false"
   }
 ]
