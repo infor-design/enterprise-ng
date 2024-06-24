@@ -273,5 +273,18 @@
     "ends": "2019-02-14T18:00:00.000",
     "type": "dto",
     "isAllDay": "false"
+  },
+  {
+    "id": "28",
+    "subject": "Holiday Overnight Trip",
+    "shortSubject": "Holiday Trip",
+    "icon": "icon-clock",
+    "comments": "Short getaway",
+    "location": "Us Office",
+    "status": "Draft",
+    "starts": "2019-02-15T18:00:00.000",
+    "ends": "2019-02-16T08:00:00.000",
+    "type": "holiday",
+    "isAllDay": "false"
   }
 ]

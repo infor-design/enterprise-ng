@@ -4,7 +4,8 @@
 
 ## 18.1.0 Features
 
-- `[Message]` Added info status option for message. ([#1698](https://github.com/infor-design/enterprise-ng/issues/1698))
+- `[Message]` Added info and success status option for message. ([#1698](https://github.com/infor-design/enterprise-ng/issues/1698))
+- `[Datagrid]` Added setting called addCellLayoutClass option to remove datagrid-cell-layout from expandable rows. ([#1524](https://github.com/infor-design/enterprise-ng/issues/1524))
 
 ## 18.1.0 Fixes
 
