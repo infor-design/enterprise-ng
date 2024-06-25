@@ -10,6 +10,7 @@
 ## 18.1.0 Fixes
 
 - `[Module Nav]` Fixed roles not being updated when changed before `AfterViewInit`. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1677))
+- `[Popupmenu]` Updated example page to test bug on popupmenu title. ([#1700](https://github.com/infor-design/enterprise-ng/issues/1700))
 - `[Tabs]` Fix on `beforeCloseCallback` and updated example page. ([#1697](https://github.com/infor-design/enterprise-ng/issues/1697))
 
 ## 18.0.0

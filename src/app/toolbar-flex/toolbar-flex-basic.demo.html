@@ -185,4 +185,39 @@
       </button>
     </div>
   </div>
+
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <soho-toolbar-flex>
+        <soho-toolbar-flex-section [isTitle]="true">
+          <h2>Toolbar with popupmenu with title</h2>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-section [isButtonSet]="true">
+          <button soho-button="btn">
+            <span>Text Button</span>
+          </button>
+
+          <button soho-menu-button>
+            <span>Menu Button</span>
+          </button>
+          <ul soho-popupmenu>
+            <li soho-popupmenu-item><a href="#">Item One</a></li>
+            <li soho-popupmenu-separator></li>
+            <li soho-popupmenu-heading>Title</li>
+            <li soho-popupmenu-item><a href="#">Item Two</a></li>
+            <li soho-popupmenu-item><a href="#">Item Three</a></li>
+            <li soho-popupmenu-item><a href="#">Item Four</a></li>
+          </ul>
+
+          <button soho-button="btn" [disabled]="true">Settings</button>
+          <button soho-button="btn">Delete</button>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-more-button
+          moreButtonId="more-button-id"
+        ></soho-toolbar-flex-more-button>
+      </soho-toolbar-flex>
+    </div>
+  </div>
 </form>
