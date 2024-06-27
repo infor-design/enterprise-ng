@@ -1,8 +1,8 @@
 # What's New with Enterprise-NG
 
-## 17.7.6
+## 17.7.7
 
-## 17.7.6 Fixes
+## 17.7.7 Fixes
 
 - `[General]` Added 4.95.5 release with some patches.
 
