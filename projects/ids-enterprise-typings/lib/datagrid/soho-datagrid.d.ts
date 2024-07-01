@@ -1429,9 +1429,12 @@ interface SohoDataGridSelectedEvent {
   rowData?: SohoDataGridSelectedRow[] | SohoDataGridSelectedRow;
 }
 
-interface SohoDataGridCellChangeEvent {
-  row?: any;
-  cell?: any;
+interface SohoDataGridCellChangeEvent<T = Object> {
+  api?: any;
+  rowData?: T;
+  row?: number;
+  relativeRow?: number;
+  cell?: number;
   target?: any;
   value?: any;
   oldValue?: any;
