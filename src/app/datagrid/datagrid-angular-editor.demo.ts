@@ -356,6 +356,12 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
     };
   }
 
+  onCellChange(e: SohoDataGridCellChangeEvent) {
+    console.log('cellchange');
+    console.log('api: ', e.api);
+    console.log('rowData: ', e.rowData)
+  }
+
   onChange(e: SohoDropDownEvent) {
     const value = e.data;
     Soho.Locale.set(value).done(
