@@ -1,7 +1,7 @@
 {
   "name": "ids-enterprise-ng",
   "slug": "ids-enterprise-ng",
-  "version": "18.1.2",
+  "version": "18.1.3",
   "dependencies": {
     "@angular/common": "^18.0.6",
     "@angular/core": "^18.0.6",
