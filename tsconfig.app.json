@@ -7,7 +7,6 @@
        "jasmine",
        "jquery",
        "node",
-       "lscache",
        "ids-enterprise-typings"
     ]
   },

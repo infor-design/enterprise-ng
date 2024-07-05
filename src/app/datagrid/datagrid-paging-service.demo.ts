@@ -39,11 +39,11 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
 
     this.uniqueId = 'datagrid-paging-demo';
 
-    this.savedRowHeight = lscache.get(this.uniqueId + 'rowHeight');
-    this.savedSortOrder = lscache.get(this.uniqueId + 'sortOrder') ? lscache.get(this.uniqueId + 'sortOrder') : null;
-    this.savedPagesize = lscache.get(this.uniqueId + 'pagesize');
-    this.savedActivePage = lscache.get(this.uniqueId + 'activePage');
-    this.savedFilter = lscache.get(this.uniqueId + 'filter') ? lscache.get(this.uniqueId + 'filter') : null;
+    this.savedRowHeight = localStorage[this.uniqueId + 'rowHeight'];
+    this.savedSortOrder = localStorage[this.uniqueId + 'sortOrder'] ? localStorage[this.uniqueId + 'sortOrder'] : null;
+    this.savedPagesize = localStorage[this.uniqueId + 'pagesize'];
+    this.savedActivePage = localStorage[this.uniqueId + 'activePage'];
+    this.savedFilter = localStorage[this.uniqueId + 'filter'] ? localStorage[this.uniqueId + 'filter'] : null;
     this.gridOptions = {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'multiple',
@@ -81,18 +81,18 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
 
   onSettingsChanged(event: SohoDataGridSettingsChangedEvent) {
     // Save Each Setting in Local storage
-    lscache.set(this.uniqueId + 'columns', JSON.stringify(event.columns));
-    lscache.set(this.uniqueId + 'rowHeight', event.rowHeight);
-    lscache.set(this.uniqueId + 'sortOrder', JSON.stringify(event.sortOrder));
-    lscache.set(this.uniqueId + 'pagesize', event.pagesize);
-    lscache.set(this.uniqueId + 'activePage', event.activePage);
-    lscache.set(this.uniqueId + 'filter', JSON.stringify(event.filter));
+    localStorage[this.uniqueId + 'columns'] = JSON.stringify(event.columns);
+    localStorage[this.uniqueId + 'rowHeight'] = event.rowHeight;
+    localStorage[this.uniqueId + 'sortOrder'] = JSON.stringify(event.sortOrder);
+    localStorage[this.uniqueId + 'pagesize'] = event.pagesize;
+    localStorage[this.uniqueId + 'activePage'] = event.activePage;
+    localStorage[this.uniqueId + 'filter'] = JSON.stringify(event.filter);
 
     console.log('activePage type', typeof event.activePage)
   }
 
   onRendered(_event: SohoDataGridRenderedEvent) {
-    const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
+    const columnString = localStorage[this.uniqueId + 'columns'] ? JSON.stringify(localStorage[this.uniqueId + 'columns']) : undefined;
     if (!this.sohoDataGridComponent) {
       return;
     }

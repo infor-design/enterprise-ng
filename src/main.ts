@@ -6,8 +6,6 @@ import { environment } from './environments/environment';
 
 import 'zone.js';
 
-import 'lscache';
-
 if (environment.production) {
   enableProdMode();
 }
