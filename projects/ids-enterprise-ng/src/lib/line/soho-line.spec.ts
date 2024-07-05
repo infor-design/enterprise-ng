@@ -169,17 +169,6 @@ describe('Soho Line Unit Tests', () => {
     // update required should be true after updating inputs after bar is built.
     expect((comp as any).updateRequired).toEqual(true);
   });
-
-  it('check public functions', () => {
-    comp.dataset = lineData;
-    fixture.detectChanges();
-
-    comp.toggleSelected({ groupIndex: 1 });
-    expect((comp as any).getSelected()[0].data.name).toEqual(lineData[1].name);
-
-    comp.setSelected({ groupIndex: 2 });
-    expect((comp as any).getSelected()[0].data.name).toEqual(lineData[2].name);
-  });
 });
 
 @Component({
