@@ -1561,6 +1561,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   sorted = new EventEmitter<SohoDataGridSortedEvent>();
 
   @Output()
+  searched = new EventEmitter<any[]>();
+
+  @Output()
   nextPage = new EventEmitter<SohoPagerPagingInfo>();
 
   @Output()
@@ -2882,6 +2885,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Event fired when search in toolbar is triggered
+   * @param args Searched data
+   */
+  private onSearched(args: any[]) {
+    this.ngZone.run(() => {
+      this.searched.next(args);
+    });
+  }
+
+  /**
    * Event fired when using built-in pager to next page.
    */
   private onNextPage(args: SohoPagerPagingInfo) {
@@ -3235,6 +3248,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
             this.onSelected({ e, rows: args, type, rowData }))
         .on('settingschanged', (_e: any, args: SohoDataGridSettingsChangedEvent) => this.onSettingsChanged(args))
         .on('sorted', (_e: any, args: SohoDataGridSortedEvent) => this.onSorted(args))
+        .on('searched', (_e: any, args: any[]) => this.onSearched(args))
         .on('beforepaging', (_e: any, args: SohoPagerPagingInfo) => this.onBeforePaging(args))
         .on('afterpaging', (_e: any, args: SohoPagerPagingInfo) => this.onAfterPaging(args))
         .on('scroll', (_e: any, args: SohoDataGridScrollEvent) => this.onVerticalScroll(args))

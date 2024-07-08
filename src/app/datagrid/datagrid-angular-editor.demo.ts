@@ -303,6 +303,8 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       filterType: 'text',
       editor: Soho.Editors.MultiSelect,
       formatter: Soho.Formatters.MultiSelect,
+      required: true,
+      textOverflow: 'ellipsis',
       editorOptions: {
         multiple: true,
         closeOnSelect: true,
