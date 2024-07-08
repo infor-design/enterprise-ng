@@ -60,4 +60,8 @@ export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
       toolbar: { title: 'Data Grid Header Title', collapsibleFilter: true, keywordFilter: true, actions: true, rowHeight: true }
     };
   }
+
+  onSearched(args: any[]) {
+    console.log('searched', args)
+  }
 }
