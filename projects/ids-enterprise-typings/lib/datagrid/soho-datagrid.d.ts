@@ -1055,8 +1055,6 @@ interface SohoDataGridColumn {
   /* summary text placement */
   summaryTextPlacement?: string;
 
-  required?: boolean;
-
 }
 
 interface SohoDataGridColumnNumberFormat {
