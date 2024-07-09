@@ -5,7 +5,7 @@
   "dependencies": {
     "@angular/common": "^18.0.6",
     "@angular/core": "^18.0.6",
-    "ids-enterprise": "4.97.0",
+    "ids-enterprise": "4.97.1",
     "jquery": "3.7.1",
     "d3": "7.8.2",
     "@types/jquery": "3.5.16",
