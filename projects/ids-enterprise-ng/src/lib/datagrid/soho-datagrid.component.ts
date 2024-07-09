@@ -1290,6 +1290,36 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.exportConvertNegative;
   }
 
+  @Input() set overrideTabbing(overrideTabbing: boolean | undefined) {
+    this._gridOptions.overrideTabbing = overrideTabbing;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.overrideTabbing = overrideTabbing;
+    }
+  }
+
+  get overrideTabbing(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.overrideTabbing;
+    }
+
+    return this._gridOptions.overrideTabbing;
+  }
+
+  @Input() set showEditorIcons(showEditorIcons: boolean | undefined) {
+    this._gridOptions.showEditorIcons = showEditorIcons;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.showEditorIcons = showEditorIcons;
+    }
+  }
+
+  get showEditorIcons(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.showEditorIcons;
+    }
+
+    return this._gridOptions.showEditorIcons;
+  }
+
   /* Experimental Feature to stick on the top of the page. This feature has numerous limitations. */
   @Input() set stickyHeader(stickyHeader: boolean) {
     this._gridOptions.stickyHeader = stickyHeader;

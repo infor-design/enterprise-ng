@@ -258,6 +258,12 @@ interface SohoDataGridOptions {
   /** Display as a tree grid? */
   treeGrid?: boolean;
 
+  /** Allow Tab overrides? */
+  overrideTabbing?: boolean;
+
+  /** Show icons in the editors always */
+  showEditorIcons?: boolean;
+
   /**
    * Used to hold an object that can be referenced in formatters
    * and editors or anywhere else a datagrid reference is available
