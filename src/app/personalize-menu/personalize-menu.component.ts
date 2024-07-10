@@ -31,7 +31,7 @@ export class PersonalizeMenuComponent implements OnInit {
   /**
    * Mark as selectable.
    */
-  @HostBinding('class.is-selectable') isSelectable = true;
+  // @HostBinding('class.is-selectable') isSelectable = true;
 
   public themeMenuItems?: ThemeMenuItem[];
   public colorMenuItems?: ColorMenuItem[];

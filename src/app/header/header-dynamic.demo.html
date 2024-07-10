@@ -50,7 +50,14 @@
       <!-- If the currentToolbarOptions are null/undefined then display the "default" toolbar buttons
            and more menu. -->
       <soho-toolbar-flex-more-button [isPageChanger]="true">
-        <app-personalize-menu ></app-personalize-menu>
+        <app-personalize-menu>
+            <li>
+              <a href="#" role="menuitem" id="help">
+                <svg soho-icon icon="help"></svg>
+                <span>Help</span>
+              </a>
+            </li>
+        </app-personalize-menu>
       </soho-toolbar-flex-more-button>
 
     </soho-toolbar-flex>
