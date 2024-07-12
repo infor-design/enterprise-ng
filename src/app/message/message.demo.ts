@@ -97,6 +97,40 @@ export class MessageDemoComponent {
       .open();
   }
 
+  openInfo() {
+    const buttons = [
+      {
+        text: 'Okay', click: (_e: any, modal: any) => {
+          this.closeResult = 'Cancel'; (this.dialog as any) = null; modal.close(true);
+        }, isDefault: true
+      },
+    ];
+
+    this.dialog = this.messageService
+      .info()
+      .title('<span>Application Information</span>')
+      .message('<span>Success! You are informed.</span>')
+      .buttons(buttons)
+      .open();
+  }
+
+  openSuccess() {
+    const buttons = [
+      {
+        text: 'Success', click: (_e: any, modal: any) => {
+          this.closeResult = 'Cancel'; (this.dialog as any) = null; modal.close(true);
+        }, isDefault: true
+      },
+    ];
+
+    this.dialog = this.messageService
+      .success()
+      .title('<span>Application Success</span>')
+      .message('<span>Success! You are successful.</span>')
+      .buttons(buttons)
+      .open();
+  }
+
   openComplete() {
     const buttons = [{
       text: 'Done',

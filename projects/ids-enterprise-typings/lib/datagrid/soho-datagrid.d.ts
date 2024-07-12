@@ -216,6 +216,9 @@ interface SohoDataGridOptions {
   /**  If true the dirty indicator will be shown on the rows when they change */
   showDirty?: boolean;
 
+  /** If set false, will remove datagrid-cell-layout class from expandable rows. */
+  addCellLayoutClass?: boolean | undefined;
+
   /**  Changes the column resize behavior. */
   resizeMode?: SohoDataGridResizeMode;
 
@@ -254,6 +257,12 @@ interface SohoDataGridOptions {
 
   /** Display as a tree grid? */
   treeGrid?: boolean;
+
+  /** Allow Tab overrides? */
+  overrideTabbing?: boolean;
+
+  /** Show icons in the editors always */
+  showEditorIcons?: boolean;
 
   /**
    * Used to hold an object that can be referenced in formatters
@@ -1426,9 +1435,12 @@ interface SohoDataGridSelectedEvent {
   rowData?: SohoDataGridSelectedRow[] | SohoDataGridSelectedRow;
 }
 
-interface SohoDataGridCellChangeEvent {
-  row?: any;
-  cell?: any;
+interface SohoDataGridCellChangeEvent<T = Object> {
+  api?: any;
+  rowData?: T;
+  row?: number;
+  relativeRow?: number;
+  cell?: number;
   target?: any;
   value?: any;
   oldValue?: any;

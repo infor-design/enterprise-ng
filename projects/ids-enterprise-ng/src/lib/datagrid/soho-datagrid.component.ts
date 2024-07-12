@@ -986,6 +986,36 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * The value of the addCellLayoutClass flag.
+   */
+  get addCellLayoutClass(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.addCellLayoutClass;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.addCellLayoutClass;
+  }
+
+  /**
+   * Sets the addCellLayoutClass flag - If set false, will remove datagrid-cell-layout class from expandable rows.
+   * created.
+   *
+   * @param addCellLayoutClass - if true then dirty rows will be highlighted; otherwise they will not.
+   */
+  @Input() set addCellLayoutClass(value: boolean | undefined) {
+    this._gridOptions.addCellLayoutClass = value;
+    if (this.datagrid) {
+      this.datagrid.settings.addCellLayoutClass = value;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('addCellLayoutClass', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
    * Sets the resizeMode option to changes the column resize behavior.
    *
    * @param resizeMode - if true then dirty rows will be highlighted; otherwise they will not.
@@ -1260,6 +1290,36 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.exportConvertNegative;
   }
 
+  @Input() set overrideTabbing(overrideTabbing: boolean | undefined) {
+    this._gridOptions.overrideTabbing = overrideTabbing;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.overrideTabbing = overrideTabbing;
+    }
+  }
+
+  get overrideTabbing(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.overrideTabbing;
+    }
+
+    return this._gridOptions.overrideTabbing;
+  }
+
+  @Input() set showEditorIcons(showEditorIcons: boolean | undefined) {
+    this._gridOptions.showEditorIcons = showEditorIcons;
+    if (this.jQueryElement && this.datagrid) {
+      this.datagrid.settings.showEditorIcons = showEditorIcons;
+    }
+  }
+
+  get showEditorIcons(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.showEditorIcons;
+    }
+
+    return this._gridOptions.showEditorIcons;
+  }
+
   /* Experimental Feature to stick on the top of the page. This feature has numerous limitations. */
   @Input() set stickyHeader(stickyHeader: boolean) {
     this._gridOptions.stickyHeader = stickyHeader;
@@ -1529,6 +1589,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   @Output()
   sorted = new EventEmitter<SohoDataGridSortedEvent>();
+
+  @Output()
+  searched = new EventEmitter<any[]>();
 
   @Output()
   nextPage = new EventEmitter<SohoPagerPagingInfo>();
@@ -2852,6 +2915,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Event fired when search in toolbar is triggered
+   * @param args Searched data
+   */
+  private onSearched(args: any[]) {
+    this.ngZone.run(() => {
+      this.searched.next(args);
+    });
+  }
+
+  /**
    * Event fired when using built-in pager to next page.
    */
   private onNextPage(args: SohoPagerPagingInfo) {
@@ -3205,6 +3278,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
             this.onSelected({ e, rows: args, type, rowData }))
         .on('settingschanged', (_e: any, args: SohoDataGridSettingsChangedEvent) => this.onSettingsChanged(args))
         .on('sorted', (_e: any, args: SohoDataGridSortedEvent) => this.onSorted(args))
+        .on('searched', (_e: any, args: any[]) => this.onSearched(args))
         .on('beforepaging', (_e: any, args: SohoPagerPagingInfo) => this.onBeforePaging(args))
         .on('afterpaging', (_e: any, args: SohoPagerPagingInfo) => this.onAfterPaging(args))
         .on('scroll', (_e: any, args: SohoDataGridScrollEvent) => this.onVerticalScroll(args))

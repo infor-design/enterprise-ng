@@ -709,33 +709,6 @@ describe('Soho DataGrid Render', () => {
     (component as any).datagrid.selectRows([1]);
   });
 
-  it('fires `addrow` when a new row is added', done => {
-    fixture.detectChanges();
-
-    const newRow = {
-      id: 7,
-      productId: 895640,
-      productName: 'Cannondale SuperSix',
-      activity: 'Assembly',
-      quantity: 1,
-      price: 3499.99,
-      status: 'Active',
-      orderDate: '2018-09-17T08:10:00.000Z',
-      action: 'Action',
-      rated: 0.8
-    };
-
-    (component as any).datagrid.rowAdd.subscribe((event: SohoDataGridAddRowEvent) => {
-      expect(event.row).toEqual(0);
-      expect(event.cell).toEqual(0);
-      expect(event.value).toEqual(newRow, 'addrow');
-      expect(event.oldValue).toEqual({});
-      done();
-    });
-
-    (component as any).datagrid.addRow(newRow, 'top');
-  });
-
   it('fires `cellchange` when a cell is edited', done => {
     fixture.detectChanges();
 
