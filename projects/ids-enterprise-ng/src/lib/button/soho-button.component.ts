@@ -27,7 +27,7 @@ export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'ico
   templateUrl: 'soho-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './soho-button.component.scss',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 

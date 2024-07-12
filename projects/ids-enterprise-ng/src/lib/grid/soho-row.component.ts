@@ -18,13 +18,4 @@ export class SohoRowComponent {
   @HostBinding('class.soho-row') get isRow() {
     return true;
   }
-
-  /**
-   * Creates an instance of SohoRowComponent
-   */
-  constructor(
-    private element: ElementRef,
-    private ngZone: NgZone) {
-    console.log('SohoRowComponent.constructor');
-  }
 }

@@ -209,6 +209,8 @@ import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { RatingDemoComponent } from './rating/rating.demo';
 import { GridDemoComponent } from './grid/grid.demo';
+import { GridNestingNoMarginsDemoComponent } from './grid/grid-nesting-no-margins.demo';
+import { GridSimpleDemoComponent } from './grid/grid-simple.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SearchFieldCategoryDemoComponent } from './searchfield/searchfield-category.demo';
 import { SearchFieldClearDemoComponent } from './searchfield/searchfield-clear.demo';
@@ -462,6 +464,8 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     FormReactiveFormDemoComponent,
     FormCompactDemoComponent,
     GridDemoComponent,
+    GridNestingNoMarginsDemoComponent,
+    GridSimpleDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToggleButtonsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
