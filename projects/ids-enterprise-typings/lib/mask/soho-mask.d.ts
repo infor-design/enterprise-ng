@@ -52,6 +52,9 @@ interface SohoMaskPatternOptions {
   /** When true, adds the thousands separator symbol to the correct location in a formatted number. */
   allowThousandsSeparator?: boolean;
 
+  /** When true, shows trailing decimal zeroes in a formatter number. */
+  allowTrailingDecimalZeros?: boolean;
+
   /** The maximum number of digits to the left of the decimal separator symbol in a formatted number. */
   decimalLimit?: number;
 
