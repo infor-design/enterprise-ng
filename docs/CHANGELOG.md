@@ -7,6 +7,7 @@
 - `[Message]` Added info and success status option for message. ([#1698](https://github.com/infor-design/enterprise-ng/issues/1698))
 - `[Datagrid]` Added setting called addCellLayoutClass option to remove datagrid-cell-layout from expandable rows. ([#1524](https://github.com/infor-design/enterprise-ng/issues/1524))
 - `[Datagrid]` Added `searched` event for toolbar searchfield. ([EP#8814](https://github.com/infor-design/enterprise/issues/8814))
+- `[Mask]` Added setting `allowTrailingDecimalZeros` to always display decimals in input mask. ([#1715](https://github.com/infor-design/enterprise-ng/issues/1715))
 
 ## 18.1.0 Fixes
 
