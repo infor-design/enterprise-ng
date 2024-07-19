@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.1.2
+
+## 18.1.2 Features
+
+- `[General]` Added 4.97.3 patch release
+
 ## 18.1.1
 
 ## 18.1.1 Features
