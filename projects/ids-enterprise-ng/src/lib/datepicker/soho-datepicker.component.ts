@@ -414,6 +414,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
     // as enable() is called by both disabled()
     // and readonly().
     if (this.datepicker == null) {
+      this.isReadOnly = false;
       return;
     }
 
