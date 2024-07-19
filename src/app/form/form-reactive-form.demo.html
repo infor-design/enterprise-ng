@@ -24,6 +24,12 @@
       </div>
 
       <div class="field">
+        <label for="standard-readonly" class="label">Standard Date (Readonly)</label>
+        <input soho-datepicker name="standard-readonly" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"
+          formControlName="datepick" (change)="onChange($event)" [attr.readonly]="readOnly ? 'readonly' : null"/>
+      </div>
+
+      <div class="field">
         <label for="standardtime" class="label">Standard Time</label>
         <input soho-timepicker name="standardtime" formControlName="timepick" (change)="onChange($event)" />
       </div>

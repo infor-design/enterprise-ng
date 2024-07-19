@@ -46,6 +46,8 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
 
   public lookupData = productsData;
 
+  public readOnly = true;
+
   // @ts-ignore
   constructor(private formBuilder: UntypedFormBuilder) {
     // tslint:disable-next-line:max-line-length
