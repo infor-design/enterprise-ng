@@ -12,6 +12,7 @@
 ## 18.1.0 Fixes
 
 - `[Datagrid]` Added all existing properties in `SohoDataGridCellChangeEvent`. ([#1199](https://github.com/infor-design/enterprise-ng/issues/1199))
+- `[Datepicker]` Fixed readonly not updating when datepicker is in form. ([#1735](https://github.com/infor-design/enterprise-ng/issues/1735))
 - `[Module Nav]` Fixed roles not being updated when changed before `AfterViewInit`. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1677))
 - `[Popupmenu]` Updated example page to test bug on popupmenu title. ([#1700](https://github.com/infor-design/enterprise-ng/issues/1700))
 - `[Tabs]` Fix on `beforeCloseCallback` and updated example page. ([#1697](https://github.com/infor-design/enterprise-ng/issues/1697))
