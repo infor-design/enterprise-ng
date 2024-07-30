@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.2.0
+
+## 18.2.0 Features
+
+- `[General]` Added 4.98.0 version
+
 ## 18.1.0
 
 ## 18.1.0 Features
