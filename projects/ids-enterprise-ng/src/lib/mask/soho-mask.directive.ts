@@ -186,6 +186,15 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
     }
   }
 
+  /** Shows trailing decimal zeroes in a formatter number. */
+  @Input() set allowTrailingDecimalZeros(value: number) {
+    (this._options as any).patternOptions.allowTrailingDecimalZeros = value;
+    if (this.mask) {
+      (this.mask as any).settings.patternOptions.allowTrailingDecimalZeros = value;
+      this.mask.updated();
+    }
+  }
+
   /** The maximum number of digits to the right of decimal separator symbol in a formatted number. */
   @Input() set integerLimit(value: number) {
     (this._options as any).patternOptions.integerLimit = value;
