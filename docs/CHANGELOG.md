@@ -5,6 +5,7 @@
 ## 18.2.0 Features
 
 - `[General]` Added 4.98.0 version
+- `[Weekview]` Added `showWeek` to `datepicker` ranges type. ([#1755](https://github.com/infor-design/enterprise-ng/issues/1755))
 
 ## 18.1.0
 

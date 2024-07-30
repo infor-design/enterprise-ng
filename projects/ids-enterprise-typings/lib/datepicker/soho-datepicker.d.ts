@@ -129,6 +129,9 @@ interface SohoDatePickerRange {
 
   /** Use range of two dates options. */
   useRange?: boolean;
+
+  /** If true will act as a week picker */
+  selectWeek?: boolean;
 }
 
 /* Options for the legend */
