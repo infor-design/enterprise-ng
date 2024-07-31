@@ -2,6 +2,12 @@
 
 ## 18.2.0
 
+## 18.2.0 Fixes
+
+- `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+
+## 18.2.0
+
 ## 18.2.0 Features
 
 - `[General]` Added 4.98.0 version
