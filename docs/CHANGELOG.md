@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.3.0
+
+## 18.3.0 Fixes
+
+- `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+
 ## 18.2.0
 
 ## 18.2.0 Features
