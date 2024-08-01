@@ -63,7 +63,6 @@ export default class Blockgrid {
   previousFocusedElement?: boolean
 
   constructor(element: any, settings?: any) {
-    console.log('xxxx')
     this.element = $(element);
     this.settings = utils.mergeSettings(element, settings, BLOCKGRID_DEFAULTS);
     this.settings = handleLegacySettings(this.settings, settings);

@@ -28,7 +28,7 @@ const versionTag = 'dev';
  * Format the date as YYYYMMDD
  * @param {date} date
  */
-function formatDate (date) {
+function formatDate(date) {
   var d = new Date(date),
     month = '' + (d.getMonth() + 1),
     day = '' + d.getDate(),
@@ -50,8 +50,8 @@ function executeUpdate(cmd) {
       logError(`exec error: ${err}`);
       return;
     }
-    console.log(stdout);
-    console.log(stderr);
+    console.info(stdout);
+    console.info(stderr);
   });
 }
 
@@ -68,7 +68,7 @@ function getBaseVersion(str) {
 //   Main
 // -------------------------------------
 if (libPackageJson.version.indexOf('-dev') === -1) {
-  console.log('Error! Cannot append date to non-dev version. Are you on the master branch?');
+  console.info('Error! Cannot append date to non-dev version. Are you on the master branch?');
 } else {
   libPackageJson.version = `${getBaseVersion(libPackageJson.version)}.${todaysDate}`;
   const publPkgJsonStr = JSON.stringify(libPackageJson, null, 2) + '\n';

@@ -133,7 +133,7 @@ openMessage() {
     .title(this.title)
     .open()
     .afterClose(result => {
-      console.log(`The result was ${result}`);
+      console.info(`The result was ${result}`);
   });
 }
 ```
@@ -144,7 +144,7 @@ reference can then be used to interrogate the public properties of that `dialogC
 
 ```typescript
 dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogComponent>, dialogComponent: ExampleModalDialogComponent) => {
-  console.log(dialogComponent.model.someProperty);
+  console.info(dialogComponent.model.someProperty);
 });
 ```
 

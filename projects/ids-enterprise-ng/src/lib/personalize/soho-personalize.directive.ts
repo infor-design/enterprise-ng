@@ -40,7 +40,6 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
         this.personalize?.setTheme(theme);
       });
     }
-    debugger;
   }
 
   @Output() changetheme = new EventEmitter<SohoChangeThemePersonalizeEvent>();

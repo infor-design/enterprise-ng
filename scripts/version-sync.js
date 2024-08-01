@@ -36,7 +36,7 @@ const typingPackageJson = JSON.parse(typingPackagenStr);
  * @param {string} msg - the message
  */
 const logAction = (action, msg) => {
-  console.log(action, msg, '\n');
+  console.info(action, msg, '\n');
 }
 
 /**
@@ -44,7 +44,7 @@ const logAction = (action, msg) => {
  * @param {string} msg - the message
  */
 const logError = msg => {
-  console.log('Error!', msg, '\n');
+  console.info('Error!', msg, '\n');
 }
 
 /**
@@ -57,8 +57,8 @@ function executeUpdate(cmd) {
       logError(`exec error: ${err}`);
       return;
     }
-    console.log(stdout);
-    console.log(stderr);
+    console.info(stdout);
+    console.info(stderr);
   });
 }
 
@@ -80,7 +80,7 @@ fs.writeFile(libVersionJsonPath, publVersionJsonStr, 'utf8', () => {
 libPackageJson.dependencies['ids-enterprise-typings'] = libPackageJson.version;
 
 const libPackageJsonStr = JSON.stringify(libPackageJson, null, 2) + '\n';
-console.log(libPackageJsonStr)
+console.info(libPackageJsonStr)
 
 // Write the file with the new version
 fs.writeFile(libPackageJsonPath, libPackageJsonStr, 'utf8', () => {
@@ -91,7 +91,7 @@ fs.writeFile(libPackageJsonPath, libPackageJsonStr, 'utf8', () => {
 typingPackageJson.version = libPackageJson.version;
 
 const publTypingJsonStr = JSON.stringify(typingPackageJson, null, 2) + '\n';
-console.log(publTypingJsonStr)
+console.info(publTypingJsonStr)
 // Write the file with the new version
 fs.writeFile(typingPackageJsonPath, publTypingJsonStr, 'utf8', () => {
   executeUpdate('git status -sb && echo \n');

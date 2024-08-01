@@ -29,7 +29,7 @@ const distTypingpath = `${rootPath}/dist/ids-enterprise-typings`;
  * @param {string} msg - the message
  */
 const logAction = (action, msg) => {
-  console.log(action, msg, "\n");
+  console.info(action, msg, "\n");
 };
 
 /**
@@ -37,7 +37,7 @@ const logAction = (action, msg) => {
  * @param {string} msg - the message
  */
 const logError = (msg) => {
-  console.log("Error!", msg, "\n");
+  console.info("Error!", msg, "\n");
 };
 
 /**
@@ -50,8 +50,8 @@ function executeUpdate(cmd) {
       logError(`exec error: ${err}`);
       return;
     }
-    console.log(stdout);
-    console.log(stderr);
+    console.info(stdout);
+    console.info(stderr);
   });
 }
 
@@ -63,7 +63,7 @@ fs.mkdir('./dist', (err) => {
   if (err) {
     // Already exists
   } else {
-    console.log(`created 'dist' folder`);
+    console.info(`created 'dist' folder`);
   }
 });
 
@@ -71,6 +71,6 @@ fs.copy(libTypingsPath, distTypingpath, (err) => {
   if (err) {
     throw err;
   } else {
-    console.log(`copied typings to ${distTypingpath}`);
+    console.info(`copied typings to ${distTypingpath}`);
   }
 });

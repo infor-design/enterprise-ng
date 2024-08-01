@@ -38,7 +38,7 @@ function chooseVersionTag(options) {
 
   inquirer.prompt(questionsArr).then(answers => {
     const cmd = `npm i ids-enterprise@${answers.tag} -P --save-exact`;
-    console.log(`Running "${cmd}"...`);
+    console.info(`Running "${cmd}"...`);
     executeUpdate(cmd);
   });
 }
@@ -74,7 +74,7 @@ function syncPackageJsonVersions() {
   const libPackageJsonStr = JSON.stringify(libPackageJson, null, 2) + `\n`;
 
   fs.writeFile('./projects/ids-enterprise-ng/package.json', libPackageJsonStr, 'utf8', () => {
-    console.log('updated 1 package in package.json');
+    console.info('updated 1 package in package.json');
   });
 }
 
@@ -90,14 +90,14 @@ function copySvgIcons() {
       if (err) {
         throw err;
       } else {
-        console.log(`updated 1 file src/app/icon/${destinationFileName}`);
+        console.info(`updated 1 file src/app/icon/${destinationFileName}`);
       }
     });
     fs.copyFile(sourcePath + fileName, destPathLib + destinationFileName, (err) => {
       if (err) {
         throw err;
       } else {
-        console.log(`updated 1 file /projects/ids-enterprise-ng/src/lib/icon/${destinationFileName}`);
+        console.info(`updated 1 file /projects/ids-enterprise-ng/src/lib/icon/${destinationFileName}`);
       }
     });
   };
@@ -113,5 +113,5 @@ function copySvgIcons() {
 // -------------------------------------
 //   Main
 // -------------------------------------
-console.log('Update ids-enterprise version...');
+console.info('Update ids-enterprise version...');
 chooseVersionTag(tagArr);

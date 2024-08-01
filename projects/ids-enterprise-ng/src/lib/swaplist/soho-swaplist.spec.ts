@@ -28,7 +28,6 @@ export class SwapListTestService extends SohoSwapListService {
   private additionalDemoItems: SohoSwapListItem[] = [];
 
   getData(): Observable<SohoSwapListOptions> {
-    // console.log(this.options.available);
     return of(this.options);
   }
 

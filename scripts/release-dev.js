@@ -36,7 +36,7 @@ const tagSuffixFormat = 'dev.YYYYMMDD';
  * @param {string} msg - the message
  */
 const logAction = (action, msg) => {
-  console.log(action, msg, '\n');
+  console.info(action, msg, '\n');
 }
 
 /**
@@ -44,7 +44,7 @@ const logAction = (action, msg) => {
  * @param {string} msg - the message
  */
 const logError = msg => {
-  console.log('Error!', msg, '\n');
+  console.info('Error!', msg, '\n');
 }
 
 /**
@@ -68,8 +68,8 @@ const executeUpdate = (cmd) => {
       logError(`exec error: ${err}`);
       return;
     }
-    console.log(stdout);
-    console.log(stderr);
+    console.info(stdout);
+    console.info(stderr);
   });
 }
 
@@ -82,7 +82,7 @@ if (versionHasSuffix(libPackageJson.version)) {
   let cmds = ['npm run build:lib'];
 
   if (argv.hasOwnProperty('dryRun')) {
-    cmds .push('npm run pack:lib');
+    cmds.push('npm run pack:lib');
     logError(`DRY RUN!! using "${cmds.join(' && ')}"`);
   } else {
     cmds.push('npm publish ./dist/ids-enterprise-ng --tag=dev');
