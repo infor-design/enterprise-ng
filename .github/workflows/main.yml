@@ -38,6 +38,9 @@ jobs:
     - name: Run Lint Checks
       run: npm run lint
 
+    - name: Run tests (lib)
+      run: npx run test:lib
+
     - name: Run tests (chrome)
       run: npx playwright test --reporter=list --workers=3 --grep-invert 'percy'
 
