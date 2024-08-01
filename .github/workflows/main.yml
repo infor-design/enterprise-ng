@@ -29,11 +29,25 @@ jobs:
     - name: Install Dependencies
       run: npm ci
 
+    - name: Install Browsers
+      run: npx playwright install chromium --with-deps
+
     - name: Build
       run: npm run build
 
     - name: Run Lint Checks
       run: npm run lint
 
-    - name: Run tests
-      run: npm run test
+    - name: Run tests (chrome)
+      run: npx playwright test --reporter=list --workers=3 --grep-invert 'percy'
+
+    - name: Run tests (percy)
+      run: npx percy exec -- npx playwright test --reporter=list --workers=1 --grep 'percy'
+      env:
+        NODE_OPTIONS: "--max-old-space-size=8192"
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}

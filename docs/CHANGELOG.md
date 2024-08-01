@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.2.0
+
+## 182.0 Features
+
+- `[Tests]` Changed test framework to playwright. ([#8549]https://github.com/infor-design/enterprise/issues/8549))
+
 ## 18.1.0
 
 ## 18.1.0 Features
