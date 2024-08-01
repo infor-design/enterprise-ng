@@ -5,6 +5,18 @@
 ## 182.0 Features
 
 - `[Tests]` Changed test framework to playwright. ([#8549]https://github.com/infor-design/enterprise/issues/8549))
+## 18.3.0
+
+## 18.3.0 Fixes
+
+- `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+
+## 18.2.0
+
+## 18.2.0 Features
+
+- `[General]` Added 4.98.0 version
+- `[Weekview]` Added `showWeek` to `datepicker` ranges type. ([#1755](https://github.com/infor-design/enterprise-ng/issues/1755))
 
 ## 18.1.0
 
