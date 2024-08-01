@@ -1,15 +1,11 @@
 # What's New with Enterprise-NG
 
-## 18.2.0
-
-## 182.0 Features
-
-- `[Tests]` Changed test framework to playwright. ([#8549]https://github.com/infor-design/enterprise/issues/8549))
 ## 18.3.0
 
 ## 18.3.0 Fixes
 
 - `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+- `[Tests]` Changed test framework to playwright. ([#8549]https://github.com/infor-design/enterprise/issues/8549))
 
 ## 18.2.0
 
