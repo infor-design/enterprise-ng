@@ -1,27 +1,18 @@
-@import  '../themes/theme-new-light';
-// @import  '../themes/theme-new-dark';
-// @import  '../themes/theme-new-dark';
+@import '../themes/mixins';
+@import  'node_modules/ids-foundation/theme-soho/core.scss';
+@import 'node_modules/ids-foundation/theme-soho/semantic-light.scss';
+// @import 'node_modules/ids-foundation/theme-soho/semantic-dark.scss';
+// @import 'node_modules/ids-foundation/theme-soho/semantic-contrast.scss';
 
 // Tag Component
 @mixin disabled-tag {
   &.is-disabled {
-    background-color: transparent;
-    border-color: $input-color-disabled-border;
-    color: $badge-disabled-text-color;
     pointer-events: none;
-
-    .btn-dismissible,
-    .btn-linkable {
-      color: $badge-disabled-text-color;
-
-      .icon {
-        color: $badge-disabled-text-color;
-      }
-    }
+    opacity: var(--ids-opacity-disabled);
 
     &:hover {
       .icon {
-        color: $badge-disabled-text-color;
+        color: var(--ids-color-foreground-default-default);
       }
     }
   }
@@ -30,15 +21,15 @@
 .soho-tag {
   @include antialiased();
 
-  background-color: $badge-neutral-bg-color;
+  background-color: var(--ids-color-accent-neutral-weaker);
   border-radius: 12px;
-  color: $badge-neutral-color;
+  color: var(--ids-color-foreground-default-default);
   display: inline-flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   font-size: 14px;
-  font-weight: $ids-number-font-weight-base;
+  font-weight: var(--ids-font-weight-default);
   height: 24px;
   line-height: 24px;
   padding: 0 10px;
@@ -68,7 +59,7 @@
 
   .btn-dismissible,
   .btn-linkable {
-    color: $badge-neutral-icon-color;
+    color: var(--ids-color-foreground-default-secondary);
 
     .icon {
       color: inherit;
@@ -77,7 +68,7 @@
 
     &:hover {
       .icon {
-        color: $badge-neutral-hover-icon-color;
+        color: var(--ids-color-foreground-default-default);
       }
     }
   }
@@ -95,13 +86,14 @@
   }
 
   &.is-linkable {
-    @include transition(background-color 200ms $cubic-ease, border-color 200ms $cubic-ease, color 200ms $cubic-ease);
-
     border: 1px solid transparent;
     line-height: 20px;
+    transition: background-color var(--ids-motion-duration) var(--ids-motion-ease),
+      border-color  var(--ids-motion-duration) var(--ids-motion-ease),
+      color  var(--ids-motion-duration) var(--ids-motion-ease);
 
     a {
-      cursor: pointer;
+      cursor: var(--ids-cursor-pointer);
     }
 
     .btn-linkable {
@@ -113,22 +105,16 @@
       flex-flow: column;
 
       .icon {
-        height: 120px;
+        height: 14px;
         margin: 0;
         vertical-align: baseline;
-        width: 12px;
+        width: 14px;
       }
     }
 
     &:not(.hide-focus) {
-      border-color: $ids-color-brand-primary-base;
-      box-shadow: $focus-box-shadow;
-    }
-
-    // Neutral color style for focus/hover
-    &:hover,
-    &.is-focused:not(.hide-focus) {
-      background-color: $badge-neutral-hover-bg-color;
+      border-color: var(--ids-color-accent-blue-strong);
+      box-shadow: 0 0 0 0.5px var(--ids-color-blue-50), 0 0 0 0.5px  var(--ids-color-blue-50);
     }
   }
 
@@ -143,19 +129,19 @@
       vertical-align: top;
 
       .icon {
-        height: 12px;
+        height: 14px;
         margin: 0;
         margin-inline-end: -2px;
         vertical-align: unset;
-        top: 1px;
-        width: 12px;
+        top: 1.5px;
+        width: 14px;
       }
     }
   }
 
   &.is-focused:not(.hide-focus) {
-    border-color: $ids-color-brand-primary-base;
-    box-shadow: $focus-box-shadow;
+    border-color: var(--ids-color-accent-blue-strong);
+    box-shadow: 0 0 0 0.5px var(--ids-color-blue-50), 0 0 0 0.5px  var(--ids-color-blue-50);
 
     a {
       outline: none;
@@ -169,16 +155,16 @@
 
   // Neutral (Default-style) Tags
   &.neutral {
-    background-color: $badge-neutral-bg-color;
-    color: $badge-neutral-color;
+    background-color: var(--ids-color-accent-neutral-weaker);
+    color: var(--ids-color-foreground-default-default);
 
     .btn-dismissible,
     .btn-linkable {
-      color: $badge-neutral-icon-color;
+      color: var(--ids-color-foreground-default-secondary);
 
       &:hover {
         .icon {
-          color: $badge-neutral-hover-icon-color;
+          color: var(--ids-color-foreground-default-default);
         }
       }
     }
@@ -186,7 +172,7 @@
     &.is-linkable {
       &:hover,
       &.is-focused:not(.hide-focus) {
-        background-color: $badge-neutral-hover-bg-color;
+        background-color: var(--ids-color-foreground-default-default);
       }
     }
 
@@ -195,29 +181,17 @@
 
   // Alternate Color Tags
   &.secondary {
-    border: 1px solid $badge-secondary-border-color;
-    color: $badge-secondary-color;
+    border: 1px solid var(--ids-color-border-weak);
+    color: var(--ids-color-foreground-default-default);
     line-height: 20px;
 
     .btn-dismissible,
     .btn-linkable {
-      color: $badge-secondary-icon-color;
+      color: var(--ids-color-accent-neutral-stronger);
 
       &:hover {
-        color: $badge-secondary-hover-icon-color;
+        color: var(--ids-color-accent-neutral-strongest);
       }
-    }
-
-    &.is-linkable {
-      &:hover,
-      &.is-focused:not(.hide-focus) {
-        background-color: $badge-secondary-hover-bg-color;
-        border-color: $badge-secondary-hover-border-color;
-      }
-    }
-
-    &.is-dismissible {
-      border-color: $badge-secondary-border-color;
     }
 
     // Re-inforce the border color on secondary-style tags, which
@@ -226,7 +200,7 @@
     &.is-linkable.is-focused,
     &.is-dismissible.is-focused {
       &:not(.hide-focus) {
-        border-color: $ids-color-brand-primary-base;
+        border-color: var(--ids-color-accent-blue-strong);
       }
     }
 
@@ -235,16 +209,16 @@
 
   // Error Tags
   &.error {
-    background-color: $badge-error-bg-color;
-    color: $badge-error-color;
+    background-color: var(--ids-color-error-default);
+    color: var(--ids-color-foreground-light-default);
 
     .btn-dismissible,
     .btn-linkable {
-      color: $badge-error-icon-color;
+      color: var(--ids-color-foreground-light-default);
 
       &:hover {
         .icon {
-          color: $badge-error-icon-color;
+          color: var(--ids-color-foreground-light-default);
         }
       }
     }
@@ -252,7 +226,7 @@
     &.is-linkable {
       &:hover,
       &.is-focused:not(.hide-focus) {
-        background-color: $badge-error-hover-bg-color;
+        background-color: var(--ids-color-foreground-light-default);
       }
     }
 
@@ -262,16 +236,16 @@
   // Alert / Warning Tags
   &.alert,
   &.warning {
-    background-color: $alert-color;
-    color: $badge-alert-text-color;
+    background-color: var(--ids-color-warning-default);
+    color: var(--ids-color-foreground-dark-default);
 
     .btn-dismissible,
     .btn-linkable {
-      color: $badge-pending-light-icon-color;
+      color: var(--ids-color-foreground-dark-default);
 
       &:hover {
         .icon {
-          color: $badge-pending-light-icon-color;
+          color: var(--ids-color-foreground-dark-default);
         }
       }
     }
@@ -279,36 +253,26 @@
     &.is-linkable {
       &:hover,
       &.is-focused:not(.hide-focus) {
-        background-color: $badge-alert-hover-bg-color;
+        background-color: var(--ids-color-foreground-dark-default);
       }
     }
 
     @include disabled-tag();
   }
 
-  &.alert {
-    &.slate03 {
-      background-color: transparent;
-
-      svg {
-        color: $ids-color-palette-slate-30;
-      }
-    }
-  }
-
   &.caution {
-    background-color: $ids-color-status-status-03;
-    color: $badge-warning-text-color;
+    background-color: var(--ids-color-caution-default);
+    color: var(--ids-color-foreground-dark-default);
 
     .btn-dismissible,
     .btn-linkable {
-      color: $badge-warning-text-color;
+      color: var(--ids-color-foreground-dark-default);
 
       &:hover {
-        color: $badge-warning-text-color;
+        color: var(--ids-color-foreground-dark-default);
 
         .icon {
-          color: $badge-warning-text-color;
+          color: var(--ids-color-foreground-dark-default);
         }
       }
     }
@@ -317,18 +281,18 @@
   // Good (Success) Tags
   &.good,
   &.success {
-    background-color: $badge-good-bg-color;
-    color: $badge-good-color;
+    background-color: var(--ids-color-success-default);
+    color: var(--ids-color-foreground-dark-default);
 
     .btn-dismissible,
     .btn-linkable {
-      color: $badge-good-icon-color;
+      color: var(--ids-color-foreground-dark-default);
 
       &:hover {
-        color: $badge-good-hover-icon-color;
+        color: var(--ids-color-foreground-dark-default)r;
 
         .icon {
-          color: $badge-good-hover-icon-color;
+          color: var(--ids-color-foreground-dark-default);
         }
       }
     }
@@ -336,7 +300,7 @@
     &.is-linkable {
       &:hover,
       &.is-focused:not(.hide-focus) {
-        background-color: $badge-good-hover-bg-color;
+        background-color: var(--ids-color-foreground-dark-default);
       }
     }
 
@@ -345,18 +309,18 @@
 
   // Info Tags
   &.info {
-    background-color: $badge-info-bg-color;
-    color: $badge-info-color;
+    background-color: var(--ids-color-info-default);
+    color: var(--ids-color-foreground-light-default);
 
     .btn-dismissible,
     .btn-linkable {
-      color: $badge-info-icon-color;
+      color: var(--ids-color-foreground-light-default);
 
       &:hover {
-        color: $badge-info-hover-icon-color;
+        color: var(--ids-color-foreground-light-default);
 
         .icon {
-          color: $badge-info-icon-color;
+          color: var(--ids-color-foreground-light-default);
         }
       }
     }
@@ -364,7 +328,7 @@
     &.is-linkable {
       &:hover,
       &.is-focused:not(.hide-focus) {
-        background-color: $badge-info-hover-bg-color;
+        background-color: var(--ids-color-foreground-light-default);
       }
     }
 
@@ -409,7 +373,7 @@ html.theme-new-contrast {
       &.is-linkable {
         &:hover,
         &.is-focused:not(.hide-focus) {
-          border-color: $badge-neutral-hover-border-color;
+          border-color: var(--ids-color-border-strong);
         }
       }
     }
