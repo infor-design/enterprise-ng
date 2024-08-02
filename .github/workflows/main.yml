@@ -45,7 +45,7 @@ jobs:
       run: npx playwright test --reporter=list --workers=3 --grep-invert 'percy'
 
     - name: Run tests (percy)
-      run: npx percy exec -- npx playwright test --reporter=list --workers=1 --grep 'percy'
+      run: npm run test:ci
       env:
         NODE_OPTIONS: "--max-old-space-size=8192"
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
