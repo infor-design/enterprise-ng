@@ -39,7 +39,7 @@ jobs:
       run: npm run lint
 
     - name: Run tests (lib)
-      run: npx run test:lib
+      run: npm run test:lib
 
     - name: Run tests (chrome)
       run: npm run test:ci
