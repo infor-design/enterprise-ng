@@ -4,7 +4,7 @@
 
 ### 17.1.7 Features
 
-- `[General]` Added 4.90.6 EP version.
+- `[General]` Added 4.90.7 EP version.
 
 ## 17.1.6
 
