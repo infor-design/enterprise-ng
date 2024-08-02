@@ -19,7 +19,7 @@ test.describe('Tag tests', () => {
   test.describe('snapshot tests', () => {
     test('should match the visual snapshot in percy', async ({ page, browserName }) => {
       if (browserName !== 'chromium') return;
-      await percySnapshot(page, 'ids-tag-light');
+      await percySnapshot(page, 'soho-tag-light');
     });
   });
 });
