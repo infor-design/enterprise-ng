@@ -1,8 +1,14 @@
 # What's New with Enterprise-NG
 
-## 18.2.0
+## 18.2.2
 
-## 18.2.0 Features
+## 18.2.2 Fixes
+
+- `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+
+## 18.2.1
+
+## 18.2.1 Features
 
 - `[General]` Added 4.98.0 version
 - `[Weekview]` Added `showWeek` to `datepicker` ranges type. ([#1755](https://github.com/infor-design/enterprise-ng/issues/1755))
