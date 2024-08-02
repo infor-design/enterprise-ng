@@ -15,4 +15,11 @@ test.describe('Tag tests', () => {
       await expect(page).toHaveTitle('IDS Enterprise - Angular Components');
     });
   });
+
+  test.describe('snapshot tests', () => {
+    test('should match the visual snapshot in percy', async ({ page, browserName }) => {
+      if (browserName !== 'chromium') return;
+      await percySnapshot(page, 'ids-tag-light');
+    });
+  });
 });
