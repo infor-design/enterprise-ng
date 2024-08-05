@@ -12,16 +12,16 @@
 ## 18.1.0 Features
 
 - `[Message]` Added info and success status option for message. ([#1698](https://github.com/infor-design/enterprise-ng/issues/1698))
-- `[Datagrid]` Added setting called addCellLayoutClass option to remove datagrid-cell-layout from expandable rows. ([#1524](https://github.com/infor-design/enterprise-ng/issues/1524))
-- `[Datagrid]` Added `searched` event for toolbar searchfield. ([EP#8814](https://github.com/infor-design/enterprise/issues/8814))
+- `[Datagrid]` Added setting called addCellLayoutClass option to remove `datagrid-cell-layout` from expandable rows. ([#1524](https://github.com/infor-design/enterprise-ng/issues/1524))
+- `[Datagrid]` Added `searched` event for toolbar `searchfield`. ([EP#8814](https://github.com/infor-design/enterprise/issues/8814))
 - `[Mask]` Added setting `allowTrailingDecimalZeros` to always display decimals in input mask. ([#1715](https://github.com/infor-design/enterprise-ng/issues/1715))
 
 ## 18.1.0 Fixes
 
 - `[Datagrid]` Added all existing properties in `SohoDataGridCellChangeEvent`. ([#1199](https://github.com/infor-design/enterprise-ng/issues/1199))
-- `[Datepicker]` Fixed readonly not updating when datepicker is in form. ([#1735](https://github.com/infor-design/enterprise-ng/issues/1735))
+- `[Datepicker]` Fixed readonly not updating when `datepicker` is in form. ([#1735](https://github.com/infor-design/enterprise-ng/issues/1735))
 - `[Module Nav]` Fixed roles not being updated when changed before `AfterViewInit`. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1677))
-- `[Popupmenu]` Updated example page to test bug on popupmenu title. ([#1700](https://github.com/infor-design/enterprise-ng/issues/1700))
+- `[Popupmenu]` Updated example page to test bug on `popupmenu` title. ([#1700](https://github.com/infor-design/enterprise-ng/issues/1700))
 - `[Tabs]` Fix on `beforeCloseCallback` and updated example page. ([#1697](https://github.com/infor-design/enterprise-ng/issues/1697))
 
 ## 18.0.0
@@ -32,8 +32,8 @@
 - `[Datepicker]` Fixed readonly state when called from disabled method. ([#1702](https://github.com/infor-design/enterprise-ng/issues/1702))
 - `[Mask]` Fixed placeholder value being duplicated on number input. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1686))
 - `[Monthview]` Fixed `monthview` not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
-- `[Monthview]` Fixed monthview not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
-- `[Popupmenu]` Updated example page to fix multiselect. ([#8623](https://github.com/infor-design/enterprise-ng/issues/8623))
+- `[Monthview]` Fixed `monthview` not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
+- `[Popupmenu]` Updated example page to fix `multiselect`. ([#8623](https://github.com/infor-design/enterprise-ng/issues/8623))
 
 ## 17.8.0 Notes
 
