@@ -1621,6 +1621,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   rowActivated = new EventEmitter<SohoDataGridRowActivated>();
 
   @Output()
+  columnChange = new EventEmitter<SohoDataGridColumnChange>()
+
+  @Output()
   rowDeactivated = new EventEmitter<SohoDataGridRowActivated>();
 
   @Output()
@@ -2869,6 +2872,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  private onColumnChange(args: SohoDataGridColumnChangedEvent) {
+    this.ngZone.run(() => {
+      this.columnChange.next(args);
+    });
+  }
+
   /**
    * Event fired when a row is deactivated.
    */
@@ -3273,6 +3282,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('rowactivated', (_e: any, args: SohoDataGridRowActivatedEvent) => this.onRowActivated(args))
         .on('rowdeactivated', (_e: any, args: SohoDataGridRowDeactivatedEvent) => this.onRowDeactivated(args))
         .on('rowreorder', (_e: any, args: SohoDataGridRowReorderedEvent) => this.onRowReordered(args))
+        .on('columnchange', (_e: any, args: SohoDataGridColumnChangedEvent) => this.onColumnChange(args))
         .on('selected',
           (e: any, args: SohoDataGridSelectedRow[], type?: SohoDataGridSelectedEventType, rowData?: SohoDataGridSelectedRow[] | SohoDataGridSelectedRow) =>
             this.onSelected({ e, rows: args, type, rowData }))

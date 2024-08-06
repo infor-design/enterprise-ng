@@ -1406,6 +1406,11 @@ interface SohoDataGridRowActivated {
   item: any;
 }
 
+interface SohoDataGridColumnChange {
+  row: number;
+  item: any;
+}
+
 interface SohoDataGridSelectedRow {
   idx: number;
   data: any;
@@ -1572,6 +1577,7 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: 'afterpaging', handler: JQuery.EventHandlerBase<any, SohoPagerPagingInfo>): this;
   on(events: 'expandrow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowExpandEvent>): this;
   on(events: 'rowactivated | beforerowactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowActivatedEvent>): this;
+  on(events: 'columnchange', handler: JQuery.EventHandlerBase<any, SohoDataGridColumnChangedEvent>): this;
   on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>): this;
   on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoDataGridSelectedRow[]>): this;
   on(events: 'filteroperatorchanged', handler: JQuery.EventHandlerBase<any, SohoDataGridFilterOperatorChangedEvent>): this;
@@ -1594,6 +1600,11 @@ interface SohoDataGridRowExpandEvent {
 interface SohoDataGridRowCollapseEvent extends SohoDataGridRowExpandEvent { }
 
 interface SohoDataGridRowActivatedEvent {
+  row: number;
+  item: any;
+}
+
+interface SohoDataGridColumnChangedEvent {
   row: number;
   item: any;
 }
