@@ -31,6 +31,9 @@ interface SohoNotificationOptions {
   /** The text to show in the hyperlink. Leave empty for no link. */
   linkText?: string;
 
+  /* The closeCallback function to call when the notification is closed. */
+  closeCallback?: Function;
+
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
 }
