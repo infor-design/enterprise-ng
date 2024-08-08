@@ -49,14 +49,12 @@ yarn.lock
 # e2e
 /e2e/*.map
 
-# karma
-/mocha.json
+# Tests
+test-results
+playwright-report
+playwright
 
 #System Files
 .DS_Store
 Thumbs.db
 debug.log
-
-# cypress outputs
-/cypress/screenshots/
-/cypress/videos/

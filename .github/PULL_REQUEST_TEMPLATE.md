@@ -18,8 +18,8 @@ Include:
 - test scenarios
 -->
 
-<!-- 
-Also Remember to...
-- Update the changelog (if needed)
-- Check back to make sure tests pass CI Checks
--->
+**Included in this Pull Request**:
+- [ ] A test for the bug or feature.
+- [ ] A note to the change log.
+
+<!-- After submitting your PR, please check back to make sure tests pass on the github actions. -->

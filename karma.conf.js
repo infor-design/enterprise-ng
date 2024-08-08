@@ -41,8 +41,8 @@ module.exports = function (config) {
     browsers: ['ChromeHeadless'],
     captureTimeout: 210000,
     browserDisconnectTolerance: 10, //this one helps
-    browserDisconnectTimeout : 210000,
-    browserNoActivityTimeout : 210000,
+    browserDisconnectTimeout: 210000,
+    browserNoActivityTimeout: 210000,
     singleRun: true,
     restartOnFileChange: true
   });

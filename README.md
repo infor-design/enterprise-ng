@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![npm version](https://badge.fury.io/js/ids-enterprise-ng.svg)](https://badge.fury.io/js/ids-enterprise-ng)
 [![Build Status](https://travis-ci.com/infor-design/enterprise-ng.svg?branch=master)](https://travis-ci.com/infor-design/enterprise-ng)
+[![Coverage Status](https://coveralls.io/repos/github/infor-design/enterprise-ng/badge.svg?branch=main)](https://coveralls.io/github/infor-design/enterprise-ng?branch=main)
 
 This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
 
@@ -21,7 +22,7 @@ The goal is that this will make Angular easier to support for all teams and easi
 
 ## Enterprise components
 
-See the [list of features](docs/FEATURES.md) for details about the included and planned component covereage.
+See the [list of features](docs/FEATURES.md) for details about the included and planned component coverage.
 
 ## Strategy
 
@@ -32,7 +33,7 @@ See the [list of features](docs/FEATURES.md) for details about the included and 
 - Will use <https://cli.angular.io/>
 - Will use Angular Style guide: <https://angular.io/styleguide>
 - Group discussion location <https://teams.microsoft.com/l/channel/19%3a83173693057f4991b7a84f030975c06d%40thread.skype/Angular%2520Components?groupId=4f50ef7d-e88d-4ccb-98ca-65f26e57fe35&tenantId=457d5685-0467-4d05-b23b-8f817adda47c>
-- Use editor config, eslint and tslint
+- Use editor config, `eslint` and `tslint`
 - Use GitHub
 
 ## Other Resources
@@ -42,8 +43,6 @@ Check out these resources to get yourself familiar with some of the code and pro
 [Angular 2.0 Style Guide]( https://github.com/johnpapa/angular-styleguide/blob/master/a2/README.md) - Angular 2.0 style guide we follow.
 
 [RxJS and Functional Reactive Programming](http://blog.jhades.org/angular-2-application-architecture-building-applications-using-rxjs-and-functional-reactive-programming-vs-redux/) - Example Implementation
-
-[MockBackend for Angular 2](http://plnkr.co/edit/7LWALD?p=preview) - Plunkr on setting up a MockBackend
 
 [RxJS and Observables](http://blog.jhades.org/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) - General Overview
 
