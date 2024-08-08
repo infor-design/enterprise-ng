@@ -2,10 +2,15 @@
 
 ## 18.3.0
 
+## 18.4.0 Features
+
+- `[Notification]` Added `closeCallback` property to `NotificationOptions`. ([#1761](https://github.com/infor-design/enterprise/issues/8767))
+
 ## 18.3.0 Fixes
 
 - `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
 - `[Tests]` Changed test framework to playwright. ([#8549](https://github.com/infor-design/enterprise/issues/8549))
+- `[Datagrid]` Added columnChange event type. ([#1734](https://github.com/infor-design/enterprise-ng/issues/1734))
 
 ## 18.2.0
 

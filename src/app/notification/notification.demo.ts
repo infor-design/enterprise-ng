@@ -18,7 +18,7 @@ export class NotificationDemoComponent implements OnInit {
   ngOnInit() { }
 
   showNotification(type: SohoNotificationType = SohoNotificationService.INFO) {
-    this.notificationService.show({ id: `notif-${this.counter++}`, message: `${this.counter}) This is a Notification Message`, type });
+    this.notificationService.show({ id: `notif-${this.counter++}`, closeCallback: this.callbackFunc, message: `${this.counter}) This is a Notification Message`, type });
   }
 
   closeFirstNotification() {
@@ -31,6 +31,10 @@ export class NotificationDemoComponent implements OnInit {
         this.current = 0;
       }
     }
+  }
+
+  callbackFunc(): void {
+    console.log('Notification closed');
   }
 
   closeLatestNotification() {
