@@ -157,7 +157,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   /** Options. */
   private options: SohoTagOptions = {};
 
-  @HostBinding('class.tag') get isTag() {
+  @HostBinding('class.tagx') get isTag() {
     return true;
   }
 
