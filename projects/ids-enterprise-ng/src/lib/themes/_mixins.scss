@@ -343,3 +343,42 @@ $box-shadow-off-color: rgba(0, 0, 0, 0);
 @mixin drawer-box-shadow() {
   @include css3(box-shadow, 0 0 20px 1px $box-shadow-on-color);
 }
+
+@mixin audible() {
+  .audible {
+    clip: rect(0, 0, 0, 0);
+    height: 0;
+    line-height: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+}
+
+@mixin button-reset() {
+  button {
+    background-color: transparent;
+    border: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    overflow: visible;
+    width: auto;
+
+    &:focus {
+      outline: 0;
+     }
+  }
+}
+
+@mixin border-box-reset() {
+  * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}

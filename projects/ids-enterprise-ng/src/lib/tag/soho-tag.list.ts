@@ -6,7 +6,7 @@ const COMPONENT_NAME = 'taglist';
 
 // Default Tag Options
 const TAG_LIST_DEFAULTS = {
-  tags: []
+  tags: [],
 };
 
 /**
@@ -17,7 +17,9 @@ const TAG_LIST_DEFAULTS = {
 */
 export default class TagList {
   settings: any;
+
   element: HTMLElement;
+
   tags: Tag[];
 
   constructor(element: HTMLElement, settings: any) {
@@ -47,7 +49,7 @@ export default class TagList {
    * the current list of tags.
    */
   get elements() {
-    return this.tags.map(tag => tag.element);
+    return this.tags.map((tag) => tag.element);
   }
 
   /**
@@ -124,9 +126,8 @@ export default class TagList {
   /**
    * Removes a tag from the collection.
    * @param {Tag|object} tagObj an incoming Tag Component instance, or object representing tag data.
-   * @param {boolean} [doDestroy=false] if true, calls `Tag.prototype.remove()` and removes the tag from the DOM.
-   * @returns {Tag|undefined} a reference to the removed tag, if one has been removed. Returns undefined if no tags
-   * have been removed.
+   * @param {boolean} [doDestroy=false] if true, calls remove() and removes the tag from the DOM.
+   * @returns {Tag|undefined} a reference to the removed tag
    */
   remove(tagObj: any, doDestroy: any) {
     if (tagObj instanceof Tag) {
@@ -139,7 +140,7 @@ export default class TagList {
     // Filter out matching result(s) from the current tags array.
     let removedTag: any;
     const updatedTagsList = this.tags.filter((tag) => {
-      const settings: any = tag.settings;
+      const { settings } = tag;
       if (settings[targetProp] !== tagObj[targetProp]) {
         removedTag = tag;
         return false;

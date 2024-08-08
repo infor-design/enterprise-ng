@@ -336,7 +336,7 @@ utils.coerceSettingsToBoolean = function (settings, targetPropsArr) {
  * Timer - can be used for play/pause or stop for given time.
  * Use as new instance [ var timer = new $.fn.timer(function() {}, 6000); ]
  * then can be listen events as:
- * [ $(timer.event).on('update', function(e, data){}); ]
+ * [ $(timer.event).on('update', function(e, data){console.log(data.counter)}); ]
  * or can access as [ timer.cancel(); -or- timer.pause(); -or- timer.resume(); ]
  * @private
  * @param {function} [callback] method that will run on each timer update
@@ -1303,7 +1303,7 @@ utils.toggleCompactMode = function toggleCompactMode(elem) {
  * @param {string} suffix Append an extra string at the end
  * @param {boolean} overrideExistingId Write over the current id value if there already
  */
-utils.addAttributes = function addAttributes(elem, api, setting, suffix, overrideExistingId = false) {
+utils.addAttributes = function addAttributes(elem, api, setting, suffix, overrideExistingId) {
   if (!setting) {
     return;
   }

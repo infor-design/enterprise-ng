@@ -32,6 +32,11 @@
               },
               {
                 "glob": "**/*",
+                "input": "node_modules/ids-foundation/theme-soho",
+                "output": "/assets/ids-foundation"
+              },
+              {
+                "glob": "**/*",
                 "input": "node_modules/ids-enterprise/dist/js/cultures",
                 "output": "/assets/ids-enterprise/js/cultures"
               },
@@ -137,6 +142,11 @@
                 "glob": "**/*",
                 "input": "node_modules/ids-enterprise/dist/css",
                 "output": "/assets/sohoxi/css"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/ids-foundation/theme-soho",
+                "output": "/assets/ids-foundation"
               },
               {
                 "glob": "**/*",

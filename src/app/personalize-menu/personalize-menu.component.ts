@@ -2,7 +2,7 @@ import {
   Component,
   ViewChild,
   OnInit,
-  HostBinding
+  HostBinding,
 } from '@angular/core';
 
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
@@ -17,7 +17,7 @@ interface ColorMenuItem extends SohoPersonalizationColor {
 
 @Component({
   selector: 'app-personalize-menu',
-  templateUrl: 'personalize-menu.component.html'
+  templateUrl: 'personalize-menu.component.html',
 })
 export class PersonalizeMenuComponent implements OnInit {
   @ViewChild(SohoPersonalizeDirective, { static: true })
@@ -34,6 +34,7 @@ export class PersonalizeMenuComponent implements OnInit {
   @HostBinding('class.is-selectable') isSelectable = true;
 
   public themeMenuItems?: ThemeMenuItem[];
+
   public colorMenuItems?: ColorMenuItem[];
 
   /**
@@ -61,12 +62,15 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   public ngOnInit(): void {
     // Get the current values using the getters.
-    const currentTheme = (this.personalize as any).theme = this.theme;
-    const currentColor = (this.personalize as any).colors = this.color;
+    const currentTheme = this.theme;
+    (this.personalize as any).theme = this.theme;
+    const currentColor = this.color;
+    (this.personalize as any).colors = this.color;
 
     this.themeMenuItems = (this.personalize as any).themes();
     const personalizationColors = (this.personalize as any).personalizationColors();
-    this.colorMenuItems = Object.keys((personalizationColors as any)).map(colorId => personalizationColors[colorId]);
+    this.colorMenuItems = Object.keys((personalizationColors as any))
+      .map((colorId) => personalizationColors[colorId]);
 
     this.setSelectedTheme(currentTheme);
     this.setSelectedColor(currentColor, false);
@@ -131,7 +135,7 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   public get theme(): string {
     const theme = localStorage.getItem(this.IDS_ENTERPRISE_THEME_KEY);
-    return theme ? theme : this.DEFAULT_THEME;
+    return theme || this.DEFAULT_THEME;
   }
 
   /**
@@ -149,7 +153,7 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   public get color(): string {
     const color = localStorage.getItem(this.IDS_ENTERPRISE_COLOR_KEY);
-    return color ? color : '';
+    return color || '';
   }
 
   /**

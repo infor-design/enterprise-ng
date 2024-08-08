@@ -6,7 +6,7 @@ You can download the latest version of the code from [quickstart](https://github
 
 ## Prerequisites
 
-If **Node.js** and **npm** are not already on your machine, install them. These examples require Node.js 10.15.0 or higher and NPM 3 or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
+If `Node.js` and `npm` are not already on your machine, install them. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 
@@ -24,7 +24,7 @@ npm install -g @angular/cli
 
 ### Create the project folder
 
-Using a terminal/console window, use **@angular/cli** to initialise the project, creating scaffolding for the application (in this case **ids-enterprise-ng-quickstart**):
+Using a terminal/console window, use **@angular/cli** to initialize the project, creating scaffolding for the application (in this case **ids-enterprise-ng-quickstart**):
 
 ```sh
 ng new ids-enterprise-ng-quickstart
@@ -35,7 +35,7 @@ cd ids-enterprise-ng-quickstart
 
 ## Step 2 : Install Packages
 
-The project will need access to the Infor NPM registy to be able to pull down the latest Infor Design System (IDS) *enterprise* component libraries for jQuery and Angular.
+The project will need access to the Infor NPM registry to be able to pull down the latest Infor Design System (IDS) *enterprise* component libraries for jQuery and Angular.
 
 You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.
 
@@ -149,11 +149,7 @@ This will open a Chrome window, and run the tests from there.
 
 ## IE11
 
-As of Angular 12 IE 11 is no longer supported. If you plan on using IE11, then you will need to stay on older versions of the components / angular. then it is advisable to include a number of polyfills used to plug holes in IEs JavaScript support.
-
-First, edit `./browsersupport`, enabling ie11 support.
-
-Type `npm install --save classlist.js` to add the classlist package.
+As of Angular 12 IE 11 is no longer supported.
 
 ## Add the SohoComponentsModule
 
@@ -206,7 +202,7 @@ Add the clicked handler to `app.component.ts`, as follows:
 
 ```typescript
 public clicked() {
-    alert('Clicked me!');
+  console.log('Clicked me!');
 }
 ```
 

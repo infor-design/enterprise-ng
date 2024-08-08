@@ -23,10 +23,15 @@
         "createDefaultProgram": true
       },
       "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "import/prefer-default-export": "off",
+        "no-param-reassign": "off",
+        "class-methods-use-this": "off",
         "@typescript-eslint/member-ordering": "off",
         "@typescript-eslint/ban-types": "off",
         "prefer-arrow/prefer-arrow-functions": "off",

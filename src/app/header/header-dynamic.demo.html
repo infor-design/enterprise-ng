@@ -29,7 +29,7 @@
 
         <ng-template [ngIf]="currentToolbarOptions">
           <ng-template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
-            <button *ngIf="!button.menu" soho-button="{{button?.type}}" isToggle="{{button?.istoggle}}" icon="{{button?.icon}}" id="{{button?.id}}" attr.data-button="{{button?.data}}" toggleOnIcon="{{button?.toggleOnIcon}}" toggleOffIcon="{{button?.toggleOffIcon}}">{{button?.text}}</button>
+            <button *ngIf="!button.menu" soho-button="{{button?.type}}" isToggle="{{button?.istoggle}}" icon="{{button?.icon}}" id="btn-{{button?.id}}" attr.data-button="{{button?.data}}" toggleOnIcon="{{button?.toggleOnIcon}}" toggleOffIcon="{{button?.toggleOffIcon}}">{{button?.text}}</button>
 
             <ng-template [ngIf]="button.menu">
               <button soho-menu-button id="{{button?.id}}" menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}" >

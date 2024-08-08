@@ -18,7 +18,6 @@ import {
   selector: '[soho-personalize]',
 })
 export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
-
   /** Options. */
   @Input() public options: SohoPersonalizeOptions = {};
 
@@ -35,6 +34,8 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
   /** The starting theme. */
   @Input() set theme(theme: string) {
     this.options.theme = theme;
+    this.setStyleSheet(this.options.theme);
+
     if (this.personalize) {
       this.ngZone.runOutsideAngular(() => {
         this.personalize?.setTheme(theme);
@@ -56,7 +57,8 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
    * Constructor.
    */
   constructor(
-    private ngZone: NgZone) {
+    private ngZone: NgZone,
+  ) {
   }
 
   /**
@@ -77,14 +79,20 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
       }
 
       this.jQueryElement
-        .on('themechanged',
-          (ev: JQuery.TriggeredEvent, theme: string) => {
-            this.onChangeTheme(ev, theme);
-          })
-        .on('colorschanged',
+        .on(
+          'themechanged',
+          (ev: JQuery.TriggeredEvent, theme: { colors: string; theme: string }) => {
+            this.onChangeTheme(ev, theme as any);
+            this.setStyleSheet(theme.theme);
+            console.log('themechanged', theme);
+          },
+        )
+        .on(
+          'colorschanged',
           (ev: JQuery.TriggeredEvent, colors: any) => {
             this.onChangeColors(ev, colors);
-          });
+          },
+        );
 
       /**
        * Bind to jQueryElement's events
@@ -94,6 +102,21 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
       // extract the api
       this.personalize = this.jQueryElement.data('personalize');
     });
+  }
+
+  private replaceFileName(inputString: string, newTheme: string) {
+    const standardizedString = inputString.replace(/\\/g, '/');
+    const parts = standardizedString.split('/');
+    parts[parts.length - 1] = newTheme;
+    const resultString = parts.join('/');
+
+    return resultString;
+  }
+
+  public setStyleSheet(theme: string) {
+    const existingScript = document.querySelector('#semantic-tokens');
+    const href = existingScript?.getAttribute('href') || '';
+    existingScript?.setAttribute('href', this.replaceFileName(href, `semantic-${theme.replace('theme-new-', '')}.css`));
   }
 
   /**
@@ -143,7 +166,6 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.ngZone.runOutsideAngular(() => {
-
       if (this.jQueryElement) {
         this.jQueryElement.off();
         this.jQueryElement = undefined;

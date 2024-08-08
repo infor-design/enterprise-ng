@@ -1,8 +1,7 @@
 @import '../themes/mixins';
-@import  'node_modules/ids-foundation/theme-soho/core.scss';
-@import 'node_modules/ids-foundation/theme-soho/semantic-light.scss';
-// @import 'node_modules/ids-foundation/theme-soho/semantic-dark.scss';
-// @import 'node_modules/ids-foundation/theme-soho/semantic-contrast.scss';
+@include audible();
+@include button-reset();
+@include border-box-reset();
 
 // Tag Component
 @mixin disabled-tag {
@@ -29,7 +28,8 @@
   justify-content: center;
   align-items: center;
   font-size: 14px;
-  font-weight: var(--ids-font-weight-default);
+  font-weight: var(--ids-font-weight-regular);
+  font-family: var(--ids-font-family-sans), var(--ids-font-family-system-sans);
   height: 24px;
   line-height: 24px;
   padding: 0 10px;
@@ -125,16 +125,22 @@
 
     .btn-dismissible {
       height: 20px;
-      padding-left: 6px;
+      padding: 0;
+      padding-inline-start: 6px;
       vertical-align: top;
 
       .icon {
         height: 14px;
         margin: 0;
+        padding: 0;
         margin-inline-end: -2px;
-        vertical-align: unset;
-        top: 1.5px;
+        vertical-align: middle;
         width: 14px;
+        top: -1px;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
       }
     }
   }
@@ -181,6 +187,7 @@
 
   // Alternate Color Tags
   &.secondary {
+    background-color: var(--ids-color-background-default);
     border: 1px solid var(--ids-color-border-weak);
     color: var(--ids-color-foreground-default-default);
     line-height: 20px;
@@ -365,34 +372,7 @@
   }
 }
 
-// Add borders to the standard tag style's hover state on Constrast themes only.
-html.theme-classic-contrast,
-html.theme-new-contrast {
-  .soho-tag {
-    &:not(.error):not(.alert):not(.info):not(.good) {
-      &.is-linkable {
-        &:hover,
-        &.is-focused:not(.hide-focus) {
-          border-color: var(--ids-color-border-strong);
-        }
-      }
-    }
-  }
-}
-
 html.is-mac {
-  &.is-chrome {
-    .soho-tag {
-      &.is-dismissible {
-        .btn-dismissible {
-          .icon {
-            margin-inline-end: -1px;
-          }
-        }
-      }
-    }
-  }
-
   &.is-firefox {
     .multiselect {
       ~.dropdown-wrapper .dropdown.has-tags {

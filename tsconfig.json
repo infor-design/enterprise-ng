@@ -43,6 +43,12 @@
       ],
       "@ids-enterprise/*": [
         "projects/ids-enterprise/src/"
+      ],
+      "@ids-foundation": [
+        "./node_modules/ids-foundation"
+      ],
+      "@ids-foundation/*": [
+        "./node_modules/ids-foundation/*"
       ]
     },
     "useDefineForClassFields": false

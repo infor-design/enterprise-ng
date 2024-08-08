@@ -375,8 +375,8 @@ export default class Blockgrid {
         const checkbox = this.element.find(`#checkbox${i}`);
         const label = this.element.find(`.checkbox-label[for="checkbox${i}"]`);
 
-        utils.addAttributes(checkbox, this, s.attributes, `blockgrid-checkbox${i}`);
-        utils.addAttributes(label, this, s.attributes, `blockgrid-checkbox-label${i}`);
+        (utils as any).addAttributes(checkbox, this, s.attributes, `blockgrid-checkbox${i}`);
+        (utils as any).addAttributes(label, this, s.attributes, `blockgrid-checkbox-label${i}`);
       }
     }
 
@@ -434,5 +434,4 @@ export default class Blockgrid {
     this.teardown();
     $.removeData(this.element[0], COMPONENT_NAME);
   }
-
 }

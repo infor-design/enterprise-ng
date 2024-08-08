@@ -190,7 +190,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoTreeModule,
     SohoTreemapModule,
     SohoWeekViewModule,
-    SohoWizardModule
+    SohoWizardModule,
   ],
   declarations: [],
   exports: [
@@ -287,7 +287,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoTreemapModule,
     SohoVersionInitializerModule,
     SohoWeekViewModule,
-    SohoWizardModule
-  ]
+    SohoWizardModule,
+  ],
 })
 export class SohoComponentsModule { }
