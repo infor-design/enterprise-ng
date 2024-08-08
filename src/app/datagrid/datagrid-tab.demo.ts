@@ -23,6 +23,14 @@ enum MessageStatus {
 export class DataGridTabDemoComponent {
   @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;
 
+  onColumnChange(e: SohoDataGridColumnChangedEvent) {
+    console.log('columnchange', e);
+  }
+
+  onSettingsChanged(e: SohoDataGridSettingsChangedEvent) {
+    console.log('settingschanged', e);
+  }
+
   public dataset = [
     {
       guid: '1c8826cb-06f5-4115-9a67-68ad35546e6d',
