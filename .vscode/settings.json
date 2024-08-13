@@ -27,8 +27,8 @@
     "editor.tabSize": 2,
     "files.eol": "\n",
     "cssVariables.lookupFiles": [
-        "node_modules/ids-foundation/theme-soho/core.scss",
-        "node_modules/ids-foundation/theme-soho/semantic-light.scss"
+        "node_modules/ids-foundation/theme-soho/scss/core.scss",
+        "node_modules/ids-foundation/theme-soho/scss/semantic-light.scss"
     ],
     "html.customData": [
         "vscode.html-custom-data.json"

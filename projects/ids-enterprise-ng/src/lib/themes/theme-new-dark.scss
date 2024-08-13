@@ -4,7 +4,6 @@
 // Standard CSS reset stuff here
 @import './reset';
 @import './mixins';
-@import './css-utilities';
 
 // ids-identity token vars
 @import './theme-new-dark-contrast.scss';
@@ -40,7 +39,8 @@ $header-text-actionable-color: $header-text-default-color;
 // Inputs
 $input-color-focus-border: $ids-color-palette-slate-10;
 $input-border-color: $ids-color-palette-slate-30;
-
+$selected-text-color: $ids-color-palette-white;
+$selected-text-background-color: $ids-color-palette-azure-70;
 $homepage-header-menu-button-color: $ids-color-palette-white;
 
 // Form Background Color
@@ -476,10 +476,10 @@ $checkbox-color-unchecked-disabled-arrow: $ids-color-palette-slate-100;
 
 // Switch
 $radio-checked-color: $ids-color-brand-primary-base;
-$switch-checked-bg-color: $ids-color-palette-azure-30;
+$switch-checked-bg-color: $ids-color-palette-azure-60;
 $switch-unchecked-bg-color: $ids-color-palette-white;
-$switch-unchecked-bar-color: $ids-color-palette-slate-40;
-$switch-unchecked-border-color: $ids-color-palette-white;
+$switch-unchecked-bar-color: $ids-color-palette-slate-80;
+$switch-unchecked-border-color: $ids-color-palette-slate-60;
 $switch-unchecked-color: $ids-color-palette-slate-50;
 $switch-unchecked-pressed-bg-color: $ids-color-palette-slate-40;
 $switch-checked-disabled-bar-color: $ids-color-palette-azure-20;
@@ -1062,7 +1062,7 @@ $new-appmenu-selected-bg-color: $ids-color-palette-slate-70;
 $new-appmenu-selected-border-color: $ids-color-palette-white;
 
 // Core New Theme Components
-@import './controls-new';
+@import './controls';
 
 // Multi Select
 .dropdown-list.multiple li:hover:not(.group-label)::before {

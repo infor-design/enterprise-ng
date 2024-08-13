@@ -4,7 +4,6 @@
 // Standard CSS reset stuff here
 @import './reset';
 @import './mixins';
-@import './css-utilities';
 
 // ids-identity token vars
 @import './theme-new-light-tokens.scss';
@@ -473,8 +472,11 @@ $slider-readonly-labels-color: $ids-color-palette-slate-60;
 $slider-readonly-handle-color: $ids-color-palette-slate-50;
 
 // Switch
-$switch-unchecked-bar-color: $ids-color-palette-slate-40;
-$switch-unchecked-border-color: $ids-color-palette-slate-30;
+$switch-unchecked-bar-color: $ids-color-palette-slate-20;
+$switch-unchecked-border-color: $ids-color-palette-slate-40;
+$switch-checked-bg-color: $ids-color-palette-azure-60;
+$switch-checked-bar-color: $ids-color-palette-azure-60;
+$switch-checked-border-color: $ids-color-palette-azure-60;
 $switch-disabled-border-color: $ids-color-palette-slate-30;
 $switch-disabled-bg-color: $ids-color-palette-slate-20;
 $switch-disabled-bar-color: $ids-color-palette-slate-30;
@@ -512,7 +514,7 @@ $new-appmenu-selected-bg-color: $ids-color-palette-slate-80;
 $new-appmenu-selected-border-color: $ids-color-brand-primary-alt;
 
 // Core New Theme Controls
-@import './controls-new';
+@import './controls';
 
 html.is-chrome:not(.is-mac) {
   ::-webkit-scrollbar-track {

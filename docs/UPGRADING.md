@@ -1,6 +1,6 @@
 # Angular Package Format
 
-The npm package for the IDS Enterprise Angular components (`ids-enterprise-ng`) has been converted into a compiled package (using the [APF][#APF])
+The npm package for the Ids Phoenix Angular components (`ids-phnx`) has been converted into a compiled package (using the [APF][#APF])
 
 For information on how to create these libraries, see [Creating A Library][#CAL].
 

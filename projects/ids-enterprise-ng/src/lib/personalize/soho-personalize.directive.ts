@@ -114,9 +114,9 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
   }
 
   public setStyleSheet(theme: string) {
-    const existingScript = document.querySelector('#semantic-tokens');
+    const existingScript = document.querySelector('#ids-token-stylesheet');
     const href = existingScript?.getAttribute('href') || '';
-    existingScript?.setAttribute('href', this.replaceFileName(href, `semantic-${theme.replace('theme-new-', '')}.css`));
+    existingScript?.setAttribute('href', this.replaceFileName(href, `ids-theme-tokens-default-${theme.replace('theme-new-', '')}.css`));
   }
 
   /**

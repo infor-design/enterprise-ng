@@ -4,7 +4,6 @@
 // Standard CSS reset
 @import './reset';
 @import './mixins';
-@import './css-utilities';
 
 // ids-identity token vars
 @import './theme-classic-light-tokens.scss';
@@ -38,5 +37,5 @@ $datagrid-sort-icon-sorted-color: $ids-color-palette-slate-40;
 // Core Components
 
 /* stylelint-disable-next-line no-invalid-position-at-import-rule */
-@import './controls';
+@import '../controls';
 
