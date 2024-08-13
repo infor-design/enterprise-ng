@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 16.10.2
+
+### 16.10.2 Fixes
+
+- `[BusyIndicator]` Added 4.90.8 release with busy indicator fixes
+
 ## 16.10.1
 
 ### 16.10.1 Fixes
