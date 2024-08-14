@@ -13,8 +13,10 @@
   <div class="row top-padding">
     <div class="twelve columns demo" role="main">
       <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-        <div soho-datagrid="auto" [gridOptions]="options"></div>
+        <div soho-datagrid="auto" [gridOptions]="options" (rowClicked)="rowClick($event)"></div>
       </section>
     </div>
   </div>
-  
+  <div class="row">
+    <h3>Selected record name: {{ selectedRecord}} </h3>
+  </div>

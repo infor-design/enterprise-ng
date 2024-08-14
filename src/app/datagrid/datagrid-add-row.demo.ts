@@ -21,6 +21,7 @@ export class DataGridAddRowDemoComponent implements OnInit {
 
   public options!: SohoDataGridOptions;
   public newRowData!: string;
+  public selectedRecord = "";
   public tooltipOptions: SohoTooltipOptions = {
     placement: 'top'
   }
@@ -46,6 +47,7 @@ export class DataGridAddRowDemoComponent implements OnInit {
         headerTooltip: 'Name Column',
         tooltipOptions: this.tooltipOptions,
         formatter: Soho.Formatters.Ellipsis,
+        filterType: 'text'
       },
       {
         id: 'compressor',
@@ -56,6 +58,7 @@ export class DataGridAddRowDemoComponent implements OnInit {
         headerTooltip: 'Compressor Column',
         tooltipOptions: this.tooltipCompressor,
         formatter: Soho.Formatters.Ellipsis,
+        filterType: 'text'
       },
       {
         id: 'quantity',
@@ -66,6 +69,7 @@ export class DataGridAddRowDemoComponent implements OnInit {
         headerTooltip: 'Quantity Column',
         tooltipOptions: this.tooltipOptions,
         formatter: Soho.Formatters.Ellipsis,
+        filterType: 'text'
       },
       {
         id: 'open',
@@ -82,8 +86,10 @@ export class DataGridAddRowDemoComponent implements OnInit {
       },
     ];
     this.options = {
-      dataset: [{ name: 'Lorem', compressor: 'Compressor 1', quantity: 24 }],
+      dataset: [{ name: 'Lorem', compressor: 'Compressor 1', quantity: 24 }, { name: 'Abc', compressor: 'Pomp', quantity: 25 }, { name: 'Prop', compressor: 'Pump 1', quantity: 24 }],
       columns,
+      filterable: true,
+      rowHeight: 'small',
       enableTooltips: true
     };
   }
@@ -93,5 +99,9 @@ export class DataGridAddRowDemoComponent implements OnInit {
       this.dataGrid?.addRow({ name: this.newRowData }, 'top');
       this.newRowData = '';
     }
+  }
+
+  rowClick(x: any) {
+    this.selectedRecord = x.item.name;
   }
 }
