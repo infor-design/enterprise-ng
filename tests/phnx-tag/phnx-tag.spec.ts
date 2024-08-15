@@ -1,4 +1,3 @@
-import AxeBuilder from '@axe-core/playwright';
 import percySnapshot from '@percy/playwright';
 import { expect } from '@playwright/test';
 import { test } from '../base-fixture';
@@ -19,7 +18,7 @@ test.describe('Tag tests', () => {
   test.describe('snapshot tests', () => {
     test('should match the visual snapshot in percy', async ({ page, browserName }) => {
       if (browserName !== 'chromium') return;
-      await percySnapshot(page, 'soho-tag-light');
+      await percySnapshot(page, 'phnx-tag-light');
     });
   });
 });

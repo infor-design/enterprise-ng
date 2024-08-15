@@ -1,5 +1,5 @@
 import { utils } from '../utils/utils';
-import Tag from './soho-tag';
+import Tag from './phnx-tag';
 
 // Component Name
 const COMPONENT_NAME = 'taglist';
@@ -26,7 +26,7 @@ export default class TagList {
     this.settings = utils.mergeSettings(element, settings, TAG_LIST_DEFAULTS);
     this.element = element;
 
-    this.tags = utils.getArrayFromList(this.element.querySelectorAll('.soho-tag'));
+    this.tags = utils.getArrayFromList(this.element.querySelectorAll('.phnx-tag'));
     if (this.tags.length) {
       this.settings.tags = [];
       this.tags.forEach((tag: any) => {

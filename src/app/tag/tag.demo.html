@@ -1,31 +1,39 @@
 <div class="row top-padding">
   <div class="twelve columns">
-    <div class="field">
-      <div soho-tag-list (afterRemove)="afterRemove($event)">
-        <span soho-tag>#Tagged</span>
-        <span soho-tag="secondary">#Tagged</span>
-        <span soho-tag="error"><span class="audible">Error</span>Delayed</span>
-        <span soho-tag="good">Open Order</span>
-        <span soho-tag="alert"><span class="audible">Alert</span>Help Order</span>
-        <span soho-tag="info">Information Tag</span>
-        <a href="#" soho-tag [isClickable]="true" (click)="onClick($event)">#Clickable</a>
-        <a href="#" soho-tag [isDismissible]="true">#Dismissible</a>
-      </div>
-
-      <br/>
-
-      <div soho-tag-list>
-        <a href="#" soho-tag="secondary" [isDismissible]="true" (beforeTagRemove)="beforeRemoveSolo($event)">#Solo Tag</a>
-      </div>
-
-      <div soho-tag-list (afterRemove)="afterRemove($event)" (beforeRemove)="beforeRemove($event)">
-        <a href="#" soho-tag="secondary" [isDismissible]="true">#Administrative Assistant</a>
-        <a href="#" soho-tag="secondary" [isDismissible]="true">#Office Manager </a>
-        <a href="#" soho-tag="secondary" [isDismissible]="true">#US:MN:St. Paul</a>
-        <a href="#" soho-tag="secondary" [isDismissible]="true">#Full-Time</a>
-        <a href="#" soho-tag="secondary" [isDismissible]="true">#Marketting</a>
-        <a href="#" soho-tag="secondary" [isDismissible]="true">#000453</a>
-      </div>
+    <span class="label font-size-px-12">Attribute directive</span>
+    <div phnx-tag-list (afterRemove)="afterRemove($event)">
+      <span phnx-tag>#Tagged</span>
+      <span phnx-tag="secondary">#Tagged</span>
+      <span phnx-tag="error"><span class="audible">Error</span>Delayed</span>
+      <span phnx-tag="good">Open Order</span>
+      <span phnx-tag="alert"><span class="audible">Alert</span>Help Order</span>
+      <span phnx-tag="info">Information Tag</span>
+      <a href="#" phnx-tag [isClickable]="true" (click)="onClick($event)">#Clickable</a>
+      <a href="#" phnx-tag [isClickable]="true" (click)="onClick($event)" disabled>Disabled</a>
+      <a href="#" phnx-tag [isDismissible]="true">#Dismissible</a>
     </div>
+
+    <br/><span class="label font-size-px-12">Component directive</span>
+    <div phnx-tag-list (afterRemove)="afterRemove($event)">
+      <span phnx-tag>#Tagged</span>
+      <span phnx-tag="secondary">#Tagged</span>
+      <span phnx-tag="error"><span class="audible">Error</span>Delayed</span>
+      <span phnx-tag="good">Open Order</span>
+      <span phnx-tag="alert"><span class="audible">Alert</span>Help Order</span>
+      <span phnx-tag="info">Information Tag</span>
+      <a href="#" phnx-tag [isClickable]="true" (click)="onClick($event)">#Clickable</a>
+      <a href="#" phnx-tag [isDismissible]="true">#Dismissible</a>
+    </div>
+
+    <br/><span class="label font-size-px-12">Tag List</span>
+    <div phnx-tag-list (afterRemove)="afterRemove($event)" (beforeRemove)="beforeRemove($event)">
+      <a href="#" phnx-tag="secondary" [isDismissible]="true">#Administrative Assistant</a>
+      <a href="#" phnx-tag="secondary" [isDismissible]="true">#Office Manager </a>
+      <a href="#" phnx-tag="secondary" [isDismissible]="true">#US:MN:St. Paul</a>
+      <a href="#" phnx-tag="secondary" [isDismissible]="true">#Full-Time</a>
+      <a href="#" phnx-tag="secondary" [isDismissible]="true">#Marketting</a>
+      <a href="#" phnx-tag="secondary" [isDismissible]="true">#000453</a>
+    </div>
+
   </div>
 </div>

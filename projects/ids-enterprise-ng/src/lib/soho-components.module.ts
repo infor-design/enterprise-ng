@@ -80,7 +80,7 @@ import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
 import { SohoSwapListModule } from './swaplist/soho-swaplist.module';
 import { SohoSwipeActionModule } from './swipe-action/soho-swipe-action.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
-import { SohoTagModule } from './tag/soho-tag.module';
+import { PhnxTagModule } from './tag/phnx-tag.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
 import { SohoToastModule } from './toast/soho-toast.module';
@@ -179,7 +179,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoSwapListModule,
     SohoSwipeActionModule,
     SohoTabsModule,
-    SohoTagModule,
+    PhnxTagModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
     SohoToastModule,
@@ -275,7 +275,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoSwapListModule,
     SohoSwipeActionModule,
     SohoTabsModule,
-    SohoTagModule,
+    PhnxTagModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
     SohoToastModule,

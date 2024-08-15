@@ -1,14 +1,11 @@
 /**
- * Infor Design Enterprise (fna sohoxi) 'Tags'.
- *
- * This file contains the Typescript mappings for the public
- * interface of the jQuery Tags control.
+ * Infor Design Enterprise'Tags'.
  */
 
 /**
  * Tag Options
  */
-interface SohoTagOptions {
+interface PhnxTagOptions {
   audibleContent?: string;
   clickable?: boolean;
   clickHandler?: any;
@@ -26,27 +23,27 @@ interface SohoTagOptions {
 /**
  * Tag Api.
  */
-interface SohoTag {
+interface PhnxTag {
   /** The settings option */
-  settings: SohoTagOptions;
+  settings: PhnxTagOptions;
 
   element: HTMLElement;
 
   /** Updates the Tag with any new settings and data */
-  updated(settings?: SohoTagOptions): void;
+  updated(settings?: PhnxTagOptions): void;
 
   /** Destroys the control on completion. */
   destroy(): void;
 }
 
-interface SohoTagBeforeRemoveEvent extends JQuery.TriggeredEvent {
-  tag?: SohoTag;
+interface PhnxTagBeforeRemoveEvent extends JQuery.TriggeredEvent {
+  tag?: PhnxTag;
 }
 
-interface SohoTagAfterRemoveEvent extends JQuery.TriggeredEvent {
-  tag?: SohoTag;
+interface PhnxTagAfterRemoveEvent extends JQuery.TriggeredEvent {
+  tag?: PhnxTag;
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
-  tag(options?: SohoTagOptions): JQuery;
+  tag(options?: PhnxTagOptions): JQuery;
 }

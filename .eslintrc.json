@@ -29,8 +29,11 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "no-console": ["error", { "allow": ["error", "info"] }],
         "import/prefer-default-export": "off",
         "no-param-reassign": "off",
+        "@typescript-eslint/comma-dangle": "off",
         "class-methods-use-this": "off",
         "@typescript-eslint/member-ordering": "off",
         "@typescript-eslint/ban-types": "off",
@@ -93,7 +96,15 @@
         "no-multiple-empty-lines": "error",
         "no-redeclare": "error",
         "no-underscore-dangle": "off",
-        "arrow-body-style": "off"
+        "arrow-body-style": "off",
+        "prefer-destructuring": ["off"],
+        "max-len": ["error", 120, 2, {
+          "ignoreUrls": true,
+          "ignoreComments": true,
+          "ignoreRegExpLiterals": true,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true
+        }]
       }
     },
     {

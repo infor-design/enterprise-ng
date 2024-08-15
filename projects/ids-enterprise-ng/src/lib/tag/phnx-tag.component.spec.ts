@@ -4,22 +4,22 @@ import { DebugElement, Component, ViewChild } from '@angular/core';
 
 import { By } from '@angular/platform-browser';
 
-import { SohoTagComponent } from './soho-tag.component';
-import { SohoTagModule } from './soho-tag.module';
+import { PhnxTagComponent } from './phnx-tag.component';
+import { PhnxTagModule } from './phnx-tag.module';
 
 describe('TagComponent', () => {
-  let component: SohoTagComponent;
-  let fixture: ComponentFixture<SohoTagComponent>;
+  let component: PhnxTagComponent;
+  let fixture: ComponentFixture<PhnxTagComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SohoTagComponent]
+      declarations: [PhnxTagComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SohoTagComponent);
+    fixture = TestBed.createComponent(PhnxTagComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -34,30 +34,30 @@ describe('TagComponent', () => {
 });
 
 @Component({
-  template: `<span soho-tag="secondary">tag</span>`
+  template: `<span phnx-tag="secondary">tag</span>`
 })
-class SohoTagTestComponent {
-  @ViewChild(SohoTagComponent) tag?: SohoTagComponent;
+class PhnxTagTestComponent {
+  @ViewChild(PhnxTagComponent) tag?: PhnxTagComponent;
 }
 
-describe('Soho Tag Render', () => {
-  let tag: SohoTagComponent;
-  let component: SohoTagTestComponent;
-  let fixture: ComponentFixture<SohoTagTestComponent>;
+describe('Phnx Tag Render', () => {
+  let tag: PhnxTagComponent;
+  let component: PhnxTagTestComponent;
+  let fixture: ComponentFixture<PhnxTagTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SohoTagTestComponent],
-      imports: [SohoTagModule]
+      declarations: [PhnxTagTestComponent],
+      imports: [PhnxTagModule]
     });
 
-    fixture = TestBed.createComponent(SohoTagTestComponent);
+    fixture = TestBed.createComponent(PhnxTagTestComponent);
     component = fixture.componentInstance;
 
     de = fixture.debugElement;
-    el = de.query(By.css('[soho-tag]')).nativeElement;
+    el = de.query(By.css('[phnx-tag]')).nativeElement;
 
     fixture.detectChanges();
     tag = (component.tag as any);
@@ -68,7 +68,7 @@ describe('Soho Tag Render', () => {
   });
 
   it('Check HTML content', () => {
-    expect(el.hasAttribute('soho-tag')).toBeTruthy('soho-tag');
+    expect(el.hasAttribute('phnx-tag')).toBeTruthy('phnx-tag');
   });
 
   it('Check \"class\" ', () => {
@@ -82,7 +82,7 @@ describe('Soho Tag Render', () => {
   it('Check \"error\" ', () => {
     fixture.detectChanges();
 
-    tag.sohoTag = 'error';
+    tag.phnxTag = 'error';
 
     fixture.detectChanges();
 
@@ -94,7 +94,7 @@ describe('Soho Tag Render', () => {
   it('Check \"default\" ', () => {
     fixture.detectChanges();
 
-    tag.sohoTag = undefined;
+    tag.phnxTag = undefined;
 
     fixture.detectChanges();
 

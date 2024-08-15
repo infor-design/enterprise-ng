@@ -12,35 +12,35 @@ import {
   Input,
 } from '@angular/core';
 
-import Tag from './soho-tag';
-import { SohoTagType } from './soho-tag-list.component';
+import Tag from './phnx-tag';
+import { PhnxTagType } from './phnx-tag-list.component';
 
 /**
- * Soho Tag Angular Component
+ * Phnx Tag Angular Component
  */
 @Component({
-  selector: '[soho-tag]', // eslint-disable-line
+  selector: '[phnx-tag]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './soho-tag.component.scss',
+  styleUrl: './phnx-tag.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class SohoTagComponent implements AfterViewInit, OnDestroy {
+export class PhnxTagComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Supported tag types.
   // -------------------------------------------
 
-  static ALERT: SohoTagType = 'alert';
+  static ALERT: PhnxTagType = 'alert';
 
-  static GOOD: SohoTagType = 'good';
+  static GOOD: PhnxTagType = 'good';
 
-  static SECONDARY: SohoTagType = 'secondary';
+  static SECONDARY: PhnxTagType = 'secondary';
 
-  static ERROR: SohoTagType = 'error';
+  static ERROR: PhnxTagType = 'error';
 
-  static INFO: SohoTagType = 'info';
+  static INFO: PhnxTagType = 'info';
 
-  static DEFAULT: SohoTagType = undefined;
+  static DEFAULT: PhnxTagType = undefined;
 
   // -------------------------------------------
   // Component Output
@@ -49,73 +49,71 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   /**
    * Fired before a tag item is removed.
    */
-  @Output() beforeTagRemove = new EventEmitter<SohoTagBeforeRemoveEvent>();
+  @Output() beforeTagRemove = new EventEmitter<PhnxTagBeforeRemoveEvent>();
 
   /**
    * Fired after a tag item is removed.
-   *
-   * @todo remove usage of native element
    */
-  // eslint-disable-next-line @angular-eslint/no-output-native
-  @Output() click = new EventEmitter<SohoTagAfterRemoveEvent>();
+  @Output() click = new EventEmitter<any>();
 
   /** Options. */
-  private options: SohoTagOptions = {};
+  private options: PhnxTagOptions = {};
 
-  @HostBinding('class.soho-tag') get isTag() {
+  @HostBinding('class.phnx-tag') get isTag() {
     return true;
   }
 
   @HostBinding('class.alert')
   get alert() {
-    return this.tagType === SohoTagComponent.ALERT;
+    return this.tagType === PhnxTagComponent.ALERT;
   }
 
   @HostBinding('class.good')
   get good() {
-    return this.tagType === SohoTagComponent.GOOD;
+    return this.tagType === PhnxTagComponent.GOOD;
   }
 
   @HostBinding('class.secondary')
   get secondary() {
-    return this.tagType === SohoTagComponent.SECONDARY;
+    return this.tagType === PhnxTagComponent.SECONDARY;
   }
 
   @HostBinding('class.error')
   get error() {
-    return this.tagType === SohoTagComponent.ERROR;
+    return this.tagType === PhnxTagComponent.ERROR;
   }
 
   @HostBinding('class.info')
   get info() {
-    return this.tagType === SohoTagComponent.INFO;
+    return this.tagType === PhnxTagComponent.INFO;
   }
 
   @HostBinding('class.is-linkable') @Input() isClickable?: boolean;
 
   @HostBinding('class.is-dismissible') @Input() isDismissible?: boolean;
 
+  @HostBinding('class.is-disabled') @Input() isDisabled?: boolean | undefined;
+
   /**
    * Allow override of element name, to match the component name.
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input('soho-tag') set sohoTag(type: SohoTagType) {
+  @Input('phnx-tag') set phnxTag(type: PhnxTagType) {
     if (!type) {
-      type = SohoTagComponent.DEFAULT;
+      type = PhnxTagComponent.DEFAULT;
     }
     this.tagType = type;
     this.options.style = type;
-    this.updated();
+    this.updated(this.options);
   }
 
-  private tagType: SohoTagType;
+  private tagType: PhnxTagType;
 
   private jQueryElement?: JQuery;
 
-  tag?: SohoTag | null;
+  tag?: PhnxTag | null;
 
   /**
-   * Creates an instance of SohoTagComponent.
+   * Creates an instance of PhnxTagComponent.
    */
   constructor(
     private element: ElementRef,
@@ -123,48 +121,54 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   ) { }
 
   ngAfterViewInit() {
-    // call outside the angular zone so change detection
-    // isn't triggered by the soho component.
+    // call outside the angular zone so change detection isn't triggered
     this.ngZone.runOutsideAngular(() => {
-      // initialise the tag control
       this.tag = new Tag(this.element.nativeElement, this.options as any);
 
-      $(this.tag.element).attr('data-tmpid', 'tmp0');
       const tagElem = this.tag?.element;
       const parent = tagElem ? jQuery(tagElem).parent() : null;
 
-      $(this.tag.element).on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
+      $(tagElem).on('click-internal', (e: JQuery.TriggeredEvent) => this.onClick(e));
 
       if (parent) {
-        parent.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
+        parent.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: PhnxTag) => this.onBeforeTagRemove(e, tag));
       }
     });
   }
 
-  private onBeforeTagRemove(event: SohoTagBeforeRemoveEvent, tag: SohoTag) {
+  private onBeforeTagRemove(event: PhnxTagBeforeRemoveEvent, tag: PhnxTag) {
     this.ngZone.run(() => {
       event.tag = tag;
       this.beforeTagRemove.next(event);
     });
   }
 
-  private onClick(event: JQuery.TriggeredEvent) {
+  private onClick(event?: JQuery.TriggeredEvent) {
     this.ngZone.run(() => this.click.next(event));
+  }
+
+  /**
+   * Enables or disables the tag
+   */
+  @Input() set disabled(value: boolean | undefined) {
+    this.isDisabled = true;
+  }
+
+  get disabled() {
+    return (this.options as any).disabled;
   }
 
   /**
    * The settings have been updated.
    */
-  public updated(): void {
+  public updated(options: any): void {
     if (this.tag) {
-      this.ngZone.runOutsideAngular(() => this.tag?.updated(this.options));
+      this.ngZone.runOutsideAngular(() => this.tag?.updated(options || this.options));
     }
   }
 
   /**
    * Destroys the component.
-   *
-   *
    */
   ngOnDestroy() {
     this.ngZone.runOutsideAngular(() => {

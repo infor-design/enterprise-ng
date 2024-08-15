@@ -1,3 +1,3 @@
-export * from './soho-tag.component';
-export * from './soho-tag-list.component';
-export * from './soho-tag.module';
+export * from './phnx-tag.component';
+export * from './phnx-tag-list.component';
+export * from './phnx-tag.module';

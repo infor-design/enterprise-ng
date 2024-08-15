@@ -44,6 +44,7 @@ const TAG_DEFAULTS = {
  */
 export default class TagList {
   settings: any;
+
   element: HTMLElement;
 
   constructor(element: HTMLElement, settings?: any) {
@@ -64,7 +65,7 @@ export default class TagList {
         span.id = this.settings.id;
         delete this.settings.id;
       }
-    } else if (element.querySelector('.soho-tag-content')) {
+    } else if (element.querySelector('.phnx-tag-content')) {
       // The tag is fully formed and doesn't need modification
       span = element;
     } else {
@@ -80,9 +81,9 @@ export default class TagList {
       }
       element.insertAdjacentElement('beforebegin', span);
       span.appendChild(element);
-      span.classList.add('soho-tag');
+      span.classList.add('phnx-tag');
       element.className = '';
-      element.classList.add('soho-tag-content');
+      element.classList.add('phnx-tag-content');
     }
 
     // Move the audible content around, if applicable
@@ -114,7 +115,7 @@ export default class TagList {
    * @returns {HTMLElement|undefined} the element that contains the Tag's text copy
    */
   get contentElement(): any {
-    return this.element.querySelector('.soho-tag-content');
+    return this.element.querySelector('.phnx-tag-content');
   }
 
   originallyAnchor?: boolean;
@@ -296,10 +297,9 @@ export default class TagList {
 
   /**
    * Glorified way to remove a tag with an extra callback, and a check for disabled
-   * @param {jQuery.Event} [e] the event that triggered dismissal, if applicable.
    * @returns {void}
    */
-  dismiss(e: any) {
+  dismiss() {
     if (this.disabled) {
       return;
     }
@@ -426,7 +426,8 @@ export default class TagList {
         handlerResult = self.settings.clickHandler(self);
       }
 
-      if ((handlerResult === false) || (self.settings.href && self.settings.href === '#')) {
+      if ((handlerResult === false || (self.settings.href && self.settings.href === '#'))) {
+        $(self.element).trigger('click-internal', self);
         e.preventDefault();
         return false;
       }
@@ -442,8 +443,8 @@ export default class TagList {
        * @type {object}
        * @property {object} e - The jquery event object
        */
-      $(this.element).on('click.tag', '.btn-dismissible', (e) => {
-        this.dismiss(e);
+      $(this.element).on('click.tag', '.btn-dismissible', () => {
+        this.dismiss();
       });
 
       /**
@@ -454,8 +455,8 @@ export default class TagList {
       * @property {object} e - The jquery event object
       */
       $(this.element).on('keydown.tag', 'a', (e) => {
-        if (e.keyCode === 8) { // Backspace
-          this.dismiss(e);
+        if (e.key === 'Backspace') { // Backspace
+          this.dismiss();
         }
       });
     }

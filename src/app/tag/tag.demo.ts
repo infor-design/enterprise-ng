@@ -2,13 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tag-demo',
-  templateUrl: 'tag.demo.html'
+  templateUrl: 'tag.demo.html',
 })
 export class TagDemoComponent implements OnInit {
-
-  constructor() {
-  }
-
   ngOnInit() {
   }
 
@@ -20,11 +16,7 @@ export class TagDemoComponent implements OnInit {
     console.info(`beforeRemove ${e.tag.settings.content} fired`);
   }
 
-  beforeRemoveSolo(e: any) {
-    console.info(`beforeRemove (solo) ${e.tag.settings.content} fired`);
-  }
-
   onClick(e: any) {
-    console.info(`Clicked`);
+    console.info(`Clicked ${e.tag.settings.content} fired`);
   }
 }

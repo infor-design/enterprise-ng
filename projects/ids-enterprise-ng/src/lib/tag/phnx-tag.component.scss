@@ -17,7 +17,7 @@
   }
 }
 
-.soho-tag {
+.phnx-tag {
   @include antialiased();
 
   background-color: var(--ids-color-accent-neutral-weaker);
@@ -346,7 +346,7 @@
 // Rules for multiselect with dismissible tags
 .multiselect {
   ~.dropdown-wrapper .dropdown.has-tags {
-    .soho-tag-list .soho-tag.is-dismissible {
+    .phnx-tag-list .phnx-tag.is-dismissible {
       .btn-dismissible {
         .icon {
           top: -1.5px;
@@ -357,17 +357,17 @@
   }
 }
 
-.hyperlink + .soho-tag {
+.hyperlink + .phnx-tag {
   margin-bottom: 0;
   margin-left: 10px;
   margin-top: -2px;
 }
 
 //Tag Strip/List
-.soho-tag-list {
+.phnx-tag-list {
   margin: 20px 20px 0 25px;
 
-  .soho-tag {
+  .phnx-tag {
     margin: 0 5px 5px 0;
   }
 }
@@ -376,7 +376,7 @@ html.is-mac {
   &.is-firefox {
     .multiselect {
       ~.dropdown-wrapper .dropdown.has-tags {
-        .soho-tag-list .soho-tag.is-dismissible {
+        .phnx-tag-list .phnx-tag.is-dismissible {
           .btn-dismissible {
             .icon {
               top: -1px;
@@ -392,7 +392,7 @@ html.is-mac {
 .is-firefox {
   .multiselect {
     ~.dropdown-wrapper .dropdown.has-tags {
-      .soho-tag-list .soho-tag.is-dismissible {
+      .phnx-tag-list .phnx-tag.is-dismissible {
         .btn-dismissible {
           .icon {
             top: -2px;
@@ -403,11 +403,11 @@ html.is-mac {
     }
   }
 
-  .soho-tag.is-linkable .btn-linkable .icon {
+  .phnx-tag.is-linkable .btn-linkable .icon {
     vertical-align: baseline;
   }
 
-  .soho-tag.is-dismissible .btn-dismissible .icon {
+  .phnx-tag.is-dismissible .btn-dismissible .icon {
     top: -1px;
     vertical-align: middle;
   }
@@ -417,7 +417,7 @@ html.is-mac {
 .is-safari {
   .multiselect {
     ~.dropdown-wrapper .dropdown.has-tags {
-      .soho-tag-list .soho-tag.is-dismissible {
+      .phnx-tag-list .phnx-tag.is-dismissible {
         .btn-dismissible {
           .icon {
             top: -1px;
@@ -432,7 +432,7 @@ html.is-mac {
 .form-layout-compact {
   .multiselect {
     ~.dropdown-wrapper .dropdown.has-tags {
-      .soho-tag-list .soho-tag.is-dismissible {
+      .phnx-tag-list .phnx-tag.is-dismissible {
         .btn-dismissible {
           .icon {
             top: 0;
@@ -445,7 +445,7 @@ html.is-mac {
 
 .multiselect {
   ~.dropdown-wrapper .dropdown.has-tags {
-    .soho-tag-list .soho-tag.is-dismissible {
+    .phnx-tag-list .phnx-tag.is-dismissible {
       .btn-dismissible {
         .icon {
           top: -2px;
@@ -462,7 +462,7 @@ html.is-mac {
       ~.dropdown-wrapper .dropdown.has-tags {
         padding: 0;
 
-        .soho-tag-list .soho-tag.is-dismissible {
+        .phnx-tag-list .phnx-tag.is-dismissible {
           .btn-dismissible {
             .icon {
               top: 3px;
@@ -475,7 +475,7 @@ html.is-mac {
 
   .multiselect {
     ~.dropdown-wrapper .dropdown.has-tags {
-      .soho-tag-list .soho-tag.is-dismissible {
+      .phnx-tag-list .phnx-tag.is-dismissible {
         .btn-dismissible {
           .icon {
             top: -2px;
@@ -490,7 +490,7 @@ html.is-mac {
 .is-safari {
   .multiselect {
     ~.dropdown-wrapper .dropdown.has-tags {
-      .soho-tag-list .soho-tag.is-dismissible {
+      .phnx-tag-list .phnx-tag.is-dismissible {
         .btn-dismissible {
           .icon {
             top: -2px;
@@ -503,7 +503,7 @@ html.is-mac {
   .form-layout-compact {
     .multiselect {
       ~.dropdown-wrapper .dropdown.has-tags {
-        .soho-tag-list .soho-tag.is-dismissible {
+        .phnx-tag-list .phnx-tag.is-dismissible {
           .btn-dismissible {
             .icon {
               top: 0;
@@ -517,7 +517,7 @@ html.is-mac {
 
 html.is-mac {
   &.is-chrome {
-    .multiselect~.dropdown-wrapper .dropdown.has-tags .soho-tag-list .soho-tag {
+    .multiselect~.dropdown-wrapper .dropdown.has-tags .phnx-tag-list .phnx-tag {
       &.is-dismissible {
         .btn-dismissible {
           .icon {
@@ -531,12 +531,12 @@ html.is-mac {
 
 // RTL Styles
 html[dir='rtl'] {
-  .hyperlink+.soho-tag {
+  .hyperlink+.phnx-tag {
     margin-left: inherit;
     margin-right: 10px;
   }
 
-  .soho-tag {
+  .phnx-tag {
     &.is-dismissible {
       .btn-dismissible {
         .icon {
