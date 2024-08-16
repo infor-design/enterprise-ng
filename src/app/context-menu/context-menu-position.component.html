@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Context Menu Lazy Load</h2>
+
+    <app-context-menu-position-input
+      soho-context-menu
+      menu="context-menu"
+      [lazyLoad]="true"
+      (contextmenu)="openContextMenu($event)">
+    </app-context-menu-position-input>
+    <ul soho-popupmenu id="context-menu">
+      <li soho-context-menu-item>
+        <a soho-context-menu-label>Label 1</a>
+      </li>
+      <li soho-context-menu-item>
+        <a soho-context-menu-label>Label 2</a>
+      </li>
+      <li soho-context-menu-item>
+        <a soho-context-menu-label>Label 3</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
