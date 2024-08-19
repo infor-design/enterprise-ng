@@ -19,7 +19,7 @@ import { PhnxTagType } from './phnx-tag-list.component';
  * Phnx Tag Angular Component
  */
 @Component({
-  selector: '[phnx-tag]', // eslint-disable-line
+  selector: '[soho-tag], [phnx-tag], phnx-tag',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './phnx-tag.component.scss',
@@ -94,10 +94,25 @@ export class PhnxTagComponent implements AfterViewInit, OnDestroy {
 
   @HostBinding('class.is-disabled') @Input() isDisabled?: boolean | undefined;
 
-  /**
-   * Allow override of element name, to match the component name.
-   */
   @Input('phnx-tag') set phnxTag(type: PhnxTagType) {
+    if (!type) {
+      type = PhnxTagComponent.DEFAULT;
+    }
+    this.tagType = type;
+    this.options.style = type;
+    this.updated(this.options);
+  }
+
+  @Input('soho-tag') set sohoTag(type: PhnxTagType) {
+    if (!type) {
+      type = PhnxTagComponent.DEFAULT;
+    }
+    this.tagType = type;
+    this.options.style = type;
+    this.updated(this.options);
+  }
+
+  @Input('type') set type(type: PhnxTagType) {
     if (!type) {
       type = PhnxTagComponent.DEFAULT;
     }
@@ -152,16 +167,17 @@ export class PhnxTagComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set disabled(value: boolean | undefined) {
     this.isDisabled = true;
+    (this.options as any).disabled = true;
   }
 
   get disabled() {
-    return (this.options as any).disabled;
+    return this.isDisabled;
   }
 
   /**
    * The settings have been updated.
    */
-  public updated(options: any): void {
+  public updated(options?: any): void {
     if (this.tag) {
       this.ngZone.runOutsideAngular(() => this.tag?.updated(options || this.options));
     }

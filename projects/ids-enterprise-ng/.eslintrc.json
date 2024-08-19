@@ -31,7 +31,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "soho",
+            "prefix": ["soho", "phnx"],
             "style": "kebab-case"
           }
         ],

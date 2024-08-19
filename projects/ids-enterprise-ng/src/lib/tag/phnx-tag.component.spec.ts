@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DebugElement, Component, ViewChild } from '@angular/core';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { By } from '@angular/platform-browser';
 
 import { PhnxTagComponent } from './phnx-tag.component';
@@ -71,7 +72,7 @@ describe('Phnx Tag Render', () => {
     expect(el.hasAttribute('phnx-tag')).toBeTruthy('phnx-tag');
   });
 
-  it('Check \"class\" ', () => {
+  it('Check classes', () => {
     fixture.detectChanges();
 
     const topLevelElement = (tag as any).tag.element;
@@ -79,7 +80,7 @@ describe('Phnx Tag Render', () => {
     expect(topLevelElement.classList).toContain('tag');
   });
 
-  it('Check \"error\" ', () => {
+  it('Check error type', () => {
     fixture.detectChanges();
 
     tag.phnxTag = 'error';
@@ -91,7 +92,7 @@ describe('Phnx Tag Render', () => {
     expect(topLevelElement.classList).toContain('tag');
   });
 
-  it('Check \"default\" ', () => {
+  it('Check default type', () => {
     fixture.detectChanges();
 
     tag.phnxTag = undefined;
@@ -105,15 +106,14 @@ describe('Phnx Tag Render', () => {
     expect(topLevelElement.classList).toContain('tag');
   });
 
-  // it('check `click`', async(() => {
-  //     spyOn(tag, 'click');
+  xit('check `click`', (() => {
+    spyOn(tag, 'click');
 
-  //     const button = el.querySelector('button');
-  //     button.click();
+    const button = el.querySelector('button')!;
+    button.click();
 
-  //     fixture.whenStable().then(() => {
-  //       expect(tag.click).toHaveBeenCalled();
-  //     });
-  // }));
-
+    fixture.whenStable().then(() => {
+      expect(tag.click).toHaveBeenCalled();
+    });
+  }));
 });

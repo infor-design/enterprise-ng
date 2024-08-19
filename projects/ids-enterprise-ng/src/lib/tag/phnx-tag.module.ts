@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PhnxTagComponent } from './phnx-tag.component';
@@ -16,5 +16,6 @@ import { PhnxTagListComponent } from './phnx-tag-list.component';
     PhnxTagComponent,
     PhnxTagListComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PhnxTagModule { }

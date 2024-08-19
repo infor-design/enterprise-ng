@@ -1,11 +1,11 @@
 <div class="row top-padding">
   <div class="twelve columns">
-    <span class="label font-size-px-12">Attribute directive</span>
+    <span class="label font-size-px-12">Attribute selector</span>
     <div phnx-tag-list (afterRemove)="afterRemove($event)">
       <span phnx-tag>#Tagged</span>
       <span phnx-tag="secondary">#Tagged</span>
       <span phnx-tag="error"><span class="audible">Error</span>Delayed</span>
-      <span phnx-tag="good">Open Order</span>
+      <span phnx-tag="success">Open Order</span>
       <span phnx-tag="alert"><span class="audible">Alert</span>Help Order</span>
       <span phnx-tag="info">Information Tag</span>
       <a href="#" phnx-tag [isClickable]="true" (click)="onClick($event)">#Clickable</a>
@@ -13,16 +13,17 @@
       <a href="#" phnx-tag [isDismissible]="true">#Dismissible</a>
     </div>
 
-    <br/><span class="label font-size-px-12">Component directive</span>
+    <br/><span class="label font-size-px-12">Component selector (custom element)</span>
     <div phnx-tag-list (afterRemove)="afterRemove($event)">
-      <span phnx-tag>#Tagged</span>
-      <span phnx-tag="secondary">#Tagged</span>
-      <span phnx-tag="error"><span class="audible">Error</span>Delayed</span>
-      <span phnx-tag="good">Open Order</span>
-      <span phnx-tag="alert"><span class="audible">Alert</span>Help Order</span>
-      <span phnx-tag="info">Information Tag</span>
-      <a href="#" phnx-tag [isClickable]="true" (click)="onClick($event)">#Clickable</a>
-      <a href="#" phnx-tag [isDismissible]="true">#Dismissible</a>
+      <phnx-tag>#Tagged</phnx-tag>
+      <phnx-tag type="secondary">#Tagged</phnx-tag>
+      <phnx-tag type="error"><span class="audible">Error</span>Delayed</phnx-tag>
+      <phnx-tag type="success">Open Order</phnx-tag>
+      <phnx-tag type="alert"><span class="audible">Alert</span>Help Order</phnx-tag>
+      <phnx-tag type="info">Information Tag</phnx-tag>
+      <phnx-tag href="#" [isClickable]="true" (click)="onClick($event)">#Clickable</phnx-tag>
+      <phnx-tag href="#" [isClickable]="true" (click)="onClick($event)" disabled>Disabled</phnx-tag>
+      <phnx-tag href="#" [isDismissible]="true">#Dismissible</phnx-tag>
     </div>
 
     <br/><span class="label font-size-px-12">Tag List</span>
@@ -33,6 +34,20 @@
       <a href="#" phnx-tag="secondary" [isDismissible]="true">#Full-Time</a>
       <a href="#" phnx-tag="secondary" [isDismissible]="true">#Marketting</a>
       <a href="#" phnx-tag="secondary" [isDismissible]="true">#000453</a>
+    </div>
+
+    <br/><span class="label font-size-px-12">Legacy Tag selector</span>
+    <div phnx-tag-list (afterRemove)="afterRemove($event)">
+      <span soho-tag="secondary">#Tagged</span>
+      <span soho-tag="error">#Tagged</span>
+      <span soho-tag="error"><span class="audible">Error</span>Delayed</span>
+      <span soho-tag="success">Open Order</span>
+      <span soho-tag="alert"><span class="audible">Alert</span>Help Order</span>
+      <span soho-tag="info">Information Tag</span>
+      <a href="#" soho-tag [isClickable]="true" (click)="onClick($event)">#Clickable</a>
+      <a href="#" soho-tag [isClickable]="true" (click)="onClick($event)" disabled>Disabled</a>
+      <a href="#" soho-tag [isDismissible]="true">#Dismissible</a>
+      <span tag></span>
     </div>
 
   </div>

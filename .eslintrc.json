@@ -56,6 +56,7 @@
           {
             "type": "element",
             "prefix": [
+              "phnx",
               "soho",
               "demo",
               "app"
@@ -104,7 +105,8 @@
           "ignoreRegExpLiterals": true,
           "ignoreStrings": true,
           "ignoreTemplateLiterals": true
-        }]
+        }],
+        "@typescript-eslint/quotes": ["error", "single", { "allowTemplateLiterals": true }]
       }
     },
     {
