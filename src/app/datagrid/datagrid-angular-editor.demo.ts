@@ -319,6 +319,16 @@ export class DataGridAngularEditorDemoComponent implements OnInit {
       editorComponentInputs: {}
     },
     {
+      id: 'productName',
+      name: 'Product Name',
+      field: 'productName',
+      sortable: false,
+      minWidth: 150,
+      editor: Soho.Editors.Input,
+      formatter: Soho.Formatters.Input,
+      inlineEditor: true
+    },
+    {
       id: 'orderDate',
       name: 'Order Date',
       field: 'orderDate',
