@@ -2,7 +2,7 @@
 
 ## 18.3.0
 
-## 18.4.0 Features
+## 18.3.0 Features
 
 - `[Datagrid]` Added `inlineEditor` property to `SohoDataGridColumn`. ([#1701](https://github.com/infor-design/enterprise-ng/issues/1701))
 - `[Notification]` Added `closeCallback` property to `NotificationOptions`. ([#1761](https://github.com/infor-design/enterprise/issues/1761))
@@ -11,6 +11,7 @@
 
 - `[ContextMenu]` Fixed position on angular wrapper for lazy load. ([#1670](https://github.com/infor-design/enterprise-ng/issues/1670))
 - `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+- `[Datagrid]` Updated parameters in `setActiveCell`. ([#1761](https://github.com/infor-design/enterprise-ng/issues/1761))
 - `[Tests]` Changed test framework to playwright. ([#8549](https://github.com/infor-design/enterprise/issues/8549))
 - `[Datagrid]` Added columnChange event type. ([#1734](https://github.com/infor-design/enterprise-ng/issues/1734))
 
