@@ -1229,7 +1229,8 @@ interface SohoDataGridStatic {
   */
   toggleRowSelection(idx: number): void;
 
-  setActiveCell(idx: number, idx2: number): void;
+  /** Set active cell. nodeFocus to true to force focus on cell, default is false */
+  setActiveCell(row: number, cell: number, nodeFocus?: boolean): void;
 
   /* Gets info about the currently activated cell */
   activeCell: any;
