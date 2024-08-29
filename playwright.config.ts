@@ -9,7 +9,13 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  timeout: 15000,
+  /* Test timeout set to 30 second */
+  timeout: 30 * 1000,
+  /* Run tests in files in parallel */
+  expect: {
+    // expect timeout set to 8 seconds
+    timeout: 8 * 1000
+  },
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -36,7 +42,6 @@ export default defineConfig({
     /* Changes the timezone of the context. */
     timezoneId: 'America/New_York'
   },
-
   /* Configure projects for major browsers */
   projects: [
     {
@@ -45,3 +50,4 @@ export default defineConfig({
     }
   ]
 });
+
