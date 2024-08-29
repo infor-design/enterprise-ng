@@ -32,8 +32,14 @@ jobs:
     - name: Install Browsers
       run: npx playwright install chromium --with-deps
 
+    - name: Build
+      run: npm run build
+
     - name: Run Lint Checks
       run: npm run lint
+
+    - name: Start Server Timer
+      run: npm run start
 
     - name: Start Server
       run: nohup npm run start &
