@@ -205,6 +205,7 @@ import { PersonalizeColorApiDemoComponent } from './personalize/personalize-colo
 import { PieDemoComponent } from './pie/pie.demo';
 import { PieBorderedDemoComponent } from './pie/pie-bordered.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
+import { PopDownTooltipDemoComponent } from './popdown/popdown-tooltip.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadarDemoComponent } from './radar/radar.demo';
@@ -514,6 +515,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     PieDemoComponent,
     PieBorderedDemoComponent,
     PopDownDemoComponent,
+    PopDownTooltipDemoComponent,
     PopupMenuDemoComponent,
     ProgressDemoComponent,
     RadarDemoComponent,

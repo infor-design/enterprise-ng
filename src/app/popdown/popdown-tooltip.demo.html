@@ -1,0 +1,54 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+    <button
+      soho-button="primary"
+      id="cart-button"
+      icon="shopping-basket"
+      soho-popdown
+      aria-expanded="false"
+      (click)="onClickPopdown()"
+    >
+      <h3 id="cart-button-text" class="text-base">POPDOWN</h3>
+    </button>
+
+    <soho-popdown-contents #cartPopDown class="cart-popdown">
+      <div class="widget-content" shPopDownAutoScroll>
+        <div
+          id="mycart-listview"
+          class="listview tableview is-selectable"
+          aria-activedescendant="listview-1-item-0"
+          role="listbox"
+        >
+          <ul>
+            <li
+              aria-selected="false"
+              tabindex="0"
+              id="listview-1-item-0"
+              role="option"
+              aria-setsize="8"
+              *ngFor="let line of lines"
+              [attr.data-index]="i"
+            >
+              <button
+                soho-button="tertiary"
+                icon="delete"
+                id="delete-button"
+                (click)="onDelete(i)"
+                title="Delete"
+                soho-tooltip
+              ></button>
+              <div
+                id="unitPrice"
+                soho-tooltip
+                [beforeShow]="getBeforeShowTooltipCallback()"
+                class="text-base"
+              >
+                TEXT WITH DYNAMIC TOOLTIP
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </soho-popdown-contents>
+  </div>
+</div>
