@@ -12,8 +12,8 @@
     "pack:lib": "cd dist/ids-enterprise-ng && npm pack",
     "package": "npm run build:lib && npm pack",
     "start-server": "npm run start",
-    "test:ci": "start-server-and-test start-server http://localhost:4200/ids-enterprise-ng-demo test",
-    "test:ci:percy": "start-server-and-test start-server http://localhost:4200/ids-enterprise-ng-demo test:percy",
+    "test:ci": "npm run test",
+    "test:ci:percy": "npm run test:percy",
     "test:percy": "npx percy exec -- npx playwright test --reporter=list --workers=1 --grep 'percy'",
     "test:lib": "npx ng test ids-enterprise-ng --code-coverage --watch=false",
     "test": "npx playwright test --reporter=list --workers=3 --grep-invert 'percy'",
@@ -41,6 +41,7 @@
     "d3": "7.9.0",
     "ids-enterprise": "4.98.3",
     "jquery": "^3.7.1",
+    "kill-port": "^2.0.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.3",
     "zone.js": "~0.14.10"
@@ -86,7 +87,6 @@
     "puppeteer": "^22.15.0",
     "release-it": "^17.6.0",
     "slash": "^5.1.0",
-    "start-server-and-test": "^2.0.5",
     "ts-node": "~10.9.2",
     "typescript": "^5.5.4",
     "yargs": "^17.7.2"
