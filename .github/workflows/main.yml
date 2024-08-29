@@ -39,10 +39,10 @@ jobs:
       run: npm run lint
 
     - name: Start Server
-      run: npm run start
+      run: nohup npm run start &
 
     - name: Run tests (lib)
-      run: npm run test:lib
+      run: sleep 30 && npm run test:lib
 
     - name: Run tests (chrome)
       run: npm run test:ci
@@ -54,7 +54,7 @@ jobs:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
     - name: Kill Port
-      run: npx kill-port 4200
+      run: npx kill-port 4200 && rm nohup.out
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
