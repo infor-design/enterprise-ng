@@ -38,14 +38,11 @@ jobs:
     - name: Run Lint Checks
       run: npm run lint
 
-    - name: Start Server Timer
-      run: npm run start
-
     - name: Start Server
       run: nohup npm run start &
 
     - name: Run tests (lib)
-      run: sleep 30 && npm run test:lib
+      run: sleep 28 && npm run test:lib
 
     - name: Run tests (chrome)
       run: npm run test:ci
