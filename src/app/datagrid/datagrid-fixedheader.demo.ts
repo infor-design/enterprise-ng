@@ -51,6 +51,10 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
     this.gridOptions = { ...this.gridOptions, rowHeight: 'large' }
   }
 
+  onClickDown() {
+    this.sohoDataGridComponent?.scrollRowIntoView(99);
+  }
+
   private buildGridOptions(): SohoDataGridOptions {
     return {
       columns: this.datagridPagingService?.getColumns(),

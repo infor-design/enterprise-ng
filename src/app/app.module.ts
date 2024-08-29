@@ -72,6 +72,8 @@ import { ContextMenuNestedDemoComponent } from './context-menu/context-menu-nest
 import { ContextMenuSharedDemoComponent } from './context-menu/context-menu-shared.demo';
 import { ContextMenuToggleDemoComponent } from './context-menu/context-menu-toggle.demo';
 import { ContextMenuLazyLoadDemoComponent } from './context-menu/context-menu-lazy-load.demo';
+import { ContextMenuPositionComponent } from './context-menu/context-menu-position.component';
+import { ContextMenuPositionInputComponent } from './context-menu/context-menu-position-input.component';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridSandboxDemoComponent } from './datagrid/datagrid-sandbox.demo'
@@ -377,6 +379,8 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     ContextMenuSharedDemoComponent,
     ContextMenuToggleDemoComponent,
     ContextMenuLazyLoadDemoComponent,
+    ContextMenuPositionComponent,
+    ContextMenuPositionInputComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridSandboxDemoComponent,
     DataGridCardDemoComponent,
