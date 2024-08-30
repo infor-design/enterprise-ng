@@ -2273,7 +2273,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   public scrollRowIntoView(idx: number): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid?.setActiveCell(idx, 0, true);
+      this.datagrid?.scrollRowIntoView(idx);
     });
   }
 

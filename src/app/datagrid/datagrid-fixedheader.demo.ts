@@ -52,7 +52,14 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
   }
 
   onClickDown() {
-    this.sohoDataGridComponent?.scrollRowIntoView(99);
+    if (this.sohoDataGridComponent) {
+      const s = this.sohoDataGridComponent.gridOptions;
+
+      if (s.pagesize && s.dataset) {
+        const lastRow = s.pagesize > s.dataset.length ? s.dataset.length - 1 : s.pagesize - 1;
+        this.sohoDataGridComponent.scrollRowIntoView(lastRow);
+      }
+    }
   }
 
   private buildGridOptions(): SohoDataGridOptions {
