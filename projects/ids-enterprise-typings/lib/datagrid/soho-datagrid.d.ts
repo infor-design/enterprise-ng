@@ -1031,6 +1031,9 @@ interface SohoDataGridColumn {
   /** If false the column will be disabled in personalization dialog */
   hideable?: boolean;
 
+  /** Set inline editor */
+  inlineEditor?: boolean;
+
   /** call back to handle custom tooltips for the column header */
   tooltip?: (row: number, cell: number, value: any, col: SohoDataGridColumn, rowData: Object, api: SohoDataGridStatic) => string;
 
@@ -1226,7 +1229,8 @@ interface SohoDataGridStatic {
   */
   toggleRowSelection(idx: number): void;
 
-  setActiveCell(idx: number, idx2: number): void;
+  /** Set active cell. nodeFocus to true to force focus on cell, default is false */
+  setActiveCell(row: number, cell: number, nodeFocus?: boolean): void;
 
   /* Gets info about the currently activated cell */
   activeCell: any;

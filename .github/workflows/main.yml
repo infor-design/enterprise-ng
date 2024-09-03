@@ -38,8 +38,11 @@ jobs:
     - name: Run Lint Checks
       run: npm run lint
 
+    - name: Start Server
+      run: nohup npm run start &
+
     - name: Run tests (lib)
-      run: npm run test:lib
+      run: sleep 28 && npm run test:lib
 
     - name: Run tests (chrome)
       run: npm run test:ci
@@ -49,6 +52,9 @@ jobs:
       env:
         NODE_OPTIONS: "--max-old-space-size=8192"
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
+    - name: Kill Port
+      run: npx kill-port 4200
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
