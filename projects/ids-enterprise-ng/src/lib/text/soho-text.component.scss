@@ -1,0 +1,111 @@
+@import  '../themes/theme-new-light-tokens.scss';
+@import  '../themes/config.scss';
+@import  '../themes/mixins.scss';
+
+.soho-text {
+  display: block;
+  font-size: var(--ids-font-size-default);
+  font-family: var(--ids-font-family-default), var(--ids-font-family-system-sans);
+  font-weight: var(--ids-font-weight-default);
+  margin: 0 0 8px 0;
+  color: currentColor;
+  text-decoration: unset;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Font Sizes
+  &[font-size='72'],
+  &[font-size='6xl'] {
+    font-size: var(--ids-font-size-6xl);
+  }
+
+  &[font-size='60'],
+  &[font-size='5xl'] {
+    font-size: var(--ids-font-size-5xl);
+  }
+
+  &[font-size='48'],
+  &[font-size='4xl'] {
+    font-size: var(--ids-font-size-4xl);
+  }
+
+  &[font-size='40'],
+  &[font-size='3xl'] {
+    font-size: var(--ids-font-size-3xl);
+  }
+
+  &[font-size='32'],
+  &[font-size='2xl'] {
+    font-size: var(--ids-font-size-2xl);
+  }
+
+  &[font-size='28'],
+  &[font-size='xl'] {
+    font-size: var(--ids-font-size-xl);
+  }
+
+  &[font-size='24'],
+  &[font-size='lg'] {
+    font-size: var(--ids-font-size-lg);
+  }
+
+  &[font-size='20'],
+  &[font-size='md'] {
+    font-size: var(--ids-font-size-md);
+  }
+
+  &[font-size='16'],
+  &[font-size='sm'] {
+    font-size: var(--ids-font-size-sm);
+  }
+
+  &[font-size='14'],
+  &[font-size='xs'] {
+    font-size: var(--ids-font-size-xs);
+  }
+
+  &[font-size='12'],
+  &[font-size='2xs'] {
+    font-size: var(--ids-font-size-2xs);
+  }
+
+  &[font-size='10'],
+  &[font-size='3xs'] {
+    font-size: var(--ids-font-size-3xs);
+  }
+
+  // Font Types
+  &[font-type='title'] {
+    font-size: 2.2rem;
+    font-weight: $ids-number-font-weight-base;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    padding-top: 30px;
+  }
+
+  &[font-type='descriptive'] {
+    color: $ids-color-font-info;
+  }
+
+  &[font-type='link'] {
+    color: $ids-color-brand-primary-base;
+    text-decoration: underline;
+  }
+
+  &[font-type='muted'] {
+    color: $ids-color-font-muted;
+  }
+
+  &[font-type='alert'] {
+    color: $ids-color-status-danger;
+  }
+
+  &[font-type='emphasis'] {
+    font-style: italic;
+  }
+
+  &[font-type='strong'] {
+    font-weight: $ids-number-font-weight-bold;
+  }
+}
+

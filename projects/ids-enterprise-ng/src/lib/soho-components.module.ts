@@ -94,6 +94,7 @@ import { SohoVersionInitializerModule } from './version/version-initializer.modu
 import { SohoWeekViewModule } from './week-view/soho-week-view.module';
 import { SohoWizardModule } from './wizard/soho-wizard.module';
 import { SohoListBuilderModule } from './listbuilder';
+import { SohoTextModule } from './text';
 
 @NgModule({
   imports: [
@@ -180,6 +181,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoSwipeActionModule,
     SohoTabsModule,
     PhnxTagModule,
+    SohoTextModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
     SohoToastModule,
@@ -276,6 +278,7 @@ import { SohoListBuilderModule } from './listbuilder';
     SohoSwipeActionModule,
     SohoTabsModule,
     PhnxTagModule,
+    SohoTextModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
     SohoToastModule,

@@ -309,6 +309,7 @@ import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-d
 import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end-list.demo';
 import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.demo';
 import { DropdownFocusComponent } from './dropdown/dropdown-focus';
+import { TextDemoComponent } from './text/text.demo';
 
 @NgModule({
   declarations: [
@@ -556,6 +557,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     TabsModuleDemoComponent,
     TabsVerticalDemoComponent,
     TagDemoComponent,
+    TextDemoComponent,
     TestTabsBasicComponent,
     TextareaDemoComponent,
     TextAreaDirtyDemoComponent,

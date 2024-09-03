@@ -81,6 +81,7 @@ export * from './swaplist/index';
 export * from './swipe-action/index';
 export * from './tag/index';
 export * from './tabs/index';
+export * from './text/index';
 export * from './textarea/index';
 export * from './timepicker/index';
 export * from './toast/index';

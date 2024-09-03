@@ -256,6 +256,7 @@ import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-d
 import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end-list.demo';
 import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.demo';
 import { DropdownFocusComponent } from './dropdown/dropdown-focus';
+import { TextDemoComponent } from './text/text.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -487,6 +488,7 @@ export const routes: Routes = [
   { path: 'tabs-module', component: TabsModuleDemoComponent },
   { path: 'tabs-vertical', component: TabsVerticalDemoComponent },
   { path: 'tags', component: TagDemoComponent },
+  { path: 'text', component: TextDemoComponent },
   { path: 'test-tabs-basic', component: TestTabsBasicComponent },
   { path: 'textarea', component: TextareaDemoComponent },
   { path: 'textarea-dirty', component: TextAreaDirtyDemoComponent },
