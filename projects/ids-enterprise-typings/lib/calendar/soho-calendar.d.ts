@@ -110,6 +110,8 @@ interface SohoCalendarWeekOptions {
   showTimeLine?: boolean;
 }
 
+type SortEvent = (a: SohoCalendarEvent, b: SohoCalendarEvent) => number;
+
 interface SohoCalendarOptions {
   eventTypes?: SohoCalendarEventType[];
   events?: SohoCalendarEvent[];
@@ -139,6 +141,7 @@ interface SohoCalendarOptions {
   attributes?: Array<Object> | Object;
   displayRange?: Object;
   firstDayOfWeek?: number;
+  customSort?: SortEvent;
 }
 
 interface SohoCalendar {

@@ -4,6 +4,7 @@
 
 ## 18.3.0 Features
 
+- `[Calendar]` Added `customSort` method. ([EP#8836](https://github.com/infor-design/enterprise/issues/8836))
 - `[Datagrid]` Added `inlineEditor` property to `SohoDataGridColumn`. ([#1701](https://github.com/infor-design/enterprise-ng/issues/1701))
 - `[Notification]` Added `closeCallback` property to `NotificationOptions`. ([#1761](https://github.com/infor-design/enterprise/issues/1761))
 
