@@ -5,6 +5,7 @@
 ## 18.3.0 Features
 
 - `[Datagrid]` Added `inlineEditor` property to `SohoDataGridColumn`. ([#1701](https://github.com/infor-design/enterprise-ng/issues/1701))
+- `[Modal]` Added promise parameter to `beforeClose`. ([EP#8779](https://github.com/infor-design/enterprise/issues/8779))
 - `[Notification]` Added `closeCallback` property to `NotificationOptions`. ([#1761](https://github.com/infor-design/enterprise/issues/1761))
 
 ## 18.3.0 Fixes
