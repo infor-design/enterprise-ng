@@ -169,6 +169,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     return (this._calendarOptions as any).events;
   }
 
+  @Input() set customSort(customSort: SortEvent) {
+    (this._calendarOptions as any).customSort = customSort;
+    if (this.calendar) {
+      this.calendar.settings.customSort = customSort;
+      this.markForRefresh();
+    }
+  }
+
   /**
    * The name of the locale to use for this instance. If not set the current locale will be used.
    */

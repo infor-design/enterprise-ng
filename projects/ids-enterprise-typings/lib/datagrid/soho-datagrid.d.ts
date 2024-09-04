@@ -1232,6 +1232,9 @@ interface SohoDataGridStatic {
   /** Set active cell. nodeFocus to true to force focus on cell, default is false */
   setActiveCell(row: number, cell: number, nodeFocus?: boolean): void;
 
+  /** Scroll into row */
+  scrollRowIntoView(row: number): void;
+
   /* Gets info about the currently activated cell */
   activeCell: any;
 
