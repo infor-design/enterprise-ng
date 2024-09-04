@@ -13,7 +13,7 @@ import { SohoCalendarComponent } from 'ids-enterprise-ng';
 })
 export class CalendarUpdatedDemoComponent {
 
-  @ViewChild('SohoCalendarComponent') sohoCalendarComponent?: SohoCalendarComponent;
+  @ViewChild(SohoCalendarComponent) sohoCalendarComponent?: SohoCalendarComponent;
 
   public initialMonth = 1;
   public initialYear = 2019;
@@ -48,6 +48,30 @@ export class CalendarUpdatedDemoComponent {
         this.eventsLoaded = true;
       });
     });
+  }
+
+  reverseSort() {
+    if (this.sohoCalendarComponent) {
+      this.sohoCalendarComponent.updated({
+        customSort: (a: SohoCalendarEvent, b: SohoCalendarEvent) => {
+          const aStart = a.starts ? a.starts : 0;
+          const bStart = b.starts ? b.starts : 0;
+          return (aStart > bStart ? -1 : (aStart < bStart ? 1 : 0))
+        }
+      });
+    }
+  }
+
+  sort() {
+    if (this.sohoCalendarComponent) {
+      this.sohoCalendarComponent.updated({
+        customSort: (a: SohoCalendarEvent, b: SohoCalendarEvent) => {
+          const aStart = a.starts ? a.starts : 0;
+          const bStart = b.starts ? b.starts : 0;
+          return (aStart < bStart ? -1 : (aStart > bStart ? 1 : 0))
+        }
+      });
+    }
   }
 
   onSelected(event: SohoCalendarDateSelectedEvent) {
