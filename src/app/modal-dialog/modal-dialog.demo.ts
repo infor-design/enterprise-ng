@@ -178,7 +178,7 @@ export class ModalDialogDemoComponent {
       });
   }
 
-  openVetoableSimple() {
+  openPromise() {
     const beforeClose = (ref: any) => {
       return new Promise<boolean>((resolve) => {
         setTimeout(() => {
