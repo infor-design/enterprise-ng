@@ -611,6 +611,7 @@ export class SohoModalDialogRef<T> {
    * Registers a before close guard.
    *
    * @param eventFn - the function to call before closing the dialog.
+   * @param isAsync - if callback is asynchronous or not
    */
   beforeClose(eventFn: SohoModalDialogEventVetoFunction<T>): SohoModalDialogRef<T> {
     (this.eventGuard as any).beforeClose = eventFn;
@@ -789,7 +790,7 @@ export type SohoModalDialogEventFunction<T> = (result: any, dialogRef: SohoModal
  *
  * @param dialogRef - the dialog reference; never null.
  */
-export type SohoModalDialogEventVetoFunction<T> = (dialogRef: SohoModalDialogRef<T>) => boolean;
+export type SohoModalDialogEventVetoFunction<T> = (dialogRef: SohoModalDialogRef<T>) => boolean | Promise<boolean>;
 
 /**
  * Contract for all SohoModalDialogComponents.

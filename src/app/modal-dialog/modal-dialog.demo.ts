@@ -178,13 +178,21 @@ export class ModalDialogDemoComponent {
       });
   }
 
-  openVetoableSimple() {
+  openPromise() {
+    const beforeClose = (ref: any) => {
+      return new Promise<boolean>((resolve) => {
+        setTimeout(() => {
+          resolve(ref.dialogResult === 'CANCEL');
+        }, 1000);
+      });
+    }
+
     const dialogRef = this.modalService
       .message('<span class="message">Are you sure you want to delete this page?</span>')
       .buttons(
         [
           {
-            text: 'Cancel', click: () => {
+            text: 'Cancel Slowly', click: () => {
               dialogRef.close('CANCEL');
             }
           },
@@ -196,7 +204,7 @@ export class ModalDialogDemoComponent {
         ])
       .title(this.title)
       .open()
-      .beforeClose((ref: any) => ref.dialogResult === 'CANCEL')
+      .beforeClose(beforeClose)
       .afterClose((result: any) => {
         this.closeResult = result;
       });
