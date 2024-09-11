@@ -14,8 +14,9 @@
 - `[ContextMenu]` Fixed position on angular wrapper for lazy load. ([#1670](https://github.com/infor-design/enterprise-ng/issues/1670))
 - `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
 - `[Datagrid]` Updated parameters in `setActiveCell`. ([#1761](https://github.com/infor-design/enterprise-ng/issues/1761))
-- `[Tests]` Changed test framework to playwright. ([#8549](https://github.com/infor-design/enterprise/issues/8549))
 - `[Datagrid]` Added columnChange event type. ([#1734](https://github.com/infor-design/enterprise-ng/issues/1734))
+- `[Slider]` Added change detector ref for onchange event in component level. ([#1626](https://github.com/infor-design/enterprise-ng/issues/1626))
+- `[Tests]` Changed test framework to playwright. ([#8549](https://github.com/infor-design/enterprise/issues/8549))
 
 ## 18.2.0
 

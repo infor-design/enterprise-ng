@@ -1,7 +1,7 @@
 import {
   Component,
   OnInit,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 
 // @ts-ignore
@@ -17,7 +17,7 @@ export class SliderDemoComponent implements OnInit {
 
   public sliderDisabled = false;
   public sliderReadOnly = false;
-  public showModel = false;
+  public showModel = true;
 
   public model = {
     value: '20'
@@ -35,7 +35,7 @@ export class SliderDemoComponent implements OnInit {
   }
 
   setReadonly() {
-    this.slider.readonly = true;
+  this.slider.readonly = true;
     this.sliderReadOnly = this.slider.readonly;
   }
 
@@ -50,5 +50,13 @@ export class SliderDemoComponent implements OnInit {
 
     this.slider.readonly = false;
     this.sliderReadOnly = this.slider.readonly;
+  }
+
+  onZoom(zoom: string) {
+    if (zoom === 'zoomIn') {
+      this.model.value = (Number(this.model.value) + 1).toString();
+    } else if (zoom === 'zoomOut') {
+      this.model.value = (Number(this.model.value) - 1).toString();
+    }
   }
 }

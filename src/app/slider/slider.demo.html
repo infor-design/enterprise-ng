@@ -9,18 +9,15 @@
           <input soho-slider id="slider-regular" name="slider-regular" min="0" max="100" type="range"
           [(ngModel)]="model.value" (change)="onChange($event)"/>
           <div></div>
-          <div>
+          <div *ngIf="showModel" class="percentage-label">
+            <label id="label" soho-label><strong>Model Value: {{ model.value | json }}</strong></label>
+          </div>
+          <div> 
             <button soho-button [disabled]="sliderReadOnly" (click)="setReadonly()">Read Only</button>
             <button soho-button [disabled]="sliderDisabled" (click)="setDisable()">Disable</button>
             <button soho-button [disabled]="!sliderDisabled && !sliderReadOnly" (click)="setEnable()">Enable</button>
+            <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
           </div>
-          <br/>
-          <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
-          <div *ngIf="showModel">
-            <hr>
-            <pre>{{ model | json }}</pre>
-          </div>
-          <br/>
           <br/>
           <br/>
           <label for="slider-range">Range</label>
