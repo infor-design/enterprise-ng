@@ -10,6 +10,7 @@ import {
   NgZone,
   OnDestroy,
   Output,
+  ChangeDetectorRef
 } from '@angular/core';
 
 import {
@@ -151,7 +152,10 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   private slider?: SohoSliderStatic | null;
   private options: SohoSliderOptions = {};
 
-  constructor(private element: ElementRef, private ngZone: NgZone,) {
+  constructor(
+    private element: ElementRef, 
+    private ngZone: NgZone, 
+    private ref: ChangeDetectorRef) {
     super();
   }
 
@@ -239,6 +243,7 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
 
       // ... then emit the changed value.
       this.change.emit(event);
+      this.ref.markForCheck();
     }
   }
 
