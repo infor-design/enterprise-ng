@@ -4,6 +4,7 @@
 [![npm version](https://badge.fury.io/js/ids-enterprise-ng.svg)](https://badge.fury.io/js/ids-enterprise-ng)
 
 > [!IMPORTANT]
+<!-- markdownlint-disable -->
 > This repo has been moved to https://oxford.awsdev.infor.com/infor-design/enterprise-ng
 
 This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
