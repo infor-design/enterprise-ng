@@ -2,8 +2,9 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![npm version](https://badge.fury.io/js/ids-enterprise-ng.svg)](https://badge.fury.io/js/ids-enterprise-ng)
-[![Build Status](https://travis-ci.com/infor-design/enterprise-ng.svg?branch=master)](https://travis-ci.com/infor-design/enterprise-ng)
-[![Coverage Status](https://coveralls.io/repos/github/infor-design/enterprise-ng/badge.svg?branch=main)](https://coveralls.io/github/infor-design/enterprise-ng?branch=main)
+
+> [!IMPORTANT]
+> This repo has been moved to https://oxford.awsdev.infor.com/infor-design/enterprise-ng
 
 This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
 
