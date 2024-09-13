@@ -774,11 +774,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
  *
  * It also exposes the encoding used storing complex objects as
  * values in the 'option' elements.
- *
- * See https://github.com/angular/angular/blob/master/packages/forms/src/directives/select_multiple_control_value_accessor.ts.
- *
- *
- *
  */
 class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor {
   /**

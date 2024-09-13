@@ -148,7 +148,7 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 
 #### Angular 10 & 11
 
-When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install [TypeScript](https://github.com/infor-design/enterprise-ng/blob/main/package.json#L109) first, as follows:
+When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install [TypeScript](https://oxford.awsdev.infor.com/infor-design/enterprise-ng-quickstart/-/blob/main/package.json?ref_type=heads#L46) first, as follows:
 
 ```sh
 npm i typescript@<version>

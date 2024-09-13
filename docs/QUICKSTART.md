@@ -2,11 +2,11 @@
 
 This quickstart guide demonstrates how to build and run a simple Angular application using the **Enterprise Components for Angular** (**ids-enterprise-ng**).
 
-You can download the latest version of the code from [quickstart](https://github.com/infor-design/enterprise-ng-quickstart.git).
+You can download the latest version of the code from [quickstart](https://oxford.awsdev.infor.com/infor-design/enterprise-ng-quickstart).
 
 ## Prerequisites
 
-If **Node.js** and **npm** are not already on your machine, install them. These examples require Node.js 10.15.0 or higher and NPM 3 or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
+If **Node.js** and **npm** are not already on your machine, install them. These examples require Node.js 20 or higher and NPM 3 or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 

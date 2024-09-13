@@ -23,5 +23,10 @@ test:
     - DIND
   image: node:20
   script:
+    - npx playwright install chromium --with-deps
     - npm run lint
-    - npm run test
+    - nohup npm run start &
+    - sleep 28 && npm run test:lib
+    - npm run test:ci
+    - npm run test:ci:percy
+    - npx kill-port 4200

@@ -12,7 +12,7 @@
   "description": "Infor Design System (IDS) Enterprise Widget Typings",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infor-design/enterprise-ng.git"
+    "url": "git+https://oxford.awsdev.infor.com/infor-design/enterprise-ng"
   },
   "keywords": [
     "infor design system",
@@ -21,9 +21,9 @@
   "author": "Infor Design",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/infor-design/enterprise-ng/issues"
+    "url": "https://inforwiki.atlassian.net/jira/software/c/projects/IDS/issues"
   },
-  "homepage": "https://github.com/infor-design/enterprise-ng",
+  "homepage": "https://oxford.awsdev.infor.com/infor-design/enterprise-ng",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

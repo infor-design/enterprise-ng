@@ -8,7 +8,6 @@
 1. Edit `projects/ids-enterprise-ng/src/lib/version/version-initializer.service.ts` to set the new next version.
 1. Commit the update (see previous section).
 1. Create the release branch (`#.#.x`) and `git pull --tags`
-    - If you have just created the release branch, verify it is "Protected" in github settings
 1. Run a release cmd:
     - `npm run release:final` - the release itself
 1. Set the main branch to the next minor dev version.

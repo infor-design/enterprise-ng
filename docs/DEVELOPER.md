@@ -8,7 +8,7 @@
 
 ## Initial Setup with npm
 
-- Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
+- Clone The main repo fx `git clone ssh://git@oxfordssh.awsdev.infor.com:7999/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
 - Type `npm i`
 - Type `npm run build`
@@ -18,7 +18,7 @@ Optionally, the Angular CLI can be installed globally by using `npm install -g @
 
 ## Initial Setup with yarn
 
-- Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
+- Clone The main repo fx `git clone ssh://git@oxfordssh.awsdev.infor.com:7999/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
 - Type `yarn`
 - Type `npm run build`

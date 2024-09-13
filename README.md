@@ -36,7 +36,6 @@ See the [list of features](docs/FEATURES.md) for details about the included and 
 - Will use Angular Style guide: <https://angular.io/styleguide>
 - Group discussion location <https://teams.microsoft.com/l/channel/19%3a83173693057f4991b7a84f030975c06d%40thread.skype/Angular%2520Components?groupId=4f50ef7d-e88d-4ccb-98ca-65f26e57fe35&tenantId=457d5685-0467-4d05-b23b-8f817adda47c>
 - Use editor config, `eslint` and `tslint`
-- Use GitHub
 
 ## Other Resources
 
