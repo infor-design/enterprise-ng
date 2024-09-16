@@ -23,8 +23,8 @@ test:
     - DIND
   image: node:20
   script:
-    - npx playwright install chromium --with-deps
     - npm ci
+    - npx playwright install chromium --with-deps
     - npx puppeteer browsers install chrome
     - npm run lint
     - nohup npm run start &
