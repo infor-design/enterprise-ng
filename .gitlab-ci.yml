@@ -24,6 +24,8 @@ test:
   image: node:20
   script:
     - npx playwright install chromium --with-deps
+    - npm ci
+    - npx puppeteer browsers install chrome
     - npm run lint
     - nohup npm run start &
     - sleep 28 && npm run test:lib
