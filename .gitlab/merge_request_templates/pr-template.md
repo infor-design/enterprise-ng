@@ -7,7 +7,7 @@ explain why it is necessary to have a way to do X.
 **Related Jira issue(s) (required)**:
 <!--
 Provide a link to the related issue(s) to this Pull Request;
-auto-closing github issues if necessary (example: "Closes <Url in Jira>)
+auto-closing Jira issues if necessary (example: "Closes <Url in Jira>)
 -->
 
 **Steps necessary to review your pull request (required)**:
