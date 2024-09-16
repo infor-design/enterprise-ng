@@ -1,20 +1,32 @@
 <div class="row">
-    <div class="twelve columns">
-      <h2 class="fieldset-title">Soho Data Grid - Rows</h2>
-      <div class="field">
-        <input soho-input [(ngModel)]="newRowData" />
-      </div>
-      <div class="field">
-        <button soho-button (click)="addRow()">Add Row</button>
-      </div>
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Rows</h2>
+    <div class="field">
+      <input soho-input [(ngModel)]="newRowData" />
+    </div>
+    <div class="field">
+      <button soho-button (click)="addRow()">Add Row</button>
     </div>
   </div>
   <br>
   <div class="row top-padding">
     <div class="twelve columns demo" role="main">
       <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-        <div soho-datagrid="auto" [gridOptions]="options"></div>
+        <div soho-datagrid="auto" [gridOptions]="options" #firstgrid></div>
       </section>
     </div>
   </div>
-  
+</div>
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Transferred Rows</h2>
+  </div>
+  <br>
+  <div class="row top-padding">
+    <div class="twelve columns demo" role="main">
+      <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+        <div soho-datagrid="auto" [gridOptions]="t_options" #secondgrid></div>
+      </section>
+    </div>
+  </div>
+</div>
