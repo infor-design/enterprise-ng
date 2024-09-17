@@ -3,58 +3,45 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![npm version](https://badge.fury.io/js/ids-enterprise-ng.svg)](https://badge.fury.io/js/ids-enterprise-ng)
 
-> [!IMPORTANT]
-> This repo has been moved to [Oxford/Gitlab](https://oxford.awsdev.infor.com/infor-design/enterprise-ng)
->
+This repository serves as the central shared location for cross-Infor Angular Typescript UI components. These components do a few things:
 
-This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
-
-- avoids many teams building the same things - inefficient and asking Xi Team for different flavors of the same thing
-- divide the work to get more done
+- avoids many teams building the same things
+- avoids asking Xi Team for different flavors of the same thing
 - net new teams get huge gains
-- great way to learn new things about angular and typescript, and code/architecture conventions
 - includes wrappers and demos (usage) to get new teams and developers up to speed faster
-- built-in feedback look from dev to H&L and back
+- built-in look from dev to design and back
 
-This is a working group supported by the core H&L team,  bringing together the various efforts of teams each creating their own angular directives.
+If you're an Infor employee, you can join our [MS Teams Group](https://teams.microsoft.com/l/team/19%3A2b0c9ce520b0481a9ce115f0ca4a326f%40thread.skype/conversations?groupId=4f50ef7d-e88d-4ccb-98ca-65f26e57fe35&tenantId=457d5685-0467-4d05-b23b-8f817adda47c) for updates and questions.
 
-If you're an Infor employee, you can join our MS Teams Group for updates.
+## Browser Support
 
-The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls.
+We support the latest release and the release previous to the latest (R-1) for browsers and OS versions:
 
-## Enterprise components
+<!-- markdownlint-disable MD013 MD033 -->
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>iOS Safari |
+| --------- | --------- | --------- | --------- | --------- |
+| R-1 | R-1 | R-1| R-1| R-1
 
-See the [list of features](docs/FEATURES.md) for details about the included and planned component coverage.
+<!-- markdownlint-enable MD013 MD033 -->
 
-## Strategy
+## Installation
 
-- Will use Typescript 3.1.x
-- Will wrap Infor Design System Enterprise controls
-- Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
-- Will be supported by the H&L team in collaboration with multiple teams
-- Will use <https://cli.angular.io/>
-- Will use Angular Style guide: <https://angular.io/styleguide>
-- Group discussion location <https://teams.microsoft.com/l/channel/19%3a83173693057f4991b7a84f030975c06d%40thread.skype/Angular%2520Components?groupId=4f50ef7d-e88d-4ccb-98ca-65f26e57fe35&tenantId=457d5685-0467-4d05-b23b-8f817adda47c>
-- Use editor config, `eslint` and `tslint`
+The components are available via npm/yarn and we recommend you use them as peer dependencies.
 
-## Other Resources
+```sh
+npm install  --save-peer ids-enterprise-ng@latest
+```
 
-Check out these resources to get yourself familiar with some of the code and processes used here:
+To Clone and Run this Repo locally (requires node 20)
 
-[Angular 2.0 Style Guide]( https://github.com/johnpapa/angular-styleguide/blob/master/a2/README.md) - Angular 2.0 style guide we follow.
+```sh
+mkdir enterprise-ng
+cd enterprise-ng
+git clone ssh://git@oxfordssh.awsdev.infor.com:7999/infor-design/enterprise-ng.git .
+nvm use
+npm i
+npm run build:lib
+npm run start
+```
 
-[RxJS and Functional Reactive Programming](http://blog.jhades.org/angular-2-application-architecture-building-applications-using-rxjs-and-functional-reactive-programming-vs-redux/) - Example Implementation
-
-[RxJS and Observables](http://blog.jhades.org/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) - General Overview
-
-[Angular Member's RxJS App State](http://victorsavkin.com/post/137821436516/managing-state-in-angular-2-applications) - RxJS and Observable method
-
-[Angular 2 In Production Today](http://blog.jhades.org/how-to-run-angular-2-in-production-today/) - Angular 2 Build Process
-
-[Awesome Angular 2](https://www.npmjs.com/package/awesome-angular2) - Compiled list of Angular 2 resources
-
-[Angular 2 Documentation](https://angular.io/docs/ts/latest/) - Angular 2 Library
-
-[RxJS](http://reactivex.io/) - Library's Site
-
-[Angular 2.0 Best Practices]( https://blog.budacode.com/2016/06/27/angular-2-best-practises/?utm_source=hackernews&utm_medium=social&utm_campaign=angular2-best-practises) - Angular 2.0 Best Practices
+Also include the [Source Sans Pro Font](https://github.com/infor-design/ids-foundation/blob/main/fonts/README.md) in your project and app pages.

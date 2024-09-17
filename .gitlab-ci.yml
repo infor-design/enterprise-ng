@@ -24,11 +24,11 @@ test:
   image: node:20
   script:
     - npm ci
-    - npx playwright install chromium --with-deps
-    - npx puppeteer browsers install chrome
     - npm run lint
+    - npx puppeteer browsers install chrome
+    - npm run test:ci
+    - npx playwright install chromium --with-deps
     - nohup npm run start &
     - sleep 28 && npm run test:lib
-    - npm run test:ci
     - npm run test:ci:percy
     - npx kill-port 4200
