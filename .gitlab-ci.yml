@@ -25,9 +25,8 @@ test:
   script:
     - npm ci
     - npm run lint
-    - npx puppeteer browsers install chrome
-    - npm run test:ci
     - npx playwright install
+    - npm run test:ci
     - nohup npm run start &
     - sleep 28 && npm run test:lib
     - npm run test:ci:percy
