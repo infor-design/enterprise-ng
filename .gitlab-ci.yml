@@ -27,8 +27,8 @@ test:
     - npx playwright install-deps
     - npm run lint
     - npx playwright install
-    - npm run test:ci
+    - npm run test:lib
     - nohup npm run start &
-    - sleep 28 && npm run test:lib
+    - sleep 28 && npm run test:ci
     - npm run test:ci:percy
     - npx kill-port 4200
