@@ -24,6 +24,7 @@ test:
   image: node:20
   script:
     - npm ci
+    - npx playwright install-deps
     - npm run lint
     - npx playwright install
     - npm run test:ci
