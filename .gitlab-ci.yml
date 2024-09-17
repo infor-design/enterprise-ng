@@ -27,7 +27,7 @@ test:
     - npm run lint
     - npx puppeteer browsers install chrome
     - npm run test:ci
-    - npx playwright install chromium --with-deps
+    - npx playwright install
     - nohup npm run start &
     - sleep 28 && npm run test:lib
     - npm run test:ci:percy
