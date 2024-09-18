@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.2.4
+
+## 18.2.4 Features
+
+- `[Datagrid]` Added columnChange event type. ([#1734](https://github.com/infor-design/enterprise-ng/issues/1734))
+
 ## 18.2.3
 
 ## 18.2.3 Features
