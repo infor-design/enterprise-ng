@@ -12,7 +12,6 @@ import fs from 'fs';
 import inquirer from 'inquirer';
 import slash from 'slash';
 import { exec } from 'child_process';
-import { createRequire } from 'module'; // Bring in the ability to create the 'require' method
 
 // -------------------------------------
 //   Constants
@@ -37,7 +36,7 @@ function chooseVersionTag(options) {
   }];
 
   inquirer.prompt(questionsArr).then(answers => {
-    const cmd = `npm i ids-enterprise@${answers.tag} -P --save-exact`;
+    const cmd = `npm i ids-enterprise@${answers.tag} -P --save-peer`;
     console.log(`Running "${cmd}"...`);
     executeUpdate(cmd);
   });
@@ -66,9 +65,9 @@ function syncPackageJsonVersions() {
   const rootPackageJson = JSON.parse(rootPackageStr);
   const libPackageJson = JSON.parse(libPackageStr);
 
-  const version = JSON.parse(rootPackageStr).dependencies['ids-enterprise'];
-  libPackageJson.dependencies['ids-enterprise'] = version;
-  rootPackageJson.dependencies['ids-enterprise'] = version;
+  const version = JSON.parse(rootPackageStr).peerDependencies['ids-enterprise'];
+  libPackageJson.peerDependencies['ids-enterprise'] = version;
+  rootPackageJson.peerDependencies['ids-enterprise'] = version;
 
   // Make sure to write the trailing line to the file
   const libPackageJsonStr = JSON.stringify(libPackageJson, null, 2) + `\n`;
