@@ -5,6 +5,7 @@
 ## 18.2.4 Features
 
 - `[Datagrid]` Added columnChange event type. ([#1734](https://github.com/infor-design/enterprise-ng/issues/1734))
+- `[General]` Added 4.98.3 version
 
 ## 18.2.3
 
