@@ -81,7 +81,7 @@ fs.writeFile(libPackageJsonPath, libPackageJsonStr, 'utf8', () => {
 typingPackageJson.version = libPackageJson.version;
 
 const publTypingJsonStr = JSON.stringify(typingPackageJson, null, 2) + '\n';
-console.log(publTypingJsonStr)
+
 // Write the file with the new version
 fs.writeFile(typingPackageJsonPath, publTypingJsonStr, 'utf8', () => {
   executeUpdate('git status -sb && echo \n');
