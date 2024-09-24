@@ -4,7 +4,7 @@
 
 ## 18.4.0 Fixes
 
-- `[General]` All libraries (jQuery, Enterprise, Angular, D3) are now set to peer dependencies. We now recommend this. ([#4917](https://inforwiki.atlassian.net/browse/IDS-4917))
+- `[General]` All libraries (jQuery, Enterprise, Angular, D3) are now set to peer dependencies. We now recommend this, see the quick start for an example of the `package.json`. ([#4917](https://inforwiki.atlassian.net/browse/IDS-4917))
 
 ## 18.3.0
 
