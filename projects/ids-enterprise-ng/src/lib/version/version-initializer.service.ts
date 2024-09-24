@@ -15,7 +15,7 @@ export class SohoVersionInitializerService {
    * Initializes the version attribute.
    */
   initialize() {
-    $('html').attr(SohoVersionInitializerService.VERSION_ATTR_NAME, '18.4.0-dev.0');
+    $('html').attr(SohoVersionInitializerService.VERSION_ATTR_NAME, '18.5.0');
   }
 }
 
