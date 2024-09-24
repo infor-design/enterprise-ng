@@ -31,15 +31,6 @@ const typingPackageJson = JSON.parse(typingPackagenStr);
 // -------------------------------------
 
 /**
- * Log a colorful message
- * @param {string} action - An action word
- * @param {string} msg - the message
- */
-const logAction = (action, msg) => {
-  console.log(action, msg, '\n');
-}
-
-/**
  * Log a colorful error message
  * @param {string} msg - the message
  */
