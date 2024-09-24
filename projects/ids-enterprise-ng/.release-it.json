@@ -17,7 +17,7 @@
     "tag": "latest"
   },
   "github": {
-    "release": true,
+    "release": false,
     "releaseName": "v${version}",
     "tokenRef": "GITHUB_ACCESS_TOKEN"
   }
