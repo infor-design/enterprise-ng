@@ -23,6 +23,7 @@ test:
     - DIND
   image: node:20
   script:
+    - rm -rf node_modules
     - npm ci
     - npx playwright install-deps
     - npm run lint
