@@ -68,7 +68,7 @@ fs.writeFile(libVersionJsonPath, publVersionJsonStr, 'utf8', () => {
 });
 
 // Synchronize the typings dependencies in the ids-enterprise-ng package
-libPackageJson.devDependencies['ids-enterprise-typings'] = libPackageJson.version;
+libPackageJson.peerDependencies['ids-enterprise-typings'] = libPackageJson.version;
 
 const libPackageJsonStr = JSON.stringify(libPackageJson, null, 2) + '\n';
 

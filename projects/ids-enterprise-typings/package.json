@@ -1,6 +1,6 @@
 {
-  "name": "ids-enterprise-typings",
-  "slug": "ids-enterprise-typings",
+  "name": "@types/ids-enterprise-typings",
+  "slug": "@types/ids-enterprise-typings",
   "version": "18.6.0-dev.0",
   "declaration": true,
   "types": "index.d.ts",
