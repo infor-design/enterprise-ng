@@ -1,7 +1,7 @@
 {
   "name": "ids-enterprise-ng",
   "slug": "ids-enterprise-ng",
-  "version": "18.6.0-dev.12",
+  "version": "18.6.0-dev.13",
   "peerDependencies": {
     "@angular/common": "^18.2.4",
     "@angular/core": "^18.2.4",
