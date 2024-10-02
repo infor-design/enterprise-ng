@@ -1,11 +1,10 @@
 # What's New with Enterprise-NG
 
-## 18.6.0
+## 18.5.1
 
-## 18.6.0 Fixes
+## 18.5.1 Fixes
 
 - `[General]` All libraries (jQuery, Enterprise, Angular, D3) are now set to peer dependencies. We now recommend this, see the quick start for an example of the `package.json`. ([#4917](https://inforwiki.atlassian.net/browse/IDS-4917))
-- `[General]` Adjusted ids-enterprise-typings so that the `index.d.ts` file is in the lib folder. ([#4962](https://inforwiki.atlassian.net/browse/IDS-4962))
 
 ## 18.3.0
 
