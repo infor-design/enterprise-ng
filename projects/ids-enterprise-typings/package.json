@@ -1,7 +1,7 @@
 {
-  "name": "@types/ids-enterprise-typings",
-  "slug": "@types/ids-enterprise-typings",
-  "version": "18.6.0-dev.0",
+  "name": "ids-enterprise-typings",
+  "slug": "ids-enterprise-typings",
+  "version": "18.6.0-dev.8",
   "declaration": true,
   "types": "index.d.ts",
   "peerDependencies": {
@@ -23,7 +23,5 @@
     "url": "https://inforwiki.atlassian.net/jira/software/c/projects/IDS/issues"
   },
   "homepage": "https://oxford.awsdev.infor.com/infor-design/enterprise-ng",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  "scripts": {}
 }

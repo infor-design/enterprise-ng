@@ -1,10 +1,11 @@
 # What's New with Enterprise-NG
 
-## 18.4.0
+## 18.6.0
 
-## 18.4.0 Fixes
+## 18.6.0 Fixes
 
 - `[General]` All libraries (jQuery, Enterprise, Angular, D3) are now set to peer dependencies. We now recommend this, see the quick start for an example of the `package.json`. ([#4917](https://inforwiki.atlassian.net/browse/IDS-4917))
+- `[General]` Adjusted ids-enterprise-typings so that the `index.d.ts` file is in the lib folder. ([#4962](https://inforwiki.atlassian.net/browse/IDS-4962))
 
 ## 18.3.0
 
@@ -18,10 +19,10 @@
 ## 18.3.0 Fixes
 
 - `[ContextMenu]` Fixed position on angular wrapper for lazy load. ([#1670](https://github.com/infor-design/enterprise-ng/issues/1670))
-- `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+- `[Datagrid]` Removed `cellchange` Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
 - `[Datagrid]` Updated parameters in `setActiveCell`. ([#1761](https://github.com/infor-design/enterprise-ng/issues/1761))
 - `[Datagrid]` Added columnChange event type. ([#1734](https://github.com/infor-design/enterprise-ng/issues/1734))
-- `[Slider]` Added change detector ref for onchange event in component level. ([#1626](https://github.com/infor-design/enterprise-ng/issues/1626))
+- `[Slider]` Added change detector ref for `onchange` event in component level. ([#1626](https://github.com/infor-design/enterprise-ng/issues/1626))
 - `[Tests]` Changed test framework to playwright. ([#8549](https://github.com/infor-design/enterprise/issues/8549))
 
 ## 18.2.0
@@ -36,16 +37,16 @@
 ## 18.1.0 Features
 
 - `[Message]` Added info and success status option for message. ([#1698](https://github.com/infor-design/enterprise-ng/issues/1698))
-- `[Datagrid]` Added setting called addCellLayoutClass option to remove datagrid-cell-layout from expandable rows. ([#1524](https://github.com/infor-design/enterprise-ng/issues/1524))
-- `[Datagrid]` Added `searched` event for toolbar searchfield. ([EP#8814](https://github.com/infor-design/enterprise/issues/8814))
+- `[Datagrid]` Added setting called addCellLayoutClass option to remove `datagrid-cell-layout` from expandable rows. ([#1524](https://github.com/infor-design/enterprise-ng/issues/1524))
+- `[Datagrid]` Added `searched` event for toolbar `searchfield`. ([EP#8814](https://github.com/infor-design/enterprise/issues/8814))
 - `[Mask]` Added setting `allowTrailingDecimalZeros` to always display decimals in input mask. ([#1715](https://github.com/infor-design/enterprise-ng/issues/1715))
 
 ## 18.1.0 Fixes
 
 - `[Datagrid]` Added all existing properties in `SohoDataGridCellChangeEvent`. ([#1199](https://github.com/infor-design/enterprise-ng/issues/1199))
-- `[Datepicker]` Fixed readonly not updating when datepicker is in form. ([#1735](https://github.com/infor-design/enterprise-ng/issues/1735))
+- `[Datepicker]` Fixed readonly not updating when `datepicker` is in form. ([#1735](https://github.com/infor-design/enterprise-ng/issues/1735))
 - `[Module Nav]` Fixed roles not being updated when changed before `AfterViewInit`. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1677))
-- `[Popupmenu]` Updated example page to test bug on popupmenu title. ([#1700](https://github.com/infor-design/enterprise-ng/issues/1700))
+- `[Popupmenu]` Updated example page to test bug on `popupmenu` title. ([#1700](https://github.com/infor-design/enterprise-ng/issues/1700))
 - `[Tabs]` Fix on `beforeCloseCallback` and updated example page. ([#1697](https://github.com/infor-design/enterprise-ng/issues/1697))
 
 ## 18.0.0
@@ -56,8 +57,7 @@
 - `[Datepicker]` Fixed readonly state when called from disabled method. ([#1702](https://github.com/infor-design/enterprise-ng/issues/1702))
 - `[Mask]` Fixed placeholder value being duplicated on number input. ([#1686](https://github.com/infor-design/enterprise-ng/issues/1686))
 - `[Monthview]` Fixed `monthview` not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
-- `[Monthview]` Fixed monthview not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
-- `[Popupmenu]` Updated example page to fix multiselect. ([#8623](https://github.com/infor-design/enterprise-ng/issues/8623))
+- `[Popupmenu]` Updated example page to fix `multiselect`. ([#8623](https://github.com/infor-design/enterprise-ng/issues/8623))
 
 ## 17.8.0 Notes
 
