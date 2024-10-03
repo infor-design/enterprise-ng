@@ -23,8 +23,8 @@
     "mdlint:docs": "npx markdownlint docs/ && npx markdownlint README.md",
     "update-enterprise": "node ./scripts/update-ids-enterprise.js && npm run sync:lib",
     "version-bump:dev": "node ./scripts/version-append-date",
-    "release:final": "npm run sync:lib && cd projects/ids-enterprise-ng && npm publish && cd ../../ && npm run release:typings",
-    "release:typings": "npm run sync:lib && npm run build:typings && cd projects/ids-enterprise-typings && npm publish",
+    "release:final": "npm run sync:lib && npm run build:lib && cd dist/ids-enterprise-ng && npm publish && cd ../../ && npm run release:typings",
+    "release:typings": "npm run sync:lib && npm run build:typings && cd dist/ids-enterprise-typings && npm publish",
     "sync:lib": "node ./scripts/version-sync.js"
   },
   "private": true,

@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.5.2
+
+## 18.5.2 Fixes
+
+- `[General]` Typings moved from dev to peerDependencies after feedback on 15.5.1. ([#4917](https://inforwiki.atlassian.net/browse/IDS-4917))
+
 ## 18.5.1
 
 ## 18.5.1 Fixes
