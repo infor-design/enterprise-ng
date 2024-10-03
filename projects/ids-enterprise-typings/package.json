@@ -11,7 +11,7 @@
   "description": "Infor Design System (IDS) Enterprise Widget Typings",
   "repository": {
     "type": "git",
-    "url": "git+https://oxford.awsdev.infor.com/infor-design/enterprise-ng"
+    "url": "https://oxford.awsdev.infor.com/infor-design/enterprise-ng"
   },
   "keywords": [
     "infor design system",
