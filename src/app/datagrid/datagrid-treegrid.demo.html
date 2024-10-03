@@ -18,14 +18,14 @@
              (expandrow)="onExpandRow($event)"
              (collapserow)="onCollapseRow($event)"
              selectable="mixed"
-             (rowActivated)="onRowActivated($event)"
+             [editable]="true"
              [treeGrid]="true"
              [columns]="columns"
              [dataset]="data"
              [showSelectAllCheckBox]="false"
              [stretchColumn]="'desc'"
              [toolbar]="{title: 'Tasks (Hierarchical)', results: true, personalize: true}"
-             [filterable]="true">
+             [filterable]="true" (rowActivated)="onRowActivated($event)">
         </div>
       </section>
     </div>
