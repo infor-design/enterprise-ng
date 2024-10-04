@@ -1,0 +1,141 @@
+{
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "extends": ["stylelint-config-standard-scss"],
+  "ignoreFiles": ["**/*.js", "**/*.md", "**/*.MD", "**/*.html", "LICENSE"],
+  "rules": {
+    "alpha-value-notation": "number",
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ],
+    "at-rule-no-vendor-prefix": null,
+    "block-no-empty": true,
+    "color-named": "never",
+    "color-hex-length": "short",
+    "color-no-invalid-hex": true,
+    "color-function-notation": null,
+    "selector-not-notation": null,
+    "media-feature-range-notation": null,
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "stylelint-commands"
+        ]
+      }
+    ],
+    "comment-no-empty": true,
+    "comment-whitespace-inside": "always",
+    "custom-property-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "after-custom-property",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment",
+          "inside-single-line-block"
+        ]
+      }
+    ],
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": [
+          "consecutive-duplicates-with-different-values"
+        ]
+      }
+    ],
+    "declaration-block-no-shorthand-property-overrides": null,
+    "declaration-block-single-line-max-declarations": 1,
+    "declaration-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "after-declaration",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment",
+          "inside-single-line-block"
+        ]
+      }
+    ],
+    "font-family-no-duplicate-names": true,
+    "font-weight-notation": [
+      "numeric",
+      {
+        "ignore": [
+          "relative"
+        ]
+      }
+    ],
+    "declaration-block-no-redundant-longhand-properties": null,
+    "function-calc-no-unspaced-operator": true,
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "function-url-quotes": null,
+    "function-name-case": "lower",
+    "keyframe-declaration-no-important": true,
+    "keyframes-name-pattern": null,
+    "length-zero-no-unit": true,
+    "max-nesting-depth": 10,
+    "media-feature-name-no-unknown": null,
+    "media-feature-name-no-vendor-prefix": null,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "no-empty-source": true,
+    "no-invalid-double-slash-comments": true,
+    "no-invalid-position-at-import-rule": null,
+    "number-max-precision": 15,
+    "property-no-vendor-prefix": null,
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
+      }
+    ],
+    "scss/at-else-closing-brace-newline-after": null,
+    "scss/at-else-closing-brace-space-after": null,
+    "scss/at-mixin-argumentless-call-parentheses": null,
+    "scss/at-mixin-pattern": null,
+    "scss/double-slash-comment-whitespace-inside": null,
+    "scss/dollar-variable-empty-line-before": null,
+    "scss/no-global-function-names": null,
+    "scss/at-import-partial-extension": null,
+    "selector-class-pattern": null,
+    "selector-max-compound-selectors": null,
+    "selector-max-id": 1,
+    "selector-no-vendor-prefix": null,
+    "selector-pseudo-class-no-unknown": true,
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-pseudo-element-no-unknown": true,
+    "selector-type-case": "lower",
+    "selector-type-no-unknown": true,
+    "shorthand-property-no-redundant-values": true,
+    "string-no-newline": true,
+    "unit-no-unknown": true,
+    "value-no-vendor-prefix": null,
+    "value-keyword-case": ["lower", {
+      "ignoreKeywords": ["optimizeLegibility", "crispEdges", "currentColor"]
+    }]
+  }
+}

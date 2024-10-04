@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.6.0
+
+## 18.6.0 Fixes
+
+- `[General]` Added enterprise 4.100.0 version.
+
 ## 18.5.2
 
 ## 18.5.2 Fixes
