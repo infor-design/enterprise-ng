@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Lookup Cell Change</h2>
+  </div>
+</div>
+
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <div>
+      <button
+        type="button"
+        class="btn l-pull-right"
+        id="add"
+        (click)="onClickOnAdd()"
+      >
+        <svg
+          class="icon btn-add"
+          focusable="false"
+          aria-hidden="true"
+          role="presentation"
+        >
+          <use href="#icon-get-more-rows"></use>
+        </svg>
+        <span class="text-details">Add</span>
+      </button>
+    </div>
+    <div
+      soho-datagrid="auto"
+      *ngIf="gridOptions"
+      [gridOptions]="gridOptions"
+      (cellchange)="onCellChange($event)"
+    ></div>
+  </div>
+</div>

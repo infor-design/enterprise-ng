@@ -4,6 +4,7 @@
 
 ## 18.6.0 Fixes
 
+- `[Datagrid]` Fixed a bug in validate cell when using lookup. ([#4838](https://inforwiki.atlassian.net/browse/IDS-4838))
 - `[General]` Added enterprise 4.100.0 version.
 
 ## 18.5.2

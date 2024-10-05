@@ -110,6 +110,7 @@ import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid
 import { DataGridDirtyIndicationDemoComponent } from './datagrid/datagrid-dirty-indication.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridAddRowDemoComponent } from './datagrid/datagrid-add-row.demo';
+import { DataGridLookupCellChangeDemoComponent } from './datagrid/datagrid-lookup-cell-change.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
@@ -393,6 +394,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     DataGridDirtyIndicationDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridAddRowDemoComponent,
+    DataGridLookupCellChangeDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridEmptyMessageDemoComponent,
     DataGridExportWithoutDataGridDemoComponent,
