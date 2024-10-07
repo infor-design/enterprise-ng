@@ -1,4 +1,4 @@
-﻿import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+﻿import { Component, ViewChild, ChangeDetectionStrategy, OnInit } from '@angular/core';
 // @ts-ignore
 import { SohoDataGridComponent, SohoDataGridToggleRowEvent } from 'ids-enterprise-ng';
 // @ts-ignore
@@ -11,16 +11,18 @@ import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [DatagridTreegridServiceDemo]
 })
-export class DataGridTreeGridDemoComponent {
+export class DataGridTreeGridDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 
+  columns: SohoDataGridColumn[] = [];
+
   constructor(private treeService: DatagridTreegridServiceDemo) { }
 
-  public get columns(): SohoDataGridColumn[] {
-    return this.treeService.getColumns().slice(1);
+  ngOnInit() {
+    this.columns = this.treeService.getColumns().slice(1);
   }
 
   public get data(): any[] {
