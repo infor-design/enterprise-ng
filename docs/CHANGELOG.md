@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 18.7.0
+
+## 18.7.0 Fixes
+
+- `[Datagrid]` Fixed a bug in validate cell when using lookup. ([#4838](https://inforwiki.atlassian.net/browse/IDS-4838))
+
 ## 18.6.0
 
 ## 18.6.0 Fixes
