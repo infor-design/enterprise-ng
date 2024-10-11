@@ -3,8 +3,8 @@
   "slug": "ids-enterprise-ng",
   "version": "18.7.0-dev",
   "peerDependencies": {
-    "@angular/common": "^18.2.7",
-    "@angular/core": "^18.2.7",
+    "@angular/common": "^18.2.8",
+    "@angular/core": "^18.2.8",
     "jquery": "3.7.1",
     "d3": "7.8.2",
     "ids-enterprise": "^4.100.1",
