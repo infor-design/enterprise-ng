@@ -85,7 +85,6 @@
     "merge-stream": "^2.0.0",
     "ng-packagr": "^18.2.1",
     "puppeteer": "^22.15.0",
-    "release-it": "^17.6.0",
     "slash": "^5.1.0",
     "ts-node": "~10.9.2",
     "typescript": "^5.5.4",
