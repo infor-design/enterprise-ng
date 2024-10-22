@@ -45,6 +45,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 yarn.lock
+nohup.out
 
 # e2e
 /e2e/*.map
