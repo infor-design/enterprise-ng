@@ -1,0 +1,16 @@
+<form>
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <div class="field">
+        <label for="statechange" class="label">Datepicker in French</label>
+        <input
+          soho-datepicker
+          name="blah"
+          [options]="datepickerOptions"
+          class="input-mm"
+          (change)="onDateRangeChanged($event)"
+        />
+      </div>
+    </div>
+  </div>
+</form>

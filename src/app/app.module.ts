@@ -141,6 +141,7 @@ import { NestedDatagridDemoComponent, DataGridExpandableRowNestedDemoComponent }
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 import { DataGridTabNavigationDemoComponent } from './datagrid/datagrid-tab-navigation.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
+import { DatepickerFrenchDemoComponent } from './datepicker/datepicker-french.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DragDemoComponent } from './drag/drag.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
@@ -434,6 +435,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     DataGridTabNavigationDemoComponent,
     DataGridRowSpanDemoComponent,
     DatepickerDemoComponent,
+    DatepickerFrenchDemoComponent,
     DemoappNavContainerComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
