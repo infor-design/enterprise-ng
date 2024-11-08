@@ -6,6 +6,7 @@
 
 - `[Datagrid]` Fixed a bug in validate cell when using lookup. ([#4838](https://inforwiki.atlassian.net/browse/IDS-4838))
 - `[Datepicker]` Updated example page with french localization. ([#4608](https://inforwiki.atlassian.net/browse/IDS-4608))
+- `[General]` Added enterprise 4.101.0 version.
 
 ## 18.6.0
 
