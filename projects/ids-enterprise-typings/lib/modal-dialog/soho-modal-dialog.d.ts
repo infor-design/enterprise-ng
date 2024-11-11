@@ -95,6 +95,9 @@ interface SohoModalOptions {
   /** Center the title of the dialog. */
   centerTitle?: boolean;
 
+  /** Removes the padding from the modal body wrapper */
+  noPadding?: boolean;
+
   /** Adds the ability to control the opacity of the background overlay. **/
   overlayOpacity?: number;
 
