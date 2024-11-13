@@ -203,6 +203,7 @@ export class ModalDialogDemoComponent {
           }
         ])
       .title(this.title)
+      .noPadding(true)
       .open()
       .beforeClose(beforeClose)
       .afterClose((result: any) => {

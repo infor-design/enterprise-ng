@@ -408,6 +408,18 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
+   * Sets the 'noPadding' to remove paddings from the modal body wrapper.
+   * @param noPadding - if true; the content will have no paddings.
+   */
+  noPadding(noPadding: boolean): SohoModalDialogRef<T> {
+    this._options.noPadding = noPadding;
+    if (this.modal) {
+      this.modal.settings.noPadding = noPadding;
+    }
+    return this;
+  }
+
+  /**
    * Applies a function to the instantiated component,
    * allowing the component to be modified, or initialised.
    *
