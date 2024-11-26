@@ -41,6 +41,13 @@ export class SohoHyperlinkComponent implements AfterViewInit {
   @Input() icon?: string;
 
   /**
+   * Sets the expandable-expander class to be placed on the button for the
+   * soho-expandablearea to use as it's expand/collapse trigger
+   *
+   */
+  @Input() expandableExpander = false;
+
+  /**
    * @todo replace override of native attribute
    */
   // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
@@ -73,6 +80,10 @@ export class SohoHyperlinkComponent implements AfterViewInit {
   @HostBinding('attr.isCaretRight') @Input() isCaretRight?: boolean;
 
   @HostBinding('attr.isCaretLeft') @Input() isCaretLeft?: boolean;
+
+  @HostBinding('class.expandable-expander') get isExpandableExpander() {
+    return this.expandableExpander;
+  }
 
   private hyperlinkType?: SohoHyperlinkType;
   private jQueryElement?: JQuery;

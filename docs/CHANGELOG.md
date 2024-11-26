@@ -1,8 +1,14 @@
 # What's New with Enterprise-NG
 
+## 18.9.0
+
+## 18.9.0 Fixes
+
+- `[ExpandableArea]` Fixed hyperlink tag not showing properly on footer. ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
+
 ## 18.8.0
 
-## Fixes
+## 18.8.0 Fixes
 
 - `[Modal]` Added `noPadding` setting to modal. ([#6201](https://inforwiki.atlassian.net/browse/IDS-6201))
 
