@@ -158,6 +158,7 @@ import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { ExpandableAreaFooterHyperlinkDemoComponent } from './expandablearea/expandablearea-footer-hyperlink.demo';
 import { FieldFilterDemoComponent } from './field-filter/field-filter.demo';
 import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-popdown.demo';
@@ -460,6 +461,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     ExpandableAreaFooterDemoComponent,
+    ExpandableAreaFooterHyperlinkDemoComponent,
     FieldFilterDemoComponent,
     FieldOptionsDemoComponent,
     FieldOptionsPopdownDemoComponent,

@@ -228,6 +228,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { ExpandableAreaFooterHyperlinkDemoComponent } from './expandablearea/expandablearea-footer-hyperlink.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 import { ApplicationMenuNotificationBadgeDemoComponent } from './application-menu/application-menu-notification-badge.demo';
@@ -395,6 +396,7 @@ export const routes: Routes = [
   { path: 'form-reactive', component: FormReactiveFormDemoComponent },
   { path: 'expandablearea', component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer', component: ExpandableAreaFooterDemoComponent },
+  { path: 'expandablearea-footer-hyperlink', component: ExpandableAreaFooterHyperlinkDemoComponent },
   { path: 'field-filter', component: FieldFilterDemoComponent },
   { path: 'field-options', component: FieldOptionsDemoComponent },
   { path: 'field-options-popdown', component: FieldOptionsPopdownDemoComponent },
