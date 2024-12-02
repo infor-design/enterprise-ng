@@ -86,9 +86,4 @@ export class PopupMenuDemoComponent implements OnInit {
   onOpen(_event: SohoPopupMenuEvent) {
     console.log('PopupMenu Demo: popupmenu.onOpen');
   }
-
-  toggleOption(option: string) {
-    // @ts-ignore
-    this.options[option] = !this.options[option];
-  }
 }

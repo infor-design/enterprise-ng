@@ -11,6 +11,7 @@
 ## 18.8.0 Fixes
 
 - `[Modal]` Added `noPadding` setting to modal. ([#6201](https://inforwiki.atlassian.net/browse/IDS-6201))
+- `[Popupmenu]` Updated example page to fix bug on submenu checkboxes. ([#6144](https://inforwiki.atlassian.net/browse/IDS-6144))
 
 ## 18.7.0
 
