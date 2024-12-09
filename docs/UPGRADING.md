@@ -24,6 +24,11 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
+#### Angular 19
+
+When updating from angular 18 to 19 we were able to follow the instructions on the `update.angular.io` site. See
+<https://update.angular.io/?v=18.0-19.0> for more information. Actual command ran: `npx ng update @angular/core@19 @angular/cli@19`
+
 #### Angular 18
 
 When updating from angular 17 to 18 we were able to follow the instructions on the `update.angular.io` site. See
