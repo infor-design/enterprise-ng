@@ -8,6 +8,10 @@
 
 ## 18.8.0
 
+## 18.8.0 Features
+
+- `[Timepicker]` Added `beforeValidate` callback on blur event. ([#6182](https://inforwiki.atlassian.net/browse/IDS-6182))
+
 ## 18.8.0 Fixes
 
 - `[Modal]` Added `noPadding` setting to modal. ([#6201](https://inforwiki.atlassian.net/browse/IDS-6201))

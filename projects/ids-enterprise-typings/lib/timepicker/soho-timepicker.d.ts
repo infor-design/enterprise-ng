@@ -41,6 +41,9 @@ interface SohoTimePickerOptions {
 
   /** Set the input to tabbable */
   tabbable?: boolean;
+
+  /** Call back for beforeValidate on blur event */
+  beforeValidate?: any | undefined;
 }
 
 interface SohoTimePickerEvent extends JQuery.TriggeredEvent {
