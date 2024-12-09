@@ -179,6 +179,16 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
+   * @param beforeValidate before validate.
+   */
+  @Input() set beforeValidate(beforeValidate: any) {
+    (this.options as any).beforeValidate = beforeValidate;
+    if (this.timepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Public API
    */
   get disabled(): boolean | undefined {

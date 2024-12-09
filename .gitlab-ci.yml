@@ -24,6 +24,8 @@ test:
   image: node:20
   script:
     - npm ci
+    - npm run build:lib
+    - npm run build
     - npx playwright install-deps
     - npx playwright install
     - npm run lint

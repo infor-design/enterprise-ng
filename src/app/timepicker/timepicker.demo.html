@@ -7,7 +7,7 @@
         <div class="eight columns">
           <div class="field">
             <label for="statechange" class="label">State Change</label>
-            <input soho-timepicker name="statechange" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
+            <input soho-timepicker name="statechange" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmmbv" (change)="onChange($event)" [beforeValidate]="onBeforeValidate"/>
             <div>
               <button soho-button [disabled]="timepickerReadOnly" (click)="setReadonly()">Read Only</button>
               <button soho-button [disabled]="timepickerDisabled" (click)="setDisable()">Disable</button>
