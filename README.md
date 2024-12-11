@@ -6,8 +6,8 @@
 This repository serves as the central shared location for cross-Infor Angular Typescript UI components. These components do a few things:
 
 - avoids many teams building the same things
-- avoids asking Xi Team for different flavors of the same thing
-- net new teams get huge gains
+- avoids asking for different flavors of the same thing
+- net new teams get gains
 - includes wrappers and demos (usage) to get new teams and developers up to speed faster
 - built-in look from dev to design and back
 
@@ -44,3 +44,13 @@ npm run start
 ```
 
 Also include the [Source Sans Pro Font](https://github.com/infor-design/ids-foundation/blob/main/fonts/README.md) in your project and app pages.
+
+## Installation Of Types
+
+Option 1. Install the types globally by adding this to the top of your project’s `app.component.ts`
+
+```sh
+/// <reference types="ids-enterprise-typings" />
+```
+
+Option 2. Install the types using typeRoots and then adding the types to your `tsconfig.json` for example https://oxford.awsdev.infor.com/infor-design/enterprise-ng-quickstart/-/blob/main/tsconfig.json?ref_type=heads#L16-21
