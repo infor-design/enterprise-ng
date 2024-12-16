@@ -192,7 +192,8 @@ describe('Soho Radar Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-radar [dataset]="data"></div>`
+    template: `<div soho-radar [dataset]="data"></div>`,
+    standalone: false
 })
 class SohoRadarTestComponent {
   @ViewChild(SohoRadarComponent) radar?: SohoRadarComponent;

@@ -14,9 +14,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-monthview]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-monthview]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
 

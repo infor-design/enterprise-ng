@@ -2,8 +2,9 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { SohoRatingComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-rating-demo',
-  templateUrl: 'rating.demo.html'
+    selector: 'app-rating-demo',
+    templateUrl: 'rating.demo.html',
+    standalone: false
 })
 export class RatingDemoComponent implements AfterViewInit {
   @ViewChild('sohoRating') rating!:SohoRatingComponent;

@@ -7,10 +7,11 @@ import { SohoSliderModule } from './soho-slider.module';
 import { SohoSliderComponent } from './soho-slider.component';
 
 @Component({
-  template: `
+    template: `
     <input soho-slider id="slider-regular" name="slider-regular"
     min="0" max="100" type="range" value="40"/>
-    `
+    `,
+    standalone: false
 })
 
 class SohoSliderTestComponent {

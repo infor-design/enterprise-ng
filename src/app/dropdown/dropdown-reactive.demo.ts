@@ -4,8 +4,8 @@ import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-dropdown-reactive-demo',
-  template: `
+    selector: 'app-dropdown-reactive-demo',
+    template: `
   <div class="example-section">
   <form>
     <div class="row">
@@ -33,6 +33,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 </div>
 
   `,
+    standalone: false
 })
 export class DropdownReactiveDemoComponent {
 

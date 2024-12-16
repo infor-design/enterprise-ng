@@ -28,9 +28,10 @@ export const CodeBlockFormatter = (_row: any, _cell: any, _value: any, _col: any
 };
 
 @Component({
-  selector: 'app-datagrid-code-block-formatter-demo',
-  templateUrl: 'datagrid-code-block-formatter.demo.html',
-  styleUrls: ['../code-block/code-block.formatter.css']
+    selector: 'app-datagrid-code-block-formatter-demo',
+    templateUrl: 'datagrid-code-block-formatter.demo.html',
+    styleUrls: ['../code-block/code-block.formatter.css'],
+    standalone: false
 })
 export class DataGridCodeBlockFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [

@@ -49,7 +49,7 @@ describe('Soho Wizard Unit Tests', () => {
 });
 
 @Component({
-  template: `
+    template: `
   <div soho-wizard>
     <div soho-wizard-header>
       <a soho-wizard-tick tickId="one" current="true">One</a>
@@ -62,7 +62,8 @@ describe('Soho Wizard Unit Tests', () => {
     <div soho-wizard-page tickId="three"></div>
   </div>
   <div soho-wizard-buttonbar></div>
-</div>`
+</div>`,
+    standalone: false
 })
 class SohoWizardTestComponent {
   @ViewChild(SohoWizardComponent) wizard?: SohoWizardComponent;

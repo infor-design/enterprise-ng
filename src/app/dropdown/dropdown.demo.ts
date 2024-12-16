@@ -8,9 +8,10 @@ import {
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-dropdown-demo',
-  templateUrl: 'dropdown.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-dropdown-demo',
+    templateUrl: 'dropdown.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DropdownDemoComponent {
   @ViewChildren(SohoDropDownComponent) dropDowns?: QueryList<SohoDropDownComponent>;

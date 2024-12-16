@@ -19,10 +19,11 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'textarea[soho-textarea]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideControlValueAccessor(SohoTextAreaComponent)]
+    selector: 'textarea[soho-textarea]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideControlValueAccessor(SohoTextAreaComponent)],
+    standalone: false
 })
 export class SohoTextAreaComponent extends BaseControlValueAccessor<string> implements AfterViewInit, AfterViewChecked, OnDestroy {
 

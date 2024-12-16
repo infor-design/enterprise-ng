@@ -38,9 +38,10 @@ export type SohoTreeType = 'auto' | 'content-only';
  * @todo Complete interface definition
  */
 @Component({
-  selector: 'ul[soho-tree]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'ul[soho-tree]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 

@@ -4,9 +4,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'app-treemap-demo',
-  templateUrl: 'treemap.demo.html',
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'app-treemap-demo',
+    templateUrl: 'treemap.demo.html',
+    standalone: false
 })
 export class TreemapDemoComponent implements OnInit {
 

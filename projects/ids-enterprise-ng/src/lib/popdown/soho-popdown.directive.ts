@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-popdown]', // eslint-disable-line
+    selector: '[soho-popdown]',
+    standalone: false
 })
 export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
   @HostBinding('attr.popdown') get isPopdown() {

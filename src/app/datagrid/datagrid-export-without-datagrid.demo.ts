@@ -4,9 +4,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-datagrid-export-without-datagrid-demo',
-  templateUrl: 'datagrid-export-without-datagrid.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-export-without-datagrid-demo',
+    templateUrl: 'datagrid-export-without-datagrid.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridExportWithoutDataGridDemoComponent {
 

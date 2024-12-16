@@ -7,8 +7,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-chart]', // eslint-disable-line
-  template: ' '
+    selector: 'div[soho-chart]', // eslint-disable-line
+    template: ' ',
+    standalone: false
 })
 
 export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

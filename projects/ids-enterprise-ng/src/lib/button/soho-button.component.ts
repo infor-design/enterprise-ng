@@ -20,9 +20,10 @@ export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'ico
   'primary-destructive' | 'tertiary-destructive' | 'primary-generative' | 'tertiary-generative' | 'icon-generative';
 
 @Component({
-  selector: 'button[soho-button]', // eslint-disable-line
-  templateUrl: 'soho-button.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'button[soho-button]', // eslint-disable-line
+    templateUrl: 'soho-button.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 

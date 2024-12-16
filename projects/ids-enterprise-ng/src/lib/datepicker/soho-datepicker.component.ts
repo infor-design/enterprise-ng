@@ -19,10 +19,11 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-datepicker]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideControlValueAccessor(SohoDatePickerComponent)]
+    selector: 'input[soho-datepicker]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideControlValueAccessor(SohoDatePickerComponent)],
+    standalone: false
 })
 export class SohoDatePickerComponent extends BaseControlValueAccessor<string | number | string[] | Date | undefined> implements AfterViewInit, AfterViewChecked, OnDestroy {
 

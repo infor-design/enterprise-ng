@@ -173,7 +173,8 @@ describe('Soho blockgrid Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-blockgrid [dataset]="data"></div>`
+    template: `<div soho-blockgrid [dataset]="data"></div>`,
+    standalone: false
 })
 class SohoBlockGridTestComponent {
   public data = blockGridTestData;

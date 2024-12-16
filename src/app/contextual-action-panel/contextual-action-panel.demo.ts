@@ -15,8 +15,9 @@ import { ContextualActionPanelButtonsetAPIComponent } from './contextual-action-
 import { CAPDatagridDemoComponent } from './cap-datagrid.demo';
 
 @Component({
-  selector: 'app-contextual-action-panel-demo',
-  templateUrl: 'contextual-action-panel.demo.html'
+    selector: 'app-contextual-action-panel-demo',
+    templateUrl: 'contextual-action-panel.demo.html',
+    standalone: false
 })
 export class ContextualActionPanelDemoComponent {
   /**

@@ -17,9 +17,10 @@ interface SohoDataGridRow {
   quantity?: number;
 }
 @Component({
-  selector: 'app-datagrid-add-row-demo',
-  templateUrl: 'datagrid-add-row.demo.html',
-  providers: []
+    selector: 'app-datagrid-add-row-demo',
+    templateUrl: 'datagrid-add-row.demo.html',
+    providers: [],
+    standalone: false
 })
 export class DataGridAddRowDemoComponent implements OnInit {
   @ViewChild('firstgrid', { static: true }) dataGrid?: SohoDataGridComponent;

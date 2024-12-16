@@ -14,10 +14,11 @@ import { WeekViewDemoService } from './week-view.demo.service';
 export enum displayType { 'oneWeek', 'twoWeeks', 'oneDay', 'twoDays', 'stackedView' }
 
 @Component({
-  selector: 'app-week-view-demo',
-  templateUrl: './week-view.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [WeekViewDemoService]
+    selector: 'app-week-view-demo',
+    templateUrl: './week-view.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [WeekViewDemoService],
+    standalone: false
 })
 export class WeekViewDemoComponent implements OnInit {
 

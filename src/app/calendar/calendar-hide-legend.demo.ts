@@ -7,9 +7,10 @@ import { CalendarDemoService } from './calendar.demo.service';
 import { SohoCalendarComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-calendar-hide-legend-demo',
-  templateUrl: 'calendar-hide-legend.demo.html',
-  providers: [CalendarDemoService]
+    selector: 'app-calendar-hide-legend-demo',
+    templateUrl: 'calendar-hide-legend.demo.html',
+    providers: [CalendarDemoService],
+    standalone: false
 })
 export class CalendarHideLegendDemoComponent {
 

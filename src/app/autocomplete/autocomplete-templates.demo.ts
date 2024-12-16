@@ -3,8 +3,9 @@ import { Observable, interval } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-autocomplete-templates',
-  templateUrl: './autocomplete-templates.demo.html'
+    selector: 'app-autocomplete-templates',
+    templateUrl: './autocomplete-templates.demo.html',
+    standalone: false
 })
 export class AutocompleteTemplatesDemoComponent {
 

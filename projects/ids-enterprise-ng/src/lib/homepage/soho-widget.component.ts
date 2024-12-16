@@ -13,8 +13,9 @@ import {
 export type WidgetSize = 'single' | 'double' | 'triple' | 'quad';
 
 @Component({
-  selector: 'div[soho-widget]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
+    selector: 'div[soho-widget]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoWidgetComponent implements AfterViewInit, OnInit {
   @HostBinding('class') get classList(): string {

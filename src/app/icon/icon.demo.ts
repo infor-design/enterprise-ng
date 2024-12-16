@@ -3,8 +3,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-icon-demo',
-  templateUrl: 'icon.demo.html'
+    selector: 'app-icon-demo',
+    templateUrl: 'icon.demo.html',
+    standalone: false
 })
 export class IconDemoComponent {
 }

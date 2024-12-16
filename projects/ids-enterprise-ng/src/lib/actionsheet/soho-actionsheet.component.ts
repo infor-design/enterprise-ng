@@ -10,9 +10,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-actionsheet]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'div[soho-actionsheet]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoActionsheetComponent implements AfterViewInit, OnDestroy {
   @HostBinding('style.display') display = 'inline-block';

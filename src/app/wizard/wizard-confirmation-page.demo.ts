@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-confirmation-page',
-  templateUrl: 'wizard-confirmation-page.demo.html',
-  styles: [
-    `:host {
+    selector: 'app-confirmation-page',
+    templateUrl: 'wizard-confirmation-page.demo.html',
+    styles: [
+        `:host {
       display:        flex;
       flex:           1;
       flex-direction: column;
-  }`]
+  }`
+    ],
+    standalone: false
 })
 export class WizardDemoConfirmationPageComponent {
   public columns: SohoDataGridColumn[] = [

@@ -15,8 +15,8 @@ import {SohoWizardComponent} from './soho-wizard.component';
  * simply adds a component used to handle the button selection.
  */
 @Component({
-  selector: 'div[soho-wizard-buttonbar]', // eslint-disable-line
-  template: `
+    selector: 'div[soho-wizard-buttonbar]', // eslint-disable-line
+    template: `
     <hr class="fieldset-hr">
     <div class="buttonbar">
       <div class="left">
@@ -43,33 +43,34 @@ import {SohoWizardComponent} from './soho-wizard.component';
       </div>
     </div>
   `,
-  styles: [
-    `:host {
+    styles: [
+        `:host {
       flex: 0;
     }`,
-    `.buttonbar {
+        `.buttonbar {
       display:flex;
     }`,
-    `.left {
+        `.left {
       flex: 1;
       display: flex;
       justify-content: flex-start;
       align-items: center;
     }`,
-    `.middle {
+        `.middle {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
     }`,
-    `.right {
+        `.right {
       flex: 1;
       display: flex;
       justify-content: flex-end;
       align-items: center;
     }`
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoWizardButtonbarComponent {
 

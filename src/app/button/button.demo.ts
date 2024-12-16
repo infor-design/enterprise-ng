@@ -7,9 +7,10 @@ import {
 import { SohoButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-button-demo',
-  templateUrl: 'button.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-button-demo',
+    templateUrl: 'button.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ButtonDemoComponent implements OnInit {
   public shouldSayHi = false;

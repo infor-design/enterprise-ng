@@ -2,8 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { SohoToastService, SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-toolbar-flex-basic-demo',
-  templateUrl: 'toolbar-flex-basic.demo.html'
+    selector: 'app-toolbar-flex-basic-demo',
+    templateUrl: 'toolbar-flex-basic.demo.html',
+    standalone: false
 })
 export class ToolbarFlexBasicDemoComponent {
   @ViewChild(SohoToolbarFlexComponent) toolbarFlex!: SohoToolbarFlexComponent;

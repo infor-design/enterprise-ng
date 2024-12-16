@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { SohoAboutService, SohoAboutRef } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-about.demo',
-  templateUrl: 'about.demo.html'
+    selector: 'app-about.demo',
+    templateUrl: 'about.demo.html',
+    standalone: false
 })
 export class AboutDemoComponent {
   /** The about dialog reference. */

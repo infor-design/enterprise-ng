@@ -12,9 +12,10 @@ import {
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'demo-tree-dynamic-demo',
-  templateUrl: 'tree-dynamic.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'demo-tree-dynamic-demo',
+    templateUrl: 'tree-dynamic.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TreeDynamicDemoComponent implements AfterViewInit {
 

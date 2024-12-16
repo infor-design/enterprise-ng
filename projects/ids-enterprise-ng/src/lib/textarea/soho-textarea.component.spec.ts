@@ -29,7 +29,8 @@ describe('Soho TextArea Unit Tests', () => {
 });
 
 @Component({
-  template: `<input soho-textarea (ngModelChange)="onTextChange()" [(ngModel)]="model">`
+    template: `<input soho-textarea (ngModelChange)="onTextChange()" [(ngModel)]="model">`,
+    standalone: false
 })
 class SohoTextAreaTestComponent {
   @ViewChild(SohoTextAreaComponent) textarea?: SohoTextAreaComponent;

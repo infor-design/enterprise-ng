@@ -18,9 +18,10 @@ import {
  *******************************************************************/
 // @ts-ignore
 @Component({
-  selector: 'div[soho-calendar-week-view]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'div[soho-calendar-week-view]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCalendarWeekViewComponent {
   @HostBinding('class.calendar-weekview') isCalendarWeekView = true;
@@ -31,9 +32,10 @@ export class SohoCalendarWeekViewComponent {
  *******************************************************************/
 // @ts-ignore
 @Component({
-  selector: 'div[soho-calendar-monthview]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'div[soho-calendar-monthview]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCalendarMonthViewComponent {
   @HostBinding('class.calendar-monthview') isCalendarMonthView = true;
@@ -43,9 +45,10 @@ export class SohoCalendarMonthViewComponent {
  * Main Calendar component
  *******************************************************************/
 @Component({
-  selector: '[soho-calendar]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-calendar]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
 

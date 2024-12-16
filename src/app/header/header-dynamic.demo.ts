@@ -19,8 +19,9 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header-dynamic-demo',
-  templateUrl: 'header-dynamic.demo.html'
+    selector: 'app-header-dynamic-demo',
+    templateUrl: 'header-dynamic.demo.html',
+    standalone: false
 })
 export class SohoHeaderDynamicDemoComponent {
   @HostBinding('class.header') get isHeader() {

@@ -26,14 +26,15 @@ import { SohoSearchFieldComponent } from '../searchfield/soho-searchfield.compon
  * by exposing it (if desired)
  */
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[soho-listview-search]',
-  template: `
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[soho-listview-search]',
+    template: `
     <input soho-searchfield *ngIf="buildSearch">
     <ng-content select="span[soho-searchfield-wrapper]"></ng-content>
     <ng-content select="input[soho-searchfield]"></ng-content>
     <ng-content></ng-content>
   `,
+    standalone: false
 })
 export class SohoListViewSearchComponent {
   /**
@@ -49,10 +50,11 @@ export class SohoListViewSearchComponent {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[soho-listview-item]',
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[soho-listview-item]',
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoListViewItemComponent implements AfterViewInit {
   /** Underling jQuery item. */
@@ -91,10 +93,11 @@ export class SohoListViewItemComponent implements AfterViewInit {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[soho-listview-header]',
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[soho-listview-header]',
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoListViewHeaderComponent {
   @HostBinding('class.listview-heading') get isHeading() {
@@ -103,10 +106,11 @@ export class SohoListViewHeaderComponent {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[soho-listview-subheader]',
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[soho-listview-subheader]',
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoListViewSubHeaderComponent {
   @HostBinding('class.listview-subheading') get isSubHeading() {
@@ -115,10 +119,11 @@ export class SohoListViewSubHeaderComponent {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[soho-listview-micro]',
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[soho-listview-micro]',
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoListViewMicroComponent {
   @HostBinding('class.listview-micro') get isMicro() {
@@ -127,14 +132,15 @@ export class SohoListViewMicroComponent {
 }
 
 @Component({
-  selector: 'soho-listview',
-  templateUrl: 'soho-listview.component.html',
-  styles: [`
+    selector: 'soho-listview',
+    templateUrl: 'soho-listview.component.html',
+    styles: [`
     .smaller {
       width: 50%;
     }
   `],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterViewChecked {
   @ContentChildren(SohoListViewItemComponent) items?: QueryList<SohoListViewItemComponent>;

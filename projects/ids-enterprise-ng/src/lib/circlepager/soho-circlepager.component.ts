@@ -11,9 +11,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-circlepager]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-circlepager]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

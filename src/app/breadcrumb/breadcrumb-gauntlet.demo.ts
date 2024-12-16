@@ -9,13 +9,14 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-breadcrumb-gauntlet-demo',
-  templateUrl: 'breadcrumb-gauntlet.demo.html',
-  styles: [
-    '#results-card { padding: 20px; }',
-    '#results-card .prop { display: inline-block; font-weight: 700; min-width: 150px; }'
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-breadcrumb-gauntlet-demo',
+    templateUrl: 'breadcrumb-gauntlet.demo.html',
+    styles: [
+        '#results-card { padding: 20px; }',
+        '#results-card .prop { display: inline-block; font-weight: 700; min-width: 150px; }'
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class BreadcrumbGauntletDemoComponent {
 

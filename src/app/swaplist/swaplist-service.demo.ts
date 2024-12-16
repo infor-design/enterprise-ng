@@ -12,10 +12,11 @@ import { SwapListDemoService } from './swaplist-demo.service';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'app-swaplist-service-demo',
-  templateUrl: 'swaplist-service.demo.html',
-  providers: [SwapListDemoService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-swaplist-service-demo',
+    templateUrl: 'swaplist-service.demo.html',
+    providers: [SwapListDemoService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SwapListServiceDemoComponent implements OnInit, OnDestroy {
   @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;

@@ -5,9 +5,10 @@ import { SohoChartComponent } from 'ids-enterprise-ng';
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-tree-cube-demo',
-  templateUrl: 'datagrid-treegrid-cube.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-tree-cube-demo',
+    templateUrl: 'datagrid-treegrid-cube.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit {

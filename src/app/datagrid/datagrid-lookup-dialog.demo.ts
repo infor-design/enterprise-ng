@@ -16,9 +16,10 @@ import { DataGridDemoService } from './datagrid-demo.service';
 import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 
 @Component({
-  selector: 'app-datagrid-lookup-dialog-demo',
-  templateUrl: 'datagrid-lookup-dialog.demo.html',
-  providers: [DataGridDemoService]
+    selector: 'app-datagrid-lookup-dialog-demo',
+    templateUrl: 'datagrid-lookup-dialog.demo.html',
+    providers: [DataGridDemoService],
+    standalone: false
 })
 export class DataGridLookupDialogDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent, { static: true })

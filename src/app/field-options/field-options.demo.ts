@@ -4,8 +4,9 @@ import { Component } from '@angular/core';
  * This example shows basic field options functionality on input elements
  */
 @Component({
-  selector: 'app-field-options-demo',
-  templateUrl: 'field-options.demo.html'
+    selector: 'app-field-options-demo',
+    templateUrl: 'field-options.demo.html',
+    standalone: false
 })
 export class FieldOptionsDemoComponent {
 

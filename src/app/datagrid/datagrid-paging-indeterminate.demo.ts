@@ -9,10 +9,11 @@ import { SohoDataGridComponent, SohoToastService} from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'app-datagrid-paging-indeterminate-demo',
-  templateUrl: 'datagrid-paging-indeterminate.demo.html',
-  providers: [DataGridPagingIndeterminateDemoService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-paging-indeterminate-demo',
+    templateUrl: 'datagrid-paging-indeterminate.demo.html',
+    providers: [DataGridPagingIndeterminateDemoService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent)

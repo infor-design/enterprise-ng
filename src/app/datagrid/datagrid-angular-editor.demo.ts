@@ -18,8 +18,9 @@ function MATCH_FN(value: any, row: any, _field: any, _grid: any) {
 }
 
 @Component({
-  template: `<input #input alignRight="true" [(ngModel)]="value" soho-input
-        soho-mask [process]="'number'" [integerLimit]="3" (write)="onMaskWrite($event)"/>`
+    template: `<input #input alignRight="true" [(ngModel)]="value" soho-input
+        soho-mask [process]="'number'" [integerLimit]="3" (write)="onMaskWrite($event)"/>`,
+    standalone: false
 })
 export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
   @ViewChild(SohoInputComponent, { static: true }) input?: SohoInputComponent;
@@ -55,7 +56,8 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
  * This component display a date picker in a cell when editted.
  */
 @Component({
-  template: `<input soho-datepicker dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"/>`
+    template: `<input soho-datepicker dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"/>`,
+    standalone: false
 })
 export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor {
   @ViewChild(SohoDatePickerComponent, { static: true }) datePicker?: SohoDatePickerComponent;
@@ -78,8 +80,9 @@ export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor
 }
 
 @Component({
-  selector: 'soho-datagrid-angular-editor',
-  templateUrl: 'datagrid-angular-editor.demo.html'
+    selector: 'soho-datagrid-angular-editor',
+    templateUrl: 'datagrid-angular-editor.demo.html',
+    standalone: false
 })
 export class DataGridAngularEditorDemoComponent implements OnInit {
   gridOptions?: any;

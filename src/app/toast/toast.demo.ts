@@ -6,8 +6,9 @@ import {
 import { SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-toast-demo',
-  templateUrl: 'toast.demo.html'
+    selector: 'app-toast-demo',
+    templateUrl: 'toast.demo.html',
+    standalone: false
 })
 export class ToastDemoComponent implements OnInit {
   // Inject Toast Servivce as a dependency and get an instance variable

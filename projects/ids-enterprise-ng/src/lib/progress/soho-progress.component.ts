@@ -11,9 +11,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-progress', // eslint-disable-line
-  template: `<div [class.progress-bar]="true" [attr.data-value]="value"></div>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-progress', // eslint-disable-line
+    template: `<div [class.progress-bar]="true" [attr.data-value]="value"></div>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoProgressComponent implements AfterViewInit, OnDestroy {
   public value?: number;

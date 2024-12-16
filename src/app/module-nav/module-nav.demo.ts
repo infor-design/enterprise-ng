@@ -27,9 +27,10 @@ const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
 ];
 
 @Component({
-  selector: 'module-nav-demo', // eslint-disable-line
-  templateUrl: 'module-nav.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'module-nav-demo', // eslint-disable-line
+    templateUrl: 'module-nav.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ModuleNavDemoComponent {
   @ViewChild(SohoAccordionComponent) accordion!: SohoAccordionComponent;

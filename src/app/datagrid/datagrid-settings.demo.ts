@@ -11,10 +11,11 @@ import {
 } from './datagrid-demo.service';
 
 @Component({
-  selector: 'app-datagrid-settings-demo',
-  templateUrl: 'datagrid-settings.demo.html',
-  providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-settings-demo',
+    templateUrl: 'datagrid-settings.demo.html',
+    providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridSettingsDemoComponent {
   @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;

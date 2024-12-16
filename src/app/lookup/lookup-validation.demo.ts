@@ -15,8 +15,9 @@ export interface FakeResponse {
 }
 
 @Component({
-  selector: 'app-lookup-demo',
-  templateUrl: 'lookup-validation.demo.html',
+    selector: 'app-lookup-demo',
+    templateUrl: 'lookup-validation.demo.html',
+    standalone: false
 })
 export class LookupValidationDemoComponent implements AfterViewInit {
   @ViewChildren(SohoLookupComponent) sohoLookups?: QueryList<SohoLookupComponent>;

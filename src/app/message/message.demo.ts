@@ -7,8 +7,9 @@ import {
 import { timer } from 'rxjs';
 
 @Component({
-  selector: 'app-message-demo',
-  templateUrl: 'message.demo.html'
+    selector: 'app-message-demo',
+    templateUrl: 'message.demo.html',
+    standalone: false
 })
 export class MessageDemoComponent {
   /** The message dialog reference. */

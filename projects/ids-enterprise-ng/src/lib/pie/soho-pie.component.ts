@@ -13,9 +13,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-pie]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-pie]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

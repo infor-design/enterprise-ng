@@ -7,8 +7,9 @@ import {
 import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-column-demo',
-  templateUrl: 'column-grouped.demo.html',
+    selector: 'app-column-demo',
+    templateUrl: 'column-grouped.demo.html',
+    standalone: false
 })
 export class ColumnGroupedDemoComponent implements OnInit {
 

@@ -20,7 +20,8 @@ export const LMFavorite = (_row: any, _cell: any, _value: any, _col: any, rowDat
 };
 
 @Component({
-  template: '<button soho-button="icon" icon="settings" (click)="onClick($event)" title="{{args?.row}} . {{args.cell}}"></button>'
+    template: '<button soho-button="icon" icon="settings" (click)="onClick($event)" title="{{args?.row}} . {{args.cell}}"></button>',
+    standalone: false
 })
 export class DemoCellFormatterComponent implements OnDestroy {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
@@ -36,16 +37,18 @@ export class DemoCellFormatterComponent implements OnDestroy {
 }
 
 @Component({
-  template: '{{args?.value?.price}}'
+    template: '{{args?.value?.price}}',
+    standalone: false
 })
 export class DemoCellIntegerFormatterComponent {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) { }
 }
 
 @Component({
-  selector: 'app-datagrid-custom-formatter-demo',
-  templateUrl: 'datagrid-custom-formatter.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-custom-formatter-demo',
+    templateUrl: 'datagrid-custom-formatter.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridCustomFormatterDemoComponent implements OnInit {
   visible?: boolean;

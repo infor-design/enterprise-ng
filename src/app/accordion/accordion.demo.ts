@@ -3,8 +3,9 @@ import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { SohoAccordionComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'accordion-demo', // eslint-disable-line
-  templateUrl: 'accordion.demo.html',
+    selector: 'accordion-demo', // eslint-disable-line
+    templateUrl: 'accordion.demo.html',
+    standalone: false
 })
 export class AccordionDemoComponent implements AfterViewInit {
 

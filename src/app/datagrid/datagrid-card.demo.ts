@@ -4,10 +4,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-datagrid-card-demo',
-  templateUrl: 'datagrid-card.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  styles : [`
+    selector: 'app-datagrid-card-demo',
+    templateUrl: 'datagrid-card.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: [`
     .demo-card-row {
       display: flex;
       flex-direction: row;
@@ -24,7 +24,8 @@ import {
     a {
       padding: 0 5px;
     }
-  `]
+  `],
+    standalone: false
 })
 export class DataGridCardDemoComponent {
   @Input() dataSet: any;

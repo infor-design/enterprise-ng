@@ -4,9 +4,10 @@ import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-demo.service';
 
 @Component({
-  selector: 'app-datagrid-standalone-pager',
-  templateUrl: 'datagrid-standalone-pager.demo.html',
-  providers: [DatagridStandalonePagerDemoService]
+    selector: 'app-datagrid-standalone-pager',
+    templateUrl: 'datagrid-standalone-pager.demo.html',
+    providers: [DatagridStandalonePagerDemoService],
+    standalone: false
 })
 export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnInit {
   @ViewChild(SohoDataGridComponent, { static: true }) sohoDataGridComponent?: SohoDataGridComponent;

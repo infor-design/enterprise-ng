@@ -14,40 +14,45 @@ import {
 } from './';
 
 @Component({
-  template: `
-             <li soho-popupmenu-separator singleSelectableSection=true></li>`
+    template: `
+             <li soho-popupmenu-separator singleSelectableSection=true></li>`,
+    standalone: false
 })
 class SohoPopupMenuSeparatorTestComponent {
   @ViewChild(SohoPopupMenuSeparatorComponent) separator?: SohoPopupMenuSeparatorComponent;
 }
 
 @Component({
-  template: `
-             <li soho-popupmenu-heading>Heading One</li>`
+    template: `
+             <li soho-popupmenu-heading>Heading One</li>`,
+    standalone: false
 })
 class SohoPopupMenuHeadingTestComponent {
   @ViewChild(SohoPopupMenuHeadingComponent) heading?: SohoPopupMenuHeadingComponent;
 }
 
 @Component({
-  template: `
-             <span soho-popupmenu-shortcut-text>CTRL+X</span>`
+    template: `
+             <span soho-popupmenu-shortcut-text>CTRL+X</span>`,
+    standalone: false
 })
 class SohoPopupMenuShortCutTextTestComponent {
   @ViewChild(SohoPopupMenuShortCutTextComponent) heading?: SohoPopupMenuShortCutTextComponent;
 }
 
 @Component({
-  template: `
-             <li soho-popupmenu-item>Item One</li>`
+    template: `
+             <li soho-popupmenu-item>Item One</li>`,
+    standalone: false
 })
 class SohoPopupMenuItemTestComponent {
   @ViewChild(SohoPopupMenuItemComponent) item?: SohoPopupMenuItemComponent;
 }
 
 @Component({
-  template: `
-             <a soho-popupmenu-label isDisabled="true" > Entry One</a>`
+    template: `
+             <a soho-popupmenu-label isDisabled="true" > Entry One</a>`,
+    standalone: false
 })
 class SohoPopupMenuItemLabelTestComponent {
   @ViewChild(SohoPopupMenuItemLabelComponent) label?: SohoPopupMenuItemLabelComponent;

@@ -6,10 +6,11 @@ import { PartnerMapping } from './datagrid-tab-navigation.model';
 import { PartnerIdDetailDataGridService } from './datagrid-tab-navigation.service';
 
 @Component({
-  selector: 'app-datagrid-tab-navigation-demo',
-  templateUrl: 'datagrid-tab-navigation.demo.html',
-  providers: [PartnerIdDetailDataGridService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-tab-navigation-demo',
+    templateUrl: 'datagrid-tab-navigation.demo.html',
+    providers: [PartnerIdDetailDataGridService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridTabNavigationDemoComponent implements OnInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent, { static: true })

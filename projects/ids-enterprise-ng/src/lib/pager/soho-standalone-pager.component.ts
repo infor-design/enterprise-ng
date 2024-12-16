@@ -12,10 +12,11 @@ import {
 } from '@angular/core';
 
 // @ts-ignore
-@Component({                                    // eslint-disable-line
-  selector: 'div[soho-standalone-pager]',       // eslint-disable-line
-  template: `<div class="pager-container"></div>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+@Component({
+    selector: 'div[soho-standalone-pager]', // eslint-disable-line
+    template: `<div class="pager-container"></div>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @Input() set activePage(page: number) {

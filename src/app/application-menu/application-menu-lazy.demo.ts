@@ -11,10 +11,11 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'application-menu-lazy-demo',
-  templateUrl: 'application-menu-lazy.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'application-menu-lazy-demo',
+    templateUrl: 'application-menu-lazy.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
 

@@ -5,8 +5,9 @@ import { AfterViewChecked, Component } from '@angular/core';
  * - Shows how to make a simple tab component with an angular template.
  */
 @Component({
-  selector: 'test-tabs-basic', // eslint-disable-line
-  templateUrl: 'test-tabs-basic.demo.html',
+    selector: 'test-tabs-basic', // eslint-disable-line
+    templateUrl: 'test-tabs-basic.demo.html',
+    standalone: false
 })
 export class TestTabsBasicComponent implements AfterViewChecked {
   private viewCheckCount = 0;

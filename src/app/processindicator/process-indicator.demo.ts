@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-process-indicator',
-  templateUrl: './process-indicator.demo.html'
+    selector: 'app-process-indicator',
+    templateUrl: './process-indicator.demo.html',
+    standalone: false
 })
 export class ProcessIndicatorDemoComponent implements OnInit {
 

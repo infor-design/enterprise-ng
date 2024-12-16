@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-lookup-source',
-  templateUrl: './lookup-source.demo.html'
+    selector: 'app-lookup-source',
+    templateUrl: './lookup-source.demo.html',
+    standalone: false
 })
 export class LookupSourceDemoComponent {
 

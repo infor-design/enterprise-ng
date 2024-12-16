@@ -144,7 +144,8 @@ describe('Soho Tree Map Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-treemap [dataset]="data"></div>`
+    template: `<div soho-treemap [dataset]="data"></div>`,
+    standalone: false
 })
 class SohoTreemapTestComponent {
   @ViewChild(SohoTreemapComponent, { static: true }) treemap?: SohoTreemapComponent;

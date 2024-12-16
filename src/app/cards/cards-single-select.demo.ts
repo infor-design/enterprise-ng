@@ -3,8 +3,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-cards-single-select-demo',
-  templateUrl: 'cards-single-select.demo.html'
+    selector: 'app-cards-single-select-demo',
+    templateUrl: 'cards-single-select.demo.html',
+    standalone: false
 })
 export class CardsSingleSelectDemoComponent {
 

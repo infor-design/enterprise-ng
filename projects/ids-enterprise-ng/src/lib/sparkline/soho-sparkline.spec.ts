@@ -108,7 +108,8 @@ describe('Soho Sparkline Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-sparkline [dataset]="data"></div>`
+    template: `<div soho-sparkline [dataset]="data"></div>`,
+    standalone: false
 })
 class SohoSparklineTestComponent {
   @ViewChild(SohoSparklineComponent) sparkline?: SohoSparklineComponent;

@@ -7,9 +7,10 @@ import { CalendarDemoService } from './calendar.demo.service';
 import { SohoCalendarComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-calendar-updated-demo',
-  templateUrl: 'calendar-updated.demo.html',
-  providers: [CalendarDemoService]
+    selector: 'app-calendar-updated-demo',
+    templateUrl: 'calendar-updated.demo.html',
+    providers: [CalendarDemoService],
+    standalone: false
 })
 export class CalendarUpdatedDemoComponent {
 

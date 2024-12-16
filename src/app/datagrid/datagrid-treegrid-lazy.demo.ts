@@ -6,10 +6,11 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DatagridTreegridLazyServiceDemo } from './datagrid-treegrid-lazy-service.demo';
 
 @Component({
-  selector: 'app-datagrid-treegrid-lazy-demo',
-  templateUrl: 'datagrid-treegrid-lazy.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [DatagridTreegridLazyServiceDemo]
+    selector: 'app-datagrid-treegrid-lazy-demo',
+    templateUrl: 'datagrid-treegrid-lazy.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [DatagridTreegridLazyServiceDemo],
+    standalone: false
 })
 export class DataGridTreeGridLazyDemoComponent {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;

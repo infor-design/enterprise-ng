@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoContextMenuDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-context-menu-position',
-  templateUrl: './context-menu-position.component.html',
+    selector: 'app-context-menu-position',
+    templateUrl: './context-menu-position.component.html',
+    standalone: false
 })
 export class ContextMenuPositionComponent implements OnInit {
   @ViewChild(SohoContextMenuDirective) contextMenu?: SohoContextMenuDirective;

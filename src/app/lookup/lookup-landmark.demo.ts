@@ -4,8 +4,9 @@ import { SohoLookupComponent, SohoModalDialogService } from 'ids-enterprise-ng';
 import { LookupDialogDemoComponent } from './lookup-dialog.demo';
 
 @Component({
-  selector: 'app-lookup-landmark',
-  templateUrl: './lookup-landmark.demo.html'
+    selector: 'app-lookup-landmark',
+    templateUrl: './lookup-landmark.demo.html',
+    standalone: false
 })
 export class LookupLandmarkDemoComponent {
 

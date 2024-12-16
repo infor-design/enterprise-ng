@@ -8,8 +8,9 @@ import {
 
 // @ts-ignore
 @Component({
-  selector: 'app-listview-custom-content-demo',
-  templateUrl: 'listview.custom-content.demo.html',
+    selector: 'app-listview-custom-content-demo',
+    templateUrl: 'listview.custom-content.demo.html',
+    standalone: false
 })
 export class ListViewCustomContentDemoComponent implements OnInit {
 

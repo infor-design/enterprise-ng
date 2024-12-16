@@ -172,7 +172,8 @@ describe('Soho Line Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-line [dataset]="data"></div>`
+    template: `<div soho-line [dataset]="data"></div>`,
+    standalone: false
 })
 class SohoLineTestComponent {
   @ViewChild(SohoLineComponent) line?: SohoLineComponent;

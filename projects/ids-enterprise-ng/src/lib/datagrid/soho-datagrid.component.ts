@@ -136,9 +136,10 @@ enum RefreshHintFlags {
  * providers: [ provide: DataGridService, useClass: DataGridDemoService} ]
  */
 @Component({
-  selector: '[soho-datagrid]', // eslint-disable-line
-  template: ' <ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-datagrid]', // eslint-disable-line
+    template: ' <ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
 

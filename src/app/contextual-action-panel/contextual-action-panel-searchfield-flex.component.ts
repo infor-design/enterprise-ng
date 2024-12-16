@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { SohoContextualActionPanelRef } from 'ids-enterprise-ng/lib';
 
 @Component({
-  templateUrl: 'contextual-action-panel-searchfield-flex.component.html'
+    templateUrl: 'contextual-action-panel-searchfield-flex.component.html',
+    standalone: false
 })
 
 export class ContextualActionPanelSearchfieldFlexComponent {

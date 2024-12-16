@@ -21,7 +21,8 @@ import {
  * When activated, this control will display the busy indicator over the control appropriately.
  */
 @Directive({
-  selector: '[soho-busyindicator]'
+    selector: '[soho-busyindicator]',
+    standalone: false
 })
 export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewChecked, OnDestroy {
 

@@ -3,7 +3,8 @@ import { UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms
 
 
 @Component({
-  templateUrl: 'contextual-action-panel-buttonsetapi.component.html'
+    templateUrl: 'contextual-action-panel-buttonsetapi.component.html',
+    standalone: false
 })
 
 export class ContextualActionPanelButtonsetAPIComponent {

@@ -8,8 +8,9 @@ import {
 import { SohoTooltipDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-tooltip-nested-demo',
-  templateUrl: 'tooltip-nested.demo.html',
+    selector: 'app-tooltip-nested-demo',
+    templateUrl: 'tooltip-nested.demo.html',
+    standalone: false
 })
 export class TooltipNestedDemoComponent implements OnInit {
 

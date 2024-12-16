@@ -3,8 +3,9 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { SohoTimePickerComponent } from "ids-enterprise-ng";
 
 @Component({
-  selector: "app-timepicker-demo",
-  templateUrl: "timepicker.demo.html",
+    selector: "app-timepicker-demo",
+    templateUrl: "timepicker.demo.html",
+    standalone: false
 })
 export class TimePickerDemoComponent implements OnInit {
   @ViewChild(SohoTimePickerComponent, { static: true })

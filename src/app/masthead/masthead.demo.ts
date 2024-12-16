@@ -3,8 +3,9 @@ import { Component, HostBinding, OnInit, AfterViewChecked } from '@angular/core'
 import { SohoRenderLoopService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-masthead-demo',
-  templateUrl: 'masthead.demo.html',
+    selector: 'app-masthead-demo',
+    templateUrl: 'masthead.demo.html',
+    standalone: false
 })
 export class SohoMastheadDemoComponent implements OnInit, AfterViewChecked {
 

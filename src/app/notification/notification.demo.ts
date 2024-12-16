@@ -6,9 +6,10 @@ import {
 import { SohoNotificationService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-notification-demo',
-  templateUrl: 'notification.demo.html',
-  styleUrls: ['notification.demo.css']
+    selector: 'app-notification-demo',
+    templateUrl: 'notification.demo.html',
+    styleUrls: ['notification.demo.css'],
+    standalone: false
 })
 export class NotificationDemoComponent implements OnInit {
   private counter = 0;

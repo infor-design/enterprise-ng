@@ -13,10 +13,11 @@ import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'app-datagrid-grouped-header-demo',
-  templateUrl: 'datagrid-grouped-header.demo.html',
-  providers: [ DataGridPagingIndeterminateDemoService ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-grouped-header-demo',
+    templateUrl: 'datagrid-grouped-header.demo.html',
+    providers: [DataGridPagingIndeterminateDemoService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridGroupedHeaderDemoComponent implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;

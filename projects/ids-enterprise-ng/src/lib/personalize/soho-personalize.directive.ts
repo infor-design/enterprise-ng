@@ -15,7 +15,8 @@ import {
  * 'soho-personalize'.
  */
 @Directive({
-  selector: '[soho-personalize]',
+    selector: '[soho-personalize]',
+    standalone: false
 })
 export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 

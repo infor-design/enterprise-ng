@@ -12,9 +12,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-blockgrid]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-blockgrid]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 

@@ -5,11 +5,12 @@ import { By } from '@angular/platform-browser';
 import { SohoSplitterModule } from './soho-splitter.module';
 
 @Component({
-  template: `
+    template: `
     <soho-splitter [isSplitterRight]="true" [collapseButton]="true" [save]="false" [maxWidth]="300">
       <div class="panel-header"></div>
     </soho-splitter>
-    `
+    `,
+    standalone: false
 })
 class SohoSplitterRightTestComponent {
   @ViewChild(SohoSplitterComponent) splitter?: SohoSplitterComponent | null;

@@ -5,8 +5,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-widget-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: '[soho-widget-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoWidgetTitleComponent {
   @HostBinding('attr.tabindex') @Input() tabIndex?: number;

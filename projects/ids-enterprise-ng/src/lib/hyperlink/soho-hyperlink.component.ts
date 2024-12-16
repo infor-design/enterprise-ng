@@ -12,12 +12,13 @@ import {
 export type SohoHyperlinkType = 'show-visited' | 'forward-caret' | 'back-caret';
 
 @Component({
-  selector: 'a[soho-hyperlink]', // eslint-disable-line
-  template: ` <svg soho-icon *ngIf="isCaretLeft" [icon]="'caret-left'"></svg>
+    selector: 'a[soho-hyperlink]', // eslint-disable-line
+    template: ` <svg soho-icon *ngIf="isCaretLeft" [icon]="'caret-left'"></svg>
               <ng-content></ng-content>
               <svg soho-icon *ngIf="isCaretRight" [icon]="'caret-right'"></svg>
               `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class SohoHyperlinkComponent implements AfterViewInit {

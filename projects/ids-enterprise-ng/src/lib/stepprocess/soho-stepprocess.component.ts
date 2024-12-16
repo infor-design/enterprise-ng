@@ -13,8 +13,9 @@ import {
  * STEP LIST TITLE
  **************************************************************/
 @Component({
-  selector: 'div[soho-step-list-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'div[soho-step-list-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoStepListTitleComponent {
   @HostBinding('class.title') get title() {
@@ -29,8 +30,9 @@ export class SohoStepListTitleComponent {
  * STEP LIST
  **************************************************************/
 @Component({
-  selector: 'ul[soho-step-list]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'ul[soho-step-list]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoStepListComponent {
   @HostBinding('class.tree') isTree = true;
@@ -54,8 +56,9 @@ export class SohoStepListComponent {
  * SUB STEP LIST
  **************************************************************/
 @Component({
-  selector: 'ul[soho-substep-list]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'ul[soho-substep-list]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoSubstepListComponent {
   @HostBinding('class.folder') isFolder = true;
@@ -66,8 +69,9 @@ export class SohoSubstepListComponent {
  * STEP LIST ITEM
  **************************************************************/
 @Component({
-  selector: 'li[soho-step-list-item]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'li[soho-step-list-item]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoStepListItemComponent {
   @HostBinding('class.js-step') get jsStep() {
@@ -80,8 +84,9 @@ export class SohoStepListItemComponent {
  * STEP LIST ITEM ANCHOR
  **************************************************************/
 @Component({
-  selector: 'a[soho-step-list-item-anchor]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'a[soho-step-list-item-anchor]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoStepListItemAnchorComponent {
   @HostBinding('class.js-step-link') isJsStepLink = true;
@@ -96,8 +101,9 @@ export class SohoStepListItemAnchorComponent {
  * STEP LIST ITEM TITLE
  **************************************************************/
 @Component({
-  selector: 'span[soho-step-list-item-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'span[soho-step-list-item-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoStepListItemTitleComponent {
   @HostBinding('class.tree-text') treeText = true;
@@ -107,8 +113,9 @@ export class SohoStepListItemTitleComponent {
  * STEP CONTENT TITLE
  **************************************************************/
 @Component({
-  selector: 'div[soho-step-content-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'div[soho-step-content-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoStepContentTitleComponent {
   @HostBinding('class.heading') isHeading = true;
@@ -118,8 +125,9 @@ export class SohoStepContentTitleComponent {
  * STEP CONTENT
  **************************************************************/
 @Component({
-  selector: 'div[soho-step-content]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
+    selector: 'div[soho-step-content]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoStepContentComponent {
   @HostBinding('class.scrollable') get isScrollable() {
@@ -137,8 +145,9 @@ export class SohoStepContentComponent {
  * STEP CONTENT PANEL
  **************************************************************/
 @Component({
-  selector: 'div[soho-step-content-panel]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
+    selector: 'div[soho-step-content-panel]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoStepContentPanelComponent {
   @HostBinding('class.js-step-panel') get isJsStepProcessPanel() {
@@ -154,8 +163,9 @@ export class SohoStepContentPanelComponent {
  * MAIN STEP PROCESS COMPONENT
  **************************************************************/
 @Component({
-  selector: 'div[soho-stepprocess]', // eslint-disable-line
-  templateUrl: 'soho-stepprocess.component.html',
+    selector: 'div[soho-stepprocess]', // eslint-disable-line
+    templateUrl: 'soho-stepprocess.component.html',
+    standalone: false
 })
 export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.step-process-container') isStepProcessContainer = true;

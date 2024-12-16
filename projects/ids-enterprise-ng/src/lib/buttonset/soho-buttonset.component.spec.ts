@@ -15,9 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SohoButtonsetComponent } from './soho-buttonset.component';
 
 @Component({
-  template: `
+    template: `
   <div soho-buttonset>
-  </div>`
+  </div>`,
+    standalone: false
 })
 class SohoButtonsetTestComponent {
   @ViewChild(SohoButtonsetComponent, { static: true }) buttonset?: SohoButtonsetComponent;

@@ -14,7 +14,7 @@ const customErrorFormatter = function (row: any, cell: any, value: any, col: any
 };
 
 @Component({
-  template: `
+    template: `
     <div>
       <div
         soho-datagrid
@@ -25,6 +25,7 @@ const customErrorFormatter = function (row: any, cell: any, value: any, col: any
       ></div>
     </div>
   `,
+    standalone: false
 })
 export class NestedDatagridDemoComponent implements OnDestroy {
   columns?: SohoDataGridColumn[];
@@ -49,9 +50,10 @@ export class NestedDatagridDemoComponent implements OnDestroy {
 }
 
 @Component({
-  selector: 'app-datagrid-expandable-row-nested-demo',
-  templateUrl: 'datagrid-expandable-row-nested.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-datagrid-expandable-row-nested-demo',
+    templateUrl: 'datagrid-expandable-row-nested.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridExpandableRowNestedDemoComponent
   implements AfterViewChecked, OnInit {

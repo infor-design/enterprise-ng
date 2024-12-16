@@ -18,7 +18,8 @@ export class DatagridRowSpanDemoService {
     templateUrl: 'datagrid-rowspan.demo.html',
     styleUrls: ['../code-block/code-block.formatter.css'],
     providers: [{ provide: DatagridRowSpanDemoService }],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridRowSpanDemoComponent {
     @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;

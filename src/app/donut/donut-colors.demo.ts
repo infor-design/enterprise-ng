@@ -9,6 +9,7 @@ import { SohoPieComponent } from 'ids-enterprise-ng';
 @Component({
     selector: 'app-pie-color-demo',
     templateUrl: 'donut-colors.demo.html',
+    standalone: false
 })
 export class DonutColorsDemoComponent implements OnInit {
 

@@ -11,9 +11,9 @@ import { LMToolbarButton } from './toolbar-state.service';
 import { SohoToolbarComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'toolbar-state-demo', // eslint-disable-line
-  templateUrl: 'toolbar-state.demo.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'toolbar-state-demo', // eslint-disable-line
+    templateUrl: 'toolbar-state.demo.html',
+    standalone: false
 })
 export class ToolbarStateDemoComponent implements AfterViewChecked, OnInit {
 

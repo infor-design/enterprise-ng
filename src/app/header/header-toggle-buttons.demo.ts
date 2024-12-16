@@ -8,8 +8,9 @@ import { HeaderDynamicToolbarOptions } from '../header/header-dynamic-demo.model
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'app-header-demo',
-  templateUrl: 'header-toggle-buttons.demo.html',
+    selector: 'app-header-demo',
+    templateUrl: 'header-toggle-buttons.demo.html',
+    standalone: false
 })
 export class HeaderToggleButtonsDemoComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.header') get isHeader() {

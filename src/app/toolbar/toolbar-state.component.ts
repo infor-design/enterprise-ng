@@ -12,9 +12,10 @@ import {
 } from './toolbar-state.service';
 
 @Component({
-  selector: 'toolbar-state-component', // eslint-disable-line
-  templateUrl: 'toolbar-state.component.html',
-  providers: [ToolbarStateService]
+    selector: 'toolbar-state-component', // eslint-disable-line
+    templateUrl: 'toolbar-state.component.html',
+    providers: [ToolbarStateService],
+    standalone: false
 })
 export class ToolbarStateComponent implements OnInit {
   public toolbarInHeader?: boolean;

@@ -4,9 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SohoTimePickerModule, SohoTimePickerComponent } from '../timepicker';
 
 @Component({
-  template: `
+    template: `
   <input soho-timepicker timeFormat="h:mm a" mode="standard" [(ngModel)]="model" (change)="onChange($event)"/>
-`
+`,
+    standalone: false
 })
 class TestTimepickerComponent {
   @ViewChild(SohoTimePickerComponent) timepicker?: SohoTimePickerComponent;

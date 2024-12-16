@@ -4,11 +4,11 @@ import {
 } from '@angular/core';
 
 @Pipe({
-  name: 'sohoFormatDate',
-
-  // This allow changing of the locale to affect all displayed items,
-  // we may want two versions of this, one pure one not.
-  pure: false
+    name: 'sohoFormatDate',
+    // This allow changing of the locale to affect all displayed items,
+    // we may want two versions of this, one pure one not.
+    pure: false,
+    standalone: false
 })
 export class SohoFormatDatePipe implements PipeTransform {
   /**

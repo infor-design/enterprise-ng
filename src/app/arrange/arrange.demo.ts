@@ -8,8 +8,9 @@ import {
 import { SohoArrangeDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-arrange-demo',
-  templateUrl: 'arrange.demo.html',
+    selector: 'app-arrange-demo',
+    templateUrl: 'arrange.demo.html',
+    standalone: false
 })
 export class ArrangeDemoComponent implements AfterViewInit {
 

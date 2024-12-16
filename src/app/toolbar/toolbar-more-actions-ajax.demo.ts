@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-toolbar-more-actions-ajax-demo',
-  templateUrl: 'toolbar-more-actions-ajax.demo.html'
+    selector: 'app-toolbar-more-actions-ajax-demo',
+    templateUrl: 'toolbar-more-actions-ajax.demo.html',
+    standalone: false
 })
 
 export class ToolbarMoreActionsAjaxDemoComponent {

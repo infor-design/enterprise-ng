@@ -8,9 +8,10 @@ import { SohoPopDownDirective } from 'ids-enterprise-ng';
 import { columns, ledgerData } from './mock.data';
 
 @Component({
-  selector: 'app-codeblock-demo',
-  templateUrl: './code-block.demo.html',
-  styleUrls: ['./code-block.demo.scss']
+    selector: 'app-codeblock-demo',
+    templateUrl: './code-block.demo.html',
+    styleUrls: ['./code-block.demo.scss'],
+    standalone: false
 })
 export class CodeBlockDemoComponent implements AfterViewInit {
 

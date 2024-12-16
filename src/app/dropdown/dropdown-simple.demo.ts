@@ -5,8 +5,9 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 import { MOCK_STATES } from './dropdown-mock.data';
 
 @Component({
-  selector: 'app-dropdown-simple-demo',
-  templateUrl: 'dropdown-simple.demo.html'
+    selector: 'app-dropdown-simple-demo',
+    templateUrl: 'dropdown-simple.demo.html',
+    standalone: false
 })
 export class DropdownSimpleDemoComponent implements AfterViewInit {
   @ViewChild(SohoDropDownComponent, { static: true }) dropDownComponent?: SohoDropDownComponent;

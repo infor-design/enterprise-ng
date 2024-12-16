@@ -13,8 +13,9 @@ import {
  * SUB COMPONENT: SOHO-MENUPOPUPMENU-HEADING
  */
 @Component({
-  selector: 'li[soho-popupmenu-heading]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'li[soho-popupmenu-heading]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoPopupMenuHeadingComponent {
   @HostBinding('class.heading') get isHeading() {
@@ -26,8 +27,9 @@ export class SohoPopupMenuHeadingComponent {
  * SUB COMPONENT: SOHO-POPUPMENU-SHORTCUT-TEXT
  */
 @Component({
-  selector: 'span[soho-popupmenu-shortcut-text]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'span[soho-popupmenu-shortcut-text]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoPopupMenuShortCutTextComponent {
   @HostBinding('class.shortcut-text') get isShortCutText() {
@@ -39,8 +41,9 @@ export class SohoPopupMenuShortCutTextComponent {
  * SUB COMPONENT: SOHO-MENUPOPUPMENU-SEPARATOR
  */
 @Component({
-  selector: 'li[soho-popupmenu-separator]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'li[soho-popupmenu-separator]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoPopupMenuSeparatorComponent {
   @HostBinding('class.separator') get isSeparator() {
@@ -54,8 +57,9 @@ export class SohoPopupMenuSeparatorComponent {
  * SUB COMPONENT: SOHO-MENUPOPUPMENU-LABEL
  */
 @Component({
-  selector: 'a[soho-popupmenu-label]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'a[soho-popupmenu-label]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoPopupMenuItemLabelComponent {
   @HostBinding('attr.href') get hrefAttr() {
@@ -78,8 +82,9 @@ export class SohoPopupMenuItemLabelComponent {
  * SUB COMPONENT: SOHO-MENUPOPUPMENU-ITEM
  */
 @Component({
-  selector: 'li[soho-popupmenu-item]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'li[soho-popupmenu-item]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoPopupMenuItemComponent {
   @HostBinding('class.is-checked') @Input() isChecked?: boolean;
@@ -93,8 +98,9 @@ export class SohoPopupMenuItemComponent {
  * MAIN COMPONENT: SOHO-MENUPOPUPMENU
  */
 @Component({
-  selector: 'ul[soho-popupmenu]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'ul[soho-popupmenu]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 

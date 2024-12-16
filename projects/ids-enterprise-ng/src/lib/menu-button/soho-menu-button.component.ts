@@ -14,10 +14,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-menu-button]', // eslint-disable-line
-  templateUrl: 'soho-menu-button.component.html',
-  styleUrls: ['./soho-menu-button.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-menu-button]', // eslint-disable-line
+    templateUrl: 'soho-menu-button.component.html',
+    styleUrls: ['./soho-menu-button.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.btn-menu') get isBtnMenu() {

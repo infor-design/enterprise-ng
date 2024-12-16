@@ -3,8 +3,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-cards-demo',
-  templateUrl: 'cards.demo.html',
+    selector: 'app-cards-demo',
+    templateUrl: 'cards.demo.html',
+    standalone: false
 })
 export class CardsDemoComponent {
 

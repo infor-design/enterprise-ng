@@ -27,9 +27,10 @@ const APP_MENU = 'application-menu';
 const MODULE_NAV = 'module-nav';
 
 @Component({
-  selector: 'demoapp-nav-container', // eslint-disable-line
-  templateUrl: 'demoapp-nav-container.html',
-  encapsulation: ViewEncapsulation.None
+    selector: 'demoapp-nav-container', // eslint-disable-line
+    templateUrl: 'demoapp-nav-container.html',
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class DemoappNavContainerComponent implements AfterViewInit {
   /** Local Storage Keys */

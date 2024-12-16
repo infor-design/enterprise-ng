@@ -13,9 +13,10 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 import { MOCK_ALL_STATES } from './dropdown-mock-all.data';
 
 @Component({
-  selector: 'app-dropdown-typeahead-demo',
-  templateUrl: 'dropdown-typeahead.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-dropdown-typeahead-demo',
+    templateUrl: 'dropdown-typeahead.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DropdownTypeaheadDemoComponent implements AfterViewInit {
   /** Reference to the dropdown component so we can interact with it programmatically. */

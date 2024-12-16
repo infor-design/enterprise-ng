@@ -9,7 +9,9 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: 'input[soho-mask]' // eslint-disable-line
+    selector: 'input[soho-mask]' // eslint-disable-line
+    ,
+    standalone: false
 })
 export class SohoMaskDirective implements AfterViewInit, OnDestroy {
 

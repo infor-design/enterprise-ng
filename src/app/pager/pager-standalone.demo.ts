@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { PAGING_DATA } from '../datagrid/datagrid-paging-data';
 
-@Component({ // eslint-disable-line
-  selector: 'app-pager-standalone-demo',
-  templateUrl: 'pager-standalone.demo.html',
+@Component({
+    selector: 'app-pager-standalone-demo',
+    templateUrl: 'pager-standalone.demo.html',
+    standalone: false
 })
 export class PagerStandaloneDemoComponent {
 

@@ -17,15 +17,16 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'body', // eslint-disable-line
-  templateUrl: 'app.component.html',
-  styleUrls: [
-    './app.component.css'
-  ],
-  providers: [
-    HeaderDynamicDemoRefService
-  ],
-  encapsulation: ViewEncapsulation.None
+    selector: 'body', // eslint-disable-line
+    templateUrl: 'app.component.html',
+    styleUrls: [
+        './app.component.css'
+    ],
+    providers: [
+        HeaderDynamicDemoRefService
+    ],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild(SohoPersonalizeDirective, { static: true })

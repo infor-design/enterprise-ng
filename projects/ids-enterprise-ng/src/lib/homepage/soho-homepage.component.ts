@@ -12,9 +12,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-homepage]', // eslint-disable-line
-  template: `<div class="content"><ng-content></ng-content></div>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'div[soho-homepage]', // eslint-disable-line
+    template: `<div class="content"><ng-content></ng-content></div>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 

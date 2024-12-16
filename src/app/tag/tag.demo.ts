@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-tag-demo',
-  templateUrl: 'tag.demo.html'
+    selector: 'app-tag-demo',
+    templateUrl: 'tag.demo.html',
+    standalone: false
 })
 export class TagDemoComponent implements OnInit {
 

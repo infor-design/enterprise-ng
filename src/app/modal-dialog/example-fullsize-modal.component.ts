@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl: 'example-fullsize-modal.component.html'
+    templateUrl: 'example-fullsize-modal.component.html',
+    standalone: false
 })
 export class FullSizeModalDialogComponent {
   public model = {

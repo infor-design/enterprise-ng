@@ -9,8 +9,9 @@ import { APP_BASE_HREF } from '@angular/common';
 // @ts-ignore
 
 @Component({
-  selector: 'app-datepicker-french-demo',
-  templateUrl: 'datepicker-french.demo.html'
+    selector: 'app-datepicker-french-demo',
+    templateUrl: 'datepicker-french.demo.html',
+    standalone: false
 })
 export class DatepickerFrenchDemoComponent implements OnInit {
   private readonly SEPARATOR = ' - ';

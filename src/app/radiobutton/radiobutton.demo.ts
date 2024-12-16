@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-radiobutton-demo',
-  templateUrl: 'radiobutton.demo.html'
+    selector: 'app-radiobutton-demo',
+    templateUrl: 'radiobutton.demo.html',
+    standalone: false
 })
 export class RadioButtonDemoComponent implements OnInit {
 

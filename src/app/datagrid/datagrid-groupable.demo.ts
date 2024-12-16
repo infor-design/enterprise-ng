@@ -9,10 +9,11 @@ import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
-  selector: 'app-datagrid-groupable-demo',
-  templateUrl: 'datagrid-groupable.demo.html',
-  providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-groupable-demo',
+    templateUrl: 'datagrid-groupable.demo.html',
+    providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridGroupableDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;

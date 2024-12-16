@@ -3,7 +3,8 @@ import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-header-default',
-    templateUrl: 'header-default-content.demo.html'
+    templateUrl: 'header-default-content.demo.html',
+    standalone: false
 })
 export class HeaderDefaultContentDemoComponent implements OnInit {
     public description: String = '';

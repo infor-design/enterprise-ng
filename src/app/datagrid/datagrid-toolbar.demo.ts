@@ -7,9 +7,10 @@
 import { SohoMessageService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-datagrid-toolbar-demo',
-  templateUrl: 'datagrid-toolbar.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-toolbar-demo',
+    templateUrl: 'datagrid-toolbar.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridToolbarDemoComponent {
 

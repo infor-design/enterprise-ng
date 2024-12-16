@@ -134,7 +134,7 @@ describe('Soho Calendar Unit Tests', () => {
 });
 
 @Component({
-  template: `
+    template: `
     <div
       soho-calendar
       [events]="events"
@@ -146,7 +146,8 @@ describe('Soho Calendar Unit Tests', () => {
     >
       <div soho-calendar-monthview></div>
     </div>
-  `
+  `,
+    standalone: false
 })
 class SohoCalendarTestComponent {
   @ViewChild(SohoCalendarComponent)

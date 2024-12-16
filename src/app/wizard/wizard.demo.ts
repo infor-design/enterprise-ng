@@ -6,8 +6,9 @@ import {
 import {SohoWizardComponent} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'demo-wizard-demo',
-  templateUrl: 'wizard.demo.html',
+    selector: 'demo-wizard-demo',
+    templateUrl: 'wizard.demo.html',
+    standalone: false
 })
 export class WizardDemoComponent {
   @ViewChild(SohoWizardComponent, {static: true}) wizard!: SohoWizardComponent;

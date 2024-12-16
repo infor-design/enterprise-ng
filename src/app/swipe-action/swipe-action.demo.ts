@@ -5,8 +5,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-swipe-action-demo',
-  templateUrl: 'swipe-action.demo.html'
+    selector: 'app-swipe-action-demo',
+    templateUrl: 'swipe-action.demo.html',
+    standalone: false
 })
 export class SwipeActionDemoComponent implements AfterViewInit {
 

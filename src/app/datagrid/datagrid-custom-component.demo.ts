@@ -11,8 +11,9 @@ import {
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-formatter',
-  template: '<p style="color: red">formatted</p>',
+    selector: 'app-formatter',
+    template: '<p style="color: red">formatted</p>',
+    standalone: false
 })
 export class FormatterComponent {
   public data: any;
@@ -24,9 +25,10 @@ export class FormatterComponent {
 }
 
 @Component({
-  selector: 'app-datagrid-custom-demo',
-  templateUrl: 'datagrid-custom-component.demo.html',
-  providers: []
+    selector: 'app-datagrid-custom-demo',
+    templateUrl: 'datagrid-custom-component.demo.html',
+    providers: [],
+    standalone: false
 })
 export class DataGridCustomComponent implements OnInit {
   @ViewChild(SohoDataGridComponent)

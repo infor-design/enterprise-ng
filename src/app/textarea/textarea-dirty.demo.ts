@@ -3,8 +3,9 @@ import { Component, OnInit, QueryList, ViewChild, ViewChildren } from "@angular/
 import { SohoTrackDirtyDirective } from "ids-enterprise-ng";
 
 @Component({
-  selector: "app-textarea-dirty-demo",
-  templateUrl: "textarea-dirty.demo.html",
+    selector: "app-textarea-dirty-demo",
+    templateUrl: "textarea-dirty.demo.html",
+    standalone: false
 })
 export class TextAreaDirtyDemoComponent implements OnInit {
   @ViewChildren(SohoTrackDirtyDirective)

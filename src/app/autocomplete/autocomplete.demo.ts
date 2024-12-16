@@ -9,9 +9,10 @@ import {
 import { SohoAutoCompleteComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-autocomplete-demo', // eslint-disable-line
-  templateUrl: 'autocomplete.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-autocomplete-demo', // eslint-disable-line
+    templateUrl: 'autocomplete.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class AutocompleteDemoComponent implements AfterViewInit {
   public url = './app/demodata/cities.demo.json?term=';

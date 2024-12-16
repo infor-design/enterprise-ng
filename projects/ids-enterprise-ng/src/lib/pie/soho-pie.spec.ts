@@ -176,7 +176,8 @@ describe('Soho Pie Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-pie [dataset]="data"></div>`
+    template: `<div soho-pie [dataset]="data"></div>`,
+    standalone: false
 })
 class SohoPieTestComponent {
   @ViewChild(SohoPieComponent) pie?: SohoPieComponent;

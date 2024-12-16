@@ -7,15 +7,16 @@ import {
 import { SohoFileUploadComponent, SohoTrackDirtyDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-fileupload-lm-demo',
-  templateUrl: 'fileupload-lm.demo.html',
-  styles: [`
+    selector: 'app-fileupload-lm-demo',
+    templateUrl: 'fileupload-lm.demo.html',
+    styles: [`
       .hidden {
         display: none;
         visibility: hidden;
       }
     `
-  ]
+    ],
+    standalone: false
 })
 export class FileUploadLMDemoComponent implements OnInit {
 

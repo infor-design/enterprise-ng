@@ -6,7 +6,7 @@ import { SohoTabsModule } from './soho-tabs.module';
 import { SohoTabsComponent } from './soho-tabs.component';
 
 @Component({
-  template: `
+    template: `
     <div soho-tabs>
       <div soho-tab-list-container>
         <ul soho-tab-list>
@@ -28,7 +28,8 @@ import { SohoTabsComponent } from './soho-tabs.component';
         <p>Opportunites Tab Content</p>
       </div>
     </div>
-  `
+  `,
+    standalone: false
 })
 class SohoBasicTabsTestComponent {
   @ViewChild(SohoTabsComponent) tabs?: SohoTabsComponent;

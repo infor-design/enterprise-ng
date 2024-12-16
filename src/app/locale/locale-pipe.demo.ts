@@ -11,9 +11,10 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-locale-pipe-demo',
-  templateUrl: 'locale-pipe.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-locale-pipe-demo',
+    templateUrl: 'locale-pipe.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class LocalePipeDemoComponent {
 

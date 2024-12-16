@@ -11,9 +11,10 @@ import {
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-tree-content-demo',
-  templateUrl: 'tree-content.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-tree-content-demo',
+    templateUrl: 'tree-content.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TreeContentDemoComponent implements OnInit {
   @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;

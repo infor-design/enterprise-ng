@@ -9,10 +9,11 @@ import {
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'application-menu-roleswitcher-demo',
-  templateUrl: 'application-menu-roleswitcher.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'application-menu-roleswitcher-demo',
+    templateUrl: 'application-menu-roleswitcher.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, OnInit {
 

@@ -8,9 +8,10 @@ import {
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-tree-expand-target-demo',
-  templateUrl: 'tree-expand-target.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-tree-expand-target-demo',
+    templateUrl: 'tree-expand-target.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TreeExpandTargetDemoComponent implements OnInit {
   @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;

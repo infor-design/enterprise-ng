@@ -2,7 +2,8 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'app-listbuilder',
-    templateUrl: 'listbuilder.demo.html'
+    templateUrl: 'listbuilder.demo.html',
+    standalone: false
 })
 export class ListBuilderDemoComponent {
     public dataset = [

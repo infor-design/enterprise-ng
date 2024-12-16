@@ -8,9 +8,10 @@ import {
 import { SohoBusyIndicatorDirective, SohoBusyIndicatorEvent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-busyindicator-demo',
-  templateUrl: 'form.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-busyindicator-demo',
+    templateUrl: 'form.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class BusyIndicatorDemoComponent {
 

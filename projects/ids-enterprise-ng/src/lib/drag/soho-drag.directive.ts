@@ -10,7 +10,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-drag]'
+    selector: '[soho-drag]',
+    standalone: false
 })
 export class SohoDragDirective implements AfterViewInit, OnDestroy {
   @Input() set dragOptions(dragOptions: SohoDragOptions) {

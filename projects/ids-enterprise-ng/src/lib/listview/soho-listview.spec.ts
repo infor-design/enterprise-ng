@@ -15,13 +15,14 @@ import {
 } from './soho-listview.component';
 
 @Component({
-  template: `<soho-listview [searchable]="false" selectable="single">
+    template: `<soho-listview [searchable]="false" selectable="single">
                  <li soho-listview-item *ngFor="let item of listItems" [disabled]="item.disabled" [selected]="item.selected">
                   <p soho-listview-header>Task #{{item.task}}</p>
                   <p soho-listview-subheader>{{item.desc}}</p>
                   <p soho-listview-micro>DUE: {{item.date}}</p>
                 </li>
-              </soho-listview>`
+              </soho-listview>`,
+    standalone: false
 })
 class SohoListViewTestComponent {
   @ViewChild(SohoListViewComponent) listview?: SohoListViewComponent;

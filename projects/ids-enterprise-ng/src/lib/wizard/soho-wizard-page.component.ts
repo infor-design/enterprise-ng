@@ -13,17 +13,18 @@ import {
  * Angular wrapper for the soho wizard page.
  */
 @Component({
-  selector: 'div[soho-wizard-page]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  styles: [
-    `:host {
+    selector: 'div[soho-wizard-page]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    styles: [
+        `:host {
         flex:           1;
         display:        flex;
         flex-direction: column;
         overflow-y:     auto;
     }`
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoWizardPageComponent implements AfterViewInit {
   jQueryElement!: JQuery;

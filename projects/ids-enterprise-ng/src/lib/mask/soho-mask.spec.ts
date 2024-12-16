@@ -18,7 +18,7 @@ import { SohoInputModule } from '../input';
 import { SohoLocaleModule } from '../locale';
 
 @Component({
-  template: `
+    template: `
     <div>
       <input
         soho-input
@@ -27,7 +27,8 @@ import { SohoLocaleModule } from '../locale';
         [definitions]="definitions"
       />
     </div>
-  `
+  `,
+    standalone: false
 })
 class SohoCustomMaskTestComponent {
   @ViewChild(SohoMaskDirective) input?: SohoMaskDirective;
@@ -36,7 +37,7 @@ class SohoCustomMaskTestComponent {
 }
 
 @Component({
-  template: `
+    template: `
     <div>
       <form [formGroup]="demoForm">
         <input
@@ -47,7 +48,8 @@ class SohoCustomMaskTestComponent {
         />
       </form>
     </div>
-  `
+  `,
+    standalone: false
 })
 class SohoMaskTestComponent {
   @ViewChild(SohoMaskDirective) input?: SohoMaskDirective;

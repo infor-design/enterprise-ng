@@ -30,6 +30,7 @@ test:
     - npx playwright install
     - npm run lint
     - npm run test:lib
+    - npx kill-port 4200
     - nohup npm run start & sleep 30
     - npm run test:ci
     - npm run test:ci:percy

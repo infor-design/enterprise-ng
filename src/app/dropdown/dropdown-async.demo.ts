@@ -13,9 +13,10 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 import { MOCK_STATES } from './dropdown-mock.data';
 
 @Component({
-  selector: 'app-dropdown-simple-demo',
-  templateUrl: 'dropdown-async.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-dropdown-simple-demo',
+    templateUrl: 'dropdown-async.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DropdownAsyncDemoComponent implements AfterViewInit {
   /** Reference to the dropdown component so we can interact with it programmatically. */

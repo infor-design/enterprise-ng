@@ -40,9 +40,9 @@ export const CodeBlockFormatter = (_row: any, _cell: any, _value: any, _col: any
 };
 
 @Component({
-  //  template: `<div lm-code-block [(ngModel)]="value"></div>`
-  // TODO: Probably use an ngIf and insert these from data
-  template: `
+    //  template: `<div lm-code-block [(ngModel)]="value"></div>`
+    // TODO: Probably use an ngIf and insert these from data
+    template: `
       <div lm-code-block>
 
           <div class="field">
@@ -169,7 +169,8 @@ export const CodeBlockFormatter = (_row: any, _cell: any, _value: any, _col: any
           -->
 
       </div>
-  `
+  `,
+    standalone: false
 })
 export class CodeBlockEditorComponent implements SohoDataGridCellEditor {
   @ViewChild(CodeBlockComponent, { static: true }) codeblock?: CodeBlockComponent;
@@ -280,9 +281,10 @@ export const COLUMNS: SohoDataGridColumn[] = [
 ];
 
 @Component({
-  selector: 'app-datagrid-code-block-editor',
-  templateUrl: 'datagrid-code-block-editor.demo.html',
-  styleUrls: ['../code-block/code-block.formatter.css']
+    selector: 'app-datagrid-code-block-editor',
+    templateUrl: 'datagrid-code-block-editor.demo.html',
+    styleUrls: ['../code-block/code-block.formatter.css'],
+    standalone: false
 })
 export class DataGridCodeBlockEditorDemoComponent implements OnInit {
   gridOptions?: SohoDataGridOptions = undefined;

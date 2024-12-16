@@ -6,8 +6,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'use', // eslint-disable-line
-  template: ``
+    selector: 'use', // eslint-disable-line
+    template: ``,
+    standalone: false
 })
 export class SohoIconUseComponent {
   @HostBinding('attr.href') get href(): string {
@@ -18,8 +19,9 @@ export class SohoIconUseComponent {
 }
 
 @Component({
-  selector: 'svg[soho-icon]',  // eslint-disable-line
-  template: `<svg:use [icon]="icon"></svg:use>`
+    selector: 'svg[soho-icon]', // eslint-disable-line
+    template: `<svg:use [icon]="icon"></svg:use>`,
+    standalone: false
 })
 export class SohoIconComponent {
 

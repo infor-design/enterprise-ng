@@ -8,7 +8,8 @@ import {
  * This is an example of a nested CAP component.
  */
 @Component({
-  templateUrl: 'nested-contextualaction-panel.component.html'
+    templateUrl: 'nested-contextualaction-panel.component.html',
+    standalone: false
 })
 export class NestedContextualActionPanelComponent {
 

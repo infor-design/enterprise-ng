@@ -12,6 +12,7 @@ export class CodeModel {
     selector: "app-datagrid-update-dataset-demo",
     templateUrl: "datagrid-update-dataset.demo.html",
     changeDetection: ChangeDetectionStrategy.Default,
+    standalone: false
 })
 export class DataGridUpdateDatasetDemoComponent implements OnInit {
     timeOffList: Array<CodeModel> = [

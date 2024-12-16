@@ -24,9 +24,10 @@ import {
  * Angular wrapper for the `dropdown` widget in the ids-enterprise controls.
  */
 @Component({
-  selector: 'select[soho-dropdown]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'select[soho-dropdown]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /**

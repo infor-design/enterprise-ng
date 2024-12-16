@@ -13,8 +13,9 @@ import {
 import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-searchfield-clear-demo',
-  templateUrl: 'searchfield-clear.demo.html'
+    selector: 'app-searchfield-clear-demo',
+    templateUrl: 'searchfield-clear.demo.html',
+    standalone: false
 })
 export class SearchFieldClearDemoComponent implements AfterViewInit, OnInit {
   @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield!: SohoSearchFieldComponent;

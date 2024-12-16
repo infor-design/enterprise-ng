@@ -7,8 +7,9 @@ import {
 import {SohoRadarComponent} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-radar-demo',
-  templateUrl: 'radar.demo.html',
+    selector: 'app-radar-demo',
+    templateUrl: 'radar.demo.html',
+    standalone: false
 })
 export class RadarDemoComponent implements OnInit {
 

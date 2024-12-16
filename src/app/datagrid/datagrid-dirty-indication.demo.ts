@@ -15,8 +15,9 @@ const ROW = 2;
 const CELL = 5;
 
 @Component({
-  selector: 'app-datagrid-dirty-indication-demo',
-  templateUrl: 'datagrid-dirty-indication.demo.html',
+    selector: 'app-datagrid-dirty-indication-demo',
+    templateUrl: 'datagrid-dirty-indication.demo.html',
+    standalone: false
 })
 export class DataGridDirtyIndicationDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;

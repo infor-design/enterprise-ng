@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-homepage-scenario-d-demo',
     templateUrl: 'homepage-scenario-d.demo.html',
+    standalone: false
 })
 export class HomePageScenarioDDemoComponent {
     banner: SohoHomePageBannerOptions = {

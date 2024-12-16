@@ -13,9 +13,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-bullet]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-bullet]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

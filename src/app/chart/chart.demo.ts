@@ -7,15 +7,16 @@ import { ChartDemoService } from './chart-demo.service';
 import { SohoChartComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-chart-demo',
-  templateUrl: 'chart.demo.html',
-  providers: [ChartDemoService],
-  styles: [`
+    selector: 'app-chart-demo',
+    templateUrl: 'chart.demo.html',
+    providers: [ChartDemoService],
+    styles: [`
     .radio-label {
       padding-right:10px;
     }
   `
-  ]
+    ],
+    standalone: false
 })
 export class ChartDemoComponent implements OnInit {
 

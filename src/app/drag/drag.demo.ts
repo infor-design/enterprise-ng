@@ -8,8 +8,9 @@ import {
 import { SohoDragDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-drag-demo',
-  templateUrl: 'drag.demo.html',
+    selector: 'app-drag-demo',
+    templateUrl: 'drag.demo.html',
+    standalone: false
 })
 export class DragDemoComponent implements AfterViewInit {
 

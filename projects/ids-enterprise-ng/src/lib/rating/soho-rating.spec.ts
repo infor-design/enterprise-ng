@@ -29,7 +29,8 @@ describe('Soho Rating Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-rating></div>`
+    template: `<div soho-rating></div>`,
+    standalone: false
 })
 class SohoRatingTestComponent {
   @ViewChild(SohoRatingComponent) rating?: SohoRatingComponent;

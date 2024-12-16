@@ -11,8 +11,9 @@ import {
  * @deprecated - use SohoAlert instead
  */
 @Directive({
-  selector: '[soho-error]', // eslint-disable-line
-  exportAs: 'soho-error'
+    selector: '[soho-error]', // eslint-disable-line
+    exportAs: 'soho-error',
+    standalone: false
 })
 export class SohoErrorDirective implements AfterViewInit {
 

@@ -4,8 +4,9 @@ import { AbstractControl, UntypedFormControl, UntypedFormGroup } from '@angular/
 import { SohoTrackDirtyDirective, SohoErrorDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-validation-form-event-demo',
-  templateUrl: 'validation-form-event.demo.html'
+    selector: 'app-validation-form-event-demo',
+    templateUrl: 'validation-form-event.demo.html',
+    standalone: false
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents!: QueryList<SohoTrackDirtyDirective>;

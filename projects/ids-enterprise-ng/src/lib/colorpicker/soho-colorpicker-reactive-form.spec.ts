@@ -23,10 +23,11 @@ import { SohoColorPickerComponent } from './soho-colorpicker.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <input soho-colorpicker name="bgcolor" formControlName="colorpick" />
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoColorPickerReactiveFormTestComponent {
   public colorpickValue = 'red';

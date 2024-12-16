@@ -15,9 +15,10 @@ import {
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: '[soho-cards]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: '[soho-cards]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCardsComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.cards') get isCards() {
@@ -102,11 +103,12 @@ export class SohoCardsComponent implements AfterViewInit, OnDestroy {
 }
 
 @Component({
-  selector: 'soho-card-actionable',
-  template: `
+    selector: 'soho-card-actionable',
+    template: `
     <ng-content></ng-content>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCardActionableComponent {
   @HostBinding('class.card-actionable') get isCardActionable() {
@@ -115,11 +117,12 @@ export class SohoCardActionableComponent {
 }
 
 @Component({
-  selector: 'soho-card-header',
-  template: `
+    selector: 'soho-card-header',
+    template: `
     <ng-content></ng-content>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCardHeaderComponent {
   @HostBinding('class.card-header') get isCardHeader() {
@@ -129,11 +132,12 @@ export class SohoCardHeaderComponent {
 }
 
 @Component({
-  selector: 'soho-card-content',
-  template: `
+    selector: 'soho-card-content',
+    template: `
     <ng-content></ng-content>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCardContentComponent {
   @HostBinding('class.card-content') get isCardContent() {
@@ -142,11 +146,12 @@ export class SohoCardContentComponent {
 }
 
 @Component({
-  selector: 'soho-card-pane',
-  template: `
+    selector: 'soho-card-pane',
+    template: `
     <ng-content></ng-content>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCardPaneComponent {
   @HostBinding('class.card-pane') get isCardPane() {
@@ -156,11 +161,12 @@ export class SohoCardPaneComponent {
 }
 
 @Component({
-  selector: 'soho-card', // eslint-disable-line
-  template: `
+    selector: 'soho-card', // eslint-disable-line
+    template: `
     <ng-content></ng-content>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCardComponent implements AfterViewInit, OnDestroy, OnInit {
   @Input('soho-card') id: string | undefined; // eslint-disable-line

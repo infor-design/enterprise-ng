@@ -3,8 +3,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-cards-multi-select-demo',
-  templateUrl: 'cards-multi-select.demo.html'
+    selector: 'app-cards-multi-select-demo',
+    templateUrl: 'cards-multi-select.demo.html',
+    standalone: false
 })
 export class CardsMultiSelectDemoComponent {
 

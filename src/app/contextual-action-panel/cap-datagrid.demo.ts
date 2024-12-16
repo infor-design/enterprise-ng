@@ -49,6 +49,7 @@ import {
               </li>
           </ul>
       `,
+    standalone: false
 })
 export class SubModalComponent {
     @Input() company: string = '';
@@ -70,6 +71,7 @@ export class SubModalComponent {
 		</div>
     </div>
 	`,
+    standalone: false
 })
 export class CAPDatagridDemoComponent implements OnInit {
     dialog?: SohoContextualActionPanelRef<CAPDatagridDemoComponent>;

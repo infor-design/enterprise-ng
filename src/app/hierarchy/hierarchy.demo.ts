@@ -10,10 +10,11 @@ import { HierarchyDemoService } from './hierarchy.demo.service';
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-hierarchy-demo',
-  templateUrl: 'hierarchy.demo.html',
-  styleUrls: ['./hierarchy.demo.css'],
-  providers: [HierarchyDemoService]
+    selector: 'app-hierarchy-demo',
+    templateUrl: 'hierarchy.demo.html',
+    styleUrls: ['./hierarchy.demo.css'],
+    providers: [HierarchyDemoService],
+    standalone: false
 })
 export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
 

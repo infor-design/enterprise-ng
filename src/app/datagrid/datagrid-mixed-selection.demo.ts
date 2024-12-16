@@ -11,10 +11,11 @@ import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 
 @Component({
-  selector: 'app-datagrid-mixed-selection-demo',
-  templateUrl: 'datagrid-mixed-selection.demo.html',
-  providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-mixed-selection-demo',
+    templateUrl: 'datagrid-mixed-selection.demo.html',
+    providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridMixedSelectionDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;

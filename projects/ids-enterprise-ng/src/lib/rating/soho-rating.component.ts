@@ -7,8 +7,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-rating]', // eslint-disable-line
-  template: '<ng-content></ng-content>'
+    selector: '[soho-rating]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 
 export class SohoRatingComponent implements AfterViewInit, OnDestroy {

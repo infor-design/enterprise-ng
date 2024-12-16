@@ -9,9 +9,10 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { SohoButtonsetComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-buttonset-demo',
-  templateUrl: 'buttonset.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-buttonset-demo',
+    templateUrl: 'buttonset.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ButtonsetDemoComponent implements AfterViewInit {
 

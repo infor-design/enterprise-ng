@@ -8,7 +8,8 @@ import {
 } from './datagrid-paging-data';
 
 @Component({
-  template: `<app-datagrid-card-demo [dataSet]="data"></app-datagrid-card-demo>`
+    template: `<app-datagrid-card-demo [dataSet]="data"></app-datagrid-card-demo>`,
+    standalone: false
 })
 export class CardFormatterComponent {
   public data: any;
@@ -19,8 +20,9 @@ export class CardFormatterComponent {
 }
 
 @Component({
-  selector: 'app-datagrid-angular-card-formatter-demo',
-  templateUrl: 'datagrid-angular-card-formatter.demo.html'
+    selector: 'app-datagrid-angular-card-formatter-demo',
+    templateUrl: 'datagrid-angular-card-formatter.demo.html',
+    standalone: false
 })
 export class DataGridAngularCardFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [

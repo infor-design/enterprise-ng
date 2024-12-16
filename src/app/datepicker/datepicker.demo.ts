@@ -8,8 +8,9 @@ import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 import { delay, Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-datepicker-demo',
-  templateUrl: 'datepicker.demo.html'
+    selector: 'app-datepicker-demo',
+    templateUrl: 'datepicker.demo.html',
+    standalone: false
 })
 export class DatepickerDemoComponent implements OnInit {
 

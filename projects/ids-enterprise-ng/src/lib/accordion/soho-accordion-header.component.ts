@@ -8,9 +8,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-accordion-header',
-  templateUrl: 'soho-accordion-header.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-accordion-header',
+    templateUrl: 'soho-accordion-header.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoAccordionHeaderComponent implements AfterViewInit {
   // -------------------------------------------

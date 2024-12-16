@@ -55,7 +55,8 @@ describe('Soho Tree Unit Tests', () => {
 });
 
 @Component({
-  template: `<ul soho-tree [dataset]="dataset"></ul>`
+    template: `<ul soho-tree [dataset]="dataset"></ul>`,
+    standalone: false
 })
 class SohoTreeTestComponent {
   @ViewChild(SohoTreeComponent) tree?: SohoTreeComponent;

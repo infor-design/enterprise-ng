@@ -183,9 +183,10 @@ describe('Soho Bar Unit Tests', () => {
 });
 
 @Component({
-  template: `
+    template: `
     <div soho-bar [dataset]="data"></div>
-  `
+  `,
+    standalone: false
 })
 class SohoBarTestComponent {
   @ViewChild(SohoBarComponent) bar?: SohoBarComponent;

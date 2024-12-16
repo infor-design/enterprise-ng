@@ -9,8 +9,9 @@ import {
 import { SohoColorPickerComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-colorpicker-demo',
-  templateUrl: 'colorpicker.demo.html',
+    selector: 'app-colorpicker-demo',
+    templateUrl: 'colorpicker.demo.html',
+    standalone: false
 })
 export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
 

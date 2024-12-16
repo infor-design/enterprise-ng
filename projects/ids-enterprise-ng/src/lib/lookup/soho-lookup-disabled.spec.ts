@@ -17,13 +17,14 @@ import { SohoLookupModule } from './soho-lookup.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
     <input #disabledBound soho-lookup [disabled]="disabled">
 
     <input #attrDisabledBound soho-lookup [attr.disabled]="disabled ? '' : null">
 
     <input #reactiveFormBound [formControl]="reactiveControl" soho-lookup>
   `,
+    standalone: false
 })
 class DisabledTestComponent {
   @ViewChild("disabledBound", { read: ElementRef }) disabledBound!: ElementRef<HTMLInputElement>;

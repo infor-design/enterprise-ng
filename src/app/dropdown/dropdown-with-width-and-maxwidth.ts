@@ -13,9 +13,10 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 import { MOCK_STATES } from './dropdown-mock-with-long-data';
 
 @Component({
-  selector: 'app-dropdown-with-width-and-maxwidth',
-  templateUrl: 'dropdown-with-width-and-maxwidth.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-dropdown-with-width-and-maxwidth',
+    templateUrl: 'dropdown-with-width-and-maxwidth.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DropdownWithWidthAndMaxWidthComponent implements AfterViewInit {
   /** Reference to the dropdown component so we can interact with it programmatically. */

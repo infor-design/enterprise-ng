@@ -9,9 +9,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SohoEditorComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-editor-demo',
-  templateUrl: 'editor.demo.html',
-  styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
+    selector: 'app-editor-demo',
+    templateUrl: 'editor.demo.html',
+    styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
+    ,
+    standalone: false
 })
 export class EditorDemoComponent implements AfterViewInit {
 

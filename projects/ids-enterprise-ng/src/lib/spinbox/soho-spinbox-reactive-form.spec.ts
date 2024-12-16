@@ -23,10 +23,11 @@ import { SohoSpinboxComponent } from './soho-spinbox.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <input soho-spinbox name="spinbox" min="-50" max="50" formControlName="spinbox" />
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoSpinboxReactiveFormTestComponent {
   public value = 25;

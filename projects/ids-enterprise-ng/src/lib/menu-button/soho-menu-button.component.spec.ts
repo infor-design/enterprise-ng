@@ -349,14 +349,15 @@ describe('Soho Menu Button Unit Tests', () => {
 });
 
 @Component({
-  template: `<button soho-menu-button icon="user" menu="action-popupmenu" title="Charts">
+    template: `<button soho-menu-button icon="user" menu="action-popupmenu" title="Charts">
     <span title="foo">Hello</span>
   </button>
 <ul soho-popupmenu id="action-popupmenu">
   <li><a soho-popupmenu-label>Admin</a></li>
   <li soho-popupmenu-separator></li>
   <li soho-popupmenu-item><a id="signout">Sign out</a></li>
-</ul>`
+</ul>`,
+    standalone: false
 })
 export class TestSohoMenuButtonComponent {
   @ViewChild(SohoMenuButtonComponent) menuButton?: any;

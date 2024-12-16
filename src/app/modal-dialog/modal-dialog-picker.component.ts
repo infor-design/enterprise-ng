@@ -12,8 +12,9 @@ import {
    * numerous times using the SohoModalDialogService.
    */
   @Component({
-    templateUrl: 'modal-dialog-picker.component.html'
-  })
+    templateUrl: 'modal-dialog-picker.component.html',
+    standalone: false
+})
   export class ModalDialogPickerComponent {
   }
   

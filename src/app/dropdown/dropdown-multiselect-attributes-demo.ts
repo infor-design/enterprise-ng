@@ -9,9 +9,10 @@ import {
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-dropdown-multiselect-attributes',
-  templateUrl: './dropdown-multiselect-attributes-demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-dropdown-multiselect-attributes',
+    templateUrl: './dropdown-multiselect-attributes-demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DropdownMultiselectAttributesDemoComponent implements OnInit {
   @ViewChild(SohoDropDownComponent) dropdown?: SohoDropDownComponent;

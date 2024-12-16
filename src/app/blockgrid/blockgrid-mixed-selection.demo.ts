@@ -8,9 +8,10 @@ import {
 } from './blockgrid-demo-data';
 
 @Component({
-  selector: 'app-blockgrid-mixed-selection-demo',
-  templateUrl: 'blockgrid-mixed-selection.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-blockgrid-mixed-selection-demo',
+    templateUrl: 'blockgrid-mixed-selection.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class BlockGridMixedSelectionDemoComponent {
   constructor() {

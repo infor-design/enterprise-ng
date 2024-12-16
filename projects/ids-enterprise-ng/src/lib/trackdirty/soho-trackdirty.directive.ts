@@ -10,9 +10,10 @@ import {
 } from '@angular/core';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[soho-trackdirty]',
-  exportAs: 'soho-trackdirty'
+    // eslint-disable-next-line @angular-eslint/directive-selector
+    selector: '[soho-trackdirty]',
+    exportAs: 'soho-trackdirty',
+    standalone: false
 })
 export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
 

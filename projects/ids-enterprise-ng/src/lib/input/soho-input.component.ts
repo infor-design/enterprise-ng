@@ -17,10 +17,11 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-input]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideControlValueAccessor(SohoInputComponent)]
+    selector: 'input[soho-input]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideControlValueAccessor(SohoInputComponent)],
+    standalone: false
 })
 export class SohoInputComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
 

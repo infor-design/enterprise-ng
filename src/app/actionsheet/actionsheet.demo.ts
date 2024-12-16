@@ -5,8 +5,9 @@ import {
 
 
 @Component({
-  selector: 'app-actionsheet-demo',
-  templateUrl: './actionsheet.demo.html'
+    selector: 'app-actionsheet-demo',
+    templateUrl: './actionsheet.demo.html',
+    standalone: false
 })
 export class ActionsheetDemoComponent implements AfterViewInit {
 

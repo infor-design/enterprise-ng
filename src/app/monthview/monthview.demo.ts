@@ -9,8 +9,9 @@ import {
 import { SohoMonthViewComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-monthview-demo',
-  templateUrl: 'monthview.demo.html',
+    selector: 'app-monthview-demo',
+    templateUrl: 'monthview.demo.html',
+    standalone: false
 })
 export class MonthViewDemoComponent implements OnInit {
 

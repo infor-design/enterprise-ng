@@ -65,10 +65,11 @@ export class SwapListTestService extends SohoSwapListService {
 }
 
 @Component({
-  template: `
+    template: `
   <soho-swaplist showFullAccessCard="true" id="swaplist1" [availableItems]="options.available"
     [selectedItems]="options.selected" [additionalItems]= "options.additional">
-  </soho-swaplist>`
+  </soho-swaplist>`,
+    standalone: false
 })
 class SohoSwapListTestComponent {
   @ViewChild(SohoSwapListComponent) swaplist?: SohoSwapListComponent;

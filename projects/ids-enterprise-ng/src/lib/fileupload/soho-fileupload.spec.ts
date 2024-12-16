@@ -7,10 +7,11 @@ import { SohoFileUploadModule } from './soho-fileupload.module';
 import { SohoFileUploadComponent } from './soho-fileupload.component';
 
 @Component({
-  template: `
+    template: `
   <label soho-label for="{{name}}">{{text}}</label>
   <input soho-fileupload name="{{name}}" />
-  `
+  `,
+    standalone: false
 })
 class SohoFileUploadTestComponent {
   @ViewChild(SohoFileUploadComponent) fileupload?: SohoFileUploadComponent;

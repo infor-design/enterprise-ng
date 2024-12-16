@@ -19,8 +19,9 @@ export interface FakeResponse {
 }
 
 @Component({
-  selector: 'app-lookup-demo',
-  templateUrl: 'lookup.demo.html',
+    selector: 'app-lookup-demo',
+    templateUrl: 'lookup.demo.html',
+    standalone: false
 })
 export class LookupDemoComponent implements OnInit {
   @ViewChild('templateId', { static: true }) sohoLookupComponent?: SohoLookupComponent;

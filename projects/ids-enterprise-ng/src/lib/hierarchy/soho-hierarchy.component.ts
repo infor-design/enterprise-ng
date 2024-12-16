@@ -4,16 +4,18 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-hierarchy-leaf-template',
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-hierarchy-leaf-template',
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoHierarchyLeafTemplateComponent { }
 
 @Component({
-  selector: 'figure[soho-hierarchy]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'figure[soho-hierarchy]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 

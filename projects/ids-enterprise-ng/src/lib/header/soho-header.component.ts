@@ -11,9 +11,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-header',
-  templateUrl: 'soho-header.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'soho-header',
+    templateUrl: 'soho-header.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoHeaderComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.header') isHeader = true;

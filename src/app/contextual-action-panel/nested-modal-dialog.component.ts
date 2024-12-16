@@ -12,8 +12,8 @@ import { SohoModalDialogService } from 'ids-enterprise-ng';
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl: 'nested-modal-dialog.component.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: 'nested-modal-dialog.component.html',
+    standalone: false
 })
 export class NestedModalDialogComponent {
 

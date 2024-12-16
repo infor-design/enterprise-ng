@@ -13,10 +13,11 @@ import { DataGridDemoService } from './datagrid-demo.service';
 import { SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-datagrid-service-demo',
-  templateUrl: 'datagrid-service.demo.html',
-  providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-service-demo',
+    templateUrl: 'datagrid-service.demo.html',
+    providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridServiceDemoComponent {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;

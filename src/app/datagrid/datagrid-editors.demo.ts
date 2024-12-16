@@ -297,8 +297,9 @@ export const EDITORS_COLUMNS: any[] = [
 ];
 
 @Component({
-  selector: 'soho-datagrid-editors',
-  templateUrl: 'datagrid-editors.demo.html'
+    selector: 'soho-datagrid-editors',
+    templateUrl: 'datagrid-editors.demo.html',
+    standalone: false
 })
 export class DataGridEditorsDemoComponent implements OnInit {
 

@@ -6,8 +6,9 @@ import { SohoFileUploadAdvancedModule } from './soho-fileupload-advanced.module'
 import { SohoFileUploadAdvancedComponent } from './soho-fileupload-advanced.component';
 
 @Component({
-  template: `
-    <div soho-fileupload-advanced></div>`
+    template: `
+    <div soho-fileupload-advanced></div>`,
+    standalone: false
 })
 class SohoFileUploadAdvancedTestComponent {
   @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced?: SohoFileUploadAdvancedComponent;

@@ -12,10 +12,11 @@ import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-frozen-column-refresh-demo',
-  templateUrl: 'datagrid-frozen-column-refresh-demo.component.html',
-  providers: [ DataGridPagingIndeterminateDemoService ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-datagrid-frozen-column-refresh-demo',
+    templateUrl: 'datagrid-frozen-column-refresh-demo.component.html',
+    providers: [DataGridPagingIndeterminateDemoService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridFrozenColumnRefreshDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;

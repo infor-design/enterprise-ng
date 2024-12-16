@@ -13,10 +13,11 @@ import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-datagrid-breadcrumb-demo',
-  templateUrl: 'datagrid-breadcrumb.demo.html',
-  providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-breadcrumb-demo',
+    templateUrl: 'datagrid-breadcrumb.demo.html',
+    providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
