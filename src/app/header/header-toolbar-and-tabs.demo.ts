@@ -10,8 +10,9 @@ import {
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'app-toolbar-tabs-header-demo',
-  templateUrl: 'header-toolbar-and-tabs.demo.html'
+    selector: 'app-toolbar-tabs-header-demo',
+    templateUrl: 'header-toolbar-and-tabs.demo.html',
+    standalone: false
 })
 export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 

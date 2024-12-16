@@ -13,9 +13,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-line]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-line]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

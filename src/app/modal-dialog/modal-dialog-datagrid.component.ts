@@ -8,7 +8,8 @@ import groups from './groups.json';
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl: 'modal-dialog-datagrid.component.html'
+    templateUrl: 'modal-dialog-datagrid.component.html',
+    standalone: false
 })
 export class ModalDialogDataGridComponent {
   /**

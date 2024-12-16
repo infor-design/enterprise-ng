@@ -5,7 +5,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SohoFieldFilterDirective } from './soho-field-filter.directive';
 
 @Component({
-  template: `
+    template: `
     <div class="field">
       <input soho-field-filter
         [fieldSettings]="fieldSettings"
@@ -13,7 +13,8 @@ import { SohoFieldFilterDirective } from './soho-field-filter.directive';
         [dropdownOpts]="dropdownOpts"
         [template]="template"
         (filtered)="filtered($event)"/>
-    </div>`
+    </div>`,
+    standalone: false
 })
 class SohoFieldFilterTestComponent {
   @ViewChild(SohoFieldFilterDirective) sohoFieldFilter?: SohoFieldFilterDirective;

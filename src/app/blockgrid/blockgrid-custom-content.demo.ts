@@ -12,10 +12,11 @@ import {
 } from './blockgrid-demo-data';
 
 @Component({
-  selector: 'app-blockgrid-custom-content-demo',
-  templateUrl: 'blockgrid-custom-content.demo.html',
-  styleUrls: ['./blockgrid-custom-content.demo.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-blockgrid-custom-content-demo',
+    templateUrl: 'blockgrid-custom-content.demo.html',
+    styleUrls: ['./blockgrid-custom-content.demo.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class BlockGridCustomContentDemoComponent implements AfterViewInit {
 

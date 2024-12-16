@@ -13,8 +13,9 @@ import { SohoLookupComponent, SohoTrackDirtyDirective } from 'ids-enterprise-ng'
  * - shows basic track dirty functionality on input elements with an angular template
  */
 @Component({
-  selector: 'app-trackdirty-demo',
-  templateUrl: 'trackdirty.demo.html'
+    selector: 'app-trackdirty-demo',
+    templateUrl: 'trackdirty.demo.html',
+    standalone: false
 })
 export class TrackDirtyDemoComponent implements OnInit {
 

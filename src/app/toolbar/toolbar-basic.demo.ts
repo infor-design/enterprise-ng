@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-toolbar-basic-demo',
-  templateUrl: 'toolbar-basic.demo.html'
+    selector: 'app-toolbar-basic-demo',
+    templateUrl: 'toolbar-basic.demo.html',
+    standalone: false
 })
 export class ToolbarBasicDemoComponent {
   onSelected(event: SohoToolbarSelectedEvent) {

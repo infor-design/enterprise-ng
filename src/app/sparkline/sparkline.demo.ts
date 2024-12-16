@@ -4,8 +4,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-sparkline-demo',
-  templateUrl: 'sparkline.demo.html',
+    selector: 'app-sparkline-demo',
+    templateUrl: 'sparkline.demo.html',
+    standalone: false
 })
 export class SparklineDemoComponent implements OnInit {
 

@@ -9,8 +9,9 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-compact-demo',
-  templateUrl: 'form-compact.demo.html',
+    selector: 'app-form-compact-demo',
+    templateUrl: 'form-compact.demo.html',
+    standalone: false
 })
 export class FormCompactDemoComponent implements AfterViewInit {
 

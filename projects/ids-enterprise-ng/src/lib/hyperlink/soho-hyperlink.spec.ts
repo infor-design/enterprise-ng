@@ -7,12 +7,13 @@ import { SohoHyperlinkModule } from './soho-hyperlink.module';
 import { SohoHyperlinkComponent } from './soho-hyperlink.component';
 
 @Component({
-  template: `
+    template: `
     <a soho-hyperlink href="#">More Information Hyperlink</a><br><br><br><br>
     <a soho-hyperlink="show-visited" href="#">More Information Hyperlink</a><br><br><br><br>
     <a soho-hyperlink="forward-caret" isCaretRight="true" href="#"  ><span>Hyperlink with Directional Caret </span></a>
     <a soho-hyperlink="back-caret" href="#"  isCaretLeft="true"><span>Back to Search Results</span></a>
-    `
+    `,
+    standalone: false
 })
 
 class SohoHyperlinkTestComponent {

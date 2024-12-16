@@ -164,10 +164,11 @@ export const checkboxColumn = {
 };
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <input soho-lookup formControlName="lookup" [columns]="lookupColumns" [dataset]="lookupData" field="productId" name="lookup" />
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoLookupReactiveFormTestComponent {
   @ViewChild(SohoLookupComponent) lookup?: SohoLookupComponent;

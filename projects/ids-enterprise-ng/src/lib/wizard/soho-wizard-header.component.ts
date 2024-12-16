@@ -16,13 +16,14 @@ import { SohoWizardTickComponent } from './soho-wizard-tick.component';
  * simply add a wrapper around the wizard ticks.
  */
 @Component({
-  selector: 'div[soho-wizard-header]', // eslint-disable-line
-  template: `<div class="bar">
+    selector: 'div[soho-wizard-header]', // eslint-disable-line
+    template: `<div class="bar">
     <div class="completed-range"></div>
     <ng-content></ng-content>
   </div>`,
-  styles: [`:host { padding: 20px 40px 60px 40px }`],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    styles: [`:host { padding: 20px 40px 60px 40px }`],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoWizardHeaderComponent {
   /**

@@ -4,8 +4,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-expandablearea-demo',
-  templateUrl: 'expandablearea.demo.html'
+    selector: 'app-expandablearea-demo',
+    templateUrl: 'expandablearea.demo.html',
+    standalone: false
 })
 export class ExpandableAreaDemoComponent implements OnInit {
 

@@ -11,7 +11,9 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-field-filter]' // eslint-disable-line
+    selector: '[soho-field-filter]' // eslint-disable-line
+    ,
+    standalone: false
 })
 export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit, OnDestroy {
 

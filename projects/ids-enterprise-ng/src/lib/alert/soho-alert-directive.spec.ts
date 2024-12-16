@@ -5,11 +5,12 @@ import { SohoAlertDirective } from './soho-alert.directive';
 import { SohoAlertModule } from './soho-alert.module';
 
 @Component({
-  template: `
+    template: `
     <div class="field">
       <input soho-alert [message]="errorMsg">
     </div>
-    `
+    `,
+    standalone: false
 })
 class SohoAlertDirectiveTestComponent {
   @ViewChild(SohoAlertDirective) alert?: SohoAlertDirective | null;

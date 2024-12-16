@@ -8,11 +8,12 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-swipe-action]', // eslint-disable-line
-  template: `
+    selector: '[soho-swipe-action]', // eslint-disable-line
+    template: `
     <div class="swipe-container">
       <ng-content></ng-content>
     </div>`,
+    standalone: false
 })
 export class SohoSwipeActionComponent implements AfterViewInit, OnDestroy {
 

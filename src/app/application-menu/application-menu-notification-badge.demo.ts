@@ -9,10 +9,11 @@ import {
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'application-menu-notification-badge-demo',
-  templateUrl: 'application-menu-notification-badge.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'application-menu-notification-badge-demo',
+    templateUrl: 'application-menu-notification-badge.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ApplicationMenuNotificationBadgeDemoComponent implements AfterViewInit, OnInit {
 

@@ -11,8 +11,9 @@ import {
  *
  */
 @Directive({
-  selector: '[soho-alert]', // eslint-disable-line
-  exportAs: 'soho-alert'
+    selector: '[soho-alert]', // eslint-disable-line
+    exportAs: 'soho-alert',
+    standalone: false
 })
 export class SohoAlertDirective implements AfterViewInit {
 

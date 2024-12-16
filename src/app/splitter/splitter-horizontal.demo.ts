@@ -11,12 +11,14 @@ import { SohoDataGridService } from 'ids-enterprise-ng';
 import { SohoTreeService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-splitter-horizontal-demo',
-  templateUrl: 'splitter-horizontal.demo.html',
-  providers: [
-    { provide: SohoDataGridService, useClass: DataGridDemoService },
-    { provide: SohoTreeService, useClass: TreeDemoService }],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-splitter-horizontal-demo',
+    templateUrl: 'splitter-horizontal.demo.html',
+    providers: [
+        { provide: SohoDataGridService, useClass: DataGridDemoService },
+        { provide: SohoTreeService, useClass: TreeDemoService }
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SplitterHorizontalDemoComponent {
 }

@@ -4,8 +4,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-stepprocess-data-driven-demo',
-  templateUrl: 'stepprocess-data-driven.demo.html'
+    selector: 'app-stepprocess-data-driven-demo',
+    templateUrl: 'stepprocess-data-driven.demo.html',
+    standalone: false
 })
 export class StepProcessDataDrivenDemoComponent implements OnInit, AfterViewInit {
 

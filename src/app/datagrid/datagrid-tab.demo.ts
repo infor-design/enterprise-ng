@@ -16,9 +16,10 @@ enum MessageStatus {
 }
 
 @Component({
-  selector: 'app-datagrid-tab-demo',
-  templateUrl: 'datagrid-tab.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-tab-demo',
+    templateUrl: 'datagrid-tab.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridTabDemoComponent {
   @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;

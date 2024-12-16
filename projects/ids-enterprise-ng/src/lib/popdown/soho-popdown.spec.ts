@@ -9,11 +9,12 @@ import {
 } from './';
 
 @Component({
-  template: `
+    template: `
     <button soho-popdown ></button>
     <soho-popdown-contents>
       <h1>Filler Heading</h1>
-    </soho-popdown-contents>`
+    </soho-popdown-contents>`,
+    standalone: false
 })
 class SohoPopDownDirectiveTestComponent {
   @ViewChild(SohoPopDownContentsComponent) contents?: SohoPopDownContentsComponent;

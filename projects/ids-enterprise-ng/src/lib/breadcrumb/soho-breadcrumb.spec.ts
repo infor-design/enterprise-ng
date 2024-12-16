@@ -29,12 +29,13 @@ const STANDARD_DATA = [
 ];
 
 @Component({
-  template: `
+    template: `
   <div class="row">
     <div class="twelve columns">
       <nav soho-breadcrumb class="breadcrumb"></nav>
     </div>
-  </div>`
+  </div>`,
+    standalone: false
 })
 class SohoBreadcrumbTestComponent {
   @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb?: SohoBreadcrumbComponent;

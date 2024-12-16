@@ -1,8 +1,12 @@
 # What's New with Enterprise-NG
 
-## 18.9.0
+## 19.0.0
 
-## 18.9.0 Fixes
+## 19.0.0 Features
+
+- `[General]` Updated the project to use NG 19. ([#6718](https://inforwiki.atlassian.net/browse/IDS-6718))
+
+## 19.0.0 Fixes
 
 - `[ExpandableArea]` Fixed hyperlink tag not showing properly on footer. ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
 

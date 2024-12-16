@@ -9,10 +9,11 @@ import { SohoTreeComponent, SohoTreeService } from 'ids-enterprise-ng';
 import { TreeDemoService } from './tree-demo.service';
 
 @Component({
-  selector: 'demo-tree-service-demo',
-  templateUrl: 'tree-service.demo.html',
-  providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'demo-tree-service-demo',
+    templateUrl: 'tree-service.demo.html',
+    providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TreeServiceDemoComponent {
   @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;

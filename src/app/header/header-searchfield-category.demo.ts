@@ -2,7 +2,8 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'app-searchfield-category-header-demo',
-    templateUrl: 'header-searchfield-category.demo.html'
+    templateUrl: 'header-searchfield-category.demo.html',
+    standalone: false
 })
 export class HeaderSearchfieldCategoryDemoComponent {
     searchfieldOptions: SohoSearchFieldOptions = {

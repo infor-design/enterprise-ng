@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, DebugElement, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  template: `
+    template: `
      <input soho-context-menu menu="TestContextMenu" trigger="click"
            (selected)="onSelected($event)"
            (beforeopen)="onBeforeOpen($event)"
@@ -10,7 +10,8 @@ import { Component, DebugElement, EventEmitter, Output } from '@angular/core';
            (open)="onOpen($event)"/>
      <ul soho-popupmenu id="TestContextMenu" >
         <li soho-popupmenu-item>Item One</li>
-     </ul>`
+     </ul>`,
+    standalone: false
 })
 class TestContextMenuDirectiveComponent {
   @Output() selected = new EventEmitter<SohoContextMenuEvent>();

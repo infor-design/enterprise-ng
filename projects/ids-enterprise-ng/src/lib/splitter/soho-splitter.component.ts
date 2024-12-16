@@ -18,9 +18,10 @@
  * the Soho Splitter control.
  */
 @Component({
-  selector: 'soho-splitter',
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-splitter',
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
 

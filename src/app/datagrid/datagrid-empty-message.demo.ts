@@ -9,10 +9,11 @@ import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
-  selector: 'app-datagrid-empty-message-demo',
-  templateUrl: 'datagrid-empty-message.demo.html',
-  providers: [DataGridDemoService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-empty-message-demo',
+    templateUrl: 'datagrid-empty-message.demo.html',
+    providers: [DataGridDemoService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
   private static EMPTY_MSG_SERVER_ERROR: SohoEmptyMessageOptions = {

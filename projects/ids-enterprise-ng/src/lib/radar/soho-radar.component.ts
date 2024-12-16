@@ -13,9 +13,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-radar]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-radar]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

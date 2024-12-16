@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-datagrid-popupmenu-toolbar',
-  templateUrl: './datagrid-popupmenu-toolbar.demo.html',
+    selector: 'app-datagrid-popupmenu-toolbar',
+    templateUrl: './datagrid-popupmenu-toolbar.demo.html',
+    standalone: false
 })
 export class DatagridPopupMenuToolbarComponent implements OnInit {
 

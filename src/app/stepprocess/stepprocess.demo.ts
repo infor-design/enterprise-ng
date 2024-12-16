@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 @Component({
-  selector: 'app-stepprocess-demo',
-  templateUrl: 'stepprocess.demo.html'
+    selector: 'app-stepprocess-demo',
+    templateUrl: 'stepprocess.demo.html',
+    standalone: false
 })
 export class StepProcessDemoComponent {
   nextLabel = 'NEXT';

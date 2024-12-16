@@ -5,9 +5,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-checkbox-demo',
-  templateUrl: 'checkbox.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-checkbox-demo',
+    templateUrl: 'checkbox.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CheckBoxDemoComponent implements OnInit {
   showModel = false;

@@ -11,8 +11,9 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 import { SohoSwapListComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-swaplist-dynamic-demo',
-  templateUrl: 'swaplist-dynamic.demo.html',
+    selector: 'app-swaplist-dynamic-demo',
+    templateUrl: 'swaplist-dynamic.demo.html',
+    standalone: false
 })
 export class SwapListDynamicDemoComponent implements OnInit, OnDestroy {
   @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;

@@ -16,9 +16,10 @@ import {
 import { ArgumentHelper } from '../utils/argument.helper';
 
 @Component({
-  selector: 'input[soho-toolbar-flex-searchfield]', // eslint-disable-line
-  template: '<div #toolbarFlexSearchField><ng-content></ng-content></div>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'input[soho-toolbar-flex-searchfield]', // eslint-disable-line
+    template: '<div #toolbarFlexSearchField><ng-content></ng-content></div>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   /**
@@ -183,9 +184,8 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
  * soho toolbar flex more button
  */
 @Component({
-  selector: 'soho-toolbar-flex-more-button', // eslint-disable-line
-  template:
-    `<button
+    selector: 'soho-toolbar-flex-more-button', // eslint-disable-line
+    template: `<button
       class="btn-actions"
       type="button"
       [ngClass]="{'page-changer': isPageChanger}"
@@ -198,7 +198,8 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
       <span class="audible">More Actions</span>
     </button>
     <ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarFlexMoreButtonComponent {
   @HostBinding('class.more') isMoreButton = true;
@@ -218,9 +219,10 @@ export class SohoToolbarFlexMoreButtonComponent {
  * soho toolbar flex page title.
  */
 @Component({
-  selector: '[soho-toolbar-flex-page-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: '[soho-toolbar-flex-page-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarFlexPageTitleComponent {
   @HostBinding('class.page-title') isPageTitle = true;
@@ -230,9 +232,10 @@ export class SohoToolbarFlexPageTitleComponent {
  * soho toolbar flex section title.
  */
 @Component({
-  selector: '[soho-toolbar-flex-section-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: '[soho-toolbar-flex-section-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarFlexSectionTitleComponent {
   @HostBinding('class.section-title') isSectionTitle = true;
@@ -242,9 +245,10 @@ export class SohoToolbarFlexSectionTitleComponent {
  * Generic soho toolbar flex section
  */
 @Component({
-  selector: 'soho-toolbar-flex-section', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'soho-toolbar-flex-section', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarFlexSectionComponent {
   @HostBinding('class.toolbar-section') isToolbarSection = true;
@@ -258,8 +262,8 @@ export class SohoToolbarFlexSectionComponent {
  * Soho toolbar Navigation button
  */
 @Component({
-  selector: 'button[soho-toolbar-flex-nav-button]', // eslint-disable-line
-  template: `
+    selector: 'button[soho-toolbar-flex-nav-button]', // eslint-disable-line
+    template: `
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
       <use href="#icon-menu"></use>
     </svg>
@@ -267,7 +271,8 @@ export class SohoToolbarFlexSectionComponent {
         <ng-content></ng-content>
     </span>
             `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarFlexNavButtonComponent implements AfterViewInit {
   @HostBinding('class.btn-icon') isIconButton = true;
@@ -326,9 +331,10 @@ export class SohoToolbarFlexNavButtonComponent implements AfterViewInit {
  * The main soho toolbar flex component
  */
 @Component({
-  selector: 'soho-toolbar-flex, div[soho-toolbar-flex]',
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'soho-toolbar-flex, div[soho-toolbar-flex]',
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   @HostBinding('class.flex-toolbar') isToolbar = true;

@@ -6,8 +6,9 @@ import {
 import { SohoDatePickerComponent, SohoMonthViewComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-monthview-add-day-demo',
-  templateUrl: 'monthview-add-day.demo.html'
+    selector: 'app-monthview-add-day-demo',
+    templateUrl: 'monthview-add-day.demo.html',
+    standalone: false
 })
 export class MonthViewAddDayDemoComponent {
   @ViewChild(SohoMonthViewComponent, { static: true }) monthview?: SohoMonthViewComponent;

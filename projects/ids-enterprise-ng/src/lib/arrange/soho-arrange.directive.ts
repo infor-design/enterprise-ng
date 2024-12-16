@@ -10,7 +10,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-arrange]',
+    selector: '[soho-arrange]',
+    standalone: false
 })
 
 export class SohoArrangeDirective implements AfterViewInit, OnDestroy {

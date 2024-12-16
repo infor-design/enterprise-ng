@@ -62,7 +62,8 @@ describe('Soho AutoComplete Unit Tests', () => {
 });
 
 @Component({
-  template: `<input soho-autocomplete [source]="source">`
+    template: `<input soho-autocomplete [source]="source">`,
+    standalone: false
 })
 class SohoAutoCompleteTestComponent {
   @ViewChild(SohoAutoCompleteComponent) autocomplete?: SohoAutoCompleteComponent;

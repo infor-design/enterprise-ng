@@ -11,8 +11,9 @@ import {
 import { SohoMonthViewComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-monthview-inpage-demo',
-  templateUrl: './monthview-inpage.demo.html',
+    selector: 'app-monthview-inpage-demo',
+    templateUrl: './monthview-inpage.demo.html',
+    standalone: false
 })
 export class MonthViewDemoInPageComponent implements AfterViewInit {
 

@@ -8,8 +8,9 @@ import {
  * - shows basic functionality on label elements with an angular template
  */
 @Component({
-  selector: 'app-label-demo',
-  templateUrl: 'label.demo.html'
+    selector: 'app-label-demo',
+    templateUrl: 'label.demo.html',
+    standalone: false
 })
 export class LabelDemoComponent implements OnInit {
 

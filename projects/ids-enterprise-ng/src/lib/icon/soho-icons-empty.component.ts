@@ -7,9 +7,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-icons-empty',
-  templateUrl: 'svg-empty.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'soho-icons-empty',
+    templateUrl: 'svg-empty.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoIconsEmptyComponent {
   @HostBinding('style.display') none = 'none';

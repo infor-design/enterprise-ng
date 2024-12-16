@@ -1,9 +1,10 @@
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs-resize.demo.html',
-  styleUrls: ['./tabs-resize.demo.css']
+    selector: 'app-tabs',
+    templateUrl: './tabs-resize.demo.html',
+    styleUrls: ['./tabs-resize.demo.css'],
+    standalone: false
 })
 export class TabsResizeDemoComponent {
 

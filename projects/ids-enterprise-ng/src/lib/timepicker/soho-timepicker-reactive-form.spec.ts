@@ -24,10 +24,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <input soho-timepicker name="timepicker" formControlName="timepicker" />
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoTimePickerReactiveFormTestComponent {
   public timepickerValue = '12:00 AM';

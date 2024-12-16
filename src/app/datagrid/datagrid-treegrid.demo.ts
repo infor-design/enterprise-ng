@@ -6,10 +6,11 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
 
 @Component({
-  selector: 'app-datagrid-treegrid-demo',
-  templateUrl: 'datagrid-treegrid.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [DatagridTreegridServiceDemo]
+    selector: 'app-datagrid-treegrid-demo',
+    templateUrl: 'datagrid-treegrid.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [DatagridTreegridServiceDemo],
+    standalone: false
 })
 export class DataGridTreeGridDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;

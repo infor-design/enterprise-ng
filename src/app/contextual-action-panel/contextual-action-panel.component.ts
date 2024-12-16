@@ -14,7 +14,8 @@ import { NestedContextualActionPanelComponent } from './nested-contextualaction-
  * numerous times using the SohoContextualActionPanelService.
  */
 @Component({
-  templateUrl: 'contextual-action-panel.component.html'
+    templateUrl: 'contextual-action-panel.component.html',
+    standalone: false
 })
 
 export class ContextualActionPanelComponent {

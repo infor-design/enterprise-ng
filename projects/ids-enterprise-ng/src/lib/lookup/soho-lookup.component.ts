@@ -19,10 +19,11 @@ import {
 } from '../utils';
 
 @Component({
-  selector: 'input[soho-lookup]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideControlValueAccessor(SohoLookupComponent)]
+    selector: 'input[soho-lookup]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideControlValueAccessor(SohoLookupComponent)],
+    standalone: false
 })
 export class SohoLookupComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
   /**

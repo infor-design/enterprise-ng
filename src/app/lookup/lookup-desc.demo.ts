@@ -10,8 +10,9 @@ export interface FakeResponse {
 }
 
 @Component({
-  selector: 'app-lookup-desc',
-  templateUrl: 'lookup-desc.demo.html',
+    selector: 'app-lookup-desc',
+    templateUrl: 'lookup-desc.demo.html',
+    standalone: false
 })
 export class LookupDescDemoComponent implements AfterViewInit {
   @ViewChild(SohoLookupComponent) sohoLookupComponent?: SohoLookupComponent;

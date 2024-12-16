@@ -7,9 +7,10 @@ const matchFn = (value: any, row: any, _field: any, _grid: any) =>
   row.country === value;
 
 @Component({
-  selector: 'app-datagrid-lookup-cell-change-demo',
-  templateUrl: 'datagrid-lookup-cell-change.demo.html',
-  providers: []
+    selector: 'app-datagrid-lookup-cell-change-demo',
+    templateUrl: 'datagrid-lookup-cell-change.demo.html',
+    providers: [],
+    standalone: false
 })
 
 export class DataGridLookupCellChangeDemoComponent implements OnInit {

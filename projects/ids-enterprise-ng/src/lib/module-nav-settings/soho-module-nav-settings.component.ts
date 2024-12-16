@@ -14,10 +14,11 @@ import {
  * This Component attaches to an element annotated with the `soho-module-nav-settings` attribute,
  */
 @Component({
-  selector: 'soho-module-nav-settings, [soho-module-nav-settings]',
-  styleUrls: ['./soho-module-nav-settings.component.css'],
-  templateUrl: 'soho-module-nav-settings.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-module-nav-settings, [soho-module-nav-settings]',
+    styleUrls: ['./soho-module-nav-settings.component.css'],
+    templateUrl: 'soho-module-nav-settings.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoModuleNavSettingsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 

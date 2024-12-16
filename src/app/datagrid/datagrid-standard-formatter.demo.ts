@@ -12,9 +12,10 @@ import {
 } from './datagrid-paging-data';
 
 @Component({
-  selector: 'app-datagrid-standard-formatter-demo',
-  templateUrl: 'datagrid-standard-formatter.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-standard-formatter-demo',
+    templateUrl: 'datagrid-standard-formatter.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridStandardFormatterDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;

@@ -19,10 +19,11 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: '[soho-editor]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideControlValueAccessor(SohoEditorComponent)]
+    selector: '[soho-editor]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideControlValueAccessor(SohoEditorComponent)],
+    standalone: false
 })
 export class SohoEditorComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
 

@@ -11,10 +11,11 @@ import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'app-datagrid-fixed-header-demo',
-  templateUrl: 'datagrid-fixedheader.demo.html',
-  providers: [DataGridPagingIndeterminateDemoService],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-fixed-header-demo',
+    templateUrl: 'datagrid-fixedheader.demo.html',
+    providers: [DataGridPagingIndeterminateDemoService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;

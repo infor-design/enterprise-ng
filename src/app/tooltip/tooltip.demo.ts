@@ -9,8 +9,9 @@ import {
 import { SohoTooltipDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-tooltip-demo',
-  templateUrl: 'tooltip.demo.html',
+    selector: 'app-tooltip-demo',
+    templateUrl: 'tooltip.demo.html',
+    standalone: false
 })
 export class TooltipDemoComponent implements OnInit {
 

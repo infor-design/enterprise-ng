@@ -10,14 +10,15 @@ import { ContentType } from './content-type.model';
 import { ContentTypeService } from './content-type.service';
 
 @Component({
-  selector: 'app-listview-demo',
-  templateUrl: 'listview.demo.html',
-  styles: [`
+    selector: 'app-listview-demo',
+    templateUrl: 'listview.demo.html',
+    styles: [`
     .smaller-width {
       width: calc(100% - 39px);
     }
   `],
-  providers: [ContentTypeService]
+    providers: [ContentTypeService],
+    standalone: false
 })
 export class ListViewDemoComponent implements OnInit {
 

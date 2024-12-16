@@ -23,11 +23,12 @@ import { SohoRadioButtonComponent } from './soho-radiobutton.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <input soho-radiobutton type="radio" id="1" value="1" formControlName="radio" />
     <input soho-radiobutton type="radio" id="2" value="2" formControlName="radio"/>
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoRadioButtonReactiveFormTestComponent {
   public radioButtonValue = '1';

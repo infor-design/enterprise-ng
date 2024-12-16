@@ -28,7 +28,7 @@ describe('Soho Compact Form Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-form-compact class="form-compact-container banner-detail">
+    template: `<div soho-form-compact class="form-compact-container banner-detail">
     <section class="banner">
     </section>
     <section class="detail">
@@ -83,7 +83,8 @@ describe('Soho Compact Form Unit Tests', () => {
       </form>
     </section>
   </div>
-`
+`,
+    standalone: false
 })
 class SohoFormCompactTestComponent {
   @ViewChild(SohoFormCompactComponent) formcompact?: SohoFormCompactComponent;

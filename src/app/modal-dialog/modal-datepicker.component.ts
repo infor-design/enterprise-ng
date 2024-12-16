@@ -6,7 +6,8 @@ import { FormControl, FormGroup } from '@angular/forms';
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl: 'modal-datepicker.component.html'
+    templateUrl: 'modal-datepicker.component.html',
+    standalone: false
 })
 export class ModalDatepickerComponent implements OnInit {
   filtersForm!: FormGroup;

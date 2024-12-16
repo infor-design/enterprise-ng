@@ -9,9 +9,10 @@ import {
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-personalize-color-api-demo',
-  templateUrl: 'personalize-color-api.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-personalize-color-api-demo',
+    templateUrl: 'personalize-color-api.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class PersonalizeColorApiDemoComponent implements OnInit {
 

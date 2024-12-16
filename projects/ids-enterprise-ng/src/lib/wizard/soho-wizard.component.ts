@@ -34,16 +34,17 @@ import { SohoWizardPageComponent } from './soho-wizard-page.component';
  * - extract state machine
  */
 @Component({
-  selector: 'div[soho-wizard]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  styles: [
-    `:host {
+    selector: 'div[soho-wizard]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    styles: [
+        `:host {
         display:        flex;
         flex:           1;
         flex-direction: column;
     }`
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   /**

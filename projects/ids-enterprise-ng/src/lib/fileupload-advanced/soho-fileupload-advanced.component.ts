@@ -11,9 +11,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-fileupload-advanced,div[soho-fileupload-advanced]',
-  templateUrl: 'soho-fileupload-advanced.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'soho-fileupload-advanced,div[soho-fileupload-advanced]',
+    templateUrl: 'soho-fileupload-advanced.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

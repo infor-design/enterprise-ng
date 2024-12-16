@@ -7,9 +7,10 @@ import { SohoSpinboxModule } from './soho-spinbox.module';
 import { SohoSpinboxComponent } from './soho-spinbox.component';
 
 @Component({
-  template: `
+    template: `
     <input soho-spinbox id="id-spin" name="stepped-spinbox" min="-99" max="99" value="0" step="3"/>
-    `
+    `,
+    standalone: false
 })
 
 class SohoSpinboxTestComponent {

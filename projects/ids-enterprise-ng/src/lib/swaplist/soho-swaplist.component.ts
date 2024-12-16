@@ -21,8 +21,8 @@ export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
  * SWAP LIST CARD
  **************************************************************/
 @Component({
-  selector: 'soho-swaplist-card',
-  template: `
+    selector: 'soho-swaplist-card',
+    template: `
       <div [class]="cardClass">
         <div class="card-header">
           <h2 class="card-title">{{title}}</h2>
@@ -39,7 +39,8 @@ export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
           <div class="listview"></div>
         </div>
       </div>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoSwapListCardComponent {
   @HostBinding('class.swaplist') get isSwapList() {
@@ -111,9 +112,10 @@ export class SohoSwapListCardComponent {
  * SWAP LIST
  **************************************************************/
 @Component({
-  selector: 'soho-swaplist',
-  templateUrl: 'soho-swaplist.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-swaplist',
+    templateUrl: 'soho-swaplist.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   /** Used to provide unnamed controls with a unique id. */

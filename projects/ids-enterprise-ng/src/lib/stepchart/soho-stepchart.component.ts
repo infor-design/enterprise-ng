@@ -16,6 +16,7 @@ import {
     selector: '[soho-stepchart]',
     template: '<ng-content></ng-content>',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
     private options: SohoStepChartOptions = {};

@@ -13,16 +13,17 @@ import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
  * - shows basic mask functionality on input elements with an angular template
  */
 @Component({
-  selector: 'app-mask-demo',
-  templateUrl: 'mask.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [
-    `
+    selector: 'app-mask-demo',
+    templateUrl: 'mask.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: [
+        `
       .alignRight {
         text-align: right;
       }
     `
-  ]
+    ],
+    standalone: false
 })
 export class MaskDemoComponent {
   @HostBinding('class.alignRight') @Input() alignRight = false;

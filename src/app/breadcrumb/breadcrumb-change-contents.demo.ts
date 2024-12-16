@@ -7,9 +7,10 @@ import {
 import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-breadcrumb-demo',
-  templateUrl: 'breadcrumb-change-contents.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-breadcrumb-demo',
+    templateUrl: 'breadcrumb-change-contents.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class BreadcrumbChangeContentsDemoComponent {
   private _i = 1;

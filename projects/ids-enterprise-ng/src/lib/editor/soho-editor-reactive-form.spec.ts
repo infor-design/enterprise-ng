@@ -23,7 +23,7 @@ import { SohoEditorComponent } from './soho-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <div class="field">
       <span id="comments-label" class="label">Comments</span>
@@ -32,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>
       </div>
     </div>
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoEditorReactiveFormTestComponent {
   public editorValue = '1';

@@ -12,8 +12,9 @@ import {
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl: 'vetoable-modal-dialog.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    templateUrl: 'vetoable-modal-dialog.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class VetoableModalDialogComponent implements SohoModalDialogVetoableEventGuard<VetoableModalDialogComponent> {
   public allowOpen = true; // SOHO-4892 - causes problems with all dialogs if false!

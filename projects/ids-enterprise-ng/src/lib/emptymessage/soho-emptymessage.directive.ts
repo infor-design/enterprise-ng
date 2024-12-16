@@ -11,8 +11,9 @@ import {
  * Angular Wrapper for the SohoEmptyMessage Control.
  */
 @Directive({
-  selector: '[soho-emptymessage]', // eslint-disable-line
-  exportAs: 'soho-emptymessage'
+    selector: '[soho-emptymessage]', // eslint-disable-line
+    exportAs: 'soho-emptymessage',
+    standalone: false
 })
 export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewInit {
 

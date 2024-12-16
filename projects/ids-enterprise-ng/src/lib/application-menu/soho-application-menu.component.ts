@@ -20,9 +20,10 @@ import {
  * the Soho application menu control.
  */
 @Component({
-  selector: 'nav[soho-application-menu]', // eslint-disable-line
-  templateUrl: 'soho-application-menu.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'nav[soho-application-menu]', // eslint-disable-line
+    templateUrl: 'soho-application-menu.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 

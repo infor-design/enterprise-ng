@@ -3,8 +3,9 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-menu-button-demo',
-  templateUrl: 'menu-button.demo.html',
+    selector: 'app-menu-button-demo',
+    templateUrl: 'menu-button.demo.html',
+    standalone: false
 })
 export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
   @ViewChild('ajax', { static: true })ajaxMenuButton?: SohoMenuButtonComponent;

@@ -16,12 +16,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SohoButtonComponent } from './soho-button.component';
 
 @Component({
-  template: `
+    template: `
   <div>
     <button soho-button="icon" icon="bullet-list" disabled soho-tooltip title="DATAGRID_VIEW">
       <div class="disabled-tooltip" title="DATAGRID_VIEW"></div>
     </button>
-  </div>`
+  </div>`,
+    standalone: false
 })
 class SohoButtonTestComponent {
   @ViewChild(SohoButtonComponent, { static: true }) button?: SohoButtonComponent;

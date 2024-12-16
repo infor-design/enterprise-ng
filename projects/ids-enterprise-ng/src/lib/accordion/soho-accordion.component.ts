@@ -30,10 +30,11 @@ import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
  * category or section header, and the second level provides the associated options.
  */
 @Component({
-  selector: 'soho-accordion, [soho-accordion]',
-  styleUrls: ['./soho-accordion.component.css'],
-  templateUrl: 'soho-accordion.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-accordion, [soho-accordion]',
+    styleUrls: ['./soho-accordion.component.css'],
+    templateUrl: 'soho-accordion.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 

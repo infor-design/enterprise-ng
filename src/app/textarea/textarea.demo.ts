@@ -3,9 +3,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoTextAreaComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-textarea-demo',
-  templateUrl: 'textarea.demo.html',
-  styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
+    selector: 'app-textarea-demo',
+    templateUrl: 'textarea.demo.html',
+    styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
+    ,
+    standalone: false
 })
 export class TextareaDemoComponent implements OnInit {
 

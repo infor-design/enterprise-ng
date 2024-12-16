@@ -7,8 +7,9 @@ import {
 import { SohoLineComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-line-demo',
-  templateUrl: 'bubble.demo.html',
+    selector: 'app-line-demo',
+    templateUrl: 'bubble.demo.html',
+    standalone: false
 })
 export class BubbleDemoComponent implements OnInit {
 

@@ -11,7 +11,8 @@ import {
  * Angular Directive for keeping a homepage elements height correctly up to date.
  */
 @Directive({
-  selector: '[soho-homepage-sizer]', // eslint-disable-line
+    selector: '[soho-homepage-sizer]',
+    standalone: false
 })
 export class SohoHomepageSizerDirective implements AfterViewInit, OnDestroy {
   @HostBinding('style.height.px') get heightStyle() {

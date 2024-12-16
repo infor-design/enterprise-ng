@@ -22,8 +22,9 @@ export const SUMMARY_COLUMNS: SohoDataGridColumn[] = [
 ];
 
 @Component({
-  selector: 'app-soho-datagrid-summary-row',
-  templateUrl: 'datagrid-summary-row.demo.html'
+    selector: 'app-soho-datagrid-summary-row',
+    templateUrl: 'datagrid-summary-row.demo.html',
+    standalone: false
 })
 export class DataGridSummaryRowDemoComponent implements OnInit {
   gridOptions?: SohoDataGridOptions = undefined;

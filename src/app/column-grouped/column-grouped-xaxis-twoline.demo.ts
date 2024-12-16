@@ -4,8 +4,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-column-demo',
-  templateUrl: 'column-grouped-xaxis-twoline.demo.html',
+    selector: 'app-column-demo',
+    templateUrl: 'column-grouped-xaxis-twoline.demo.html',
+    standalone: false
 })
 export class ColumnGroupedXaxisTwolineDemoComponent implements OnInit {
 

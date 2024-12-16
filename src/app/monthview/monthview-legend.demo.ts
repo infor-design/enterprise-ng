@@ -10,9 +10,10 @@ import { SohoMonthViewComponent } from 'ids-enterprise-ng';
 import { BehaviorSubject, delay, Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-monthview-legend-demo',
-  templateUrl: 'monthview-legend.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-monthview-legend-demo',
+    templateUrl: 'monthview-legend.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class MonthViewLegendDemoComponent {
   @ViewChild(SohoMonthViewComponent) sohoMonthViewComponent?: SohoMonthViewComponent;

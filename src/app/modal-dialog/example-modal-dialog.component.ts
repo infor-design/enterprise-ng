@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl: 'example-modal-dialog.component.html'
+    templateUrl: 'example-modal-dialog.component.html',
+    standalone: false
 })
 export class ExampleModalDialogComponent {
   public allowClose = true;

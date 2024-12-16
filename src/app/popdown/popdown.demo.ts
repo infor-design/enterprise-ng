@@ -8,8 +8,9 @@ import {
 } from '../lookup/mock.data';
 
 @Component({
-  selector: 'app-popdown-demo',
-  templateUrl: 'popdown.demo.html',
+    selector: 'app-popdown-demo',
+    templateUrl: 'popdown.demo.html',
+    standalone: false
 })
 export class PopDownDemoComponent {
   @ViewChild('statesPopDown', { read: SohoPopDownDirective, static: true }) public statesPopDown?: SohoPopDownDirective;

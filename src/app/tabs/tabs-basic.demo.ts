@@ -6,8 +6,9 @@ import { SohoTabsComponent, SohoToastService } from 'ids-enterprise-ng';
  * - Shows how to make a simple tab component with an angular template.
  */
 @Component({
-  selector: 'app-tabs-basic-demo',
-  templateUrl: 'tabs-basic.demo.html',
+    selector: 'app-tabs-basic-demo',
+    templateUrl: 'tabs-basic.demo.html',
+    standalone: false
 })
 export class TabsBasicDemoComponent implements AfterViewInit {
   @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;

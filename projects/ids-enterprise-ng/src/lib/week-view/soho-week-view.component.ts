@@ -17,9 +17,10 @@ import {
  * Weekview component
  *******************************************************************/
 @Component({
-  selector: 'div[soho-week-view]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'div[soho-week-view]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   @HostBinding('class.week-view') isWeekView = true;

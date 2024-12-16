@@ -1,13 +1,14 @@
 import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-  selector: 'soho-masthead',
-  templateUrl: 'soho-masthead.component.html',
-  styles: [`
+    selector: 'soho-masthead',
+    templateUrl: 'soho-masthead.component.html',
+    styles: [`
     :host {
       display: block;
     }
-  `]
+  `],
+    standalone: false
 })
 export class SohoMastheadComponent {
   @HostBinding('class') get classes() {

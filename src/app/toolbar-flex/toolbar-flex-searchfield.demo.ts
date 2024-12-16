@@ -36,8 +36,9 @@ const collapseSizeOptions = [
 ];
 
 @Component({
-  selector: 'app-toolbar-flex-searchfield-demo',
-  templateUrl: 'toolbar-flex-searchfield.demo.html'
+    selector: 'app-toolbar-flex-searchfield-demo',
+    templateUrl: 'toolbar-flex-searchfield.demo.html',
+    standalone: false
 })
 export class ToolbarFlexSearchfieldDemoComponent {
   @ViewChild(SohoToolbarFlexSearchFieldComponent) toolbarFlexSearchField!: SohoToolbarFlexSearchFieldComponent;

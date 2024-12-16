@@ -8,7 +8,7 @@ import { SohoMenuButtonModule } from '../menu-button';
 import { TestHelper } from '../utils';
 
 @Component({
-  template: `<soho-toolbar-flex
+    template: `<soho-toolbar-flex
     title="Toolbar With Ajax 'More Actions' Menu"
     [moreMenuBeforeOpenFunction]="onBeforeMoreMenuOpen"
     (selected)="onSelected($event)">
@@ -60,7 +60,8 @@ import { TestHelper } from '../utils';
         <li>Placeholder</li>
       </ul>
     </soho-toolbar-flex-more-button>
-  </soho-toolbar-flex>`
+  </soho-toolbar-flex>`,
+    standalone: false
 })
 class SohoToolbarFlexTestComponent {
   @ViewChild(SohoToolbarFlexComponent) toolbarFlex?: SohoToolbarFlexComponent;

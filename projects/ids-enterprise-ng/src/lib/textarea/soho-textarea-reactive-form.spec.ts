@@ -24,10 +24,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <textarea soho-textarea maxlength="90" name="textarea" formControlName="textarea"></textarea>
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoTextAreaReactiveFormTestComponent {
   public value = '1';

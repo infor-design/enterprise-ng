@@ -4,8 +4,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-stepprocessvetoable-demo',
-  templateUrl: 'stepprocessvetoable.demo.html'
+    selector: 'app-stepprocessvetoable-demo',
+    templateUrl: 'stepprocessvetoable.demo.html',
+    standalone: false
 })
 export class StepProcessVetoableDemoComponent {
 

@@ -20,9 +20,10 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'input[soho-colorpicker]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'input[soho-colorpicker]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 

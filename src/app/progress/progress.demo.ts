@@ -1,8 +1,9 @@
 import {Component } from '@angular/core';
 
 @Component({
-  selector: 'app-progress-demo',
-  templateUrl: 'progress.demo.html'
+    selector: 'app-progress-demo',
+    templateUrl: 'progress.demo.html',
+    standalone: false
 })
 
 export class ProgressDemoComponent {

@@ -22,10 +22,11 @@ import { SohoInputComponent } from './soho-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <input soho-input formControlName="input">
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoInputReactiveFormTestComponent {
   @ViewChild(SohoInputComponent, { static: true }) dropdown?: SohoInputComponent;

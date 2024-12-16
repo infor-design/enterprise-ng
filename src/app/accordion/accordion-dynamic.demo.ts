@@ -9,8 +9,9 @@ import {
 import { SohoAccordionHeaderComponent, SohoAccordionComponent, SohoAccordionPaneComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'accordion-dynamic-demo', // eslint-disable-line
-  templateUrl: 'accordion-dynamic.demo.html',
+    selector: 'accordion-dynamic-demo', // eslint-disable-line
+    templateUrl: 'accordion-dynamic.demo.html',
+    standalone: false
 })
 export class AccordionDynamicDemoComponent {
 

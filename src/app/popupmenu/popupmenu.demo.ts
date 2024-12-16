@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoPopupMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-popupmenu-demo',
-  templateUrl: 'popupmenu.demo.html',
+    selector: 'app-popupmenu-demo',
+    templateUrl: 'popupmenu.demo.html',
+    standalone: false
 })
 export class PopupMenuDemoComponent implements OnInit {
 

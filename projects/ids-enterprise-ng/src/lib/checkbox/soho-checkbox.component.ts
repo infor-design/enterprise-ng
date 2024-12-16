@@ -18,9 +18,10 @@ import {
  * to and from any ng model instances.
  */
 @Component({
-  selector: '[soho-checkbox]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-checkbox]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
 

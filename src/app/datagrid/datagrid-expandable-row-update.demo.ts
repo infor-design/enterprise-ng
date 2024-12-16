@@ -14,9 +14,10 @@ import {
 } from './datagrid-paging-data';
 
 @Component({
-  selector: 'app-datagrid-expandable-row-update-demo',
-  templateUrl: 'datagrid-expandable-row-update.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-datagrid-expandable-row-update-demo',
+    templateUrl: 'datagrid-expandable-row-update.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridExpandableRowUpdateDemoComponent implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;

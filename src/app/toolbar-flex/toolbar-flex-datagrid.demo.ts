@@ -4,10 +4,11 @@ import { DataGridDemoService } from '../datagrid/datagrid-demo.service';
 import { SohoDataGridService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-toolbar-flex-datagrid-demo',
-  templateUrl: 'toolbar-flex-datagrid.demo.html',
-  providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-toolbar-flex-datagrid-demo',
+    templateUrl: 'toolbar-flex-datagrid.demo.html',
+    providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ToolbarFlexDatagridDemoComponent {
   onSelected(event: any) {

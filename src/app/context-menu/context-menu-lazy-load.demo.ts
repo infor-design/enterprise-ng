@@ -7,10 +7,10 @@ import {
 import { SohoContextMenuDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-content-menu-lazy-load-demo',
-  templateUrl: 'context-menu-lazy-load.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [`.context-menu-button {
+    selector: 'app-content-menu-lazy-load-demo',
+    templateUrl: 'context-menu-lazy-load.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styles: [`.context-menu-button {
     transform: rotate(90deg);
     border-radius: 1px;
     height: 18px;
@@ -20,7 +20,8 @@ import { SohoContextMenuDirective } from 'ids-enterprise-ng';
     border: 0;
     margin-left: -9px;
     margin-top: 8px;
-  }`]
+  }`],
+    standalone: false
 })
 export class ContextMenuLazyLoadDemoComponent implements OnInit, AfterViewInit {
 

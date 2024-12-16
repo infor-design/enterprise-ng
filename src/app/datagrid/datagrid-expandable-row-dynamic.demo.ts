@@ -14,7 +14,7 @@ const customErrorFormatter = function (row: any, cell: any, value: any, col: any
 };
 
 @Component({
-  template: `
+    template: `
     <div>
       <h1>id : {{ id }}</h1>
     </div>
@@ -23,6 +23,7 @@ const customErrorFormatter = function (row: any, cell: any, value: any, col: any
       <p>{{ args.item | json }}</p>
     </div>
   `,
+    standalone: false
 })
 export class ExpandedDemoComponent implements OnDestroy {
   data?: any[];
@@ -44,9 +45,10 @@ export class ExpandedDemoComponent implements OnDestroy {
 }
 
 @Component({
-  selector: 'app-datagrid-expandable-row-dynamic-demo',
-  templateUrl: 'datagrid-expandable-row-dynamic.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-datagrid-expandable-row-dynamic-demo',
+    templateUrl: 'datagrid-expandable-row-dynamic.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class DataGridExpandableRowDynamicDemoComponent
   implements AfterViewChecked, OnInit {

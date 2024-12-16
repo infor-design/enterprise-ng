@@ -3,8 +3,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-cards-workspace-widgets-demo',
-  templateUrl: 'cards-workspace-widgets.demo.html',
+    selector: 'app-cards-workspace-widgets-demo',
+    templateUrl: 'cards-workspace-widgets.demo.html',
+    standalone: false
 })
 export class CardsWorkspaceWidgetsComponent {
   public demoTasks: Object[];

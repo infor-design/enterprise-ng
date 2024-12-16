@@ -13,9 +13,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'input[soho-fileupload]',  // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'input[soho-fileupload]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.fileupload') get isFileUpload() {

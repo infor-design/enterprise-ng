@@ -17,10 +17,11 @@ import {
  * This Component attaches to an element annotated with the `soho-module-nav-switcher` attribute,
  */
 @Component({
-  selector: 'soho-module-nav-switcher, [soho-module-nav-switcher]',
-  styleUrls: ['./soho-module-nav-switcher.component.css'],
-  templateUrl: 'soho-module-nav-switcher.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-module-nav-switcher, [soho-module-nav-switcher]',
+    styleUrls: ['./soho-module-nav-switcher.component.css'],
+    templateUrl: 'soho-module-nav-switcher.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoModuleNavSwitcherComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 

@@ -7,9 +7,10 @@ import {
 import { ToolbarDataDrivenDemoService } from './toolbar-datadriven-demo.service';
 
 @Component({
-  selector: 'app-toolbar-datadriven-demo',
-  templateUrl: 'toolbar-datadriven.demo.html',
-  providers: [ToolbarDataDrivenDemoService]
+    selector: 'app-toolbar-datadriven-demo',
+    templateUrl: 'toolbar-datadriven.demo.html',
+    providers: [ToolbarDataDrivenDemoService],
+    standalone: false
 })
 export class ToolbarDataDrivenDemoComponent implements OnInit {
 

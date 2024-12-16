@@ -8,8 +8,9 @@ import { SohoNotificationBadgeComponent } from 'ids-enterprise-ng';
     templateUrl: 'notification-badge-show-hide.demo.html',
     styles: [`
     .container-spacer {flex-grow: 1}
-    `]
-  })
+    `],
+    standalone: false
+})
   export class NotificationBadgeShowHideDemoComponent implements OnInit {
     @ViewChild(SohoNotificationBadgeComponent) notificationBadge?: SohoNotificationBadgeComponent;
     public disabledButton = false;

@@ -5,7 +5,8 @@ import { CODE_BLOCK_DATA } from '../demodata/code-block-data';
 @Component({
     selector: 'app-datagrid-vertical-scroll-to-end-list',
     templateUrl: 'datagrid-vertical-scroll-to-end-list.demo.html',
-    styleUrls: ['../code-block/code-block.formatter.css']
+    styleUrls: ['../code-block/code-block.formatter.css'],
+    standalone: false
 })
 export class DataGridVerticalScrollListDemoComponent implements OnInit {
     @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;

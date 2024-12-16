@@ -15,7 +15,7 @@ import {
 import { SohoSwipeActionComponent } from './soho-swipe-action.component';
 
 @Component({
-  template: `
+    template: `
   <div class="row top-padding">
   <div class="six columns">
     <span class="label">Swipe Action</span>
@@ -58,7 +58,8 @@ import { SohoSwipeActionComponent } from './soho-swipe-action.component';
     </ul>
   </div>
 </div>
-  `
+  `,
+    standalone: false
 })
 class SohoSwipeActionTestComponent {
   @ViewChild(SohoSwipeActionComponent) swipeaction?: SohoSwipeActionComponent;

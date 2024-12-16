@@ -104,7 +104,7 @@ describe('Soho Week view Unit Tests', () => {
 });
 
 @Component({
-  template: `
+    template: `
       <div soho-week-view
            [events]="events"
            [eventTypes]="eventTypes"
@@ -113,7 +113,8 @@ describe('Soho Week view Unit Tests', () => {
            [locale]="locale"
       >
       </div>
-  `
+  `,
+    standalone: false
 })
 class SohoWeekViewTestComponent {
   @ViewChild(SohoWeekViewComponent)

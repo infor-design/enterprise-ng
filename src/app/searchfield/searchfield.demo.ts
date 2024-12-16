@@ -13,8 +13,9 @@ import {
 import { SohoSearchFieldComponent, SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-searchfield-demo',
-  templateUrl: 'searchfield.demo.html'
+    selector: 'app-searchfield-demo',
+    templateUrl: 'searchfield.demo.html',
+    standalone: false
 })
 export class SearchFieldDemoComponent implements OnInit {
   @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield!: SohoSearchFieldComponent;

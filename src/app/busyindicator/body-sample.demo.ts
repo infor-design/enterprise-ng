@@ -7,8 +7,9 @@ import {
 import { SohoBusyIndicatorDirective, SohoBusyIndicatorEvent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-busyindicator-demo',
-  templateUrl: 'body-sample.demo.html'
+    selector: 'app-busyindicator-demo',
+    templateUrl: 'body-sample.demo.html',
+    standalone: false
 })
 export class BusyIndicatorDemoBodyComponent implements OnInit {
 

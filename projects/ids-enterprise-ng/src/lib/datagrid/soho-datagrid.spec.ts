@@ -490,7 +490,7 @@ describe('Soho DataGrid Unit Tests', () => {
 });
 
 @Component({
-  template: `
+    template: `
     <div
       soho-datagrid
       [columns]="columns"
@@ -498,7 +498,8 @@ describe('Soho DataGrid Unit Tests', () => {
       selectable="multiple"
       filterable="true"
     ></div>
-  `
+  `,
+    standalone: false
 })
 class SohoDataGridTestComponent {
   @ViewChild(SohoDataGridComponent)

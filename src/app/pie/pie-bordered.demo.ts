@@ -26,8 +26,9 @@ export const donutData = [
   }
 ];
 @Component({
-  selector: 'app-pie-bordered-demo',
-  templateUrl: 'pie-bordered.demo.html',
+    selector: 'app-pie-bordered-demo',
+    templateUrl: 'pie-bordered.demo.html',
+    standalone: false
 })
 export class PieBorderedDemoComponent implements OnInit {
 

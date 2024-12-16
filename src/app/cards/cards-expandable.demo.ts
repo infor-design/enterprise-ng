@@ -4,10 +4,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-cards-expandable-demo',
-  templateUrl: 'cards-expandable.demo.html',
-  styleUrls: ['cards-expandable.demo.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-cards-expandable-demo',
+    templateUrl: 'cards-expandable.demo.html',
+    styleUrls: ['cards-expandable.demo.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class CardsExpandableDemoComponent {
 

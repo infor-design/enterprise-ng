@@ -34,7 +34,8 @@ describe('TagComponent', () => {
 });
 
 @Component({
-  template: `<span soho-tag="secondary">tag</span>`
+    template: `<span soho-tag="secondary">tag</span>`,
+    standalone: false
 })
 class SohoTagTestComponent {
   @ViewChild(SohoTagComponent) tag?: SohoTagComponent;

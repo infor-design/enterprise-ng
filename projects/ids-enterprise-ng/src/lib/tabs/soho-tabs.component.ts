@@ -21,9 +21,10 @@ import {
  * Internal component to support the tab title
  */
 @Component({
-  selector: 'a[soho-tab-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'a[soho-tab-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabTitleComponent {
   @HostBinding('attr.href') get hrefAttr() {
@@ -36,9 +37,10 @@ export class SohoTabTitleComponent {
  * Internal component to support the tab with a 'count' on it.
  */
 @Component({
-  selector: 'span[soho-tab-count]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'span[soho-tab-count]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabCountComponent {
   // @ts-ignore
@@ -54,9 +56,10 @@ export class SohoTabCountComponent {
  * Internal component to support a divider between tab items
  */
 @Component({
-  selector: 'li[soho-tab-separator]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'li[soho-tab-separator]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabSeparatorComponent {
   constructor(_element: ElementRef) { // @ts-ignore
@@ -71,9 +74,10 @@ export class SohoTabSeparatorComponent {
  * Internal component to support tab panel container content.
  */
 @Component({
-  selector: 'div[soho-tab-panel-container]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'div[soho-tab-panel-container]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabPanelContainerComponent {
   constructor(private element: ElementRef) {
@@ -90,9 +94,10 @@ export class SohoTabPanelContainerComponent {
  * Internal component to support tab panel content.
  */
 @Component({
-  selector: 'div[soho-tab-panel]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'div[soho-tab-panel]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabPanelComponent {
   constructor(_element: ElementRef) {
@@ -110,9 +115,10 @@ export class SohoTabPanelComponent {
  * Internal component to support the tab list items
  */
 @Component({
-  selector: 'li[soho-tab]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'li[soho-tab]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabComponent {
   constructor(_element: ElementRef) {
@@ -133,9 +139,10 @@ export class SohoTabComponent {
  * Main tabset header component
  */
 @Component({
-  selector: 'ul[soho-tab-list]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'ul[soho-tab-list]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabListComponent {
   constructor(_element: ElementRef) {
@@ -150,9 +157,10 @@ export class SohoTabListComponent {
  * Main tabset header component
  */
 @Component({
-  selector: 'div[soho-tab-list-container]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'div[soho-tab-list-container]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabListContainerComponent {
   constructor(_element: ElementRef) {
@@ -169,9 +177,10 @@ export class SohoTabListContainerComponent {
  * The main soho-tabs component
  */
 @Component({
-  selector: 'div[soho-tabs]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'div[soho-tabs]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.vertical') get isVertical() {

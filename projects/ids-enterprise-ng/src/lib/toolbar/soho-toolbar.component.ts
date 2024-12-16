@@ -18,8 +18,9 @@ import {
  * element structure change.
  */
 @Component({
-  selector: 'span[soho-toolbar-searchfield-wrapper]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'span[soho-toolbar-searchfield-wrapper]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoToolbarSearchFieldWrapperComponent {
   @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() {
@@ -31,10 +32,10 @@ export class SohoToolbarSearchFieldWrapperComponent {
 }
 
 @Component({
-  selector: 'input[soho-toolbar-searchfield]', // eslint-disable-line
-  template: '<div #toolbarSearchField><ng-content></ng-content></div>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-
+    selector: 'input[soho-toolbar-searchfield]', // eslint-disable-line
+    template: '<div #toolbarSearchField><ng-content></ng-content></div>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   /** Options. */
@@ -170,8 +171,8 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
  * soho toolbar more button
  */
 @Component({
-  selector: 'soho-toolbar-more-button',
-  template: `
+    selector: 'soho-toolbar-more-button',
+    template: `
               <button class="btn-actions" type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
                 <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                   <use href="#icon-more"></use>
@@ -186,7 +187,8 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
 
               <ng-content></ng-content>
             `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarMoreButtonComponent {
   @HostBinding('class.more') get isMoreButton() {
@@ -200,9 +202,10 @@ export class SohoToolbarMoreButtonComponent {
  * soho toolbar page title.
  */
 @Component({
-  selector: 'span[soho-page-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'span[soho-page-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoPageTitleComponent {
   @HostBinding('class.page-title') get isPageTitle() {
@@ -214,9 +217,10 @@ export class SohoPageTitleComponent {
  * soho section title.
  */
 @Component({
-  selector: 'span[soho-section-title]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'span[soho-section-title]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoSectionTitleComponent {
   @HostBinding('class.section-title') get isSectionTitle() {
@@ -228,9 +232,10 @@ export class SohoSectionTitleComponent {
  * soho selection count.
  */
 @Component({
-  selector: 'div[soho-selection-count]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'div[soho-selection-count]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoSelectionCountComponent {
   @HostBinding('class.title') get isTitle() {
@@ -245,8 +250,8 @@ export class SohoSelectionCountComponent {
  * Soho toolbar Navigation button
  */
 @Component({
-  selector: 'button[soho-nav-button]', // eslint-disable-line
-  template: `
+    selector: 'button[soho-nav-button]', // eslint-disable-line
+    template: `
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
           <use href="#icon-menu"></use>
         </svg>
@@ -254,7 +259,8 @@ export class SohoSelectionCountComponent {
         <ng-content></ng-content>
       </span>
             `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarNavButtonComponent {
   // This HostBinding needs to go first to maintain correct styling
@@ -273,10 +279,11 @@ export class SohoToolbarNavButtonComponent {
  * Soho toolbar title
  */
 @Component({
-  selector: 'soho-toolbar-title',
-  template: `<ng-content></ng-content>`,
-  styles: [`:host { display:inline-block }`],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'soho-toolbar-title',
+    template: `<ng-content></ng-content>`,
+    styles: [`:host { display:inline-block }`],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarTitleComponent {
   @HostBinding('class.title') get isTitle() {
@@ -288,10 +295,11 @@ export class SohoToolbarTitleComponent {
  * Soho toolbar buttonset
  */
 @Component({
-  selector: 'soho-toolbar-button-set',
-  template: `<ng-content></ng-content>`,
-  styles: [`:host{ display:inline-block }`],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'soho-toolbar-button-set',
+    template: `<ng-content></ng-content>`,
+    styles: [`:host{ display:inline-block }`],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarButtonSetComponent {
   @HostBinding('class.buttonset') get isButtonSet() {
@@ -303,9 +311,10 @@ export class SohoToolbarButtonSetComponent {
  * The main soho toolbar component
  */
 @Component({
-  selector: 'soho-toolbar, div[soho-toolbar]',
-  templateUrl: 'soho-toolbar.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'soho-toolbar, div[soho-toolbar]',
+    templateUrl: 'soho-toolbar.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() {

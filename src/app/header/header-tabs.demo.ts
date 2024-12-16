@@ -8,8 +8,9 @@ import { HeaderDynamicTabsetOptions } from '../header/header-dynamic-demo.model'
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'app-tabs-header-demo',
-  templateUrl: 'header-tabs.demo.html'
+    selector: 'app-tabs-header-demo',
+    templateUrl: 'header-tabs.demo.html',
+    standalone: false
 })
 export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   public currentTabsOptions?: HeaderDynamicTabsetOptions = undefined;

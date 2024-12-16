@@ -10,7 +10,9 @@ import {
  * 'data-validate' or 'data-validate-on="submit"'.
  */
 @Directive({
-  selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate], select[data-validate]' // eslint-disable-line
+    selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate], select[data-validate]' // eslint-disable-line
+    ,
+    standalone: false
 })
 export class SohoInputValidateDirective implements AfterViewInit, OnDestroy {
 

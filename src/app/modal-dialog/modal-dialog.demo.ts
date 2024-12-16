@@ -16,8 +16,9 @@ import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component'
 import { ModalDialogPickerComponent } from './modal-dialog-picker.component';
 
 @Component({
-  selector: 'app-modal-dialog-demo',
-  templateUrl: 'modal-dialog.demo.html'
+    selector: 'app-modal-dialog-demo',
+    templateUrl: 'modal-dialog.demo.html',
+    standalone: false
 })
 export class ModalDialogDemoComponent {
   /**

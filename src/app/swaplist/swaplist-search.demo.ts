@@ -9,8 +9,9 @@ import { SohoSwapListComponent } from 'ids-enterprise-ng';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'app-swaplist-search-demo',
-  templateUrl: 'swaplist-search.demo.html'
+    selector: 'app-swaplist-search-demo',
+    templateUrl: 'swaplist-search.demo.html',
+    standalone: false
 })
 export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
   @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;

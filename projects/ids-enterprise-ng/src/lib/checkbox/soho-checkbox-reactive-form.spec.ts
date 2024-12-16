@@ -23,10 +23,11 @@ import { SohoCheckBoxComponent } from './soho-checkbox.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
   <input soho-checkbox type="checkbox" formControlName="checkbox" >
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoCheckBoxReactiveFormTestComponent {
   public value = true;

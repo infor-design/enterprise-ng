@@ -3,8 +3,9 @@ import { Component, ViewChild } from '@angular/core';
 import { SohoSpinboxComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-spinbox-demo',
-  templateUrl: 'spinbox.demo.html'
+    selector: 'app-spinbox-demo',
+    templateUrl: 'spinbox.demo.html',
+    standalone: false
 })
 
 export class SpinboxDemoComponent {

@@ -8,7 +8,8 @@ import {
 } from './datagrid-paging-data';
 
 @Component({
-  template: '<button soho-button="icon" icon="settings" (click)="onClick($event)">Cell: {{args.cell}}, Row: {{args?.row}}</button>'
+    template: '<button soho-button="icon" icon="settings" (click)="onClick($event)">Cell: {{args.cell}}, Row: {{args?.row}}</button>',
+    standalone: false
 })
 export class ButtonCellFormatterComponent implements OnDestroy {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
@@ -24,15 +25,17 @@ export class ButtonCellFormatterComponent implements OnDestroy {
 }
 
 @Component({
-  template: '<p>{{args?.value?.price}}</p>'
+    template: '<p>{{args?.value?.price}}</p>',
+    standalone: false
 })
 export class PriceCellFormatterComponent {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) { }
 }
 
 @Component({
-  selector: 'app-datagrid-angular-formatter-demo',
-  templateUrl: 'datagrid-angular-formatter.demo.html'
+    selector: 'app-datagrid-angular-formatter-demo',
+    templateUrl: 'datagrid-angular-formatter.demo.html',
+    standalone: false
 })
 export class DataGridAngularFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [

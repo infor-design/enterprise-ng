@@ -15,9 +15,10 @@ import { MOCK_STATES } from '../dropdown/dropdown-mock.data';
 import { productsColumns, productsData } from '../lookup/mock.data';
 
 @Component({
-  selector: 'app-reactive-form-demo',
-  templateUrl: 'form-reactive-form.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-reactive-form-demo',
+    templateUrl: 'form-reactive-form.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class FormReactiveFormDemoComponent implements AfterViewInit {
 

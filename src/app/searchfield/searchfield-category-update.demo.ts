@@ -7,8 +7,9 @@ import {
 import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-searchfield-category-update-demo',
-  templateUrl: 'searchfield-category-update.demo.html'
+    selector: 'app-searchfield-category-update-demo',
+    templateUrl: 'searchfield-category-update.demo.html',
+    standalone: false
 })
 export class SearchFieldCategoryUpdateDemoComponent  {
   @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield!: SohoSearchFieldComponent;

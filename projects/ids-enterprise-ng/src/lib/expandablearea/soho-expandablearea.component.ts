@@ -23,13 +23,14 @@ import { Observable } from 'rxjs';
  * Helper Component for the ExpandableAreaComponent
  */
 @Component({
-  selector: 'soho-expandable-header',
-  template: `
+    selector: 'soho-expandable-header',
+    template: `
     <span class="title">
       <ng-content></ng-content>
     </span>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ExpandableHeaderComponent { }
 
@@ -37,11 +38,12 @@ export class ExpandableHeaderComponent { }
  * Helper Component for the ExpandableAreaComponent
  */
 @Component({
-  selector: 'soho-expandable-pane',
-  template: `
+    selector: 'soho-expandable-pane',
+    template: `
     <ng-content></ng-content>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ExpandablePaneComponent {
   @HostBinding('attr.fixed')
@@ -52,19 +54,21 @@ export class ExpandablePaneComponent {
  * Helper Component for the ExpandableAreaComponent
  */
 @Component({
-  selector: 'soho-expandable-footer',
-  template: `
+    selector: 'soho-expandable-footer',
+    template: `
     <ng-content></ng-content>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ExpandableFooterComponent { }
 
 @Component({
-  selector: 'soho-expandable-area',
-  templateUrl: 'soho-expandablearea.component.html',
-  styles: [``],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'soho-expandable-area',
+    templateUrl: 'soho-expandablearea.component.html',
+    styles: [``],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Input('soho-expandable-area') id: string | undefined; // eslint-disable-line

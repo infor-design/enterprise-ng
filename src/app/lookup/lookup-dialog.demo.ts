@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 import { SohoDataGridSelectedEvent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-lookup-dialog',
-  templateUrl: './lookup-dialog.demo.html'
+    selector: 'app-lookup-dialog',
+    templateUrl: './lookup-dialog.demo.html',
+    standalone: false
 })
 export class LookupDialogDemoComponent {
 

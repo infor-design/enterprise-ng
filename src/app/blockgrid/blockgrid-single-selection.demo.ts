@@ -8,9 +8,10 @@ import {
 } from './blockgrid-demo-data';
 
 @Component({
-  selector: 'app-blockgrid-single-selection-demo',
-  templateUrl: 'blockgrid-single-selection.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-blockgrid-single-selection-demo',
+    templateUrl: 'blockgrid-single-selection.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class BlockGridSingleSelectionDemoComponent {
 

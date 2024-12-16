@@ -8,9 +8,10 @@ import {
 import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-menu-test-performance-demo',
-  templateUrl: 'application-menu-test-performance.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-menu-test-performance-demo',
+    templateUrl: 'application-menu-test-performance.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ApplicationMenuTestPerfDemoComponent implements AfterViewChecked {
 

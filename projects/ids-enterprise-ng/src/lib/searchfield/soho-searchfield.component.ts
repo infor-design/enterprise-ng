@@ -11,8 +11,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-searchfield-wrapper]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: '[soho-searchfield-wrapper]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoSearchFieldWrapperComponent {
   @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() {
@@ -21,8 +22,9 @@ export class SohoSearchFieldWrapperComponent {
 }
 
 @Component({
-  selector: 'input[soho-searchfield]', // eslint-disable-line
-  template: '<ng-content></ng-content>'
+    selector: 'input[soho-searchfield]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    standalone: false
 })
 export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   /** Options. */

@@ -14,9 +14,10 @@ import {
  * Soho Breadcrumb Component
  */
 @Component({
-  selector: '[soho-breadcrumb]', // eslint-disable-line
-  templateUrl: 'soho-breadcrumb.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-breadcrumb]', // eslint-disable-line
+    templateUrl: 'soho-breadcrumb.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit {
 
@@ -248,9 +249,10 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 }
 
 @Component({
-  selector: '[soho-breadcrumb-list]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-breadcrumb-list]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoBreadcrumbListComponent {
   @HostBinding('class.breadcrumb-list') isBreadcrumbList = true;

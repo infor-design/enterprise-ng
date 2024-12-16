@@ -9,9 +9,10 @@ import {
 import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-context-menu-toggle-demo',
-  templateUrl: 'context-menu-toggle.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-context-menu-toggle-demo',
+    templateUrl: 'context-menu-toggle.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ContextMenuToggleDemoComponent implements OnInit {
   @ViewChild(SohoTextAreaComponent, { static: true }) textarea?: SohoTextAreaComponent;

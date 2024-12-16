@@ -4,8 +4,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-expandablearea-footer-hyperlink-demo',
-  templateUrl: 'expandablearea-footer-hyperlink.demo.html'
+    selector: 'app-expandablearea-footer-hyperlink-demo',
+    templateUrl: 'expandablearea-footer-hyperlink.demo.html',
+    standalone: false
 })
 export class ExpandableAreaFooterHyperlinkDemoComponent implements OnInit {
 

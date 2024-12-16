@@ -9,8 +9,9 @@ import {
  * - binding a method to a soho event
  */
 @Component({
-  selector: 'app-tabs-datadriven-demo',
-  templateUrl: 'tabs-datadriven.demo.html',
+    selector: 'app-tabs-datadriven-demo',
+    templateUrl: 'tabs-datadriven.demo.html',
+    standalone: false
 })
 export class TabsDataDrivenDemoComponent implements OnInit {
 

@@ -23,10 +23,11 @@ import { SohoAutoCompleteComponent } from './soho-autocomplete.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
   <input soho-autocomplete type="text" [source]="autocompleteUrl" formControlName="autocomplete">
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoAutoCompleteReactiveFormTestComponent {
   public value = 'ND';

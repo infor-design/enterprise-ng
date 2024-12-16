@@ -6,8 +6,9 @@ import { SohoDataGridComponent } from 'ids-enterprise-ng';
  * - Shows how to make a tab component with the tabs on the left side.
  */
 @Component({
-  selector: 'div[vertical-tabs-demo]', // eslint-disable-line
-  templateUrl: 'tabs-vertical.demo.html'
+    selector: 'div[vertical-tabs-demo]', // eslint-disable-line
+    templateUrl: 'tabs-vertical.demo.html',
+    standalone: false
 })
 export class TabsVerticalDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent)

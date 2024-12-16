@@ -23,10 +23,11 @@ import { SohoDatePickerComponent } from './soho-datepicker.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <input soho-datepicker name="datepicker" formControlName="datepicker" />
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoDatePickerReactiveFormTestComponent {
   public datepickerValue = '';

@@ -8,9 +8,10 @@ import { CalendarDemoService } from './calendar.demo.service';
 import { SohoCalendarComponent, SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-calendar-demo',
-  templateUrl: 'calendar-range.demo.html',
-  providers: [CalendarDemoService]
+    selector: 'app-calendar-demo',
+    templateUrl: 'calendar-range.demo.html',
+    providers: [CalendarDemoService],
+    standalone: false
 })
 export class CalendarRangeDemoComponent {
 

@@ -7,9 +7,10 @@ import {
 import { SohoContextMenuDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-content-menu-nested-demo',
-  templateUrl: 'context-menu-nested.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-content-menu-nested-demo',
+    templateUrl: 'context-menu-nested.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ContextMenuNestedDemoComponent implements OnInit, AfterViewInit {
 

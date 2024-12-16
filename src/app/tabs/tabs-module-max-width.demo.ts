@@ -7,8 +7,9 @@ import {
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-tabs-module-max-width-demo',
-  templateUrl: 'tabs-module-max-width.demo.html'
+    selector: 'app-tabs-module-max-width-demo',
+    templateUrl: 'tabs-module-max-width.demo.html',
+    standalone: false
 })
 export class TabsModuleMaxWidthDemoComponent implements OnInit {
 

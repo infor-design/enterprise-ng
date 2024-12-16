@@ -12,12 +12,13 @@ import { SohoPersonalizeDirective } from './soho-personalize.directive';
 import { SohoPersonalizeModule } from './soho-personalize.module';
 
 @Component({
-  template: `
+    template: `
   <html>
     <body>
       <div soho-personalize></div>
     </body>
-  </html>`
+  </html>`,
+    standalone: false
 })
 class SohoPersonalizeTestComponent {
   @ViewChild(SohoPersonalizeDirective) personalize?: SohoPersonalizeDirective;

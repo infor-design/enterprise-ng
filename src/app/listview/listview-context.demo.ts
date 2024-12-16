@@ -9,7 +9,8 @@ import { SohoListViewComponent } from 'ids-enterprise-ng';
   @Component({
     selector: 'app-listview-context',
     templateUrl: 'listview-context.demo.html',
-  })
+    standalone: false
+})
   export class ListViewContextDemoComponent implements OnInit {
   
     @ViewChild(SohoListViewComponent, { static: true }) sohoListViewComponent?: SohoListViewComponent;

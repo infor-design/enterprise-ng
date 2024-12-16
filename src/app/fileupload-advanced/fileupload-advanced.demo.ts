@@ -12,8 +12,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { HttpResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-fileupload-advanced-demo',
-  templateUrl: 'fileupload-advanced.demo.html',
+    selector: 'app-fileupload-advanced-demo',
+    templateUrl: 'fileupload-advanced.demo.html',
+    standalone: false
 })
 export class FileUploadAdvancedDemoComponent implements OnInit {
 

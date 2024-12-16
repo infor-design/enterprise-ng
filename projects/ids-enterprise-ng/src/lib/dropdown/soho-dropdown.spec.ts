@@ -7,10 +7,11 @@ import { SohoDropDownModule } from './soho-dropdown.module';
 import { SohoDropDownComponent } from './soho-dropdown.component';
 
 @Component({
-  template: `
+    template: `
   <select soho-dropdown noSearch (listclosed)="onListClosed($event)" [closeOnSelect]="true" [(ngModel)]="selectedOption">
     <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
-  </select>`
+  </select>`,
+    standalone: false
 })
 class SohoDropDownTestComponent {
   @ViewChild(SohoDropDownComponent) dropdown?: SohoDropDownComponent;

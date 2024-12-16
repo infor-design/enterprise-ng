@@ -3,8 +3,9 @@ import { Component, ViewChild } from '@angular/core';
 import { SohoHomePageComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-homepage-demo',
-  templateUrl: 'homepage.demo.html',
+    selector: 'app-homepage-demo',
+    templateUrl: 'homepage.demo.html',
+    standalone: false
 })
 export class HomePageDemoComponent {
   @ViewChild(SohoHomePageComponent, { static: true }) homepage?: SohoHomePageComponent;

@@ -25,9 +25,10 @@ import {
  * Make sure you add `type="radio"` to your markup.
  */
 @Component({
-  selector: 'input[soho-radiobutton]', // eslint-disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'input[soho-radiobutton]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoRadioButtonComponent implements AfterViewInit {
   /** Current value. */

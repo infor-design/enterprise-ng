@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[lm-code-block]', // eslint-disable-line
-  template: `
+    selector: '[lm-code-block]', // eslint-disable-line
+    template: `
     <div class="code-block-container">
       <div
         class="code-block input-style"
@@ -48,7 +48,8 @@ import {
       </div>
     </div>
   `,
-  styleUrls: ['./code-block.component.css']
+    styleUrls: ['./code-block.component.css'],
+    standalone: false
 })
 export class CodeBlockComponent implements OnDestroy {
   @HostBinding('class.hide-labels') hideLabels = false;

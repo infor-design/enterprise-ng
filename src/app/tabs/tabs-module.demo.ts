@@ -7,8 +7,9 @@ import {
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-tabs-module-demo',
-  templateUrl: 'tabs-module.demo.html'
+    selector: 'app-tabs-module-demo',
+    templateUrl: 'tabs-module.demo.html',
+    standalone: false
 })
 export class TabsModuleDemoComponent implements OnInit {
   @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;

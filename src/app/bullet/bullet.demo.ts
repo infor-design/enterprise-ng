@@ -4,8 +4,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-bullet-demo',
-  templateUrl: 'bullet.demo.html',
+    selector: 'app-bullet-demo',
+    templateUrl: 'bullet.demo.html',
+    standalone: false
 })
 export class BulletDemoComponent implements OnInit {
 

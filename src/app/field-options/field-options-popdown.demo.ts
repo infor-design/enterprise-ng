@@ -10,8 +10,9 @@ import { SohoPopDownDirective } from 'ids-enterprise-ng';
  * a popdown
  */
 @Component({
-  selector:    'app-field-options-popdown-demo',
-  templateUrl: 'field-options-popdown.demo.html'
+    selector: 'app-field-options-popdown-demo',
+    templateUrl: 'field-options-popdown.demo.html',
+    standalone: false
 })
 export class FieldOptionsPopdownDemoComponent {
 

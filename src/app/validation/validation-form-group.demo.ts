@@ -6,8 +6,9 @@ import {
 import { UntypedFormBuilder, UntypedFormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-validation-form-group-demo',
-  templateUrl: 'validation-form-group.demo.html'
+    selector: 'app-validation-form-group-demo',
+    templateUrl: 'validation-form-group.demo.html',
+    standalone: false
 })
 export class ValidationFormGroupDemoComponent implements AfterViewInit {
 

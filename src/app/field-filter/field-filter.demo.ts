@@ -5,8 +5,9 @@ import { SohoFieldFilterDirective } from 'ids-enterprise-ng';
  * This example shows basic field filter functionality on input elements
  */
 @Component({
-  selector: 'app-field-filter-demo',
-  templateUrl: 'field-filter.demo.html'
+    selector: 'app-field-filter-demo',
+    templateUrl: 'field-filter.demo.html',
+    standalone: false
 })
 export class FieldFilterDemoComponent {
 

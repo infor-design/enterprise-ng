@@ -7,9 +7,10 @@ import {
 import { SohoButtonComponent,SohoToolbarFlexNavButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-button-badge-demo',
-  templateUrl: 'button-badge.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-button-badge-demo',
+    templateUrl: 'button-badge.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ButtonBadgeDemoComponent implements OnInit {
   @ViewChild('togglebutton', { static: true }) buttonDemo?: SohoButtonComponent;

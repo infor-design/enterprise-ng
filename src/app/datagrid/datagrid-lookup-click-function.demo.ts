@@ -7,8 +7,9 @@ import { DataGridLookupDialogDemoComponent } from './datagrid-lookup-dialog.demo
 import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 
 @Component({
-  selector: 'app-datagrid-lookup-click-function-demo',
-  templateUrl: 'datagrid-lookup-click-function.demo.html'
+    selector: 'app-datagrid-lookup-click-function-demo',
+    templateUrl: 'datagrid-lookup-click-function.demo.html',
+    standalone: false
 })
 export class DataGridLookupClickDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent)

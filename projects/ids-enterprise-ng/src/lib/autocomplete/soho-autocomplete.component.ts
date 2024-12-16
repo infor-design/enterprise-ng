@@ -18,10 +18,11 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-autocomplete]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideControlValueAccessor(SohoAutoCompleteComponent)]
+    selector: 'input[soho-autocomplete]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideControlValueAccessor(SohoAutoCompleteComponent)],
+    standalone: false
 })
 
 export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> implements AfterViewInit, AfterViewChecked, OnDestroy {

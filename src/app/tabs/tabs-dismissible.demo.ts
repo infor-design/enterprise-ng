@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tabs-dismissible-demo',
-  templateUrl: 'tabs-dismissible.demo.html'
+    selector: 'app-tabs-dismissible-demo',
+    templateUrl: 'tabs-dismissible.demo.html',
+    standalone: false
 })
 export class TabsDismissibleDemoComponent {
   onBeforeClose(_event: any, tab: any) {

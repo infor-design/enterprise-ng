@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 import { SohoToastService, SohoMessageService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-homepage-editable-demo',
-  templateUrl: 'homepage-editable.demo.html',
+    selector: 'app-homepage-editable-demo',
+    templateUrl: 'homepage-editable.demo.html',
+    standalone: false
 })
 export class HomePageEditableDemoComponent {
   isEditingMode = false;

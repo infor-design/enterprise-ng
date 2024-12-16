@@ -2,10 +2,11 @@ import { AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, Co
 import { SohoListViewItemComponent } from "../listview";
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: '[soho-listbuilder]',
-  templateUrl: 'soho-listbuilder.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: '[soho-listbuilder]',
+    templateUrl: 'soho-listbuilder.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoListBuilderComponent implements AfterViewInit, OnDestroy, AfterViewChecked {
   @HostBinding('class.listbuilder') get isListbuilder() {

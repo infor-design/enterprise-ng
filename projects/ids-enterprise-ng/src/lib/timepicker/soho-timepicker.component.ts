@@ -19,10 +19,11 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-timepicker]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideControlValueAccessor(SohoTimePickerComponent)]
+    selector: 'input[soho-timepicker]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [provideControlValueAccessor(SohoTimePickerComponent)],
+    standalone: false
 })
 export class SohoTimePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
   private runUpdatedOnCheck?: boolean;

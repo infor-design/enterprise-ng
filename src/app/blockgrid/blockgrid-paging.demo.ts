@@ -8,9 +8,10 @@ import {
 } from './blockgrid-demo-data';
 
 @Component({
-  selector: 'app-blockgrid-paging-demo',
-  templateUrl: 'blockgrid-paging.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-blockgrid-paging-demo',
+    templateUrl: 'blockgrid-paging.demo.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class BlockGridPagingDemoComponent {
 

@@ -3,8 +3,9 @@ import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { SohoStepProcessComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-stepprocessbuttondisable-demo',
-  templateUrl: 'stepprocessbuttondisable.demo.html'
+    selector: 'app-stepprocessbuttondisable-demo',
+    templateUrl: 'stepprocessbuttondisable.demo.html',
+    standalone: false
 })
 export class StepProcessBtnDisableDemoComponent implements AfterViewInit {
 

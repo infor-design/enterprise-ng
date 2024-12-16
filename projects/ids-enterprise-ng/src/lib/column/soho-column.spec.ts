@@ -192,7 +192,7 @@ describe('Soho Column Unit Tests', () => {
 });
 
 @Component({
-  template: `
+    template: `
   <div class="row top-padding">
     <div class="two-thirds column">
       <div class="widget">
@@ -204,7 +204,8 @@ describe('Soho Column Unit Tests', () => {
         </div>
       </div>
     </div>
-  </div>`
+  </div>`,
+    standalone: false
 })
 class SohoColumnTestComponent {
   @ViewChild(SohoColumnComponent) column?: SohoColumnComponent;

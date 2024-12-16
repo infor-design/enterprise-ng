@@ -14,8 +14,9 @@ import {
  * SUB COMPONENT: SOHO-CONTEXT-MENU-HEADING
  */
 @Component({
-  selector: 'li[soho-context-menu-heading]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'li[soho-context-menu-heading]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoContextMenuHeadingComponent {
   @HostBinding('class.heading') get isHeading() {
@@ -27,8 +28,9 @@ export class SohoContextMenuHeadingComponent {
  * SUB COMPONENT: SOHO-CONTEXT-MENU-SHORTCUT-TEXT
  */
 @Component({
-  selector: 'span[soho-context-menu-shortcut-text]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'span[soho-context-menu-shortcut-text]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoContextMenuShortCutTextComponent {
   @HostBinding('class.shortcut-text') get isShortCutText() {
@@ -40,8 +42,9 @@ export class SohoContextMenuShortCutTextComponent {
  * SUB COMPONENT: SOHO-CONTEXT-MENU-SEPARATOR
  */
 @Component({
-  selector: 'li[soho-context-menu-separator]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'li[soho-context-menu-separator]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoContextMenuSeparatorComponent {
   @HostBinding('class.separator') get isSeparator() {
@@ -55,8 +58,9 @@ export class SohoContextMenuSeparatorComponent {
  * SUB COMPONENT: SOHO-CONTEXT-MENU-LABEL
  */
 @Component({
-  selector: 'a[soho-context-menu-label]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'a[soho-context-menu-label]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoContextMenuItemLabelComponent {
   @HostBinding('attr.href') get hrefAttr() {
@@ -76,8 +80,9 @@ export class SohoContextMenuItemLabelComponent {
  * SUB COMPONENT: SOHO-CONTEXT-MENU-ITEM
  */
 @Component({
-  selector: 'li[soho-context-menu-item]', // eslint-disable-line
-  template: `<ng-content></ng-content>`
+    selector: 'li[soho-context-menu-item]', // eslint-disable-line
+    template: `<ng-content></ng-content>`,
+    standalone: false
 })
 export class SohoContextMenuItemComponent {
   @HostBinding('class.is-checked') @Input() isChecked?: boolean;
@@ -91,7 +96,8 @@ export class SohoContextMenuItemComponent {
  * MAIN DIRECTIVE: SOHO-CONTEXT-MENU
  */
 @Directive({
-  selector: '[soho-context-menu]', // eslint-disable-line
+    selector: '[soho-context-menu]',
+    standalone: false
 })
 
 export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {

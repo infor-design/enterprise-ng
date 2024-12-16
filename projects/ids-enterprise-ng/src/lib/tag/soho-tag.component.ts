@@ -27,9 +27,10 @@ import {
 export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | 'info' | undefined;
 
 @Component({
-  selector: '[soho-tag-list]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-tag-list]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.tag-list') get isTagList() {
@@ -121,9 +122,10 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
  */
 
 @Component({
-  selector: '[soho-tag]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-tag]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SohoTagComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------

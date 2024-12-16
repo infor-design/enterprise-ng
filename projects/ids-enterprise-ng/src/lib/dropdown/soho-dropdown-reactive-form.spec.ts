@@ -8,12 +8,13 @@ import { SohoDropDownComponent } from './soho-dropdown.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  template: `
+    template: `
   <form [formGroup]="formGroup">
     <select soho-dropdown formControlName="state">
       <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
     </select>
-  </form>`
+  </form>`,
+    standalone: false
 })
 class SohoDropDownReactiveFormTestComponent {
   @ViewChild(SohoDropDownComponent) dropdown?: SohoDropDownComponent;

@@ -7,9 +7,10 @@ interface MyData {
 }
 
 @Component({
-  selector: "app-datagrid-sandbox-demo",
-  templateUrl: "datagrid-sandbox.demo.html",
-  changeDetection: ChangeDetectionStrategy.Default,
+    selector: "app-datagrid-sandbox-demo",
+    templateUrl: "datagrid-sandbox.demo.html",
+    changeDetection: ChangeDetectionStrategy.Default,
+    standalone: false
 })
 export class DataGridSandboxDemoComponent implements OnInit {
   defaultGridOptions = {

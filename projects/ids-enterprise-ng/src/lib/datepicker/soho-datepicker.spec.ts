@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
 
 @Component({
-  template: `
+    template: `
     <input soho-datepicker
       name="statechange"
       [options]="_options"
@@ -31,7 +31,8 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
       [useUTC]="_useUTC"
       [(ngModel)]="model"
       (change)="onChange($event)"/>
-`
+`,
+    standalone: false
 })
 class TestDatePickerComponent {
   @ViewChild(SohoDatePickerComponent) datepicker?: SohoDatePickerComponent;

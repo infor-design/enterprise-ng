@@ -10,9 +10,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-form-compact]', // eslint-disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: '[soho-form-compact]', // eslint-disable-line
+    template: '<ng-content></ng-content>',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 
 export class SohoFormCompactComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

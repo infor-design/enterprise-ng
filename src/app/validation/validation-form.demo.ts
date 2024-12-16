@@ -8,8 +8,9 @@ import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms
 import { SohoInputValidateDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-validation-form-demo',
-  templateUrl: 'validation-form.demo.html'
+    selector: 'app-validation-form-demo',
+    templateUrl: 'validation-form.demo.html',
+    standalone: false
 })
 export class ValidationFormDemoComponent {
   @ViewChildren(SohoInputValidateDirective) validateDirectives!: QueryList<SohoInputValidateDirective>;

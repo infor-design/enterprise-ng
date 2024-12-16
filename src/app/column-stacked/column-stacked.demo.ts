@@ -7,8 +7,9 @@ import {
 import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-column-demo',
-  templateUrl: 'column-stacked.demo.html',
+    selector: 'app-column-demo',
+    templateUrl: 'column-stacked.demo.html',
+    standalone: false
 })
 export class ColumnStackedDemoComponent implements OnInit {
 

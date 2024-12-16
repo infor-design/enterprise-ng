@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { SohoAboutService, SohoModalDialogService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-nested-about',
-  templateUrl: './nested-about.demo.html'
+    selector: 'app-nested-about',
+    templateUrl: './nested-about.demo.html',
+    standalone: false
 })
 export class AboutNestedDemoComponent {
 

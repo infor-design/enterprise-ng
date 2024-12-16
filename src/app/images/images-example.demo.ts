@@ -1,8 +1,9 @@
 import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-images-example',
-  templateUrl: './images-example.demo.html'
+    selector: 'app-images-example',
+    templateUrl: './images-example.demo.html',
+    standalone: false
 })
 export class ImagesExampleDemoComponent {
   @Input() imageSample: string | undefined;
