@@ -20,7 +20,7 @@ const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
   { text: 'Admin', value: 'admin', icon: 'app-ac' },
   { text: 'Job Console', value: 'job-console', icon: 'app-jo' },
   { text: 'Landing Page Designer', value: 'landing-page-designer', icon: 'app-ssm' },
-  { text: 'Process Server Admin', value: 'process-server-admin', icon: 'app-um' },
+  { text: 'Process Server Administrator - Longer Web App Names Should have a tooltip', value: 'process-server-admin', icon: 'app-um' },
   { text: 'Proxy Management', value: 'proxy-management', icon: 'app-pm' },
   { text: 'Security System Management', value: 'security-system-management', icon: 'app-psa' },
   { text: 'User Management', value: 'user-management', icon: 'app-lmd' }
