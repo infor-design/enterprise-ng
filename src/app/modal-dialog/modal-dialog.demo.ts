@@ -16,9 +16,9 @@ import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component'
 import { ModalDialogPickerComponent } from './modal-dialog-picker.component';
 
 @Component({
-    selector: 'app-modal-dialog-demo',
-    templateUrl: 'modal-dialog.demo.html',
-    standalone: false
+  selector: 'app-modal-dialog-demo',
+  templateUrl: 'modal-dialog.demo.html',
+  standalone: false
 })
 export class ModalDialogDemoComponent {
   /**
@@ -33,6 +33,13 @@ export class ModalDialogDemoComponent {
   public closeResult = '(N/A)';
   public title = 'Example Modal Dialog';
 
+  private modalPickerRef?: SohoModalDialogRef<ModalDialogPickerComponent>;
+  private modalFullSizeRef?: SohoModalDialogRef<FullSizeModalDialogComponent>;
+  private modalDatepickerRef?: SohoModalDialogRef<ModalDatepickerComponent>;
+  private modalNestedRef?: SohoModalDialogRef<NestedModalDialogComponent>;
+  private modalVetoableRef?: SohoModalDialogRef<VetoableModalDialogComponent>;
+  private modalDatagridRef?: SohoModalDialogRef<ModalDialogDataGridComponent>;
+
   /**
    * Constructor.
    *
@@ -42,118 +49,130 @@ export class ModalDialogDemoComponent {
   }
 
   openFullSize() {
-    const dialogRef = this.modalService
-      .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder, { fullsize: 'responsive' })
-      .showCloseBtn(true)
-      .title(this.title)
-      .icon('check')
-      .iconClass('info')
-      .buttons(
-        [
-          {
-            text: 'Enable', click: () => {
-              const api = dialogRef.buttonsetAPI;
-              if (api) {
-                api.at(2).disabled = false;
-                api.at(3).disabled = false;
+    if (this.modalFullSizeRef) {
+      this.modalFullSizeRef.open();
+    } else {
+      this.modalFullSizeRef = this.modalService
+        .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder, { fullsize: 'responsive' })
+        .showCloseBtn(true)
+        .title(this.title)
+        .icon('check')
+        .iconClass('info')
+        .buttons(
+          [
+            {
+              text: 'Enable', click: () => {
+                const api = this.modalFullSizeRef?.buttonsetAPI;
+                if (api) {
+                  api.at(2).disabled = false;
+                  api.at(3).disabled = false;
+                }
               }
-            }
-          },
-          {
-            text: 'Disable', click: () => {
-              const api = dialogRef.buttonsetAPI;
-              if (api) {
-                api.at(2).disabled = true;
-                api.at(3).disabled = true;
+            },
+            {
+              text: 'Disable', click: () => {
+                const api = this.modalFullSizeRef?.buttonsetAPI;
+                if (api) {
+                  api.at(2).disabled = true;
+                  api.at(3).disabled = true;
+                }
               }
+            },
+            {
+              text: 'Cancel', click: () => {
+                this.modalFullSizeRef?.close('CANCEL');
+              }
+            },
+            {
+              text: 'Submit', click: () => {
+                this.modalFullSizeRef?.close('SUBMIT');
+              }, isDefault: true
             }
-          },
-          {
-            text: 'Cancel', click: () => {
-              dialogRef.close('CANCEL');
-            }
-          },
-          {
-            text: 'Submit', click: () => {
-              dialogRef.close('SUBMIT');
-            }, isDefault: true
-          }
-        ])
-      .beforeOpen((ref?: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
-        (ref as any).buttonsetAPI.at(2).disabled = true;
-        return true;
-      }).afterOpen((_: any, ref: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
-        (ref as any).buttonsetAPI.at(3).disabled = false;
-        return true;
-      })
-      .open();
+          ])
+        .beforeOpen((ref?: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
+          (ref as any).buttonsetAPI.at(2).disabled = true;
+          return true;
+        }).afterOpen((_: any, ref: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
+          (ref as any).buttonsetAPI.at(3).disabled = false;
+          return true;
+        })
+        .open();
+    }
   }
 
   openDialogDatepicker() {
-    const dialogRef = this.modalService
-      .modal<ModalDatepickerComponent>(ModalDatepickerComponent, this.placeholder, { fullsize: 'responsive' })
-      .showCloseBtn(true)
-      .title(this.title)
-      .buttons(
-        [
-          {
-            text: 'Enable', click: () => {
-              const api = dialogRef.buttonsetAPI;
-              if (api) {
-                api.at(2).disabled = false;
-                api.at(3).disabled = false;
+    if (this.modalDatepickerRef) {
+      this.modalDatepickerRef.open();
+    } else {
+      this.modalDatepickerRef = this.modalService
+        .modal<ModalDatepickerComponent>(ModalDatepickerComponent, this.placeholder, { fullsize: 'responsive' })
+        .showCloseBtn(true)
+        .title(this.title)
+        .buttons(
+          [
+            {
+              text: 'Enable', click: () => {
+                const api = this.modalDatepickerRef?.buttonsetAPI;
+                if (api) {
+                  api.at(2).disabled = false;
+                  api.at(3).disabled = false;
+                }
               }
-            }
-          },
-          {
-            text: 'Disable', click: () => {
-              const api = dialogRef.buttonsetAPI;
-              if (api) {
-                api.at(2).disabled = true;
-                api.at(3).disabled = true;
+            },
+            {
+              text: 'Disable', click: () => {
+                const api = this.modalDatepickerRef?.buttonsetAPI;
+                if (api) {
+                  api.at(2).disabled = true;
+                  api.at(3).disabled = true;
+                }
               }
+            },
+            {
+              text: 'Cancel', click: () => {
+                this.modalDatepickerRef?.close('CANCEL');
+              }
+            },
+            {
+              text: 'Submit', click: () => {
+                this.modalDatepickerRef?.close('SUBMIT');
+              }, isDefault: true
             }
-          },
-          {
+          ])
+        .beforeOpen((ref?: SohoModalDialogRef<ModalDatepickerComponent>) => {
+          (ref as any).buttonsetAPI.at(2).disabled = true;
+          return true;
+        }).afterOpen((_: any, ref: SohoModalDialogRef<ModalDatepickerComponent>) => {
+          (ref as any).buttonsetAPI.at(3).disabled = false;
+          return true;
+        })
+        .open();
+    }
+  }
+
+  openNested() {
+    if (this.modalNestedRef) {
+      this.modalNestedRef.open();
+    } else {
+      this.modalNestedRef = this.modalService
+        .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
+        .buttons(
+          [{
             text: 'Cancel', click: () => {
-              dialogRef.close('CANCEL');
+              this.modalNestedRef?.close();
             }
           },
           {
             text: 'Submit', click: () => {
-              dialogRef.close('SUBMIT');
+              this.modalNestedRef?.close();
             }, isDefault: true
-          }
-        ])
-      .beforeOpen((ref?: SohoModalDialogRef<ModalDatepickerComponent>) => {
-        (ref as any).buttonsetAPI.at(2).disabled = true;
-        return true;
-      }).afterOpen((_: any, ref: SohoModalDialogRef<ModalDatepickerComponent>) => {
-        (ref as any).buttonsetAPI.at(3).disabled = false;
-        return true;
-      })
-      .open();
-  }
-
-  openNested() {
-    const dialogRef = this.modalService
-      .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
-      .buttons(
-        [{
-          text: 'Cancel', click: () => {
-            dialogRef.close();
-          }
-        },
-        {
-          text: 'Submit', click: () => {
-            dialogRef.close();
-          }, isDefault: true
-        }])
-      .title(this.title)
-      .open()
-      .afterClose((result: any) => {
-        this.closeResult = result;
-      });
+          }])
+        .title(this.title)
+        .open()
+        .afterClose((result: any) => {
+          this.closeResult = result;
+        });
+    }
   }
 
   openMessage() {
@@ -213,25 +232,29 @@ export class ModalDialogDemoComponent {
   }
 
   openVetoable() {
-    const dialogRef = this.modalService
-      .modal(VetoableModalDialogComponent, this.placeholder)
-      .buttons(
-        [
-          {
-            text: 'Cancel', click: () => {
-              dialogRef.close('CANCEL');
-            }
-          },
-          {
-            text: 'Submit', click: () => {
-              dialogRef.close('SUBMIT');
-            }, isDefault: true
-          }])
-      .title(this.title)
-      .open()
-      .afterClose((result: any) => {
-        this.closeResult = result;
-      });
+    if (this.modalVetoableRef) {
+      this.modalVetoableRef.open();
+    } else {
+      this.modalVetoableRef = this.modalService
+        .modal(VetoableModalDialogComponent, this.placeholder)
+        .buttons(
+          [
+            {
+              text: 'Cancel', click: () => {
+                this.modalVetoableRef?.close('CANCEL');
+              }
+            },
+            {
+              text: 'Submit', click: () => {
+                this.modalVetoableRef?.close('SUBMIT');
+              }, isDefault: true
+            }])
+        .title(this.title)
+        .open()
+        .afterClose((result: any) => {
+          this.closeResult = result;
+        });
+    }
   }
 
   openDialogResult() {
@@ -257,37 +280,45 @@ export class ModalDialogDemoComponent {
   }
 
   openDialogDataGrid() {
-    const dialogRef = this.modalService
-      .modal(ModalDialogDataGridComponent, this.placeholder)
-      .buttons(
-        [{
-          text: 'Cancel', click: () => {
-            dialogRef.close('CANCEL');
-          }
-        },
-        {
-          text: 'Submit', click: () => {
-            dialogRef.close('SUBMIT');
-          }, isDefault: true
-        }])
-      .title(this.title)
-      .open()
-      .afterClose((result: any) => {
-        this.closeResult = result;
-      });
+    if (this.modalDatagridRef) {
+      this.modalDatagridRef.open();
+    } else {
+      this.modalDatagridRef = this.modalService
+        .modal(ModalDialogDataGridComponent, this.placeholder)
+        .buttons(
+          [{
+            text: 'Cancel', click: () => {
+              this.modalDatagridRef?.close('CANCEL');
+            }
+          },
+          {
+            text: 'Submit', click: () => {
+              this.modalDatagridRef?.close('SUBMIT');
+            }, isDefault: true
+          }])
+        .title(this.title)
+        .open()
+        .afterClose((result: any) => {
+          this.closeResult = result;
+        });
+    }
   }
 
   openDialogPicker() {
-    const dialogRef = this.modalService
-      .modal<ModalDialogPickerComponent>(ModalDialogPickerComponent, this.placeholder)
-      .title(this.title)
-      .buttons(
-        [{
-          text: 'Cancel', click: () => {
-            dialogRef.close();
-          }
-        }])
-      .open();
+    if (this.modalPickerRef) {
+      this.modalPickerRef.open();
+    } else {
+      this.modalPickerRef = this.modalService
+        .modal<ModalDialogPickerComponent>(ModalDialogPickerComponent, this.placeholder)
+        .title(this.title)
+        .buttons(
+          [{
+            text: 'Cancel', click: () => {
+              this.modalPickerRef?.close();
+            }
+          }])
+        .open();
+    }
   }
 
   openModalButtonsetText() {

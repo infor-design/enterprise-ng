@@ -9,6 +9,7 @@
 ## 19.0.0 Fixes
 
 - `[ExpandableArea]` Fixed hyperlink tag not showing properly on footer. ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
+- `[Modal]` Updated example page and removed destroy call in `afterClose`. ([#5855](https://inforwiki.atlassian.net/browse/IDS-5855))
 - `[ModuleNav]` Updated demo page to show ellipsis. ([#6351](https://inforwiki.atlassian.net/browse/IDS-6351))
 
 ## 18.8.0
