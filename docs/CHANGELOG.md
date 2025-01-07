@@ -10,6 +10,7 @@
 
 - `[ExpandableArea]` Fixed hyperlink tag not showing properly on footer. ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
 - `[ModuleNav]` Updated demo page to show ellipsis. ([#6351](https://inforwiki.atlassian.net/browse/IDS-6351))
+- `[Tabs]` Add close tab button in tabs module demo page ([#5982](https://inforwiki.atlassian.net/browse/IDS-5982))
 
 ## 18.8.0
 

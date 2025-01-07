@@ -14,6 +14,7 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
 export class TabsModuleDemoComponent implements OnInit {
   @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;
   private counter = 7;
+  private recentlyAddedTabId = '';
 
   public tabOptions: any = {
     containerElement: '#module-tabs-container',
@@ -30,9 +31,13 @@ export class TabsModuleDemoComponent implements OnInit {
       isDismissible: true,
       content: `This is the content for Tab ${counter}`
     }
-
+    this.recentlyAddedTabId = tabId;
     this.sohoTabsComponent?.add(tabId, options, counter);
     this.counter++;
+  }
+
+  closeRecentlyAddedTab() {
+    this.sohoTabsComponent?.remove(this.recentlyAddedTabId);
   }
 
   ngOnInit() {
