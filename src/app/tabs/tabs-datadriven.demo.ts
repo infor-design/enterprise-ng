@@ -1,7 +1,9 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ViewChild
 } from '@angular/core';
+import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 /**
  * This sample:
@@ -14,7 +16,9 @@ import {
     standalone: false
 })
 export class TabsDataDrivenDemoComponent implements OnInit {
-
+  @ViewChild(SohoTabsComponent, { static: true })
+  sohoTabsComponent?: SohoTabsComponent;
+  private counter = 7;
   public tabs?: Array<{id: string, title: string, content: string}>;
 
   ngOnInit() {
@@ -24,6 +28,23 @@ export class TabsDataDrivenDemoComponent implements OnInit {
       { id: 'invoices', title: 'Invoices', content: 'Frictionless webservices, killer open-source innovate, best-of-breed, whiteboard interactive back-end optimize capture dynamic front-end. Initiatives ubiquitous 24/7 enhance channels B2B drive frictionless web-readiness generate recontextualize widgets applications. Sexy sticky matrix, user-centred, rich user-centric: peer-to-peer podcasting networking addelivery optimize streamline integrated proactive: granular morph.' } // eslint-disable-line
     ];
   }
+
+
+  addTab() {
+    let counter = this.counter;
+    const tabId = `order-${counter}`;
+    const options = {
+      name: `Order ${counter}`,
+      isDismissible: true,
+      content: `This is the content for Tab ${counter}`,
+      isActivated: false,
+    };
+
+    this.sohoTabsComponent?.add(tabId, options, counter);
+    this.counter++;
+    this.sohoTabsComponent?.select(tabId);
+  }
+
 
   onTabActivated(event: any) {
     console.log(event.tab + ' TabsDataDrivenDemoComponent.onTabActivated');

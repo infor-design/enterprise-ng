@@ -34,6 +34,7 @@ export class TabsModuleDemoComponent implements OnInit {
     this.recentlyAddedTabId = tabId;
     this.sohoTabsComponent?.add(tabId, options, counter);
     this.counter++;
+    this.sohoTabsComponent?.select(tabId);
   }
 
   closeRecentlyAddedTab() {

@@ -12,6 +12,7 @@
 - `[Modal]` Updated example page and removed destroy call in `afterClose`. ([#5855](https://inforwiki.atlassian.net/browse/IDS-5855))
 - `[ModuleNav]` Updated demo page to show ellipsis. ([#6351](https://inforwiki.atlassian.net/browse/IDS-6351))
 - `[Tabs]` Add close tab button in tabs module demo page ([#5982](https://inforwiki.atlassian.net/browse/IDS-5982))
+- `[Tabs]` Fixed multiple callback for activated event ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
 
 ## 18.8.0
 
