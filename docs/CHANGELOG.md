@@ -33,6 +33,18 @@
 - `[Datepicker]` Updated example page with french localization. ([#4608](https://inforwiki.atlassian.net/browse/IDS-4608))
 - `[General]` Added enterprise 4.101.0 version.
 
+## 18.6.7
+
+## 18.6.7 Fixes
+
+- `[General]` Added enterprise 4.100.5 version with several patches and fixes.
+
+## 18.6.6
+
+## 18.6.6 Fixes
+
+- `[General]` Added enterprise 4.100.5 version with several patches and fixes.
+
 ## 18.6.5
 
 ## 18.6.5 Fixes
