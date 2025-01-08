@@ -1,6 +1,7 @@
 <div class="row">
   <div class="twelve columns">
 
+    <button soho-button="primary" (click)="addTab()">Add Tab</button>
     <div soho-tabs registerForEvents="activated" (activated)="onTabActivated($event)">
       <div soho-tab-list-container>
         <ul soho-tab-list>

@@ -33,6 +33,7 @@ export class TabsModuleDemoComponent implements OnInit {
 
     this.sohoTabsComponent?.add(tabId, options, counter);
     this.counter++;
+    this.sohoTabsComponent?.select(tabId);
   }
 
   ngOnInit() {
