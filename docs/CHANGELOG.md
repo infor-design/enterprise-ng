@@ -111,6 +111,45 @@
 - `[Slider]` Added change detector ref for `onchange` event in component level. ([#1626](https://github.com/infor-design/enterprise-ng/issues/1626))
 - `[Tests]` Changed test framework to playwright. ([#8549](https://github.com/infor-design/enterprise/issues/8549))
 
+## 18.2.7
+
+## 18.2.7 Features
+
+- `[Tabs]` Fixed multiple callback for activated event ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
+- `[General]` Added 4.98.5 version
+
+## 18.2.6
+
+## 18.2.6 Features
+
+- `[General]` Added 4.98.4 version
+
+## 18.2.4
+
+## 18.2.4 Features
+
+- `[Datagrid]` Added columnChange event type. ([#1734](https://github.com/infor-design/enterprise-ng/issues/1734))
+- `[General]` Added 4.98.3 version
+
+## 18.2.3
+
+## 18.2.3 Features
+
+- `[General]` Added 4.98.2 version
+
+## 18.2.2
+
+## 18.2.2 Fixes
+
+- `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+
+## 18.2.1
+
+## 18.2.1 Features
+
+- `[General]` Added 4.98.0 version
+- `[Weekview]` Added `showWeek` to `datepicker` ranges type. ([#1755](https://github.com/infor-design/enterprise-ng/issues/1755))
+
 ## 18.2.0
 
 ## 18.2.0 Features
