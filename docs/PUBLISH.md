@@ -14,10 +14,10 @@
 1. Update the stackblitz and test the `quickstart`
 1. Sometimes the latest tag in NPM gets set to the wrong thing (if patching an older release). If that happens run command: `npm dist-tags add ids-enterprise-ng@17.5.9 latest`
 
-# Patch Publishing Notes
+## Patch Publishing Notes
 
 1. Go to the branch for example 18.6.x
 1. Find the release for example `4.000.6` and update it and then run `npm i`
 1. Bump the release in `projects/ids-enterprise-ng/package.json`
 1. Run `npm run sync:lib`
-2. Run `npm run release:final`
+1. Run `npm run release:final`
