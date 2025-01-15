@@ -8,10 +8,10 @@ import {
 } from '@angular/core';
 
 @Component({
-    selector: '[soho-notification-badge]', // eslint-disable-line
-    template: '<ng-content></ng-content>',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: '[soho-notification-badge]', // eslint-disable-line
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class SohoNotificationBadgeComponent implements OnInit {
   private jQueryElement!: JQuery;
@@ -51,6 +51,20 @@ export class SohoNotificationBadgeComponent implements OnInit {
     return (this.options as any).color;
   }
 
+  @Input() set label(label: string | undefined) {
+    (this.options as any).label = label;
+    if (this.notificationBadge) {
+      this.notificationBadge.settings.label = label;
+    }
+  }
+  get label(): string | undefined {
+    if (this.notificationBadge) {
+      return this.notificationBadge.settings.label;
+    }
+
+    return (this.options as any).label;
+  }
+
   @Input() set attributes(attributes: Array<Object> | Object | undefined) {
     (this.options as any).attributes = attributes;
     if (this.notificationBadge) {
@@ -66,13 +80,13 @@ export class SohoNotificationBadgeComponent implements OnInit {
   }
 
   show(): void {
-    this.ngZone.runOutsideAngular(() => { 
+    this.ngZone.runOutsideAngular(() => {
       this.jQueryElement.find('.notification-dot').removeClass('is-disabled');
     });
   }
 
   hide(): void {
-    this.ngZone.runOutsideAngular(() => { 
+    this.ngZone.runOutsideAngular(() => {
       this.jQueryElement.find('.notification-dot').addClass('is-disabled');
     });
   }
@@ -84,12 +98,13 @@ export class SohoNotificationBadgeComponent implements OnInit {
       const options: SohoNotificationBadgeOptions = {
         position: this.position,
         color: this.color,
-        attributes: this.attributes
+        attributes: this.attributes,
+        label: this.label
       };
 
       // Initialize the notification badge component.
       this.jQueryElement.notificationbadge(options);
 
-     });
+    });
   }
 }
