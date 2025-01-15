@@ -6,6 +6,7 @@
 
 - `[General]` Updated the project to use NG 19. ([#6718](https://inforwiki.atlassian.net/browse/IDS-6718))
 - `[Notification Badge]` Added `label` setting to `notification-badge`. ([#6718](https://inforwiki.atlassian.net/browse/IDS-7004))
+- `[ExpandableArea]` Fixed hyperlink tag not showing properly on footer. ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
 
 ## 19.0.0 Fixes
 
@@ -14,6 +15,12 @@
 - `[ModuleNav]` Updated demo page to show ellipsis. ([#6351](https://inforwiki.atlassian.net/browse/IDS-6351))
 - `[Tabs]` Add close tab button in tabs module demo page ([#5982](https://inforwiki.atlassian.net/browse/IDS-5982))
 - `[Tabs]` Fixed multiple callback for activated event ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
+
+## 18.9.0
+
+## 18.9.0 Fixes
+
+- `[General]` Added enterprise 4.103.0 version.
 
 ## 18.8.0
 
