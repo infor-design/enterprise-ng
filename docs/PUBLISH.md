@@ -13,6 +13,7 @@
 1. Set the main branch to the next minor dev version, then commit.
 1. Update the stackblitz and test the `quickstart`
 1. Sometimes the latest tag in NPM gets set to the wrong thing (if patching an older release). If that happens run command: `npm dist-tags add ids-enterprise-ng@17.5.9 latest`
+1. In oxford set the current release
 
 ## Patch Publishing Notes
 
