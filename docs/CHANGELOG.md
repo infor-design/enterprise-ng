@@ -5,6 +5,7 @@
 ## 19.0.0 Features
 
 - `[General]` Updated the project to use NG 19. ([#6718](https://inforwiki.atlassian.net/browse/IDS-6718))
+- `[Notification Badge]` Added `label` setting to `notification-badge`. ([#6718](https://inforwiki.atlassian.net/browse/IDS-7004))
 
 ## 19.0.0 Fixes
 

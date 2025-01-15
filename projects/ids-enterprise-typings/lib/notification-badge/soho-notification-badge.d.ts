@@ -7,7 +7,7 @@
 /**
  * Options for the color of dot
  */
-type SohoNotificationBadgeColor = 'alert' | 'warning' | 'yield' | 'complete' | 'progress' | 'caution' | string;
+type SohoNotificationBadgeColor = 'neutral' | 'alert' | 'warning' | 'yield' | 'complete' | 'progress' | 'caution' | string;
 
 /**
  * Options for the position of dot
@@ -26,6 +26,9 @@ interface SohoNotificationBadgeOptions {
 
   /** Add extra attributes like id's to the component */
   attributes?: Array<Object> | Object;
+
+  /** The label of the notification badge. */
+  label?: string;
 }
 
 interface SohoNotificationBadge {
