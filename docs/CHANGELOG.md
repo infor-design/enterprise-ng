@@ -142,7 +142,7 @@
 
 ## 18.2.2 Fixes
 
-- `[Datagrid]` Removed cellchange Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
+- `[Datagrid]` Removed `cellchange` Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
 
 ## 18.2.1
 

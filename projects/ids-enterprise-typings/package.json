@@ -1,7 +1,7 @@
 {
   "name": "ids-enterprise-typings",
   "slug": "ids-enterprise-typings",
-  "version": "19.0.0-dev",
+  "version": "19.0.0",
   "declaration": true,
   "types": "index.d.ts",
   "peerDependencies": {
