@@ -40,7 +40,7 @@
     "@angular/platform-browser-dynamic": "^19.0.3",
     "@angular/router": "^19.0.3",
     "d3": "7.9.0",
-    "ids-enterprise": "^4.102.1",
+    "ids-enterprise": "^4.103.0",
     "jquery": "^3.7.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.3",
