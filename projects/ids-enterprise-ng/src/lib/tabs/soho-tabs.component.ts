@@ -790,6 +790,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * @param atIndex The index location where the tab is to be added.
    */
   public add(tabId: string, options: any, atIndex: number): void {
+    debugger;
     // call outside the angular zone so change detection isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => this.tabs?.add(tabId, options, atIndex));
   }

@@ -4,7 +4,6 @@ import {
   ViewChild
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 /**
@@ -16,9 +15,9 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
  * - handling change detection to programatically update the soho control
  */
 @Component({
-    selector: 'app-tabs-dynamic-sample-component',
-    templateUrl: 'tabs-dynamic.demo.html',
-    standalone: false
+  selector: 'app-tabs-dynamic-sample-component',
+  templateUrl: 'tabs-dynamic.demo.html',
+  standalone: false
 })
 export class TabsDynamicDemoComponent implements OnInit {
 
@@ -94,7 +93,10 @@ export class TabsDynamicDemoComponent implements OnInit {
     }, 1);
   }
 
+  cnt = 0;
+
   onAddTab() {
-    this.tabs?.push({ id: 'dynamic', dismissible: true, title: 'Newly Added Tab', content: 'agnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+    this.cnt++;
+    this.tabs?.push({ id: `dynamic-${this.cnt}`, dismissible: true, title: 'Newly Added Tab', content: 'agnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
   }
 }

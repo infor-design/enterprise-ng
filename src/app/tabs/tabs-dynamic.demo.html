@@ -22,7 +22,6 @@
     <div soho-tab-panel-container>
       <div soho-tab-panel *ngFor="let tab of tabs; let i=index" [tabId]="tab.id">
         <p>{{tab.content}}
-          <iframe *ngIf="i === 1" src="https://www.bing.com" style="width: 100%; height: 500px;"></iframe>
         </p>
       </div>
     </div>
