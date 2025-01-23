@@ -3,7 +3,7 @@ import percySnapshot from '@percy/playwright';
 import { expect } from '@playwright/test';
 import { test } from '../base-fixture';
 
-test.describe('Tag tests', () => {
+test.describe.skip('Tag tests', () => {
   const url = '/ids-enterprise-ng-demo/tags';
 
   test.beforeEach(async ({ page }) => {

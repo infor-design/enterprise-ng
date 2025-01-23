@@ -779,6 +779,13 @@ export class SohoModalDialogRef<T> {
     // Pass the dialog result back.
     this.afterClose$.next(this.dialogResult);
     this.afterClose$.complete();
+
+    this.ngZone.runOutsideAngular(() => {
+      // must destroy before turning off jquery events. modal.destroy relies on
+      // the onBeforeDestroy event.
+      this.modal?.destroy();
+      this.modal = null;
+    });
   }
 }
 

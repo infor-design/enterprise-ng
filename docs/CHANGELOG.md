@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 19.0.1
+
+## 19.0.1 Fixes
+
+- `[Modal]` Fixed regression in modal that caused modals to not tear down. ([#7369](https://inforwiki.atlassian.net/browse/IDS-7369))
+
 ## 19.0.0
 
 ## 19.0.0 Features
