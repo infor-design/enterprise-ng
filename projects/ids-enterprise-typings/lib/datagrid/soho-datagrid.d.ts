@@ -1022,6 +1022,9 @@ interface SohoDataGridColumn {
   /** Enforce a max length when editing this column */
   maxLength?: number;
 
+  /** Whether to render html contents in tooltip */
+  renderTooltipHtmlContents?: boolean;
+
   /** Validators to assign to any editable columns. */
   validate?: string;
 
