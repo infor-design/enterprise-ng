@@ -6,6 +6,14 @@
 
 - `[Modal]` Fixed regression in modal that caused modals to not tear down. ([#7369](https://inforwiki.atlassian.net/browse/IDS-7369))
 
+## 19.1.0
+
+## 19.1.0 Featrues
+
+- `[Datagrid]` Added `renderTooltipHtmlContents` property in datagrid column interface ([#6627](https://inforwiki.atlassian.net/browse/IDS-6627))
+
+## 19.1.0 Fixes
+
 ## 19.0.0
 
 ## 19.0.0 Features
