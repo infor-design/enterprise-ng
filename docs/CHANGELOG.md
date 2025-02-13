@@ -5,6 +5,7 @@
 ## 19.0.1 Fixes
 
 - `[Modal]` Fixed regression in modal that caused modals to not tear down. ([#7369](https://inforwiki.atlassian.net/browse/IDS-7369))
+- `[TabsModule]` Fixed handles for app menu trigger and overflows to activate more button. ([#7889](https://inforwiki.atlassian.net/browse/IDS-7889))
 
 ## 19.1.0
 

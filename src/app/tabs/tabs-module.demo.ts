@@ -15,6 +15,7 @@ export class TabsModuleDemoComponent implements OnInit {
   @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;
   private counter = 7;
   private recentlyAddedTabId = '';
+  private cnt = 0;
 
   public tabOptions: any = {
     containerElement: '#module-tabs-container',
@@ -22,6 +23,21 @@ export class TabsModuleDemoComponent implements OnInit {
     appMenuTriggerText: ' ',
     sortable: true,
   };
+
+  // This is the way M3 adds new tab in the tab list container
+  addDynamicTab() {
+    const tabId = `dynamic-${this.counter}`;
+    const newInstance = { 
+      id: tabId, 
+      dismissible: true, 
+      title: `Dynamic Tab ${this.counter}`, 
+      content: `Dynamic Tab ${this.counter} - Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform.
+        Standards-compliant monetize enhance drive e-services.` 
+    };
+    this.counter++;
+    this.recentlyAddedTabId = tabId;
+    this.data?.splice((this.data.length + 1), 0, newInstance);
+  }
 
   addTab() {
     let counter = this.counter;

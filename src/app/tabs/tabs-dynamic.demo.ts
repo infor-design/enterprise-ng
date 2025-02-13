@@ -97,6 +97,6 @@ export class TabsDynamicDemoComponent implements OnInit {
 
   onAddTab() {
     this.cnt++;
-    this.tabs?.push({ id: `dynamic-${this.cnt}`, dismissible: true, title: 'Newly Added Tab', content: 'agnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+    this.tabs?.push({ id: `dynamic-${this.cnt}`, dismissible: true, title: 'Newly Added Tab', content: 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
   }
 }
