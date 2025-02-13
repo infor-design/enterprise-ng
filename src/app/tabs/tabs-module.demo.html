@@ -1,6 +1,7 @@
 <div class="row">
   <br>
   <button soho-button="primary" (click)="addTab()">Add Tab</button>
+  <button soho-button="primary" (click)="addDynamicTab()">Add Dynamic Tab</button>
   <button soho-button="primary" (click)="closeRecentlyAddedTab()">Close recently added Tab</button>
   <br>
   <br>
@@ -20,7 +21,7 @@
   <div soho-tab-panel *ngFor="let tab of data" [tabId]="tab.id">
     <div class="row">
       <div class="twelve columns">
-        <p>{{ tab.body }}</p>
+        <p>{{ tab.body || tab.content }}</p>
       </div>
     </div>
   </div>
