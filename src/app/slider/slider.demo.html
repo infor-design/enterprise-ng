@@ -2,7 +2,7 @@
   <form>
     <div class="row">
       <h1>Slider</h1>
-      <span class="code-tag">Live Example</span>
+
       <div class="row">
         <div class="twelve columns">
           <label for="slider-regular">Regular</label>
@@ -12,7 +12,7 @@
           <div *ngIf="showModel" class="percentage-label">
             <label id="label" soho-label><strong>Model Value: {{ model.value | json }}</strong></label>
           </div>
-          <div> 
+          <div>
             <button soho-button [disabled]="sliderReadOnly" (click)="setReadonly()">Read Only</button>
             <button soho-button [disabled]="sliderDisabled" (click)="setDisable()">Disable</button>
             <button soho-button [disabled]="!sliderDisabled && !sliderReadOnly" (click)="setEnable()">Enable</button>

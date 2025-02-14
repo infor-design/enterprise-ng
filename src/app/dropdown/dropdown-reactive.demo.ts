@@ -1,16 +1,16 @@
-import {Component, ViewChild} from '@angular/core';
-import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 // @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
-    selector: 'app-dropdown-reactive-demo',
-    template: `
+  selector: 'app-dropdown-reactive-demo',
+  template: `
   <div class="example-section">
   <form>
     <div class="row">
       <h1>Reactive Dropdown</h1>
-      <span class="code-tag">Live Example</span>
+
       <div class="row">
         <div class="field">
           <label for="states" class="label">States</label>
@@ -33,17 +33,17 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 </div>
 
   `,
-    standalone: false
+  standalone: false
 })
 export class DropdownReactiveDemoComponent {
 
   @ViewChild(SohoDropDownComponent, { static: true }) dropdown?: any;
   states = [
-    {label: 'Arizona', value: 'AZ'},
-    {label: 'California', value: 'CA'},
-    {label: 'Colorado', value: 'CO'},
-    {label: 'New York', value: 'NY'},
-    {label: 'Pennsylvania', value: 'PA'},
+    { label: 'Arizona', value: 'AZ' },
+    { label: 'California', value: 'CA' },
+    { label: 'Colorado', value: 'CO' },
+    { label: 'New York', value: 'NY' },
+    { label: 'Pennsylvania', value: 'PA' },
   ];
 
   form = new UntypedFormGroup({

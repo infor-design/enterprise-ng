@@ -5,7 +5,7 @@
   >
     <div class="row">
       <h1>Validation Form - Events</h1>
-      <span class="code-tag">Live Example</span>
+
       <div class="row">
         <div class="four columns">
           <div class="field">
@@ -30,7 +30,7 @@
 	    <div class="row">
         <div class="six columns">
           <div class="field">
-            <label soho-label [required]="model.EventField.required" for="EventField">EventField</label>  
+            <label soho-label [required]="model.EventField.required" for="EventField">EventField</label>
             <input id="EventField" name="EventField" formControlName="EventField"
               [(ngModel)]="model.EventField.value" [data-validate]="isRequired('EventField')"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
@@ -47,7 +47,7 @@
             <label soho-label [required]="model.AlphaField.required" for="AlphaField">AlphaField</label>
             <input id="AlphaField" name="AlphaField" formControlName="AlphaField"
               [(ngModel)]="model.AlphaField.value" attr.data-validate="{{isRequired('AlphaField')}}"
-              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)" 
+              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
               (error)="onValidationEvent($event)" (valid)="onValidationEvent($event)"
             >
             <p>{{status('AlphaField')}}<br>{{event('AlphaField')}}</p>

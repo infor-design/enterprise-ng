@@ -2,11 +2,10 @@
   <h2 class="fieldset-title">Soho Data Grid - Sandbox</h2>
   <div class="field">
     <button
-      soho-button="primary"
+      soho-button="secondary"
       (click)="onClickGetDataset()"
     >Get Dataset</button>
   </div>
-  <br>
   <div *ngIf="gridOptions$ | async as gridOptions">
 
     <soho-toolbar-flex
@@ -16,7 +15,6 @@
     >
 
     </soho-toolbar-flex>
-
     <div
       soho-datagrid="auto"
       [gridOptions]="gridOptions"

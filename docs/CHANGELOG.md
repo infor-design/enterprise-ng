@@ -1,19 +1,16 @@
 # What's New with Enterprise-NG
 
-## 19.0.1
+## 19.1.0
 
-## 19.0.1 Fixes
+## 19.1.0 Features
+
+- `[Datagrid]` Added `renderTooltipHtmlContents` property in datagrid column interface ([#6627](https://inforwiki.atlassian.net/browse/IDS-6627))
+- `[General]` Added enterprise 4.104.0 version.
+
+## 19.1.0 Fixes
 
 - `[Modal]` Fixed regression in modal that caused modals to not tear down. ([#7369](https://inforwiki.atlassian.net/browse/IDS-7369))
 - `[TabsModule]` Fixed handles for app menu trigger and overflows to activate more button. ([#7889](https://inforwiki.atlassian.net/browse/IDS-7889))
-
-## 19.1.0
-
-## 19.1.0 Featrues
-
-- `[Datagrid]` Added `renderTooltipHtmlContents` property in datagrid column interface ([#6627](https://inforwiki.atlassian.net/browse/IDS-6627))
-
-## 19.1.0 Fixes
 
 ## 19.0.0
 
