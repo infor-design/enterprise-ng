@@ -7,7 +7,7 @@
     "@angular/core": "^19.0.7",
     "jquery": "3.7.1",
     "d3": "7.9.0",
-    "ids-enterprise": "^4.103.0",
+    "ids-enterprise": "^4.103.2",
     "@types/jquery": "3.5.16",
     "@types/d3": "7.4.0",
     "ids-enterprise-typings": "19.1.0-dev"
