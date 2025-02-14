@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 19.2.0
+
+## 19.2.0 Fixes
+
+- `[General]` This is a placeholder for the next release. Remove it if you are the first one here.
+
 ## 19.1.0
 
 ## 19.1.0 Features
