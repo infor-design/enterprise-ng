@@ -218,18 +218,24 @@
         <div class="field">
           <label soho-label for="autocomplete">Products (with autocomplete)</label>
           <input soho-lookup
-                 multiselect
-                 [(ngModel)]="model.autocomplete"
-                 [columns]="columns_product"
-                 [dataset]="data_product"
-                 (change)="onChange($event)"
-                 (afteropen)="onAfterOpen($event)"
-                 field="productId"
-                 title="Products"
-                 name="product_single"
-                 [autoCompleteSettings]="autoCompleteSettings"
+              id="update-dataset"
+              #updateDataset
+              multiselect
+              [(ngModel)]="model.autocomplete"
+              [columns]="columns_product"
+              [dataset]="data_product"
+              (change)="onChange($event)"
+              (afteropen)="onAfterOpen($event)"
+              field="productId"
+              title="Products"
+              name="product_single"
+              [autoCompleteSettings]="autoCompleteSettings"
           />
         </div>
+        <div class="field">
+          <button soho-button (click)="updateData()">Update Dataset</button>
+        </div>
+
 
         <div class="field">
           <label soho-label for="toggle-buttons">Enable/Disable Buttons</label>

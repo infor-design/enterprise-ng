@@ -19,13 +19,14 @@ export interface FakeResponse {
 }
 
 @Component({
-    selector: 'app-lookup-demo',
-    templateUrl: 'lookup.demo.html',
-    standalone: false
+  selector: 'app-lookup-demo',
+  templateUrl: 'lookup.demo.html',
+  standalone: false
 })
 export class LookupDemoComponent implements OnInit {
   @ViewChild('templateId', { static: true }) sohoLookupComponent?: SohoLookupComponent;
   @ViewChild('toggleButtons', { static: true }) sohoLookupRef?: SohoLookupComponent;
+  @ViewChild('updateDataset', { static: true }) updateDatasetRef?: SohoLookupComponent;
 
   public isDisabled = true;
   public isReadonly = true;
@@ -33,6 +34,8 @@ export class LookupDemoComponent implements OnInit {
   public columns_multi?: SohoDataGridColumn[];
   public entityIds?: string;
   public data_product?: any[];
+  public updated_data_product?: any[];
+
   public customButtons: SohoModalButton[] = [
     {
       text: 'Enable', click: () => {
@@ -234,10 +237,15 @@ export class LookupDemoComponent implements OnInit {
     this.columns_product = [];
     this.columns_multi = [];
     this.data_product = [];
+    this.updated_data_product = [];
 
     // Some Sample Data
     productsData.forEach(data => {
       this.data_product?.push(data);
+    });
+
+    productsData.forEach(data => {
+      this.updated_data_product?.push(data);
     });
 
     // Add checkbox for multi select Grid
@@ -253,6 +261,92 @@ export class LookupDemoComponent implements OnInit {
 
   toggleModel() {
     this.showModel = !this.showModel;
+  }
+
+  updateData() {
+    console.log('Updating dataset', this.data_product);
+    this.updated_data_product = [
+      {
+        "id": 1,
+        "productId": 3142201,
+        "productName": "Pump",
+        "activity": "Assemble Pump",
+        "quantity": 1,
+        "price": 210.99,
+        "status": "OK",
+        "orderDate": "2015-01-08T05:00:00.000Z",
+        "action": "Action"
+      },
+      {
+        "id": 2,
+        "productId": 3241202,
+        "productName": "Different Pump",
+        "activity": "Inspect and Repair",
+        "quantity": 2,
+        "price": 210.99,
+        "status": "",
+        "orderDate": "2015-08-03T04:00:00.000Z",
+        "action": "On Hold"
+      },
+      {
+        "id": 3,
+        "productId": 3342203,
+        "productName": "Pump",
+        "activity": "Inspect and Repair",
+        "quantity": 1,
+        "price": 120.99,
+        "status": null,
+        "orderDate": "2014-07-03T04:00:00.000Z",
+        "action": "Action"
+      },
+      {
+        "id": 4,
+        "productId": 3445204,
+        "productName": "Another Pump",
+        "activity": "Assemble Pump",
+        "quantity": 3,
+        "price": 210.99,
+        "status": "OK",
+        "orderDate": "2015-04-03T04:00:00.000Z",
+        "action": "Action"
+      },
+      {
+        "id": 5,
+        "productId": 3542205,
+        "productName": "I Love Pumps",
+        "activity": "Inspect and Repair",
+        "quantity": 4,
+        "price": 210.99,
+        "status": "OK",
+        "orderDate": "2015-06-05T04:00:00.000Z",
+        "action": "On Hold"
+      },
+      {
+        "id": 5,
+        "productId": 3642205,
+        "productName": "Air Pump",
+        "activity": "Inspect and Repair",
+        "quantity": 41,
+        "price": 120.99,
+        "status": "OK",
+        "orderDate": "2014-07-09T04:00:00.000Z",
+        "action": "On Hold"
+      },
+      {
+        "id": 6,
+        "productId": 3642206,
+        "productName": "Some Pump",
+        "activity": "inspect and Repair",
+        "quantity": 41,
+        "price": 123.99,
+        "status": "OK",
+        "orderDate": "2014-07-09T04:00:00.000Z",
+        "action": "On Hold"
+      }
+    ];
+
+    this.updateDatasetRef!.dataset = this.updated_data_product;
+    console.log('Data set updated');
   }
 
   /**

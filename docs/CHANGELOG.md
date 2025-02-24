@@ -4,7 +4,7 @@
 
 ## 19.2.0 Fixes
 
-- `[General]` This is a placeholder for the next release. Remove it if you are the first one here.
+- `[Lookup]` Fixed a bug in the dataset setter so that it will properly update. ([#6155](https://inforwiki.atlassian.net/browse/IDS-6155))
 
 ## 19.1.0
 
