@@ -19,11 +19,11 @@ import {
 } from '../utils';
 
 @Component({
-    selector: 'input[soho-lookup]', // eslint-disable-line
-    template: '<ng-content></ng-content>',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [provideControlValueAccessor(SohoLookupComponent)],
-    standalone: false
+  selector: 'input[soho-lookup]', // eslint-disable-line
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [provideControlValueAccessor(SohoLookupComponent)],
+  standalone: false
 })
 export class SohoLookupComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
   /**
@@ -56,7 +56,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this._dataset = data;
     if (data && this.jQueryElement && this.lookup?.settings?.options) {
       this.lookup.settings.options.dataset = data;
-      this.markForUpdate();
+      this.lookup.element.data('lookup').settings.options.dataset = data;
+
+      if (this.autoCompleteSettings && this.lookup.element.data('autocomplete')) {
+        const acDataset = data.map((data: { [key: string]: any }) => {
+          return this.autoCompleteSettings ? {
+            id: data[this.autoCompleteSettings.id],
+            value: data[this.autoCompleteSettings.value],
+            label: data[this.autoCompleteSettings.label]
+          } : data;
+        });
+        this.lookup.element.data('autocomplete').settings.source = acDataset;
+      }
     }
   }
   public get dataset(): Object[] | undefined {
