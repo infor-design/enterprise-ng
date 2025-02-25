@@ -3,7 +3,8 @@
     <div class="inline">
       <button soho-button (click)="onChangeTabs()">Change Tabs</button>
       <button soho-button (click)="onChangeTitles()">Change Titles</button>
-      <button soho-button (click)="onAddTab()">Add one Tab</button>
+      <button soho-button (click)="onAddTab()">Add One Tab (Push)</button>
+      <button soho-button (click)="onAddTabV2()">Add One Tab (Array)</button>
     </div>
   </div>
 </div>
@@ -11,7 +12,9 @@
 <div class="row">
   <div class="twelve columns">
 
-    <div soho-tabs registerForEvents="activated" (activated)="onActivated($event)">
+    <div soho-tabs registerForEvents="activated" 
+      (activated)="onActivated($event)"
+      (activated)="onTabActivated($event)">
       <div soho-tab-list-container>
         <ul soho-tab-list>
           <li dismissible="true" soho-tab *ngFor="let tab of tabs"><a soho-tab-title [tabId]="tab.id">{{tab.title}}</a></li>

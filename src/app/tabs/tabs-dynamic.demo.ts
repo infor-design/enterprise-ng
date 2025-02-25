@@ -89,14 +89,31 @@ export class TabsDynamicDemoComponent implements OnInit {
 
   onActivated(event: SohoTabsEvent) {
     setTimeout(() => {
-      console.log('selected tab index is: ' + event.tab.tabIndex);
+      console.log('selected tab is: ' + event.tab);
     }, 1);
+  }
+
+  onTabActivated(event: any) {
+    console.log(event.tab + " TabsBasicDemoComponent.onTabActivated");  
   }
 
   cnt = 0;
 
   onAddTab() {
     this.cnt++;
-    this.tabs?.push({ id: `dynamic-${this.cnt}`, dismissible: true, title: 'Newly Added Tab', content: 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+    this.tabs?.push({ id: `dynamic-${this.cnt}`, dismissible: true, title: 'Newly Added Tab', 
+      content: 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+  }
+
+  onAddTabV2() {
+    if (this.tabs) {
+      this.cnt++;
+      this.tabs = [
+        ...this.tabs,
+        { id: `dynamic-${this.cnt}`, dismissible: true, title: 'Newly Added Tab', 
+          content: 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' 
+        }
+      ]
+    }
   }
 }
