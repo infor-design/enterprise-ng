@@ -5,6 +5,7 @@
 ## 19.2.0 Fixes
 
 - `[Lookup]` Fixed a bug in the dataset setter so that it will properly update. ([#6155](https://inforwiki.atlassian.net/browse/IDS-6155))
+- `[TabsModule]` Updated demo page for tabs-dynamic to use 2 ways on adding via (push or array) and to show if onTabsActivated is working. ([#7911](https://inforwiki.atlassian.net/browse/IDS-7911))
 
 ## 19.1.0
 
