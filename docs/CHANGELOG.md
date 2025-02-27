@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 19.1.1
+
+## 19.1.1 Features
+
+- `[General]` Added enterprise 4.104.1 version.
+
 ## 19.1.0
 
 ## 19.1.0 Features
