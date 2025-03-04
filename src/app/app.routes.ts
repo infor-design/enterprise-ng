@@ -258,6 +258,7 @@ import { DataGridUpdateDatasetDemoComponent } from './datagrid/datagrid-update-d
 import { DataGridVerticalScrollListDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end-list.demo';
 import { DataGridCustomComponent } from './datagrid/datagrid-custom-component.demo';
 import { DropdownFocusComponent } from './dropdown/dropdown-focus';
+import { DataGridTooltipDemoComponent } from './datagrid/datagrid-tooltip.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -357,6 +358,7 @@ export const routes: Routes = [
   { path: 'datagrid-treegrid-lazy', component: DataGridTreeGridLazyDemoComponent },
   { path: 'datagrid-treegrid-cube', component: DataGridTreeGridCubeDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter', component: DatagridTreegridDynamicfilteringDemoComponent },
+  { path: 'datagrid-tooltip', component: DataGridTooltipDemoComponent },
   { path: 'datagrid-update-dataset', component: DataGridUpdateDatasetDemoComponent },
   { path: 'datagrid-vertical-scroll', component: DataGridVerticalScrollDemoComponent },
   { path: 'datagrid-vertical-scroll-list', component: DataGridVerticalScrollListDemoComponent },

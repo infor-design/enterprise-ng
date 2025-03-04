@@ -132,6 +132,7 @@ import { DatagridPopupMenuToolbarComponent } from './datagrid/datagrid-popupmenu
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
 import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
+import { DataGridTooltipDemoComponent } from './datagrid/datagrid-tooltip.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridTreeGridLazyDemoComponent } from './datagrid/datagrid-treegrid-lazy.demo';
@@ -419,6 +420,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     DataGridStandardFormatterDemoComponent,
     DataGridTabDemoComponent,
     DataGridTestSettingsDemoComponent,
+    DataGridTooltipDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
     DataGridTreeGridLazyDemoComponent,
