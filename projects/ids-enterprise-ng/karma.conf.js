@@ -13,7 +13,6 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
-      require('karma-phantomjs-launcher'),
       require('karma-mocha-reporter')
     ],
     client: {
@@ -29,8 +28,8 @@ module.exports = function (config) {
       output: 'autowatch',
     },
     files: [
-      { pattern: '../../node_modules/jquery/dist/jquery.js', watched: false  },
-      { pattern: '../../node_modules/d3/dist/d3.js', watched: false  },
+      { pattern: '../../node_modules/jquery/dist/jquery.js', watched: false },
+      { pattern: '../../node_modules/d3/dist/d3.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/js/sohoxi.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/en-US.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/it-IT.js', watched: false },
@@ -42,7 +41,7 @@ module.exports = function (config) {
     preprocessors: {
     },
     mime: {
-      'text/x-typescript': ['ts','tsx']
+      'text/x-typescript': ['ts', 'tsx']
     },
     coverageReporter: {
       dir: require('path').join(__dirname, '../../coverage'),
@@ -54,15 +53,15 @@ module.exports = function (config) {
       ]
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'coverage-istanbul', 'kjhtml', 'mocha']
+      ? ['progress', 'coverage-istanbul', 'kjhtml', 'mocha']
       : ['progress', 'kjhtml', 'mocha'],
-    mocha:{
+    mocha: {
       outputFile: 'tests/results.txt'
     },
     customLaunchers: {
       ChromeDebug: {
-          base: 'Chrome',
-          flags: [ '--remote-debugging-port=9333' ]
+        base: 'Chrome',
+        flags: ['--remote-debugging-port=9333']
       },
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
@@ -78,8 +77,8 @@ module.exports = function (config) {
     browsers: ['ChromeHeadlessNoSandbox'],
     captureTimeout: 23000,
     browserDisconnectTolerance: 12, //this one helps
-    browserDisconnectTimeout : 23000,
-    browserNoActivityTimeout : 23000,
+    browserDisconnectTimeout: 23000,
+    browserNoActivityTimeout: 23000,
     singleRun: true,
     restartOnFileChange: true
   });

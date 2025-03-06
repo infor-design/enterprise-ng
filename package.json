@@ -79,7 +79,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "karma-mocha-reporter": "^2.2.5",
-    "karma-phantomjs-launcher": "^1.0.4",
     "kill-port": "^2.0.1",
     "markdownlint-cli": "^0.43.0",
     "merge-stream": "^2.0.0",
