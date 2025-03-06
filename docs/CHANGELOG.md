@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## 19.1.6
+
+## 19.1.6 Features
+
+- `[General]` Added enterprise 4.104.6 version with error message fix.
+
 ## 19.1.5
 
 ## 19.1.5 Features
