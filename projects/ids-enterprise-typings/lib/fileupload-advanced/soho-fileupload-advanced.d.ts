@@ -76,6 +76,8 @@ interface SohoFileUploadAdvancedStatic {
 
   destroy(): void;
 
+  setFailed(error: string, fileIndex?: number): void;
+
   /** Resync the UI and Settings. */
   updated(settings: SohoFileUploadAdvancedOptions): void;
 }
