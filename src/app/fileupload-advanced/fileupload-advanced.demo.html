@@ -7,6 +7,7 @@
           <div class="buttonbar">
             <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
             <button soho-button [disabled]="!fileUploadDisabled" (click)="setEnable()">Enable</button>
+            <button id="set-failed" soho-button (click)="setFailed()">Set failed</button>
           </div>
 
           <br>

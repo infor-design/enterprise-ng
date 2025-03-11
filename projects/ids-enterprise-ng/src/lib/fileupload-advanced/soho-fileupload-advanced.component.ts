@@ -11,10 +11,10 @@ import {
 } from '@angular/core';
 
 @Component({
-    selector: 'soho-fileupload-advanced,div[soho-fileupload-advanced]',
-    templateUrl: 'soho-fileupload-advanced.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'soho-fileupload-advanced,div[soho-fileupload-advanced]',
+  templateUrl: 'soho-fileupload-advanced.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
@@ -346,6 +346,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   @Output() fileaborted = new EventEmitter<File[]>();
   @Output() filecompleteduploading = new EventEmitter<File[]>();
   @Output() fileremoved = new EventEmitter<File[]>();
+  @Output() filefailed = new EventEmitter<File[]>();
 
   // -------------------------------------------
   // Private Member Data
@@ -394,6 +395,15 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   }
 
   /**
+   * Set status of a file in progress to failed
+   */
+  setFailed(error: string, fileIndex: number = 0) {
+    this.ngZone.runOutsideAngular(() => {
+      this.fileuploadadvanced?.setFailed(error, fileIndex);
+    });
+  }
+
+  /**
    * Constructor.
    */
   constructor(private element: ElementRef,
@@ -414,6 +424,9 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
       })
       .on('filesdroped', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => this.filesdropped.next(files));
+      })
+      .on('filefailed', (_args: JQuery.TriggeredEvent, files: File[]) => {
+        this.ngZone.run(() => this.filefailed.next(files));
       })
       .on('beforecreatestatus', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => this.beforecreatestatus.next(files));

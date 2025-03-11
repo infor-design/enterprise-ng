@@ -12,9 +12,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { HttpResponse } from '@angular/common/http';
 
 @Component({
-    selector: 'app-fileupload-advanced-demo',
-    templateUrl: 'fileupload-advanced.demo.html',
-    standalone: false
+  selector: 'app-fileupload-advanced-demo',
+  templateUrl: 'fileupload-advanced.demo.html',
+  standalone: false
 })
 export class FileUploadAdvancedDemoComponent implements OnInit {
 
@@ -22,6 +22,7 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
 
   public showModel = false;
   public fileUploadDisabled = false;
+  public setFailedMessage = 'Failed message using setFailed()';
 
   constructor(private http: HttpClient, private toastService: SohoToastService) { }
   ngOnInit() { }
@@ -45,6 +46,10 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
       title: 'File Aborted',
       message: file && file.name ? file.name : ''
     });
+  }
+
+  setFailed() {
+    this.fileUploadAdvanced?.setFailed(this.setFailedMessage);
   }
 
   onFileRemoved(file: File) {
