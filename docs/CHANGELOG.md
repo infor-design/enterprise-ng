@@ -1,5 +1,9 @@
 # What's New with Enterprise-NG
 
+## 19.3.0
+
+## 19.3.0 Fixes
+
 ## 19.2.0
 
 ## 19.2.0 Fixes
