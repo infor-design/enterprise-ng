@@ -136,10 +136,10 @@ enum RefreshHintFlags {
  * providers: [ provide: DataGridService, useClass: DataGridDemoService} ]
  */
 @Component({
-    selector: '[soho-datagrid]', // eslint-disable-line
-    template: ' <ng-content></ng-content>',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: '[soho-datagrid]', // eslint-disable-line
+  template: ' <ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, AfterViewChecked {
 
@@ -2248,12 +2248,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Sets the active cell.
    *
-   * @param idx The index of the row of the cell to set active.
-   * @param idx2 The index of the cell to set active.
+   * @param rowIndex The index of the row of the cell to set active.
+   * @param cellNumber The index of the cell to set active.
+   * @param nodeFocus If true, will focus on cell even if offscreen.
    */
-  public setActiveCell(idx: number, idx2: number): void {
+  public setActiveCell(rowIndex: number, cellNumber: number, nodeFocus?: boolean): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid?.setActiveCell(idx, idx2);
+      this.datagrid?.setActiveCell(rowIndex, cellNumber, nodeFocus);
     });
   }
 

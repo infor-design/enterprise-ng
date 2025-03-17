@@ -18,10 +18,10 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
-    selector: 'app-datagrid-dynamic-demo',
-    templateUrl: 'datagrid-dynamic.demo.html',
-    providers: [DataGridDemoService],
-    standalone: false
+  selector: 'app-datagrid-dynamic-demo',
+  templateUrl: 'datagrid-dynamic.demo.html',
+  providers: [DataGridDemoService],
+  standalone: false
 })
 export class DataGridDynamicDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
@@ -93,6 +93,10 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
 
   resetFilter() {
     this.dataGrid?.clearFilter();
+  }
+
+  setActiveCell() {
+    this.dataGrid?.setActiveCell(0, 0, true);
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {

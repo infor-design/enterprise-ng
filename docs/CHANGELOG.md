@@ -4,6 +4,8 @@
 
 ## 19.3.0 Fixes
 
+- `[Datagrid]` Exposed `nodeFocus` parameter for `setActiveCell`. ([#8144](https://infor.atlassian.net/browse/IDS-8144))
+
 ## 19.2.0
 
 ## 19.2.0 Fixes
