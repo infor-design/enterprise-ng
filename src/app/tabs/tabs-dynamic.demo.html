@@ -3,8 +3,10 @@
     <div class="inline">
       <button soho-button (click)="onChangeTabs()">Change Tabs</button>
       <button soho-button (click)="onChangeTitles()">Change Titles</button>
-      <button soho-button (click)="onAddTab()">Add One Tab (Push)</button>
-      <button soho-button (click)="onAddTabV2()">Add One Tab (Array)</button>
+      <!-- <button soho-button (click)="onAddTab()">Add One Tab</button> -->
+      <button soho-button (click)="onAddTabV2()">Add One Tab (Push)</button>
+      <button soho-button (click)="onAddTabV3()">Add One Tab (Array)</button>
+      <button soho-button (click)="onRemoveTab()">Remove Last Tab</button>
     </div>
   </div>
 </div>
@@ -13,6 +15,7 @@
   <div class="twelve columns">
 
     <div soho-tabs registerForEvents="activated" 
+      [addTabButton]="true"
       (activated)="onActivated($event)"
       (activated)="onTabActivated($event)">
       <div soho-tab-list-container>

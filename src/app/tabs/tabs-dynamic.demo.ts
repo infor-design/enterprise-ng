@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   OnInit,
   ViewChild
@@ -51,10 +52,25 @@ export class TabsDynamicDemoComponent implements OnInit {
       ]
     ];
 
-  constructor() { }
+  sequenceId = 0;
+
+  onGenerateSequenceId() {
+    if (this.tabs) {
+      this.sequenceId = this.tabs.length + 1;
+    }
+  }
+
+  onGetNextSequenceId() {
+    this.sequenceId++;
+    return this.sequenceId;
+  }
+
+  constructor(private ref: ChangeDetectorRef) { 
+  }
 
   ngOnInit() {
     this.tabs = this.tabsData[this.currentTabsIndex];
+    this.onGenerateSequenceId();
   }
 
   onChangeTabs() {
@@ -97,23 +113,42 @@ export class TabsDynamicDemoComponent implements OnInit {
     console.log(event.tab + " TabsBasicDemoComponent.onTabActivated");  
   }
 
-  cnt = 0;
-
   onAddTab() {
-    this.cnt++;
-    this.tabs?.push({ id: `dynamic-${this.cnt}`, dismissible: true, title: 'Newly Added Tab', 
-      content: 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+    const id = this.onGetNextSequenceId() - 1;
+    const tabId = `tab-${id}`;
+    const tabTitle = `Tab-${id}`;
+    const tabContent = 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.';
+    const option = {
+      name: tabTitle,
+      content: tabContent,
+      isDismissible: true
+    }
+    this.sohoTabsComponent?.add(tabId, option, id);
   }
 
   onAddTabV2() {
+    const id = this.onGetNextSequenceId() - 1;
+    this.tabs?.push({ id: `tab-${id}`, dismissible: true, title: `Tab-${id}`, 
+      content: 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+  }
+
+  onAddTabV3() {
     if (this.tabs) {
-      this.cnt++;
+      const id = this.onGetNextSequenceId() - 1;
       this.tabs = [
         ...this.tabs,
-        { id: `dynamic-${this.cnt}`, dismissible: true, title: 'Newly Added Tab', 
+        { id: `tab-${id}`, dismissible: true, title: `Tab-${id}`, 
           content: 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' 
         }
-      ]
+      ];
+    }
+  }
+
+  onRemoveTab() {
+    if (this.tabs && this.tabs.length > 0) {
+      const tabData = this.tabs.length - 1;
+      const id = this.tabs[tabData].id;
+      this.sohoTabsComponent?.remove(id);
     }
   }
 }

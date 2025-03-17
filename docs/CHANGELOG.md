@@ -4,6 +4,8 @@
 
 ## 19.3.0 Fixes
 
+- `[TabsModule]` Updated demo page for tabs-dynamic to show properly how to use the add and remove function. ([#8685](https://inforwiki.atlassian.net/browse/IDS-8685))
+
 ## 19.2.0
 
 ## 19.2.0 Fixes
