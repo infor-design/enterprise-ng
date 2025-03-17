@@ -146,8 +146,9 @@ export class TabsDynamicDemoComponent implements OnInit {
 
   onRemoveTab() {
     if (this.tabs && this.tabs.length > 0) {
-      const tabData = this.tabs.length - 1;
-      const id = this.tabs[tabData].id;
+      const tabIndex = this.tabs.length - 1;
+      const id = this.tabs[tabIndex].id;
+      this.tabs.splice(-1);
       this.sohoTabsComponent?.remove(id);
     }
   }
