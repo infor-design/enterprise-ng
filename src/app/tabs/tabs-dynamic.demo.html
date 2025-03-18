@@ -1,12 +1,20 @@
 <div style="padding: 20px 20px 0 20px;">
   <div class="row">
     <div class="inline">
-      <button soho-button (click)="onChangeTabs()">Change Tabs</button>
-      <button soho-button (click)="onChangeTitles()">Change Titles</button>
-      <!-- <button soho-button (click)="onAddTab()">Add One Tab</button> -->
-      <button soho-button (click)="onAddTabV2()">Add One Tab (Push)</button>
-      <button soho-button (click)="onAddTabV3()">Add One Tab (Array)</button>
+      <button soho-button (click)="onAddTabPush()">Add Tab (Push)</button>
+      <button soho-button (click)="onAddDisabledTabPush()">Add Disabled Tab (Push)</button>
+      <button soho-button (click)="onAddHiddenTabPush()">Add Hidden Tab (Push)</button>
+      <button soho-button (click)="onAddTabArray()">Add Tab (Array)</button>
+      <button soho-button (click)="onAddDisabledTabArray()">Add Disabled Tab (Array)</button>
+      <button soho-button (click)="onAddHiddenTabArray()">Add Hidden Tab (Array)</button>
+    </div>
+  </div>
+  <div class="row top-padding">
+    <div class="inline">
       <button soho-button (click)="onRemoveTab()">Remove Last Tab</button>
+      <button soho-button (click)="onEnableTabs()">Enable Tabs</button>
+      <button soho-button (click)="onShowTabs()">Show Hidden Tabs</button>
+      <!-- <button soho-button (click)="onChangeTitles()">Change Titles</button> -->
     </div>
   </div>
 </div>
@@ -19,7 +27,16 @@
       (activated)="onTabActivated($event)">
       <div soho-tab-list-container>
         <ul soho-tab-list>
-          <li dismissible="true" soho-tab *ngFor="let tab of tabs"><a soho-tab-title [tabId]="tab.id">{{tab.title}}</a></li>
+          <li 
+            [attr.dismissible]="tab.isDismissible === true ? true : null"
+            [dismissible]="tab.isDismissible === true ? true : null"
+            [attr.disabled]="tab.isDisabled === true ? true : null"
+            [disabled]="tab.isDisabled === true ? true : null"
+            [attr.hidden]="tab.isHidden === true ? true : null"
+            [hidden]="tab.isHidden === true ? true : null"
+            soho-tab *ngFor="let tab of tabs">
+            <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
+          </li>
         </ul>
       </div>
     </div>
