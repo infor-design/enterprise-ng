@@ -129,6 +129,17 @@ export class TabsDynamicDemoComponent implements OnInit {
     });
   }
 
+  onAddTabActivatePush() {
+    const id = this.onGetNextSequenceId() - 1;
+    this.tabs?.push({ 
+      id: `tab-${id}`,
+      title: `Tab-${id}`,
+      doActivate: true,
+      isDismissible: true,
+      content: 'Magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.'
+    });
+  }
+
   onAddDisabledTabPush() {
     const id = this.onGetNextSequenceId() - 1;
     this.tabs?.push({ 

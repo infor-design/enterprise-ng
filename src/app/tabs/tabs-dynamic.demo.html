@@ -2,6 +2,7 @@
   <div class="row">
     <div class="inline">
       <button soho-button (click)="onAddTabPush()">Add Tab (Push)</button>
+      <button soho-button (click)="onAddTabActivatePush()">Add Tab (Activate) (Push)</button>
       <button soho-button (click)="onAddDisabledTabPush()">Add Disabled Tab (Push)</button>
       <button soho-button (click)="onAddHiddenTabPush()">Add Hidden Tab (Push)</button>
       <button soho-button (click)="onAddTabArray()">Add Tab (Array)</button>
@@ -35,6 +36,7 @@
             [disabled]="tab.isDisabled === true ? true : null"
             [attr.hidden]="tab.isHidden === true ? true : null"
             [hidden]="tab.isHidden === true ? true : null"
+            [attr.do-activate]="tab.doActivate === true ? true : null"
             soho-tab *ngFor="let tab of tabs">
             <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
           </li>
