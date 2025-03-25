@@ -17,6 +17,9 @@ interface SohoInputValidateStatic {
   /** Remove the message from the field if there is one and mark the field valid */
   removeMessage(field: any, type: any): void;
 
+  /** Set icon on parent tabs/expandable */
+  setIconOnParent(field: any, type: any): void;
+
   /** Trigger validation of the field */
   validate(field: any, showTooltip: any, event: any): void;
 
