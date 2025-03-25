@@ -114,6 +114,11 @@ export class SohoInputValidateDirective implements AfterViewInit, OnDestroy {
   public removeMessage(type: any) {
     this.ngZone.runOutsideAngular(() => {
       this.validator?.removeMessage(this.jQueryElement, type);
+
+      // JS Component has a built-in removeMessage function that calls setIconOnParent
+      // Angular Component only calls the removeMessage function which don't call setIconOnParent
+      // See $.fn.removeMessage
+      this.validator?.setIconOnParent(this.jQueryElement, type.type);
     });
   }
 

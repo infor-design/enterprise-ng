@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Validation Form</h2>
+  </div>
+</div>
+<br><br><br>
+
+<div class="row">
+  <div class="twelve columns">
+    <div class="app-form">
+      <div>
+        <button soho-button="primary" (click)="removeValidator()" X>
+          Remove Validator
+        </button>
+      </div>
+
+      <div
+        soho-tabs
+        class="is-personalizable"
+        [vertical]="true"
+        class="app-form__groups"
+      >
+        <div
+          soho-tab-list-container
+          [verticalScrolling]="true"
+          class="app-form__groups__list"
+        >
+          <ul soho-tab-list>
+            @for(tab of tabs; track tab.id){
+            <li soho-tab>
+              <a soho-tab-title [tabId]="'tabs-vertical-' + tab.id">
+                {{ tab.title }}
+              </a>
+            </li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div soho-tab-panel-container [verticalScrolling]="true">
+        @for(tab of tabs; track tab.id){
+        <div soho-tab-panel [tabId]="'tabs-vertical-' + tab.id">
+          <div>
+            <h1>{{ tab.title }}</h1>
+
+            <br />
+            <div class="field">
+              <label [class]="validatorSignal()">Field: </label>
+              <input soho-input [data-validate]="validatorSignal()" />
+            </div>
+
+            <div class="field">
+              <label>Field: </label>
+              <input soho-input />
+            </div>
+            <div class="field">
+              <label>Field: </label>
+              <input soho-input />
+            </div>
+            <div class="field">
+              <label>Field: </label>
+              <input soho-input />
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

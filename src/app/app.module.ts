@@ -275,6 +275,7 @@ import { TreemapDemoComponent } from './treemap/treemap.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { ValidationTabFormDemoComponent } from './validation/validation-tab-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { WizardDemoBackupRulePageComponent } from './wizard/wizard-backup-rule-page.demo';
@@ -589,6 +590,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     TreeServiceDemoComponent,
     TreeSourceDemoComponent,
     ValidationFormDemoComponent,
+    ValidationTabFormDemoComponent,
     ValidationFormEventDemoComponent,
     ValidationFormGroupDemoComponent,
     WeekViewDemoComponent,
