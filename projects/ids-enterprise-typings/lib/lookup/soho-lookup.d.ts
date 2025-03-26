@@ -198,6 +198,9 @@ interface SohoLookupStatic {
 
   /**  Send in a new data set to display in the datagrid in the lookup. **/
   updateDataset(dataset: Object[], pagerInfo: SohoPagerPagingInfo): void;
+
+  /** Sets the loading/busy indicator state for the modal element. **/
+  setLoadingIndicator(show: boolean, options?: SohoBusyIndicatorOptions): void;
 }
 
 /**

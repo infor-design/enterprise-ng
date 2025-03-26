@@ -2,6 +2,10 @@
 
 ## 19.3.0
 
+## 19.3.0 Features
+
+- `[Lookup]` Added `setLoadingIndicator` function to lookup to a loading indicator for api lookup rendering ([#6155](https://inforwiki.atlassian.net/browse/IDS-6155))
+
 ## 19.3.0 Fixes
 
 - `[Datagrid]` Exposed `nodeFocus` parameter for `setActiveCell`. ([#8144](https://infor.atlassian.net/browse/IDS-8144))
