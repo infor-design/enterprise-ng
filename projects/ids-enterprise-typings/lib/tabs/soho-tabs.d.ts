@@ -94,6 +94,11 @@ interface SohoTabsOptions {
   tabCounts?: boolean;
 
   /**
+   * If false, will not focus on anchor after selecting it on tabs more button.
+   */
+  anchorFocus?: boolean;
+
+  /**
    * If not null, set the initial width of the tabs.
    */
   maxWidth?: number | undefined;

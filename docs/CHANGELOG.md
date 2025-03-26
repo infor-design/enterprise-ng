@@ -5,6 +5,7 @@
 ## 19.3.0 Fixes
 
 - `[Datagrid]` Exposed `nodeFocus` parameter for `setActiveCell`. ([#8144](https://infor.atlassian.net/browse/IDS-8144))
+- `[Tabs]` Exposed `anchorFocus` parameter. ([#8579](https://inforwiki.atlassian.net/browse/IDS-8579))
 - `[Tabs]` Fixed a bug in tabs validation where when you remove the validator, the parent tab component persist the icon error. ([#8082](https://inforwiki.atlassian.net/browse/IDS-8082))
 
 ## 19.2.0

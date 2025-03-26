@@ -433,6 +433,18 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   /**
+   * set to true to allow tab count markup <span class=tabcount>#</span>.
+   *
+   */
+  @Input() set anchorFocus(anchorFocus: boolean) {
+    this._tabsOptions.anchorFocus = anchorFocus;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.anchorFocus = anchorFocus;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
    * If Vertical Tabs & true, will automatically switch to Horizontal Tabs on smaller breakpoints.
    *
    */
