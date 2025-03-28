@@ -83,6 +83,7 @@ import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridFrozenColumnRefreshDemoComponent } from './datagrid/datagrid-frozen-column-refresh.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
+import { DataGridGroupablePagingDemoComponent } from './datagrid/datagrid-groupable-paging.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
@@ -340,6 +341,7 @@ export const routes: Routes = [
   { path: 'datagrid-frozen-column', component: DataGridFrozenColumnRefreshDemoComponent },
   { path: 'datagrid-groupedheader', component: DataGridGroupedHeaderDemoComponent },
   { path: 'datagrid-groupable', component: DataGridGroupableDemoComponent },
+  { path: 'datagrid-groupable-paging', component: DataGridGroupablePagingDemoComponent },
   { path: 'datagrid-mixed-selection', component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate', component: DataGridPagingIndeterminateDemoComponent },
   { path: 'datagrid-paging-service', component: DataGridPagingServiceDemoComponent },

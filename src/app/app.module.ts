@@ -117,6 +117,7 @@ import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridFrozenColumnRefreshDemoComponent } from "./datagrid/datagrid-frozen-column-refresh.demo";
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
+import { DataGridGroupablePagingDemoComponent } from './datagrid/datagrid-groupable-paging.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
@@ -428,6 +429,7 @@ import { DropdownFocusComponent } from './dropdown/dropdown-focus';
     DataGridTreeGridCubeDemoComponent,
     DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
+    DataGridGroupablePagingDemoComponent,
     DataGridVerticalScrollDemoComponent,
     DataGridUpdateDatasetDemoComponent,
     DataGridVerticalScrollListDemoComponent,
