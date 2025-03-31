@@ -7,6 +7,7 @@
 - `[Datagrid]` Exposed `nodeFocus` parameter for `setActiveCell`. ([#8144](https://infor.atlassian.net/browse/IDS-8144))
 - `[Datagrid]` Added demo page for datagrid grouping click callback when used in pagination. ([#8893](https://infor.atlassian.net/browse/IDS-8893))
 - `[Tabs]` Fixed a bug in tabs validation where when you remove the validator, the parent tab component persist the icon error. ([#8082](https://inforwiki.atlassian.net/browse/IDS-8082))
+- `[TabsModule]` Updated demo page for tabs-dynamic to show properly how to use the add and remove function. ([#8685](https://inforwiki.atlassian.net/browse/IDS-8685))
 
 ## 19.2.0
 
