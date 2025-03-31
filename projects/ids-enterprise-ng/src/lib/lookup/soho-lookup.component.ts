@@ -661,6 +661,15 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  /** 
+   * Sets the loading/busy indicator state for the modal element.
+   */
+  public setLoadingIndicator(show: boolean, options?: SohoBusyIndicatorOptions): void {
+    if (this.lookup) {
+      this.ngZone.runOutsideAngular(() => this.lookup?.setLoadingIndicator(show, options));
+    }
+  }
+
   /**
    * Destroys the modal lookup.
    */
