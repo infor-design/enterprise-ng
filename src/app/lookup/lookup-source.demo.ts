@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ViewChildren } from '@angular/core';
+import { SohoBusyIndicatorDirective, SohoLookupComponent } from 'ids-enterprise-ng';
 
 @Component({
-    selector: 'app-lookup-source',
-    templateUrl: './lookup-source.demo.html',
-    standalone: false
+  selector: 'app-lookup-source',
+  templateUrl: './lookup-source.demo.html',
+  standalone: false
 })
 export class LookupSourceDemoComponent {
+  @ViewChild('asyncLookup') lookup!: SohoLookupComponent;
 
   model = ["first", "third"];
   columns?: SohoDataGridColumn[] = [
@@ -128,6 +130,21 @@ export class LookupSourceDemoComponent {
 
   source: SohoDataGridSourceFunction = (request, response): void => {
     setTimeout(() => response(this.dataset, request), 1000);
+  }
+
+  sourceAsync: SohoDataGridSourceFunction = (req, response): void => {
+    // initializing loading indicator
+    this.lookup.setLoadingIndicator(true);
+    setTimeout(() => {
+      req.total = this.dataset.length;
+      (req as any).grandTotal = this.dataset.length;
+      const startPage = (req.activePage! - 1) * req.pagesize!;
+      const data = [...this.dataset].splice(startPage, req.pagesize);
+      response(data, req);
+
+      // turning off the loading indicator
+      this.lookup.setLoadingIndicator(false);
+    }, 1000);
   }
 }
 

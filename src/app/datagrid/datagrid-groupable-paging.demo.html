@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Groupable (Paging)</h2>
+  </div>
+</div>
+
+<br>
+<div class="row">
+  <div class="twelve columns demo" role="main">
+    <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+      <div *ngIf="gridOptions">
+        <div
+          soho-datagrid="auto"
+          class="datagrid-alternate-bg-color"
+          id="edit-order-group-grid"
+          [gridOptions]="gridOptions"
+        ></div>
+      </div>
+    </section>
+  </div>
+</div>

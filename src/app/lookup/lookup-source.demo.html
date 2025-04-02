@@ -14,8 +14,16 @@
         </div>
         <div class="field">
             <label soho-label for="the-source-lookup">Lookup with async source</label>
-            <input soho-lookup id="the-source-lookup" [(ngModel)]="model" [source]="source" [columns]="columns"
-                field="productId" [multiselect]="true">
+            <input #asyncLookup soho-lookup id="the-source-lookup" [(ngModel)]="model" 
+            [options]="{
+              paging: true,
+              pagesize: 5,
+              pagesizes: [3, 5, 10, 15]
+            }" 
+            [source]="sourceAsync"
+            [columns]="columns"
+            field="productId"
+            [multiselect]="true">
         </div>
     </section>
 </div>
