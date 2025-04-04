@@ -17,11 +17,11 @@ export interface ITabs {
 }
 
 @Component({
-    selector: 'app-validation-tab-form-demo',
-    templateUrl: 'validation-tab-form.demo.html',
-    standalone: false
+  selector: 'app-validation-tab-form-demo',
+  templateUrl: 'validation-tab-form.demo.html',
+  standalone: false
 })
-export class ValidationTabFormDemoComponent {
+export class ValidationTabFormDemoComponent implements OnDestroy {
   tabs: ITabs[] = [
     { id: 'tab1', title: 'Tab 1' },
     { id: 'tab2', title: 'Tab 2' },

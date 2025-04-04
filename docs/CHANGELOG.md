@@ -1,21 +1,25 @@
 # What's New with Enterprise-NG
 
+## 19.4.0
+
+### 19.4.0 Fixes
+
 ## 19.3.0
 
-## 19.3.0 Features
+### 19.3.0 Features
 
 - `[Lookup]` Added `setLoadingIndicator` function to lookup to a loading indicator for api lookup rendering ([#6155](https://inforwiki.atlassian.net/browse/IDS-6155))
 
-## 19.3.0 Fixes
+### 19.3.0 Fixes
 
 - `[Datagrid]` Exposed `nodeFocus` parameter for `setActiveCell`. ([#8144](https://infor.atlassian.net/browse/IDS-8144))
-- `[Datagrid]` Added demo page for datagrid grouping click callback when used in pagination. ([#8893](https://infor.atlassian.net/browse/IDS-8893))
+- `[Datagrid]` Added demo page for `datagrid` grouping click callback when used in pagination. ([#8893](https://infor.atlassian.net/browse/IDS-8893))
 - `[Tabs]` Fixed a bug in tabs validation where when you remove the validator, the parent tab component persist the icon error. ([#8082](https://inforwiki.atlassian.net/browse/IDS-8082))
 - `[TabsModule]` Updated demo page for tabs-dynamic to show properly how to use the add and remove function. ([#8685](https://inforwiki.atlassian.net/browse/IDS-8685))
 
 ## 19.2.0
 
-## 19.2.0 Fixes
+### 19.2.0 Fixes
 
 - `[FileuploadAdvanced]` Added missing public api `setFailed` and `filefailed` event. ([#7845](https://infor.atlassian.net/browse/IDS-7845))
 - `[Lookup]` Fixed a bug in the dataset setter so that it will properly update. ([#6155](https://inforwiki.atlassian.net/browse/IDS-6155))
@@ -23,45 +27,45 @@
 
 ## 19.1.6
 
-## 19.1.6 Features
+### 19.1.6 Features
 
 - `[General]` Added enterprise 4.104.6 version with error message fix.
 
 ## 19.1.5
 
-## 19.1.5 Features
+### 19.1.5 Features
 
 - `[General]` Added enterprise 4.104.5 version with error message fix.
 
 ## 19.1.4
 
-## 19.1.4 Features
+### 19.1.4 Features
 
 - `[General]` Added enterprise 4.104.4 version with error message fix.
 
 ## 19.1.3
 
-## 19.1.3 Features
+### 19.1.3 Features
 
 - `[General]` Added enterprise 4.104.3 version with error message fix.
 
 ## 19.1.2
 
-## 19.1.2 Features
+### 19.1.2 Features
 
 - `[General]` Added enterprise 4.104.2 version with error message fix.
 
 ## 19.1.1
 
-## 19.1.1 Features
+### 19.1.1 Features
 
 - `[General]` Added enterprise 4.104.1 version.
 
 ## 19.1.0
 
-## 19.1.0 Features
+### 19.1.0 Features
 
-- `[Datagrid]` Added `renderTooltipHtmlContents` property in datagrid column interface ([#6627](https://inforwiki.atlassian.net/browse/IDS-6627))
+- `[Datagrid]` Added `renderTooltipHtmlContents` property in `datagrid` column interface ([#6627](https://inforwiki.atlassian.net/browse/IDS-6627))
 - `[General]` Added enterprise 4.104.0 version.
 
 ## 19.1.0 Fixes
@@ -71,13 +75,13 @@
 
 ## 19.0.0
 
-## 19.0.0 Features
+### 19.0.0 Features
 
 - `[General]` Updated the project to use NG 19. ([#6718](https://inforwiki.atlassian.net/browse/IDS-6718))
 - `[Notification Badge]` Added `label` setting to `notification-badge`. ([#6718](https://inforwiki.atlassian.net/browse/IDS-7004))
 - `[ExpandableArea]` Fixed hyperlink tag not showing properly on footer. ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
 
-## 19.0.0 Fixes
+### 19.0.0 Fixes
 
 - `[ExpandableArea]` Fixed hyperlink tag not showing properly on footer. ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
 - `[Modal]` Updated example page and removed destroy call in `afterClose`. ([#5855](https://inforwiki.atlassian.net/browse/IDS-5855))
@@ -87,24 +91,24 @@
 
 ## 18.9.0
 
-## 18.9.0 Fixes
+### 18.9.0 Fixes
 
 - `[General]` Added enterprise 4.103.0 version.
 
 ## 18.8.0
 
-## 18.8.0 Features
+### 18.8.0 Features
 
 - `[Timepicker]` Added `beforeValidate` callback on blur event. ([#6182](https://inforwiki.atlassian.net/browse/IDS-6182))
 
-## 18.8.0 Fixes
+### 18.8.0 Fixes
 
 - `[Modal]` Added `noPadding` setting to modal. ([#6201](https://inforwiki.atlassian.net/browse/IDS-6201))
 - `[Popupmenu]` Updated example page to fix bug on submenu checkboxes. ([#6144](https://inforwiki.atlassian.net/browse/IDS-6144))
 
 ## 18.7.0
 
-## 18.7.0 Fixes
+### 18.7.0 Fixes
 
 - `[Datagrid]` Fixed a bug in validate cell when using lookup. ([#4838](https://inforwiki.atlassian.net/browse/IDS-4838))
 - `[Datepicker]` Updated example page with french localization. ([#4608](https://inforwiki.atlassian.net/browse/IDS-4608))
@@ -112,74 +116,74 @@
 
 ## 18.6.7
 
-## 18.6.7 Fixes
+### 18.6.7 Fixes
 
 - `[General]` Added enterprise 4.100.5 version with several patches and fixes.
 
 ## 18.6.6
 
-## 18.6.6 Fixes
+### 18.6.6 Fixes
 
 - `[General]` Added enterprise 4.100.5 version with several patches and fixes.
 
 ## 18.6.5
 
-## 18.6.5 Fixes
+### 18.6.5 Fixes
 
 - `[General]` Added enterprise 4.100.4 version with several patches and fixes.
 
 ## 18.6.4
 
-## 18.6.4 Fixes
+### 18.6.4 Fixes
 
 - `[General]` Added enterprise 4.100.3 version with several patches and fixes.
 
 ## 18.6.3
 
-## 18.6.3 Fixes
+### 18.6.3 Fixes
 
 - `[General]` Added enterprise 4.100.2 version with fixed d3 dependencies.
 
 ## 18.6.2
 
-## 18.6.2 Fixes
+### 18.6.2 Fixes
 
 - `[General]` Added enterprise 4.100.1 version.
 
 ## 18.6.1
 
-## 18.6.1 Fixes
+### 18.6.1 Fixes
 
 - `[General]` Added enterprise 4.100.0 version.
 
 ## 18.6.0
 
-## 18.6.0 Fixes
+### 18.6.0 Fixes
 
 - `[General]` Added enterprise 4.100.0 version.
 
 ## 18.5.2
 
-## 18.5.2 Fixes
+### 18.5.2 Fixes
 
 - `[General]` Typings moved from dev to peerDependencies after feedback on 15.5.1. ([#4917](https://inforwiki.atlassian.net/browse/IDS-4917))
 
 ## 18.5.1
 
-## 18.5.1 Fixes
+### 18.5.1 Fixes
 
 - `[General]` All libraries (jQuery, Enterprise, Angular, D3) are now set to peer dependencies. We now recommend this, see the quick start for an example of the `package.json`. ([#4917](https://inforwiki.atlassian.net/browse/IDS-4917))
 
 ## 18.3.0
 
-## 18.3.0 Features
+### 18.3.0 Features
 
 - `[Calendar]` Added `customSort` method. ([EP#8836](https://github.com/infor-design/enterprise/issues/8836))
 - `[Datagrid]` Added `inlineEditor` property to `SohoDataGridColumn`. ([#1701](https://github.com/infor-design/enterprise-ng/issues/1701))
 - `[Modal]` Added promise parameter to `beforeClose`. ([EP#8779](https://github.com/infor-design/enterprise/issues/8779))
 - `[Notification]` Added `closeCallback` property to `NotificationOptions`. ([#1761](https://github.com/infor-design/enterprise/issues/1761))
 
-## 18.3.0 Fixes
+### 18.3.0 Fixes
 
 - `[ContextMenu]` Fixed position on angular wrapper for lazy load. ([#1670](https://github.com/infor-design/enterprise-ng/issues/1670))
 - `[Datagrid]` Removed `cellchange` Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
@@ -190,60 +194,60 @@
 
 ## 18.2.7
 
-## 18.2.7 Features
+### 18.2.7 Features
 
 - `[Tabs]` Fixed multiple callback for activated event ([#6068](https://inforwiki.atlassian.net/browse/IDS-6068))
 - `[General]` Added 4.98.5 version
 
 ## 18.2.6
 
-## 18.2.6 Features
+### 18.2.6 Features
 
 - `[General]` Added 4.98.4 version
 
 ## 18.2.4
 
-## 18.2.4 Features
+### 18.2.4 Features
 
 - `[Datagrid]` Added columnChange event type. ([#1734](https://github.com/infor-design/enterprise-ng/issues/1734))
 - `[General]` Added 4.98.3 version
 
 ## 18.2.3
 
-## 18.2.3 Features
+### 18.2.3 Features
 
 - `[General]` Added 4.98.2 version
 
 ## 18.2.2
 
-## 18.2.2 Fixes
+### 18.2.2 Fixes
 
 - `[Datagrid]` Removed `cellchange` Generic Type. ([#1757](https://github.com/infor-design/enterprise-ng/issues/1757))
 
 ## 18.2.1
 
-## 18.2.1 Features
+### 18.2.1 Features
 
 - `[General]` Added 4.98.0 version
 - `[Weekview]` Added `showWeek` to `datepicker` ranges type. ([#1755](https://github.com/infor-design/enterprise-ng/issues/1755))
 
 ## 18.2.0
 
-## 18.2.0 Features
+### 18.2.0 Features
 
 - `[General]` Added 4.98.0 version
 - `[Weekview]` Added `showWeek` to `datepicker` ranges type. ([#1755](https://github.com/infor-design/enterprise-ng/issues/1755))
 
 ## 18.1.0
 
-## 18.1.0 Features
+### 18.1.0 Features
 
 - `[Message]` Added info and success status option for message. ([#1698](https://github.com/infor-design/enterprise-ng/issues/1698))
 - `[Datagrid]` Added setting called addCellLayoutClass option to remove `datagrid-cell-layout` from expandable rows. ([#1524](https://github.com/infor-design/enterprise-ng/issues/1524))
 - `[Datagrid]` Added `searched` event for toolbar `searchfield`. ([EP#8814](https://github.com/infor-design/enterprise/issues/8814))
 - `[Mask]` Added setting `allowTrailingDecimalZeros` to always display decimals in input mask. ([#1715](https://github.com/infor-design/enterprise-ng/issues/1715))
 
-## 18.1.0 Fixes
+### 18.1.0 Fixes
 
 - `[Datagrid]` Added all existing properties in `SohoDataGridCellChangeEvent`. ([#1199](https://github.com/infor-design/enterprise-ng/issues/1199))
 - `[Datepicker]` Fixed readonly not updating when `datepicker` is in form. ([#1735](https://github.com/infor-design/enterprise-ng/issues/1735))
@@ -253,7 +257,7 @@
 
 ## 18.0.0
 
-## 18.0.0 Fixes
+### 18.0.0 Fixes
 
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
 - `[Datepicker]` Fixed readonly state when called from disabled method. ([#1702](https://github.com/infor-design/enterprise-ng/issues/1702))
@@ -261,23 +265,25 @@
 - `[Monthview]` Fixed `monthview` not updating after changing activeDate. ([#1659](https://github.com/infor-design/enterprise-ng/issues/1659))
 - `[Popupmenu]` Updated example page to fix `multiselect`. ([#8623](https://github.com/infor-design/enterprise-ng/issues/8623))
 
-## 17.8.0 Notes
+## 17.8.0
+
+### 17.8.0 Fixes
 
 - `[General]` Added new dependencies and updated to NG 18. And made dependencies peer dependencies. ([#1705](https://github.com/infor-design/enterprise-ng/issues/1705))
 
-## 17.8.0 Features
+### 17.8.0 Features
 
 - `[ContextualActionPanel/Modal]` Added new settings `propagateStyle` and `compactPanel`. ([#1594](https://github.com/infor-design/enterprise-ng/issues/1594))
 - `[Datagrid]` Updated example page to test personalize columns setting. ([EP#8138](https://github.com/infor-design/enterprise/issues/8138))
 
 ## 17.7.0
 
-## 17.7.0 Features
+### 17.7.0 Features
 
 - `[Card]` Added missing `selected` and `deselected` events. ([#1684](https://github.com/infor-design/enterprise-ng/issues/1684))
 - `[Modal]` Added `buttonsetTextWidth` option to specify width of the `buttonset` text in the modal. ([EP#8639](https://github.com/infor-design/enterprise/issues/8639))
 
-## 17.7.0 Fixes
+### 17.7.0 Fixes
 
 - `[Dropdown]` Fixed setFocus method to work also when there is no label associated with the dropdown. ([#1673](https://github.com/infor-design/enterprise-ng/issues/1673))
 - `[FieldFilter]` Fixed field filter reset method not clearing on NG. ([#1641](https://github.com/infor-design/enterprise-ng/issues/1641))
@@ -285,14 +291,14 @@
 
 ## 17.6.0
 
-## 17.6.0 Features
+### 17.6.0 Features
 
 - `[Button]` Added typings for generative button and updated example page. ([EP#8541](https://github.com/infor-design/enterprise/issues/8541))
 - `[Lookup]` Added `placeholder` setting for filter `searchfield`. ([EP#8416](https://github.com/infor-design/enterprise/issues/8416))
 - `[Module Nav]` Added `disableSwitcher` and `disabled` setting for Module Nav and Module Nav Switcher. ([EP#8381](https://github.com/infor-design/enterprise/issues/8381))
 - `[Tabs]` Added `noFocus` parameter for selected method in Tabs component. ([#1647](https://github.com/infor-design/enterprise-ng/issues/1647))
 
-## 17.6.0 Fixes
+### 17.6.0 Fixes
 
 - `[Actionsheet]` Updated type in `actions` parameter. ([#1632](https://github.com/infor-design/enterprise-ng/issues/1632))
 - `[Dropdown]` Added example page for `dropdown` with `width` and `maxWidth` settings. ([#1619](https://github.com/infor-design/enterprise-ng/issues/1619))
@@ -302,7 +308,7 @@
 
 ## 17.5.0
 
-## 17.5.0 Fixes
+### 17.5.0 Fixes
 
 - `[ContextualActionPanel]` Added typings and definitions for detail contents. ([EP#8112](https://github.com/infor-design/enterprise/issues/8112))
 - `[EmptyMessage]` Added missing empty state icons. ([#1636](https://github.com/infor-design/enterprise-ng/issues/1636))
@@ -310,7 +316,7 @@
 
 ## 17.4.0
 
-## 17.4.0 Features
+### 17.4.0 Features
 
 - `[Datagrid]` Added `disableTooltip` column setting. ([EP#8252](https://github.com/infor-design/enterprise/issues/8252))
 - `[Lookup]` Added `cssClass` setting. ([EP#8206](https://github.com/infor-design/enterprise/issues/8206))
@@ -419,173 +425,3 @@
 - `[Weekview]` Added stacked view wrapper and example. ([#7373](https://github.com/infor-design/enterprise/issues/7373))
 - `[Card]` Added new settings and typings for card component. ([#7379](https://github.com/infor-design/enterprise/issues/7379))
 - `[General]` Added new NG 16 to the library. ([1481](https://github.com/infor-design/enterprise/issues/1481))
-
-## 15.4.8
-
-### 15.4.8 Features
-
-- `[General]` Added 4.84.5 version.
-
-## 15.4.7
-
-### 15.4.7 Features
-
-- `[General]` Added 4.84.4 version.
-
-## 15.4.5
-
-### 15.4.5 Features
-
-- `[General]` Added 4.84.3 version.
-- `[Module Nav]` Add more module nav fixes. ([#1522](https://github.com/infor-design/enterprise-ng/pull/1522))
-- `[Module Nav]` Add more module nav fixes. ([#1519](https://github.com/infor-design/enterprise-ng/pull/1519))
-
-## 15.4.2
-
-### 15.4.2 Features
-
-- `[General]` Added 4.84.1 version.
-- `[Homepage/Widget]` Added card settings in widget component. ([#1502](https://github.com/infor-design/enterprise-ng/issues/1502))
-- `[Module Nav]` Add Module Nav Component wrappers and replace the app menu with the Module Nav menu. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
-- `[Module Nav Switcher]` Improve Angular/EP component lifecycle. ([#1477](https://github.com/infor-design/enterprise-ng/issues/1477))
-- `[Datepicker]` Added custom validation for `Datepicker` component. ([#1512](https://github.com/infor-design/enterprise-ng/issues/1512))
-- `[Datagrid]` Added missing headerTooltip setting. ([#1514](https://github.com/infor-design/enterprise-ng/issues/1514))
-
-## 15.4.1
-
-### 15.4.1 Features
-
-- `[General]` Added 4.84.1 version.
-- `[Misc]` Fixed readonly bindings ([EP#1466](https://github.com/infor-design/enterprise/issues/1466))
-
-## 15.3.0
-
-### 15.3.0 Fixes
-
-- `[ApplicationMenu]` Changed the app menu hamburger icon. ([1470](https://github.com/infor-design/enterprise/issues/1470))
-- `[Modal]` Added Example Page with `Datepicker`. ([EP#7144](https://github.com/infor-design/enterprise/issues/7144))
-- `[Pager]` Fixes a bug hiding and showing the page size selector. ([#1459](https://github.com/infor-design/enterprise/issues/1459))
-- `[Textarea]` Added Example Page with `Textarea` Toggle Dirty. ([#1429](https://github.com/infor-design/enterprise-ng/issues/1429))
-- `[Timepicker]` Added `Timepicker` in Example Page of Validator. ([#1435](https://github.com/infor-design/enterprise-ng/issues/1435))
-- `[Tooltip]` Added settings for popover `appendTo` settings. ([EP#7220](https://github.com/infor-design/enterprise/issues/7220))
-
-## 15.1.0
-
-### 15.1.0 Features
-
-- `[General]` Added 4.81.0 version.
-
-## 15.0.5
-
-### 15.0.5 Features
-
-- `[Arrange]` Added a directive/wrapper for arrange component. ([#1432](https://github.com/infor-design/enterprise-ng/issues/1432))
-- `[General]` Added 4.80.3 with patches
-
-### 15.0.5 Fixes
-
-- `[Notification]` Fixed notification throws errors when `closeAll` and `closeLatest`. ([#7276](https://github.com/infor-design/enterprise/issues/7276))
-
-## 15.0.4
-
-### 15.0.4 Features
-
-- `[General]` Fixed angular version problem
-
-## 15.0.3
-
-### 15.0.3 Features
-
-- `[General]` Added 4.80.2 with patches
-
-## 15.0.2
-
-### 15.0.2 Features
-
-- `[General]` Added 4.80.1 with patches
-
-## 15.0.1
-
-### 15.0.1 Breaking Changes
-
-- `[Icons]` The `SohoIconsEmptyComponent` can now be configured to use one of `"colorful"`, `"classic"` or `"new"` icons. By default, the newly added `"colorful"` icons will be used. To revert to the classic icons, applications must explicitly configure this:
-
-```html
-<soho-icons-empty icons="classic"></soho-icons-empty>
-```
-
-### 15.0.0 Features
-
-- `[Chart]` Added example page for chart colors. ([EP#7084](https://github.com/infor-design/enterprise/issues/7084))
-- `[Datagrid]` Added a setting to set the color of the header in `datagrid` (`dark` or `light`). ([#7008](https://github.com/infor-design/enterprise/issues/7008)) `EA`
-- `[General]` Updated to NG 15 d made small fixes. See the `UPGRADING.md` guide for details. ([#1316](https://github.com/infor-design/enterprise-ng/issues/1316))
-- `[Icons]` Merge old, new and "colorful" empty state icons into `SohoIconsEmptyComponent`, with the ability to force the use of colorful icons. ([#1418](https://github.com/infor-design/enterprise-ng/issues/1418))
-
-### 15.0.0 Fixes
-
-- `[Datepicker]` Added empty string value check in `datepicker` range. ([#1397](https://github.com/infor-design/enterprise-ng/issues/1397))
-
-## 14.8.2
-
-### 14.8.2 Features
-
-- `[General]` Added 4.80.2 with patches
-
-### 14.8.1 Features
-
-- `[General]` Added 4.80.1 with patches
-
-## 14.8.0
-
-### 14.8.0 Features
-
-- `[General]` Added 4.80.0 with new colors for header, buttons and tabs.
-
-## 14.7.0
-
-### 14.7.0 Features
-
-### 14.7.0 Fixes
-
-- `[Accordion]` Added example page to test accordion bug. ([EP#6820](https://github.com/infor-design/enterprise/issues/6820))
-- `[Datagrid]` Remove unnecessary role on `datagrid`. ([#1378](https://github.com/infor-design/enterprise-ng/issues/1378))
-- `[Datagrid]` Added Example Page for Add Row in `Datagrid`. ([EP#6730](https://github.com/infor-design/enterprise/issues/6730))
-- `[Datagrid]` Added events from built-in pager. ([EP#1419](https://github.com/infor-design/enterprise-ng/issues/1419))
-- `[Datagrid]` Fixed a bug in `datagrid` where flex toolbar is not properly destroyed. ([#1423](https://github.com/infor-design/enterprise-ng/issues/1423))
-- `[Pager]` Added dataset option in pager. ([#1389](https://github.com/infor-design/enterprise-ng/issues/1389))
-
-## 14.4.0
-
-## 14.4.0 Features
-
-- `[Datagrid]` Added `rowspan` in `datagrid` column setting. ([#1353](https://github.com/infor-design/enterprise-ng/issues/1353))
-- `[Datagrid]` Added `fileupload` formatter in `datagrid`. ([#1372](https://github.com/infor-design/enterprise-ng/issues/1372))
-- `[Pager]` Added show page selector input setting. ([#1350](https://github.com/infor-design/enterprise-ng/issues/1350))
-
-### 14.4.0 Fixes
-
-- `[Popupmenu]` Updated `popupmenu` demo for getSelected() example. ([#1349](https://github.com/infor-design/enterprise-ng/issues/1349))
-- `[Textarea]` Updated `textarea` demo for enabling disabling example. ([EP#6773](https://github.com/infor-design/enterprise/issues/6773))
-
-## 14.3.0
-
-### 14.3.0 Features
-
-- `[Calendar]` Add a setting for calendar to show and hide the legend. ([EP#6533](https://github.com/infor-design/enterprise/issues/6533))
-- `[Datagrid]` Fixed a bug in `datagrid` where calling `updated` no longer worked. ([#6783](https://github.com/infor-design/enterprise/issues/6783))
-- `[Datagrid]` Fixed a bug in `datagrid` where setting gridOptions no longer worked. ([#6783](https://github.com/infor-design/enterprise/issues/6783))
-- `[Modal]` Update example page to test full size. ([#1358](https://github.com/infor-design/enterprise-ng/issues/1358))
-
-### 14.3.0 Fixes
-
-- `[Button]` Added notification badges for buttons with labels. ([#1347](https://github.com/infor-design/enterprise-ng/issues/1347))
-
-## 14.2.0
-
-### 14.2.0 Fixes
-
-- `[Button]` Added setting `iconAlign` for right side icon buttons. Fixed a regression where all buttons changed the icons to the right side instead of the left. ([#1340](https://github.com/infor-design/enterprise-ng/issues/1340))
-- `[Datagrid]` Added setting `timeFormat` for `datagrid` column model. ([#1333](https://github.com/infor-design/enterprise-ng/issues/1333))
-- `[Datagrid]` Added `ariaDescribedBy` setting in the `datagrid` column. ([#6530](https://github.com/infor-design/enterprise/issues/6530))
-- `[Datepicker]` Fixes error when legend is set before the calendar is opened. ([#1345](https://github.com/infor-design/enterprise-ng/issues/1345))
-- `[Popdown]` Updated example page to test click outside event. ([#1304](https://github.com/infor-design/enterprise-ng/issues/1304))
