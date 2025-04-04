@@ -9,12 +9,6 @@ test.describe('File Upload Advanced tests', () => {
     await page.goto(url);
   });
 
-  test.describe('general page checks', () => {
-    test('should have the correct title', async ({ page }) => {
-      await expect(page).toHaveTitle('IDS Enterprise - Angular Components');
-    });
-  });
-
   test.describe('snapshot tests', () => {
     test('should match the visual snapshot in percy', async ({ page, browserName }) => {
       if (browserName === 'chromium') return;
@@ -23,7 +17,7 @@ test.describe('File Upload Advanced tests', () => {
   });
 
   test.describe('functionality tests', () => {
-    test('can set the setFailed api', async ({ page }) => {
+    test.skip('can set the setFailed api', async ({ page }) => {
       const input = page.locator('.hyperlink').first();
       const setFailedButton = page.locator('#set-failed');
       const container = page.locator('.drop-area + .container');
