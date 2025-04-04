@@ -9,10 +9,10 @@ import {
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
 @Component({
-    selector: 'app-personalize-color-api-demo',
-    templateUrl: 'personalize-color-api.demo.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-personalize-color-api-demo',
+  templateUrl: 'personalize-color-api.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class PersonalizeColorApiDemoComponent implements OnInit {
 
@@ -23,8 +23,8 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
   showModel = false;
 
   model = {
-    themeId: ' ' || undefined,
-    colorId: 'default' || undefined
+    themeId: '',
+    colorId: 'default'
   };
 
   private currentThemeId: any;
