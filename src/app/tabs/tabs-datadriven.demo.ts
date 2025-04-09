@@ -29,20 +29,18 @@ export class TabsDataDrivenDemoComponent implements OnInit {
     ];
   }
 
-
   addTab() {
     let counter = this.counter;
     const tabId = `order-${counter}`;
     const options = {
       name: `Order ${counter}`,
       isDismissible: true,
-      content: `This is the content for Tab ${counter}`,
-      isActivated: false,
+      content: `This is the content for Tab ${counter}`
     };
 
     this.sohoTabsComponent?.add(tabId, options, counter);
     this.counter++;
-    this.sohoTabsComponent?.select(tabId);
+    // this.sohoTabsComponent?.select(tabId);
   }
 
 
