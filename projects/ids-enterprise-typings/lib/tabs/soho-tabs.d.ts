@@ -7,6 +7,11 @@
 
 interface SohoTabsOptions {
   /**
+   * If set to true, will automatically select every tab when added
+   */
+  activateOnAdd?: boolean;
+
+  /**
    * If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel
    */
   addTabButton?: boolean;

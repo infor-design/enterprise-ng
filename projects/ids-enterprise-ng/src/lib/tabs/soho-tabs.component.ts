@@ -237,9 +237,20 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       this.updateRequired = true;
     }
   }
+
   /**
    * If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel.
-   *
+   */
+  @Input() set activateOnAdd(activateOnAdd: boolean) {
+    this._tabsOptions.activateOnAdd = activateOnAdd;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.activateOnAdd = activateOnAdd;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   * If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel.
    */
   @Input() set addTabButton(addTabButton: boolean) {
     this._tabsOptions.addTabButton = addTabButton;
@@ -656,7 +667,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       }
 
       if (this.tabCount !== $liList.length) {
-        /* Update change detection caches when tabcount changes */
         this.tabCount = $liList.length;
         this.tabTitles = this.getTabTitles($liList);
         this.tabIds = tabIds;
@@ -668,7 +678,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
           this.tabs?.updated();
           this.tabIds = tabIds;
           this.tabTitles = this.getTabTitles($liList);
-          this.activateTab($activateTab);
           return;
         }
       }
