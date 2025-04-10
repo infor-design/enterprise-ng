@@ -4,6 +4,8 @@
 
 ### 19.4.0 Fixes
 
+- `[ContextualActionPanel]` Added `noSaveButton` setting to `contextualactionpanel` to remove the save button. ([#8155](https://infor.atlassian.net/browse/IDS-4147))
+
 ## 19.3.0
 
 ### 19.3.0 Features
