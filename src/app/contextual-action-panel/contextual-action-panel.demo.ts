@@ -15,9 +15,9 @@ import { ContextualActionPanelButtonsetAPIComponent } from './contextual-action-
 import { CAPDatagridDemoComponent } from './cap-datagrid.demo';
 
 @Component({
-    selector: 'app-contextual-action-panel-demo',
-    templateUrl: 'contextual-action-panel.demo.html',
-    standalone: false
+  selector: 'app-contextual-action-panel-demo',
+  templateUrl: 'contextual-action-panel.demo.html',
+  standalone: false
 })
 export class ContextualActionPanelDemoComponent {
   /**
@@ -63,7 +63,7 @@ export class ContextualActionPanelDemoComponent {
     const buttons = [
       {
         text: 'Save',
-        cssClass: 'btn',
+        cssClass: 'btn save',
         icon: '#icon-save',
         click: (_e: any, _panel: any) => {
           this.openPanel2(); // This will reopen
@@ -88,6 +88,7 @@ export class ContextualActionPanelDemoComponent {
     }
 
     this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+      .noSaveButton(true)
       .modalSettings({ buttons, title: this.title, useFlexToolbar: true })
       .open()
       .initializeContent(true)

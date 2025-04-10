@@ -90,6 +90,7 @@ export class SohoContextualActionPanelRef<T> {
    */
   private _options: SohoContextualActionPanelOptions = {
     content: undefined,
+    noSaveButton: false,
     initializeContent: true, // initialize content before opening
     title: 'Contextual Action Panel',
     detailRefId: undefined,
@@ -242,6 +243,18 @@ export class SohoContextualActionPanelRef<T> {
     this._options.centerTitle = centerTitle;
     if (this.contextualactionpanel) {
       this.contextualactionpanel.settings.centerTitle = centerTitle;
+    }
+    return this;
+  }
+
+  /**
+   * Sets the `noSaveButton` to remove the save button in the toolbar.
+   * @param noSaveButton - if true, remove the save button
+   */
+  noSaveButton(noSaveButton: boolean): SohoContextualActionPanelRef<T> {
+    this._options.noSaveButton = noSaveButton;
+    if (this.contextualactionpanel) {
+      this.contextualactionpanel.settings.noSaveButton = noSaveButton;
     }
     return this;
   }

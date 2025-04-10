@@ -41,6 +41,9 @@ interface SohoContextualActionPanelOptions {
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
 
+  /** If true, the save button will not be shown. */
+  noSaveButton?: boolean;
+
   /** @deprecated settings should use modalSettings */
   /** @deprecated The buttons to create (use modalSettings) */
   buttons?: SohoContextualActionPanelButton[];
