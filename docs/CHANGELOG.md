@@ -12,6 +12,7 @@
 
 ### 19.3.0 Fixes
 
+- `[Context Menu]` Updated implementation of radio list in the context menu demo page. ([#8703](https://infor.atlassian.net/browse/IDS-8703))
 - `[Datagrid]` Exposed `nodeFocus` parameter for `setActiveCell`. ([#8144](https://infor.atlassian.net/browse/IDS-8144))
 - `[Datagrid]` Added demo page for `datagrid` grouping click callback when used in pagination. ([#8893](https://infor.atlassian.net/browse/IDS-8893))
 - `[Tabs]` Exposed `anchorFocus` parameter. ([#8579](https://inforwiki.atlassian.net/browse/IDS-8579))

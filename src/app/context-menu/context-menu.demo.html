@@ -32,32 +32,36 @@
   </div>
 
   <!-- Radio button example. Soho-radiobutton component used-->
-  <div class="field">
+  <div class="field radio-group">
     <label soho-label >{{radioButtonLabel}}</label>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO1" value="1" soho-context-menu menu="action-popupmenu" checked
            (selected)="onSelected()"
            (beforeopen)="onBeforeOpen()"
            (close)="onClose()"
            (open)="onOpen()" />
-    <label soho-label for="optionVWO1" class="radio-label" soho-context-menu menu="action-popupmenu" >One</label>
+    <label soho-label for="optionVWO1" class="radio-label" [forRadioButton]="true" soho-context-menu menu="action-popupmenu" >One</label>
+    <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO2" value="2" soho-context-menu menu="action-popupmenu"  />
-    <label soho-label for="optionVWO2" class="radio-label" soho-context-menu menu="action-popupmenu"
+    <label soho-label for="optionVWO2" class="radio-label" [forRadioButton]="true" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected()"
            (beforeopen)="onBeforeOpen()"
            (close)="onClose()"
            (open)="onOpen()">Two</label>
+    <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO3" value="3" soho-context-menu menu="action-popupmenu" />
-    <label soho-label for="optionVWO3" class="radio-label" soho-context-menu menu="action-popupmenu"
+    <label soho-label for="optionVWO3" class="radio-label" [forRadioButton]="true" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected()"
            (beforeopen)="onBeforeOpen()"
            (close)="onClose()"
            (open)="onOpen()" >Three</label>
+    <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO4" value="4" [attr.disabled]="true" soho-context-menu menu="action-popupmenu" />
-    <label soho-label for="optionVWO4" class="radio-label" soho-context-menu menu="action-popupmenu"
+    <label soho-label for="optionVWO4" class="radio-label" [forRadioButton]="true" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected()"
            (beforeopen)="onBeforeOpen()"
            (close)="onClose()"
            (open)="onOpen()" >Four Disabled</label>
+    <br>
   </div>
 
   <!-- Checkbox example. Soho-icon component used-->
