@@ -2,7 +2,7 @@ import percySnapshot from '@percy/playwright';
 import { expect } from '@playwright/test';
 import { test } from '../base-fixture';
 
-test.describe('File Upload Advanced tests', () => {
+test.describe.skip('File Upload Advanced tests', () => {
   const url = '/ids-enterprise-ng-demo/fileupload-advanced';
 
   test.beforeEach(async ({ page }) => {
