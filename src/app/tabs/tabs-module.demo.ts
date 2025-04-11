@@ -41,6 +41,7 @@ export class TabsModuleDemoComponent implements OnInit {
 
   addTab() {
     let counter = this.counter;
+    this.counter++;
     const tabId = `order-${counter}`;
     const options = {
       name: `Order ${counter}`,
@@ -49,7 +50,6 @@ export class TabsModuleDemoComponent implements OnInit {
     }
     this.recentlyAddedTabId = tabId;
     this.sohoTabsComponent?.add(tabId, options, counter);
-    this.counter++;
     this.sohoTabsComponent?.select(tabId);
   }
 
