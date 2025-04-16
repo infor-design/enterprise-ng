@@ -47,6 +47,19 @@
       </div>
       <div class="six columns">
         <div class="field">
+          <label soho-label for="product_single_highlight">Products (Single Select Row highligting)</label>
+          <input soho-lookup
+                 soho-mask [sohoPattern]="'#######'" [process]="'number'" [allowNegative]="false"
+                 soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
+                 [(ngModel)]="model.singleAllReadonly"
+                 [columns]="columns_product_readonly"
+                 [dataset]="data_product"
+                 field="productId"
+                 name="product_single_highlight" />
+        </div>
+      </div>
+      <div class="six columns">
+        <div class="field">
           <label soho-label for="product_single_object_exists">Products (Single Select Stored as Object) with mask with existing value</label>
           <input soho-lookup
                  soho-mask [sohoPattern]="'#######'" [process]="'number'" [allowNegative]="false"
