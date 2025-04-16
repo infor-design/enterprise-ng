@@ -31,6 +31,7 @@ export class LookupDemoComponent implements OnInit {
   public isDisabled = true;
   public isReadonly = true;
   public columns_product?: SohoDataGridColumn[];
+  public columns_product_readonly?: SohoDataGridColumn[];
   public columns_multi?: SohoDataGridColumn[];
   public entityIds?: string;
   public data_product?: any[];
@@ -67,6 +68,7 @@ export class LookupDemoComponent implements OnInit {
     singleR: null,
     singleexists: '1212121',
     singleobject: null,
+    singleAllReadonly: null,
     singleobjectexists: {
       id: 1,
       productId: 2142201,
@@ -234,6 +236,7 @@ export class LookupDemoComponent implements OnInit {
   }
 
   setupProducts() {
+    this.columns_product_readonly = [];
     this.columns_product = [];
     this.columns_multi = [];
     this.data_product = [];
@@ -255,6 +258,10 @@ export class LookupDemoComponent implements OnInit {
     productsColumns.forEach(column => {
       this.columns_product?.push(column);
       this.columns_multi?.push(column);
+      this.columns_product_readonly?.push({
+        ...column,
+        formatter: Soho.Formatters.Readonly
+      });
     });
 
   }

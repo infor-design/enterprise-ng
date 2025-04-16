@@ -2,6 +2,10 @@
 
 ## 19.4.0
 
+### 19.4.0 Features
+
+- `[Lookup]` Added field to example page for showcase all readonly columns row highlighting ([#4904](https://infor.atlassian.net/browse/IDS-4904))
+
 ### 19.4.0 Fixes
 
 - `[ContextualActionPanel]` Added `noSaveButton` setting to `contextualactionpanel` to remove the save button. ([#8155](https://infor.atlassian.net/browse/IDS-4147))
