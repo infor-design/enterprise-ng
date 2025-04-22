@@ -40,6 +40,14 @@ type SohoCalendarEventData = (
   event?: SohoCalendarEvent
 ) => void;
 
+interface SohoCalendarDayClickEventData {
+  month?: number,
+  year?: number,
+  day?: Date,
+  key?: string,
+  view?: string,
+}
+
 interface SohoCalendarEventType {
   id: string;
   label: string;
@@ -212,4 +220,5 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: 'eventdblclick', handler: JQuery.EventHandlerBase<any, SohoCalendarEventClickEvent>): this;
   // tslint:disable-next-line:unified-signatures
   on(events: 'contextmenu', handler: JQuery.EventHandlerBase<any, SohoCalendarEventClickEvent>): this;
+  on(events: 'dayclick', handler: JQuery.EventHandlerBase<any, SohoCalendarDayClickEventData>): this;
 }

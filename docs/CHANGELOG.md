@@ -4,6 +4,7 @@
 
 ### 19.4.0 Features
 
+- `[Calendar]` Added `dayclick` event to `calendar` component. ([#4146](https://infor.atlassian.net/browse/IDS-4146))
 - `[Lookup]` Added field to example page for showcase all readonly columns row highlighting ([#4904](https://infor.atlassian.net/browse/IDS-4904))
 
 ### 19.4.0 Fixes
