@@ -38,10 +38,10 @@ export type SohoTreeType = 'auto' | 'content-only';
  * @todo Complete interface definition
  */
 @Component({
-    selector: 'ul[soho-tree]', // eslint-disable-line
-    template: '<ng-content></ng-content>',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'ul[soho-tree]', // eslint-disable-line
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
@@ -198,6 +198,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * selected is passed in the argument passed to the handler.
    * */
   @Output() menuopen = new EventEmitter<SohoTreeEvent>();
+
+  @Output() dblclick = new EventEmitter<SohoTreeEvent>();
 
   // -------------------------------------------
   // Host Bindings
@@ -492,6 +494,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
       .on('unselected', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.unselected.next(args))
       .on('expanded', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expanded.next(args))
       .on('collapsed', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapsed.next(args))
+      .on('dblclick', (_e: JQuery.TriggeredEvent, args: SohoTreeDblClickEvent) => this.dblclick.next(args))
       .on('sortstart', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortstart.next(args))
       .on('sortend', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortend.next(args))
       .on('menuselect', (_e: JQuery.Event, args: SohoTreeEvent) => this.menuselect.next(args))

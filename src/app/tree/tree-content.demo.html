@@ -15,7 +15,7 @@
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
     <ul soho-busyindicator [soho-tree]="'content-only'" (menuopen)="onMenuOpen($event)"
-      (menuselect)="onMenuSelected($event)" (selected)="onSelected($event)" (contextmenu)="onContextMenu($event)">
+      (menuselect)="onMenuSelected($event)" (selected)="onSelected($event)" (dblclick)="onDblClick($event)" (contextmenu)="onContextMenu($event)">
       <li>
         <a href="#" id="home">Home</a>
       </li>

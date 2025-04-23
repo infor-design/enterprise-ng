@@ -11,10 +11,10 @@ import {
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
-    selector: 'app-tree-content-demo',
-    templateUrl: 'tree-content.demo.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-tree-content-demo',
+  templateUrl: 'tree-content.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class TreeContentDemoComponent implements OnInit {
   @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;
@@ -219,6 +219,11 @@ export class TreeContentDemoComponent implements OnInit {
 
   onMenuOpen(e: any) {
     console.log('menu-open', e);
+  }
+
+  onDblClick(e: any) {
+    console.log('dblclick ->', e);
+
   }
 
   onContextMenu(e: any) {
