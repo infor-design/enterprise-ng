@@ -8,10 +8,10 @@ import { CalendarDemoService } from './calendar.demo.service';
 import { SohoCalendarComponent, SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
-    selector: 'app-calendar-demo',
-    templateUrl: 'calendar.demo.html',
-    providers: [CalendarDemoService],
-    standalone: false
+  selector: 'app-calendar-demo',
+  templateUrl: 'calendar.demo.html',
+  providers: [CalendarDemoService],
+  standalone: false
 })
 export class CalendarDemoComponent {
 
@@ -51,6 +51,11 @@ export class CalendarDemoComponent {
 
   onSelected(event: SohoCalendarDateSelectedEvent) {
     console.log('onSelected', event);
+  }
+
+  onDayClicked(event: SohoCalendarDayClickEventData) {
+    this.toastService.show({ title: 'Calendar Test', message: 'Day "' + event?.key + '" Clicked' });
+    console.log('onDayClick', event);
   }
 
   onEventClicked(event: SohoCalendarEventClickEvent) {

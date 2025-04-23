@@ -18,10 +18,10 @@ import {
  *******************************************************************/
 // @ts-ignore
 @Component({
-    selector: 'div[soho-calendar-week-view]', // eslint-disable-line
-    template: '<ng-content></ng-content>',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'div[soho-calendar-week-view]', // eslint-disable-line
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class SohoCalendarWeekViewComponent {
   @HostBinding('class.calendar-weekview') isCalendarWeekView = true;
@@ -32,10 +32,10 @@ export class SohoCalendarWeekViewComponent {
  *******************************************************************/
 // @ts-ignore
 @Component({
-    selector: 'div[soho-calendar-monthview]', // eslint-disable-line
-    template: `<ng-content></ng-content>`,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'div[soho-calendar-monthview]', // eslint-disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class SohoCalendarMonthViewComponent {
   @HostBinding('class.calendar-monthview') isCalendarMonthView = true;
@@ -45,10 +45,10 @@ export class SohoCalendarMonthViewComponent {
  * Main Calendar component
  *******************************************************************/
 @Component({
-    selector: '[soho-calendar]', // eslint-disable-line
-    template: `<ng-content></ng-content>`,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: '[soho-calendar]', // eslint-disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
 
@@ -531,6 +531,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   @Output() eventClick = new EventEmitter<SohoCalendarEventClickEvent>();
   @Output() eventDblClick = new EventEmitter<SohoCalendarEventClickEvent>();
   @Output() eventContextMenu = new EventEmitter<SohoCalendarEventClickEvent>();
+  @Output() dayClick = new EventEmitter<SohoCalendarDayClickEventData>();
 
   /**
    * Local variables
@@ -558,7 +559,8 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
         .on('monthrendered', (_e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args))
         .on('eventclick', (_e: any, args: SohoCalendarEventClickEvent) => this.onEventClick(args))
         .on('eventdblclick', (_e: any, args: SohoCalendarEventClickEvent) => this.onEventDblClick(args))
-        .on('contextmenu', (_e: any, args: SohoCalendarEventClickEvent) => this.onEventContextMenu(args));
+        .on('contextmenu', (_e: any, args: SohoCalendarEventClickEvent) => this.onEventContextMenu(args))
+        .on('dayclick', (_e: any, args: SohoCalendarDayClickEventData) => this.dayClick.emit(args));
 
       // Initialise the Soho control.
       this.jQueryElement.calendar(this._calendarOptions);
@@ -600,6 +602,10 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   onEventContextMenu(event: SohoCalendarEventClickEvent) {
     this.ngZone.run(() => this.eventContextMenu.emit(event));
+  }
+
+  onEventDayClick(event: SohoCalendarDayClickEventData) {
+    this.ngZone.run(() => this.dayClick.emit(event));
   }
 
   /**

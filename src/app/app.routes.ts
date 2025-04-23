@@ -297,6 +297,7 @@ export const routes: Routes = [
   { path: 'buttonset', component: ButtonsetDemoComponent },
   { path: 'busyindicator', component: BusyIndicatorDemoComponent },
   { path: 'busyindicatorbody', component: BusyIndicatorDemoBodyComponent },
+  { path: 'calendar', component: CalendarDemoComponent },
   { path: 'calendar-monthview', component: CalendarDemoComponent },
   { path: 'calendar-monthview-legend', component: CalendarLegendDemoComponent },
   { path: 'calendar-monthview-hide-legend', component: CalendarHideLegendDemoComponent },
