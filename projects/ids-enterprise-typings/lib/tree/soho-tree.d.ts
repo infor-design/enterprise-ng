@@ -259,6 +259,12 @@ interface SohoTreeEvent {
   data: SohoTreeNode;
 }
 
+interface SohoTreeDblClickEvent extends SohoTreeEvent {
+  id: string;
+  /** Original event */
+  originalEvent: MouseEvent;
+}
+
 /**
  * JQuery Integration
  */
@@ -272,4 +278,12 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
 
   on(events: 'sortstart', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
   on(events: 'sortend', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'menuselect', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'menuopen', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'contextmenu', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'unselected', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'expanded', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'collapsed', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'dblclick', handler: JQuery.EventHandlerBase<any, SohoTreeDblClickEvent>): this;
 }
