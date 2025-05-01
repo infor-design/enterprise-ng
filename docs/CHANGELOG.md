@@ -11,6 +11,7 @@
 ### 19.4.0 Fixes
 
 - `[ContextualActionPanel]` Added `noSaveButton` setting to `contextualactionpanel` to remove the save button. ([#8155](https://infor.atlassian.net/browse/IDS-4147))
+- `[TextArea]` Fixed the issue where the max length limit was ignored when pasting text into the textarea. ([#9405](https://infor.atlassian.net/browse/IDS-9405))
 
 ## 19.3.1
 
