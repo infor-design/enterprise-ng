@@ -13,6 +13,12 @@
 - `[ContextualActionPanel]` Added `noSaveButton` setting to `contextualactionpanel` to remove the save button. ([#8155](https://infor.atlassian.net/browse/IDS-4147))
 - `[TextArea]` Fixed the issue where the max length limit was ignored when pasting text into the textarea. ([#9405](https://infor.atlassian.net/browse/IDS-9405))
 
+## 19.3.2
+
+## 19.3.2 Fixes
+
+- `[General]` Added enterprise 4.106.2 version with data grid click event fixes.
+
 ## 19.3.1
 
 ## 19.3.1 Fixes
